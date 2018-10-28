@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Topics on Your site title</title>
-    <link>https://www.example.com/topics/</link>
+    <link>https://amitrajan012.github.io/topics/</link>
     <description>Recent content in Topics on Your site title</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Jul 2018 06:25:52 +0100</lastBuildDate>
     
-	<atom:link href="https://www.example.com/topics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/topics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Islr</title>
-      <link>https://www.example.com/topics/islr/</link>
+      <link>https://amitrajan012.github.io/topics/islr/</link>
       <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
       
-      <guid>https://www.example.com/topics/islr/</guid>
+      <guid>https://amitrajan012.github.io/topics/islr/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Recommendation Engine</title>
-      <link>https://www.example.com/topics/recommendation-engine/</link>
+      <link>https://amitrajan012.github.io/topics/recommendation-engine/</link>
       <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
       
-      <guid>https://www.example.com/topics/recommendation-engine/</guid>
+      <guid>https://amitrajan012.github.io/topics/recommendation-engine/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Think Stats</title>
-      <link>https://www.example.com/topics/think-stats/</link>
+      <link>https://amitrajan012.github.io/topics/think-stats/</link>
       <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
       
-      <guid>https://www.example.com/topics/think-stats/</guid>
+      <guid>https://amitrajan012.github.io/topics/think-stats/</guid>
       <description></description>
     </item>
     

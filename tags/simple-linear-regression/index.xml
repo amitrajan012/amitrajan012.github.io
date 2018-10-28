@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simple Linear Regression on Your site title</title>
-    <link>https://www.example.com/tags/simple-linear-regression/</link>
+    <link>https://amitrajan012.github.io/tags/simple-linear-regression/</link>
     <description>Recent content in Simple Linear Regression on Your site title</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Tue, 08 May 2018 02:18:09 +0100</lastBuildDate>
     
-	<atom:link href="https://www.example.com/tags/simple-linear-regression/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/tags/simple-linear-regression/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</title>
-      <link>https://www.example.com/post/linear-regression_part1/</link>
+      <link>https://amitrajan012.github.io/post/linear-regression_part1/</link>
       <pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate>
       
-      <guid>https://www.example.com/post/linear-regression_part1/</guid>
+      <guid>https://amitrajan012.github.io/post/linear-regression_part1/</guid>
       <description>Linear Regression Linear Regression is a useful tool for predicting a quantitative response.
 3.1 Simple Linear Regression Simple linear regression is a straightforward approach for predicting a quantitative response on the basis of a single predictor variable. Mathematically it can be written as:
 $$Y \approx \beta_0 + \beta_1 X$$

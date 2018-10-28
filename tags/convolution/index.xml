@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Convolution on Your site title</title>
-    <link>https://www.example.com/tags/convolution/</link>
+    <link>https://amitrajan012.github.io/tags/convolution/</link>
     <description>Recent content in Convolution on Your site title</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Sun, 26 Aug 2018 16:27:09 +0100</lastBuildDate>
     
-	<atom:link href="https://www.example.com/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Think Stats: Chapter 6</title>
-      <link>https://www.example.com/post/chapter-6---operations-on-distributions/</link>
+      <link>https://amitrajan012.github.io/post/chapter-6---operations-on-distributions/</link>
       <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
       
-      <guid>https://www.example.com/post/chapter-6---operations-on-distributions/</guid>
+      <guid>https://amitrajan012.github.io/post/chapter-6---operations-on-distributions/</guid>
       <description>6.1 Skewness Skewness is a statistic that measures the assymetry of a distribution. Sample skewness is defined as:
 $$Skewness = \frac{Mean\ Cubed\ Deviation}{Mean\ Squared\ Deviation^{\frac{3}{2}}}$$
 Negative skewness means that the distribution skews left and positive skewness means that the distribution is skewed to right. Outliers have a disproportionate effect on skewness.

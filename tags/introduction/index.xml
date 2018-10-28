@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on Your site title</title>
-    <link>https://www.example.com/tags/introduction/</link>
+    <link>https://amitrajan012.github.io/tags/introduction/</link>
     <description>Recent content in Introduction on Your site title</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Wed, 02 May 2018 11:14:32 +0100</lastBuildDate>
     
-	<atom:link href="https://www.example.com/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ISLR Chapter 1: Introduction</title>
-      <link>https://www.example.com/post/introduction/</link>
+      <link>https://amitrajan012.github.io/post/introduction/</link>
       <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
       
-      <guid>https://www.example.com/post/introduction/</guid>
+      <guid>https://amitrajan012.github.io/post/introduction/</guid>
       <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;quot;data/Wage.csv&amp;quot;) wage.loc[df[&#39;education&#39;] == &#39;1. &amp;lt; HS Grad&#39;, &#39;education&#39;] = 1 wage.loc[df[&#39;education&#39;] == &#39;2. HS Grad&#39;, &#39;education&#39;] = 2 wage.loc[df[&#39;education&#39;] == &#39;3. Some College&#39;, &#39;education&#39;] = 3 wage.loc[df[&#39;education&#39;] == &#39;4. College Grad&#39;, &#39;education&#39;] = 4 wage.loc[df[&#39;education&#39;] == &#39;5. Advanced Degree&#39;, &#39;education&#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;quot;age&amp;quot;, y=&amp;quot;wage&amp;quot;, color=&#39;#D7DBDD&#39;, data=wage, order=2, scatter_kws={&#39;alpha&#39;:0.</description>
     </item>
     

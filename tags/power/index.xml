@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Power on Your site title</title>
-    <link>https://www.example.com/tags/power/</link>
+    <link>https://amitrajan012.github.io/tags/power/</link>
     <description>Recent content in Power on Your site title</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Thu, 30 Aug 2018 06:17:39 +0100</lastBuildDate>
     
-	<atom:link href="https://www.example.com/tags/power/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Think Stats: Chapter 7</title>
-      <link>https://www.example.com/post/chapter-7---hypothesis-testing/</link>
+      <link>https://amitrajan012.github.io/post/chapter-7---hypothesis-testing/</link>
       <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
       
-      <guid>https://www.example.com/post/chapter-7---hypothesis-testing/</guid>
+      <guid>https://amitrajan012.github.io/post/chapter-7---hypothesis-testing/</guid>
       <description>The process of Hypothesis Testing can be summarized by following three steps:
  Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
