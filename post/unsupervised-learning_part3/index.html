@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Unsupervised Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</h1>
+  <h2>ISLR Unsupervised Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>09 Jul 2018, 17:09</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/unsupervised-learning">Unsupervised Learning</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/clustering-methods">Clustering Methods</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/k-means-clustering">K-Means Clustering</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="10-3-clustering-methods">10.3 Clustering Methods</h3>
+
+<p><b>Clustering</b> is a technique for finding <b>subgroups</b> or <b>clusters</b> in a data set based on similarity between individual observations. For clustering, we need to define the measure of similarity which depends on the knowledge of the data set. Two best known clustering methods are <b>K-means clustering</b> and <b>hierarchical clustering</b>. In K-means clustering, we partition the observations into a pre-defined number of clusters. In hierarchical clustering, the number of clusters is unknown and the results of clustering is represented as a <b>dendrogram</b>, which is a tree-like visualization technique that allows us to view the clustering results for various number of clusters (from 1 to $n$).</p>
+
+<h4 id="10-3-1-k-means-clustering">10.3.1 K-Means Clustering</h4>
+
+<p>To perform K-means clustering, we first specify the number of clusters $K$ and then the K-means algorithm is used to assign each observation to exactly one of the $K$ clusters. Let $C_1, C_2, &hellip;, C_K$ denote sets containing the indices of the observations in each cluster, then these sets satisfy two properties:</p>
+
+<ul>
+<li><p>$C_1 \bigcup C_2 \bigcup &hellip; \bigcup C_K = {1,2,3,&hellip;,n}$.</p></li>
+
+<li><p>$C_k \bigcap C _{k^{&lsquo;}} = \Phi$ for all $k \neq k^{&lsquo;}$.</p></li>
+</ul>
+
+<p>In a good clustering, the <b>within-cluster variation</b> is as small as possible. The within-cluster variation, denoted as $W(C_k)$, is a measure of the amount by which the observations within a cluster differ from each other. Hence, for clustering, we want to solve the problem</p>
+
+<p>$$minimize _{C_1, C_2, &hellip;, C_K} \bigg ( \sum _{k=1}^{K} W(C_k)\bigg )$$</p>
+
+<p>In order to solve the above problem, we need to define the within-clustre variation more concretely. The most common choice is <b>squared Euclidean distance</b>, which is defined as</p>
+
+<p>$$W(C_k) = \frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{,}j})^2$$</p>
+
+<p>where $|C_k|$ denotes the number of observations in the $k^{th}$ cluster. Hence, the K-means clustering problem can be defined as:</p>
+
+<p>$$minimize _{C_1, C_2, &hellip;, C_K} \bigg ( \sum _{k=1}^{K} \frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{,}j})^2 \bigg )$$</p>
+
+<p>The above mentioned problem is a very difficlut problem to solve as there are $K^n$ ways to divide $n$ observations into $K$ clusters. Instead, an algorithm that gives a local optimal soultion exists and is given as:</p>
+
+<ul>
+<li><p>Randomly assign a number from 1 to $K$ to all the individual observations. This serves as the initial cluster assignments for the observations</p></li>
+
+<li><p>Iterate the cluster assignments (by calculating the cluster <b>centroids</b> and reassigning the observations to the clusters to which it is the nearest) until the cluster assignments stop changing.</p></li>
+</ul>
+
+<p>As the K-means clustering algorithm finds a local-optimal solution, the result will depend on the initial random cluster assignments. Hence, it is important to run the algorithm multiple times with different initial random seeds and the select the <b>best solution</b> (for which the objective is minimum).</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/unsupervised-learning_part2/">ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/unsupervised-learning_part4/">ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part4/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

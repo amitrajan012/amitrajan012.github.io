@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Linear Model Selection and Regularization">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</h1>
+  <h2>ISLR Linear Model Selection and Regularization</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 May 2018, 01:06</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-model-selection">Linear Model Selection</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/regularization">Regularization</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/dimension-reduction">Dimension Reduction</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="6-3-dimension-reduction-methods">6.3 Dimension Reduction Methods</h3>
+
+<p>Instead of performing a least squares regression on all the $p$ predictors, we can <b>transform</b> the predictors and then fit a least squares model on the transformed variables. Let the transformed variables be $Z_1, Z_2, &hellip;, Z_M$, where $M &lt; p$, where each of $Z_m$s is a linear combination of predictors $X_1, X_2, &hellip;, X_p$.i.e.</p>
+
+<p>$$Z_m = \sum _{j=1}^{p} \phi _{jm}X_j$$</p>
+
+<p>We can then fit the least squares regression model as $Z_m$s as the predictors:</p>
+
+<p>$$Y = \theta_0 + \theta_1 Z_1 + &hellip; + \theta_M Z_M + \epsilon$$</p>
+
+<p>If the transformation constants are chosen wisely, then the dimensionality reduction approach can outperform plain least squares models. The term <b>dimensionality reduction</b> comes form the fact that instead of predicting $p+1$ coefficients, we only need to predict $M+1$ coefficients now. The least square coefficients can be derived from the transformation constants and the coefficients of the dimensionality reduction model as:</p>
+
+<p>$$\beta_j = \sum _{m=1}^{M} \theta_m \phi _{jm} $$</p>
+
+<p>Dimensionality reduction reduces the variance of the model. It works in two steps: first the transformed predictors $Z_1, Z_2, &hellip; , Z_M$ are obtained and then the model is fitted using these $M$ predictors. Dimesionality reduction can be achieved by: <b>principal componenets</b> and <b>partial least squares</b>.</p>
+
+<h4 id="6-3-1-principal-components-regression">6.3.1 Principal Components Regression</h4>
+
+<p><b>Principal Component Analysis (PCA)</b> can be used to derive a low-dimensional set of features from a large set of variables. The <b>first principal component</b> is the direction of the data along which the observations <b>vary the most</b>. For a two variable case, the linear combination of the variables can be written as $\phi _{11} X_1 + \phi _{21} X_2$, where $\phi _{11}^2 + \phi _{21}^2 = 1$. The idea of PCA is to find the linear combination for which the variance is maximum out of all the possible ones. It is necessary to put a constraing of $\phi _{11}^2 + \phi _{21}^2 = 1$, as otherwise, variance can simply be increased by increasing the $\phi$s. <b>First principal componenet</b> can also be described as the line which is as close as possible to the data.</p>
+
+<p>The <b>second principal component</b> can be described as the linear combinations of variables that is <b>uncorrelated to the first principal component $Z_1$</b> (this means that it should be <b>orthogonal</b> to the fisrt principal component) and have the largest variance.</p>
+
+<h5 id="the-principal-components-regression-approach">The Principal Components Regression Approach</h5>
+
+<p>The <b>principal components regression (PCR)</b> approach constructs the first $M$ principal components first and then fit a least squares linear regression model on them. The basic idea behind the PCR is the fact that the <b>directions in which the predictors $X_1, X_2, &hellip;, X_p$ shows the most variation are the directions that should be associated with the response $Y$</b>. Hence PCR can give better results over least square linear regression model by <b>mitigating overfitting</b>. As the number of principal components in a model is increased, the bias will decrease and the variance will increase. Performing PCR with appropriate number of principal components can improve the performance of the model compared to the least squares linear regression model.</p>
+
+<p>PCR is a method of performing regression using $&lt; p$ predictors but it is not a feature selection method as all the $p$ features are contained in $M$ principal components and hence <b>PCR is closely related to ridge regression</b>. One can even think of ridge regression as a continuous version of PCR.</p>
+
+<p>In PCR, the desired number of principal components can be chosen by cross-validation. Prior to performing PCR, we need to standardize the individual variables as if we do not do so, the variables with higher variance will tend to affect the principal components obtained and hence will have an effect on the PCR model.</p>
+
+<h4 id="6-3-2-partial-least-squares">6.3.2 Partial Least Squares</h4>
+
+<p>In PCR, the linear combinations or directions are identified in an <b>unsupervised way</b> (as the response $Y$ is not used to determine the principal components). Hence, it may be the case that the directions that best describe the predictors are the ones which best describe the response. In this case, the performance will PCR will suffer.</p>
+
+<p><b>Partial least squares (PLS)</b> is a <b>supervised</b> alternative to PCR. PLS identifies the new features (dimensionality reduction) in a supervised way (it makes the use of response $Y$ in the identification of the new features). In a nut shell, <b>PLS attempts to find directions that explain both the response and the predictors.</b></p>
+
+<p>In PLS, the <b>first principal component</b> is computed by setting the <b>transformation coefficients ($\phi _{j1}$)</b> as the <b>coefficient of the simple linear regression</b> of response $Y$ onto individual variables $X_j$. Hence, PLS gives the highest weights to the variables that are most strongly related to the response while doing the transformation.</p>
+
+<p>Second PLS direction is identified by removing from each of the variables $X$s, the part which is already explained by $Z_1$. This can be done by <b>regressing the each variable on $Z_1$ and then taking the residuals.</b> These residuals are then used to determine the second principal component. This iterative approach is performed $M$ times to identify the PLS components $Z_1, Z_2, &hellip;, Z_M$, which are then used to find the least squares fit of $Y$. $M$ is a tuning parameter, which can be found using cross-validation. We need to <b>standardize the predictors and response</b> before performing PLS. In practice it often performs no better than ridge regression or PCR.</p>
+
+<h3 id="6-4-considerations-in-high-dimensions">6.4 Considerations in High Dimensions</h3>
+
+<h4 id="6-4-1-high-dimensional-data">6.4.1 High-Dimensional Data</h4>
+
+<p>Data set which has considerably more features than observations are termed as <b>high-dimensional</b> data set. Classical approaches such as least squares linear regressions are not suitable for this setting.</p>
+
+<h4 id="6-4-2-what-goes-wrong-in-high-dimensions">6.4.2 What Goes Wrong in High Dimensions?</h4>
+
+<p>In a high-dimensional setting, no matter whether there is a true relationship between the features and the response, classical approaches will lead to the models which will be a perfect fit to the data (residuals are 0). This is problematic as these perfect fit will lead to <b>overfitting</b>. For example, when $p \approx n$ or $p &gt; n$, the least square line will is too <b>flexible</b> and hence overfits the data. Hence, we need to take extra care while analyzing high-dimensional data sets and always evaluate model performance on an independent test set. The various approaches to predict test MSE, such as $C_p$, BIC, AIC and adjusted $R^2$ does not perform well in high-dimensional settings and hence alternative approaches, best suited for high-dimensional settings are required.</p>
+
+<h4 id="6-4-3-regression-in-high-dimensions">6.4.3 Regression in High Dimensions</h4>
+
+<p>Various approaches that are described for fitting a <b>less flexible</b> least square models (subset selection, stepwise selection, ridge regression, lasso) perorm well in high-dimensional setting. While using these models in high-dimensional setting we should always follow these points:</p>
+
+<ul>
+<li><p><b>Regularization</b> or <b>shrinkage</b> plays a key-role in high dimensional setting</p></li>
+
+<li><p>Selection of appropriate <b>tuning parameter</b> is key for good prediction accuracy</p></li>
+
+<li><p>Test error will increase as the dimensionality of the problem increases, until and unless the added features are truely associated with the response (also called as <b>curse of dimensionality</b>).</p></li>
+</ul>
+
+<p>Hence, more extensive data collection can lead to overfitted model without much improvement in the prediction accuracy until and unless new features are associated with response.</p>
+
+<h4 id="6-4-4-interpreting-results-in-high-dimensions">6.4.4 Interpreting Results in High Dimensions</h4>
+
+<p>In high-dimensional setting, the problem of <b>multi-collinearity</b> (variables in the regression might be correlated to each other) is a huge problem and hence we can not truly identify the variables which are predictive of the outcome. This may lead to <b>overstating</b> the results as the predictors included in the model will not be the only one which can predict the response efficiently. There may be a case that if we design a model based on a fresh training data, we may lead to get a different set of significant predictors but the model accuracy will remain unchanged.</p>
+
+<p>Apart from this, it would be misleading to report traditional measures for the goodness of fit (p-value, $R^2$ statistic) on the <b>training data</b> as the statistic for model performance as it is easy to obtain 0 residuals. Instead, we can report the results obtained on an independent test set or may perform cross-validation.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/linear-model-selection-and-regularization_part2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/linear-model-selection-and-regularization_part2/">ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/linear-model-selection-and-regularization_part4/">ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/linear-model-selection-and-regularization_part4/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

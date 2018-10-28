@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Moving Beyond Linearity">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</h1>
+  <h2>ISLR Moving Beyond Linearity</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>30 May 2018, 06:02</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/moving-beyond-linearity">Moving Beyond Linearity</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/smoothing-splines">Smoothing Splines</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="7-5-smoothing-splines">7.5 Smoothing Splines</h3>
+
+<h4 id="7-5-1-an-overview-of-smoothing-splines">7.5.1 An Overview of Smoothing Splines</h4>
+
+<p>Regression splines are created by specifying a set of knots, producing a sequence of basis functions and then estimate spline coefficients using least squares.</p>
+
+<p>To fit a smooth curve to a data set, we need to find a function $g(x)$ such that $RSS = \sum_{i=1}^{n}(y_i - g(x_i))^2$ is minimum. If we do not put any constraint on $g(x)$, we can always find a function $g(x)$, which will make RSS 0. This function will be too flexible and will overfit the data. Hence, we need to find a function $g$ which makes RSS small and which is <b>smooth</b> as well.</p>
+
+<p>One way to find such a smooth function is to minimize:</p>
+
+<p>$$\sum_{i=1}^{n}(y_i - g(x_i))^2 + \lambda \int g^{&ldquo;}(t)^2 dt$$</p>
+
+<p>where $\lambda$ is a nonnegative <b>tuning parameter</b>. The function that minimizes this is called as <b>smoothing spline</b>. The first part is a <b>loss function</b> and the second term is a <b>penalty</b> part that penalizes the variability of $g$. The second derivative of a function measures its smootheness as it corresponds to the amount by which the slope of a curve is changing. Hence, the second term encourages $g$ to be smooth. Larger the value of $\lambda$, smoother the $g$ as well. When $\lambda = 0$, the given model will be very flexible and will interpolate the training data. For $\lambda \to \infty$, the model corresponds to simple <b>least squares linear regression</b>. In a nut-shell, $\lambda$ <b>controls the bias-variance trade-off of the smoothing spline</b>.</p>
+
+<p>The function $g$ that minimizes above quantity is the <b>natural cubic spline</b>. It is a piecewise cubic polynomial with knots having continuous first and second derivative at them. It should also be linear in the region outside the extreme knots. The obtained natural cubic spline is the <b>shrunken</b> version (due to tuning parameter $\lambda$) of the one which is obtaind by basis function approach.</p>
+
+<h4 id="7-5-2-choosing-the-smoothing-parameter-λ">7.5.2 Choosing the Smoothing Parameter λ</h4>
+
+<p>The tuning parameter $\lambda$ controls the flexibility of the smoothing spline, and hence the <b>effective degree of freedom</b>. As $\lambda$ increases from 0 to $\infty$, the effective degree of freedom ($df_{\lambda}$) decreases from $n$ to 2.</p>
+
+<p>Generally, degree of freedom refers to the number of free parameters(coefficients) in a model. A smoothing spline has $n$ parameters and hence $n$ nominal degree of freedom, but these $n$ parameters are heavily constrained. This phenomenon is measured by the effective degree of freedom.</p>
+
+<p>In fitting a smoothing spline, we do not need to select the number of knots as there will be a knot at each training observation. Our main concern is the choice of $\lambda$. One possible approach is to choose $\lambda$ by croos-validation. LOOCV can be computed very efficiently for smoothing splines. The way RSS is calculated is slightly different though and is given as:</p>
+
+<p>$$RSS_{cv}(\lambda) = \sum _{i=1}^{n} (y_i - \widehat{g _{\lambda}}^{(-i)}(x_i))^2 =
+\sum _{i=1}^{n} \bigg[ \frac{y_i - \widehat{g _{\lambda}}(x_i)}{1- (S _{\lambda}) _{ii}} \bigg] ^2$$</p>
+
+<p>Here $\widehat{g _{\lambda}}^{(-i)}(x_i)$ indicates the fitted value of smoothing spline evaluated at $x_i$, where the model uses all the training observation except $x_i$ (according to the definition of LOOCV). $\widehat{g _{\lambda}}(x_i)$ indicates the fit at $x_i$ using all the training observations. The matrix $S _{\lambda}$ can be computed as:</p>
+
+<p>$$\widehat{g _{\lambda}} = S _{\lambda}y$$</p>
+
+<p>where, $\widehat{g _{\lambda}}$ is the fitted values for a particular value of $\lambda$ and $y$ is the response vector. Hence, the <b>RSS of LOOCV can be computed by just using $\widehat{g _{\lambda}}$, which is the original fit using the entire data set</b>, and hence efficiently. The effective degree of freedom for the smoothing spline is given as:</p>
+
+<p>$$df _{\lambda} = \sum _{i=1}^{n} (S _{\lambda}) _{ii}$$</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part2/">ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part4/">ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part4/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Classification">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</h1>
+  <h2>ISLR Classification</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>13 May 2018, 02:17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/classification">Classification</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/logistic-regression">Logistic Regression</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h1><center>Classification</center></h1>
+
+<p>A process for predicting <b>qualitative</b> or <b>categorical</b> variables is called as <b>Classification</b>.</p>
+
+<h3 id="4-1-an-overview-of-classification">4.1 An Overview of Classification</h3>
+
+<p>The dataset used in this chapter will be <b>Default</b> dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:</p>
+
+<pre><code class="language-python">import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+default = pd.read_excel(&quot;data/Default.xlsx&quot;)
+
+markers = {&quot;Yes&quot;: &quot;x&quot;, &quot;No&quot;: &quot;+&quot;}
+palette = {&quot;Yes&quot;: &quot;red&quot;, &quot;No&quot;: &quot;green&quot;}
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+sns.scatterplot(x=&quot;balance&quot;, y=&quot;income&quot;, hue=&quot;default&quot;, style=&quot;default&quot;, markers=markers, palette=palette,
+                alpha=0.6, data=default)
+ax.set_xlabel('Balance')
+ax.set_ylabel('Income')
+ax.set_title('Scatter Plot')
+
+fig = plt.figure(figsize=(15,8))
+
+ax = fig.add_subplot(121)
+sns.boxplot(x=&quot;default&quot;, y=&quot;balance&quot;, data=default)
+ax.set_xlabel('Default')
+ax.set_ylabel('Balance')
+ax.set_title('Box Plot')
+
+ax = fig.add_subplot(122)
+sns.boxplot(x=&quot;default&quot;, y=&quot;income&quot;, data=default)
+ax.set_xlabel('Default')
+ax.set_ylabel('Income')
+ax.set_title('Box Plot')
+
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_5_0.png" alt="">
+
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_5_1.png" alt="">
+
+
+<h3 id="4-2-why-not-linear-regression">4.2 Why Not Linear Regression?</h3>
+
+<p>In general, there is no natural way to convert a qualitative response variable with more than two levels into a quantitative response that is ready for linear regression. For the binary qualitative response, we can simply encode the variables as 0 and 1 and predict the values taking 0.5 as threshold.</p>
+
+<h3 id="4-3-logistic-regression">4.3 Logistic Regression</h3>
+
+<p>Rather than modeling the response directly, <b>logistic regression</b> models the probability that response $Y$ belongs to a particular category. For the Default data, logistic regression models the probability of default. The probability of default given balance can be written as $Pr \ (default=Yes \ | \ balance)$, and can be abbreviated as $p(balance)$. We can choose a threshold and then predict <b>default</b> as Yes if $p(balance) &gt; 0.5$. If we want to be more conservative, we can lower the threshold.</p>
+
+<h4 id="4-3-1-the-logistic-model">4.3.1 The Logistic Model</h4>
+
+<p>The problem with using linear regression to predict a qualitative variable is that any time a straight line is fit to a binary response that is coded as 0 and 1, in principle we can always predict $p(X) &lt; 0$ and $p(X) &gt; 1$ for some values of X. To avoid this problem, we can use a function instead that gives output between 0 and 1 for all values of X. In logistic regression we use <b>logistic function</b>, which is given as:</p>
+
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$</p>
+
+<p>and to fit the model, we can use <b>maximum likelihood</b>. The logistic function produces a <b>S-shaped</b> curve. Manipulating the above equation, we get:</p>
+
+<p>$$\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}$$</p>
+
+<p>The quantity on the left hand side is called as <b>odds</b> and can take any value between 0 and $\infty$. A lower and higher value of odds suggest a very low and high probabilities of default respectively. By taking the logarithm of both sides, we get:</p>
+
+<p>$$log \bigg( \frac{p(X)}{1 - p(X)} \bigg) = \beta_0 + \beta_1X$$</p>
+
+<p>The left hand side of above equation is called <b>log-odds</b> or <b>logit</b>. For a logistic regression model, <b>logit is linear in X.</b> The interpretation is as follows: For a one unit increase in X, the logit increases by $\beta_1$, or <b>odds is multiplied by $e^{\beta_1}$</b>.</p>
+
+<p>The amount that $p(X)$ changes due to one unit change in X, depends on current value of X. If $\beta_1$ is positive, increasing X is associated with increasing $p(X)$. If $\beta_1$ is negative, increasing X is associated with decreasing $p(X)$.</p>
+
+<h4 id="4-3-2-estimating-the-regression-coefficients">4.3.2 Estimating the Regression Coefficients</h4>
+
+<p>Non-linear least squares can be used to fit the logistic regression model but a more general method of <b>maximum-likelihood</b> is preferred as it has better statistical properties. In maximum-likelihood, we seek estimates of $\beta_0$ and $\beta_1$ such that the predicted probabilities corresponds as closely as possible to the observed individual probabilities. In the case of the prediction of default status, by plugging in the values of $\beta$s in the model, we should get value of $p(X)$ for default as Yes close to 1 and for No, close to 0. This intution can be formalized using a mathematical equation called as <b>likelihood function</b>:</p>
+
+<p>$$l(\beta_0, \beta_1) = \prod _{i:y_i = 1} p(x_i) \prod _{i^{&lsquo;}:y _{i^{&lsquo;}} = 0} (1 - p(x _{i^{&lsquo;}}))$$</p>
+
+<p>The estimates are chosen to <b>maximize</b> this function. Maximum likelihood is a very general approach that can be used to fit many of the non-linear models.</p>
+
+<p>In the logistic regression output, we can verify the statistical signifance of the model the same way as for the linear regression output. Instead of t-statistic, we use <b>z-statistic</b> which is defined the same ($\widehat{\beta_1} \ / \  SE(\widehat{\beta_1})$). The null hypothesis implies that $\beta_1 = 0$, i.e. $p(X) = \frac{e^{\beta_0}}{1 + e^{\beta_0}}$, which means the probability of default does not depend on balance. The main purpose of the intercept is to adjust the average fitted probability to the proportion of ones in the data.</p>
+
+<h4 id="4-3-3-making-predictions">4.3.3 Making Predictions</h4>
+
+<p>The prediction step is similar to the linear regression as well. Qualitative variables can be used in the similar manner as the linear regression.</p>
+
+<h4 id="4-3-4-multiple-logistic-regression">4.3.4 Multiple Logistic Regression</h4>
+
+<p>Multiple logistic regression can be modeled as:</p>
+
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}$$</p>
+
+<p>$$log \bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p$$</p>
+
+<p><b>Confounding</b> is a phenomenon which explains the errors associated with logistic regression when results obtained using one predictor is quite different than the one using multiple predictors, especially when there is a correlation among the predictors.</p>
+
+<h4 id="4-3-5-logistic-regression-for-2-response-classes">4.3.5 Logistic Regression for &gt;2 Response Classes</h4>
+
+<p>Multi-class logistic regression is not used much. Instead, <b>discriminant analysis</b> is popular for multi-class classification.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/linear-regression_part5/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/linear-regression_part5/">ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/classification_part2/">ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/classification_part2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Think Stats: Chapter 4">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Think Stats: Chapter 4 &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Think Stats: Chapter 4</h1>
+  <h2>Think Stats: Chapter 4</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>17 Aug 2018, 19:02</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/think-stats">Think Stats</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/think-stats">Think Stats</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/normal-distribution">Normal Distribution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exponential-distribution">Exponential Distribution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/lognormal-distribution">LogNormal Distribution</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="4-1-the-exponential-distribution">4.1 The exponential distribution</h3>
+
+<p>CDF of the exponential distribution is defined as (where lambda determines the shape of the distribution):
+$$CDF(x) = 1-e^{-\lambda x}$$
+Mean and Median of exponential distribution is computed as follows:
+$$Mean = \frac{1}{\lambda}$$
+$$Median = \frac{ln(2)}{\lambda}$$
+In the real world, exponential distribution is encountered when we look at the series of events and measure the time between them which is called as <b>interval times</b>. The exponential distribution for different values of lambda is shown below. It can be seen that lambda decides the shape of the distribution.</p>
+
+<pre><code class="language-python">from scipy.stats import expon
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 2.5, 5000)
+mu = 0 # Mean
+
+fig = plt.figure(figsize=(8, 6))
+ax = fig.add_subplot(111)
+for i in range(1, 5):
+    y = expon.cdf(x, loc=0, scale=1/i) # scale is 1/lambda
+    ax.plot(x, y, label='lambda: ' + str(i))
+ax.set_xlabel('x')
+ax.set_ylabel('CDF')
+ax.set_title('Exponential CDF')
+ax.set_ylim([0, 1])
+ax.set_xlim([0, 2.5])
+plt.legend()
+plt.show()
+</code></pre>
+
+<pre><code>&lt;Figure size 800x600 with 1 Axes&gt;
+</code></pre>
+
+<p>Below figure shows the CDF of the interarrival times for the babies born on a particular day in an Australian hospital in minutes. It seems to have the general shape of an exponential distribution. To check that whether a distribution is exponential or not, we can plot the log values and it should be approximately straight line.</p>
+
+<pre><code class="language-python">import pandas as pd
+import seaborn as sns
+
+babyboom = pd.read_fwf(&quot;babyboom.dat&quot;,
+                         names=[&quot;time&quot;, &quot;babysex&quot;, &quot;birthwgt_gm&quot;, &quot;minutes_after_midnight&quot;],
+                         colspecs=[(1, 8), (9, 16), (17, 24), (25, 32)])
+s = babyboom.diff()['minutes_after_midnight'].dropna()
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+sns.distplot(s, label='', bins=1000, kde=False, norm_hist=True, hist_kws={&quot;alpha&quot;: 0.3, 'cumulative': True})
+ax.set_xlabel('minutes')
+ax.set_ylabel('CDF')
+ax.set_title('Time between births')
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_5_0.png" alt="">
+
+
+<h3 id="4-3-the-normal-distribution">4.3 The normal distribution</h3>
+
+<p>The normal distribution, also called as Gaussian, is the most commonly used distribution as it describes natural phenomenons. The CDF of Normal distribution defined as:
+$$CDF(x) = \frac{1}{2}[1 + erf(\frac{x-\mu}{\sigma\sqrt{2}})]$$
+$$erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^{2}}dx$$
+Here, the parameters mu and sigma are the mean and standard deviation of the distribution. The plot of CDF and PDF for mean 2.0 and standard deviation(sigma) 0.5 is shown below.</p>
+
+<pre><code class="language-python">from scipy.stats import norm
+import matplotlib.pyplot as plt
+
+mu = 2.0
+sigma = 0.5
+
+x = np.linspace(mu - 3*sigma, mu + 3*sigma, 100)
+
+fig = plt.figure(figsize=(15, 6))
+
+ax = fig.add_subplot(121)
+plt.plot(x, norm.cdf(x, mu, sigma))
+ax.set_xlabel('x')
+ax.set_ylabel('CDF')
+ax.set_title('Normal CDF')
+
+ax = fig.add_subplot(122)
+plt.plot(x, norm.pdf(x, mu, sigma))
+ax.set_xlabel('x')
+ax.set_ylabel('PDF')
+ax.set_title('Normal PDF')
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_8_0.png" alt="">
+
+
+<p>The plot of birth weights with the corresponding normal distribution is shown in the figure below. It can easily be noted that there are more light babies then we would expect in a normal distribution.</p>
+
+<pre><code class="language-python">pregnancies = pd.read_fwf(&quot;2002FemPreg.dat&quot;,
+                         names=[&quot;caseid&quot;, &quot;nbrnaliv&quot;, &quot;babysex&quot;, &quot;birthwgt_lb&quot;,
+                               &quot;birthwgt_oz&quot;, &quot;prglength&quot;, &quot;outcome&quot;, &quot;birthord&quot;,
+                               &quot;agepreg&quot;, &quot;finalwgt&quot;],
+                         colspecs=[(0, 12), (21, 22), (55, 56), (57, 58), (58, 60),
+                                (274, 276), (276, 277), (278, 279), (283, 285), (422, 439)])
+weights = pregnancies[pregnancies['outcome'] == 1][['birthwgt_lb', 'birthwgt_oz']].dropna()
+weights = weights['birthwgt_lb']*16 + weights['birthwgt_oz']
+bins =  int(weights.max() - weights.min())
+
+mu = weights.mean()
+sigma = weights.std()
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+sns.distplot(weights, label='Original Data', bins=bins, kde=False, norm_hist=True,
+             hist_kws={&quot;alpha&quot;: 0.1, 'cumulative': True})
+plt.plot(weights.sort_values(), norm.cdf(weights.sort_values(), mu, sigma), label='Normal Distribution')
+ax.set_xlabel('Weight')
+ax.set_ylabel('Probability')
+ax.set_title('CDF of Weight comapred to Normal Distribution')
+ax.legend()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_10_0.png" alt="">
+
+
+<p><b>Exercise 4.7:</b> The Wechsler Adult Intelligence Scale is a test that is intended to measure intelligence3. Results are transformed so that the distribution of scores in the general population is normal with m = 100 and s = 15.</p>
+
+<p>What fraction of the population has an IQ greater than the mean? What fraction is over 115? 130? 145?</p>
+
+<pre><code class="language-python">import scipy.stats as stats
+mu = 100
+sigma = 15
+
+rvs = norm.rvs(loc=mu, scale=sigma, size=1000, random_state=None)
+print(&quot;Percent of population IQ greater than mean: &quot; + str(100 - stats.percentileofscore(rvs, 100, kind='rank')) + &quot;%&quot;)
+print(&quot;Percent of population IQ greater than 115: &quot; + str(100 - stats.percentileofscore(rvs, 115, kind='rank')) + &quot;%&quot;)
+print(&quot;Percent of population IQ greater than 130: &quot; + str(100 - stats.percentileofscore(rvs, 130, kind='rank')) + &quot;%&quot;)
+print(&quot;Percent of population IQ greater than 145: &quot; + str(100 - stats.percentileofscore(rvs, 145, kind='rank')) + &quot;%&quot;)
+
+print(&quot;Number of population in 6 billion with IQ greater than 190: &quot; + str(6000000000 * norm.ppf(190, loc=100, scale=15)))
+# print(norm.ppf(q=105.0, loc=10.0, scale=15.0)) Returning NaN
+</code></pre>
+
+<pre><code>Percent of population IQ greater than mean: 48.8%
+Percent of population IQ greater than 115: 17.599999999999994%
+Percent of population IQ greater than 130: 2.5%
+Percent of population IQ greater than 145: 0.20000000000000284%
+Number of population in 6 billion with IQ greater than 190: nan
+</code></pre>
+
+<p><b>Exercise 4.8: </b>Plot the CDF of pregnancy lengths for all live births. Does it look like a normal distribution?</p>
+
+<p>Normal distribution is not a good approximation.</p>
+
+<pre><code class="language-python">lengths = pregnancies[pregnancies['outcome'] == 1]['prglength'].dropna()
+mu = lengths.mean()
+sigma = lengths.std()
+bins =  int(lengths.max() - lengths.min())
+
+fig = plt.figure(figsize=(15, 6))
+ax = fig.add_subplot(121)
+sns.distplot(lengths, label='Pregnancy Length', kde=False, norm_hist=True,
+             hist_kws={&quot;alpha&quot;: 0.5, 'cumulative': True})
+plt.plot(lengths.sort_values(), norm.cdf(lengths.sort_values(), mu, sigma), label='Normal Distribution')
+ax.set_xlabel('Pregnancy Length')
+ax.set_ylabel('Probability')
+ax.set_title('CDF of Pregnancy Lengths (live births) comapred to Normal Distribution')
+ax.legend()
+
+ax = fig.add_subplot(122)
+sns.distplot(lengths, label='Pregnancy Length', kde=False, norm_hist=True,
+             hist_kws={&quot;alpha&quot;: 0.5, 'cumulative': False})
+plt.plot(lengths.sort_values(), norm.pdf(lengths.sort_values(), mu, sigma), label='Normal Distribution')
+ax.set_xlabel('Pregnancy Length')
+ax.set_ylabel('Frequency')
+ax.set_title('PDF of Pregnancy Lengths (live births) comapred to Normal Distribution')
+ax.legend()
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_14_1.png" alt="">
+
+
+<h3 id="4-4-normal-probability-plot">4.4 Normal probability plot</h3>
+
+<p><b>Q–Q (quantile-quantile)</b> plot is a probability plot, which is a graphical method for comparing two probability distributions by plotting their quantiles against each other. The <b>normal probability plot</b> is a special case of the Q–Q probability plot for a normal distribution. Normal probability plot for birth weights is shown below. The curvature in this plot suggests that there are deviations from a normal distribution.</p>
+
+<p><b>Exercise 4.10</b> Write a function called NormalPlot that takes a sequence of values and generates a normal probability plot.</p>
+
+<pre><code class="language-python">weights = pregnancies[pregnancies['outcome'] == 1][['birthwgt_lb', 'birthwgt_oz']].dropna()
+weights = weights['birthwgt_lb']*16 + weights['birthwgt_oz']
+
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111)
+stats.probplot(weights, plot=ax)
+ax.set_xlabel('Standard Normal Values')
+ax.set_ylabel('Birth Weight(oz)')
+ax.set_title('Normal probability plot of birth weights')
+</code></pre>
+
+<pre><code>Text(0.5,1,'Normal probability plot of birth weights')
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_17_1.png" alt="">
+
+
+<p><b>Exercise 4.9:</b> Write a function called Sample that generates 6 samples from a normal distribution with m = 0 and s = 1. Sort and return the values.</p>
+
+<p>Write a function called Samples that calls Sample 10000 times and returns a list of 10000 lists. Compute the mean of each of these lists and print the results. I predict
+that you will get something like this: {1.2672, 0.6418, 0.2016, 0.2016, 0.6418, 1.2672}</p>
+
+<pre><code class="language-python">def sample():
+    mu = 0
+    sigma = 1
+
+    rvs = norm.rvs(loc=mu, scale=sigma, size=6)
+    return np.sort(rvs)
+
+def samples():
+    l = []
+    for i in range(1, 10001):
+        l.append(sample())
+    return l
+
+l = samples()
+df = pd.DataFrame(l)
+print(np.array(df.mean()))
+</code></pre>
+
+<pre><code>[-1.26157157 -0.64021108 -0.19949053  0.19762303  0.63671281  1.26398965]
+</code></pre>
+
+<h3 id="4-5-the-lognormal-distribution">4.5 The lognormal distribution</h3>
+
+<p>If the logarithms of a set of values have a normal distribution, the values have a <b>lognormal distribution</b>. The CDF of the lognormal distribution is the same as the CDF of the normal distribution, with log x substituted for x.</p>
+
+<p>$$CDF _{lognormal}(x) = CDF _{normal}(\ln {x})$$</p>
+
+<p><b>Exercise 4.11</b> Download the BRFSS data from <a href="http://thinkstats.com/CDBRFS08.ASC.gz">http://thinkstats.com/CDBRFS08.ASC.gz</a>. Write a program that reads adult weights from the BRFSS and generates normal probability plots for w and log w.</p>
+
+<pre><code class="language-python">brfs_data = pd.read_fwf(&quot;CDBRFS08.ASC&quot;,
+                       names=[&quot;age&quot;, &quot;weight2&quot;, &quot;wtyrago&quot;, &quot;sex&quot;, &quot;htm3&quot;, &quot;wtkg2&quot;],
+                       colspecs=[(100, 102), (119, 122), (127, 130), (142, 143), (1251, 1253),
+                                 (1254, 1258)])
+brfs_data.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>weight2</th>
+      <th>wtyrago</th>
+      <th>sex</th>
+      <th>htm3</th>
+      <th>wtkg2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>39</td>
+      <td>195.0</td>
+      <td>195.0</td>
+      <td>1</td>
+      <td>80</td>
+      <td>8864</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>64</td>
+      <td>165.0</td>
+      <td>186.0</td>
+      <td>2</td>
+      <td>55</td>
+      <td>7500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>87</td>
+      <td>136.0</td>
+      <td>140.0</td>
+      <td>2</td>
+      <td>99</td>
+      <td>6182</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>51</td>
+      <td>220.0</td>
+      <td>220.0</td>
+      <td>1</td>
+      <td>83</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35</td>
+      <td>140.0</td>
+      <td>135.0</td>
+      <td>2</td>
+      <td>70</td>
+      <td>6364</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">fig = plt.figure(figsize=(15, 6))
+
+# distribution of weights
+w = np.sort(np.array(brfs_data[&quot;weight2&quot;].dropna()))
+mean = np.mean(w)
+std = np.std(w)
+pdf_weights = norm.pdf(w, mean, std)
+ax = fig.add_subplot(121)
+plt.plot(w, pdf_weights)
+ax.set_xlabel('Weight')
+ax.set_ylabel('probability')
+ax.set_title('Adult Weights (Normal)')
+
+# distribution of log weights
+w = np.log(w)
+mean = np.mean(w)
+std = np.std(w)
+pdf_weights = norm.pdf(w, mean, std)
+ax = fig.add_subplot(122)
+plt.plot(w, pdf_weights)
+ax.set_xlabel('Weight (log scale)')
+ax.set_ylabel('probability')
+ax.set_title('Adult Weights (log Normal)')
+
+plt.show()
+
+
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%204%20-%20Continuous%20distributions_files/Chapter%204%20-%20Continuous%20distributions_23_0.png" alt="">
+
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/chapter-3---cumulative-distribution-functions/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/chapter-3---cumulative-distribution-functions/">Think Stats: Chapter 3</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/chapter-5---probability/">Think Stats: Chapter 5</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/chapter-5---probability/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

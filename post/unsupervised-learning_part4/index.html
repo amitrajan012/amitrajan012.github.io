@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Unsupervised Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</h1>
+  <h2>ISLR Unsupervised Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>12 Jul 2018, 13:01</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/unsupervised-learning">Unsupervised Learning</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/clustering-methods">Clustering Methods</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/hierarchical-clustering">Hierarchical Clustering</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h4 id="10-3-2-hierarchical-clustering">10.3.2 Hierarchical Clustering</h4>
+
+<p>K-means clustering has a disadvantage that there is a need to pre-specify the number of clusters $K$. Hierarchical clutsring is an alternative approach which is free from this problem which results in an altarnative tree-based representation of the observations, called as <b>dendrogram</b>.</p>
+
+<p>The most common technique used for hierarchical clustering is <b>bottom-up</b> or <b>agglomerative</b> clustering. It is based on the fact that the dendrogram (generally depicted as an upside-down tree) is built starting from leaves and combining the clusters up to the trunk.</p>
+
+<h5 id="interpreting-a-dendrogram">Interpreting a Dendrogram</h5>
+
+<p>Each leaf of a dendrogram represents an observation. As we move up the tree, some leaves begin to <b>fuse</b> into branches. This correspoonds to observations that are similar to each other. As we further move up, more fusion occurs (either of branches or of a branch and a leaf). <b>Earlier (lower) the fusion occurs, more similar the group of observations to each other</b>. Obervations or groups that fuse later (near the top of the tree) can be quite different from each other. Or, <b>height of the fusion on vertical axis</b> represents how different the two observations are.</p>
+
+<p>One common misunderstanding while interpreting the dendrogram is deriving conclusions based on the distance along <b>horizontal axis</b>. It should be noted that distace between two observations on horizontal axis purely depends on the initial reprentation of observations. This does not measure any similarity between the observations. The similarity between the observations is only measured by the <b>location of the fusion on the vertical axis</b>.</p>
+
+<p>To obtain the clustres on the basis of a dendrogram, we make a <b>horizontal cut</b> across the dendrogram. The lower the cut is made, the more number of clusters obtained. Hence, the height of the cut to the dendrogram serves the same role as the $K$ in $K$-means clustering. It controls the number of clustres obtained.</p>
+
+<h5 id="the-hierarchical-clustering-algorithm">The Hierarchical Clustering Algorithm</h5>
+
+<p>To obtain hierarchical clustering, first of all, we define some sort of <b>dissimilarity measure</b>. The most common choice is the Euclidean distance. Each of the individual $n$ observations is then treated as its own cluster. The two clusters that are the most similar (based on the dissimilarity measure) to each other are then <b>fused</b> to obtain $n-1$ clusters. The process is repeated until all the observations belong to one single cluster, and the dendrogram is complete.</p>
+
+<p>To fuse individual clusters, the notion of dissimilarity between pair of observations needs to be extended to a pair of <b>groups of observations</b>. This extension is achieved by developing the notion of <b>linkage</b> which defines the dissimilarity between two groups of observations. The most common types of linkage are: <b>complete, average, single</b> and <b>centroid</b>. For the computation of complete, single and average linkage, we find the <b>interclustre dissimilarity</b>, the pairwise dissimilarities between the observations in cluster $A$ and $B$, and record the <b>largest, mean</b> and <b>smallest</b> value as the measure respectively. In the centroid linkage, the dissimilarity between the centroid of clutser $A$ and $B$ serves the purpose.</p>
+
+<p>Average, complete and single linkage are most popular among statiscians. Average and complete linkage generally give a more balanced dendrogram and hence is preffered over single linkage. Centroid linkage suffers from the problem of <b>inversion</b>, whereby two clusters are fused at a height <b>below</b> either of the individual clutsers in the dendrogram.</p>
+
+<h5 id="choice-of-dissimilarity-measure">Choice of Dissimilarity Measure</h5>
+
+<p><b>Correlation-based distance</b> can serve as a dissimilarity measure as well. In this case, two observations are considered to be similar if their features are highly correlated even if the observed values are far enough in terms of Euclidean distance. Hence, correlation-based distance focuses on the shapes of observation profiles rather than their magnitudes. The choice of dissimilarity measure and the scaling of features play important roles in determining the results of clustering and hence they should be chosen carefully.</p>
+
+<h4 id="10-3-3-practical-issues-in-clustering">10.3.3 Practical Issues in Clustering</h4>
+
+<h5 id="small-decisions-with-big-consequences">Small Decisions with Big Consequences</h5>
+
+<p>Certain decisions must be made in order to perform clustering. Some of them are:</p>
+
+<ul>
+<li><p>Should the observations be standardized prior to clustering?</p></li>
+
+<li><p>For hierarchical clustering, dissimilarity measure, type of linkage and the cut made in the dendrogram is important.</p></li>
+
+<li><p>For the K-means clustering, the number of clusters is important.</p></li>
+</ul>
+
+<h5 id="validating-the-clusters-obtained">Validating the Clusters Obtained</h5>
+
+<p>There does not exist a consesus on a single best standardized process to validate the results of clustering.</p>
+
+<h5 id="other-considerations-in-clustering">Other Considerations in Clustering</h5>
+
+<p>In the clustering process, there may arise a case when some outliers, which should not belong to any cluster, have a significant effect on the results of clustering. Clustering methods are not robust to the perturbations to the data. A new model fit on a subset of data set may provide a quite different result. The results of clustering should not be taken as the absoulte truth about the data set and should constitute a starting point for further study.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/unsupervised-learning_part3/">ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/unsupervised-learning_part5/">ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

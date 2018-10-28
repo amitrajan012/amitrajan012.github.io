@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Linear Regression">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</h1>
+  <h2>ISLR Linear Regression</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 May 2018, 06:12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-regression">Linear Regression</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/multiple-linear-regression">Multiple Linear Regression</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="3-2-multiple-linear-regression">3.2 Multiple Linear Regression</h3>
+
+<p>In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:</p>
+
+<p>$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &hellip; + \beta_p X_p + \epsilon$$</p>
+
+<p>where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, <b>holding all other predictors fixed.</b></p>
+
+<h4 id="3-2-1-estimating-the-regression-coefficients">3.2.1 Estimating the Regression Coefficients</h4>
+
+<p>Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&hellip;, \widehat{\beta_p}$, predictions can be done as:</p>
+
+<p>$$\widehat{y} = \widehat{\beta_0} + \widehat{\beta_1}x_1 + \widehat{\beta_2}x_2 + &hellip; + \widehat{\beta_p}x_p$$</p>
+
+<p>$\beta$s can be estimated by minimizing the sum of squared residuals:</p>
+
+<p>$$RSS = \sum _{i=1}^{n}(y_i - \widehat{y_i})^2 = \sum _{i=1}^{n}(y_i - \widehat{\beta_0} + \widehat{\beta_1}x _{i1} + \widehat{\beta_2}x _{i2} + &hellip; + \widehat{\beta_p}x _{ip})^2$$</p>
+
+<p>The model coefficients for multiple linear regression for advertisement data is calculated below. It is observed that the coefficient for newspaper is almost equal to 0. As we analyze the correlation table for the data, the correlation coefficient between radio and newspaper is 0.35 and hence the rise in sales due to newspaper may arise due to the radio advertising, though if we fit a model for sales and newspaper the coefficient will not be 0.</p>
+
+<pre><code class="language-python">from sklearn import linear_model
+
+reg = linear_model.LinearRegression(fit_intercept=True)
+reg.fit (adv[['TV', 'Radio', 'Newspaper']], adv['Sales'])
+print(&quot;Model Coefficients: &quot; + str(reg.coef_))
+print(&quot;Intercept: &quot; + str(reg.intercept_))
+print(&quot;R-statistics: &quot; + str(reg.score(adv[['TV', 'Radio', 'Newspaper']], adv['Sales'])))
+</code></pre>
+
+<pre><code>Model Coefficients: [ 0.04576465  0.18853002 -0.00103749]
+Intercept: 2.9388893694594085
+R-statistics: 0.8972106381789521
+</code></pre>
+
+<pre><code class="language-python">print(&quot;Correlation Coefficients:&quot;)
+adv[['TV', 'Radio', 'Newspaper', 'Sales']].corr()
+</code></pre>
+
+<pre><code>Correlation Coefficients:
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TV</th>
+      <th>Radio</th>
+      <th>Newspaper</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>TV</th>
+      <td>1.000000</td>
+      <td>0.054809</td>
+      <td>0.056648</td>
+      <td>0.782224</td>
+    </tr>
+    <tr>
+      <th>Radio</th>
+      <td>0.054809</td>
+      <td>1.000000</td>
+      <td>0.354104</td>
+      <td>0.576223</td>
+    </tr>
+    <tr>
+      <th>Newspaper</th>
+      <td>0.056648</td>
+      <td>0.354104</td>
+      <td>1.000000</td>
+      <td>0.228299</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>0.782224</td>
+      <td>0.576223</td>
+      <td>0.228299</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h4 id="is-there-a-relationship-between-the-response-and-predictors">Is There a Relationship Between the Response and Predictors?</h4>
+
+<p>To check whether there is a relationship between response and predictors, we need to check whether $\beta_1 = \beta_2 = &hellip; = \beta_p = 0$. The hypothesis is as follows:</p>
+
+<ul>
+<li>$H_0$: $\beta_1 = \beta_2 = &hellip; = \beta_p = 0$</li>
+<li>$H_A$: at least one of $\beta_j$ is non-zero.</li>
+</ul>
+
+<p>The hypothesis test is performed by computing the <b>F-statistic</b>:</p>
+
+<p>$$F = \frac{(TSS-RSS) \ / \ p}{RSS \ / \ (n-p-1)}$$</p>
+
+<p>where TSS is <b>total sum of squares</b> and RSS is <b>residual sum of squares</b>. If linear model assumption is true the denominator equals $\sigma^2$. If the <b>null hypothesis is true</b>, the numerator equals $\sigma^2$ as well and hence value of <b>F-statistic equals 1</b>. If the alternate hypothesis is true <b>F is greater than 1.</b> How large does the F-statistic have to be to reject $H_0$? For large value of $n$, F-statistic that is little larger than $n$ provides the evidence against $H_0$. A large F-statistic is needed to reject $H_0$ if n is small. When $H_0$ is true and the errors $\epsilon_i$ have a normal distribution, F-statistics follows an <b>F-distribution</b> and hence <b>p-value</b> can be calculated from that.</p>
+
+<p>Sometimes we want to test that whether a particular set of predictors have a relationship with response. This corresponds to null hypothesis:</p>
+
+<ul>
+<li>$H_0$: $\beta _{p-q+1} = \beta _{p-q+2} = &hellip; = \beta _{p} = 0$</li>
+</ul>
+
+<p>In this case we can fit a model that uses all the variables except these last $q$. Suppose the residual sum of squares for this model is $RSS_0$, then the F-statistic is defined as:</p>
+
+<p>$$F = \frac{(RSS_0 - RSS)\ / \ q }{RSS\ /\ (n-p-1)}$$</p>
+
+<p>For <b>very large number of variables</b> (p &gt; n), we can not fit the multiple linear regression and F-statistic can not be used as well.</p>
+
+<h4 id="deciding-on-important-variables">Deciding on Important Variables</h4>
+
+<p>The task of determining which predictors are associated with the response, in order to fit a single model involving only those predictors, is referred to as <b>variable selection.</b> One approach is to use all the possible combinations of predictors, build the model and select the one which fits best. But for large value of p, this approach is not feasible. There are three calssic approaches for this:</p>
+
+<ul>
+<li><p><b>Forward Selection:</b> We begin with a <b>null model</b> (only with intercept) and fit $p$ linear regressions and add to the null model the variable that results in the <b>lowest RSS</b>. Then we can add to the model (with one variable) the variable that contributes lowest RSS for the new two-variable model. This process is continued until some stopping criteria is satisfied.</p></li>
+
+<li><p><b>Backward Selection:</b> This works in the same way but in the reverse order. We start with a p-variable model and remove the variable with <b>largest p-value</b> resulting in a (p-1)-variable model. We can continue further until all remaining variables have a p-value below some threshold.</p></li>
+
+<li><p><b>Mixed Selection:</b> This is a combination of forward and backward selection.</p></li>
+</ul>
+
+<p>Backward selection can not be used if $p &gt; n$, but forward selection can always be used.</p>
+
+<h4 id="model-fit">Model Fit</h4>
+
+<p>Two most common numerical measure that can be used to describe the model fit are <b>RSE</b> and <b>R</b>^2. These quantities can be interpreted in the same way for multiple linear regression with one difference. For simple linear regression, $R^2$ is equal to the square of the correlation between response and the predictor. In the case of multiple linear regression, it equals $Cor(Y, \widehat{Y})^2$ instead. <b>$R^2$ will always increase if more variables are added to the model, even if those variables are weakly associated with the response.</b> Analysing the plot of the data is also a good way to check the model fit.</p>
+
+<h4 id="predictions">Predictions</h4>
+
+<p>We can use the least square plane to make the prediction for the response variable but there are some uncertainty associated with the prediction:</p>
+
+<ul>
+<li><p>The model coefficients are only an estimation of the true population regression plane.</p></li>
+
+<li><p>In practice, assuming a linear model for $f(X)$ is an approximation and hence there is an additional reducible error which was called as <b>model bias.</b></p></li>
+
+<li><p>Even if $f(X)$ is known, there are some irreducible errors due to $\epsilon$, which can not be predicted.</p></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/linear-regression_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/linear-regression_part1/">ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/linear-regression_part3/">ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/linear-regression_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

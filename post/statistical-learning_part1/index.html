@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Statistical Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?)</h1>
+  <h2>ISLR Statistical Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 May 2018, 09:32</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/statistical-learning">Statistical Learning</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h1><center>Statistical Learning</center></h1>
+
+<h3 id="2-1-what-is-statistical-learning">2.1 What Is Statistical Learning?</h3>
+
+<p>The <b>Advertising</b> data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: <b>TV, radio, and newspaper.</b> The plot of data is shown below. Our goal is to develop an accurate model that can be used to predict sales on the basis of the three media budgets.</p>
+
+<p>In general, suppose that we observe a quantitative response $Y$ and $p$ different predictors, $X_1$, $X_2$, &hellip; , $X_p$, we assume that there is some relationship between $Y$ and $X = (X_1, X_2, &hellip; , X_p)$, which can be written in general form as:</p>
+
+<p>$$Y = f(X) + \epsilon$$</p>
+
+<p>where, $\epsilon$ is a random error term which is independent of X and has mean 0. In this formula, $f$ represents the systematic information that $X$ provides about $Y$. <b>In essence, statistical learning refers to a set of approaches for estimating  $f$.</b></p>
+
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+adv = pd.read_csv(&quot;data/Advertising.csv&quot;)
+
+fig = plt.figure(figsize=(15,8))
+
+ax = fig.add_subplot(131)
+sns.regplot(x=&quot;TV&quot;, y=&quot;Sales&quot;, color='r', data=adv, order=1, scatter_kws={'alpha':0.4},
+            line_kws={'color':'g', 'alpha':0.7})
+ax.set_xlabel('TV')
+ax.set_ylabel('Sales')
+
+ax = fig.add_subplot(132)
+sns.regplot(x=&quot;Radio&quot;, y=&quot;Sales&quot;, color='r', data=adv, order=1, scatter_kws={'alpha':0.4},
+            line_kws={'color':'g', 'alpha':0.7})
+ax.set_xlabel('Radio')
+ax.set_ylabel('Sales')
+
+ax = fig.add_subplot(133)
+sns.regplot(x=&quot;Newspaper&quot;, y=&quot;Sales&quot;, color='r', data=adv, order=1, scatter_kws={'alpha':0.4},
+            line_kws={'color':'g', 'alpha':0.7})
+ax.set_xlabel('Newspaper')
+ax.set_ylabel('Sales')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Statistical%20Learning_files/Statistical%20Learning_4_1.png" alt="">
+
+
+<h4 id="2-1-1-why-estimate-f">2.1.1 Why Estimate f ?</h4>
+
+<p>There are two main reasons that we may wish to estimate $f$:
+ - <b>Prediction:</b> We can predict $Y$ using $X$ as:</p>
+
+<p>$$\widehat{Y} = \widehat{f}(X)$$</p>
+
+<p>where $\widehat{f}$ represents our estimate for $f$ and $\widehat{Y}$ represents the resulting prediction for $Y$. The accuracy of $\widehat{Y}$ as a prediction of $Y$ depends on two quantities: <b>reducible error</b> and <b>irreducible error</b>. Reducible error can be minimized by opting a better prediction. Irreducible error arises due to $Y$&rsquo;s dependence on $\epsilon$ and hence can not be reduced further.</p>
+
+<ul>
+<li><b>Inference:</b> In this situation we wish to estimate $f$, but our goal is not necessarily to make predictions for $Y$. Instead, we want to understand the relationship between $X$ and $Y$, or more specifically, we want to understand how $Y$ changes as a function of $X$. The three main questions that can be of interest while doing inference analysis are: <b>Which predictors are associated with the response?, What is the relationship (positive or negative) between the response and each predictor?</b> and <b>Can the relationship between Y and each predictor be adequately summarized using a linear equation, or is the relationship more complicated?</b></li>
+</ul>
+
+<h4 id="2-1-2-how-do-we-estimate-f">2.1.2 How Do We Estimate f ?</h4>
+
+<p>$f$ can be estimated by many <b>linear</b> and <b>non-linear</b> approaches. The given dataset is called as <b>training data</b>. Our goal is to apply a statistical learning method to the training data in order to estimate $f$. In other words, we want to find a function $\widehat{f}$ such that $Y \approx \widehat{f}(X)$ for an observation $(X,Y)$. The most statistical learning methods for this task can be characterized as:</p>
+
+<ul>
+<li><p><b>Parametric Methods:</b> Parametric methods involve a two-step model based approach which are:</p>
+
+<ul>
+<li>We make an assumption about the shape of $f$. For a liner model,  $f$ can be represented as:</li>
+</ul>
+
+<p>$$f(X) = \beta_0 + \beta_1 X_1 + &hellip; + \beta_p X_p$$</p>
+
+<p>and then we have to estimate $p+1$ coefficients $\beta_0, \beta_1,&hellip;, \beta_p$.</p>
+
+<ul>
+<li>After the model has been selected, we need a procedure that uses the <b>training data</b> to estimate the parameters.</li>
+</ul>
+
+<p>The model based approach described above is called as <b>parametric</b>, as it reduces the problem of estimating $f$ down to the estimation of a set of parameters. Parametric form is easy to estimate but with a disadvantage that the chosen model will not match the true unknown form of $f$. We can design more complex models to overcome this issue but this leads to <b>overfitting</b> the data as it follows the <b>error</b> or <b>noise</b> too closely.</p></li>
+
+<li><p><b>Non-parametric Methods:</b> Non-parametric methods seek an estimate of $f$ that gets as close to the data points as possible without being too rough or wiggly. They have the potential to accurately fit a wider range of possible shapes of $f$. Since they do not reduce the problem of estimating $f$ to a small number of parameters, a very large number of observations is required to obtain an accurate estimate of $f$.</p></li>
+</ul>
+
+<h4 id="2-1-3-the-trade-off-between-prediction-accuracy-and-model-interpretability">2.1.3 The Trade-Off Between Prediction Accuracy and Model Interpretability</h4>
+
+<p>A common question related to model selection is: <b>why would we ever choose to use a more restrictive method instead of a very flexible approach?</b> When inference is the goal, linear model (restrictive) is a good choice as it is easy to interpret. So we can conclude that when inference is the goal, simple and relatively inflexible statistical learning methods have a clear advantage. For prediction, a more flexible and complex model can be used as interpretability is not a concern.</p>
+
+<h4 id="2-1-4-supervised-versus-unsupervised-learning">2.1.4 Supervised Versus Unsupervised Learning</h4>
+
+<p>In supervised learning, for each observation of the predictor measurement, there is an associated response measurement which is used to build a model and predict the response of future observations.</p>
+
+<p>In unsupervised learning, there is no response associated with the observations. Cluster analysis is an example of unsupervised learning.</p>
+
+<h4 id="2-1-5-regression-versus-classification-problems">2.1.5 Regression Versus Classification Problems</h4>
+
+<p>Variables can be characterized as either <b>quantitative</b> or <b>qualitative (categorical)</b>. Quantitative variables take on numerical values, whereas, qualitative variables take on values in one of the $K$ different classes. We refer to problems with a quantitative response as <b>regression</b> problem, while those involving a qualitative response is called as <b>classification</b> problem. The type of <b>predictors</b> is not of much concern when choosing the model as categorical variables can easily be coded before applying the model.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/introduction/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/introduction/">ISLR Chapter 1: Introduction</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/statistical-learning_part2/">ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/statistical-learning_part2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

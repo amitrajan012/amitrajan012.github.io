@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Support Vector Machines">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)</h1>
+  <h2>ISLR Support Vector Machines</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Jun 2018, 06:19</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/support-vector-machines">Support Vector Machines</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exercises">Exercises</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/applied">Applied</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h4 id="applied">Applied</h4>
+
+<p>Q4. Generate a simulated two-class data set with 100 observations and two features in which there is a visible but non-linear separation between the two classes. Show that in this setting, a support vector machine with a polynomial kernel (with degree greater than 1) or a radial kernel will outperform a support vector classifier on the training
+data. Which technique performs best on the test data? Make plots and report training and test error rates in order to back up your assertions.</p>
+
+<p><b>Sol:</b> The plots with decision boundary and various error rates are shown below.</p>
+
+<pre><code class="language-python">import numpy as np
+from sklearn.model_selection import train_test_split
+
+np.random.seed(0)
+X = np.random.normal(0, 2, 100)
+Y = X**2 + 3*X + np.random.normal(0, 1, 100)
+
+c = list(range(0, 100))
+c1 = np.random.randint(0, 100, size=50, dtype='l')
+c2 = [x for x in c if x not in c1]
+Y[c1] = Y[c1] + 5
+Y[c2] = Y[c2] - 5
+
+labels = np.asarray([1]*100)
+labels[c2] = labels[c2] -2
+
+M = np.column_stack((X,Y))
+
+X_train, X_test, y_train, y_test = train_test_split(M, labels, test_size=0.1)
+
+# fit the linear model
+clf = svm.SVC(kernel='linear', C=10000)
+clf.fit(X_train, y_train)
+
+# get the separating hyperplane
+w = clf.coef_[0]
+a = -w[0] / w[1]
+xx = np.linspace(-5, 5)
+yy = a * xx - (clf.intercept_[0]) / w[1]
+
+# plot the parallels to the separating hyperplane that pass through the
+# support vectors
+b = clf.support_vectors_[0]
+yy_down = a * xx + (b[1] - a * b[0])
+b = clf.support_vectors_[-1]
+yy_up = a * xx + (b[1] - a * b[0])
+
+
+fig = plt.figure(figsize=(15, 20))
+ax = fig.add_subplot(221)
+
+plt.scatter(X[c2], Y[c2], color='g')
+plt.scatter(X[c1], Y[c1], color='r')
+plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+plt.plot(xx, yy, 'k-')
+plt.plot(xx, yy_down, 'k--', color='g')
+plt.plot(xx, yy_up, 'k--', color='g')
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.grid()
+ax.set_title(&quot;Linear Kernel&quot;)
+
+#fit polynomial model
+clf_poly = svm.SVC(kernel='poly', degree=2, C=1000)
+clf_poly.fit(X_train, y_train)
+
+x_min = -6
+x_max = 6
+y_min = -20
+y_max = 50
+
+XX, YY = np.mgrid[x_min:x_max:200j, y_min:y_max:200j]
+Z = clf_poly.decision_function(np.c_[XX.ravel(), YY.ravel()])
+
+# Put the result into a color plot
+Z = Z.reshape(XX.shape)
+ax = fig.add_subplot(222)
+
+plt.scatter(X[c2], Y[c2], color='g')
+plt.scatter(X[c1], Y[c1], color='r')
+plt.scatter(clf_poly.support_vectors_[:, 0], clf_poly.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+
+plt.contour(XX, YY, Z, levels=[0])
+ax.grid()
+ax.set_title(&quot;Polynomial Kernel (Degree: 2)&quot;)
+
+#fit polynomial model: degree 3
+clf_poly_3 = svm.SVC(kernel='poly', degree=3, C=1000)
+clf_poly_3.fit(X_train, y_train)
+
+x_min = -6
+x_max = 6
+y_min = -20
+y_max = 50
+
+XX, YY = np.mgrid[x_min:x_max:200j, y_min:y_max:200j]
+Z = clf_poly_3.decision_function(np.c_[XX.ravel(), YY.ravel()])
+p_poly = clf_poly.predict(M)
+
+# Put the result into a color plot
+Z = Z.reshape(XX.shape)
+ax = fig.add_subplot(223)
+
+plt.scatter(X[c2], Y[c2], color='g')
+plt.scatter(X[c1], Y[c1], color='r')
+plt.scatter(clf_poly_3.support_vectors_[:, 0], clf_poly_3.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+
+plt.contour(XX, YY, Z, levels=[0])
+ax.grid()
+ax.set_title(&quot;Polynomial Kernel (Degree: 3)&quot;)
+
+#fit radial kernel
+clf_radial = svm.SVC(kernel='rbf', C=1000)
+clf_radial.fit(X_train, y_train)
+
+Z = clf_radial.decision_function(np.c_[XX.ravel(), YY.ravel()])
+
+# Put the result into a color plot
+Z = Z.reshape(XX.shape)
+ax = fig.add_subplot(224)
+
+plt.scatter(X[c2], Y[c2], color='g')
+plt.scatter(X[c1], Y[c1], color='r')
+plt.scatter(clf_radial.support_vectors_[:, 0], clf_radial.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+
+
+plt.contour(XX, YY, Z, levels=[0, 1])
+ax.grid()
+ax.set_title(&quot;Radial Kernel&quot;)
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_14_0.png" alt="">
+
+
+<pre><code class="language-python">print(&quot;Training miss classification for linear kernel: &quot;
+      + str((len(X_train) - sum(y_train == clf.predict(X_train)))*100/len(X_train)))
+
+print(&quot;Training miss classification for polynomial kernel (degree 2): &quot;
+      + str((len(X_train) - sum(y_train == clf_poly.predict(X_train)))*100/len(X_train)))
+
+print(&quot;Training miss classification for polynomial kernel (degree 3): &quot;
+      + str((len(X_train) - sum(y_train == clf_poly_3.predict(X_train)))*100/len(X_train)))
+
+print(&quot;Training miss classification for radial kernel: &quot;
+      + str((len(X_train) - sum(y_train == clf_radial.predict(X_train)))*100/len(X_train)))
+
+print(&quot;Test miss classification for linear kernel: &quot;
+      + str((len(X_test) - sum(y_test == clf.predict(X_test)))*100/len(X_test)))
+
+print(&quot;Test miss classification for polynomial kernel (degree 2): &quot;
+      + str((len(X_test) - sum(y_test == clf_poly.predict(X_test)))*100/len(X_test)))
+
+print(&quot;Test miss classification for polynomial kernel (degree 3): &quot;
+      + str((len(X_test) - sum(y_test == clf_poly_3.predict(X_test)))*100/len(X_test)))
+
+print(&quot;Test miss classification for radial kernel: &quot;
+      + str((len(X_test) - sum(y_test == clf_radial.predict(X_test)))*100/len(X_test)))
+</code></pre>
+
+<pre><code>Training miss classification for linear kernel: 7.777777777777778
+Training miss classification for polynomial kernel (degree 2): 16.666666666666668
+Training miss classification for polynomial kernel (degree 3): 1.1111111111111112
+Training miss classification for radial kernel: 0.0
+Test miss classification for linear kernel: 0.0
+Test miss classification for polynomial kernel (degree 2): 10.0
+Test miss classification for polynomial kernel (degree 3): 0.0
+Test miss classification for radial kernel: 0.0
+</code></pre>
+
+<p>Q5. We have seen that we can fit an SVM with a non-linear kernel in order to perform classification using a non-linear decision boundary.We will now see that we can also obtain a non-linear decision boundary by performing logistic regression using non-linear transformations of the features.</p>
+
+<p>(a) Generate a data set with n = 500 and p = 2, such that the observations belong to two classes with a quadratic decision boundary between them.</p>
+
+<p>(b) Plot the observations, colored according to their class labels. Your plot should display X1 on the x-axis, and X2 on the yaxis.</p>
+
+<pre><code class="language-python">import matplotlib
+
+np.random.seed(0)
+X1 = np.random.uniform(0, 1, 500) - 0.5
+X2 = np.random.uniform(0, 1, 500) - 0.5
+Y = ((X1**2 - X2**2) &gt; 0).astype(int)
+color= ['red' if l == 0 else 'green' for l in Y]
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_17_0.png" alt="">
+
+
+<p>&copy; Fit a logistic regression model to the data, using X1 and X2 as predictors.</p>
+
+<p>(d) Apply this model to the training data in order to obtain a predicted class label for each training observation. Plot the observations, colored according to the predicted class labels. The decision boundary should be linear.</p>
+
+<pre><code class="language-python">from sklearn.linear_model import LogisticRegression
+
+X = np.column_stack((X1,X2))
+clf = LogisticRegression(random_state=0, fit_intercept=True)
+clf.fit(X, Y)
+Y_train = clf.predict(X)
+
+color= ['red' if l == 0 else 'green' for l in Y_train]
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_19_0.png" alt="">
+
+
+<p>(e) Now fit a logistic regression model to the data using non-linear functions of X1 and X2 as predictors.</p>
+
+<p>(f) Apply this model to the training data in order to obtain a predicted class label for each training observation. Plot the observations, colored according to the predicted class labels. The decision boundary should be obviously non-linear. If it is not, then repeat (a)-(e) until you come up with an example in which the predicted class labels are obviously non-linear.</p>
+
+<pre><code class="language-python">X1_2 = X1**2
+X2_2 = X1**2
+
+X = np.column_stack((X1,X2,X1_2,X2_2))
+clf = LogisticRegression(random_state=0, fit_intercept=True)
+clf.fit(X, Y)
+Y_train = clf.predict(X)
+
+color= ['red' if l == 0 else 'green' for l in Y_train]
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_21_0.png" alt="">
+
+
+<p>(g) Fit a support vector classifier to the data with X1 and X2 as predictors. Obtain a class prediction for each training observation. Plot the observations, colored according to the predicted class labels.</p>
+
+<pre><code class="language-python">X = np.column_stack((X1,X2))
+# fit the linear model
+clf = svm.SVC(kernel='linear', C=100)
+clf.fit(X, Y)
+Y_train = clf.predict(X)
+color= ['red' if l == 0 else 'green' for l in Y_train]
+
+# get the separating hyperplane
+w = clf.coef_[0]
+a = -w[0] / w[1]
+xx = np.linspace(-0.5, 0.5)
+yy = a * xx - (clf.intercept_[0]) / w[1]
+
+# plot the parallels to the separating hyperplane that pass through the
+# support vectors
+b = clf.support_vectors_[0]
+yy_down = a * xx + (b[1] - a * b[0])
+b = clf.support_vectors_[-1]
+yy_up = a * xx + (b[1] - a * b[0])
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+plt.plot(xx, yy, 'k-')
+plt.plot(xx, yy_down, 'k--', color='g')
+plt.plot(xx, yy_up, 'k--', color='g')
+
+ax.set_ylim(-0.5, 0.5)
+ax.set_xlabel('X1')
+ax.set_ylabel('X2')
+ax.grid()
+ax.set_title(&quot;Linear Kernel&quot;)
+
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_23_1.png" alt="">
+
+
+<p>(h) Fit a SVM using a non-linear kernel to the data. Obtain a class prediction for each training observation. Plot the observations, colored according to the predicted class labels.</p>
+
+<pre><code class="language-python">X = np.column_stack((X1,X2))
+# fit the linear model
+clf = svm.SVC(kernel='poly', degree=2, C=100)
+clf.fit(X, Y)
+Y_train = clf.predict(X)
+color= ['red' if l == 0 else 'green' for l in Y_train]
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.scatter(clf.support_vectors_[:, 0], clf.support_vectors_[:, 1],
+            s=180, facecolors='none', edgecolors='black')
+
+ax.set_ylim(-0.5, 0.5)
+ax.set_xlabel('X1')
+ax.set_ylabel('X2')
+ax.grid()
+ax.set_title(&quot;Polynomial Kernel (Degree: 2)&quot;)
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_25_1.png" alt="">
+
+
+<p>Q6. At the end of Section 9.6.1, it is claimed that in the case of data that is just barely linearly separable, a support vector classifier with a small value of cost that misclassifies a couple of training observations may perform better on test data than one with a huge value of cost that does not misclassify any training observations. You will now investigate this claim.</p>
+
+<p>(a) Generate two-class data with p = 2 in such a way that the classes are just barely linearly separable.</p>
+
+<pre><code class="language-python">np.random.seed(0)
+X1 = np.random.uniform(0, 1, 1000) - 0.5
+X2 = np.random.uniform(0, 1, 1000) - 0.5
+X = np.column_stack((X1,X2))
+
+temp = X1-X2
+Y = [None] * len(temp)
+# Assign class labels
+for idx, j in enumerate(temp):
+    if j &gt; 0.1:
+        Y[idx] = 1
+    elif j &lt;  -0.1:
+        Y[idx] = 0
+    else:
+        Y[idx] = np.random.uniform(0, 1) &gt; 0.5
+
+color= ['red' if l == 0 else 'green' for l in Y]
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+plt.scatter(X1, X2, color=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_27_0.png" alt="">
+
+
+<p>(b) Compute the cross-validation error rates for support vector classifiers with a range of cost values. How many training errors are misclassified for each value of cost considered, and how does this relate to the cross-validation errors obtained?</p>
+
+<p>&copy; Generate an appropriate test data set, and compute the testerrors corresponding to each of the values of cost considered. Which value of cost leads to the fewest test errors, and how does this compare to the values of cost that yield the fewest training errors and the fewest cross-validation errors?</p>
+
+<pre><code class="language-python">np.random.seed(1)
+X_train, X_vald, y_train, y_vald = train_test_split(X, Y, test_size=0.5)
+
+X1_test = np.random.uniform(0, 1, 500) - 0.5
+X2_test = np.random.uniform(0, 1, 500) - 0.5
+X_test = np.column_stack((X1_test,X2_test))
+
+temp_test = X1_test-X2_test
+y_test = [None] * len(temp_test)
+# Assign class labels
+for idx, j in enumerate(temp_test):
+    if j &gt; 0.1:
+        y_test[idx] = 1
+    elif j &lt;  -0.1:
+        y_test[idx] = 0
+    else:
+        y_test[idx] = np.random.uniform(0, 1) &gt; 0.5
+
+cost = [0.0001, 0.001, 0.01, 0.1, 1, 2, 3, 5, 10, 100, 1000, 10000]
+cross_vald_error = {}
+training_error = {}
+test_error= {}
+
+for c in cost:
+    clf = svm.SVC(kernel='linear', C=c)
+    clf.fit(X_train, y_train)
+    p = clf.predict(X_train)
+    training_error[c] = (len(X_train) - sum(y_train == p))/len(X_train)
+    p = clf.predict(X_vald)
+    cross_vald_error[c] = (len(X_vald) - sum(y_vald == p))/len(X_vald)
+    p = clf.predict(X_test)
+    test_error[c] = (len(X_test) - sum(y_test == p))/len(X_test)
+
+lists = sorted(training_error.items()) # sorted by key, return a list of tuples
+
+x, y = zip(*lists) # unpack a list of pairs into two tuples
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+ax.set_xscale('log')
+plt.plot(x, y, color='r', label=&quot;Training Error Rate&quot;)
+ax.set_xlabel(&quot;Cost (log)&quot;)
+ax.set_ylabel(&quot;Error Rate&quot;)
+
+lists = sorted(cross_vald_error.items()) # sorted by key, return a list of tuples
+
+x, y = zip(*lists) # unpack a list of pairs into two tuples
+
+ax.set_xscale('log')
+plt.plot(x, y, color='g', label=&quot;Validation Error Rate&quot;)
+ax.set_xlabel(&quot;Cost (log)&quot;)
+ax.set_ylabel(&quot;Error Rate&quot;)
+
+lists = sorted(test_error.items()) # sorted by key, return a list of tuples
+
+x, y = zip(*lists) # unpack a list of pairs into two tuples
+
+ax.set_xscale('log')
+plt.plot(x, y, color='b', label=&quot;Test Error Rate&quot;)
+ax.set_xlabel(&quot;Cost (log)&quot;)
+ax.set_ylabel(&quot;Error Rate&quot;)
+
+plt.grid()
+plt.legend()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_29_0.png" alt="">
+
+
+<p>Q7. In this problem, you will use support vector approaches in order to predict whether a given car gets high or low gas mileage based on the Auto data set.</p>
+
+<p>(a) Create a binary variable that takes on a 1 for cars with gas mileage above the median, and a 0 for cars with gas mileage below the median.</p>
+
+<pre><code class="language-python">import pandas as pd
+
+auto = pd.read_csv(&quot;data/Auto.csv&quot;)
+auto.dropna(inplace=True)
+auto = auto[auto['horsepower'] != '?']
+auto['horsepower'] = auto['horsepower'].astype(int)
+auto['mpg01'] = np.where(auto['mpg']&gt;=auto['mpg'].median(), 1, 0)
+auto.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>mpg01</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>chevrolet chevelle malibu</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>buick skylark 320</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>plymouth satellite</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>amc rebel sst</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>ford torino</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>(b) Fit a support vector classifier to the data with various values of cost, in order to predict whether a car gets high or low gas mileage. Report the cross-validation errors associated with different values of this parameter. Comment on your results.</p>
+
+<pre><code class="language-python">np.random.seed(1)
+X= auto[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year', 'origin']]
+Y = auto[['mpg01']]
+X_train, X_vald, y_train, y_vald = train_test_split(X, Y, test_size=0.2)
+
+cost = [0.0001, 0.001, 0.01, 0.1, 1, 2, 3, 5, 10, 100, 1000, 10000]
+cross_vald_error = {}
+training_error = {}
+
+for c in cost:
+    clf = svm.SVC(kernel='linear', C=c)
+    clf.fit(X_train, y_train.values.ravel())
+    p = clf.predict(X_train)
+    training_error[c] = (len(p) - sum(y_train['mpg01'] == p))/len(p)
+    p = clf.predict(X_vald)
+    cross_vald_error[c] = (len(p) - sum(y_vald['mpg01'] == p))/len(p)
+
+lists = sorted(training_error.items()) # sorted by key, return a list of tuples
+
+x, y = zip(*lists) # unpack a list of pairs into two tuples
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+
+ax.set_xscale('log')
+plt.plot(x, y, color='r', label=&quot;Training Error Rate&quot;)
+ax.set_xlabel(&quot;Cost (log)&quot;)
+ax.set_ylabel(&quot;Error Rate&quot;)
+
+lists = sorted(cross_vald_error.items()) # sorted by key, return a list of tuples
+
+x, y = zip(*lists) # unpack a list of pairs into two tuples
+
+ax.set_xscale('log')
+plt.plot(x, y, color='g', label=&quot;Validation Error Rate&quot;)
+ax.set_xlabel(&quot;Cost (log)&quot;)
+ax.set_ylabel(&quot;Error Rate&quot;)
+
+plt.grid()
+plt.legend()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_33_0.png" alt="">
+
+
+<p>&copy; Now repeat (b), this time using SVMs with radial and polynomial basis kernels, with different values of gamma and degree and cost. Comment on your results.</p>
+
+<pre><code class="language-python">from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVC
+
+parameters = {'C':[0.01, 0.1, 5, 10, 100], 'gamma':[0.01, 0.1, 5, 10, 100]}
+clf = GridSearchCV(SVC(random_state=1, kernel='rbf'), parameters, n_jobs=4, cv=10)
+clf.fit(X=X_train, y=y_train.values.ravel())
+clf.best_estimator_
+</code></pre>
+
+<pre><code>SVC(C=100, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma=0.01, kernel='rbf',
+  max_iter=-1, probability=False, random_state=1, shrinking=True,
+  tol=0.001, verbose=False)
+</code></pre>
+
+<p>Q8. This problem involves the OJ data set which is part of the ISLR package.</p>
+
+<p>(a) Create a training set containing a random sample of 800 observations, and a test set containing the remaining
+observations.</p>
+
+<pre><code class="language-python">np.random.seed(1)
+oj = pd.read_csv(&quot;data/OJ.csv&quot;)
+oj = oj.drop(['Unnamed: 0'], axis=1)
+oj['Store7'] = oj['Store7'].map({'Yes': 1, 'No': 0})
+X_train, X_test, y_train, y_test = train_test_split(oj.drop(['Purchase'], axis=1),
+                                                    oj[['Purchase']], train_size=800)
+</code></pre>
+
+<pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
+  FutureWarning)
+</code></pre>
+
+<p>(b) Fit a support vector classifier to the training data using cost=0.01, with Purchase as the response and the other variables as predictors. Use the summary() function to produce summary statistics, and describe the results obtained.</p>
+
+<pre><code class="language-python">clf = svm.SVC(kernel='linear', C=0.01)
+print(clf.fit(X_train, y_train.values.ravel()))
+print(&quot;Number of support vectors: &quot; +str(len(clf.support_vectors_)))
+</code></pre>
+
+<pre><code>SVC(C=0.01, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=None, shrinking=True,
+  tol=0.001, verbose=False)
+Number of support vectors: 611
+</code></pre>
+
+<p>&copy; What are the training and test error rates?</p>
+
+<pre><code class="language-python">from sklearn.metrics import accuracy_score
+
+print(&quot;Training Error rate is: &quot; + str(1 - accuracy_score(clf.predict(X_train), y_train)))
+print(&quot;Test Error rate is: &quot; + str(1 - accuracy_score(clf.predict(X_test), y_test)))
+</code></pre>
+
+<pre><code>Training Error rate is: 0.31000000000000005
+Test Error rate is: 0.3592592592592593
+</code></pre>
+
+<p>(d) Use the tune() function to select an optimal cost. Consider values in the range 0.01 to 10.</p>
+
+<pre><code class="language-python">parameters = {'C':[0.01, 0.05, 0.1, 0.5, 1, 2, 3, 5, 7, 8, 9, 10]}
+clf = GridSearchCV(SVC(random_state=1, kernel='linear'), parameters, n_jobs=4, cv=10)
+clf.fit(X=X_train, y=y_train.values.ravel())
+clf.best_estimator_
+</code></pre>
+
+<pre><code>SVC(C=7, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
+  max_iter=-1, probability=False, random_state=1, shrinking=True,
+  tol=0.001, verbose=False)
+</code></pre>
+
+<p>(e) Compute the training and test error rates using this new value for cost.</p>
+
+<pre><code class="language-python">model = clf.best_estimator_
+print(&quot;Training Error rate is: &quot; + str(1 - accuracy_score(model.predict(X_train), y_train)))
+print(&quot;Test Error rate is: &quot; + str(1 - accuracy_score(model.predict(X_test), y_test)))
+</code></pre>
+
+<pre><code>Training Error rate is: 0.16500000000000004
+Test Error rate is: 0.16666666666666663
+</code></pre>
+
+<p>(f) Repeat parts (b) through (e) using a support vector machine with a radial kernel. Use the default value for gamma.</p>
+
+<pre><code class="language-python">clf = GridSearchCV(SVC(random_state=1, kernel='rbf'), parameters, n_jobs=4, cv=10)
+clf.fit(X=X_train, y=y_train.values.ravel())
+print(clf.best_estimator_)
+model = clf.best_estimator_
+print(&quot;Training Error rate is: &quot; + str(1 - accuracy_score(model.predict(X_train), y_train)))
+print(&quot;Test Error rate is: &quot; + str(1 - accuracy_score(model.predict(X_test), y_test)))
+</code></pre>
+
+<pre><code>SVC(C=8, cache_size=200, class_weight=None, coef0=0.0,
+  decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
+  max_iter=-1, probability=False, random_state=1, shrinking=True,
+  tol=0.001, verbose=False)
+Training Error rate is: 0.15500000000000003
+Test Error rate is: 0.1777777777777778
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/support-vector-machines_part4/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/support-vector-machines_part4/">ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/unsupervised-learning_part1/">ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part1/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

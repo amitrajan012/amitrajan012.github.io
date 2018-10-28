@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Linear Model Selection and Regularization">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</h1>
+  <h2>ISLR Linear Model Selection and Regularization</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 May 2018, 06:18</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-model-selection">Linear Model Selection</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/regularization">Regularization</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exercises">Exercises</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/conceptual">Conceptual</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="6-8-exercises">6.8 Exercises</h3>
+
+<h4 id="conceptual">Conceptual</h4>
+
+<p>Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, &hellip; , p predictors. Explain your answers:</p>
+
+<p>(a) Which of the three models with k predictors has the smallest training RSS?</p>
+
+<p><b>Sol:</b> Training RSS is minimum for best subset selection.</p>
+
+<p>(b) Which of the three models with k predictors has the smallest test RSS?</p>
+
+<p><b>Sol:</b> The test RSS can not be predicted accurately based on the training procedure but as best subset selection takes into account all the possible models, there is a more chance of its getting the best test RSS.</p>
+
+<p>&copy; True or False:</p>
+
+<ul>
+<li><p>The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k+1)-variable model identified by forward stepwise selection: <b>True</b></p></li>
+
+<li><p>The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)- variable model identified by backward stepwise selection.: <b>True</b></p></li>
+
+<li><p>The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)- variable model identified by forward stepwise selection.: <b>False</b></p></li>
+
+<li><p>The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k+1)-variable model identified by backward stepwise selection.: <b>False</b></p></li>
+
+<li><p>The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.: <b>False</b></p></li>
+</ul>
+
+<p>Q2. For parts (a) through &copy;, indicate which of i. through iv. is correct. Justify your answer.</p>
+
+<p>(a) The lasso, relative to least squares, is:</p>
+
+<p>i. More flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.: <b>False</b></p>
+
+<p>ii. More flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.: <b>False</b></p>
+
+<p>iii. Less flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.: <b>True</b></p>
+
+<p>iv. Less flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.: <b>False</b>, as lasso will decrease the variance and increase the bias.</p>
+
+<p>(b) Repeat (a) for ridge regression relative to least squares.</p>
+
+<p><b>Sol:</b> Less flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.</p>
+
+<p>&copy; Repeat (a) for non-linear methods relative to least squares.</p>
+
+<p><b>Sol:</b> More flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.</p>
+
+<p>Q3. Suppose we estimate the regression coefficients in a linear regression model by minimizing</p>
+
+<p>$$minimize _{\beta}\bigg [ \sum _{i=1}^{n} \bigg( y_i - (\beta_0 + \sum _{j=1}^{p} \beta_j x _{ij})\bigg)^2 \bigg] \ \ \   subject \ to \  \sum _{j=1}^{p} |\beta_j| \leq s$$</p>
+
+<p>for a particular value of s. For parts (a) through (e), indicate which of i. through v. is correct. Justify your answer.</p>
+
+<p>(a) As we increase s from 0, the training RSS will:</p>
+
+<p><b>Sol:</b> Steadily decrease, as training RSS will become better and better as we will keep on adding new parameters.</p>
+
+<p>(b) Repeat (a) for test RSS.</p>
+
+<p><b>Sol:</b> Decrease initially, and then eventually start increasing in a U shape.</p>
+
+<p>&copy; Repeat (a) for variance.</p>
+
+<p><b>Sol:</b> Steadily increase.</p>
+
+<p>(d) Repeat (a) for (squared) bias.</p>
+
+<p><b>Sol:</b> Steadily decrease.</p>
+
+<p>(e) Repeat (a) for the irreducible error.</p>
+
+<p><b>Sol:</b> Remain constant.</p>
+
+<p>Q4. Suppose we estimate the regression coefficients in a linear regression model by minimizing</p>
+
+<p>$$minimize _{\beta}\bigg [ \sum _{i=1}^{n} \bigg( y_i - (\beta_0 + \sum _{j=1}^{p} \beta_j x _{ij})\bigg)^2 \bigg] \ \ \   subject \ to \  \sum _{j=1}^{p} \beta_j^2 \leq s$$</p>
+
+<p>for a particular value of λ. For parts (a) through (e), indicate which of i. through v. is correct. Justify your answer.</p>
+
+<p>(a) As we increase λ from 0, the training RSS will:</p>
+
+<p><b>Sol:</b> Steadily increase.</p>
+
+<p>(b) Repeat (a) for test RSS.</p>
+
+<p><b>Sol:</b> Decrease initially, and then eventually start increasing in a U shape.</p>
+
+<p>&copy; Repeat (a) for variance.</p>
+
+<p><b>Sol:</b> Steadily decrease.</p>
+
+<p>(d) Repeat (a) for (squared) bias.</p>
+
+<p><b>Sol:</b> Steadily increase.</p>
+
+<p>(e) Repeat (a) for the irreducible error.</p>
+
+<p><b>Sol:</b> Remain constant.</p>
+
+<p>Q5. It is well-known that ridge regression tends to give similar coefficient values to correlated variables, whereas the lasso may give quite different coefficient values to correlated variables. We will now explore this property in a very simple setting.</p>
+
+<p>Suppose that n = 2, p = 2, $x _{11} = x _{12}, x _{21} = x _{22}$. Furthermore, suppose that $y_1+y_2 = 0$ and $x _{11}+x _{21} = 0$ and $x _{12} + x _{22} = 0$, so that the estimate for the intercept in a least squares, ridge regression, or lasso model is zero: $\widehat{\beta_0}$ = 0.</p>
+
+<p><b>The estimate of the intercept is 0, as $y_1+y_2 = 0$.</b></p>
+
+<p>(a) Write out the ridge regression optimization problem in this setting.</p>
+
+<p><b>Sol:</b> Let the estimates of coefficients be $\beta_1$ and $\beta_2$. In case of ridge regression, we need to optimize:</p>
+
+<p>$$(y_1 - \beta_1 X _{11} - \beta_2 X _{12})^2 + (y_2 - \beta_1 X _{21}- \beta_2 X _{22})^2 + \lambda(\beta_1^2 + \beta_2^2 )$$</p>
+
+<p>(b) Argue that in this setting, the ridge coefficient estimates satisfy $\beta_1 = \beta_2$.</p>
+
+<p><b>Sol:</b> For the optimization, we need to take the partial derivative of the above expression with respect to $\beta_1$ and $\beta_2$ and evaluate it to 0. Replacing $X _{11} = X _{12} = -X _{21} = -X _{22} = a$ and $y_1 = -y_2 = b$ the equation reduces to:</p>
+
+<p>$$2[b - a(\beta_1 + \beta_2)]^2 + \lambda(\beta_1^2 + \beta_2^2)$$</p>
+
+<p>Taking partial derivatives with respect to $\beta_1$ and $\beta_2$ and setting them to 0, we get:</p>
+
+<p>$$2\lambda \beta_1 = 4a[b - a(\beta_1 + \beta_2)]$$</p>
+
+<p>$$2\lambda \beta_2 = 4a[b - a(\beta_1 + \beta_2)]$$</p>
+
+<p>As the RHS of both the equations are same, we get $\beta_1 = \beta_2$.</p>
+
+<p>&copy; Write out the lasso optimization problem in this setting.</p>
+
+<p><b>Sol:</b> The lasso optimaization problem is:</p>
+
+<p>$$(y_1 - \beta_1 X _{11} - \beta_2 X _{12})^2 + (y_2 - \beta_1 X _{21}- \beta_2 X _{22})^2 + \lambda(|\beta_1| + |\beta_2| )$$</p>
+
+<p>(d) Argue that in this setting, the lasso coefficients $\beta_1$ and $\beta_2$ are not unique—in other words, there are many possible solutions to the optimization problem in &copy;. Describe these solutions.</p>
+
+<p><b>Sol:</b> Replacing the values as discussed above, we get the optimization problem:</p>
+
+<p>$$2[b - a(\beta_1 + \beta_2)]^2 + \lambda(|\beta_1| + |\beta_2|)$$</p>
+
+<p>Taking partial derivatives with respect to $\beta_1$ and $\beta_2$ and setting them to 0, we get:</p>
+
+<p>$$4a[b - a(\beta_1 + \beta_2)] = \pm \lambda$$</p>
+
+<p>The sign of RHS depends on the sign of $\beta$s. If $\beta_1$ and $\beta_2$ are positive, sign is +, if they are negative sign is -. This equation represents the boundary of the lasso constraint and hence the lasso optimization problem has many possible solutions.</p>
+
+<p>Q6. We will now explore (6.12) and (6.13) further. These equation represents the special case for the lasso and ridge regression. In this case $n=p$ and all the diagonal elements of data set is 1 and the non-diagonal elements are 0. In this case the optimization problem for ridge regression and the lasso reduces to:</p>
+
+<p>$$\sum _{j=1}^{p}(y_j - \beta_j)^2 + \lambda \sum _{j=1}^{p} \beta_j^2$$</p>
+
+<p>$$\sum _{j=1}^{p}(y_j - \beta_j)^2 + \lambda \sum _{j=1}^{p} |\beta_j|$$</p>
+
+<p>(a) Consider (6.12) with p = 1. For some choice of $y_1$ and λ &gt; 0, plot (6.12) as a function of $\beta_1$. Your plot should confirm that (6.12) is solved by (6.14).</p>
+
+<p><b>Sol:</b> Equation (6.14) is given as:</p>
+
+<p>$$\widehat{\beta_j}^R = \frac{y_j}{1 + \lambda}$$</p>
+
+<p>Let $y_1 = 5, \lambda = 10$. The plot is shown below. The red line shows the plot of the solution for the ridge regression in this case. It is evident that the line crosses through the minimum error value.</p>
+
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+
+y = 2
+_lambda = 10
+print(y/(1 + _lambda))
+beta = np.arange(-20,20, 0.1)
+ridge  = (y-beta)**2 + _lambda*(beta)**2
+
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111)
+
+plt.plot(beta, ridge)
+plt.plot([-20, 20], [(y/(1 + _lambda)), (y/(1 + _lambda))], 'k-', color='r', lw=2) # Plot of solution
+
+ax.set_xlabel('Beta')
+ax.set_ylabel('Ridge Residual + Regularization')
+ax.set_title('Ridge Residual + Regularization vs Beta')
+
+plt.show()
+</code></pre>
+
+<pre><code>0.18181818181818182
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_58_1.png" alt="">
+
+
+<p>(b) Consider (6.13) with p = 1. For some choice of $y_1$ and λ &gt; 0, plot (6.13) as a function of $\beta_1$. Your plot should confirm that (6.13) is solved by (6.15).</p>
+
+<p><b>Sol:</b> Equation (6.15) is given as:</p>
+
+<p>$$
+\begin{equation<em>}
+  \beta_j^L= \left{
+  \begin{array}{@{}ll@{}}
+    y_j - \lambda/2, &amp; \text{if}\ y_j &gt; \lambda/2 <br />
+    y_j + \lambda/2, &amp; \text{if}\ y_j &lt; -\lambda/2 <br />
+    1, &amp; \text{if} \ |y_j| \leq \lambda/2
+  \end{array}\right.
+\end{equation</em>}
+$$</p>
+
+<p>The plot is shown below. The red line shows the plot of the solution for the lasso in this case (solution is $y_j - \lambda/2$). It is evident that the line crosses through the minimum error value.</p>
+
+<pre><code class="language-python">y= 3
+_lambda = 2
+lasso  = (y-beta)**2 + _lambda*np.absolute(beta)
+
+fig = plt.figure(figsize=(10, 6))
+ax = fig.add_subplot(111)
+
+plt.plot(beta, lasso)
+plt.plot([-20, 20], [y-_lambda/2, y-_lambda/2], 'k-', color='r', lw=2) # Plot of solution
+
+ax.set_xlabel('Beta')
+ax.set_ylabel('Lasso Residual + Regularization')
+ax.set_title('Lasso Residual + Regularization vs Beta')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_60_0.png" alt="">
+
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/linear-model-selection-and-regularization_part3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/linear-model-selection-and-regularization_part3/">ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/linear-model-selection-and-regularization_part5/">ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/linear-model-selection-and-regularization_part5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Classification">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</h1>
+  <h2>ISLR Classification</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>16 May 2018, 10:20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/classification">Classification</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exercises">Exercises</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/applied">Applied</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h4 id="applied">Applied</h4>
+
+<p>Q10. This question should be answered using the Weekly data set.</p>
+
+<p>(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?</p>
+
+<pre><code class="language-python">import seaborn as sns
+weekly = pd.read_csv(&quot;data/Weekly.csv&quot;)
+
+sns.pairplot(weekly, vars=['Lag1', 'Lag2', 'Lag3', 'Lag4', 'Lag5', 'Volume'], hue='Direction')
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_49_2.png" alt="">
+
+
+<p>(b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results. Do any of the predictors appear to be statistically significant? If so, which ones?</p>
+
+<p><b>Sol:</b> Significant predictors are: <b>Lag2</b></p>
+
+<pre><code class="language-python">import statsmodels.api as sm
+from statsmodels.discrete.discrete_model import Logit
+
+weekly['trend'] = weekly['Direction'].map({'Down': 0, 'Up': 1})
+X = weekly[['Lag1', 'Lag2', 'Lag3', 'Lag4', 'Lag5', 'Volume']]
+X = sm.add_constant(X, prepend=True)
+y = weekly['trend']
+
+model = Logit(y, X)
+result = model.fit()
+print(result.summary())
+</code></pre>
+
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.682441
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                 1089
+Model:                          Logit   Df Residuals:                     1082
+Method:                           MLE   Df Model:                            6
+Date:                Mon, 10 Sep 2018   Pseudo R-squ.:                0.006580
+Time:                        19:13:02   Log-Likelihood:                -743.18
+converged:                       True   LL-Null:                       -748.10
+                                        LLR p-value:                    0.1313
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2669      0.086      3.106      0.002       0.098       0.435
+Lag1          -0.0413      0.026     -1.563      0.118      -0.093       0.010
+Lag2           0.0584      0.027      2.175      0.030       0.006       0.111
+Lag3          -0.0161      0.027     -0.602      0.547      -0.068       0.036
+Lag4          -0.0278      0.026     -1.050      0.294      -0.080       0.024
+Lag5          -0.0145      0.026     -0.549      0.583      -0.066       0.037
+Volume        -0.0227      0.037     -0.616      0.538      -0.095       0.050
+==============================================================================
+</code></pre>
+
+<p>&copy; Compute the confusion matrix and overall fraction of correct predictions. Explain what the confusion matrix is telling you about the types of mistakes made by logistic regression.</p>
+
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>56.11%</b>. The model has higher <b>flase positive</b> rate.</p>
+
+<pre><code class="language-python">print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down  Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(result.pred_table(threshold=0.5)[0]))
+print(&quot;Up \t&quot; + str(result.pred_table(threshold=0.5)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down  Up(Predicted)
+Down    [ 23. 418.]
+Up  [ 20. 524.]
+</code></pre>
+
+<p>(d) Now fit the logistic regression model using a training data period from 1990 to 2008, with Lag2 as the only predictor. Compute the confusion matrix and the overall fraction of correct predictions for the held out data (that is, the data from 2009 and 2010).</p>
+
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>62.5%</b>.</p>
+
+<pre><code class="language-python">train = weekly.loc[weekly['Year'] &lt;= 2008]
+test = weekly.loc[weekly['Year'] &gt;= 2009]
+
+X = train[['Lag2']]
+X = sm.add_constant(X, prepend=True)
+y = train['trend']
+
+model = Logit(y, X)
+result = model.fit()
+print(result.summary())
+</code></pre>
+
+<pre><code>Optimization terminated successfully.
+         Current function value: 0.685555
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                  985
+Model:                          Logit   Df Residuals:                      983
+Method:                           MLE   Df Model:                            1
+Date:                Mon, 10 Sep 2018   Pseudo R-squ.:                0.003076
+Time:                        19:53:30   Log-Likelihood:                -675.27
+converged:                       True   LL-Null:                       -677.35
+                                        LLR p-value:                   0.04123
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2033      0.064      3.162      0.002       0.077       0.329
+Lag2           0.0581      0.029      2.024      0.043       0.002       0.114
+==============================================================================
+</code></pre>
+
+<pre><code class="language-python">from sklearn.metrics import confusion_matrix
+
+X_test = test[['Lag2']]
+X_test = sm.add_constant(X_test, prepend=True)
+y_test = test['trend']
+predictions = result.predict(X_test) &gt; 0.5
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_test, predictions)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_test, predictions)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [ 9 34]
+Up  [ 5 56]
+</code></pre>
+
+<p>(e) Repeat (d) using LDA.</p>
+
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>62.5%</b>.</p>
+
+<pre><code class="language-python">from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.metrics import confusion_matrix
+
+clf = LinearDiscriminantAnalysis()
+clf.fit(train[['Lag2']], train['trend'])
+y_predict = clf.predict(test[['Lag2']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [ 9 34]
+Up  [ 5 56]
+</code></pre>
+
+<p>(f) Repeat (d) using QDA.</p>
+
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>58.65%</b>. The model always predict that the market will go up.</p>
+
+<pre><code class="language-python">from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
+
+clf = QuadraticDiscriminantAnalysis()
+clf.fit(train[['Lag2']], train['trend'])
+y_predict = clf.predict(test[['Lag2']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [ 0 43]
+Up  [ 0 61]
+</code></pre>
+
+<p>(g) Repeat (d) using KNN with K = 1.</p>
+
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>49.04%</b>.</p>
+
+<pre><code class="language-python">from sklearn.neighbors import KNeighborsClassifier
+
+neigh = KNeighborsClassifier(n_neighbors=1)
+neigh.fit(train[['Lag2']], train['trend'])
+y_predict = neigh.predict(test[['Lag2']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['trend'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [21 22]
+Up  [31 30]
+</code></pre>
+
+<p>(h) Which of these methods appears to provide the best results on this data?</p>
+
+<p><b>Sol:</b> The logistic regression and LDA have the minimum error rate.</p>
+
+<p>Q11. In this problem, you will develop a model to predict whether a given car gets high or low gas mileage based on the Auto data set.</p>
+
+<pre><code class="language-python">auto = pd.read_csv(&quot;data/Auto.csv&quot;)
+auto.dropna(inplace=True)
+auto = auto[auto['horsepower'] != '?']
+auto['horsepower'] = auto['horsepower'].astype(int)
+auto.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>ford torino</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>(a) Create a binary variable, mpg01, that contains a 1 if mpg contains a value above its median, and a 0 if mpg contains a value below its median.</p>
+
+<pre><code class="language-python">auto['mpg01'] = np.where(auto['mpg']&gt;=auto['mpg'].median(), 1, 0)
+auto.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>mpg01</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>chevrolet chevelle malibu</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>buick skylark 320</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>plymouth satellite</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>amc rebel sst</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>ford torino</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>(b) Explore the data graphically in order to investigate the association between mpg01 and the other features. Which of the other features seem most likely to be useful in predicting mpg01? Scatterplots and boxplots may be useful tools to answer this question. Describe your findings.</p>
+
+<p><b>Sol:</b> The scatterplot of the data is shown below. As mpg01 with value 1 is shown with orange and value 0 is shown with blue, it is evident that certain combinations of predictors are present which can be used to model a classifier with high accuracy. For example, if we take a look at the scatter plot of weight and accelaration, it can be noted that the observations are decently segregated based on class.</p>
+
+<pre><code class="language-python">sns.pairplot(auto, vars=['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration',
+                         'year', 'origin'], hue='mpg01')
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_69_2.png" alt="">
+
+
+<p>&copy; Split the data into a training set and a test set.</p>
+
+<pre><code class="language-python">msk = np.random.rand(len(auto)) &lt; 0.8
+train = auto[msk]
+test = auto[~msk]
+print(&quot;Length of training data: &quot; +str(len(train)))
+print(&quot;Length of test data: &quot; +str(len(test)))
+</code></pre>
+
+<pre><code>Length of training data: 311
+Length of test data: 81
+</code></pre>
+
+<p>(d) Perform LDA on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>.</p>
+
+<pre><code class="language-python">clf = LinearDiscriminantAnalysis()
+clf.fit(train[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']], train['mpg01'])
+y_predict = clf.predict(test[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [32  3]
+Up  [ 0 46]
+</code></pre>
+
+<p>(e) Perform QDA on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>97.53%</b>.</p>
+
+<pre><code class="language-python">clf = QuadraticDiscriminantAnalysis()
+clf.fit(train[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']], train['mpg01'])
+y_predict = clf.predict(test[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 1 45]
+</code></pre>
+
+<p>(f) Perform logistic regression on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>.</p>
+
+<pre><code class="language-python">from sklearn.linear_model import LogisticRegression
+
+clf = LogisticRegression()
+clf.fit(train[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']], train['mpg01'])
+y_predict = clf.predict(test[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 2 44]
+</code></pre>
+
+<p>(g) Perform KNN on the training data, with several values of K, in order to predict mpg01. Use only the variables that seemed most associated with mpg01 in (b). What test errors do you obtain? Which value of K seems to perform the best on this data set?</p>
+
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>. The optimal value of K is 20. On further increasing the value, no improvement is achieved.</p>
+
+<pre><code class="language-python">K_values = [1, 2, 4, 8, 15, 20, 30, 50, 100]
+for k in K_values:
+    neigh = KNeighborsClassifier(n_neighbors=k)
+    neigh.fit(train[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']], train['mpg01'])
+    y_predict = neigh.predict(test[['cylinders', 'displacement', 'horsepower', 'weight', 'acceleration', 'year']])
+
+    print(&quot;\t\t Confusion Matrix for K = &quot; +str(k))
+    print(&quot;\t Down Up(Predicted)&quot;)
+    print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[0]))
+    print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['mpg01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix for K = 1
+     Down Up(Predicted)
+Down    [33  2]
+Up  [ 5 41]
+         Confusion Matrix for K = 2
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 6 40]
+         Confusion Matrix for K = 4
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 6 40]
+         Confusion Matrix for K = 8
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 2 44]
+         Confusion Matrix for K = 15
+     Down Up(Predicted)
+Down    [33  2]
+Up  [ 2 44]
+         Confusion Matrix for K = 20
+     Down Up(Predicted)
+Down    [33  2]
+Up  [ 1 45]
+         Confusion Matrix for K = 30
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 2 44]
+         Confusion Matrix for K = 50
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 2 44]
+         Confusion Matrix for K = 100
+     Down Up(Predicted)
+Down    [34  1]
+Up  [ 2 44]
+</code></pre>
+
+<p>Q13. Using the Boston data set, fit classification models in order to predict whether a given suburb has a crime rate above or below the median. Explore logistic regression, LDA, and KNN models using various subsets of the predictors. Describe your findings.</p>
+
+<p><b>Sol:</b> From the scatterplot it is identified that the predictors that can be used to model the classifier are: &lsquo;zn&rsquo;, &lsquo;chas&rsquo;, &lsquo;nox&rsquo;, &lsquo;rm&rsquo;, &lsquo;age&rsquo;, &lsquo;dis&rsquo;, &lsquo;black&rsquo;, &lsquo;lstat&rsquo;, &lsquo;medv&rsquo;.</p>
+
+<p>The test prediction accuracy for <b>logistic regression is 81.48%</b>. The test prediction accuracy for <b>LDA is 81.48%</b>. The test prediction accuracy for <b>LDA is 77.78%</b>. The test prediction accuracy for <b>KNN (K=120) is 82.41%</b>.</p>
+
+<pre><code class="language-python">boston = pd.read_csv(&quot;data/Boston.csv&quot;)
+boston['crime01'] = np.where(boston['crim']&gt;=boston['crim'].median(), 1, 0)
+boston.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>crim</th>
+      <th>zn</th>
+      <th>indus</th>
+      <th>chas</th>
+      <th>nox</th>
+      <th>rm</th>
+      <th>age</th>
+      <th>dis</th>
+      <th>rad</th>
+      <th>tax</th>
+      <th>ptratio</th>
+      <th>black</th>
+      <th>lstat</th>
+      <th>medv</th>
+      <th>crime01</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00632</td>
+      <td>18.0</td>
+      <td>2.31</td>
+      <td>0</td>
+      <td>0.538</td>
+      <td>6.575</td>
+      <td>65.2</td>
+      <td>4.0900</td>
+      <td>1</td>
+      <td>296</td>
+      <td>15.3</td>
+      <td>396.90</td>
+      <td>4.98</td>
+      <td>24.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.02731</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>6.421</td>
+      <td>78.9</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>396.90</td>
+      <td>9.14</td>
+      <td>21.6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.02729</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>7.185</td>
+      <td>61.1</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>392.83</td>
+      <td>4.03</td>
+      <td>34.7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.03237</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>6.998</td>
+      <td>45.8</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>394.63</td>
+      <td>2.94</td>
+      <td>33.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.06905</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>7.147</td>
+      <td>54.2</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>396.90</td>
+      <td>5.33</td>
+      <td>36.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<pre><code class="language-python">sns.pairplot(boston, vars=['zn', 'indus', 'chas', 'nox', 'rm',
+                         'age', 'dis', 'rad', 'tax', 'ptratio', 'black', 'lstat', 'medv'], hue='crime01')
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_82_2.png" alt="">
+
+
+<pre><code class="language-python">msk = np.random.rand(len(boston)) &lt; 0.8
+train = boston[msk]
+test = boston[~msk]
+print(&quot;Length of training data: &quot; +str(len(train)))
+print(&quot;Length of test data: &quot; +str(len(test)))
+</code></pre>
+
+<pre><code>Length of training data: 398
+Length of test data: 108
+</code></pre>
+
+<pre><code class="language-python">clf = LogisticRegression()
+clf.fit(train[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']], train['crime01'])
+y_predict = clf.predict(test[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [40  6]
+Up  [14 48]
+</code></pre>
+
+<pre><code class="language-python">clf = LinearDiscriminantAnalysis()
+clf.fit(train[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']], train['crime01'])
+y_predict = clf.predict(test[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [43  3]
+Up  [17 45]
+</code></pre>
+
+<pre><code class="language-python">clf = QuadraticDiscriminantAnalysis()
+clf.fit(train[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']], train['crime01'])
+y_predict = clf.predict(test[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']])
+
+print(&quot;\t\t Confusion Matrix&quot;)
+print(&quot;\t Down Up(Predicted)&quot;)
+print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[0]))
+print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down    [40  6]
+Up  [18 44]
+</code></pre>
+
+<pre><code class="language-python">K_values = [1, 2, 4, 8, 15, 20, 30, 50, 100, 120, 150]
+for k in K_values:
+    neigh = KNeighborsClassifier(n_neighbors=k)
+    neigh.fit(train[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']], train['crime01'])
+    y_predict = neigh.predict(test[['zn', 'chas', 'nox', 'rm', 'age', 'dis', 'black', 'lstat', 'medv']])
+
+    print(&quot;\t\t Confusion Matrix for K = &quot; +str(k))
+    print(&quot;\t Down Up(Predicted)&quot;)
+    print(&quot;Down \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[0]))
+    print(&quot;Up \t&quot; + str(confusion_matrix(y_true=test['crime01'], y_pred=y_predict)[1]))
+</code></pre>
+
+<pre><code>         Confusion Matrix for K = 1
+     Down Up(Predicted)
+Down    [40  6]
+Up  [17 45]
+         Confusion Matrix for K = 2
+     Down Up(Predicted)
+Down    [42  4]
+Up  [29 33]
+         Confusion Matrix for K = 4
+     Down Up(Predicted)
+Down    [42  4]
+Up  [22 40]
+         Confusion Matrix for K = 8
+     Down Up(Predicted)
+Down    [42  4]
+Up  [19 43]
+         Confusion Matrix for K = 15
+     Down Up(Predicted)
+Down    [41  5]
+Up  [19 43]
+         Confusion Matrix for K = 20
+     Down Up(Predicted)
+Down    [42  4]
+Up  [20 42]
+         Confusion Matrix for K = 30
+     Down Up(Predicted)
+Down    [43  3]
+Up  [17 45]
+         Confusion Matrix for K = 50
+     Down Up(Predicted)
+Down    [41  5]
+Up  [19 43]
+         Confusion Matrix for K = 100
+     Down Up(Predicted)
+Down    [38  8]
+Up  [12 50]
+         Confusion Matrix for K = 120
+     Down Up(Predicted)
+Down    [38  8]
+Up  [11 51]
+         Confusion Matrix for K = 150
+     Down Up(Predicted)
+Down    [38  8]
+Up  [12 50]
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/classification_part3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/classification_part3/">ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/resampling-methods_part1/">ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/resampling-methods_part1/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

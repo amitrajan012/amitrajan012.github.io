@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Statistical Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy)</h1>
+  <h2>ISLR Statistical Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>05 May 2018, 07:11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/statistical-learning">Statistical Learning</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="2-2-assessing-model-accuracy">2.2 Assessing Model Accuracy</h3>
+
+<p>No one statistical learning method dominates all other over all possible data sets. Hence it is an important task to decide that for any given data set which model fits best.</p>
+
+<h4 id="2-2-1-measuring-the-quality-of-fit">2.2.1 Measuring the Quality of Fit</h4>
+
+<p>In the <b>regression</b> setting, the most commonly used measure for quality of fit is <b>mean squared error (MSE)</b>, which is given as:</p>
+
+<p>$$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</p>
+
+<p>where $\widehat{f}(x_i)$ is the prediction for the $i$th observation. MSE will be small if the predicted responses are very close to the true responses. While training a model, <b>training MSE</b> is of lesser significance. We should be more interested in <b>test MSE</b>, which is the MSE for the previously unseen test observation not used to train the model. When the test data is available, we can simply compute test MSE and select the model which has the lowest test MSE. In the absence of test data, the basic approach is to simply select a model with the lowest training MSE. Below figure shows the MSE of test and train data for a model.</p>
+
+
+<img class="pure-img" src="https://www.example.com/img/Statistical%20Learning_files/MSE.png" alt="">
+
+
+<p>In the right image, the grey curve shows training MSE and the red one test MSE. The <b>horizontal dashed line</b> indicates $Var(\epsilon)$, which is the lowest achievable test MSE amongst all methods. It is to be noted that as we increase <b>flexibility (degree of freedom)</b>, training MSE reduces but test MSE tends to increase after a certain point. So the blue curve on the left, which, although has a higher training MSE is the bset fit for the data.</p>
+
+<p>The right hand side figure shows a fundamental property of a statistical model irrespective of the data set or the statistical methods being used. When a small method yields a small training MSE but a large test MSE, we are <b>overfitting</b> the data.</p>
+
+<p>There are various approaches that can be used to find the best model (or find the minimum point) by analysing test MSE. One important method is <b>cross-validation</b>, which is a method for estimating test MSE using the training data.</p>
+
+<h4 id="2-2-2-the-bias-variance-trade-off">2.2.2 The Bias-Variance Trade-Off</h4>
+
+<p>The expected test MSE for a given value $x_0$ can always be decomposed into the sum of three fundamental quantities: <b>variance of $\widehat{f}(x_0)$</b>, <b>the squared bias of $\widehat{f}(x_0)$</b> and the variance of the <b>error term $\epsilon$</b>.</p>
+
+<p>$$E(y_0 - \widehat{f}(x_0))^{2} = Var(\widehat{f}(x_0)) + [Bias(\widehat{f}(x_0))]^{2} + Var(\epsilon)$$</p>
+
+<p>Here the notion $E(y_0 - \widehat{f}(x_0))^{2}$ defines the <b>expected test MSE</b> and refers to the average test MSE that would be obtained if we repeatedly estimated $f$ using a large number of training sets ane tested each at $x_0$. The overall expected test MSE can be computed by averaging it over all possible values of $x_0$ in the test set.</p>
+
+<p>In order to minimize the expected test error, we need to select a statistical learning method that simultaneously achieves <b>low variance</b> and <b>low bias</b>.</p>
+
+<p><b>Variance</b> refers to the amount by which $\widehat{f}$ would change if we estimated it using a different training data. If a statistical method ($\widehat{f})$ has high variance, small change in the training data can result in a largr change in $\widehat{f}$. <b>More flexible statistical methods have higher variance.</b></p>
+
+<p><b>Bias</b> refers to the error that is introduced by approximating a real-life problem, which may be extremely complicated, by a much simpler model. Generally, <b>more flexible methods result in less bias.</b></p>
+
+<p>As we use more flixible methods, <b>variance will increase and bias will decrease.</b> As we increase the flexibility of a statistical method, <b>the bias tends to initially decrease faster than the variance increases,</b> and hence the test MSE declines. Below figure illustrates the bias-variance tradeoff (with increasing flexibility) for the example shown above. Blue curve represents the squared bias, orange curve the variance and red curve the test MSE. It should be noted that as we increase the flexibility, bias decreases and variance increases. This phenomenon is referred to as <b>bias-variance tradeoff</b>, as it is easy to obtain a method with extremely low bias but high variance or a method with very low variance but high bias.</p>
+
+
+<img class="pure-img" src="https://www.example.com/img/Statistical%20Learning_files/Bias%20Variance%20Tradeoff.png" alt="">
+
+
+<h4 id="2-2-3-the-classification-setting">2.2.3 The Classification Setting</h4>
+
+<p>The most common approach for quantifying the accuracy of the estimate $\widehat{f}$ in the classification setting is the <b>training error rate</b>, defined as the proportion of mistakes that are made if we apply our estimate $\widehat{f}$ to the training observations:</p>
+
+<p>$$\frac{1}{n}\sum_{i=1}^{n} I(y_i \neq \widehat{y_i})$$</p>
+
+<p>where $\widehat{y_i}$ is the predicted class label for the $i$th observation and $I(y_i \neq \widehat{y_i})$ is the <b>indicator variable</b> that equals 1 if $y_i \neq \widehat{y_i}$. Hence, <b>the above equation computes the fraction of incorrect classifications.</b> Similarly, the <b>test error rate</b> associated with the test observations of the form $(x_0, y_0)$ can be calculated as:</p>
+
+<p>$$Ave(I(y_0 \neq \widehat{y_0}))$$</p>
+
+<h4 id="the-bayes-classifier">The Bayes Classifier</h4>
+
+<p>In the classification setting, the test error rate can be minimized on an average by a simple classifier that <b>assign each observations to the most likely class, given its predictor values.</b> We can simply assign a test observation with predictor value $x_0$ to the class $j$ for which</p>
+
+<p>$$Pr(Y=j \ | \  X = x_0)$$</p>
+
+<p>is largest. This classifier is called as <b>Bayes Classifier.</b> In a two class classifier, Bayes classifier predicts the class <b>1</b>, if $Pr(Y=1 \ | \  X = x_0) &gt; 0.5$, and class <b>2</b> otherwise. The boundary that divides the data set into classes (when probability of being in different classes is equal) is called as the <b>Bayes decision boundary</b>.</p>
+
+<p>The Bayes classifier produces the lowest possible test error rate called as the <b>Bayes error rate.</b> Since the bayes classifier will always choose the class for which the probability is maximum, the error rate at $X = x_ 0$ will be
+$1 - max_{j}Pr(Y=j \ | \ X=x_0)$. Hence, overall bayes error rate is given as:</p>
+
+<p>$$1 - E(max_{j}Pr(Y=j \ | \ X=x_0)),$$</p>
+
+<p>where exception averages the probability over all possible values in $X$.</p>
+
+<h4 id="k-nearest-neighbors">K-Nearest Neighbors</h4>
+
+<p>For real data, we do not know the conditional distribution of Y given X and hence computing Bayes Classifier is impossible. Many approaches attempt to estimate the <b>conditional distribution of Y given X</b> and then classify a given observation to the calss with highest estimated probability. One such method is called the <b>K-nearest neighbors (KNN) classifier</b>.</p>
+
+<p>Given a positive integer <b>K</b> and a test observation $x_0$, the KNN classifier first identifies the $K$ points in the training data that are closest to $x_0$, represented by $N_0$. It then estimates the conditional probability of class $j$ as the fraction of points in $N_0$ whose response values equal $j$:</p>
+
+<p>$$Pr(Y = j \ | \ X = x_0) = \frac {1}{K} \sum _{i \in N_0}I(y_i = j)$$</p>
+
+<p>Finally, KNN applies Bayes rule and classifies the test observation $x_0$ to the class with the largest probability.</p>
+
+<p>Despite the fact that it is a very simple approach, KNN can often produce classifiers that are surprisingly close to the optimal Bayes classifier. <b>Choice of K has a drastic effect on KNN classifier.</b> Below figure shows the effect of K on <b>KNN decision boundary</b>. When <b>K=1</b>, KNN classifier is highly flexible and find patterns in the data that don&rsquo;t correspond to the Bayes decision boundary. Hence, <b>lower value of K corresponds to a classifier that has low bias but very high variance.</b> As K grows, the method becomes less flexible and produces a decision boundary that is close to linear. <b>Higher value of K corresponds to a low-variance but high-bias classifier.</b> For KNN, <b>1\K</b> serves as a measure of flexibility. As K decreases, 1\K increases and hence flexibility increases.</p>
+
+
+<img class="pure-img" src="https://www.example.com/img/Statistical%20Learning_files/KNN.png" alt="">
+
+
+<p><b>In both the regression and classification settings, choosing the correct level of flexibility is critical to the success of any statistical learning method. The bias-variance tradeoff, and the resulting U-shape in the test error, can make this a difficult task.</b></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/statistical-learning_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/statistical-learning_part1/">ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/statistical-learning_part3/">ISLR Chapter 2: Statistical Learning (Part 3: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/statistical-learning_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logistic Regression on Your site title</title>
+    <link>https://www.example.com/tags/logistic-regression/</link>
+    <description>Recent content in Logistic Regression on Your site title</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 13 May 2018 02:17:58 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.example.com/tags/logistic-regression/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</title>
+      <link>https://www.example.com/post/classification_part1/</link>
+      <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
+      
+      <guid>https://www.example.com/post/classification_part1/</guid>
+      <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
+4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
+    </item>
+    
+  </channel>
+</rss>

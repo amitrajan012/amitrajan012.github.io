@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Think Stats: Chapter 6">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Think Stats: Chapter 6 &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Think Stats: Chapter 6</h1>
+  <h2>Think Stats: Chapter 6</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>26 Aug 2018, 16:27</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/think-stats">Think Stats</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/think-stats">Think Stats</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/skewness">Skewness</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/random-variables">Random Variables</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/convolution">Convolution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/central-limit-theorem">Central limit Theorem</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="6-1-skewness">6.1 Skewness</h3>
+
+<p><b>Skewness</b> is a statistic that measures the assymetry of a distribution. Sample skewness is defined as:</p>
+
+<p>$$Skewness = \frac{Mean\ Cubed\ Deviation}{Mean\ Squared\ Deviation^{\frac{3}{2}}}$$</p>
+
+<p>Negative skewness means that the distribution skews left and positive skewness means that the distribution is skewed to right. <b>Outliers</b> have a disproportionate effect on skewness.</p>
+
+<p>Another way to evaluate the asymmetry of a distribution is to compare mean and median. For distributions that skews left, mean is less than the median. This statistic is denoted by <b>Pearson&rsquo;s Median Skewness Coefficient</b> which is given as:</p>
+
+<p>$$Pearson&rsquo;s\ Median\ Skewness\ Coefficient = 3\frac{(Mean \ - \ Median)}{\sigma}$$</p>
+
+<p><b>Exercise 6.1: </b>Compute the skewness for the distributions of pregnancy length and birth weight. Are the results consistent with the shape of the distributions? Compute PearsonSkewness as well and compare the results.</p>
+
+<pre><code class="language-python">import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import math
+
+def skewness(x):
+    mean = x.mean()
+    m2 = np.mean(np.power((x - mean), 2))
+    m3 = np.mean(np.power((x - mean), 3))
+    g1 = m3 / math.pow(m2, 1.5)
+    return g1
+
+def pearson_skewness(x):
+    mean = x.mean()
+    std = x.std()
+    median = np.median(x)
+    return 3*(mean - median) / std
+
+# Reference to extract the columns: http://greenteapress.com/thinkstats/survey.py
+pregnancies = pd.read_fwf(&quot;2002FemPreg.dat&quot;,
+                         names=[&quot;caseid&quot;, &quot;nbrnaliv&quot;, &quot;babysex&quot;, &quot;birthwgt_lb&quot;,
+                               &quot;birthwgt_oz&quot;, &quot;prglength&quot;, &quot;outcome&quot;, &quot;birthord&quot;,
+                               &quot;agepreg&quot;, &quot;finalwgt&quot;],
+                         colspecs=[(0, 12), (21, 22), (55, 56), (57, 58), (58, 60),
+                                (274, 276), (276, 277), (278, 279), (283, 285), (422, 439)])
+
+lengths = pregnancies[pregnancies['outcome'] == 1]['prglength'].dropna()
+weights = pregnancies[pregnancies['outcome'] == 1][['birthwgt_lb', 'birthwgt_oz']].dropna()
+weights = weights['birthwgt_lb']*16 + weights['birthwgt_oz']
+
+l1 = &quot;Skewness : &quot; +  str(skewness(lengths)) + &quot;\n&quot; + &quot;Pearson Skewness: &quot; + str(pearson_skewness(lengths))
+
+fig = plt.figure(figsize=(15,6))
+ax = fig.add_subplot(121)
+sns.distplot(lengths, label=l1, kde=False, norm_hist=True,
+             hist_kws={&quot;alpha&quot;: 0.5, 'cumulative': False})
+ax.set_xlabel('Pregnancy Length')
+ax.set_ylabel('Probability')
+ax.set_title('PMF of Pregnancy Lengths (live births)')
+ax.legend()
+
+l2 = &quot;Skewness : &quot; +  str(skewness(weights)) + &quot;\n&quot; + &quot;Pearson Skewness: &quot; + str(pearson_skewness(weights))
+
+ax = fig.add_subplot(122)
+sns.distplot(weights, label=l2, kde=False, norm_hist=True,
+             hist_kws={&quot;alpha&quot;: 0.5, 'cumulative': False})
+ax.set_xlabel('Weights(oz)')
+ax.set_ylabel('Probability')
+ax.set_title('PMF of birth weights (live births)')
+ax.legend()
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_3_1.png" alt="">
+
+
+<p><b>Exercise 6.3:</b> What fraction of the population reports a taxable income below the mean for the IRS data? Compute the median, mean, skewness and Pearson’s skewness of the income data. Because the data has been binned, you will have to make some approximations.</p>
+
+<p><b>Solution:</b> Mean and median suggests that the data is right skewed. Skewness confirms this</p>
+
+<pre><code class="language-python">income_dist = [(0, 2489989), (2500, 11638707), (7500, 12139638),
+               (12500, 11702056), (17500, 11076002), (22500, 9866247),
+               (27500, 8743581), (35000, 14554280), (45000, 11087123),
+               (62500, 19196461), (87500, 11729485), (150000, 13851341),
+               (350000, 3476747), (750000, 577618), (1250000, 140635),
+               (1750000, 59460), (3500000, 86329), (7500000, 21390),
+               (15000000, 13480)]
+population = []
+for income, count in income_dist:
+    l = [income] * count
+    population.extend(l)
+population = np.array(population)
+</code></pre>
+
+<pre><code class="language-python">print(&quot;Mean of the income distribution is: &quot; +str(np.mean(population)))
+print(&quot;Median of the income distribution is: &quot; +str(np.median(population)))
+print(&quot;Skewness of the income distribution is: &quot; +str(skewness(population)))
+print(&quot;Pearson's Skewness of the income distribution is: &quot; +str(pearson_skewness(population)))
+</code></pre>
+
+<pre><code>Mean of the income distribution is: 61983.03958687592
+Median of the income distribution is: 35000.0
+Skewness of the income distribution is: 42.45022874829252
+Pearson's Skewness of the income distribution is: 0.3809114874445705
+</code></pre>
+
+<h3 id="6-2-random-variables">6.2 Random Variables</h3>
+
+<p><b>Random Variable</b> represents a process that generates a random number. Formal definition of Cumulative Distribution Function (CDF) is (CDF of a random variable X evaluated for a particular value x):</p>
+
+<p>$$CDF_{X}(x) = P(X \leq x)$$</p>
+
+<p><b>Exercise 6.4:</b> Write a definition for a class that represents a random variable with a Gumbel distribution (see <a href="http://wikipedia.org/wiki/Gumbel_distribution">http://wikipedia.org/wiki/Gumbel_distribution</a>).</p>
+
+<pre><code class="language-python">from scipy.stats import gumbel_r, gumbel_l
+
+x = np.linspace(gumbel_r.ppf(0.01), gumbel_r.ppf(0.99), 1000)
+fig = plt.figure(figsize=(15,6))
+ax = fig.add_subplot(121)
+ax.plot(x, gumbel_r.pdf(x), 'r-', lw=5, alpha=0.6, label='gumbel_r pdf')
+ax.set_xlabel('x')
+ax.set_ylabel('PDF')
+ax.set_title('PDF for Gumbel Distribution(right skewed with 0 mean)')
+ax.legend()
+
+ax = fig.add_subplot(122)
+ax.plot(x, gumbel_l.pdf(x), 'r-', lw=5, alpha=0.6, label='gumbel_l pdf')
+ax.set_xlabel('x')
+ax.set_ylabel('PDF')
+ax.set_title('PDF for Gumbel Distribution(left skewed with 0 mean)')
+ax.legend()
+
+print(&quot;Random Variate: &quot; +str(gumbel_r.rvs(loc=0, scale=1, size=0, random_state=None)))
+</code></pre>
+
+<pre><code>Random Variate: []
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_9_1.png" alt="">
+
+
+<h3 id="6-3-pdfs">6.3 PDFs</h3>
+
+<p>The derivative of CDF is called a <b>Probability Density Function (PDF)</b>. The PDF does not represent probability, they represent probability density. Probability is the area beneath the PDF curve and hence can be computed by integration as follows:</p>
+
+<p>$$P(\alpha \leq X \lt \beta) = \int_{\alpha}^{\beta}PDF _{X}(x)dx$$</p>
+
+<p>or since the CDF is the integral of PDF,</p>
+
+<p>$$P(\alpha \leq X \lt \beta) = CDF _{X}(\beta) - CDF _{X}(\alpha)$$</p>
+
+<p><b>Exercise 6.5:</b> What is the probability that a value chosen from an exponential distribution with parameter lambda falls between 1 and 20? Express your answer as a function of lambda.</p>
+
+<pre><code class="language-python">from scipy.stats import expon
+
+def calculate_probability_expon(x1, x2, l):
+    return expon.cdf(x2, loc=1, scale=1.0/l) - expon.cdf(x1, loc=1, scale=1.0/l)
+
+print(calculate_probability_expon(1, 20, 1))
+</code></pre>
+
+<pre><code>0.9999999943972036
+</code></pre>
+
+<p><b>Exercise 6.6:</b> In the BRFSS (see Section 4.5), the distribution of heights is roughly normal with parameters mean = 178 cm and variance = 59.4 cm for men, and mean = 163 cm and variance = 52.8 cm for women. In order to join Blue Man Group, you have to be male between 5’10” and 6’1”. What percentage of the U.S. male population is in this range?</p>
+
+<pre><code class="language-python">from scipy.stats import norm
+import math
+
+norm = norm(loc=178, scale=math.sqrt(59.4))
+prob = norm.cdf(185.42) - norm.cdf(177.8)
+print(&quot;Percentage of male population in range: %.3f&quot; % (prob * 100) + '%')
+</code></pre>
+
+<pre><code>Percentage of male population in range: 34.251%
+</code></pre>
+
+<h3 id="6-4-convolution">6.4 Convolution</h3>
+
+<p>Suppose X and Y are two random variables with their individual CDFs. A random variable Z is defined as Z = X+Y. The distribution of Z can be calculated as follows:</p>
+
+<p>To start, assume that the particular value of X is x. Then,</p>
+
+<p>$$P(Z&lt;z \ | \ X=x) = P(Y \leq z-x)$$</p>
+
+<p>$$P(Y \leq z-x) = CDF _{Y}(z-x)$$</p>
+
+<p>As value of x is unknown, we need to integrate for the entire range of x:</p>
+
+<p>$$P(Z \leq z) = \int_{-\infty}^{infty}P(Z&lt;z \ | \ X=x) \ PDF _{X}(x) \ dx $$</p>
+
+<p>$$P(Z \leq z) = \int _{-\infty}^{infty}CDF _{Y}(z-x) \ PDF _{X}(x) \ dx$$</p>
+
+<p>As the left side represents CDF of Z,</p>
+
+<p>$$CDF_{Z}(z) = \int _{-\infty}^{infty}CDF _{Y}(z-x) \ PDF _{X}(x) \ dx$$</p>
+
+<p>To find the PDF of Z, we can take the derivative w.r.t. z</p>
+
+<p>$$PDF _{Z}(z) = \int _{-\infty}^{infty}PDF _{Y}(z-x) \ PDF _{X}(x) \ dx$$</p>
+
+<p>Here the integral is convolution of the distributions and hence can be written as:</p>
+
+<p>$$PDF _{Z} = PDF _{Y} \circledast PDF _{X}$$</p>
+
+<p><b>Exercise 6.7:</b> If X has an exponential distribution with parameter lambda, and Y has an Erlang distribution with parameters k and lambda, what is the distribution of the sum Z = X + Y?</p>
+
+<p><b>Solution:</b> As X is an exponential distribution and Y and Erlang distribution, they can be represented as:</p>
+
+<p>$$PDF _{X} = \lambda e^{- \lambda x}$$</p>
+
+<p>$$PDF _{Y} = \frac{\lambda^{k} y^{k-1} e^{-\lambda y}}{(k-1)!}$$</p>
+
+<p>Hence,</p>
+
+<p>$$PDF _{Z} = \frac{e^{-\lambda z} \lambda^{k+1}}{(k-1)!}\int _{-\infty}^{\infty} (z-x)^{k-1} dx$$</p>
+
+<p><b>Exercise 6.9:</b> If you are given PMF objects, you can compute the distribution of the new RV by enumerating all pairs of values. Write a function that computes the PMF of Z = max(X, Y).</p>
+
+<pre><code class="language-python">from scipy.stats import norm
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+x_norm = norm(loc=2, scale=0.5)
+y_norm = norm(loc=1.75, scale=0.25)
+
+xs = x_norm.rvs(size=10000)
+ys = y_norm.rvs(size=10000)
+xs = np.sort(xs)
+ys = np.sort(ys)
+
+zs = []
+for idx, val in enumerate(xs):
+    zs.append(max(xs[idx], ys[idx]))
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+sns.kdeplot(zs, shade=True, label='max(X,Y)')
+sns.kdeplot(xs, shade=True, label='X')
+sns.kdeplot(ys, shade=True, label='Y')
+ax.set_xlabel('z = max(X, Y)')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of max(X, Y)')
+plt.show()
+
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_17_1.png" alt="">
+
+
+<h3 id="6-5-why-normal">6.5 Why Normal?</h3>
+
+<p><b>Normal distribution is closed under linear transformation and convolution.</b> This means that for a distribution Y = aX + b, where X is a normal distribution with mean $\mu$ and standard deviation $\sigma$, the distribution of Y is given as:</p>
+
+<p>$$Y \sim N(a\mu + b, \ a^{2}\sigma^{2})$$</p>
+
+<p>Similary for the distribution Z = X + Y, where X and Y are normal distribution, the distribution of Z is given as:</p>
+
+<p>$$Z \sim N(\mu _{X} + \mu _{Y}, \ \sigma _{X}^{2} + \sigma _{Y}^{2})$$</p>
+
+<p><b>Exercise 6.10:</b> If $X \sim N(\mu _{X}, \sigma _{X}^{2})$ and $Y \sim N(\mu _{Y}, \sigma _{y}^{2})$, what is the distribution of Z = aX + bY?</p>
+
+<p><b>Solution:</b> The distribution of Z is given as:
+$$Z \sim N(a\mu _{X} + b\mu _{Y}, \ a^{2}\sigma _{X}^{2} + b^{2}\sigma _{Y}^{2})$$</p>
+
+<p><b>Exerciese 6.11:</b> Choose a pair of distributions (any two of exponential, normal, lognormal, and Pareto) and choose parameters that make their mean and variance similar. Generate random numbers from these distributions and compute the distribution of their sums.</p>
+
+<pre><code class="language-python">from scipy.stats import norm
+from scipy.stats import expon
+import math
+
+mean = 10
+std = 10
+
+x_norm = norm(loc=mean, scale=std)
+xs = x_norm.rvs(size=10000)
+y_expon = expon(loc=mean, scale=std)
+ys = y_expon.rvs(size=10000)
+
+zs = []
+for idx, val in enumerate(xs):
+    zs.append(xs[idx] + ys[idx])
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(111)
+sns.kdeplot(xs, shade=True, label='X')
+sns.kdeplot(ys, shade=True, label='Y')
+sns.kdeplot(zs, shade=True, label='X+Y')
+ax.set_xlabel('z = X + Y')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of X + Y')
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_20_1.png" alt="">
+
+
+<h3 id="6-6-central-limit-theorem">6.6 Central limit Theorem</h3>
+
+<p><b>Central limit theorem</b> states that if we add large number of values from almost any distribution, the distribution of the sum converges to normal. More specifically, if the distribution of the values has mean and standard deviation $\mu$ and $\sigma$, the distribution of the sum is approximately $N(n\mu, \ n\sigma^{2})$. There are certain limitations to it which are stated as follows:</p>
+
+<ul>
+<li>The values have to be drawn independently.</li>
+<li>The values have to come from the same distribution (this can be relaxed).</li>
+<li>The values have to be drawn from the distribution with finite mean and variance.</li>
+<li>The number of values needed depends on the skewness of the distributions. Sums for exponential distribution converges for small sample size but for the lognormal distribution does not.</li>
+</ul>
+
+<p><b>Exercise 6.13:</b> Choose a distribution (one of exponential, lognormal or Pareto) and choose values for the parameter(s). Generate samples with sizes 2, 4, 8, etc., and compute the distribution of their sums. Use a normal probability plot to see if the distribution is approximately normal. How many terms do you have to add to see convergence?</p>
+
+<pre><code class="language-python">x_expon = expon(loc=10, scale=10)
+count = 1000
+y_2 = []
+y_4 = []
+y_10 = []
+y_100 = []
+for i in range(count):
+    ys = x_expon.rvs(size=2) # 2 samples drawn randomly from the distribution
+    y_2.append(np.sum(ys))
+    ys = x_expon.rvs(size=4) # 4 samples drawn randomly from the distribution
+    y_4.append(np.sum(ys))
+    ys = x_expon.rvs(size=4) # 10 samples drawn randomly from the distribution
+    y_10.append(np.sum(ys))
+    ys = x_expon.rvs(size=100) # 8 samples drawn randomly from the distribution
+    y_100.append(np.sum(ys))
+
+fig = plt.figure(figsize=(15, 8))
+ax = fig.add_subplot(221)
+sns.kdeplot(y_2, shade=True, label='Y', color=&quot;r&quot;)
+ax.set_xlabel('Z')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of Z (for 2 samples)')
+
+ax = fig.add_subplot(222)
+sns.kdeplot(y_4, shade=True, label='Y', color=&quot;r&quot;)
+ax.set_xlabel('Z')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of Z (for 4 samples)')
+
+ax = fig.add_subplot(223)
+sns.kdeplot(y_10, shade=True, label='Y', color=&quot;r&quot;)
+ax.set_xlabel('Z')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of Z (for 10 samples)')
+
+ax = fig.add_subplot(224)
+sns.kdeplot(y_100, shade=True, label='Y', color=&quot;r&quot;)
+ax.set_xlabel('Z')
+ax.set_ylabel('PDF')
+ax.set_title('PDF of Z (for 100 samples)')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_23_1.png" alt="">
+
+
+<p><b>In a nut shell, to get PMF from CDF, differences in cumulative probabilities can be computed. A PDF is the derivative of continuous CDF or CDF is the integral of PDF. But PDF maps the values to probability densities. To get the probability, we need to integrate PDF.</b></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/chapter-5---probability/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/chapter-5---probability/">Think Stats: Chapter 5</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/chapter-7---hypothesis-testing/">Think Stats: Chapter 7</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/chapter-7---hypothesis-testing/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

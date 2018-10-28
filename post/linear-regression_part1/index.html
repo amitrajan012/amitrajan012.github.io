@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Linear Regression">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</h1>
+  <h2>ISLR Linear Regression</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 May 2018, 02:18</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-regression">Linear Regression</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/simple-linear-regression">Simple Linear Regression</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h1><center>Linear Regression</center></h1>
+
+<p><b>Linear Regression</b> is a useful tool for predicting a quantitative response.</p>
+
+<h3 id="3-1-simple-linear-regression">3.1 Simple Linear Regression</h3>
+
+<p><b>Simple linear regression</b> is a straightforward approach for predicting a <b>quantitative response</b> on the basis of a single predictor variable. Mathematically it can be written as:</p>
+
+<p>$$Y \approx \beta_0 + \beta_1 X$$</p>
+
+<p>$\beta_0$ and $\beta_1$ represent intercept and slope and are called as <b>model coefficients or parameters.</b> The estimated equation is given as:</p>
+
+<p>$$\widehat{y} \approx \widehat{\beta_0} + \widehat{\beta_1} x$$</p>
+
+<p>where hat symbol is used to denote the estimated values.</p>
+
+<h4 id="3-1-1-estimating-the-coefficients">3.1.1 Estimating the Coefficients</h4>
+
+<p>The goal of linear regression is to find the estimate and slope such that the line is as close as possible to the data points. There are a number of ways of measuring <b>closeness</b>. The most common approach involves minimizing the <b>least square</b> criterion.</p>
+
+<p>Let $\widehat{y_i} \approx \widehat{\beta_0} + \widehat{\beta_1} x_i$ be the prediction for $i$th value of X, then $e_i = y_i - \widehat{y_i}$ represents the <b>$i$th residual</b>. We define the <b>residual sum of squares(RSS)</b> as:</p>
+
+<p>$$RSS = e_1^2 + e_2^2 + &hellip; + e_n^2$$</p>
+
+<p>The least square method chooses the coefficient to minimize RSS and are given as:</p>
+
+<p>$$\widehat{\beta_1} = \frac{\sum _{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}{\sum _{i=1}^{n}(x_i - \bar{x})^2} =
+\frac{Cov(X, Y)}{Var(X)}$$</p>
+
+<p>$$\beta_0 = \bar{y} - \widehat{\beta_1}\bar{x}$$</p>
+
+<p>where $\bar{y}$ and $\bar{x}$ are the sample means. Below figure shows the simple regression and residual plot for advertisement data (sales vs TV).</p>
+
+<pre><code class="language-python">import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+adv = pd.read_csv(&quot;data/Advertising.csv&quot;)
+
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(121)
+sns.regplot(x=&quot;TV&quot;, y=&quot;Sales&quot;, color='r', fit_reg=True, data=adv, order=1, scatter_kws={'alpha':0.4},
+            line_kws={'color':'g', 'alpha':0.7})
+ax.set_xlabel('TV')
+ax.set_ylabel('Sales')
+ax.set_title('Regression Plot')
+
+ax = fig.add_subplot(122)
+sns.residplot(x=&quot;TV&quot;, y=&quot;Sales&quot;, color='blue', data=adv, order=1, scatter_kws={'alpha':0.4},
+            line_kws={'color':'g', 'alpha':0.7})
+ax.set_xlabel('TV')
+ax.set_ylabel('Residual')
+ax.set_title('Residual Plot')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Linear%20Regression_files/1.png" alt="">
+
+
+<h4 id="3-1-2-assessing-the-accuracy-of-the-coefficient-estimates">3.1.2 Assessing the Accuracy of the Coefficient Estimates</h4>
+
+<p>True relationship between $X$ and $Y$ takes the form $Y = f(X) + \epsilon$, where $\epsilon$ is a <b>mean-zero random error term.</b> For the estimation of $f$ from a linear function, the relationship can be written as:</p>
+
+<p>$$Y = \beta_0 + \beta_1 X + \epsilon$$</p>
+
+<p>The model given by above equation represents <b>population regression line</b>, which is the best linear approximation to the true relationship between $X$ and $Y$. The <b>least square regression line</b> estimates the population regression line. Concept of these two lines is a natural extension of the standard statistical approach of using information from a sample to estimate characteristics of a large population.</p>
+
+<p>If we use averaged sample mean (average over a large set of samples) to estimate population mean, the estimation is <b>unbiased</b>. Similary if we average the estimates of the model coefficients over a huge number of data sets, then it will somewhat be an accurate estimation of population regression line.</p>
+
+<p><b>Standard error</b> in the estimation of population mean from the sample mean (when a single data set is used for estimation) is given as:</p>
+
+<p>$$Var(\widehat{\mu}) = SE(\widehat{\mu})^2 = \frac{\sigma^2}{n}$$</p>
+
+<p>If we use a single data set to estimate $\beta_0$ and $\beta_1$, the <b>standard errors</b> associated with them is given as:</p>
+
+<p>$$SE(\beta_0)^2 = \sigma^2 \Big[ \frac{1}{n} + \frac{\bar{x}^2}{\sum _{i=1}^{n}(x_i - \bar{x})^2} \Big]$$</p>
+
+<p>$$SE(\beta_1)^2 = \frac{\sigma^2}{\sum _{i=1}^{n}(x_i - \bar{x})^2}$$</p>
+
+<p>where $\sigma^2 = Var(\epsilon)$. From the formula, it can be observed that <b>error in slope is smaller if $x_i$s are more spread out.</b> We can also see that $SE(\widehat{\beta_0})$ will be equal to $SE(\widehat{\mu})$ if $\bar{x} = 0$.</p>
+
+<p>Standard errors can be used to compute <b>confidence intervals</b>. For linear regression, the 95% confidence interval takes the form:</p>
+
+<p>$$\widehat{\beta_i} \pm 2SE(\widehat{\beta_i})$$</p>
+
+<p>Standard errors can also be used to perform <b>hypothesis tests</b>. For linear regression, the hypothesis test can be defined as:</p>
+
+<ul>
+<li>$H_0$: There is no relationship between X and Y ($\beta_1 = 0$)</li>
+<li>$H_a$: There is some relatioship between X and Y ($\beta_1 \neq 0$)</li>
+</ul>
+
+<p>To test the null hypothesis $H_0$, we need to determine that whether $\widehat{\beta_1}$ is sufficiently far from 0. In practice, it can be determined by <b>t-statistic</b> which measures the number of standard deviations it is away from 0 and is given as:</p>
+
+<p>$$t = \frac{\widehat{\beta_1} - 0}{SE(\beta_1)}$$</p>
+
+<p>If there is no relationship between $X$ and $Y$, we expect that above equation will have a t-distribution with $n-2$ degrees of freedom. For large values of n(&gt;30), it is quite similar to normal distribution. The <b>p-value</b> measures the strength of the relationship. <b>If p-value is small, we can reject the null hypothesis</b> and can say that there is significant relationship between $X$ and $Y$.</p>
+
+<h4 id="3-1-3-assessing-the-accuracy-of-the-model">3.1.3 Assessing the Accuracy of the Model</h4>
+
+<p>The quality of linear regression fit is assessed using: the <b>residual standard error (RSE)</b> and the <b>$R^2$ statistic</b>.</p>
+
+<p><b>Residual Standard Error</b> is an estimate of the standard deviation of $\epsilon$. It is the average amount that the response will deviate from the true regression line. It is computed as (where <b>RSS</b> is residual sum of squares):</p>
+
+<p>$$RSE = \sqrt{\frac{1}{n-2} \sum_{i=1}^{n}(y_i - \widehat{y_i})^2} = \sqrt{\frac{1}{n-2} RSS}$$</p>
+
+<p>How much value of RSE is acceptable depends on the context.</p>
+
+<p><b>R$^2$ statistic</b> takes the form of proportion and takes value between 0 and 1 and hence is independent of the scale of $Y$. It is given as:</p>
+
+<p>$$R^2 = \frac{TSS-RSS}{TSS} = 1 - \frac{RSS}{TSS}$$</p>
+
+<p>where $TSS = \sum_{i=1}^{n}(y_i - \bar{y})$ is the <b>total sum of squares</b> or it can be termed as total variance in Y. For the interpretation, TSS can be interpreted as total variance in response Y before the regression is performed and RSS is the amount of variability that is left unexplained. Hence, $TSS-RSS$ is the amount of variability explained by the model. Hence, a <b>higher value of R$^2$ statistic (closer to 1) represents better fit.</b></p>
+
+<p><b>Correlation coefficient</b>, which is defined as:</p>
+
+<p>$$Cor(X, Y) = \frac{Cov(x, Y)}{\sigma_x \sigma_Y} =
+\frac{\sum _{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum _{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum _{i=1}^{n} (y_i - \bar{y})^2}}$$</p>
+
+<p>also measures linear relationship between two varibles $X$ and $Y$. It can be shown that the <b>the squared correlation coefficient</b>, $r^2 = R^2$ for linear regression, where $r^2 = Cor(X, Y)$.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/statistical-learning_part4/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/statistical-learning_part4/">ISLR Chapter 2: Statistical Learning (Part 4: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/linear-regression_part2/">ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/linear-regression_part2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

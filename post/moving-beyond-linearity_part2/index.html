@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Moving Beyond Linearity">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</h1>
+  <h2>ISLR Moving Beyond Linearity</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>28 May 2018, 11:12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/moving-beyond-linearity">Moving Beyond Linearity</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/regression-splines">Regression Splines</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="7-4-regression-splines">7.4 Regression Splines</h3>
+
+<p>Regression splines are flixible class of basis functions that extend upon polynomial and piecewise constant regression approaches.</p>
+
+<h4 id="7-4-1-piecewise-polynomials">7.4.1 Piecewise Polynomials</h4>
+
+<p><b>Piecewise polynomial regression</b> fits separate low-degree polynomials over different regions of $X$. For example, a piecewise squared polynomial fits squared regression model of the form</p>
+
+<p>$$y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \epsilon_i$$</p>
+
+<p>where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of the range of $X$. The points where the coefficients change are called <b>knots</b>. Each of the polynomial functions can be fit using least square methods. Increasing the number of knots will give a more flexible piecewise polynomial.</p>
+
+<h4 id="7-4-2-constraints-and-splines">7.4.2 Constraints and Splines</h4>
+
+<p>By using piecewise polynomial regression, the fitted curve on the data may have a <b>discontinuity at the knots</b> or we can say that the fitted curve is too flexible. Instead, we can fit a piecewise polynomial under the constraint that the fitted curve must be continuous. We can further add more constraints, such as, both the first and second derivatives of the piecewise polynomials must be continuous. <b>Each added constraint frees up one degree of freedom. and hence reducing the complexity of the resulting piecewise polynomial fit</b>. Hence by imposing three constraints of continuity, continuity of the first and second derivative, we reduce the degree of freedom of model by 3.</p>
+
+<p>A piecewise cubic polynomial function with three constraints(continuity, continuity of the first and second derivative) is called as <b>cubic spline</b>. The degree of freedom of cubic spline is $K+4$, where $K$ is the <b>number of knots</b>. It can be explained as: The left(or right) end of the polynomial has a degree of freedom 4(as we have to estimate 4 coefficients or parameters to fit a cubic spline). Each additional knot adds one parameter (as three imposed constraints leave one free parameter) and hence making a total of $K+4$ parameters for $K$ knots. In general, a <b>degree-d spline</b> is a piecewise degree-d polynomial with continuity in derivatives upto degree $d-1$ at each knot.</p>
+
+<h4 id="7-4-3-the-spline-basis-representation">7.4.3 The Spline Basis Representation</h4>
+
+<p>A cubic spline with $K$ knots can be modeled as:</p>
+
+<p>$$y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + &hellip; + \beta _{K+3} b _{K+3}(x_i) + \epsilon_i$$</p>
+
+<p>First of all, the equation can be interpreted as: the degree of freedom of a cubic spline is $K+4$ and hence we have to estimate $K+4$ parameters. After composing the equation, we need to formulate the <b>basis functions</b> $b_1, b_2, &hellip;, b _{K+3}$. As explained above, a cubic spline can be iterpreted as a polynomial function where left(or right) end has a degree of freedom 4 (as we need to fit a cubic polynomial without any constraint) giving the first three basis functions as $x, x^2$ and $x^3$. Then we have to add one degree of freedom (parameter) per knot, with the constraints of continuity and continuity of the first and second derivatives. This behaviour can be captured by adding one <b>truncated power basis function</b> per knot, which is given as:</p>
+
+<p>$$
+\begin{equation<em>}
+  h(x, \xi) = (x - \xi)^3 _+ = \left{
+  \begin{array}{@{}ll@{}}
+    y(x - \xi)^3, &amp; \text{if}\ x &gt; \xi <br />
+    0, &amp; \text{otherwise}
+  \end{array}\right.
+\end{equation</em>}
+$$</p>
+
+<p>where $\xi$ is the knot. Adding $\beta_ih(x, \xi)$ will lead to discontinuity only in the third derivative at $\xi$. Hence to fit a cubic spline to a data set with $K$ knots, we need to perform least squares regression to estimate an intercept and $3+K$ parameters for $X, X^2, h(X, \xi_1), h(X, \xi_2), &hellip;, h(X, \xi_K)$, where $\xi_1, \xi_2, &hellip;, \xi_K$ are the knots.</p>
+
+<p>Cubic splines have higher variance at the ends. A <b>natural spline</b> adds additional <b>boundary constraints</b>(requirement of being linear at boundaries, reducing 2 degree of freedom at each boundary) and hence reduce the variance, producing more stable estimates at boundaries.</p>
+
+<h4 id="7-4-4-choosing-the-number-and-locations-of-the-knots">7.4.4 Choosing the Number and Locations of the Knots</h4>
+
+<p>The regression spline is most flexible in the regions which have highest number of knots. One approach is to place higher number of knots in the regions where we feel that the function might vary the most. In practice, it is common to place knots in a uniform fashion. The number of knots can be decided by analyzing the curve visually or by cross-validation.</p>
+
+<h4 id="7-4-5-comparison-to-polynomial-regression">7.4.5 Comparison to Polynomial Regression</h4>
+
+<p>Regression splines give better results as compared to polynomial regression. Regression splines increase the fliexibility of the model by increasing the number of knots. As we increase the number of knots, we can place more knots in the regions where the function $f$ seems to change rapidly and fewer knots in the regions where it is stable. In polynomial regression, to increase the flexibility, we need to increase the degree of the polynomial. It may result in unstability and overfitting.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part1/">ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part3/">ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

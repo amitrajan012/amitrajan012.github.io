@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Support Vector Machines">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)</h1>
+  <h2>ISLR Support Vector Machines</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>23 Jun 2018, 04:19</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/support-vector-machines">Support Vector Machines</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/support-vector-machines">Support Vector Machines</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="9-3-support-vector-machines">9.3 Support Vector Machines</h3>
+
+<h4 id="9-3-1-classification-with-non-linear-decision-boundaries">9.3.1 Classification with Non-linear Decision Boundaries</h4>
+
+<p>Support vector classifiers, which are designed to work in the setting of linear decision boundary, can be extended to handle the case of non-linear decision boundary by enlarging the feature space using polynomial transformation of the predictors. For example, if we have a $p$-dimensional feature space given as: $X_1, X_2, &hellip;, X_p$, we could instead fit a support vector classifier using $2p$ features: $X_1, X_1^2, X_2, X_2^2, &hellip;, X_p, X_p^2$. In the transformed feature space, the decision boundary is still linear, but if we consider the original feature space, the decison boundary will be non-linear. There are many ways to enlarge the feature space, such as using higher order polynomials or using interaction terms.</p>
+
+<h4 id="9-3-2-the-support-vector-machine">9.3.2 The Support Vector Machine</h4>
+
+<p>The <b>support vector machine(SVM)</b> is an extension of support vector classifier by enlarging the feature space using <b>kernels</b>. For obtaining the solution of the support vector classifier problem, we only need to have the <b>inner products</b> of the observations. The inner product of the observations $x_i$ and $x _{i^{&lsquo;}}$ is given as:</p>
+
+<p>$$\langle x_i, x _{i^{&lsquo;}} \rangle = \sum _{j=1}^{p} x _{ij} x _{i^{&lsquo;}j}$$</p>
+
+<p>Linear support vector classifier can be represented as:</p>
+
+<p>$$f(x) = \beta_0 + \sum _{i=1}^{n} \alpha_i \langle x, x_i \rangle$$</p>
+
+<p>where $\alpha_i$s are a total of $n$ parameters, one per training observation. To estimate the parameters $\beta_0, \alpha_1, &hellip;, \alpha_n$, we need to compute ${n}\choose{2}$ inner products for each combination of training observation. It turns out that if the training observation is <b>not a support vector</b>, the $\alpha_i$ is 0. Hence, $\alpha_i$s are non-zero only for support vectors. Hence, the solution can be rewritten in the form</p>
+
+<p>$$f(x) = \beta_0 + \sum _{i \in S} \alpha_i \langle x, x_i \rangle$$</p>
+
+<p>where $S$ is the set containing the indices of the support vectors.</p>
+
+<p>A <b>kernel</b> is a function that <b>quantifies the similarity of two observations</b>. Inner product can be considered as a kernel and hence can be represented as:</p>
+
+<p>$$K(x_i, x _{i^{&lsquo;}}) = \sum _{j=1}^{p} x _{ij} x _{i^{&lsquo;}j}$$</p>
+
+<p>The above equation is a <b>linear kernel</b> as the support vector classifiers are linear in features. Linear kernel quantifies the similarity of a pair of observation using <b>Pearson (standard) correlation</b>. A kernel of the form:</p>
+
+<p>$$K(x_i, x _{i^{&lsquo;}}) = \bigg(1 + \sum _{j=1}^{p} x _{ij} x _{i^{&lsquo;}j} \bigg)^d$$</p>
+
+<p>is called as <b>polynomial kernel</b> of degree $d$. Using polynomial kernel in a support vector classifier leads to a much more flexible decision boundary. When a support vector classifier is combined with a non-linear kernal it is known as <b>support vector machine</b>. In this case, the function has the form:</p>
+
+<p>$$f(x) = \beta_0 + \sum _{i \in S} \alpha_i K(x, x _{i})$$</p>
+
+<p>Apart from polynomial kernel, another popular choice for non-linear kernel is <b>radial kernel</b>, which is given as:</p>
+
+<p>$$K(x_i, x _{i^{&lsquo;}}) = exp \bigg( - \gamma \sum _{j=1}^{p} (x _{ij} - x _{i^{&lsquo;}j})^2 \bigg)$$</p>
+
+<p>where $\gamma$ is a positive constant. The intution behind working of radial kernel is as follows:</p>
+
+<p><b><center>For the training observations which are far from the given test observation $x^*$, the Euclidean distance will be large and hence the overall value of $K(x^*, x_i)$ will be small and hence $x_i$ will play virtually no role in $f(x^*)$. In other words, training observations that are far from $x^*$ will play almost no role in the predicted class label for $x^*$ and hence the radial kernel shows a local behaviour.</center></b></p>
+
+<p>One advantage of using kernel instead of using enlarged feature space is the less computational complexity as we just need to compute ${n} \choose {2} $ values of $K(x_i, x _{i^{&lsquo;}})$.</p>
+
+<h3 id="9-4-svms-with-more-than-two-classes">9.4 SVMs with More than Two Classes</h3>
+
+<p>SVM can be extended for more than two classes by the methods: <b>one-versus-one</b> and <b>one-versus-all</b>.</p>
+
+<h4 id="9-4-1-one-versus-one-classification">9.4.1 One-Versus-One Classification</h4>
+
+<p>A <b>one-versus-one</b> or <b>all-pairs</b> classification process builds ${K} \choose {2}$ SVMs, each of which compares a pair of classes. A test observation is classified using each of the ${K} \choose {2}$ classifiers. The final classification is done by assigning the test observation to the class it was most frequently assigned by all of these ${K} \choose {2}$ classifiers.</p>
+
+<h4 id="9-4-2-one-versus-all-classification">9.4.2 One-Versus-All Classification</h4>
+
+<p>In <b>one-versus-all</b> approach, $K$ SVMs are fit, each time comparing one of the $K$ classes to remaining $K-1$ classes. The test observation is assigned to the class for which the value of $f(x^*)$ is the largest.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/support-vector-machines_part2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/support-vector-machines_part2/">ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/support-vector-machines_part4/">ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/support-vector-machines_part4/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

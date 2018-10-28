@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Linear Regression">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</h1>
+  <h2>ISLR Linear Regression</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>10 May 2018, 10:28</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-regression">Linear Regression</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exercises">Exercises</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/conceptual">Conceptual</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h4 id="3-7-exercises">3.7 Exercises</h4>
+
+<h4 id="conceptual">Conceptual</h4>
+
+
+<img class="pure-img" src="https://www.example.com/img/Linear%20Regression_files/Q3.3.png" alt="">
+
+
+<p><b>Solution:</b> The linear fit can be given as:</p>
+
+<p>$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$</p>
+
+<p>(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$. For the salary of male to be higher, $50 + 20GPA &gt; 85 + 10GPA$, i.e. $GPA &gt; 3.5$.</p>
+
+<p>Hence, the true statement is: <b>For a fixed value of IQ and GPA, males earn more on average than females provided that the GPA is high enough.</b></p>
+
+<p>(b) The prediction is 137.1 and hence the salary will be $137100.</p>
+
+<p>&copy; <b>False</b>. We need to test the hypothesis for the coefficient to be equal to 0.</p>
+
+<p><b>Solution 4:</b> (a) As the true relationship between $X$ and $Y$ is linear, there is a chance that the RSS of training data for the linear model will be lower. But as the RSS highly depends on the distribution of points, there is a chance that the polynomial regression can overfit the points and hence can results in lower RSS.</p>
+
+<p>(b) Test RSS for the linear model should be lower as the test data should follow the linear curve.</p>
+
+<p>&copy; The polynomial regression, being the more flexible one will follow the training data more closely and hence resulting in lower training RSS.</p>
+
+<p>(d) For the test data, we can not conclude anything without observing the data.</p>
+
+<p><b>Solution 5:</b> $a_i^{&lsquo;}$ can be calculated as:</p>
+
+<p>$$a_i^{&lsquo;} = \frac{x_i x_i^{&lsquo;}}{\sum _{k=1}^{n}x_k^2}$$</p>
+
+<p><b>Solution 6:</b> The least square line can be denoted as:</p>
+
+<p>$$y = \widehat{\beta_0} + \widehat{\beta_1}x$$</p>
+
+<p>Substituting $\bar{x}$ and replacing the optimal value of $\beta_0$, we get:</p>
+
+<p>$$y = \widehat{\beta_0} + \widehat{\beta_1}\bar{x} = (\bar{y} - \widehat{\beta_1}\bar{x}) + \widehat{\beta_1}\bar{x} = \bar{y}$$</p>
+
+<p><b>Solution 7:</b> Assumption: $\bar{x} = 0, \bar{y} = 0$. The correlation is given as:</p>
+
+<p>$$r = \frac{\sum _{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum _{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum _{i=1}^{n} (y_i - \bar{y})^2}} = \frac{\sum _{i=1}^{n}(x_i)(y_i)}{\sqrt{\sum _{i=1}^{n} (x_i)^2} \sqrt{\sum _{i=1}^{n} (y_i)^2}}$$</p>
+
+<p>R-statistic is given as (Replacing $\bar{y} = 0, \beta_0 = 0$):</p>
+
+<p>$$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum _{i=1}^{n} (\widehat{y_i} - y_i)^2}{\sum _{i=1}^{n} (y_i - \bar{y})^2}
+ = 1 - \frac{\sum _{i=1}^{n} (\widehat{y_i} - y_i)^2}{\sum _{i=1}^{n} (y_i)^2} =  1 - \frac{\sum _{i=1}^{n}(\beta_0 + \beta_1 x_i - y_i)^2}{\sum _{i=1}^{n} (y_i)^2} = 1 - \frac{\sum _{i=1}^{n} (\beta_1 x_i - y_i)^2}{\sum _{i=1}^{n} (y_i)^2}$$</p>
+
+<p>$\beta_1$ is given as:</p>
+
+<p>$$\beta_1 = \frac{\sum _{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}{\sum _{i=1}^{n}(x_i - \bar{x})^2} =
+\frac{\sum _{i=1}^{n} x_i y_i}{\sum _{i=1}^{n}(x_i)^2}$$</p>
+
+<p>Replacing $\beta_1$ in the above equation and solving we get,</p>
+
+<p>$$R^2 = \frac{\sum_i (y_i)^2 - (\sum_i (y_i)^2 + \sum_i (\beta_1x_i)^2 - \sum_i{2\beta_1 x_i y_i})}{\sum_i (y_i)^2}
+= \frac{\sum_i{2\beta_1 x_i y_i} - \sum_i (\beta_1x_i)^2}{\sum_i (y_i)^2} = r^2$$</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/linear-regression_part3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/linear-regression_part3/">ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/linear-regression_part5/">ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/linear-regression_part5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

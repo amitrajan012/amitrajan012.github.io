@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Tree-Based Methods">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting)</h1>
+  <h2>ISLR Tree-Based Methods</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>13 Jun 2018, 13:04</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/tree-based-methods">Tree-Based Methods</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/bagging">Bagging</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/random-forests">Random Forests</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/boosting">Boosting</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="8-2-bagging-random-forests-boosting">8.2 Bagging, Random Forests, Boosting</h3>
+
+<h4 id="8-2-1-bagging">8.2.1 Bagging</h4>
+
+<p>The decision trees discussed above suffers from a problem of <b>high variance</b>. <b>Bootstrap aggregation</b> or <b>bagging</b> is a procedure that reduces the variance of a statistical learning method.</p>
+
+<p>Give a set of $n$ independent observation sets $Z_1, Z_2, &hellip;, Z_n$, each with variance $\sigma^2$, the variance of the mean $\bar{Z}$ is given by $\sigma^2/n$, i.e. <b>averaging a set of observations reduces variance</b>. Hence, a natural way to reduce the variance of a statistical model is to take many training samples from the population, fit individual models on them, and give the average of them as the final model. Hence, we can calculate $\widehat{f}^1(x), \widehat{f}^2(x), &hellip;, \widehat{f}^B(x)$ using $B$ seperate training sets, and finally obtain the low variance statistical model as:</p>
+
+<p>$$\widehat{f} _{avg}(x) = \frac{1}{B} \sum _{b=1}^{B} \widehat{f}^b(x)$$</p>
+
+<p>As we don&rsquo;t have access to different training sets, the above decribed process is not feasible. Instead, we can bootstrap, taking repeated samples from the same training set (sampling with replacement), and then take the average of the individual models as the final one</p>
+
+<p>$$\widehat{f} _{bag}(x) = \frac{1}{B} \sum _{b=1}^{B} \widehat{f}^{*b}(x)$$</p>
+
+<p>This procedure is called <b>bagging</b>. Bagging can improve the predictions of the decision trees dramatically. To apply bagging to regression trees, we construct $B$ regression trees (<b>not pruned</b>) using $B$ bootstrapped training sets and average them as the final predictions. Each individual tree has high variance and low bias and averaging them reduces the variance. In the case of qualitative response variable, the prediction can be decided by <b>majority vote</b>, the overall prediction is the most common occurring class among the $B$ predictions. The number of trees $B$ is not a critical parameter, as increasing $B$ will not lead to overfitting. A value of $B$ is choosen for which test error stabalizes (almost stops reducing).</p>
+
+<h5 id="out-of-bag-error-estimation">Out-of-Bag Error Estimation</h5>
+
+<p>As it turns out that in the bootstrap procedure, each bagged tree uses only <sup>2</sup>&frasl;<sub>3</sub> of the observations. This can be proved as: The chance of a sample getting not selected is $1-1/n$, where $n$ is total number of samples. Hence, the probability of a sample not being selected in each draw is $(1-1/n)^n$. As $n \to \infty$, this value tends to $1/e$ which is $\frac{1}{3}$. These one-third of the samples which is not used to fit the given bagged tree is called as <b>out-of-bag (OOB)</b> observations.</p>
+
+<p>Hence, the $i$th observation will be OOB in a total of $B/3$ trees. The prediction of the $i$th observation is the average of these $B/3$ predictions of the trees in which it is OOB. An OOB prediction can be obtained for each of the $n$ observations, from which the overall <b>OOB MSE</b> (for regression problem) or classification error rate (for classification problem) can be computed. This OOB error can serve as a valid estimate for the test error.</p>
+
+<h5 id="variable-importance-measures">Variable Importance Measures</h5>
+
+<p>Bagging improves the prediction accuracy but the interpretation of the resulting model is quite difficult. Hence, bagging improves prediction accuracy at the expense of interpretability. Instead, we can obtain an overall summary of the importance of each of the predictor using the RSS (for regression), or the Gini index (for classification). For the bagging regression trees, we can obtain the overall decrease in RSS averaged over all the $B$ trees due to splits over a given predictor. This can serve as a measure of <b>variable importance</b>.</p>
+
+<h4 id="8-2-2-random-forests">8.2.2 Random Forests</h4>
+
+<p><b>Random forests</b> provide an improvement over bagged trees by <b>decorrelating</b> the trees. In bagging, for the splits of the bagged tree, a <b>random sample of $m$ predictors</b> out of $p$ is chosen as the split candidates. Typically, $m$ is chosen as $m \approx \sqrt{p}$. Hence, in the case of bagged trees, if there is a strong predictor, there is a chance that most of the bagged trees will use this predictor for the top split. Hence, the resulting bagged trees can be highly correlated. Averaging highly correlated items does not result in higher reduction in variance compared to the averaging of uncorrelated items.</p>
+
+<p>Random forests overcome this problem by forcing each split to consider only a <b>subset of predictors</b>. Hence, on an average $(p-m)/p$ of the trees will not even consider the strong predictor for the split. As a result, the produced trees will be <b>decorrelated</b>, making the average less variable and hence more reliable.</p>
+
+<p>When we have a large number of correlated predictors, using a small value of $m$ will lead to more reliable predictions. Like bagging, random forests will <b>not</b> lead to overfitting if we increase the value of $B$.</p>
+
+<h4 id="8-2-3-boosting">8.2.3 Boosting</h4>
+
+<p>Like bagging, <b>boosting</b> is a general approach that can be applied to many statistical learning methods for regression and classification. In bagging, each tree is built on a a bootstrap data set, independent of other trees. Boosting works in a similar way, except that the trees are grown <b>sequentially</b> (each tree is grown using the information from previously grown trees). Boosting does not involbe bootstrap sampling, instead, each tree is fit on a modified version of origianl data set. Boosting algorithm for regression trees is as follows:</p>
+
+<ul>
+<li><p>Set $\widehat{f}(x) = 0$ and $r_i = y_i$ for all $i$ in the training set, where $r_i$ is the individual residual.</p></li>
+
+<li><p>For $b=1,2,&hellip;, B$, repeat</p>
+
+<p>(a) Fit a tree $\widehat{f}^b$ with $d$ splits, i.e. $d+1$ terminal nodes to the new training data $(X, r)$.</p>
+
+<p>(b) Update $\widehat{f}$ by adding a shrunken version of the new tree:</p>
+
+<p>$$\widehat{f}(x) = \widehat{f}(x) + \lambda \widehat{f}^b(x)$$</p>
+
+<p>&copy; Update the residual as:</p>
+
+<p>$$r_i = r_i - \lambda \widehat{f}^b(x_i)$$</p></li>
+
+<li><p>Output the boosted model:</p>
+
+<p>$$\widehat{f}(x) = \sum_{b=1}^{B} \lambda \widehat{f}^b(x)$$</p></li>
+</ul>
+
+<p>In boosting instead of fitting response, we fit the <b>current residuals</b> and then update the current residuals by subtracting the explained part of the residual by the model and repeat the procedure further. Hence, the boosting approach <b>learns slowly</b>. Each of the fitted model (trees) will be small depending on the split parameter $d$. By fitting small trees to the residuals, we slowly improve the model in the area it does not perform well. The shrinkage parameter $\lambda$ slows the process further down.</p>
+
+<p>Boosting has three tuning parameters:</p>
+
+<ul>
+<li><p>The number of trees $B$. Unlike bagging, a larger value of $B$ can result in overfitting. Appropriate value of $B$ is selected by cross-validation.</p></li>
+
+<li><p>The <b>shrinkage parameter</b> $\lambda$, a small positive number, controls the rate of learning of the boosting algorithm. Typical values are 0.01 or 0.001 and depends on the problem. For a small value of $\lambda$, the value of $B$ needed is large.</p></li>
+
+<li><p>The number of splits $d$ controls the complexity of the boosted ensemble. $d=1$ works well often, in which case each tree is a <b>stump</b>, consisting of a single split. In this case, the boosted ensemble is like an additive model. $d$ is often called as <b>interaction depth</b> as it controls the interaction order of the boosted model.</p></li>
+</ul>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/tree-based-methods_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/tree-based-methods_part1/">ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/tree-based-methods_part3/">ISLR Chapter 8: Tree-Based Methods (Part 3: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/tree-based-methods_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

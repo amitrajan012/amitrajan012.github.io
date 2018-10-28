@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Classification">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</h1>
+  <h2>ISLR Classification</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>14 May 2018, 11:12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/classification">Classification</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/linear-discriminant-analysis">Linear Discriminant Analysis</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="4-4-linear-discriminant-analysis">4.4 Linear Discriminant Analysis</h3>
+
+<p>In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use <b>Bayes&rsquo; Theorem</b> to flip these around into estimates for <b>Pr(Y = k | X = x)</b>. When these distributions are assumed to be <b>normal</b>, this model is very similar to logistic regression. The advantage of LDA is as follows:</p>
+
+<ul>
+<li>Fro well-seperated classes, the parameter estimates for the logistic regression model are unstable.</li>
+<li>For small $n$ and the normal distribution of predictors $X$ for each classes, linear discriminant model is more stable.</li>
+<li>LDA is popular when we have more than two response classes.</li>
+</ul>
+
+<h4 id="4-4-1-using-bayes-theorem-for-classification">4.4.1 Using Bayes’ Theorem for Classification</h4>
+
+<p>Let $\pi_k$ represents the <b>prior probability</b> that a randomly chosen observation comes from the $k$th class and $f_k(X) = Pr(X=x \ | \ Y=k)$ is the <b>density function</b> of $X$ for an observation that comes from the $k$th class. From Bayes&rsquo; Theorem:</p>
+
+<p>$$Pr(Y=k|X=x) \ Pr(X=x) = Pr(X=x|Y=k) \ Pr(Y=k)$$</p>
+
+<p>$$Pr(Y=k|X=x) = \frac{Pr(X=x|Y=k) \ Pr(Y=k)}{Pr(X=x)}$$</p>
+
+<p>From the definition of prior probability, $\pi_k = Pr(Y=k)$ and $Pr(X=x)$ can be computed by summing/integrating $Pr(X=x|Y=l) \ Pr(Y=l)$ over l. Hence, the equation reduces to:</p>
+
+<p>$$p_k(X) = Pr(Y=k|X=x) = \frac{\pi_k \ f_k(X)}{Pr(X=x)} = \frac{\pi_k \ f_k(X)}{\sum _{l=1}^{k}\pi_lf_l(X)}$$</p>
+
+<p>Hence, $p_k(X)$ can be computed by plugging in the estimates of $\pi_k$ and $f_k(X)$. $\pi_k$ can be computed easily by taking the fraction of training samples that belong to the class-k. Estimating $f_k(X)$ is challenging. $p_k(X)$ is called as the <b>posterior probability</b> that observation $X=x$ belongs to the class-k, given the value of $X$. <b>Hence, if we can estimate $f_k(X)$, we can develop a classifier that approximates the Bayes classifier.</b></p>
+
+<h4 id="4-4-2-linear-discriminant-analysis-for-p-1">4.4.2 Linear Discriminant Analysis for p = 1</h4>
+
+<p>In order to estimate $f_k(X)$, we need to make some assumption about it&rsquo;s form. Let us assume that it takes <b>Normal / Gaussian form</b>. In one dimensional settings, normal distribution is given as:</p>
+
+<p>$$f_k(X) = \frac{1}{\sqrt{2\pi}\sigma_k} exp \bigg( {-\frac{1}{2\sigma_k^2}(x - \mu_k)^2} \bigg)$$</p>
+
+<p>where $\mu_k$ and $\sigma_k^2$ are the mean and variance for $k$th class. Let us assume that $\sigma_1^2 = \sigma_2^2 = &hellip; = \sigma_k^2 = \sigma^2$. Plugging this value, we get $p_k(X)$ as:</p>
+
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum _{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+
+<p>Bayes&rsquo; classifier assigns $X=x$ to the class for which $p_k(X)$ is maximum. Taking the log and removing the constant terms, we get:</p>
+
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+
+<p>which, we have to maximize (or we assign $X$ to the class for which this value is maximum). For <b>two-class case</b> (K=2), and assuming that the <b>prior probability of both the classes are same</b> ($\pi_1 = \pi_2$), we assign an observation to class-1 if :</p>
+
+<p>$$log(\pi_1) - \frac{\mu_1^2}{2\sigma^2} + x.\frac{\mu_1}{\sigma^2} &gt;
+log(\pi_2) - \frac{\mu_2^2}{2\sigma^2} + x.\frac{\mu_2}{\sigma^2}$$</p>
+
+<p>$$2x(\mu_1 - \mu_2) &gt; \mu_1^2 - \mu_2^2$$</p>
+
+<p>Hence, for this case, the <b>bayes decision boundary corresponds to</b></p>
+
+<p>$$x = \frac{\mu_1^2 - \mu_2^2}{2(\mu_1 - \mu_2)} = \frac{\mu_1 + \mu_2}{2}$$</p>
+
+<p>For example, for two classes 1 and 2, with the normal density functions $f_1(X)$ and $f_2(X)$ with $\mu_1 = -1, \mu_2 = 1, \sigma^2 = 1$, the bayes decision boundary is $x=0$. Hence, the Bayes classifier will assign the observation to class 1 if $x<0$ and class 2 otherwise. <b>In real life scenario, we can not calculate the Bayes classifier as we do not have the knowledge of the distribution within classes.</b></p>
+
+<p><b>LDA</b> approximates the Bayes classifier by estimating $\pi_k, \mu_k$ and $\sigma^2$. In particular, following estimates are used:</p>
+
+<p>$$\mu_k = \frac{1}{n_k} \sum _{i:y_i=k}x_i$$</p>
+
+<p>$$\sigma^2 = \frac{1}{n-K}\sum _{k=1}^{K}\sum _{i:y_i=k}(x_i - \mu_k)^2$$</p>
+
+<p>$$\pi_k = \frac{n_k}{n}$$</p>
+
+<p>The estimate of $\mu_k$ is the average of all the training observations from the $k$th class. The above estimates are plugged in the following <b>discriminant function</b> and probability for each of the classes is computed.</p>
+
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+
+<p>The word linear stems from the fact that the <b>discriminant function is linear in x</b>.</p>
+
+<h4 id="4-4-3-linear-discriminant-analysis-for-p-1">4.4.3 Linear Discriminant Analysis for p &gt;1</h4>
+
+<p>LDA classifier can be extended for the case of p predictors. For this we assume that $X=(X_1, X_2, &hellip;, X_p)$ is drawn from a <b>multivariate Gaussian</b>. Multivariate Gaussian assumes that each individual predictor follows a one-dimensional normal distribution, with some correlation between them. Below figure shows multivariate Gaussian distribution for 2 predictors. For the left figure, the two variables are uncorrelated. There is some correlation in the right hand side distribution.</p>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/MultivariateGaussian.png" alt="">
+
+
+<p>The height of the surface at any point represents the probability of both $X_1$ and $X_2$ falling in the region around the point. The left figure has $Var(X_1) = Var(X_2)$ and $Cor(X_1, X_2) = 0$ and has a <b>bell shape</b>. The bell shape will be distorted if the predictors are correlated or have unequal variances. A multivariate Gaussian can be denoted as $X \sim N(\mu, \Sigma)$, where $E(X) = \mu$ is the mean of $X$ (a p-dimensional vector) and $Cov(X) = \Sigma$ is the $p\times p$ covariance matrix of $X$. The <b>discriminant function</b> for multivariate Gaussian can be devised by replacing $\mu_k^2$ with $\mu_k^T\mu_k$ and $\frac{1}{\sigma^2}$ with $\Sigma^{-1}$:</p>
+
+<p>$$\delta_k(X) = log(\pi_k) - \frac{1}{2}\mu_k^T \Sigma^{-1} \mu_k + x^T \Sigma^{-1} \mu_k$$</p>
+
+<p>We can estimate the unknown parameters for this in the same way as for the single parameter. The following code performs a LDA for default data with balnce and student as parameter. The error rate for the model on training data is <b>2.75%</b>. This sounds like a low erroe rate, but as only 3.33% individuals in the training data are defaulters, the trivial <b>null classifier</b> will achieve an error rate of 3.33%, which is just higher than the LDA classifier.</p>
+
+<p>The overall performance of the classifier can be analysed using <b>confusion matrix</b>. For a binary classifier, confusion matrix consists of <b>true positive(TP), flase positive(FP), true negative(TN) and false negative(FN)</b>. If we analyze the performance of the classifier based on the parameter that whether it detects the defaulter correctly, the error rate is $\frac{252}{81+252} = 75.7 \%$, which is very high.</p>
+
+<p><b>Sensitivity</b> can be defined as the percentage of the true defaulters that are identified ($\frac{TP}{TP+FN}$), which is $\frac{81}{81+252} = 24.3 \%$. <b>Specificity</b> is the precentage of non-defaulters that are correctly identifies ($\frac{TN}{TN+FP}$), which is $\frac{9644}{9644+23} = 99.8 \%$. The LDA has an overall decent accuracy but somehow it does not meet the need of the credit card company. The credit card company should be more interested in correctly classifying the defaulters.</p>
+
+<p>LDA as an extension of the Bayes classifier, works on the basis of threshold value of 0.5(fro two class case) as:</p>
+
+<p>$$Pr(default = Yes | X = x) &gt; 0.5$$</p>
+
+<p>If we lower this threshold, $Pr(default = Yes | X = x) &gt; 0.2$, the sensitivity can be improved. In this case, the sensitivity comes out to be:</p>
+
+<p>$$\frac{TP}{TP+FN} = \frac{195}{195+138} = 58.6 \%$$</p>
+
+<p>However this improvement comes at a cost of increasing the overall error rate. The plot below shows the error rate vs threshold. It can be seen that as the threshold increases, error decreases. The choice of threshold can be done based on the <b>domain knowledge</b>.</p>
+
+<pre><code class="language-python">from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+from sklearn.metrics import confusion_matrix
+
+default = pd.read_excel(&quot;data/Default.xlsx&quot;)
+default['student'] = default['student'].map({'Yes': 1, 'No': 0})
+default['default'] = default['default'].map({'Yes': 1, 'No': 0})
+
+clf = LinearDiscriminantAnalysis()
+clf.fit(default[['student', 'balance']], default['default'])
+y_predict = clf.predict(default[['student', 'balance']])
+print(&quot;Error Rate for LDA: &quot; + str(100 - clf.score(default[['student', 'balance']], default['default'])*100))
+tn, fp, fn, tp = confusion_matrix(y_true=default['default'], y_pred=y_predict).ravel()
+print(&quot;(tn, fp, fn, tp):&quot; + str((tn, fp, fn, tp)))
+</code></pre>
+
+<pre><code>Error Rate for LDA: 2.75
+(tn, fp, fn, tp):(9644, 23, 252, 81)
+</code></pre>
+
+<pre><code class="language-python"># LDA with different threshold
+probs = clf.predict_proba(default[['student', 'balance']])[:, 1]
+prediction = probs &gt; 0.2
+tn, fp, fn, tp = confusion_matrix(y_true=default['default'], y_pred=prediction).ravel()
+print(&quot;(tn, fp, fn, tp):&quot; + str((tn, fp, fn, tp)))
+</code></pre>
+
+<pre><code>(tn, fp, fn, tp):(9432, 235, 138, 195)
+</code></pre>
+
+<pre><code class="language-python"># Error rate with different thresholds
+import numpy as np
+thresholds = np.random.uniform(0.0,0.6,1000)
+error_rate = {}
+for t in thresholds:
+    prediction = probs &gt; t
+    e = (len(prediction) - np.sum(prediction == default['default']))/ len(prediction)
+    error_rate[t] = e
+
+lists = sorted(error_rate.items())
+x, y = zip(*lists)
+
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+plt.plot(x, y, color='r')
+ax.set_xlabel('Thrreshold')
+ax.set_ylabel('Error')
+ax.set_title('Error vs Threshold')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_30_0.png" alt="">
+
+
+<p>The <b>ROC Curve</b> is a popular graphic to display the two types of errors for all possible thresholds. The overall performance of a classifier, summarized over all possible thresholds, is given by the <b>area under the ROC Curve (AUC).</b> Larger the AUC, better the classifier. Hence an ideal ROC curve will hug the top left corner. ROC curves are useful for comparing different classifiers as they take into account all the possible threshold values. The ROC curve is the plot of <b>True positive rate(sensitivity)</b> vs <b>False positive rate (1-specificity)</b> for the possible values of thresholds. The ROC curve for the default data is shown below.</p>
+
+<pre><code class="language-python">roc = {}
+for t in thresholds:
+    prediction = probs &gt; t
+    tn, fp, fn, tp = confusion_matrix(y_true=default['default'], y_pred=prediction).ravel()
+    sensitivity = tp / (tp + fn)
+    specificity = tn / (tn + fp)
+    roc[1-specificity] = sensitivity
+
+lists = sorted(roc.items())
+x, y = zip(*lists)
+
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+plt.plot(x, y, color='g')
+ax.set_xlabel('False Positive Rate (1 - specificity)')
+ax.set_ylabel('True Positive Rate (sensitivity)')
+ax.set_title('ROC Curve')
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Classification_files/Classification_32_0.png" alt="">
+
+
+<h4 id="4-4-4-quadratic-discriminant-analysis">4.4.4 Quadratic Discriminant Analysis</h4>
+
+<p>Like LDA, the <b>Quadratic discriminant analysis (QDA)</b> classifier assumes that the observations from each class are drawn from the Gaussian distribution and plugs estimates into Bayes&rsquo; theorem to predict. But QDA assumes that <b>each class has its own covariance matrix</b>. The resultant discriminant function is quadratic in $x$.</p>
+
+<p>$$\delta_k(x) = log(\pi_k) - \frac{1}{2}\mu_k^T \Sigma_k^{-1} \mu_k - \frac{1}{2}x^T \Sigma_k^{-1} x + x^T \Sigma_k^{-1} \mu_k$$</p>
+
+<p>LDA is sometimes preferred over QDA as predicting variances of the individual classes is a cumbersome task. LDA is much less flexible classifier and hence has low variance. But the LDA&rsquo;s assumption that all the classes share the same variance, makes LDA carry a high bias. <b>LDA performs better than QDA if there are fewer training samples.</b></p>
+
+<h3 id="4-5-a-comparison-of-classification-methods">4.5 A Comparison of Classification Methods</h3>
+
+<p>The logistic regression and LDA methods are closely connected. The only difference between the two models is the fact that the parameters of the logistic regression is estimated using <b>maximum likelihood</b>, while for LDA, parameters are computed using the estimated mean and variance of a Gaussian distribution. LDA assumes that the obesrvations are drawn fron a normal distribution with a common covariance matrix for each class. If this assumption holds true, LDA outperforms logistic regression. Logistic regression can outperform LDA if these assumptions are not true.</p>
+
+<p><b>KNN</b> is a completely non-parametric approach as it makes no assumption about the shape of the distribution. KNN dominates over LDA and logistic regression when the decision boundary is highly non-linear. One drawback of KNN is the fact that it does not tell about the importance of individual predictors.</p>
+
+<p><b>QDA</b> assumes a quadratic decision boundary and hence can model a wider range of problems than the linear methods. Not as flexible as KNN, QDA can perfrom better in the presence of a limited number of training observations.</p>
+
+<p>In a nutshell, <b>when the true decision boundary is linear, LDA and logistic regression methods will tend to perform better. When the boundary is moderately non-linear, QDA may give better results. For a much more complicated decision boundaries, a non-parametric approach such as KNN can perform bettre. The level of smootheness for a non-parametric approach needs to be chosen carefully though.</b></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/classification_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/classification_part1/">ISLR Chapter 4: Classification (Part 1: Logistic Regression)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/classification_part3/">ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/classification_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

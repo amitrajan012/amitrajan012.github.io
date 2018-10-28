@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Tree-Based Methods">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees)</h1>
+  <h2>ISLR Tree-Based Methods</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>11 Jun 2018, 17:07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/tree-based-methods">Tree-Based Methods</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/decision-trees">Decision Trees</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h1><center>Tree-Based Methods</center></h1>
+
+<p><b>Tree-based</b> methods <b>stratify</b> or <b>segment</b> the predictor space into a number of simple regions. To make a prediction, we use the <b>mean</b> or the <b>mode</b> of the training observations in the region in which the observation to be predicted belongs. The set of splitting rules can be summarized via a tree, these methods are also known as <b>decision tree</b> methods. <b>Bagging, random forests</b> and <b>boosting</b> produce multiple trees and then combine them in a single model to make the prediction. They provide improved accuracy at the cost of interpretability.</p>
+
+<h3 id="8-1-the-basics-of-decision-trees">8.1 The Basics of Decision Trees</h3>
+
+<h4 id="8-1-1-regression-trees">8.1.1 Regression Trees</h4>
+
+<h5 id="predicting-baseball-players-salaries-using-regression-trees">Predicting Baseball Players’ Salaries Using Regression Trees</h5>
+
+<p>The regression tree which predicts the salary of baseball players is shown below. Regression tree consists of a series of splitting rules and stratifies or segments the players into three regions :</p>
+
+<p>$$R_1 = {X \ | Years &lt; 4.5}$$</p>
+
+<p>$$R_2 = {X \ | Years \geq 4.5, Hits &lt; 117.5}$$</p>
+
+<p>$$R_3 = {X \ | Years \geq 4.5, Hits \geq 117.5}$$</p>
+
+
+<img class="pure-img" src="https://www.example.com/img/Tree-Based%20Methods_files/decision_tree.png" alt="">
+
+
+<p>The regions $R_1, R_2, R_3$ are known as <b>terminal nodes</b> or <b>leaves</b>. The points along the tree where the predictor space is split is called as <b>internal nodes</b>. The segments of the tree which connect the nodes are called <b>branches</b>. Regression trees are easier to interpret.</p>
+
+<h5 id="prediction-via-stratification-of-the-feature-space">Prediction via Stratification of the Feature Space</h5>
+
+<p>The regression tree can be build by:</p>
+
+<ul>
+<li><p>Dividing the predictor space $X_1, X_2, &hellip;, X_p$ into $J$ <b>distinct</b> and <b>non-overlapping</b> regions $R_1, R_2, &hellip;, R_J$.</p></li>
+
+<li><p>Every observation that falls into region $R_j$, the prediction is simply the mean of the training observations in the region.</p></li>
+</ul>
+
+<p>Theoretically, the regions can have any shape. In practice, the regions are divided into high dimensional rectangles for simplicity and ease of interpretation. The goal is to find the regions $R_1, R_2, &hellip;, R_J$ that minimizes</p>
+
+<p>$$\sum _{j=1}^{J}\sum _{i \in R_j} (y_i - \widehat{y _{R_j}})^2$$</p>
+
+<p>where $\widehat{y_{R_j}}$ is the <b>mean</b> of the training observation in the $j$th box. Predictors are split into regions by <b>top-down greedy approach</b> which is known as <b>recursive binary splitting</b>.</p>
+
+<p>In recursive binary splitting, we first select a predictor $X_j$ and a <b>cutpoint</b> $s$, such that splitting the predictor space into region ${X|X_j &lt; s}$ and ${X|X_j \geq s}$ leads to the greatest possible reduction in RSS. We consider all possible predictors $X_1, X_2, &hellip;, X_p$, and all possible cutpoints $s$ for each of the predictors and then choose the predictor and cutpoint that leads to lowest possible RSS. To be more specific, for any $j$ and $s$, the pair of half-planes are defined as:</p>
+
+<p>$$R_1(j, s) = {X|X_j &lt; s}$$</p>
+
+<p>$$R_2(j, s) = {X|X_j \geq s}$$</p>
+
+<p>and hence, we need to find the value of $j$ and $s$ which minimizes</p>
+
+<p>$$\sum _{i: x_i \in R_1(j, s)} (y_i - \widehat{y _{R_1}})^2 + \sum _{i: x_i \in R_2(j, s)} (y_i - \widehat{y _{R_2}})^2$$</p>
+
+<p>This process continues until a stopping criteria is reached (such as no regions contain more than 5 observations).</p>
+
+<h5 id="tree-pruning">Tree Pruning</h5>
+
+<p>The process described above may lead to more complex trees and hence can result in overfitting. A smaller tree with fewer splits may lead to low variance and better at the cost of a little bias. One possible approach is to decide a threshold for decrease in RSS and split the tree only if that threshold is met. But there may be a case when seemingly worthless split early on may be followed by a good split that leads to a greater reduction in RSS. Hence a better approach is needed which build a large tree first and then <b>prune</b> it later to get a <b>subtree</b>. One way to prune the tree is by estimating test error for every possible subtrees (by crossvalidation) and then select the one which has the minimum test error. But this can be a cumbersome task as there can be a huge number of subtrees.</p>
+
+<p><b>Cost complexity pruning</b> or <b>weakest link pruning</b> instead considers a sequence of subtrees indexed by a nonnegative tuning parameter $\alpha$. For each value of $\alpha$, there exists a subtree $T \subset T_0$ such that</p>
+
+<p>$$\sum _{m=1}^{|T|}\sum _{x_i \in R_m} (y_i - \widehat{y _{R_m}})^2 + \alpha \ \big|T \big|$$</p>
+
+<p>is as small as possible. Here |T| indicates the number of inernal nodes in the tree T. The tuning parameter $\alpha$ controls the trade-off between the subtree&rsquo;s fit to the training data and complexity. When $\alpha = 0$, the the subtree T will be equal to the largest tree $T_0$. When $\alpha$ increases, the subtrees with larger number of internal nodes will be penalized giving a smaller subtree as the fit. If we increase $\alpha$ from 0, branches get pruned out from the tree in a <b>nested and predictable fashion</b> and hence this entire process is quite efficient. The algorithm is as follows:</p>
+
+<ul>
+<li><b>Step 1</b>: Use recursive binary splitting to obtain $T_0$.</li>
+<li><b>Step 2</b>: Use cost complexity pruning to obtain a sequence of best subtrees as a function of $\alpha$.</li>
+<li><b>Step 2</b>: Use K-fold crossvalidation and repeat Step 1 and 2 for all but the $k$th fold of the training data and obtain the validation MSE for the left-out $k$th fold for $k=1,2,3,&hellip;,K$. Finally pick $\alpha$ for whihc validation MSE is minimized.</li>
+<li><b>Step 4</b>: Return the subtree from Step 2 which corresponds to the chosen value of $\alpha$.</li>
+</ul>
+
+<h4 id="8-1-2-classification-trees">8.1.2 Classification Trees</h4>
+
+<p>A <b>classification tree</b> is similar to a regression tree but instead of giving the mean of the regions as its prediction, it gives the <b>most commonly occuring class</b> of the training observations in the region as its prediction. For the interpretation purpose, in addition to the prediction, we may be interested in the <b>class proportions</b> for training observations in the regions as well.</p>
+
+<p>Recursive binary spliiting can be used to build a classification tree as well. In a classification setting, we can not use RSS as a criterion for making the binary splits. Instead, we use <b>classification error rate</b>. Classification error for a region can be described as the fraction of the training observation that does not belong to the <b>most common class</b> for the region (mis-classified training observations). This can be given as:</p>
+
+<p>$$E = 1 - max_k( \widehat{p} _{mk})$$</p>
+
+<p>where $\widehat{p} _{mk}$ represents the proportion of the training observation in the $m$th region that belongs to the $k$th class. Classification error rate is not <b>sufficiently sensitive</b> for tree growing. <b>Gini index</b> is defined as:</p>
+
+<p>$$G = \sum _{k=1}^{K} \widehat{p} _{mk}(1 - \widehat{p} _{mk})$$</p>
+
+<p>is a measure of total variance across the $K$ classes. It can be observed that the Gini index takes a smaller value if all the $\widehat{p} _{mk}$ have values closer to 0 or 1. Hence, it can be viewed as a measure of <b>node purity</b>, as a small value of Gini index indicates that a node contains predominantly observations from a single class. Another measure is <b>cross-entropy</b>, which is given as:</p>
+
+<p>$$D = - \sum _{k=1}^{K} \widehat{p} _{mk} log(\widehat{p} _{mk})$$</p>
+
+<p>Cross-entroy has a similar behaviour as Gini index and they are quite similar numerically as well.</p>
+
+<p>While building a tree, Gini index or Cross-entropy is used as the measure, as these measures are more sensitive to the node purity as compared to classification error rate. While <b>pruning</b>, classification error rate is preferred if  prediction accuracy is the final goal.</p>
+
+<p>There may be a case that in the classification tree, some splits seem redundant. For example, a split may lead to two leaves which has the exact same prediction (left leaf: 7 out of 11 in class A, right leaft: 9 out of 9 in class A). This split is done to achieve higher <b>node purity</b>. It has the advantage that if we encounter an observation that belongs to the right leaf(9 out of 9 in class A), we can be quite certain that the observation will belong to class A. But for the case of the observation belonging to the left leaf, we are less certain.</p>
+
+<h4 id="8-1-3-trees-versus-linear-models">8.1.3 Trees Versus Linear Models</h4>
+
+<p>Simple linear models and regression tree models are quite different. Linear regression assumes a model of the form,</p>
+
+<p>$$f(X) = \beta_0 + \sum _{j-1}^{p} X_j \beta_j$$</p>
+
+<p>while regression trees have the form of</p>
+
+<p>$$f(X) = \sum _{m=1}^{M}c_m \cdot 1 _{(X \in R_m)}$$</p>
+
+<p>If relationship between the response and the predictors is linear, the linear model will work better. If there is a more comlex relationship, decision trees may outperform classical approaches.</p>
+
+<h4 id="8-1-4-advantages-and-disadvantages-of-trees">8.1.4 Advantages and Disadvantages of Trees</h4>
+
+<p>Some of the advantages of decision tree approach is:</p>
+
+<ul>
+<li>easy interpretability.</li>
+<li>decision tree closely imitates the human decision-making process.</li>
+<li>can be decribed graphically and can be easily interpreted by non-experts.</li>
+<li>can easily handle qualitative variables (without making dummy variables).</li>
+</ul>
+
+<p>Sometimes, decision tree aprooach may lead to lesser prediction accuracy though.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part6/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part6/">ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/tree-based-methods_part2/">ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/tree-based-methods_part2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

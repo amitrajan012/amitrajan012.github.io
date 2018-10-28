@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Unsupervised Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</h1>
+  <h2>ISLR Unsupervised Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>06 Jul 2018, 01:19</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/unsupervised-learning">Unsupervised Learning</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/principal-components-analysis">Principal Components Analysis</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h4 id="10-2-3-more-on-pca">10.2.3 More on PCA</h4>
+
+<h5 id="scaling-the-variables">Scaling the Variables</h5>
+
+<p>The results of PCA also depend on the fact that whether <b>the variables are individually scaled or not</b>. If we perform PCA on the unscaled variables, the variables with higher variance will have very <b>large loading</b>. As it is undesirable for the principal components obtained to depend on the scale of the variables, we scale each variables to have the <b>standard deviation 1</b> before performing PCA. If the individual variables are measured in the same unit, the scaling need not to be done.</p>
+
+<h5 id="uniqueness-of-the-principal-components">Uniqueness of the Principal Components</h5>
+
+<p>Each principal component loading vecotor is unique upto a <b>sign flip</b>. The sign of the loading vectors may differ as they specify directions in the $p$-dimensional space and hence flipping the sign has no effect. Similarly, the score vectors are unique up to a sign filp as the varince of $Z$ and $-Z$ are same.</p>
+
+<h5 id="the-proportion-of-variance-explained">The Proportion of Variance Explained</h5>
+
+<p>We may be iterested in the amount of variance that has been explained by projecting the data on to first $M$ principal components. This means that we are interested in knowing the <b>proportion of variance explained (PVE)</b> by each principal component. The <b>total variance</b> present in the data set can be given as:</p>
+
+<p>$$\sum _{j=1}^{p} Var(X_j) = \sum _{j=1}^{p} \frac{1}{n} \sum _{i=1}^{n} x _{ij}^2$$</p>
+
+<p>and the variance that is explained by the $m^{th}$ principal comonent is:</p>
+
+<p>$$\frac{1}{n} \sum _{i=1}^{n} z _{im}^2 = \frac{1}{n} \sum _{i=1}^{n} \bigg( \sum _{j=1}^{p} \phi _{jm}x _{ij}\bigg)^2$$</p>
+
+<p>Hence, <b>PVE</b> of the first principal component can be given as:</p>
+
+<p>$$\frac{\sum _{i=1}^{n} \bigg( \sum _{j=1}^{p} \phi _{jm}x _{ij}\bigg)^2}{\sum _{j=1}^{p} \sum _{i=1}^{n} x _{ij}^2}$$</p>
+
+<p>In order to obtain the PVE of first $M$ principal components, we can calculate each individual PVEs using the above equation and then sum them all.</p>
+
+<h5 id="deciding-how-many-principal-components-to-use">Deciding How Many Principal Components to Use</h5>
+
+<p>The main goal of PCA is to find the smallest number of principal components that explains a good bit of variance in data. We can decide on the number of principal components to be used by examining the <b>scree plot</b>. It can be done by simply eyeballing the scree plot and finding a point at which the amount of variance explained by subsequent principal component drops off. This point is referred as the <b>elbow</b> in the scree plot.</p>
+
+<p>This visual analysis is kind of <b>ad hoc</b> and there is no well-accepted objective way to decide on the number of principal components to be used. The number of principal components to be used depends on the area of application and the nature of the data set.</p>
+
+<p>A simple approach is to find the first few principal components and then examine that whether there exists some interesting pattern in the data or not. If no pattern is found in the first few principal components, the subsequent principal components will be of lesser interest as well. This is a subjective approach and reflects on the fact that principal components are used for exploratory data analysis.</p>
+
+<p>Principal components can be used for supervised analysis (as in principal component regression) as well. In this case, there is a simple and objective way to decide the number of principal components. The number of principal components to be used can be treated as a tuning parameter and can be decided by cross-validation or similar techniques.</p>
+
+<h4 id="10-2-4-other-uses-for-principal-components">10.2.4 Other Uses for Principal Components</h4>
+
+<p>Like principal component regression, the principal component score vectors can be used as the features in several supervised learning techniques. This will lead to <b>less noisy</b> results as it is often the case that signal in the data set is concentrated in the first few principal components.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/unsupervised-learning_part1/">ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/unsupervised-learning_part3/">ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

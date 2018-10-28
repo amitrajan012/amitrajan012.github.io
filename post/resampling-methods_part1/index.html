@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Resampling Methods">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</h1>
+  <h2>ISLR Resampling Methods</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>17 May 2018, 05:22</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/cross-validation">Cross-Validation</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h1><center>Resampling Methods</center></h1>
+
+<p><b>Resampling methods</b> involve repeatedly drawing samples from training data and refitting a model on them. Resampling approaches can be computationally expensive. <b>Cross-validation</b> and <b>bootstrap</b> are two of the most commonly used resampling methods. Cross-validation can be used to estimate the test error rate associated with a given model in order to evaluate its performance. The process of evaluating a model&rsquo;s performance is called <b>model assessment</b>. The process of selecting proper level of flexibility for a model is known as <b>model selection</b>.</p>
+
+<h3 id="5-1-cross-validation">5.1 Cross-Validation</h3>
+
+<p><b>Test error rate</b> can be easily calculated if a designated test set is available. This is usually not the case. One approach is to estimate the test error rate by <b>holding out</b> a subset of the training observation from the fitting process and then apply the model to the held out observations.</p>
+
+<h4 id="5-1-1-the-validation-set-approach">5.1.1 The Validation Set Approach</h4>
+
+<p>The validation set approach involves dividing the available set of observations into two part: a <b>training set</b> and a <b>validation set</b>. The model is fit on the training set and the fitted model is used to compute the validation set error rate. Validation set approach is simple and easy to implement but it has two drawbacks:</p>
+
+<ul>
+<li><p>Validation set error rate can be highly variable, depending on which observations are included in the training set and which in the validation set.</p></li>
+
+<li><p>As only a subset of the observations is used to fit the model, the modle tends to perform worse. This suggests that the validation set error rate may tend to <b>overestimate</b> the test error rate for the model fitted on the entire data set.</p></li>
+</ul>
+
+<h4 id="5-1-2-leave-one-out-cross-validation">5.1.2 Leave-One-Out Cross-Validation</h4>
+
+<p><b>Leave-one-out cross-validation (LOOCV)</b> is closely related to the validation set approach. LOOCV also involves splitting the data set into two parts. Instead of creating two subsets of comaparable size, a <b>single observation</b> is used for the validation set and the remaining observations are used for the trainig set. The <b>MSE</b> of a single observation of the validation set can provide an unbiased estimate for the test error but it is <b>highly variable</b>.</p>
+
+<p>The LOOCV process can be repeated $n$ times, producing $n$ different MSEs, when each time validation set consists of $i$th observation, where value of $i$ ranges from $1$ to $n$. The MSE for validation sets is given as:</p>
+
+<p>$$MSE_{i} = (y_i - \widehat{y_i})^2$$</p>
+
+<p>and the overall estimate of <b>test MSE</b> is the average of these $n$ validation errors:</p>
+
+<p>$$CV_{(n)} = \frac{1}{n} \sum _{i=1}^{n} MSE _{i}$$</p>
+
+<p>LOOCV has far <b>less bias</b> when compared to validation set approach. It does not tend to overestimate the test error rate as much as the validation set approach does. Performing LOOCV multiple times will always yield the same results as there is no randomness in the training/validation set split. LOOCV can be expensive to implement as the model has to be fitted n-times. LOOCV is a very generic approach and can be used with any kind of predictive modeling.</p>
+
+<h4 id="5-1-3-k-fold-cross-validation">5.1.3 k-Fold Cross-Validation</h4>
+
+<p><b>k-fold CV</b> is an alternative to LOOCV. In this aproach the observations are randomly divided into $k$ groups of approximately equal size. The first fold is treated as a validation set and the method is fit on the remaining $k-1$ folds. The $MSE_{1}$ is computed on the observations in the held-out fold. The process is repeated $k$ times. Each time a different group of observation is treated as the validation set. The $k$-fold CV estimate is given as:</p>
+
+<p>$$CV_{(k)} = \frac{1}{k} \sum _{i=1}^{k} MSE _{i}$$</p>
+
+<p>LOOCV is a special case of $k$-fold CV with $k=n$. Generally, a typical value of $K=5$ or $k=10$ is chosen. $k$-fold CV has an advantage of less computational complexity as model needs to be fitted $k$ times only. There may arise some variability in the CV estimates as there is some variability in the divison of the observations into the folds.</p>
+
+<p>Sometimes instead of arriving on a correct estimate of test MSE, we are more interested in selecting the model for which the test MSE will be minimum. Hence, for this purpose, the location of the minimum point in the estimated test MSE curve is more important, which can help in deciding the correct flecibility of the model. $k$-fold CV does a pretty decent job in this.</p>
+
+<h4 id="5-1-4-bias-variance-trade-off-for-k-fold-cross-validation">5.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation</h4>
+
+<p>Apart from computational advantage, $k$-fold CV gives more accurate estimates of the test error rate than LOOCV. Since LOOCV uses $n-1$ observations as training set, it will give approximately unbiased (low bias) estimates of the test error. Compared to validation set approach, $k$-fold CV has low bias as well. But from the prespective of <b>bias reduction</b>, LOOCV is to be preferred over $k$-fold CV.</p>
+
+<p>LOOCV has <b>higher variance</b> compared to $k$-fold CV for $k &lt; n$. As we know that, <b>mean of highly correlated quantities has higher variance compared to the mean of quantities that are not highly correlated.</b> For the LOOCV, as the different models share higher amount of data compared to $k$-fold CV, they are somewhat more correlated. Hence, the test error estimate of LOOCV has <b>higher variance</b> compared to $k$-fold CV. $k$-fold CV with $k=5$ or $k=10$, yields test error estimates that suffer neither from excessively high bias, nor from very high variance.</p>
+
+<p><b>Mean of highly correlated quantities have higher variance</b> as:</p>
+
+<ul>
+<li><p>When the elements of each sample are positively correlated, when one value is high the others tend to be high, too. Their mean will then be high. When one value is low the others tend to be low, too. Their mean will then be low. Thus, the means tend either to be high or low.</p></li>
+
+<li><p>When elements of each sample are not correlated, the amount by which some elements are high is often balanced (or &ldquo;canceled out&rdquo;) by other low elements. Overall the mean tends to be very close to the average of the population from which the samples are drawn&ndash;and rarely much greater or much less than that.</p></li>
+</ul>
+
+<h4 id="5-1-5-cross-validation-on-classification-problems">5.1.5 Cross-Validation on Classification Problems</h4>
+
+<p>In the case of classification, cross-validation works in the same way. However, instead of using MSE to quantify the test error, we can use the number of misclassified observations. For example, in classification setting, the LOOCV error rate takes the form:</p>
+
+<p>$$CV_{n} = \frac{1}{n} \sum _{i=1}^{n} Err_i$$</p>
+
+<p>where $Err_i = I(y_i \neq \widehat{y_i})$. $k$-fold CV error rate and validation set error rate are defined similarly.</p>
+
+<p>In general <b>10-fold CV</b> error rate provides a good approximation to the test error rate (though it somewhat underestimates it). It reaches a minimum value for the correct flexibiliy of model.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/classification_part4/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/classification_part4/">ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/resampling-methods_part2/">ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/resampling-methods_part2/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

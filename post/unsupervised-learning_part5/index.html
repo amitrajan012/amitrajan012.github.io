@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Unsupervised Learning">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</h1>
+  <h2>ISLR Unsupervised Learning</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>15 Jul 2018, 03:51</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/unsupervised-learning">Unsupervised Learning</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/exercises">Exercises</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/conceptual">Conceptual</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="10-7-exercises">10.7 Exercises</h3>
+
+<h4 id="conceptual">Conceptual</h4>
+
+<p>Q1. This problem involves the K-means clustering algorithm.</p>
+
+<p>(a) Prove (10.12).</p>
+
+<p><b>Sol:</b> Equation 10.12 is:</p>
+
+<p>$$\frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&lsquo;}j})^2 =
+2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$</p>
+
+<p>where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get</p>
+
+<p>$$\frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&lsquo;}j})^2 =
+\frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} x _{i^{&lsquo;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&lsquo;}j} <br />
+= 2 \sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&lsquo;}j} $$</p>
+
+<p>Expanding RHS and substituting the value of $\bar{x} _{kj}$, we get</p>
+
+<p>$$2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2 =
+2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 4\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}\bar{x} _{kj}
++ 2\sum _{i \in C_k} \sum _{j=1}^{p} \bar{x} _{kj}^2 =
+2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 4|C_k| \sum _{j=1}^{p} \bar{x} _{kj}^2 +
+2 |C_k| \sum _{j=1}^{p}\bar{x} _{kj}^2  = 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 2|C_k| \sum _{j=1}^{p} \bar{x} _{kj}^2
+= 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&lsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&lsquo;}j} $$</p>
+
+<p>Hence, LHS and RHS are equal.</p>
+
+<p>(b) On the basis of this identity, argue that the K-means clustering algorithm (Algorithm 10.1) decreases the objective (10.11) at each iteration.</p>
+
+<p><b>Sol:</b> As K-means clustering algorithm assigns the observations to the clusters to which they are nearest, after each iteration, the value of RHS will decrease (as this quantity is the sum of squared distance of each observation from the cluster mean). Hence, the clustering algorithm decreases the objective at each iteration.</p>
+
+<p>Q2. Suppose that we have four observations, for which we compute a dissimilarity matrix, given by</p>
+
+<p>$$\begin{bmatrix}
+           &amp; 0.3 &amp; 0.4  &amp; 0.7 <br />
+     0.3   &amp;     &amp; 0.5  &amp; 0.8 <br />
+     0.4   &amp; 0.5 &amp;      &amp; 0.45 <br />
+     0.7   &amp; 0.8 &amp; 0.45 &amp;      <br />
+\end{bmatrix}$$</p>
+
+<p>For instance, the dissimilarity between the first and second observations is 0.3, and the dissimilarity between the second and fourth observations is 0.8.</p>
+
+<p>(a) On the basis of this dissimilarity matrix, sketch the dendrogram that results from hierarchically clustering these four observations using complete linkage. Be sure to indicate on the plot the height at which each fusion occurs, as well as the observations corresponding to each leaf in the dendrogram.</p>
+
+<pre><code class="language-python">import numpy as np
+
+from scipy.cluster.hierarchy import dendrogram, linkage
+from scipy.spatial.distance import squareform
+
+import matplotlib.pyplot as plt
+
+dis_mat = np.array([[0.0, 0.3, 0.4, 0.7], [0.3, 0.0, 0.5, 0.8], [0.4, 0.5, 0.0, 0.45], [0.7, 0.8, 0.45, 0.0]])
+dists = squareform(dis_mat)
+linkage_matrix = linkage(dists, &quot;complete&quot;)
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+dendrogram(linkage_matrix, labels=[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;])
+plt.title(&quot;Dendrogram&quot;)
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_9_0.png" alt="">
+
+
+<p>(b) Repeat (a), this time using single linkage clustering.</p>
+
+<pre><code class="language-python">linkage_matrix = linkage(dists, &quot;single&quot;)
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+dendrogram(linkage_matrix, labels=[&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;])
+plt.title(&quot;Dendrogram&quot;)
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_11_0.png" alt="">
+
+
+<p>&copy; Suppose that we cut the dendogram obtained in (a) such that two clusters result. Which observations are in each cluster?</p>
+
+<p><b>Sol:</b> Observations 1 and 2 are in Cluster A and 3 and 4 in Cluster B.</p>
+
+<p>(d) Suppose that we cut the dendogram obtained in (b) such that two clusters result. Which observations are in each cluster?</p>
+
+<p><b>Sol:</b> Observations 1, 2 and 3 are in Cluster A and 4 in Cluster B.</p>
+
+<p>(e) It is mentioned in the chapter that at each fusion in the dendrogram, the position of the two clusters being fused can be swapped without changing the meaning of the dendrogram. Draw a dendrogram that is equivalent to the dendrogram in (a), for which two or more of the leaves are repositioned, but for which the meaning of the dendrogram is the same.</p>
+
+<pre><code class="language-python">dis_mat = np.array([[0.0, 0.3, 0.4, 0.7], [0.3, 0.0, 0.5, 0.8], [0.4, 0.5, 0.0, 0.45], [0.7, 0.8, 0.45, 0.0]])
+dists = squareform(dis_mat)
+linkage_matrix = linkage(dists, &quot;complete&quot;)
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(111)
+dendrogram(linkage_matrix, labels=[&quot;1&quot;, &quot;4&quot;, &quot;3&quot;, &quot;2&quot;])
+plt.title(&quot;Dendrogram&quot;)
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_13_0.png" alt="">
+
+
+<p>Q3. In this problem, you will perform K-means clustering manually, with K = 2, on a small example with n = 6 observations and p = 2 features. The observations are as follows.</p>
+
+<p>(a) Plot the observations.</p>
+
+<pre><code class="language-python">x1 = [1,1,0,5,6,4]
+x2 = [4,3,4,1,2,0]
+fig = plt.figure(figsize=(15,8))
+plt.scatter(x1, x2, c='blue')
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_15_0.png" alt="">
+
+
+<p>(b) Randomly assign a cluster label to each observation. You can use the sample() command in R to do this. Report the cluster labels for each observation.</p>
+
+<pre><code class="language-python">np.random.seed(0)
+cluster_labels = np.random.randint(2, size=6)
+color= ['red' if l == 0 else 'green' for l in cluster_labels]
+fig = plt.figure(figsize=(15,8))
+plt.scatter(x1, x2, c=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_17_0.png" alt="">
+
+
+<p>&copy; Compute the centroid for each cluster.</p>
+
+<pre><code class="language-python">centroid_0_x1 = 0
+centroid_0_x2 = 0
+centroid_1_x1 = 0
+centroid_1_x2 = 0
+count_0 = 0
+count_1 = 0
+
+for idx, cluster in enumerate(cluster_labels):
+    if cluster == 0:
+        centroid_0_x1 += x1[idx]
+        centroid_0_x2 += x2[idx]
+        count_0 += 1
+    else:
+        centroid_1_x1 += x1[idx]
+        centroid_1_x2 += x2[idx]
+        count_1 += 1
+
+centroid_0_x1 = centroid_0_x1/count_0
+centroid_0_x2 = centroid_0_x2/count_0
+centroid_1_x1 = centroid_1_x1/count_1
+centroid_1_x2 = centroid_1_x2/count_1
+print(&quot;Centriod for Clutser 0 is: &quot; + str(centroid_0_x1) + &quot;, &quot; + str(centroid_0_x2))
+print(&quot;Centriod for Clutser 1 is: &quot; + str(centroid_1_x1) + &quot;, &quot; + str(centroid_1_x2))
+</code></pre>
+
+<pre><code>Centriod for Clutser 0 is: 3.0, 2.5
+Centriod for Clutser 1 is: 2.75, 2.25
+</code></pre>
+
+<p>(d) Assign each observation to the centroid to which it is closest, in terms of Euclidean distance. Report the cluster labels for each observation.</p>
+
+<pre><code class="language-python">for idx, cluster in enumerate(cluster_labels):
+    dist_0 = (x1[idx] - centroid_0_x1)**2 + (x2[idx] - centroid_0_x2)**2
+    dist_1 = (x1[idx] - centroid_1_x1)**2 + (x2[idx] - centroid_1_x2)**2
+    if dist_0 &gt; dist_1:
+        cluster_labels[idx] = 0
+    else:
+        cluster_labels[idx] = 1
+
+color= ['red' if l == 0 else 'green' for l in cluster_labels]
+fig = plt.figure(figsize=(15,8))
+plt.scatter(x1, x2, c=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_21_0.png" alt="">
+
+
+<p>(e) Repeat &copy; and (d) until the answers obtained stop changing.</p>
+
+<p>(f) In your plot from (a), color the observations according to the cluster labels obtained.</p>
+
+<pre><code class="language-python">from sklearn.cluster import KMeans
+
+M = np.column_stack((x1,x2))
+kmeans = KMeans(n_clusters=2, random_state=0).fit(M)
+cluster_labels = kmeans.labels_
+
+color= ['red' if l == 0 else 'green' for l in cluster_labels]
+fig = plt.figure(figsize=(15,8))
+plt.scatter(x1, x2, c=color)
+plt.grid()
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_23_0.png" alt="">
+
+
+<p>Q4. Suppose that for a particular data set, we perform hierarchical clustering using single linkage and using complete linkage. We obtain two dendrograms.</p>
+
+<p>(a) At a certain point on the single linkage dendrogram, the clusters {1, 2, 3} and {4, 5} fuse. On the complete linkage dendrogram, the clusters {1, 2, 3} and {4, 5} also fuse at a certain point. Which fusion will occur higher on the tree, or will they fuse at the same height, or is there not enough information to tell?</p>
+
+<p><b>Sol:</b> In the case of complete linkage, the fusion will occure higher on the tree as it takes into account the maximum intercluster dissimilarity as the dissimilarity of the group.</p>
+
+<p>(b) At a certain point on the single linkage dendrogram, the clusters {5} and {6} fuse. On the complete linkage dendrogram, the clusters {5} and {6} also fuse at a certain point. Which fusion will occur higher on the tree, or will they fuse at the same height, or is there not enough information to tell?</p>
+
+<p><b>Sol:</b> With two points, the fusion will occur at the same height as the minimal (for single) and maximal (for complete) intercluster distance will be same.</p>
+
+<p>Q5. In words, describe the results that you would expect if you performed K-means clustering of the eight shoppers in Figure 10.14, on the basis of their sock and computer purchases, with K = 2. Give three answers, one for each of the variable scalings displayed. Explain.</p>
+
+<p><b>Sol:</b> If we do the clustering on the basis of raw numbers, socks will dominate as there purchase count is higher. For the case of scaled version, the number of computer purchased should play a greater role. If we consider the clustering based on purchase amount in dollar, once again compuetr will dominate in deciding the outcome of the clustering. The graphical representation of clustering results is shown below as well.</p>
+
+<pre><code class="language-python">from scipy.cluster.vq import whiten
+
+socks = [8, 11, 7, 6, 5, 6, 7, 8]
+computers = [0, 0, 0, 0, 1, 1, 1, 1]
+
+M = np.column_stack((socks,computers))
+kmeans = KMeans(n_clusters=2, random_state=0).fit(M)
+cluster_labels = kmeans.labels_
+
+color= ['red' if l == 0 else 'green' for l in cluster_labels]
+fig = plt.figure(figsize=(15,8))
+ax = fig.add_subplot(121)
+plt.scatter(socks, computers, c=color)
+ax.set_xlabel(&quot;Socks&quot;)
+ax.set_ylabel(&quot;Computers&quot;)
+ax.set_title(&quot;Raw Numbers&quot;)
+ax.grid()
+
+whitened = whiten(M)
+kmeans = KMeans(n_clusters=2, random_state=0).fit(whitened)
+cluster_labels = kmeans.labels_
+
+color= ['red' if l == 0 else 'green' for l in cluster_labels]
+ax = fig.add_subplot(122)
+plt.scatter(whitened[:, 0], whitened[:, 1], c=color)
+ax.set_xlabel(&quot;Socks&quot;)
+ax.set_ylabel(&quot;Computers&quot;)
+ax.set_title(&quot;Scaled Numbers&quot;)
+ax.grid()
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://www.example.com/img/Unsupervised%20Learning_files/Unsupervised%20Learning_26_0.png" alt="">
+
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part4/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/unsupervised-learning_part4/">ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/unsupervised-learning_part6/">ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/unsupervised-learning_part6/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

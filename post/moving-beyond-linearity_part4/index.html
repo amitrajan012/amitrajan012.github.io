@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ISLR Moving Beyond Linearity">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models) &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.example.com/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.example.com/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://www.example.com/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.example.com/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://www.example.com/css/my.css">
+    
+  
+  
+    
+        <script src="https://www.example.com/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://www.example.com/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://www.example.com/">Home</a></li>
+          <li><a class="nav-text" href="https://www.example.com/about/">About</a></li>
+          <li><a class="nav-text" href="https://www.example.com/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://www.example.com/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</h1>
+  <h2>ISLR Moving Beyond Linearity</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>04 Jun 2018, 16:12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://www.example.com/topics/islr">ISLR</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/islr">ISLR</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/resampling">Resampling</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/moving-beyond-linearity">Moving Beyond Linearity</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/local-regression">Local Regression</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://www.example.com/tags/generalized-additive-models">Generalized Additive Models</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<h3 id="7-6-local-regression">7.6 Local Regression</h3>
+
+<p><b>Local regression</b> comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:</p>
+
+<ul>
+<li>Gather the $k$ points closest to $x_0$.</li>
+<li>Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</li>
+<li>Fit a <b>weighted least squares regression</b> of the aformentioned points using weights, by finding $\beta_0, \beta_1$ that minimize</li>
+</ul>
+
+<p>$$\sum _{i=1}^{n}K _{i0}(y_i - \beta_0 - \beta_1 x_i)^2$$</p>
+
+<ul>
+<li>The fitted value at $x_0$ is given as $\widehat{f}(x_0) = \widehat{\beta_0} + \widehat{\beta_1} x_0$.</li>
+</ul>
+
+<p>The <b>span s</b> of a local regression is defined as $s = \frac{k}{n}$, where $n$ is total number of training samples. It plays the role of controling the flexibility of the non-linera fit. Smaller the value of $s$, the more local or wiggly is the fit. For larger values of $s$, we obtain a global fit. An appropriate value of $s$ can be chosen by cross-validation.</p>
+
+<h3 id="7-7-generalized-additive-models">7.7 Generalized Additive Models</h3>
+
+<p><b>Generalized additive models (GAMs)</b> predict $Y$ on the basis of $p$ predictors $X_1, X_2, &hellip;, X_p$. This can be viewed as an extension of multiple linear regression.</p>
+
+<h4 id="7-7-1-gams-for-regression-problems">7.7.1 GAMs for Regression Problems</h4>
+
+<p>Multiple linear regression model can be given as:</p>
+
+<p>$$y_i = \beta_0 + \beta_1 x _{i1} + \beta_2 x _{i2} + &hellip; + \beta_p x _{ip} + \epsilon_i$$</p>
+
+<p>In order to incorporte a non-linear relationship between each feature and the response, each linear component can be replaced with a smooth non-linear function. The model can be expressed as:</p>
+
+<p>$$y_i = \beta_0 + \sum _{j=1}^{p} f _{j}(x _{ij}) + \epsilon_i = \beta_0 + f_1(x _{i1}) + f_2(x _{i2}) + &hellip; + f_p(x _{ip}) + \epsilon_i$$</p>
+
+<p>This is an example of GAM. GAM is <b>additive</b> as we fit a separate non-linear model for each predictor and then add together their contributions. We can use any regression method to fit these individual models.</p>
+
+<h5 id="pros-and-cons-of-gams">Pros and Cons of GAMs</h5>
+
+<ul>
+<li><p>As GAM models a non-linear relationship for each individual predictor, it will automatically capture the non-linear behaviour of the response.</p></li>
+
+<li><p>As the model is additive, we can analyze the effect of each predictor on response by keeping other predictors constant.</p></li>
+
+<li><p>The smoothness of each individual function can be summarized by its degree of freedom.</p></li>
+
+<li><p>The main limitation of GAM is its additive nature. Due to this, the interaction between individual parameters is missed. However, we can manually add interaction terms (of the form $X_j \times X_k$) in GAM.</p></li>
+</ul>
+
+<h4 id="7-7-2-gams-for-classification-problems">7.7.2 GAMs for Classification Problems</h4>
+
+<p>For a qualitative variable $Y$, which takes on two values 0 and 1, the logistic regression model can be given as:</p>
+
+<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &hellip; + \beta_p X_p$$</p>
+
+<p>where $p(X) = Pr(Y=1 | X)$ and the left hand side of the equation is called as <b>logit</b> or log of the odds. To accomodate non-linearity, above model can be modified as:</p>
+
+<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + f_0(X_1) + f_2(X_2) + &hellip; + f_p(X_p)$$</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part3/">ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.example.com/post/moving-beyond-linearity_part5/">ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.example.com/post/moving-beyond-linearity_part5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.example.com/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
