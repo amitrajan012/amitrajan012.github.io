@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Naive Bayes Classifier">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Naive Bayes Classifier &middot; Your site title</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.ioimg/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.iocss/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.iojs/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.ioabout/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Naive Bayes Classifier</h1>
+  <h2>Naive Bayes Classifier</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 Oct 2018, 05:01</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.iotopics/classification">Classification</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/bayes-theorem">Bayes Theorem</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/classification">Classification</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/normal-distribution">Normal Distribution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/map">MAP</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/laplace-smoothing">Laplace Smoothing</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h3 id="introduction">Introduction :</h3>
+
+<p>Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are <b>independent</b>.</p>
+
+<p>The Bayes theorem is given as:</p>
+
+<p>$$P(c|X) = \frac{P&copy;P(X|c)}{P(X)}$$</p>
+
+<p>where $c$ denotes a class label and $X$ is the predictor. The probabilities $P&copy;$ and $P(X)$ are the <b>prior probabilities</b> of the class and the predictor. $P(X|c)$ is the prior probability or <b>likelihood</b> of observing a feature $X$ given class $c$. $P(c|X)$ is the <b>posterior probability</b> of the class $c$ given a feature $X$. Hence, the posterior probability of a class $c$ givena a feature $X$ can be found using different prior probabilities and likelihood which can be obtained from the existing dataset. In the plain english, the Bayes theorem can be stated as:</p>
+
+<p>$$posterior = \frac{prior \times likelihood}{evidence}$$</p>
+
+<p>For picking up the most probable class based of different posterior probabilities, we can simply use a <b>decision rule</b> that picks up the class or hypothesis which is <b>most probable</b>. This is known as <b> maximum a posteriori</b> or <b>MAP decision rule</b>.</p>
+
+<p></br></p>
+
+<h3 id="example">Example :</h3>
+
+<p>Let us look at an example. Given a dataset having the weather conditions and whether the players will play the golf or not based on these conditions, our task is to <b>predict</b> or <b>classify</b> that whether a player will play or not in a particular weather. The dataset is shown below.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/NaiveBayes/Table%201.png" alt="">
+
+
+<p>As explained, it consists of the information that whether a player plays golf or not depending on the weather condition. A frequecy table, which can be further used to obtain <b>prior proababilities</b> and <b>likelihood</b> is shown below.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/NaiveBayes/Table%202.png" alt="">
+
+
+<p></br></p>
+
+<p>Let us ask ourselves a simple question: <b>&ldquo;Whether a player will play or not in a Sunny weather?&rdquo;</b>. First of all we need to calculate the prior probabilities. The prior probabilities of classes and features are given as: $P(YES) = \frac{10}{15} = \frac{2}{3}$, $P(NO) = \frac{5}{15} = \frac{1}{3}$, $P(Sunny) = \frac{6}{15} = \frac{2}{5}$, $P(Rainy) = \frac{5}{15} = \frac{1}{3}$ and $P(Overcast) = \frac{4}{15}$. Now, we need to evaluate $P(YES|Sunny)$. For this, we have to find the <b>likelihood</b> $P(Sunny | YES)$ which is equal to $\frac{4}{10} = \frac{2}{5}$. Hence, the <b>posterior probability</b> can be evaluated as:</p>
+
+<p>$$P(YES | Sunny) = \frac{P(YES)P(Sunny | YES)}{P(Sunny)} = \frac{\frac{2}{3} \times \frac{2}{5}}{\frac{2}{5}} = \frac{2}{3}$$</p>
+
+<p>As there are only two probable classes, we can say that $P(NO | Sunny) = 1 - P(YES | Sunny) = \frac{1}{3}$. Hence the <b>odds</b> of a player playing golf on a suuny day is $\frac{\frac{2}{3}}{\frac{1}{3}} = 2$.</p>
+
+<p></br></p>
+
+<h3 id="advantage-disadvantage-and-other-concerns">Advantage, Disadvantage and other concerns :</h3>
+
+<p>Naive Bayes is a powerful and easy to implement classifier. One major advantage of Naive Bayes is that it only requires a small number of training data to estimate the parameters necessary for classification. It also has an advantage of performing well in the case of multi-class classifier. If the assumption of independece holds, it can outperform various other classification algorithm such as logistic regression and LDA.</p>
+
+<p>As we need to know the prior probabilities (distribution) and likelihoods in order to obtain the classification results, in the case of numeric features, we need to guess its prior distribution. One common way to implement the Naive Bayes in the case of numeric variables is to assume the prior distribution as <b>Gaussian</b>. Sometimes this assumption can be a bit too strong and hence Naive Bayes&rsquo; performance is comparatively better when the features are <b>categorical</b>.</p>
+
+<p>Naive Bayes often suffers from the problem of <b>missing category</b>. When a feature has a category in the test data which is missing in the training set, the model makes a probability estimate of 0 and hence the classification algorithm will fail. This problem can be overcomed by incorporating a small-sample correction called <b>pseudocount</b> in all probability estimates and hence making them non-zeor. This way of <b>regularizing</b> naive Bayes is called as <b>Laplace smoothing</b> when the pseudocount is 1.</p>
+
+<p></br></p>
+
+<h3 id="naive-bayes-for-quantitative-variable">Naive Bayes for quantitative variable :</h3>
+
+<p>When dealing with continuous variable, one approach is to <b>discretize</b> the features by a simple process of <b>binning</b>. Another approach is to make an assumption that the continuous value associated with each class follows a <b>Gaussian distribution</b>. For this, we need to estimate the parameters $\mu_k$ and $\sigma_k^2$ (mean and variance) of every feature for each of the associated class labels. Then, the <b>probability distribution</b> or <b>likelihood</b> of a feature having a particular value can be calculated by plugging the value in the equation of a <b>Normal distribution</b> having parameters $\mu_k$ and $\sigma_k^2$.</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference :</h4>
+
+<p><a href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">https://en.wikipedia.org/wiki/Naive_Bayes_classifier</a></p>
+
+<p><a href="https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/">https://www.analyticsvidhya.com/blog/2017/09/naive-bayes-explained/</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/chapter-9---correlation/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/chapter-9---correlation/">Think Stats: Chapter 9</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.iojs/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
