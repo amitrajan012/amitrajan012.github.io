@@ -66,6 +66,15 @@
     </item>
     
     <item>
+      <title>Bernoulli Distribution</title>
+      <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bernoulli-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Binomial Distribution</title>
       <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
       <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
@@ -230,7 +239,7 @@
     <item>
       <title>Estimation</title>
       <link>https://amitrajan012.github.io/tags/estimation/</link>
-      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/estimation/</guid>
       <description></description>
@@ -372,6 +381,15 @@
     </item>
     
     <item>
+      <title>Log Likelihood</title>
+      <link>https://amitrajan012.github.io/tags/log-likelihood/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/log-likelihood/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Logistic Regression</title>
       <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
       <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
@@ -408,11 +426,29 @@
     </item>
     
     <item>
+      <title>Maximum Likelihood Estimation</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood-estimation/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-estimation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Mean</title>
       <link>https://amitrajan012.github.io/tags/mean/</link>
       <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/mean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mle</title>
+      <link>https://amitrajan012.github.io/tags/mle/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mle/</guid>
       <description></description>
     </item>
     
@@ -446,7 +482,7 @@
     <item>
       <title>Normal Distribution</title>
       <link>https://amitrajan012.github.io/tags/normal-distribution/</link>
-      <pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/normal-distribution/</guid>
       <description></description>

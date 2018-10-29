@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Maximum Likelihood Estimation">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Normal Distribution &middot; Your site title</title>
+  <title>Maximum Likelihood Estimation &middot; Your site title</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -60,8 +60,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Your site title" href="https://amitrajan012.github.io/tags/normal-distribution/index.xml" />
   
 
   
@@ -134,16 +132,12 @@
 
 
 <div class="header">
-  <h1>Normal Distribution</h1>
+  <h1>Maximum Likelihood Estimation</h1>
+  <h2>Maximum Likelihood Estimation</h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/maximum-likelihood-estimation-/">Maximum Likelihood Estimation</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -189,146 +183,124 @@
 </div>
 
 
-  </header>
+  
 
-  <p>
-  Introduction : Maximum Likelihood Estimation is the method of estimating the parameters of a statistical model, given the observations. It attempts to find the parameter values that maximize the likelihood function. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.
-Suppose we have the data points (random samples) $X_1, X_2, &hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &hellip;, \theta_m)$.
-  </p>
+<p></br></p>
+
+<h3 id="introduction">Introduction :</h3>
+
+<p><b>Maximum Likelihood Estimation</b> is the method of estimating the <b>parameters</b> of a <b>statistical model</b>, given the observations. It attempts to find the parameter values that maximize the <b>likelihood function</b>. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.</p>
+
+<p>Suppose we have the data points (random samples) $X_1, X_2, &hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &hellip;, \theta_m)$. Here, $x_i$s are the observed values for $X_i$s. Our task is to find the value of parameters that maximize the probability or likelihood of getting the observed value of the data. i.e., We need to maximize the following quantity (which is called as the <b>Likelihood function</b>):</p>
+
+<p>$$L(\theta) = P(X_1=x_1, X_2=x_2, &hellip;, X_n=x_n; \theta) = \prod _{i=1}^{n}f(x_i; \theta)$$</p>
+
+<p>One assumption that is made while formulating the above equation is: the samples drawn are <b>independent</b> of each other and hence, we can multiply the individual probabilities. One way to find the parameters that maximize the above quantity is by taking the derivative of the likelihood function and evaluating it to 0. We can transform the multiplicative form of the function to additive by taking the <b>natural logarithm</b> of the expression. As the logarithm is a <b>monotonically increasing function</b>, this will not dilute our objective. Taking the logarithm, we get the <b>log likelihood function</b> as:</p>
+
+<p>$$ln(L(\theta)) = \sum _{i=1}^{n}ln(f(x_i; \theta))$$</p>
+
+<p></br></p>
+
+<h3 id="examples">Examples :</h3>
+
+<ul>
+<li>Suppose we have three data points given as <b>1, 1.5</b> and <b>2.5</b>, generated from a <b>Gaussian distribution</b>. We need to calculate the <b>maximum likelihood estimate</b> of the parameters ($\mu$ and $\sigma$) of the distribution.</li>
+</ul>
+
+<p>The probability density of a Gaussian distribution is given as:</p>
+
+<p>$$P(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi \sigma^2}} exp \bigg( -\frac{(x-\mu)^2}{2\sigma^2} \bigg)$$</p>
+
+<p>The corresponding <b>log likelihood function</b> can be given as:</p>
+
+<p>$$ln(P(x; \mu, \sigma)) = \sum \bigg[ -ln(\sigma) -\frac{ln(2\pi)}{2} -\frac{(x-\mu)^2}{2\sigma^2}\bigg]$$</p>
+
+<p>This expression can be differentiated to find the <b>maximum likelihood estimator</b> of $\mu$ and $\sigma$. Substituting the values of data points and differentiating with respect to $\mu$ and evaluating it to 0, we get</p>
+
+<p>$$\frac{1}{\sigma^2} [1+1.5+2.5 - 3\mu] = 0$$</p>
+
+<p>Hence, maximum likelihood estimator for mean $\mu$ is <b>1.67</b>.</p>
+
+<ul>
+<li>Suppose we have a random sample $X_1, X_2, &hellip;, X_n$ where, $X_i=0,1$ when a randomly selected student does not own and own a sports car respectively. Assuming that $X_i$ are independent <b>Bernoulli</b> random variables with unknown paramtere $p$, find the maximum likelihood estimator of $p$, the proportion of students who own a sports car.</li>
+</ul>
+
+<p>The probability mass funaction for Bernoulli distribution is given as:</p>
+
+<p>$$f(x_i;p) = p^{x_i} (1-p)^{1-x_i}$$</p>
+
+<p>The likelihood function is given as:</p>
+
+<p>$$L(p) = \prod _{i=1}^{n}f(x_i;p) = \prod _{i=1}^{n}p^{x_i} (1-p)^{1-x_i} = p^{\sum x_i}(1-p)^{n-\sum x_i}$$</p>
+
+<p>The <b>log likelihood function</b> is given as:</p>
+
+<p>$$ln(L(p)) = (\sum x_i) ln(p) + (n-\sum x_i)ln(1-p)$$</p>
+
+<p>Taking derivative and evaluating it to 0, we get the maximum likelihood estimator for $p$ as</p>
+
+<p>$$\frac{(\sum x_i)}{p} - \frac{(n-\sum x_i)}{1-p} = 0$$</p>
+
+<p>$$\sum x_i - np = 0$$</p>
+
+<p>$$p = \frac{\sum x_i}{n}$$</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference :</h4>
+
+<p><a href="https://onlinecourses.science.psu.edu/stat414/node/191/">https://onlinecourses.science.psu.edu/stat414/node/191/</a></p>
+
+<p><a href="https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1">https://towardsdatascience.com/probability-concepts-explained-maximum-likelihood-estimation-c7b4342fdbb1</a></p>
+
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/maximum-likelihood-estimation-/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/naive-bayes-classifier/">Naive Bayes Classifier</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>24 Oct 2018, 05:01</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/naive-bayes-classifier/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.iotopics/classification">Classification</a>
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/naive-bayes-classifier/">Naive Bayes Classifier</a>
+    </nav>
     
   </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/bayes-theorem">Bayes Theorem</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/classification">Classification</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/normal-distribution">Normal Distribution</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/map">MAP</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/laplace-smoothing">Laplace Smoothing</a>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
   </div>
-  
-  
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
 
-  </header>
-
-  <p>
-  Introduction : Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are independent.
-The Bayes theorem is given as:
-$$P(c|X) = \frac{P&copy;P(X|c)}{P(X)}$$
-where $c$ denotes a class label and $X$ is the predictor. The probabilities $P&copy;$ and $P(X)$ are the prior probabilities of the class and the predictor. $P(X|c)$ is the prior probability or likelihood of observing a feature $X$ given class $c$.
-  </p>
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/naive-bayes-classifier/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/chapter-4---continuous-distributions/">Think Stats: Chapter 4</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>17 Aug 2018, 19:02</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+(function() {
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.iotopics/think-stats">Think Stats</a>
     
-  </div>
-  
-  
+    if (window.location.hostname == "localhost")
+        return;
 
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/think-stats">Think Stats</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/normal-distribution">Normal Distribution</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/exponential-distribution">Exponential Distribution</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.iotags/lognormal-distribution">LogNormal Distribution</a>
-    
-  </div>
-  
-  
-
-</div>
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-  </header>
-
-  <p>
-  4.1 The exponential distribution CDF of the exponential distribution is defined as (where lambda determines the shape of the distribution): $$CDF(x) = 1-e^{-\lambda x}$$ Mean and Median of exponential distribution is computed as follows: $$Mean = \frac{1}{\lambda}$$ $$Median = \frac{ln(2)}{\lambda}$$ In the real world, exponential distribution is encountered when we look at the series of events and measure the time between them which is called as interval times. The exponential distribution for different values of lambda is shown below.
-  </p>
-
-  
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/chapter-4---continuous-distributions/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 </div>
 
 </div>
@@ -370,3 +342,4 @@ where $c$ denotes a class label and $X$ is the predictor. The probabilities $P&c
 
 </body>
 </html>
+
