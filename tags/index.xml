@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Your site title</title>
+    <title>Tags on Amit Rajan</title>
     <link>https://amitrajan012.github.io/tags/</link>
-    <description>Recent content in Tags on Your site title</description>
+    <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Thu, 19 Jul 2018 06:25:52 +0100</lastBuildDate>
@@ -264,6 +264,15 @@
     </item>
     
     <item>
+      <title>F Test</title>
+      <link>https://amitrajan012.github.io/tags/f-test/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/f-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Generalized Additive Models</title>
       <link>https://amitrajan012.github.io/tags/generalized-additive-models/</link>
       <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
@@ -293,7 +302,7 @@
     <item>
       <title>Hypothesis Testing</title>
       <link>https://amitrajan012.github.io/tags/hypothesis-testing/</link>
-      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/hypothesis-testing/</guid>
       <description></description>
@@ -498,6 +507,15 @@
     </item>
     
     <item>
+      <title>P Value</title>
+      <link>https://amitrajan012.github.io/tags/p-value/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/p-value/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Pmf</title>
       <link>https://amitrajan012.github.io/tags/pmf/</link>
       <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
@@ -518,7 +536,7 @@
     <item>
       <title>Power</title>
       <link>https://amitrajan012.github.io/tags/power/</link>
-      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/power/</guid>
       <description></description>
@@ -696,6 +714,15 @@
     </item>
     
     <item>
+      <title>T Statistic</title>
+      <link>https://amitrajan012.github.io/tags/t-statistic/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/t-statistic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tfidf</title>
       <link>https://amitrajan012.github.io/tags/tfidf/</link>
       <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
@@ -746,6 +773,15 @@
       <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/variance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Z Statistic</title>
+      <link>https://amitrajan012.github.io/tags/z-statistic/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/z-statistic/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hypothesis testing">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Hypothesis testing &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">amit rajan</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Hypothesis testing</h1>
+  <h2>Hypothesis testing</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>29 Oct 2018, 02:01</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/hypothesis-testing">Hypothesis testing</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/hypothesis-testing">Hypothesis testing</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/p-value">p-value</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/z-statistic">z-statistic</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/t-statistic">t-statistic</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/power">Power</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/f-test">F-test</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h3 id="introduction">Introduction :</h3>
+
+<p><b>Hypothesis testing</b> is a procedure that is used to determine that whether a made statistical statement (known as <b>hypothesis</b>) is a reasonable one and should not be rejected, or is unreasonable and should be rejected. Hypothesis testing setup is initialized by formulating a <b>Null Hypothesis</b> ($H_0$), which is the hypothesis associated with a contradiction to the theory that one would like to prove and <b>Alternate Hypothesis</b> ($H_A$), which is the hypothesis associated with the theory that one would like to prove. Then an appropriate <b>test statistic</b> and <b>level of significance</b> is chosen.</p>
+
+<p>The choice of test statistic depends on the problem statement. For example:</p>
+
+<ul>
+<li><p>When the population standard deviation is <b>known</b>, and if either the data is <b>normally distributed</b> or the <b>sample size &gt; 30</b>, <b>z-statistic</b> (normal distribution) is used.</p></li>
+
+<li><p>When the population standard deviation is <b>unknown</b>, and if either the data is <b>normally distributed</b> or the <b>sample size &gt; 30</b>, <b>t-statistic</b> (t-distribution) is used.</p></li>
+</ul>
+
+<p>The <b>rejection region</b> for the null hypothesis is decided by the <b>level of significance</b> ($\alpha$) of the test. If the <b>test statistic</b> falls in the rejection region, <b>null hypothesis is rejected</b>.</p>
+
+<p>Two types of error can result from a hypothesis test. <b>Type I error</b> occurs when a null hypothesis is rejected even if it is true. Probability of Type I error is given by the <b>level of significance</b> ($\alpha$). <b>Type II error</b> occurs if we fail to reject a null hypothesis which is false. The probability of commiting Type II error is denoted by $\beta$. The probability of not committing the Type II error is called as the <b>power</b> of the test and is equal to $(1 - \beta)$.</p>
+
+<p><b>P-value</b> measures the strength of evidence in the support of a null hypothesis. If the p-value is <b>less than the level of significance</b>, we reject the null hypothesis.</p>
+
+<p>Furthermore, a statistical test can be classified as one-tailed and two-tailed tests. In a <b>one-tailed test</b>, the rejection region is only on one side. For example, the null-hypothesis $H_0: \mu &gt; 0$ is an example of one-tailed test. When the rejection region is on the both sides of the distribution, the test is called as <b>two-tailed test</b>. A null hypotghesis of $H_0: \mu = 0$ is an example of a two-tailed test. For a two-tailed test, the level of significance is halved.</p>
+
+<p></br></p>
+
+<h3 id="example">Example :</h3>
+
+<ol>
+<li>The average score of all sixth graders in school District A on a math aptitude exam is 75 with a standard deviation of 8.1. A random sample of 100 students in one school was taken. The mean score of these 100 students was 71. Does this indicate that the students of this school are significantly <b>less skilled</b> in their mathematical abilities than the average student in the district? (Use a 5% level of significance.)</li>
+</ol>
+
+<p>The test statistic can be formulated as:</p>
+
+<ul>
+<li>Null Hypothesis $H_0: \mu \geq 75$</li>
+<li>Alternate Hypothesis $H_A: \mu &lt; 75$</li>
+</ul>
+
+<p>Level of significance can be given as $\alpha = 0.05$. We are going to use <b>z-test</b> as population standard deviation is known and the sample size is greater than 30. The z-score can be given as:</p>
+
+<p>$$z = \frac{x - \mu}{\sigma /\ \sqrt{n}} = \frac{71 - 75}{8.1 /\ \sqrt{100}} = -4.938$$</p>
+
+<p>We can find the rejection region from the z-distribution table. The rejection region comes out to be $z &lt; -1.645$ as $P(z &lt; -1.645) = 0.05$ and hence we can <b>reject</b> the null hypothesis stating that the the students of this school are significantly <b>less skilled</b> in their mathematical abilities than the average student in the district.</p>
+
+<p></br></p>
+
+<h3 id="factors-that-affect-power">Factors That Affect Power :</h3>
+
+<p>The power of the test is highly affected by the sample size. Other things being equal, <b>greater the sample size, greater the power of the test</b>. If we decrease the significance level, we are narrowing the rejection region and hence we are less likely to reject the null hypothesis. Hence, <b>lower the significance level, lower the power of the test</b>.</p>
+
+<p></br></p>
+
+<h3 id="f-test">F-test :</h3>
+
+<p>An <b>F-test</b> is any statistical test in which the test statistic has an <b>F-distribution</b> under the null hypothesis. It is used to compare statistical models that have been fitted to a data-set in order to identify the model that best fits the population from which the data-set has been sampled. Another use is in the test for the null hypothesis that the two normal populations have the <b>same variance</b>. The formula for the one-way analysis of variance is given as:</p>
+
+<p>$$F = \frac{explained \ variance}{unexplained \ variance}$$</p>
+
+<p>In a regression setting, the F-statistic is given as (where the terms have usual meaning):</p>
+
+<p>$$F = \frac{(TSS - RSS) / (p-1)}{RSS / (n-p)}$$</p>
+
+<p></br></p>
+
+<h3 id="reference">Reference :</h3>
+
+<p><a href="http://cfcc.edu/faculty/cmoore/0801-HypothesisTests.pdf">http://cfcc.edu/faculty/cmoore/0801-HypothesisTests.pdf</a></p>
+
+<p><a href="https://stattrek.com/hypothesis-test/hypothesis-testing.aspx">https://stattrek.com/hypothesis-test/hypothesis-testing.aspx</a></p>
+
+<p><a href="https://en.wikipedia.org/wiki/F-test">https://en.wikipedia.org/wiki/F-test</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/maximum-likelihood-estimation-/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/maximum-likelihood-estimation-/">Maximum Likelihood Estimation</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
