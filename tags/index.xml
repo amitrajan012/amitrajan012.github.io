@@ -122,7 +122,7 @@
     <item>
       <title>Classification</title>
       <link>https://amitrajan012.github.io/tags/classification/</link>
-      <pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/classification/</guid>
       <description></description>
@@ -269,6 +269,15 @@
       <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/f-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>F1 Score</title>
+      <link>https://amitrajan012.github.io/tags/f1-score/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/f1-score/</guid>
       <description></description>
     </item>
     
@@ -543,6 +552,15 @@
     </item>
     
     <item>
+      <title>Precision</title>
+      <link>https://amitrajan012.github.io/tags/precision/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/precision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Principal Components Analysis</title>
       <link>https://amitrajan012.github.io/tags/principal-components-analysis/</link>
       <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
@@ -579,6 +597,15 @@
     </item>
     
     <item>
+      <title>Recall</title>
+      <link>https://amitrajan012.github.io/tags/recall/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/recall/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Recommendation Engine</title>
       <link>https://amitrajan012.github.io/tags/recommendation-engine/</link>
       <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
@@ -611,6 +638,24 @@
       <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/resampling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Roc Curve</title>
+      <link>https://amitrajan012.github.io/tags/roc-curve/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/roc-curve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sensitivity</title>
+      <link>https://amitrajan012.github.io/tags/sensitivity/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/sensitivity/</guid>
       <description></description>
     </item>
     
@@ -656,6 +701,15 @@
       <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/spearmans-rank-correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Specificity</title>
+      <link>https://amitrajan012.github.io/tags/specificity/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/specificity/</guid>
       <description></description>
     </item>
     

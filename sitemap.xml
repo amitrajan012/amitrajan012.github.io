@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/hypothesis-testing/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
   </url>
@@ -294,7 +299,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -375,13 +380,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/classification/</loc>
-    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/classification/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/classification/</loc>
+    <loc>https://amitrajan012.github.io/topics/classification/</loc>
     <lastmod>2018-10-24T05:01:19+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -459,13 +464,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
+    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
+    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -489,6 +494,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/f1-score/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/generalized-additive-models/</loc>
     <lastmod>2018-06-04T16:12:19+01:00</lastmod>
     <priority>0</priority>
@@ -507,13 +518,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -525,13 +536,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/islr/</loc>
+    <loc>https://amitrajan012.github.io/tags/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/islr/</loc>
+    <loc>https://amitrajan012.github.io/topics/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -663,6 +674,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/topics/performance-metrics-for-classification-algorithms/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/pmf/</loc>
     <lastmod>2018-08-12T09:22:46+01:00</lastmod>
     <priority>0</priority>
@@ -676,13 +693,19 @@
   
   <url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://amitrajan012.github.io/tags/power/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/precision/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -711,13 +734,19 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
-    <lastmod>2018-07-30T02:12:38+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/recall/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://amitrajan012.github.io/tags/recommendation-engine/</loc>
+    <lastmod>2018-07-30T02:12:38+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
     <lastmod>2018-07-30T02:12:38+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -737,6 +766,18 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/resampling/</loc>
     <lastmod>2018-06-08T03:17:36+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/roc-curve/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/sensitivity/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -767,6 +808,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/spearmans-rank-correlation/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/specificity/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -836,13 +883,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>

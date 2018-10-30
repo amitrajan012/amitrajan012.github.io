@@ -6,10 +6,21 @@
     <description>Recent content on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 Oct 2018 02:01:07 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 29 Oct 2018 12:11:37 +0100</lastBuildDate>
     
 	<atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Performance Metrics for Classification Algorithms</title>
+      <link>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
+      <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
+
+Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+    </item>
     
     <item>
       <title>Hypothesis testing</title>
