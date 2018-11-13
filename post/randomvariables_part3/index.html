@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Performance Metrics for Classification Algorithms">
+  <meta name="description" content="Jointly Distributed Random Variables">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Performance Metrics for Classification Algorithms &middot; Amit Rajan</title>
+  <title>Random Variables (Part 3: Jointly Distributed Random Variables) &middot; Amit Rajan</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -132,8 +132,8 @@
 
 
 <div class="header">
-  <h1>Performance Metrics for Classification Algorithms</h1>
-  <h2>Performance Metrics for Classification Algorithms</h2>
+  <h1>Random Variables (Part 3: Jointly Distributed Random Variables)</h1>
+  <h2>Jointly Distributed Random Variables</h2>
 </div>
 <div class="content">
 
@@ -141,7 +141,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>29 Oct 2018, 12:11</time>
+    <time>13 Nov 2018, 06:11</time>
   </div>
 
   
@@ -152,7 +152,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/performance-metrics-for-classification-algorithms">Performance Metrics for Classification Algorithms</a>
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/random-variables">Random Variables</a>
     
   </div>
   
@@ -164,19 +164,17 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/classification">Classification</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/random-variables">Random Variables</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/precision">Precision</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/covariance">Covariance</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/recall">Recall</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/correlation">Correlation</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/specificity">Specificity</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/conditional-distributions">Conditional Distributions</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/sensitivity">Sensitivity</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/marginal-probability-density">Marginal Probability Density</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/f1-score">F1 Score</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/roc-curve">ROC Curve</a>
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/iid">IID</a>
     
   </div>
   
@@ -187,86 +185,102 @@
 
   
 
-<p>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.</p>
+<p></br></p>
+
+<h4 id="independent-random-variables">Independent Random Variables :</h4>
+
+<p>If $X$ and $Y$ are <b>independent random variables</b> and $S$ and $T$ are sets of numbers then,</p>
+
+<p>$$P(X \in S \ and \ Y \in T) = P(X \in S) P(Y \in T)$$</p>
+
+<p>Hence, for independent random variables $X_1, X_2, &hellip;, X_n$ and constants $c_1, c_2, &hellip;, c_n$, the variance of linear combination $c_1X_1 + c_2X_2 + &hellip; + c_nX_n$ is given as:</p>
+
+<p>$$\sigma _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &hellip; + c_n^2\sigma _{X_n}^2$$</p>
 
 <p></br></p>
 
-<h3 id="confusion-matrix">Confusion Matrix :</h3>
+<h4 id="independence-and-simple-random-samples">Independence and Simple Random Samples :</h4>
 
-<p><b>Confusion matrix</b> is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures. A sample confusion matrix is shown below:</p>
+<p>When a simple random sample of numerical values is drawn from a population, each item in the sample can be thought of as a random variable. The items in a simple random sample may be treated as independent, except when the sample is a large proportion (more than 5%) of a finite population. Hence, if $X_1, X_2, &hellip;, X_n$ are simple random samples, then $X_1, X_2, &hellip;, X_n$ may be treated as <b>independent random variables</b>, all with the <b>same distribution</b> and is said that they are <b>independent and identically distributed (i.i.d.)</b>. The <b>sample mean</b>, denoted as $\overline{X}$, can be treated as the linear combination of means of different samples and is given as:</p>
 
+<p>$$\overline{X} = \frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n$$</p>
 
-<img class="pure-img" src="https://amitrajan012.github.io/img/performance_metric/cm.png" alt="">
+<p>Hence, the <b>mean</b> and <b>variance</b> of $\overline{X}$ can be computed as:</p>
 
+<p>$$\mu _{\overline{X}} = \mu _{\frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n} = \frac{1}{n}\mu _{X_1} + \frac{1}{n}\mu _{X_2} + &hellip; + \frac{1}{n}\mu _{X_n} = \frac{1}{n}\mu + &hellip; + \frac{1}{n}\mu = \mu$$</p>
 
-<p><b>True Positive (TP)</b> is the cell which has both the actual and predicted classes as <b>True</b>. <b>False Positive (FP)</b> is the cell for which the actual class label is <b>False</b> but the predicted class label is <b>True</b>. <b>True Negative (TN)</b> is the cell for which both the actual and predicted class labels are <b>False</b>. <b>False Negative (FN)</b> is the cell for which the actual class label is <b>True</b> but the predicted class label is <b>False</b>. In the above confusion matrix, <b>TP = 100, FP = 10, TN = 50, FN = 5</b>.</p>
+<p>$$\sigma _{\overline{X}}^2 = \sigma _{\frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n}^2 = \frac{1}{n^2}\sigma _{X_1}^2 + \frac{1}{n^2}\sigma _{X_2}^2 + &hellip; + \frac{1}{n^2}\sigma _{X_n}^2 = \frac{1}{n}\sigma^2 + &hellip; + \frac{1}{n}\sigma^2 = \frac{\sigma^2}{n}$$</p>
 
-<p>All these quantities have different and important effects when it comes to the problem statement. For example, in the case of a model which detects the cancerous cell, we need to minimize the False Negative as miss classifying a cancerous tumor as non-cancerous will have a significant impact. In the case of the model which identifies spam emails, we need to minimize False Positive rate, as they will lead to the classification of important emails as spams.</p>
-
-<p></br></p>
-
-<h3 id="accuracy">Accuracy :</h3>
-
-<p>Accuracy of a classification model is given as:</p>
-
-<p>$$Accuracy = \frac{TP+TN}{Number \ of \ Observations} = \frac{TP+TN}{TP+FP+TN+FN}$$</p>
-
-<p>Accuracy is a good measure for the fit when the target class labels are balanced. We should refrain ourselves from using accuracy as the measure when the target class labels has a majority of one class.</p>
+<p>This technique of reducing variance can be used in various statistical models to tackle the problem of overfitting.</p>
 
 <p></br></p>
 
-<h3 id="precision-and-recall-sensitivity">Precision and Recall (Sensitivity) :</h3>
+<h4 id="jointly-distributed-random-variables">Jointly Distributed Random Variables :</h4>
 
-<p><b>Precision</b> is the measure which tells us that out of all the observations that are predicted as true, what fraction is actually true. It is given as:</p>
+<p>When two or more random variables are associated with each item in a population, the random variables are said to be <b>jointly distributed</b>. For <b>jointly distributed discrete RVs</b>, the <b>joint probability mass function</b> is given as: $p(x, y) = P(X=x \ and \ Y=y)$. The <b>marginal probabilities</b> can be computed as:</p>
 
-<p>$$Precision = \frac{TP}{TP+FP}$$</p>
+<p>$$p_X(x) = P(X=x) = \sum _{y} p(x,y)$$</p>
 
-<p><b>Recall</b> is a measure that tells us that out of all the actual true class labels, how many are correctly classified by the model. It is given as:</p>
+<p>$$p_Y(y) = P(Y=y) = \sum _{x} p(x,y)$$</p>
 
-<p>$$Recall = \frac{TP}{TP+FN}$$</p>
+<p>where the sum is taken over all the possible values of $Y$ and $X$. For a <b>jointly distributed continuous RVs</b>, the probability can be given as:</p>
 
-<p>If we want to minimize FP, we should be maximizing precision and if we want to minimize FN, we should be maximizing recall. Hence, in the case of cancerous cell detection, we have to minimize FN and hence we should maximize recall. For the model that identifies spam emails, our goal is to minimize FP and hence we should maximize precision.</p>
+<p>$$P(a \leq X \leq b \ and \ c \leq Y \leq d) = \int _{a}^{b} \int _{c}^{d} f(x, y) \ dy \ dx$$</p>
 
-<p></br></p>
+<p>The <b>marginal Probability densities</b> can be computed as:</p>
 
-<h3 id="specificity-and-f1-score">Specificity and F1 Score :</h3>
+<p>$$f_X(x) = \int _{-\infty}^{\infty} f(x, y) \ dy$$</p>
 
-<p><b>Specificity</b> measures the classification accuracy for the <b>true negative</b> observations in the data set. It is given as:</p>
+<p>$$f_Y(y) = \int _{-\infty}^{\infty} f(x, y) \ dx$$</p>
 
-<p>$$Specificity = \frac{TN}{TN+FP}$$</p>
-
-<p><b>F1 Score</b> is the <b>harmonic mean</b> of precision and recall.</p>
-
-<p>$$F1 \ Score = \frac{2 \times Precision \times Recall}{Precision + Recall}$$</p>
+<p>These concepts can be extended for the case of more than two random variables as well.</p>
 
 <p></br></p>
 
-<h3 id="auc-roc-curve">AUC-ROC Curve :</h3>
+<h4 id="conditional-distributions">Conditional Distributions :</h4>
 
-<p><b>AUC(Area under the Curve)-ROC(Receiver Operating Characteristics) Curve</b> is one of the most important measure of the classification performance. ROC curve is plotted as <b>true positive rate (TPR)</b> against <b>false positive rate (FPR)</b>. TPR is the classification accuracy rate for the true positive observations, which can be given as $\frac{TP}{TP+FN} = Recall$. FPR is the false positive rate and tells us about the fraction of true negative observations which are falsely classified as positive and is given as $\frac{FP}{FP+TN} = 1 - Specificity$. An ideal or favorable ROC curve should be hugging the top left corner and should have an area closed to 1 under it. The ROC curve with an area of 0.5 tells that the classifier has no classification power as such.</p>
+<p>For two jointly discrete random variables $X$ and $Y$, the <b>conditional probability mass function</b> of $Y$ given $X=x$ can be given as:</p>
+
+<p>$$p _{Y|X}(y|x) = \frac{p(x, y)}{p_X(x)}$$</p>
+
+<p>where $p(x, y)$ is the joint probability mass function and $p_X(x)$ is the marginal probability mass function of $X$. Similarly, for two jointly continuous random variables $X$ and $Y$, the <b>conditional probability density function</b> of $Y$ given $X=x$ can be given as:</p>
+
+<p>$$f _{Y|X}(y|x) = \frac{f(x, y)}{f_X(x)}$$</p>
+
+<p>where all the terms have the usual meaning.</p>
+
+<p>Two RVs $X$ and $Y$ are independent if $p(x, y) = p_X(x) p_Y(y)$ (for discrete RVs) and $f(x, y) = f_X(x) f_Y(y)$ (for continuous RVs).</p>
 
 <p></br></p>
 
-<h3 id="reference">Reference :</h3>
+<h4 id="covariance-and-correlation">Covariance  and Correlation :</h4>
 
-<p><a href="https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a></p>
+<p>The <b>covariance</b> of two RVs $X$ and $Y$ is given as:</p>
 
-<p><a href="https://medium.com/greyatom/performance-metrics-for-classification-problems-in-machine-learning-part-i-b085d432082b">https://medium.com/greyatom/performance-metrics-for-classification-problems-in-machine-learning-part-i-b085d432082b</a></p>
+<p>$$Cov(X, Y) = \mu _{(X - \mu_X)(Y - \mu_Y)} = \mu _{XY} - \mu_X \mu_Y$$</p>
 
-<p><a href="https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5">https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5</a></p>
+<p>It is to be noted that covariance has a unit which is the unit of $X$ multiplied by the unit of $Y$. Hence, covariance can not be used to compare the strength of relationship between different set of random variables. The <b>correlation</b> is the scaled version of covariance. To compute the correlation between $X$ and $Y$, the covariance between them is computed and then the unit is handled by dividing the covariance by the standard deviation of $X$ and $Y$. Hence, correlation is given as:</p>
+
+<p>$$\rho _{X, Y} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y}$$</p>
+
+<p>For <b>non-independent</b> random variables $X_1, X_2, &hellip;, X_n$, mean and variance can be computed as:</p>
+
+<p>$$\mu _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n} = c_1\mu _{X_1} + c_2\mu _{X_2} + &hellip; + c_n\mu _{X_n}$$</p>
+
+<p>$$\sigma _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &hellip; + c_n^2\sigma _{X_n}^2 + 2 \sum _{\forall i, j} c_i c_j Cov(X_i, X_j)$$</p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://amitrajan012.github.io/post/hypothesis-testing/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://amitrajan012.github.io/post/randomvariables_part2/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://amitrajan012.github.io/post/hypothesis-testing/">Hypothesis testing</a>
+      <a href="https://amitrajan012.github.io/post/randomvariables_part2/">Random Variables (Part 2: Continuous Random Variables)</a>
     </nav>
     
   </div>
@@ -275,14 +289,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://amitrajan012.github.io/post/random-variables/">Random Variables (Part 1: Discrete Random Variables)</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://amitrajan012.github.io/post/random-variables/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

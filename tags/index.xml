@@ -95,7 +95,7 @@
     <item>
       <title>Cdf</title>
       <link>https://amitrajan012.github.io/tags/cdf/</link>
-      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/cdf/</guid>
       <description></description>
@@ -156,6 +156,15 @@
     </item>
     
     <item>
+      <title>Conditional Distributions</title>
+      <link>https://amitrajan012.github.io/tags/conditional-distributions/</link>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conditional-distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Confidence Intervals</title>
       <link>https://amitrajan012.github.io/tags/confidence-intervals/</link>
       <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
@@ -174,6 +183,15 @@
     </item>
     
     <item>
+      <title>Continuous Random Variables</title>
+      <link>https://amitrajan012.github.io/tags/continuous-random-variables/</link>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/continuous-random-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Convolution</title>
       <link>https://amitrajan012.github.io/tags/convolution/</link>
       <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
@@ -185,7 +203,7 @@
     <item>
       <title>Correlation</title>
       <link>https://amitrajan012.github.io/tags/correlation/</link>
-      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/correlation/</guid>
       <description></description>
@@ -194,7 +212,7 @@
     <item>
       <title>Covariance</title>
       <link>https://amitrajan012.github.io/tags/covariance/</link>
-      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/covariance/</guid>
       <description></description>
@@ -224,6 +242,15 @@
       <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/dimension-reduction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discrete Random Variables</title>
+      <link>https://amitrajan012.github.io/tags/discrete-random-variables/</link>
+      <pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/discrete-random-variables/</guid>
       <description></description>
     </item>
     
@@ -314,6 +341,15 @@
       <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/hypothesis-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iid</title>
+      <link>https://amitrajan012.github.io/tags/iid/</link>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/iid/</guid>
       <description></description>
     </item>
     
@@ -435,6 +471,15 @@
     </item>
     
     <item>
+      <title>Marginal Probability Density</title>
+      <link>https://amitrajan012.github.io/tags/marginal-probability-density/</link>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/marginal-probability-density/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Maximal Margin Classifier</title>
       <link>https://amitrajan012.github.io/tags/maximal-margin-classifier/</link>
       <pubDate>Tue, 19 Jun 2018 12:14:23 +0100</pubDate>
@@ -455,7 +500,7 @@
     <item>
       <title>Mean</title>
       <link>https://amitrajan012.github.io/tags/mean/</link>
-      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/mean/</guid>
       <description></description>
@@ -527,7 +572,7 @@
     <item>
       <title>Pmf</title>
       <link>https://amitrajan012.github.io/tags/pmf/</link>
-      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/pmf/</guid>
       <description></description>
@@ -590,7 +635,7 @@
     <item>
       <title>Random Variables</title>
       <link>https://amitrajan012.github.io/tags/random-variables/</link>
-      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/random-variables/</guid>
       <description></description>
@@ -824,7 +869,7 @@
     <item>
       <title>Variance</title>
       <link>https://amitrajan012.github.io/tags/variance/</link>
-      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/variance/</guid>
       <description></description>

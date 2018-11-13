@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Continuous Random Variables">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Mean &middot; Amit Rajan</title>
+  <title>Random Variables (Part 2: Continuous Random Variables) &middot; Amit Rajan</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -60,8 +60,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Amit Rajan" href="https://amitrajan012.github.io/tags/mean/index.xml" />
   
 
   
@@ -134,16 +132,12 @@
 
 
 <div class="header">
-  <h1>Mean</h1>
+  <h1>Random Variables (Part 2: Continuous Random Variables)</h1>
+  <h2>Continuous Random Variables</h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/randomvariables_part2/">Random Variables (Part 2: Continuous Random Variables)</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -189,147 +183,112 @@
 </div>
 
 
-  </header>
+  
 
-  <p>
-  Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
+<p></br></p>
 
-Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.
-  </p>
+<h4 id="continuous-random-variables">Continuous Random Variables :</h4>
+
+<p>A <b>continuous random variable</b> is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).</p>
+
+<p></br></p>
+
+<h4 id="probability-density-function-pdf">Probability Density Function (PDF) :</h4>
+
+<p>As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a <b>probability density funaction</b>, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable. For a continuous RV $X$ with a PDF $f(x)$, the probability can be given as:</p>
+
+<p>$$P(a \leq X \leq b) = \int _{a}^{b} f(x) dx$$</p>
+
+<p>If we integrate the PDF for the entire range of $X$, it will be 1, i.e. $\int _{-\infty}^{\infty} f(x) dx = 1$</p>
+
+<p></br></p>
+
+<h4 id="cumulative-distribution-function-continuous-rv">Cumulative Distribution Function (Continuous RV) :</h4>
+
+<p>The <b>cumulative distribution funaction (CDF)</b> of a continuous random variable is given as:</p>
+
+<p>$$F(x) = P(X \leq x) = \int _{-\infty}^{x} f(t) dt$$</p>
+
+<p></br></p>
+
+<h4 id="mean-median-and-variance-of-continuous-rv">Mean, Median and Variance of Continuous RV :</h4>
+
+<p>The <b>mean</b> and <b>variance</b> of a continuous RV is defined in a similar way as discrete RV.</p>
+
+<p>$$\mu_X = \int _{-\infty}^{\infty} x f(x) dx$$</p>
+
+<p>$$\sigma_X^2 = \int _{-\infty}^{\infty} (x-\mu_X)^2 f(x) dx$$</p>
+
+<p>The <b>median</b> is the point which divides the dataset into two equal halves. Hence, it can be calculted by solving the following equation (where $x_m$ is the median):</p>
+
+<p>$$F(x_m) = P(X \leq x_m) = \int _{-\infty}^{x_m} f(x) dx = 0.5$$</p>
+
+<p></br></p>
+
+<h4 id="linear-functions-of-random-variables">Linear Functions of Random Variables :</h4>
+
+<p>If $X$ is a random variable and $a$ and $b$ are constants:</p>
+
+<p>$$\mu _{aX+b} = a\mu_X + b$$</p>
+
+<p>$$\sigma _{aX+b}^2 = a^2\sigma_X^2$$</p>
+
+<p>$$\sigma _{aX+b} = \lvert a \rvert\sigma_X$$</p>
+
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/randomvariables_part2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/random-variables/">Random Variables (Part 1: Discrete Random Variables)</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>11 Nov 2018, 13:11</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/random-variables/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/random-variables">Random Variables</a>
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/random-variables/">Random Variables (Part 1: Discrete Random Variables)</a>
+    </nav>
     
   </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/random-variables">Random Variables</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/discrete-random-variables">Discrete Random Variables</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/pmf">PMF</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/cdf">CDF</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/mean">Mean</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/variance">Variance</a>
+    <nav class="next">
+      <a href="https://amitrajan012.github.io/post/randomvariables_part3/">Random Variables (Part 3: Jointly Distributed Random Variables)</a>
+    </nav>
     
   </div>
-  
-  
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://amitrajan012.github.io/post/randomvariables_part3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
 </div>
 
 
-  </header>
-
-  <p>
-  Random Variable is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: discrete and continuous.
-  </p>
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/random-variables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/chapter-2---descriptive-statistics/">Think Stats: Chapter 2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>08 Aug 2018, 04:17</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+(function() {
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/think-stats">Think Stats</a>
     
-  </div>
-  
-  
+    if (window.location.hostname == "localhost")
+        return;
 
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/think-stats">Think Stats</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/mean">Mean</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/variance">Variance</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/distributions">Distributions</a>
-    
-  </div>
-  
-  
-
-</div>
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-  </header>
-
-  <p>
-  2.1 Means and averages Mean of a sample is a summary statistics that can be computed as (where n is the total number of samples): $$\mu = \frac{1}{n} \sum_i{x_i}$$ An average is one of many summary statistics that can be used to describe the typical value or the central tendency of a sample.
-2.2 Variance As mean describes the central tendency of a sample, Variance is intended to describe the spread.
-  </p>
-
-  
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/chapter-2---descriptive-statistics/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 </div>
 
 </div>
@@ -371,3 +330,4 @@ Probability Density Function (PDF) : As a continuous RV takes infinite values, t
 
 </body>
 </html>
+

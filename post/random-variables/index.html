@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Performance Metrics for Classification Algorithms">
+  <meta name="description" content="Discrete Random Variables">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Performance Metrics for Classification Algorithms &middot; Amit Rajan</title>
+  <title>Random Variables (Part 1: Discrete Random Variables) &middot; Amit Rajan</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -132,8 +132,8 @@
 
 
 <div class="header">
-  <h1>Performance Metrics for Classification Algorithms</h1>
-  <h2>Performance Metrics for Classification Algorithms</h2>
+  <h1>Random Variables (Part 1: Discrete Random Variables)</h1>
+  <h2>Discrete Random Variables</h2>
 </div>
 <div class="content">
 
@@ -141,7 +141,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>29 Oct 2018, 12:11</time>
+    <time>11 Nov 2018, 13:11</time>
   </div>
 
   
@@ -152,7 +152,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/performance-metrics-for-classification-algorithms">Performance Metrics for Classification Algorithms</a>
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/random-variables">Random Variables</a>
     
   </div>
   
@@ -164,19 +164,17 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/classification">Classification</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/random-variables">Random Variables</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/precision">Precision</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/discrete-random-variables">Discrete Random Variables</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/recall">Recall</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/pmf">PMF</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/specificity">Specificity</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/cdf">CDF</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/sensitivity">Sensitivity</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/mean">Mean</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/f1-score">F1 Score</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/roc-curve">ROC Curve</a>
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/variance">Variance</a>
     
   </div>
   
@@ -187,86 +185,117 @@
 
   
 
-<p>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.</p>
+<p></br>
+<b>Random Variable</b> is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: <b>discrete</b> and <b>continuous</b>.</p>
 
 <p></br></p>
 
-<h3 id="confusion-matrix">Confusion Matrix :</h3>
+<h4 id="discrete-random-variable">Discrete Random Variable :</h4>
 
-<p><b>Confusion matrix</b> is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures. A sample confusion matrix is shown below:</p>
+<p>A random variable is discrete if <b>its possible values form a discrete set</b>. The random variable denoting the experiment of rolling a fair die is an example of discrete random variable.</p>
+
+<p>Let us look at an extensive example of a discrete RV. Instead of rolling a single die, we roll two fair dice. Rather than looking at the die individually, we can instead look at the sum of the dice, which would be a random variable. This is a classic example of a discrete random variable. The possible outcomes of the mentioned experiment is shown below.</p>
 
 
-<img class="pure-img" src="https://amitrajan012.github.io/img/performance_metric/cm.png" alt="">
+<img class="pure-img" src="https://amitrajan012.github.io/img/RV/Dice.png" alt="">
 
 
-<p><b>True Positive (TP)</b> is the cell which has both the actual and predicted classes as <b>True</b>. <b>False Positive (FP)</b> is the cell for which the actual class label is <b>False</b> but the predicted class label is <b>True</b>. <b>True Negative (TN)</b> is the cell for which both the actual and predicted class labels are <b>False</b>. <b>False Negative (FN)</b> is the cell for which the actual class label is <b>True</b> but the predicted class label is <b>False</b>. In the above confusion matrix, <b>TP = 100, FP = 10, TN = 50, FN = 5</b>.</p>
-
-<p>All these quantities have different and important effects when it comes to the problem statement. For example, in the case of a model which detects the cancerous cell, we need to minimize the False Negative as miss classifying a cancerous tumor as non-cancerous will have a significant impact. In the case of the model which identifies spam emails, we need to minimize False Positive rate, as they will lead to the classification of important emails as spams.</p>
-
-<p></br></p>
-
-<h3 id="accuracy">Accuracy :</h3>
-
-<p>Accuracy of a classification model is given as:</p>
-
-<p>$$Accuracy = \frac{TP+TN}{Number \ of \ Observations} = \frac{TP+TN}{TP+FP+TN+FN}$$</p>
-
-<p>Accuracy is a good measure for the fit when the target class labels are balanced. We should refrain ourselves from using accuracy as the measure when the target class labels has a majority of one class.</p>
+<p>We can associate a probability with distinct values of a random variable. For example, the probability that the sum (denoted by a RV named $X$) will be equal to 6 can be written as $P(X=6)$ and is equal to $\frac{5}{36}$.</p>
 
 <p></br></p>
 
-<h3 id="precision-and-recall-sensitivity">Precision and Recall (Sensitivity) :</h3>
+<h4 id="probability-mass-function-pmf">Probability Mass Function (PMF) :</h4>
 
-<p><b>Precision</b> is the measure which tells us that out of all the observations that are predicted as true, what fraction is actually true. It is given as:</p>
+<p><b>Probability mass function</b> of a discrete random variable $X$ is the function that gives the probability that a discrete random variable is exactly equal to some value. It is denoted as $p(x) = P(X=x)$. It is also sometimes called as <b>probability distribution</b>. The values in the third column (named as probability) in the above table gives the <b>PMF</b> for the above menntioned experiment. Let us plot the PMF for the sum obtained when two fair dice is rolled. It is shown in the left plot of the below figure. The value of the RV having the <b>highest probability mass</b> is called the <b>mode</b> (7 in this case).</p>
 
-<p>$$Precision = \frac{TP}{TP+FP}$$</p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+import numpy as np
 
-<p><b>Recall</b> is a measure that tells us that out of all the actual true class labels, how many are correctly classified by the model. It is given as:</p>
+X = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+pmf = [1/36, 2/36, 3/36, 4/36, 5/36, 6/36, 5/36, 4/36, 3/36, 2/36, 1/36]
+cdf = [1/36, 3/36, 6/36, 10/36, 15/36, 21/36, 26/36, 30/36, 33/36, 35/36, 36/36]
 
-<p>$$Recall = \frac{TP}{TP+FN}$$</p>
+fig = plt.figure(figsize=(15,8))
 
-<p>If we want to minimize FP, we should be maximizing precision and if we want to minimize FN, we should be maximizing recall. Hence, in the case of cancerous cell detection, we have to minimize FN and hence we should maximize recall. For the model that identifies spam emails, our goal is to minimize FP and hence we should maximize precision.</p>
+# Plot of PMF
+ax = fig.add_subplot(121)
+plt.stem(X, pmf, linefmt='b--', markerfmt='ro', basefmt='r--')
+
+ax.set_xlabel('X')
+ax.set_ylabel('P(X=x)')
+ax.set_title('PMF Plot')
+plt.xticks(np.arange(min(X), max(X)+1, 1.0))
+
+# Plot of CDF
+ax = fig.add_subplot(122)
+plt.step(X, cdf, color='b', linestyle='dashed')
+ax.set_xlabel('X')
+ax.set_ylabel('P(X&lt;=x)')
+ax.set_title('CDF Plot')
+plt.xticks(np.arange(min(X), max(X)+1, 1.0))
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/RV/Random%20Variables_4_0.png" alt="">
+
 
 <p></br></p>
 
-<h3 id="specificity-and-f1-score">Specificity and F1 Score :</h3>
+<h4 id="cumulative-distribution-function-discrete-rv">Cumulative Distribution Function (Discrete RV) :</h4>
 
-<p><b>Specificity</b> measures the classification accuracy for the <b>true negative</b> observations in the data set. It is given as:</p>
+<p><b>Cumulative distribution function</b> specifies the probability that a random variable is less than or equal to a given value. It can be defined as $F(x) = P(X \leq x)$. Mathematically, it can be given as:</p>
 
-<p>$$Specificity = \frac{TN}{TN+FP}$$</p>
+<p>$$F(x) = \sum_{t \leq x} p(t) = \sum _{t \leq x} P(X=t)$$</p>
 
-<p><b>F1 Score</b> is the <b>harmonic mean</b> of precision and recall.</p>
-
-<p>$$F1 \ Score = \frac{2 \times Precision \times Recall}{Precision + Recall}$$</p>
+<p>For the above experiment, $F(4) = P(X \leq 4) = \frac{1}{36} + \frac{2}{36} + \frac{3}{36} = \frac{1}{6}$. The plot of <b>CDF</b> is shown in the right plot of the above figure.</p>
 
 <p></br></p>
 
-<h3 id="auc-roc-curve">AUC-ROC Curve :</h3>
+<h4 id="mean-and-variance-of-discrete-rv">Mean and Variance of Discrete RV :</h4>
 
-<p><b>AUC(Area under the Curve)-ROC(Receiver Operating Characteristics) Curve</b> is one of the most important measure of the classification performance. ROC curve is plotted as <b>true positive rate (TPR)</b> against <b>false positive rate (FPR)</b>. TPR is the classification accuracy rate for the true positive observations, which can be given as $\frac{TP}{TP+FN} = Recall$. FPR is the false positive rate and tells us about the fraction of true negative observations which are falsely classified as positive and is given as $\frac{FP}{FP+TN} = 1 - Specificity$. An ideal or favorable ROC curve should be hugging the top left corner and should have an area closed to 1 under it. The ROC curve with an area of 0.5 tells that the classifier has no classification power as such.</p>
+<p>The mean of a random variable $X$, which is also called as <b>expected value</b> and can be denoted as $\mu_X$ or $E(X)$, is given as:</p>
 
-<p></br></p>
+<p>$$\mu_X = \sum _{x} xP(X=x)$$</p>
 
-<h3 id="reference">Reference :</h3>
+<p>where the sum is over all possible values of $X$. The <b>variance</b> of a discrete random variable $X$ is the weighted average of the squared differences $(x - \mu_X)^2$, where $x$ ranges through all the possible values of RV $X$. It is given as:</p>
 
-<p><a href="https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/">https://www.dataschool.io/simple-guide-to-confusion-matrix-terminology/</a></p>
+<p>$$\sigma_X^2 = \sum _{x} (x - \mu_X)^2 P(X=x)$$</p>
 
-<p><a href="https://medium.com/greyatom/performance-metrics-for-classification-problems-in-machine-learning-part-i-b085d432082b">https://medium.com/greyatom/performance-metrics-for-classification-problems-in-machine-learning-part-i-b085d432082b</a></p>
+<p>The <b>standard deviation</b> is the square root of the variance. The code for finding the mean, variance and standard deviation for the mentioned experiment is shown below.</p>
 
-<p><a href="https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5">https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5</a></p>
+<pre><code class="language-python">import math
+
+np_X = np.array(X)
+np_pmf = np.array(pmf)
+mean = int(round(np.sum(np_X*np_pmf)))
+print(&quot;Mean of the RV X is: &quot; + str(mean))
+
+(np_X - mean)**2
+variance = np.sum(((np_X - mean)**2)*np_pmf)
+print(&quot;Variance of the RV X is: &quot; + str(variance))
+
+print(&quot;Standard Deviation of the RV X is: &quot; + str(math.sqrt(variance)))
+</code></pre>
+
+<pre><code>Mean of the RV X is: 7
+Variance of the RV X is: 5.833333333333334
+Standard Deviation of the RV X is: 2.41522945769824
+</code></pre>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://amitrajan012.github.io/post/hypothesis-testing/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://amitrajan012.github.io/post/hypothesis-testing/">Hypothesis testing</a>
+      <a href="https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/">Performance Metrics for Classification Algorithms</a>
     </nav>
     
   </div>
@@ -276,13 +305,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://amitrajan012.github.io/post/random-variables/">Random Variables (Part 1: Discrete Random Variables)</a>
+      <a href="https://amitrajan012.github.io/post/randomvariables_part2/">Random Variables (Part 2: Continuous Random Variables)</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://amitrajan012.github.io/post/random-variables/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://amitrajan012.github.io/post/randomvariables_part2/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
