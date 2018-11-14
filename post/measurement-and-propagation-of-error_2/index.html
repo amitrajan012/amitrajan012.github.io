@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jointly Distributed Random Variables">
+  <meta name="description" content="Measurement and Propagation of Error">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Random Variables (Part 3: Jointly Distributed Random Variables) &middot; Amit Rajan</title>
+  <title>Measurement and Propagation of Error (Part 2) &middot; Amit Rajan</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -132,8 +132,8 @@
 
 
 <div class="header">
-  <h1>Random Variables (Part 3: Jointly Distributed Random Variables)</h1>
-  <h2>Jointly Distributed Random Variables</h2>
+  <h1>Measurement and Propagation of Error (Part 2)</h1>
+  <h2>Measurement and Propagation of Error</h2>
 </div>
 <div class="content">
 
@@ -141,7 +141,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>13 Nov 2018, 06:11</time>
+    <time>14 Nov 2018, 03:08</time>
   </div>
 
   
@@ -152,7 +152,9 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/random-variables">Random Variables</a>
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/measurement">Measurement</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/propagation-of-error">Propagation of Error</a>
     
   </div>
   
@@ -164,17 +166,17 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/random-variables">Random Variables</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/independent-measurements">Independent Measurements</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/covariance">Covariance</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/repeated-measurements">Repeated Measurements</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/correlation">Correlation</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/dependent-measurements">Dependent Measurements</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/conditional-distributions">Conditional Distributions</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/taylor-series">Taylor Series</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/marginal-probability-density">Marginal Probability Density</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/propagation-of-error">Propagation of Error</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/iid">IID</a>
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/neural-networks">Neural Networks</a>
     
   </div>
   
@@ -187,91 +189,75 @@
 
 <p></br></p>
 
-<h4 id="independent-random-variables">Independent Random Variables :</h4>
+<h4 id="linear-combinations-of-dependent-measurements">Linear Combinations of Dependent Measurements :</h4>
 
-<p>If $X$ and $Y$ are <b>independent random variables</b> and $S$ and $T$ are sets of numbers then,</p>
+<p>In the case of dependent measurement, to quantify the uncertainty, we need to know the value of <b>covariance</b> for all the possible pairs of measurements. This is practically not feasible. In this case, an upper bound can be placed on the uncertainty. If $X_1, X_2, &hellip;, X_n$ are $n$ dependent measurements and $c_1, c_2, &hellip;, c_n$ are constants, then the uncertainty of $c_1X_1 + c_2X_2 + &hellip; + c_nX_n$ can be bounded as:</p>
 
-<p>$$P(X \in S \ and \ Y \in T) = P(X \in S) P(Y \in T)$$</p>
-
-<p>Hence, for independent random variables $X_1, X_2, &hellip;, X_n$ and constants $c_1, c_2, &hellip;, c_n$, the variance of linear combination $c_1X_1 + c_2X_2 + &hellip; + c_nX_n$ is given as:</p>
-
-<p>$$\sigma _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &hellip; + c_n^2\sigma _{X_n}^2$$</p>
+<p>$$\sigma _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n} \leq |c_1|\sigma _{X_1} + |c_2|\sigma _{X_2} + &hellip; + |c_n|\sigma _{X_n}$$</p>
 
 <p></br></p>
 
-<h4 id="independence-and-simple-random-samples">Independence and Simple Random Samples :</h4>
+<h4 id="uncertainties-for-functions-of-one-measurement">Uncertainties for Functions of One Measurement :</h4>
 
-<p>When a simple random sample of numerical values is drawn from a population, each item in the sample can be thought of as a random variable. The items in a simple random sample may be treated as independent, except when the sample is a large proportion (more than 5%) of a finite population. Hence, if $X_1, X_2, &hellip;, X_n$ are simple random samples, then $X_1, X_2, &hellip;, X_n$ may be treated as <b>independent random variables</b>, all with the <b>same distribution</b> and is said that they are <b>independent and identically distributed (i.i.d.)</b>. The <b>sample mean</b>, denoted as $\overline{X}$, can be treated as the linear combination of means of different samples and is given as:</p>
+<p>If $X$ is a measurement whose uncertainty $\sigma_X$ is <b>small</b> and if $U$ is a function of $X$, then uncertainty in the measurement of $U$ can be approximated as (where the derivative is computed at the observed measurement $X$):</p>
 
-<p>$$\overline{X} = \frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n$$</p>
+<p>$$\sigma_U \approx \bigg| \frac{dU}{dX} \bigg| \sigma_X$$</p>
 
-<p>Hence, the <b>mean</b> and <b>variance</b> of $\overline{X}$ can be computed as:</p>
+<p>The above approximation can be proved by using a simple mathematical technique. A <b>Taylor Series</b> of a function $f(X)$, which is <b>infinitely differentiable</b> at $a$ is given as:</p>
 
-<p>$$\mu _{\overline{X}} = \mu _{\frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n} = \frac{1}{n}\mu _{X_1} + \frac{1}{n}\mu _{X_2} + &hellip; + \frac{1}{n}\mu _{X_n} = \frac{1}{n}\mu + &hellip; + \frac{1}{n}\mu = \mu$$</p>
+<p>$$f(a) + \frac{f^{&lsquo;}(a)}{1!}(x-a) + \frac{f^{&ldquo;}(a)}{2!}(x-a)^2 + \frac{f^{&ldquo;&lsquo;}(a)}{3!}(x-a)^3 + &hellip;$$</p>
 
-<p>$$\sigma _{\overline{X}}^2 = \sigma _{\frac{1}{n}X_1 + \frac{1}{n}X_2 + &hellip; + \frac{1}{n}X_n}^2 = \frac{1}{n^2}\sigma _{X_1}^2 + \frac{1}{n^2}\sigma _{X_2}^2 + &hellip; + \frac{1}{n^2}\sigma _{X_n}^2 = \frac{1}{n}\sigma^2 + &hellip; + \frac{1}{n}\sigma^2 = \frac{\sigma^2}{n}$$</p>
+<p>In our case, if $X$ is close to $\mu_X$, then the <b>first-order Taylor Series approximation</b> for $U(X)$ can be given as:</p>
 
-<p>This technique of reducing variance can be used in various statistical models to tackle the problem of overfitting.</p>
+<p>$$U(X) \approx U(\mu_X) + \frac{U^{&lsquo;}(\mu_X)}{1!}(x-\mu_X) = U(\mu_X) + \frac{dU}{dX}(X-\mu_X)$$</p>
 
-<p></br></p>
+<p>where $\frac{dU}{dX}$ is evaluated at $\mu_X$. It should be noted that for any reasonable precise measurement, $X$ will be close enough to $\mu _{X}$ for the Taylor series approximation to be valid. Rearranging the above expression, we get</p>
 
-<h4 id="jointly-distributed-random-variables">Jointly Distributed Random Variables :</h4>
+<p>$$U(X) \approx  \bigg( U(\mu_X) - \frac{dU}{dX} \mu _{X} \bigg) + \frac{dU}{dX}X$$</p>
 
-<p>When two or more random variables are associated with each item in a population, the random variables are said to be <b>jointly distributed</b>. For <b>jointly distributed discrete RVs</b>, the <b>joint probability mass function</b> is given as: $p(x, y) = P(X=x \ and \ Y=y)$. The <b>marginal probabilities</b> can be computed as:</p>
+<p>As $\frac{dU}{dX}$ is measured at $\mu_X$, it is constant and hence the quantity inside the bracket is constant. This gives the uncertainty (<b>standard deviation</b>) as:</p>
 
-<p>$$p_X(x) = P(X=x) = \sum _{y} p(x,y)$$</p>
+<p>$$\sigma_U \approx \bigg| \frac{dU}{dX} \bigg| \sigma_X$$</p>
 
-<p>$$p_Y(y) = P(Y=y) = \sum _{x} p(x,y)$$</p>
-
-<p>where the sum is taken over all the possible values of $Y$ and $X$. For a <b>jointly distributed continuous RVs</b>, the probability can be given as:</p>
-
-<p>$$P(a \leq X \leq b \ and \ c \leq Y \leq d) = \int _{a}^{b} \int _{c}^{d} f(x, y) \ dy \ dx$$</p>
-
-<p>The <b>marginal Probability densities</b> can be computed as:</p>
-
-<p>$$f_X(x) = \int _{-\infty}^{\infty} f(x, y) \ dy$$</p>
-
-<p>$$f_Y(y) = \int _{-\infty}^{\infty} f(x, y) \ dx$$</p>
-
-<p>These concepts can be extended for the case of more than two random variables as well.</p>
+<p>This is the <b>propagation of error</b> formula and is applied in almost all the back-propagation algorithms in <b>neural-networks</b> as well.</p>
 
 <p></br></p>
 
-<h4 id="conditional-distributions">Conditional Distributions :</h4>
+<h4 id="uncertainties-for-functions-of-several-measurements">Uncertainties for Functions of Several Measurements :</h4>
 
-<p>For two jointly discrete random variables $X$ and $Y$, the <b>conditional probability mass function</b> of $Y$ given $X=x$ can be given as:</p>
+<p>If $X_1, X_2, &hellip;, X_n$ are <b>independent measurements</b> whose uncertainties $\sigma _{X_1}, \sigma _{X_2}, &hellip;, \sigma _{X_n}$ are <b>small</b> and if $U = U(X_1, X_2, &hellip;, X_n)$ is a function of $X_1, X_2, &hellip;, X_n$, then</p>
 
-<p>$$p _{Y|X}(y|x) = \frac{p(x, y)}{p_X(x)}$$</p>
+<p>$$\sigma_U \approx \sqrt{\bigg( \frac{\partial U}{\partial X_1}\bigg)^2 \sigma _{X_1}^2 + \bigg( \frac{\partial U}{\partial X_2}\bigg)^2 \sigma _{X_2}^2 + &hellip; + \bigg( \frac{\partial U}{\partial X_n}\bigg)^2 \sigma _{X_n}^2}$$</p>
 
-<p>where $p(x, y)$ is the joint probability mass function and $p_X(x)$ is the marginal probability mass function of $X$. Similarly, for two jointly continuous random variables $X$ and $Y$, the <b>conditional probability density function</b> of $Y$ given $X=x$ can be given as:</p>
+<p>This is the <b>multivariate propagation of error formula</b> and is valid only when the measurements are independent. This formula can be derived in a similar way as the one discussed for the one measurement case.</p>
 
-<p>$$f _{Y|X}(y|x) = \frac{f(x, y)}{f_X(x)}$$</p>
+<p><b>Example: </b>Two resistors with resistances R1 and R2 are connected in parallel. The combined resistance R is given by R = (R1R2)/(R1+ R2). If R1 is measured to be 100±10, and R2 is measured to be 20±1, estimate R and find the uncertainty in the estimate.</p>
 
-<p>where all the terms have the usual meaning.</p>
+<p><b>Sol:</b> The estimate of $R$ can be given as $\frac{100 \times 20}{100 + 20}$ = <b>16.67</b>. First of all, we need to compute the partial derivative of R as:</p>
 
-<p>Two RVs $X$ and $Y$ are independent if $p(x, y) = p_X(x) p_Y(y)$ (for discrete RVs) and $f(x, y) = f_X(x) f_Y(y)$ (for continuous RVs).</p>
+<p>$$\frac{\partial R}{\partial R1} = \bigg( \frac{R2}{R1+R2}\bigg)^2 = 0.0278$$</p>
 
-<p></br></p>
+<p>$$\frac{\partial R}{\partial R2} = \bigg( \frac{R1}{R1+R2}\bigg)^2 = 0.694$$</p>
 
-<h4 id="covariance-and-correlation">Covariance  and Correlation :</h4>
+<p>Now, $\sigma _{R1} = 10$ and $\sigma _{R2} = 1$, and hence</p>
 
-<p>The <b>covariance</b> of two RVs $X$ and $Y$ is given as:</p>
+<p>$$\sigma _{R} = \sqrt{\bigg( \frac{\partial R}{\partial R1}\bigg)^2 \sigma _{R1}^2 + \bigg( \frac{\partial R}{\partial R2}\bigg)^2 \sigma _{R2}^2} = 0.75$$</p>
 
-<p>$$Cov(X, Y) = \mu _{(X - \mu_X)(Y - \mu_Y)} = \mu _{XY} - \mu_X \mu_Y$$</p>
-
-<p>It is to be noted that covariance has a unit which is the unit of $X$ multiplied by the unit of $Y$. Hence, covariance can not be used to compare the strength of relationship between different set of random variables. The <b>correlation</b> is the scaled version of covariance. To compute the correlation between $X$ and $Y$, the covariance between them is computed and then the unit is handled by dividing the covariance by the standard deviation of $X$ and $Y$. Hence, correlation is given as:</p>
-
-<p>$$\rho _{X, Y} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y}$$</p>
-
-<p>For <b>non-independent</b> random variables $X_1, X_2, &hellip;, X_n$, mean and variance can be computed as:</p>
-
-<p>$$\mu _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n} = c_1\mu _{X_1} + c_2\mu _{X_2} + &hellip; + c_n\mu _{X_n}$$</p>
-
-<p>$$\sigma _{c_1X_1 + c_2X_2 + &hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &hellip; + c_n^2\sigma _{X_n}^2 + 2 \sum _{\forall i, j} c_i c_j Cov(X_i, X_j)$$</p>
+<p>Hence, the combined resistance is <b>16.67 ± 0.75</b>.</p>
 
 <p></br></p>
 
-<h3 id="reference">Reference :</h3>
+<h4 id="uncertainties-for-functions-of-dependent-measurements">Uncertainties for Functions of Dependent Measurements :</h4>
+
+<p>In the case of the <b>dependent</b> measurements, the uncertainty can be calculated accurately if the covariance of each pair of measurements is known. Instead, we can give a conservative estimate for uncertainty as (where the terms have usual meaning):</p>
+
+<p>$$\sigma _{U} \leq \bigg| \frac{\partial U}{\partial X_1}\bigg| \sigma _{X_1} + \bigg| \frac{\partial U}{\partial X_2}\bigg| \sigma _{X_2} + &hellip; + \bigg| \frac{\partial U}{\partial X_n}\bigg| \sigma _{X_n}$$</p>
+
+<p>This inequality is valid for almost all the cases of dependent measurements.</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference:</h4>
 
 <p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
 
@@ -280,13 +266,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://amitrajan012.github.io/post/randomvariables_part2/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://amitrajan012.github.io/post/measurement-and-propagation-of-error/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://amitrajan012.github.io/post/randomvariables_part2/">Random Variables (Part 2: Continuous Random Variables)</a>
+      <a href="https://amitrajan012.github.io/post/measurement-and-propagation-of-error/">Measurement and Propagation of Error (Part 1)</a>
     </nav>
     
   </div>
@@ -295,14 +281,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://amitrajan012.github.io/post/measurement-and-propagation-of-error/">Measurement and Propagation of Error (Part 1)</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://amitrajan012.github.io/post/measurement-and-propagation-of-error/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

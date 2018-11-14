@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</loc>
+    <lastmod>2018-11-14T02:18:29+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/randomvariables_part3/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
   </url>
@@ -314,7 +324,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -479,6 +489,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/dependent-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/dimension-reduction/</loc>
     <lastmod>2018-05-24T01:06:16+01:00</lastmod>
     <priority>0</priority>
@@ -565,6 +581,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/iid/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/independent-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -677,6 +699,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/topics/measurement/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/mle/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
@@ -697,6 +725,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/multiple-linear-regression/</loc>
     <lastmod>2018-05-08T06:12:03+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/neural-networks/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -738,7 +772,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -763,6 +797,18 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/probability/</loc>
     <lastmod>2018-08-22T09:12:36+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/topics/propagation-of-error/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -811,6 +857,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/regularization/</loc>
     <lastmod>2018-05-26T11:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/repeated-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -913,6 +965,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/taylor-series/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
   
