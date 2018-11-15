@@ -68,7 +68,7 @@
     <item>
       <title>Bernoulli Distribution</title>
       <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
-      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bernoulli-distribution/</guid>
       <description></description>
@@ -77,7 +77,7 @@
     <item>
       <title>Binomial Distribution</title>
       <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
-      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/binomial-distribution/</guid>
       <description></description>
@@ -179,6 +179,15 @@
       <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/content-based-filtering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Continuous Distributions</title>
+      <link>https://amitrajan012.github.io/tags/continuous-distributions/</link>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/continuous-distributions/</guid>
       <description></description>
     </item>
     
@@ -293,7 +302,7 @@
     <item>
       <title>Exponential Distribution</title>
       <link>https://amitrajan012.github.io/tags/exponential-distribution/</link>
-      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/exponential-distribution/</guid>
       <description></description>
@@ -473,7 +482,7 @@
     <item>
       <title>Lognormal Distribution</title>
       <link>https://amitrajan012.github.io/tags/lognormal-distribution/</link>
-      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/lognormal-distribution/</guid>
       <description></description>
@@ -552,6 +561,15 @@
     </item>
     
     <item>
+      <title>Multinomial Distribution</title>
+      <link>https://amitrajan012.github.io/tags/multinomial-distribution/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multinomial-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Multiple Linear Regression</title>
       <link>https://amitrajan012.github.io/tags/multiple-linear-regression/</link>
       <pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate>
@@ -572,7 +590,7 @@
     <item>
       <title>Normal Distribution</title>
       <link>https://amitrajan012.github.io/tags/normal-distribution/</link>
-      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/normal-distribution/</guid>
       <description></description>
@@ -602,6 +620,15 @@
       <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/pmf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Poisson Distribution</title>
+      <link>https://amitrajan012.github.io/tags/poisson-distribution/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/poisson-distribution/</guid>
       <description></description>
     </item>
     
@@ -647,6 +674,15 @@
       <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probability Distribution</title>
+      <link>https://amitrajan012.github.io/tags/probability-distribution/</link>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probability-distribution/</guid>
       <description></description>
     </item>
     
@@ -908,6 +944,15 @@
       <pubDate>Sat, 16 Jun 2018 01:34:53 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/tree-based-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Uniform Distribution</title>
+      <link>https://amitrajan012.github.io/tags/uniform-distribution/</link>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/uniform-distribution/</guid>
       <description></description>
     </item>
     

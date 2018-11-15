@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Binomial Distribution on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
-    <description>Recent content in Binomial Distribution on Amit Rajan</description>
+    <title>Poisson Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/poisson-distribution/</link>
+    <description>Recent content in Poisson Distribution on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
     <lastBuildDate>Thu, 15 Nov 2018 12:03:41 +0100</lastBuildDate>
     
-	<atom:link href="https://amitrajan012.github.io/tags/binomial-distribution/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://amitrajan012.github.io/tags/poisson-distribution/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,16 +22,6 @@ $$\mu_X = 0 \times (1-p) + 1 \times p = p$$
 $$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
 
 The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
-    </item>
-    
-    <item>
-      <title>Think Stats: Chapter 5</title>
-      <link>https://amitrajan012.github.io/post/chapter-5---probability/</link>
-      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-5---probability/</guid>
-      <description>The belief in which probability is expressed in terms of frequencies is called as frequentism. Frequentists believe that if there is no set of identical trials, there is no probability.
-An alternative is Bayesianism, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&amp;rsquo;s state of knowledge.</description>
     </item>
     
   </channel>
