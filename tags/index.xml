@@ -68,7 +68,7 @@
     <item>
       <title>Bernoulli Distribution</title>
       <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
-      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bernoulli-distribution/</guid>
       <description></description>
@@ -77,7 +77,7 @@
     <item>
       <title>Binomial Distribution</title>
       <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
-      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/binomial-distribution/</guid>
       <description></description>
@@ -167,7 +167,7 @@
     <item>
       <title>Confidence Intervals</title>
       <link>https://amitrajan012.github.io/tags/confidence-intervals/</link>
-      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/confidence-intervals/</guid>
       <description></description>
@@ -590,7 +590,7 @@
     <item>
       <title>Normal Distribution</title>
       <link>https://amitrajan012.github.io/tags/normal-distribution/</link>
-      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/normal-distribution/</guid>
       <description></description>
@@ -611,6 +611,15 @@
       <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/p-value/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Paired Data</title>
+      <link>https://amitrajan012.github.io/tags/paired-data/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/paired-data/</guid>
       <description></description>
     </item>
     
@@ -642,6 +651,15 @@
     </item>
     
     <item>
+      <title>Population Mean</title>
+      <link>https://amitrajan012.github.io/tags/population-mean/</link>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/population-mean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Power</title>
       <link>https://amitrajan012.github.io/tags/power/</link>
       <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
@@ -656,6 +674,15 @@
       <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/precision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prediction Intervals</title>
+      <link>https://amitrajan012.github.io/tags/prediction-intervals/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/prediction-intervals/</guid>
       <description></description>
     </item>
     
@@ -692,6 +719,15 @@
       <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/propagation-of-error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proportions</title>
+      <link>https://amitrajan012.github.io/tags/proportions/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/proportions/</guid>
       <description></description>
     </item>
     
@@ -867,6 +903,15 @@
     </item>
     
     <item>
+      <title>Students T Distribution</title>
+      <link>https://amitrajan012.github.io/tags/students-t-distribution/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/students-t-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Subset Selection</title>
       <link>https://amitrajan012.github.io/tags/subset-selection/</link>
       <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
@@ -968,7 +1013,7 @@
     <item>
       <title>Variance</title>
       <link>https://amitrajan012.github.io/tags/variance/</link>
-      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/variance/</guid>
       <description></description>

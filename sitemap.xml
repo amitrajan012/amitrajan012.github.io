@@ -3,6 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_3/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_2/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_1/</loc>
+    <lastmod>2018-11-17T11:27:09+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/commonly-used-distributions_2/</loc>
     <lastmod>2018-11-16T01:00:00+05:30</lastmod>
   </url>
@@ -334,7 +349,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -376,13 +391,13 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/bernoulli-distribution/</loc>
-    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://amitrajan012.github.io/tags/binomial-distribution/</loc>
-    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -415,14 +430,14 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/classification/</loc>
-    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/topics/classification/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/classification/</loc>
-    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/classification/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -451,8 +466,14 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/topics/confidence-intervals/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/confidence-intervals/</loc>
-    <lastmod>2018-09-04T14:07:28+01:00</lastmod>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -529,13 +550,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
+    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
+    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -583,13 +604,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -613,13 +634,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/islr/</loc>
+    <loc>https://amitrajan012.github.io/topics/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/islr/</loc>
+    <loc>https://amitrajan012.github.io/tags/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -758,7 +779,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/normal-distribution/</loc>
-    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+    <lastmod>2018-11-17T11:27:09+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -771,6 +792,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/p-value/</loc>
     <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/paired-data/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -799,8 +826,14 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/population-mean/</loc>
+    <lastmod>2018-11-17T11:27:09+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -817,6 +850,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/prediction-intervals/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/principal-components-analysis/</loc>
     <lastmod>2018-07-06T01:19:52+01:00</lastmod>
     <priority>0</priority>
@@ -829,20 +868,14 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/probability-distribution/</loc>
-    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://amitrajan012.github.io/topics/probability-distribution/</loc>
     <lastmod>2018-11-16T01:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>
-    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/probability-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -853,19 +886,31 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/proportions/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/random-forests/</loc>
     <lastmod>2018-06-13T13:04:28+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
+    <loc>https://amitrajan012.github.io/topics/random-variables/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/random-variables/</loc>
+    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -877,13 +922,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/recommendation-engine/</loc>
+    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
     <lastmod>2018-07-30T02:12:38+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
+    <loc>https://amitrajan012.github.io/tags/recommendation-engine/</loc>
     <lastmod>2018-07-30T02:12:38+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -979,6 +1024,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/students-t-distribution/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/subset-selection/</loc>
     <lastmod>2018-05-21T13:08:40+01:00</lastmod>
     <priority>0</priority>
@@ -1032,13 +1083,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1069,7 +1120,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/variance/</loc>
-    <lastmod>2018-11-12T03:01:07+01:00</lastmod>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confidence Intervals with Paired Data and Population Variance/ Prediction Intervals">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Confidence Intervals (Part 3) &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">AMIT RAJAN</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Confidence Intervals (Part 3)</h1>
+  <h2>Confidence Intervals with Paired Data and Population Variance/ Prediction Intervals</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>20 Nov 2018, 16:41</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/confidence-intervals">Confidence Intervals</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/confidence-intervals">Confidence Intervals</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/variance">Variance</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/paired-data">Paired Data</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/prediction-intervals">Prediction Intervals</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/students-t-distribution">Student&#39;s t Distribution</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h4 id="confidence-intervals-with-paired-data">Confidence Intervals with Paired Data :</h4>
+
+<p>Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &hellip;, D_n$ be a <b>small</b> random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately <b>normal</b>, the $100(1 - \alpha) \%$ confidence interval for the mean difference $\mu_D$ is given as:</p>
+
+<p>$$\overline{D} \pm t _{n-1, \alpha/2} \frac{s_D}{\sqrt{n}}$$</p>
+
+<p>where $s_D$ is the <b>sample standard deviation</b> of $D_1, D_2, &hellip;, D_n$. If the sample size is <b>large</b>, the confidence interval is given as:</p>
+
+<p>$$\overline{D} \pm z _{\alpha/2} \frac{s_D}{\sqrt{n}}$$</p>
+
+<p></br></p>
+
+<h4 id="confidence-intervals-for-the-variance-and-standard-deviation-of-a-normal-population">Confidence Intervals for the Variance and Standard Deviation of a Normal Population :</h4>
+
+<p>Confidence interval for the population variance $\sigma^2$ (when the population is normal) is based on sample variance $s^2$ and a probability distribution known as <b>chi-square distribution</b>. To be more specific, if $X_1, X_2, &hellip;, X_n$ is a random sample from a normal population with variance $\sigma^2$, the sample variance can be given as:</p>
+
+<p>$$s^2 = \frac{1}{n-1} \sum _{i=1}^{n} (X_i - \overline{X})^2$$</p>
+
+<p>The quantity</p>
+
+<p>$$\frac{(n-1)s^2}{\sigma^2} = \frac{\sum _{i=1}^{n} (X_i - \overline{X})^2}{\sigma^2}$$</p>
+
+<p>follows a <b>chi-square</b> distribution with degree of freedom $n-1$ and is denoted as $\chi _{n-1}^2$. The plot of chi-square distribution for various degree of freedoms is shown below. It should be noted that chi-square distribution are <b>right-skewed</b> and the value of chi-square statistic is always positive. Due to <b>asymmetric</b> nature of the chi-square distribution, the upper and lower conficence bound is computed by two different quantities. To find the upper and lower bounds for a $100(1 - \alpha) \%$ confidence interval for a variance, the values that cut off areas of $\frac{\alpha}{2}$ in the right and left tails of the chi-square probability density curve are used. The calculation of confidence interval is shown by an example below.</p>
+
+<pre><code class="language-python">from scipy.stats import chi2
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(10,8))
+ax = fig.add_subplot(111)
+
+df=1
+x = np.linspace(chi2.ppf(0.01, df), chi2.ppf(0.99, df), 1000)
+ax.plot(x, chi2.pdf(x, df), 'r-', lw=2, alpha=0.6, label='DF: '+str(df))
+
+df=5
+x = np.linspace(chi2.ppf(0.01, df), chi2.ppf(0.99, df), 1000)
+ax.plot(x, chi2.pdf(x, df), 'b-', lw=2, alpha=0.6, label='DF: '+str(df))
+
+df=10
+x = np.linspace(chi2.ppf(0.01, df), chi2.ppf(0.99, df), 1000)
+ax.plot(x, chi2.pdf(x, df), 'g-', lw=2, alpha=0.6, label='DF: '+str(df))
+
+df=20
+x = np.linspace(chi2.ppf(0.01, df), chi2.ppf(0.99, df), 1000)
+ax.plot(x, chi2.pdf(x, df), 'y-', lw=2, alpha=0.6, label='DF: '+str(df))
+
+ax.set_ylim(0, 0.30)
+ax.set_xlim(0, 50)
+ax.set_xlabel('X')
+ax.set_ylabel('PDF')
+ax.set_title(&quot;PDF Plot (chi-squared distribution)&quot;)
+ax.legend()
+ax.grid()
+
+plt.show()
+</code></pre>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/Confidence%20Intervals_files/Confidence%20Intervals_14_0.png" alt="">
+
+
+<p><b>Example:</b> A simple random sample of 15 pistons is selected from a large population whose diameters are known to be normally distributed. The sample standard deviation of the piston diameters is s = 2.0 mm. Find a 95% confidence for the population variance $\sigma^2$ and population standard deviation $\sigma$.</p>
+
+<p><b>Sol:</b> The degree of freedom of chi-square distribution is $n-1 = 14$. From chi-square table, the upper and lower cut off points can be found as $\chi _{14, .975} = 5.63$ and $\chi _{14, .025} = 26.12$, i.e.</p>
+
+<p>$$5.63 &lt; \frac{(n-1)s^2}{\sigma^2} &lt; 26.12$$</p>
+
+<p>Solving this we get, $2.144 &lt; \sigma^2 &lt; 9.948$. The confidence interval for the population standard deviation $\sigma$ can be computed by taking the square root: $1.464 &lt; \sigma &lt; 3.154$.</p>
+
+<p>The calculation of confidence interval based on chi-square distribution requires that the population is <b>normal</b>. If the population distribution deviates from normal, the calculated confidence interval can be misleading.</p>
+
+<p></br></p>
+
+<h4 id="prediction-intervals">Prediction Intervals :</h4>
+
+<p>A <b>prediction interval</b> is the interval that is likely to contain the value of an item sampled from a population at a future time. Let $\overline{X}$ be the sample mean of $n$ samples from a normally distributed population. It will have a normal distribution which can be given by $\overline{X} \sim N(\mu, \sigma^2/n)$. Suppose, at a future point, a value $Y$ is observed from the population. The distribution of $Y$ will be same as the population distribution, $Y \sim N(\mu, \sigma^2)$. Hence, the difference $Y - \overline{X}$ will be normally distributed with mean 0 and variance $\sigma^2(1 + 1/n)$. i.e.</p>
+
+<p>$$\frac{Y - \overline{X}}{\sigma\sqrt{1 + 1/n}} \sim N(0, 1)$$</p>
+
+<p>The population standard deviation $\sigma$ can be estimated as the sample standard deviation $s$ and hence the <b>prediction interval</b> can be given as:</p>
+
+<p>$$\overline{X} \pm z _{\alpha/2} \times s\sqrt{1 + \frac{1}{n}}$$</p>
+
+<p>For a <b>smaller</b> sample size, <b>Student&rsquo;s t distribution</b> is used and the prediction interval can be given as:</p>
+
+<p>$$\overline{X} \pm t _{n-1, \alpha/2} \times s\sqrt{1 + \frac{1}{n}}$$</p>
+
+<p><b>One-sided</b> prediction interval can be found similarly:</p>
+
+<p>$$Lower \ bound  = \overline{X} - t _{n-1, \alpha} \times s\sqrt{1 + \frac{1}{n}}$$</p>
+
+<p>$$Upper \ bound  = \overline{X} + t _{n-1, \alpha} \times s\sqrt{1 + \frac{1}{n}}$$</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference :</h4>
+
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/confidence-intervals_2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/confidence-intervals_2/">Confidence Intervals (Part 2)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

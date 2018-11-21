@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confidence Intervals for Proportions and the Difference">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Confidence Intervals (Part 2) &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">AMIT RAJAN</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Confidence Intervals (Part 2)</h1>
+  <h2>Confidence Intervals for Proportions and the Difference</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>18 Nov 2018, 05:07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/confidence-intervals">Confidence Intervals</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/confidence-intervals">Confidence Intervals</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/proportions">Proportions</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/binomial-distribution">Binomial Distribution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/bernoulli-distribution">Bernoulli Distribution</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/students-t-distribution">Student&#39;s t Distribution</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h4 id="confidence-intervals-for-proportions">Confidence Intervals for Proportions :</h4>
+
+<p>Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where <b>the number of trials $n$ is large enough</b>, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) \%$ confidence interval for $p$ is:</p>
+
+<p>$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$</p>
+
+<p>where $\widehat{p}$ is the <b>sample proportion</b> and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the <b>sample variance</b>. This method of computation of the confidence interval for the proportion works for large sample size or we can say that the experiment should containt at least 10 successes and 10 failures.</p>
+
+<p>To tackle the problem of <b>smaller sample size</b>, we need to make certain changes in the above estimate. Let $\widetilde{n} = n+4$ and $\widetilde{p} = \frac{X+2}{\widetilde{n}}$, a $100(1-\alpha)\%$ confidence interval for $p$ is given as:</p>
+
+<p>$$\widetilde{p} \pm z_{\alpha/2}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+
+<p>If the interval exceeds from the limit, we should limit it by 0 and 1 as lower and upper limit respectively. The above described method is usually preferred for the computation of confidence interval for population proportion of any sample size. The <b>one-sided</b> confidence interval is given as:</p>
+
+<p>$$Lower \ bound  = \widetilde{p} - z_{\alpha}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+
+<p>$$Upper \ bound  = \widetilde{p} + z_{\alpha}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+
+<p>where the symbols have the usual meaning.</p>
+
+<p></br></p>
+
+<h4 id="confidence-intervals-for-the-difference-between-two-means">Confidence Intervals for the Difference Between Two Means :</h4>
+
+<p>Let $X$ and $Y$ be independent random variables, with $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$, then</p>
+
+<p>$$X+Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$$</p>
+
+<p>$$X-Y \sim N(\mu_X - \mu_Y, \sigma_X^2 + \sigma_Y^2)$$</p>
+
+<p>As the distribution of the difference of two independent normal random variables is normal, we can use this property with the central limit theorem to obtain a confidence interval for the difference of the means.</p>
+
+<p>Let $X _1, X_2, &hellip;, X _{n_X}$ be a <b>large random sample</b> of size $n_X$ from a population with mean $\mu_X$ and standard deviation $\sigma_X$, and let $Y_1, Y_2, &hellip;, Y _{n_Y}$ be a <b>large random sample</b> of size $n_Y$ from a population with mean $\mu_Y$ and standard deviation $\sigma_Y$. If the two samples are <b>independent</b>, then a $100(1-\alpha) \%$ confidence interval for the difference of means $\mu_X - \mu_Y$ is given as:</p>
+
+<p>$$\overline{X} - \overline{Y} \pm z _{\alpha/2} \sqrt{\frac{\sigma_X^2}{n_X} + \frac{\sigma_Y^2}{n_Y}}$$</p>
+
+<p>If the values of population standard deviations $\sigma_X$ and $\sigma_Y$ are unknown, they can be replaced with sample standard deviation $s_X$ and $s_Y$.</p>
+
+<p></br></p>
+
+<h4 id="confidence-intervals-for-the-difference-between-two-proportions">Confidence Intervals for the Difference Between Two Proportions :</h4>
+
+<p>The confidence interval for the difference between two proportions can be computed in a similar way as described above. Let $X$ and $Y$ be the number of successes in $n_X$ and $n_Y$ independent Bernoulli trials with success probabilities $p_X$ and $p_Y$ respectively, such that $X \sim Bin(n_X, p_X)$ and $Y \sim Bin(n_Y, p_Y)$. Let $\tilde{n_X} = n_X+2$, $\tilde{n_Y} = n_Y+2$, $\tilde{p_X} = \frac{X+1}{\tilde{n_X}}$ and $\tilde{p_Y} = \frac{Y+1}{\tilde{n_Y}}$, then a $100(1 - \alpha) \%$ confidence interval for the difference $p_X - p_Y$ is given as:</p>
+
+<p>$$\tilde{p_X} - \tilde{p_Y} \pm z _{\alpha/2} \sqrt{\frac{\tilde{p_X}(1- \tilde{p_X})}{n_X} + \frac{\tilde{p_Y}(1- \tilde{p_Y})}{n_Y}}$$</p>
+
+<p>If the lower and upper limit go beyond -1 and 1, they should be replaced with -1 and 1 respectively. The adjustments used is similar as the one described for the confidence interval of single proportion, instead they are equally divided amongst the two samples.</p>
+
+<p>If $n_X$ and $n_y$ are <b>large</b> enough, the confidence interval can be given as:</p>
+
+<p>$$\widehat{p_X} - \widehat{p_Y} \pm z _{\alpha/2} \sqrt{\frac{\widehat{p_X}(1- \widehat{p_X})}{n_X} + \frac{\widehat{p_Y}(1- \widehat{p_Y})}{n_Y}}$$</p>
+
+<p>where $\widehat{p_X}$ and $\widehat{p_Y}$ are the probability of successes. This method can only be used if both the samples contain at least 10 successes and 10 failures.</p>
+
+<p></br></p>
+
+<h4 id="confidence-intervals-for-the-difference-between-two-means-small-sample">Confidence Intervals for the Difference Between Two Means (Small-Sample) :</h4>
+
+<p>The confidence interval for the difference between two means for small sample sizes can be computed using the <b>Student&rsquo;s t distribution</b>. As the sample size is small, the central limit theorem can not be applied and given that both the population is <b>normal</b>, the Student&rsquo;s t distribution can be used to compute the confidence interval.</p>
+
+<p>Let $X_1, X_2, &hellip;, X _{n_X}$ and $Y_1, Y_2, &hellip;, Y _{n_Y}$ be two independent random samples of size $n_X$ and $n_Y$ from a <b>normal</b> population with mean $\mu_X$ and $\mu_Y$ respectively, then a $100(1-\alpha) \%$ confidence interval for $\mu_X - \mu_Y$ is given as:</p>
+
+<p>$$\overline{X} - \overline{Y} \pm t _{v, \alpha/2} \sqrt{\frac{s_X^2}{n_X} + \frac{s_Y^2}{n_Y}}$$</p>
+
+<p>where the population standard deviations are estimated from sample standard deviations as $s_X$ and $s_Y$ respectively and the number of <b>degree of freedoms</b> $v$ of the $t$-distribution is given as:</p>
+
+<p>$$v = \frac{\big( \frac{s_X^2}{n_X} + \frac{s_Y^2}{n_Y}\big)^2}{\frac{(\frac{s_X^2}{n_X})^2}{n_X-1} + \frac{(\frac{s_Y^2}{n_Y})^2}{n_Y-1}}$$</p>
+
+<p>When the <b>two population have equal variances</b>, we can use the pooled sample variances as the estimate of the population variance. The confidence interval in this case is given as:</p>
+
+<p>$$\overline{X} - \overline{Y} \pm t _{n_X+n_Y-2, \alpha/2} \times s_p \sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}$$</p>
+
+<p>where $s_p$ is the <b>pooled standard deviation</b> and is given as:</p>
+
+<p>$$s_p = \sqrt{\frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}}$$</p>
+
+<p>One common miss-conception while using this method is the assumption that if the sample variances are equal, the population variances are equal. For a smaller sample size, sample variance does not serve as a good approximation for the population variance and hence this assumption will not be true.</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference :</h4>
+
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/confidence-intervals_1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/confidence-intervals_1/">Confidence Intervals (Part 1)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://amitrajan012.github.io/post/confidence-intervals_3/">Confidence Intervals (Part 3)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://amitrajan012.github.io/post/confidence-intervals_3/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+
