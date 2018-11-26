@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tests with Categorical Data &amp; Tests for Homogeneity and Independence">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Hypothesis Testing (Part 5) &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">AMIT RAJAN</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Hypothesis Testing (Part 5)</h1>
+  <h2>Tests with Categorical Data &amp; Tests for Homogeneity and Independence</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Nov 2018, 17:06</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/hypothesis-testing">Hypothesis Testing</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/hypothesis-testing">Hypothesis Testing</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/categorical-data">Categorical Data</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/tests-for-homogeneity">Tests for Homogeneity</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/tests-for-independence">Tests for Independence</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/chi-square-test">Chi-Square Test</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h3 id="tests-with-categorical-data">Tests with Categorical Data :</h3>
+
+<p>A generalization of the Bernoulli trial is the <b>multinomial trial</b>, which is an experiment that can rsult in any one of the $k$ outcomes where $k \geq 2$. Let the probabilities of the $k$ outcomes be denoted by $p_1, p_2, p_3, &hellip;, p_k$ and the prespecified values be $p _{01}, p _{02}, &hellip;, p _{0k}$. We need to conduct a test to chek whether the probabilities are equal to the prespecified values or not. The null hypothesis will be</p>
+
+<p>$$H_0: p_1 = p _{01}, p_2 = p _{02}, &hellip;, p_k = p _{0k}$$</p>
+
+<p>Suppose we want to test that whether a die is fair or not (i.e. we need to check that whether the probability of getting each outcome is $\frac{1}{6}$ or not). We conducted an ecperiment and rolled a die $600$ times. The outcomes are shown below.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/Hypothesis_Testing/die.png" alt="">
+
+
+<p>The results consist of <b>observed</b> and <b>expected</b> values. Observed values is the result of the experiment and expected values are calculated form the desired probabilities for a fair die. We need to test that whether the observed and expected values are close to each other or not i.e. we need to conduct a test for variance. Hence, the statistic used is called as <b>chi-square statistic</b> and is given as:</p>
+
+<p>$$\chi^2 = \sum_{i=1}^{k}\frac{(O_i - E_i)^2}{E_i}$$</p>
+
+<p>The larger the value of the test statistic, the farther the observed values from the expected values and hence the stronger the evidence against the null hypothesis $H_0$. To determine the <b>p-value</b> for the test, we need to find the distribution for the test statistic. For <b>sufficiently large expected values</b>, the test statistic follows the <b>chi-square distribution</b> with $k-1$ degrees of freedom. The test statistic for the given experiment is $\chi^2 = 6.12$ and it&rsquo;s degree of freedom is $5$. From chi-square distribution, the upper 10% point is 9.236 and hence we can conclude that $p-value &gt; 0.10$. We can not reject the null hypothesis then saying that there is no evidence that the die is not fair. The test described above determines that how well a given multinomial distribution fits the data and hence is also called as <b>goodness-off-fit test</b>.</p>
+
+<p></br></p>
+
+<h3 id="the-chi-square-test-for-homogeneity">The Chi-Square Test for Homogeneity :</h3>
+
+<p>Let us look at an example to understand the meaning of the test of homogeneity. Four machines manufacture cylindrical steel pins. The pins are subjected to a diameter specification. A pin may meet the specification, or it may be too thin or too thick. The results of the experiment is shown below.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/Hypothesis_Testing/hom.png" alt="">
+
+
+<p>The above table is called as a <b>contigency table</b>. For the mentioned experiment, the <b>null hypothesis</b> is that the proportions of pins that are too thin, OK, or too thick is same for all the machines. Let $I$ denotes the number of rows in the table and $J$ denotes the number of columns. Let $p_{ij}$ denotes the probability of the outcome in the cell $(i, j)$. The the null hypothesis can be given as:</p>
+
+<p>$$H_0: For \ ecah \ column \ j,\ p _{1j} = p _{2j} = &hellip; = p _{Ij}$$</p>
+
+<p>Let $O_ {ij}$ denotes the observed value in the cell $(i, j)$, $O_ {i.}$ the sum of the observed values in the row $i$,
+$O_ {.j}$ the sum of the observed values in the column $j$ and $O_{..}$ the sum of observed values in all the cells. To calculate the test statistic, we need to find the expected values for the number of observations in each of the cells. This can be calculated as:</p>
+
+<p>$$E_ {ij} = \frac{O_ {i.}O_ {.j}}{O_ {..}}$$</p>
+
+<p>The <b>test statistic</b> is given as:</p>
+
+<p>$$\chi^2 = \sum _{i=1}^{I} \sum _{j=1}^{J} \frac{(O _{ij} - E _{ij})^2}{E _{ij}}$$</p>
+
+<p>Under null hypothesis, the test statistic has a chi-square distribution with $(I-1)(J-1)$ degrees of freedom. The test results for the above mentioned experiment is shown below.</p>
+
+<pre><code class="language-python">import numpy as np
+from scipy.stats import chi2_contingency
+
+obs = np.array([[10, 102, 8], [34, 161, 5], [12, 79, 9], [10, 60, 10]])
+chi2, p, dof, ex = chi2_contingency(obs, correction=False)
+print(&quot;The expected values are: \n&quot; + str(ex))
+print(&quot;The degree of freedom is: &quot; + str(dof))
+print(&quot;The test statistic is: &quot; + str(chi2))
+print(&quot;The p-value is: &quot; + str(p))
+</code></pre>
+
+<pre><code>The expected values are:
+[[ 15.84  96.48   7.68]
+ [ 26.4  160.8   12.8 ]
+ [ 13.2   80.4    6.4 ]
+ [ 10.56  64.32   5.12]]
+The degree of freedom is: 6
+The test statistic is: 15.584353328056686
+The p-value is: 0.01616760116149423
+</code></pre>
+
+<p></br></p>
+
+<h3 id="the-chi-square-test-for-independence">The Chi-Square Test for Independence :</h3>
+
+<p>In the above experiment, the row totals (the number of pins manufactured by each machine) were fixed. There may be the case when both the row and column totals are random. In this case, we need to conduct a test of independece and the test is same as described above.</p>
+
+<p></br></p>
+
+<h3 id="reference">Reference :</h3>
+
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/">Hypothesis Testing (Part 4)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/">Hypothesis Testing (Part 6)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

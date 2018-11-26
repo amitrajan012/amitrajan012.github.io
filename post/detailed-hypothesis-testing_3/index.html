@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tests for the Difference Between Two Means (Large and Small Samples) and Tests with Paired Data">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Hypothesis Testing (Part 3) &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">AMIT RAJAN</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Hypothesis Testing (Part 3)</h1>
+  <h2>Tests for the Difference Between Two Means (Large and Small Samples) and Tests with Paired Data</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 Nov 2018, 01:08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/hypothesis-testing">Hypothesis Testing</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/hypothesis-testing">Hypothesis Testing</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/mean">Mean</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/null-hypothesis">Null Hypothesis</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/alternate-hypothesis">Alternate Hypothesis</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/one-tailed-test">One-tailed Test</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/two-tailed-test">Two-tailed Test</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/students-t-distribution">Student&#39;s t Distribution</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h3 id="tests-for-the-difference-between-two-means-large-sample">Tests for the Difference Between Two Means (Large-Sample) :</h3>
+
+<p>The basic idea to conduct the hypothesis test for difference between two means is to find the distribution for the difference of two means and test whether it is equal to 0 or not. Here is an example.</p>
+
+<p><b>Example:</b> Suppose that a production manager for a manufacturer of industrial machinery is concerned that <b>ball bearings produced in environments with low ambient temperatures may have smaller diameters than those produced under higher temperatures</b>. To investigate this concern, she samples 120 ball bearings that were manufactured early in the morning, before the shop was fully heated, and finds their mean diameter to be 5.068 mm and their standard deviation to be 0.011 mm. She independently samples 65 ball bearings manufactured during the afternoon and finds their mean diameter to be 5.072 mm and their standard deviation to be 0.007 mm. Can she conclude that ball bearings manufactured in the morning have smaller diameters, on average, than ball bearings manufactured in the afternoon?</p>
+
+<p><b>Sol:</b> Let $X$ and $Y$ denote the samples from the morning and afternoon respectively. Then, $\mu_X = 5.068$, $n_X = 120$, $s_X = 0.11$, $\mu_Y = 5.072$, $n_Y = 65$, $s_X = 0.007$. We can formulate the null and alternate hypothesis as:</p>
+
+<p>$$H_0: \mu_X - \mu_Y \geq 0$$</p>
+
+<p>$$H_A: \mu_X - \mu_Y &lt; 0$$</p>
+
+<p>Since both the sample size is large enough, $\overline{X}$ and $\overline{Y}$ are normally distributed and hence the distribution of $\overline{X} - \overline{Y}$ can be given as:</p>
+
+<p>$$\overline{X} - \overline{Y} \sim N(\mu_X - \mu_Y, \sigma _{\overline{X}}^2 + \sigma _{\overline{Y}}^2) = N\bigg(\mu_X - \mu_Y, \frac{\sigma _{{X}}^2}{n_X} + \frac{\sigma _{{Y}}^2}{n_Y} \bigg)$$</p>
+
+<p>As the sample size is large, we can estimate the population standard deviation from sample standard deviation, i.e. $\sigma_X = s_X = 0.011$ and $\sigma_Y = s_Y = 0.007$. Hence, the standard deviation of the <b>null disstribution</b> is $\sqrt{0.011^2 /120 + 0.007^2 /65} = 0.001327$. The null distribution is given as:</p>
+
+<p>$$\overline{X} - \overline{Y} = N(0, 0.001327^2)$$</p>
+
+<p>The observed value is $\overline{X} - \overline{Y} = -0.004$, which gives the <b>z-score</b> as:</p>
+
+<p>$$z-score = \frac{-0.004 - 0}{0.001327} = -3.01$$</p>
+
+<p>and hence the <b>p-value</b> is <b>0.0013</b>, which makes the null hypothesis to be rejected. The alternate hypothesis is true, whcih means that the manager&rsquo;s suspicion is correct.</p>
+
+<p>We can also conduct a test for the statement that whether the two population means differ by some value or not. The structure of the test will be (rest of the things remain the same):</p>
+
+<p>$$H_0: \mu_X - \mu_Y \leq \Delta_0$$</p>
+
+<p>$$H_A: \mu_X - \mu_Y &gt; \Delta_0$$</p>
+
+<p>$$test \ statistic (z) = \frac{(\overline{X} - \overline{Y}) - \Delta_0}{\sqrt{\sigma_X^2/n_X + \sigma_Y^2/n_Y}}$$</p>
+
+<p>It should be noted that it is more appropriate to use <b>t-statistic</b> than the <b>z-statistic</b> whenever sample standard deviation is used to estimate the population standard deviation. For a large sample size, <b>z-distribution</b> approximates the <b>t-distribution</b> and hence can be used instead.</p>
+
+<p></br></p>
+
+<h3 id="tests-for-the-difference-between-two-means-small-sample">Tests for the Difference Between Two Means (Small-Sample) :</h3>
+
+<p>The hypothesis test for the difference between two means for a small sample size can be conducted in a similar manner. As the sample size is small, the central limit theorem does not apply and if both the populations are approximately normal, <b>t-distribution</b> can be used instead. Here is an example:</p>
+
+<p><b>Example:</b> Assume that in an experiment, six identically prepared DNA specimens are prepared without the enzyme, and the numbers of a specific molecules counted are 33, 30, 26, 22, 37, and 34. Assume that in four identically prepared specimens with the enzyme present, the counts were 22, 29, 25, and 23. Can we conclude that the counts are lower when the enzyme is present?</p>
+
+<p><b>Sol:</b> As the sample size is small, we can not apply the central limit theorem. Let the samples without the enzyme is denoted by $X$ and the one with the enzyme is denoted by $Y$. Then, $\overline{X} = 30.333$, $n_X = 6$, $s_X = 5.538$, $\overline{Y} = 24.750$, $n_Y = 4$, $s_Y = 3.096$. The null and alternate hypothesis can be formulated as:</p>
+
+<p>$$H_0: \mu_X - \mu_Y \leq 0$$</p>
+
+<p>$$H_A: \mu_X - \mu_Y &gt; 0$$</p>
+
+<p>As the sample size is small, the following quantity approximately follows the <b>Student&rsquo;s t distribution</b></p>
+
+<p>$$\frac{(\overline{X} - \overline{Y}) - (\mu_X - \mu_Y)}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}}$$</p>
+
+<p>with degree of freedom $v$ given as</p>
+
+<p>$$v = \frac{(s_X^2/n_X + s_Y^2/n_Y)^2}{\bigg(\frac{s_X^2/n_X}{n_X-1} + \frac{s_Y^2/n_Y}{n_Y-1}\bigg)}$$</p>
+
+<p>Under the assumption that the null hypothesis is true, the test statistic is given as:</p>
+
+<p>$$t = \frac{(\overline{X} - \overline{Y}) - 0}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}} = \frac{5.583 - 0}{2.740} = 2.038$$</p>
+
+<p>From the t table, we can find that <b>0.025 &lt; p-value &lt; 0.05 </b>, and hence the null hypothesis can be rejected stating that the mean count without the enzyme is lower.</p>
+
+<p>We can also conduct a test for the statement that whether the two population means differ by some value or not. The structure of the test will be (rest of the things remain the same):</p>
+
+<p>$$H_0: \mu_X - \mu_Y \leq \Delta_0$$</p>
+
+<p>$$H_A: \mu_X - \mu_Y &gt; \Delta_0$$</p>
+
+<p>$$test \ statistic (t) = \frac{(\overline{X} - \overline{Y}) - \Delta_0}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}}$$</p>
+
+<p>When the populations have <b>equal variances</b>, <b>pooled variance</b> can be used, which is given as:</p>
+
+<p>$$s_p^2 = \frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}$$</p>
+
+<p>The <b>test statistic</b> for the testing of equality of mean can be given as:</p>
+
+<p>$$t = \frac{\overline{X} - \overline{Y}}{s_p \sqrt{1/n_X + 1/n_Y}}$$</p>
+
+<p>Under the assumption that the null hypothesis is true, the test statistic follows Student&rsquo;s t distribution with <b>degree of freedom</b> $n_X + n_Y - 2$.</p>
+
+<p><b>Example:</b> Two methods have been developed to determine the nickel content of steel. In a sample of five replications of the first method on a certain kind of steel, the average measurement (in percent) was $\overline{X} = 3.16$ and the standard deviation was $s_X = 0.042$. The average of seven replications of the second method was $\overline{Y} = 3.24$ and the standard deviation was $s_Y = 0.048$. Assume that it is known that the population variances are nearly equal. Can we conclude that there is a difference in the mean measurements between the two methods?</p>
+
+<p><b>Sol:</b> First of all, as we have to find that whether the means are equal or not, the null and alternate hypothesis will be:</p>
+
+<p>$$H_0: \mu_X = \mu_Y$$</p>
+
+<p>$$H_A: \mu_X \neq \mu_Y$$</p>
+
+<p>The pooled standard deviation can be calculated as:</p>
+
+<p>$$s_p = \sqrt{\frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}} = 0.0457$$</p>
+
+<p>Hence, the <b>t-statistic</b> is:</p>
+
+<p>$$t = \frac{3.16-3.24}{0.0457 \sqrt{1 /5 + 1 /7}} = -2.990$$</p>
+
+<p>As this is a <b>two-tailed</b> test, we need to sum the area between the left and the right tails, which gives the p-value as: <b>0.01 &lt; p-value &lt; 0.02</b>. Hence, we can reject the null hypothesis, stating that the two means are different.</p>
+
+<p>We should refrain ourselves from making the assumption that the population variances are equal based on the equality of sample variances. The test for the difference of two means by a specific quantity can be conducted in a similar way as described above.</p>
+
+<p></br></p>
+
+<h3 id="tests-with-paired-data">Tests with Paired Data :</h3>
+
+<p>The test with paired data can be conducted in a similar way as the calculation of the confidence interval. We can treat the collection of differnces as the single random sample from the population of differences. Rest of the proceduer remains the same.</p>
+
+<p><b>Example:</b> The emission of the automobiles for two conditions is shown below.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/Hypothesis_Testing/paired_data.png" alt="">
+
+
+<p>Can we conclude that the mean level of emissions is less for highway driving than for stop-and-go driving?</p>
+
+<p><b>Sol:</b> The mean and standard deviation for the differences are : $\overline{D} = 190.5$, $s_D = 284.1$. The null and alternate hypothesis can be designed as:</p>
+
+<p>$$H_0: \mu_D \leq 0$$</p>
+
+<p>$$H_A: \mu_D &gt; 0$$</p>
+
+<p>The test statistic is given as (the test is for small samples):</p>
+
+<p>$$t = \frac{\overline{D} - 0}{s_D/\sqrt{n}} = \frac{190.5 - 0}{284.1/\sqrt{8}} = 1.897$$</p>
+
+<p>which gives the p-value barely less than 0.05.</p>
+
+<p></br></p>
+
+<h3 id="reference">Reference :</h3>
+
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/">Hypothesis Testing (Part 2)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/">Hypothesis Testing (Part 4)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

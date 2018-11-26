@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Jul 2018 06:25:52 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 25 Nov 2018 11:36:18 +0530</lastBuildDate>
     
 	<atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Alternate Hypothesis</title>
+      <link>https://amitrajan012.github.io/tags/alternate-hypothesis/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/alternate-hypothesis/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Applied</title>
@@ -93,6 +102,15 @@
     </item>
     
     <item>
+      <title>Categorical Data</title>
+      <link>https://amitrajan012.github.io/tags/categorical-data/</link>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/categorical-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cdf</title>
       <link>https://amitrajan012.github.io/tags/cdf/</link>
       <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
@@ -113,7 +131,7 @@
     <item>
       <title>Chi Square Test</title>
       <link>https://amitrajan012.github.io/tags/chi-square-test/</link>
-      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/chi-square-test/</guid>
       <description></description>
@@ -273,11 +291,29 @@
     </item>
     
     <item>
+      <title>Distribution Free Tests</title>
+      <link>https://amitrajan012.github.io/tags/distribution-free-tests/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/distribution-free-tests/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Distributions</title>
       <link>https://amitrajan012.github.io/tags/distributions/</link>
       <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Equality of Variances</title>
+      <link>https://amitrajan012.github.io/tags/equality-of-variances/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/equality-of-variances/</guid>
       <description></description>
     </item>
     
@@ -311,7 +347,7 @@
     <item>
       <title>F Test</title>
       <link>https://amitrajan012.github.io/tags/f-test/</link>
-      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/f-test/</guid>
       <description></description>
@@ -356,7 +392,7 @@
     <item>
       <title>Hypothesis Testing</title>
       <link>https://amitrajan012.github.io/tags/hypothesis-testing/</link>
-      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/hypothesis-testing/</guid>
       <description></description>
@@ -527,7 +563,7 @@
     <item>
       <title>Mean</title>
       <link>https://amitrajan012.github.io/tags/mean/</link>
-      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/mean/</guid>
       <description></description>
@@ -590,9 +626,27 @@
     <item>
       <title>Normal Distribution</title>
       <link>https://amitrajan012.github.io/tags/normal-distribution/</link>
-      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/normal-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Null Hypothesis</title>
+      <link>https://amitrajan012.github.io/tags/null-hypothesis/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/null-hypothesis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>One Tailed Test</title>
+      <link>https://amitrajan012.github.io/tags/one-tailed-test/</link>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/one-tailed-test/</guid>
       <description></description>
     </item>
     
@@ -662,7 +716,7 @@
     <item>
       <title>Power</title>
       <link>https://amitrajan012.github.io/tags/power/</link>
-      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/power/</guid>
       <description></description>
@@ -719,6 +773,15 @@
       <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/propagation-of-error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Proportion</title>
+      <link>https://amitrajan012.github.io/tags/proportion/</link>
+      <pubDate>Fri, 23 Nov 2018 19:38:29 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/proportion/</guid>
       <description></description>
     </item>
     
@@ -905,7 +968,7 @@
     <item>
       <title>Students T Distribution</title>
       <link>https://amitrajan012.github.io/tags/students-t-distribution/</link>
-      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/students-t-distribution/</guid>
       <description></description>
@@ -957,6 +1020,24 @@
     </item>
     
     <item>
+      <title>Tests for Homogeneity</title>
+      <link>https://amitrajan012.github.io/tags/tests-for-homogeneity/</link>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/tests-for-homogeneity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tests for Independence</title>
+      <link>https://amitrajan012.github.io/tags/tests-for-independence/</link>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/tests-for-independence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Tfidf</title>
       <link>https://amitrajan012.github.io/tags/tfidf/</link>
       <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
@@ -975,6 +1056,24 @@
     </item>
     
     <item>
+      <title>The Wilcoxon Rank Sum Test</title>
+      <link>https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Wilcoxon Signed Rank Test</title>
+      <link>https://amitrajan012.github.io/tags/the-wilcoxon-signed-rank-test/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/the-wilcoxon-signed-rank-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Think Stats</title>
       <link>https://amitrajan012.github.io/tags/think-stats/</link>
       <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
@@ -989,6 +1088,33 @@
       <pubDate>Sat, 16 Jun 2018 01:34:53 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/tree-based-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Two Tailed Test</title>
+      <link>https://amitrajan012.github.io/tags/two-tailed-test/</link>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/two-tailed-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Type 1 Error</title>
+      <link>https://amitrajan012.github.io/tags/type-1-error/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/type-1-error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Type 2 Error</title>
+      <link>https://amitrajan012.github.io/tags/type-2-error/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/type-2-error/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Distribution-Free Tests">
+  <meta name="generator" content="Hugo 0.49.1" />
+
+  <title>Hypothesis Testing (Part 4) &middot; Amit Rajan</title>
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <link href="https://fonts.googleapis.com/css" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="https://amitrajan012.github.io/css/custom_css.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+  </script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://amitrajan012.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    
+        <link rel="stylesheet" href="https://amitrajan012.github.io/css/my.css">
+    
+  
+  
+    
+        <script src="https://amitrajan012.github.io/js/my.js"></script>
+    
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top navbar-rest">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand nav-text" href="https://amitrajan012.github.io/">AMIT RAJAN</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/">Home</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/about/">About</a></li>
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#blogs">Blog</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a class="nav-text" href="https://amitrajan012.github.io/#projects">Projects</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main" style="margin-top:50px;">
+
+
+<div class="header">
+  <h1>Hypothesis Testing (Part 4)</h1>
+  <h2>Distribution-Free Tests</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>25 Nov 2018, 11:36</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/hypothesis-testing">Hypothesis Testing</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/hypothesis-testing">Hypothesis Testing</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/distribution-free-tests">Distribution-Free Tests</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/null-hypothesis">Null Hypothesis</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/alternate-hypothesis">Alternate Hypothesis</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/the-wilcoxon-signed-rank-test">The Wilcoxon Signed-Rank Test</a>&nbsp;&nbsp;
+    
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test">The Wilcoxon Rank-Sum Test</a>
+    
+  </div>
+  
+  
+
+</div>
+
+
+  
+
+<p></br></p>
+
+<h3 id="distribution-free-tests">Distribution-Free Tests :</h3>
+
+<p>The one assumption for the Student&rsquo;s t tests performed above was the fact that the samples should come from the normal distribution. In <b>distribution-free tests</b>, this restriction is relaxed, i.e. the samnples are not required to come from any specific distribution. Distribution-free tests are sometimes called as <b>nonparametric tests</b>. Mainly, there are two types of distribution-free tests: <b>Wilcoxon signed-rank test</b>(test for population mean) and <b>Wilcoxon rank-sum test / Mann-Whitney test</b> (analogous to the two-sample t test).</p>
+
+<p></br></p>
+
+<h4 id="the-wilcoxon-signed-rank-test">The Wilcoxon Signed-Rank Test :</h4>
+
+<p>Let us see an example to understand the Wilcoxon signed-rank test. Below table shows the measurement of a quantity in a particular experiment. A test for $H_0: \mu \geq 12$ against $H_A: \mu &lt; 12$ needs to be conducted. From the data set, it can be seen that it contains two outliers as 0.9 and 21.7 and hence the samples do not come from normal population. This makes the Student&rsquo;s t test inappropriate.</p>
+
+
+<img class="pure-img" src="https://amitrajan012.github.io/img/Hypothesis_Testing/Wilcoxon_1.png" alt="">
+
+
+<p>The Wilcoxon Signed-Rank test does not require the population to be normal. Instead, it requires that the <b>population has a continuous and symmetric probability density function</b>. As the outliers are present on both sides, we can assume that the population is continuous and symmetric. As the population is symmetric, the median will be same as the mean. The next step is to make the data points <b>median-centered</b>. As, $\mu = 12$, the median will also be 12, we subtract 12 from each observation. Next, we find the rank (ignoring the signs) of median-centered observation, giving the rank 1 to the point which is closest to the median. Then the ranks are given the same sign as the one for the meadian-centered observations. Now, we calculate the sum of the <b>positive</b> and <b>negative</b> ranks as: $S+ = 2+5 = 7$ and S- = 1 + 3 + 4 + 6 = 14. Using simple mathematics, it can be shon that $(S+) + (S-) = \frac{n(n+1)}{2}$, where $n$ is the sample size. Hence, for a larger sample size, instead of finding both the sums, we can find one of the sums and can compute the another one as $S+ = n(n+1)/2 - S-$.</p>
+
+<p>When, $\mu &gt; 12$, the positive ranks are more probable than the negative ranks and tend to be larger in the magnitude as well, i.e. S<em>+ is likely to be large. If $\mu &lt; 12$, the situation is reversed and hence the positive ranks are likely to be fewer in number and smaller in magnitude, so S</em>+ is likely to be small. Hence, in a nut shell, <b>large value of $S_+$ will provide evidence against a null hypothesis of the form $H _0: \mu \leq \mu_0$ while smaller values of $S+$ will provide evidence against a null hypothesis of the form $H _0: \mu \geq \mu_0$</b>. Here $S+$ is smaller and hence it gives the evidence against the null hypothesis which is $H_0: \mu \geq 12$. The p-value for the test can be calculated from the table as well as through various scientific packages.</p>
+
+<p>One major hurdle while assigning the ranks is the case when a tie occurs. In this case, an average of the ranks is assigned to both the observations. For example, if there is a tie for the third and fourth rank, a rank of 3.5 is assigned to both the observations. Another cocern is the case when one of the observation is exactly equal to median (or mean). In this case, the difference will be 0 and the observation can not be assigned a rank. One way to deal with this is to drop this observation.</p>
+
+<p>When the sample size is <b>large</b>, the test statistic $S+$ is approximately normally distributed with mean $n(n+1)/4$ and standard deviation $n(n+1)(2n+1)/24$. In this case, the Wilcoxon signed-rank test can be performed by computing the <b>z-score</b> of $S+$ and then the normal table can be used to find the <b>p-value</b>. The z-score is:</p>
+
+<p>$$z = \frac{(S+) - n(n+1)/4}{\sqrt{n(n+1)(2n+1)/24}}$$</p>
+
+<p></br></p>
+
+<h4 id="the-wilcoxon-rank-sum-test">The Wilcoxon Rank-Sum Test :</h4>
+
+<p>The <b>Wilcoxon rank-sum test</b> can be used to test the difference in population mean in the case when populations are not normal. It makes two assumptions: <b>the populations must be continuous</b> and <b>their probability density functions must be identical in shape and size (location does not matter)</b>.</p>
+
+<p>Let the random samples from two different populations be $X_1, X_2, &hellip;, X_m$ and $Y_1, Y_2, &hellip;, Y_n$ and the population means be $\mu_X$ and $\mu_Y$. The Wilcoxon rank-sum test is performed by combining the two samples and assigning a rank of $1, 2, &hellip;, m+n$ to them. The test statistic, $W$, is the sum of the ranks of the samples from $X$ (where $m \leq n$). As the populations are identical apart from the location, if $\mu_X &lt; \mu_Y$, the sum of the rank of the observations from population $X$, which is the test statistic, will be smaller. If $\mu_X &gt; \mu_Y$, $W$ will tend to be larger.</p>
+
+<p>Let us look at an example. Following code performs a <b>two-tailed</b> Wilcoxon rank-sum on the samples from two populations $X$ and $Y$. For a <b>one-tailed</b> test, such as: $H_0: \mu_X \geq \mu_Y$ against $H_A: \mu_X &lt; \mu_Y$, the p-value will be the half of the two-tailed test, which is <b>0.0223</b>.</p>
+
+<pre><code class="language-python">from scipy.stats import ranksums
+
+X = [36, 28, 29, 20, 38]
+Y = [34, 41, 35, 47, 49, 46]
+
+print(ranksums(X, Y))
+</code></pre>
+
+<pre><code>RanksumsResult(statistic=-2.008316044185609, pvalue=0.044609718024939606)
+</code></pre>
+
+<p>For a larger sample size ($m, n &gt; 8$), it can be shown that the null disribution of test statistic $W$ is approximately normal with mean $\mu = m(m+n+1 /2)$ and variance $\sigma^2 = mn(m+n+1)/12$. In this case, we can compute the <b>z-score</b> of $W$ and a <b>z-test</b> can be performed. The test statistic is given as:</p>
+
+<p>$$z = \frac{W - m(m+n+1 /2)}{\sqrt{mn(m+n+1)/12}}$$</p>
+
+<p>There is a widespread misconception that distribution-free test methods are restriction free. <b>Befor applying the distribution-free methods, one should always remember the restrictions of symmetry for the signed-rank test and of identical shape and size for rank-sum test</b>.</p>
+
+<p></br></p>
+
+<h3 id="reference">Reference :</h3>
+
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/">Hypothesis Testing (Part 3)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/">Hypothesis Testing (Part 5)</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://amitrajan012.github.io/js/ui.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/analytics.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId',  2 ]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//analytics.example.com/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+
+
+
+</body>
+</html>
+

@@ -6,10 +6,22 @@
     <description>Recent content in Power on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2016. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 Oct 2018 02:01:07 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 26 Nov 2018 07:26:51 +0530</lastBuildDate>
     
 	<atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hypothesis Testing (Part 6)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</guid>
+      <description>Tests for Variances of Normal Populations : Let $X_1, X_2, &amp;hellip;, X_n$ be a simple random sample from a normal population given as $N(\mu, \sigma^2)$. The sample variance $s^2$ is given as:
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X})^2$$
+Then the test statistic $\frac{(n-1)s^2}{\sigma_0^2}$ follows a chi-square distribution with $n-1$ degrees of freedom. The null hypothesis can take any of the form:
+$$H_0: \sigma^2 \leq \sigma_0^2;\ \sigma^2 = \sigma_0^2;\ \sigma^2 \geq \sigma_0^2$$</description>
+    </item>
     
     <item>
       <title>Hypothesis testing</title>
