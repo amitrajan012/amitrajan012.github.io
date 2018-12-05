@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://amitrajan012.github.io/post/logistic-regression/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</loc>
     <lastmod>2018-11-26T07:26:51+05:30</lastmod>
   </url>
@@ -385,7 +390,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -472,14 +477,14 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/classification/</loc>
-    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/classification/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/classification/</loc>
-    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/topics/classification/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -508,13 +513,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/confidence-intervals/</loc>
+    <loc>https://amitrajan012.github.io/tags/confidence-intervals/</loc>
     <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/confidence-intervals/</loc>
+    <loc>https://amitrajan012.github.io/topics/confidence-intervals/</loc>
     <lastmod>2018-11-20T16:41:05+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -604,13 +609,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
+    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
+    <loc>https://amitrajan012.github.io/topics/estimation/</loc>
     <lastmod>2018-10-28T17:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -658,13 +663,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
     <lastmod>2018-11-26T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
+    <loc>https://amitrajan012.github.io/topics/hypothesis-testing/</loc>
     <lastmod>2018-11-26T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
@@ -688,13 +693,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/islr/</loc>
+    <loc>https://amitrajan012.github.io/tags/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/islr/</loc>
+    <loc>https://amitrajan012.github.io/topics/islr/</loc>
     <lastmod>2018-07-19T06:25:52+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -749,7 +754,13 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/logistic-regression/</loc>
-    <lastmod>2018-05-13T02:17:58+01:00</lastmod>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/topics/logistic-regression/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -832,6 +843,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/tags/newton-raphson-method/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/normal-distribution/</loc>
     <lastmod>2018-11-26T07:26:51+05:30</lastmod>
     <priority>0</priority>
@@ -899,7 +916,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -934,25 +951,25 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/probability-distribution/</loc>
-    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://amitrajan012.github.io/tags/probability-distribution/</loc>
     <lastmod>2018-11-16T01:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/propagation-of-error/</loc>
-    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/topics/probability-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/topics/propagation-of-error/</loc>
     <lastmod>2018-11-14T03:08:14+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -976,13 +993,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/random-variables/</loc>
+    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
+    <loc>https://amitrajan012.github.io/topics/random-variables/</loc>
     <lastmod>2018-11-13T06:11:47+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -994,13 +1011,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
+    <loc>https://amitrajan012.github.io/tags/recommendation-engine/</loc>
     <lastmod>2018-07-30T02:12:38+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/recommendation-engine/</loc>
+    <loc>https://amitrajan012.github.io/topics/recommendation-engine/</loc>
     <lastmod>2018-07-30T02:12:38+01:00</lastmod>
     <priority>0</priority>
   </url>
@@ -1133,7 +1150,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/taylor-series/</loc>
-    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1179,13 +1196,13 @@
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
+    <loc>https://amitrajan012.github.io/topics/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
   </url>

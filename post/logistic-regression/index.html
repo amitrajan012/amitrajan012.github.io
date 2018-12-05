@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="Logistic Regression: Derivation">
   <meta name="generator" content="Hugo 0.49.1" />
 
   <title>Logistic Regression &middot; Amit Rajan</title>
@@ -60,8 +60,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Amit Rajan" href="https://amitrajan012.github.io/tags/logistic-regression/index.xml" />
   
 
   
@@ -135,15 +133,11 @@
 
 <div class="header">
   <h1>Logistic Regression</h1>
+  <h2>Logistic Regression: Derivation</h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/logistic-regression/">Logistic Regression</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -185,80 +179,108 @@
 </div>
 
 
-  </header>
+  <p></br>
+In a classification setting, <b>logistic regression</b> models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1]. For this, a <b>logistic function</b> which is given below can be used.</p>
 
-  <p>
-  In a classification setting, logistic regression models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1].
-  </p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta X}}{1 + e^{\beta_0 + \beta X}}$$</p>
+
+<p>Manipulating the above function and taking the log, we get</p>
+
+<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta X$$</p>
+
+<p>The left hand side expression is called as <b>log-odds</b> of <b>logit</b>. For a logistic regression, <b>logit is linear in $X$</b>.</p>
+
+<p>A method of <b>maximum-likelihood</b> is used to fit the logistic regression model. In maximum-likelihood, we seek estimates of $\beta_0$ and $\beta$ such that the predicted probabilities corresponds as closely as possible to the observed individual probabilities. The <b>likelihood-function</b> is given as:</p>
+
+<p>$$L(\beta _0, \beta) = \prod _{i:y_i=1}p(x_i) \prod _{i:y_i=0}(1 - p(x_i)) = \prod _{i=1}^{n}p(x_i)^{y_i} (1- p(x_i))^{1 - y_i}$$</p>
+
+<p>In maximum-likelihood, our goal is to maximize the likelihood-function. As logarithm is an increasing function, we can transform the likelihood-function by taking logarithm and our objective remains unaltered. Hence, the <b>log-likelihood</b> (after taking the logarithm of the likelihood-function) is given as:</p>
+
+<p>$$l(\beta_0, \beta) = log(L(\beta_0, \beta)) = \sum _{i=1}^{n} y_i log(p(x_i)) + (1- y_i)(1 - log(p(x_i)))$$</p>
+
+<p>On further simplification, we get</p>
+
+<p>$$l(\beta_0, \beta) = \sum _{i=1}^{n} log(1 - p(x_i)) + \sum _{i=1}^{n} y_i log \frac{p(x_i)}{1 - p(x_i)} =
+-\sum _{i=1}^{n} log(1 + e^{\beta_0 + \beta x_i}) + \sum _{i=1}^{n} y_i (\beta_0 + \beta x_i)$$</p>
+
+<p>To find the maximum likelihood estimates, we need to take the partial derivatives of log-likelihood function with respect to different parameters and set them to 0. Taking the derivative with respect to one component of $\beta$ (say it as $\beta_j$), we get</p>
+
+<p>$$\frac{\partial l}{\partial \beta_j} = -\sum _{i=1}^{n} \frac{1}{e^{\beta_0 + \beta x_i}} e^{\beta_0 + \beta x_i} x _{ij}+ \sum _{i=1}^{n} y_i x _{ij} = \sum _{i=1}^{n} (y_i - p(x_i; \beta_0, \beta)) x _{ij}$$</p>
+
+<p>As exponential function is a <b>transcendental function</b> (as it goes beyond the limit of algebra in that it can not be expressed in terms of a finite sequence of the algebraic operations (addition, multiplication,&hellip;)), the above equation is a <b>transcendental equation</b>. A transcendental equations do not have <b>closed-form solutions</b> (an expression that can be evaluated in a finite number of mathematical operations). However this can be solved approximately to get a numerical solution.</p>
+
+<p><b>Newton-Raphson</b> method can be used to find an approximate solution for the above mentioned optimization problem. Let us first assume a simpler case of minimizing a function of one scalar variable, denoted as $f(\beta)$. We have to find the location of the <b>global-minima</b> $\beta^{*}$. For $\beta^{ * }$ to be a global-minima, the first-derivative at $\beta^{*}$ should be 0 and the second-derivative should be positive. Doing a <b>Taylor Series</b> expansion near minima, we get</p>
+
+<p>$$f(\beta) \approx f(\beta^{ * }) + (\beta - \beta^{ * })f^{&lsquo;}(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&ldquo;}(\beta^{ * }) + &hellip; = f(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&ldquo;}(\beta^{ * })$$</p>
+
+<p>The last expression comes due to the fact that the first-derivative at the global-minima, i.e. $f^{&lsquo;}(\beta^{*})$ is 0. Hence, instead of minimizing the original function, we can minimize the <b>quadratic approximation</b> of the original function.</p>
+
+<p>In the Newton-Raphson method, we guess an initial point (let it be $\beta^{0}$). If this point is close to the minima, we can take a second order taylor expansion around $\beta^{0}$ and it will still be close to the original expression:</p>
+
+<p>$$f(\beta) \approx f(\beta^{0}) + (\beta - \beta^{0})f^{&lsquo;}(\beta^{0}) + \frac{(\beta - \beta^{*0})^2}{2} f^{&ldquo;}(\beta^{0})$$</p>
+
+<p>So, instead of minimizing the original expression, we minimize the right hand side, which is the second-order Taylor expansion of the original expression around $\beta^{0}$. Taking the derivative of the right hand side expression and setting it equal to 0, we get</p>
+
+<p>$$f^{&lsquo;}(\beta^{0}) + (\beta - \beta^{0}) f^{&ldquo;}(\beta^{0}) = 0$$</p>
+
+<p>This gives us a new guess $\beta^{1}$ for the global-minima $\beta^{*}$ as</p>
+
+<p>$$\beta^{1} = \beta^{0} - \frac{f^{&lsquo;}(\beta^{0})}{f^{&ldquo;}(\beta^{0})}$$</p>
+
+<p>After repeating the process till $n$ iterations, we get the $(n+1)^{th}$ guess as:</p>
+
+<p>$$\beta^{n+1} = \beta^{n} - \frac{f^{&lsquo;}(\beta^{n})}{f^{&ldquo;}(\beta^{n})}$$</p>
+
+<p>This gives us the approximation for global-minima.</p>
+
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/logistic-regression/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a class="post-heading" href="https://amitrajan012.github.io/post/classification_part1/">ISLR Chapter 4: Classification (Part 1: Logistic Regression)</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>13 May 2018, 02:17</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/islr">ISLR</a>
+    <nav class="prev">
+      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/">Hypothesis Testing (Part 6)</a>
+    </nav>
     
   </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/islr">ISLR</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/classification">Classification</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/logistic-regression">Logistic Regression</a>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
   </div>
-  
-  
-
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
 
-  </header>
-
-  <p>
-  Classification A process for predicting qualitative or categorical variables is called as Classification.
-4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.
-  </p>
 
   
-  <footer>
-    <a class="read-more" href="https://amitrajan012.github.io/post/classification_part1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -300,3 +322,4 @@ import pandas as pd import seaborn as sns import matplotlib.pyplot as plt defaul
 
 </body>
 </html>
+
