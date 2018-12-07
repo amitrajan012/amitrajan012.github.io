@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/post/logistic-regression/</loc>
     <lastmod>2018-12-05T07:26:51+05:30</lastmod>
   </url>
@@ -390,7 +395,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -592,7 +597,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/distribution-free-tests/</loc>
-    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -664,7 +669,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
-    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -916,7 +921,7 @@
   
   <url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1196,6 +1201,12 @@
   </url>
   
   <url>
+    <loc>https://amitrajan012.github.io/topics/the-wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://amitrajan012.github.io/tags/think-stats/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
     <priority>0</priority>
@@ -1252,6 +1263,12 @@
   <url>
     <loc>https://amitrajan012.github.io/tags/variance/</loc>
     <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://amitrajan012.github.io/tags/wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
     <priority>0</priority>
   </url>
   

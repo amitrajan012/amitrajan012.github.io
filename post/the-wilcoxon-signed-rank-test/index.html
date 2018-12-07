@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Logistic Regression: Derivation">
+  <meta name="description" content="The Wilcoxon Signed-Rank Test: Derivation of Mean and Variance">
   <meta name="generator" content="Hugo 0.49.1" />
 
-  <title>Logistic Regression &middot; Amit Rajan</title>
+  <title>The Wilcoxon Signed-Rank Test &middot; Amit Rajan</title>
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -132,8 +132,8 @@
 
 
 <div class="header">
-  <h1>Logistic Regression</h1>
-  <h2>Logistic Regression: Derivation</h2>
+  <h1>The Wilcoxon Signed-Rank Test</h1>
+  <h2>The Wilcoxon Signed-Rank Test: Derivation of Mean and Variance</h2>
 </div>
 <div class="content">
 
@@ -141,7 +141,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>05 Dec 2018, 07:26</time>
+    <time>07 Dec 2018, 07:26</time>
   </div>
 
   
@@ -152,7 +152,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/logistic-regression">Logistic Regression</a>
+      <a class="post-category post-category-design" href="https://amitrajan012.github.io/topics/the-wilcoxon-signed-rank-test">The Wilcoxon Signed-Rank Test</a>
     
   </div>
   
@@ -164,13 +164,11 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/logistic-regression">Logistic Regression</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/wilcoxon-signed-rank-test">Wilcoxon Signed-Rank Test</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/classification">Classification</a>&nbsp;&nbsp;
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/distribution-free-tests">Distribution-Free Tests</a>&nbsp;&nbsp;
     
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/newton-raphson-method">Newton-Raphson Method</a>&nbsp;&nbsp;
-    
-      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/taylor-series">Taylor Series</a>
+      <a class="post-category post-tags" href="https://amitrajan012.github.io/tags/hypothesis-testing">Hypothesis Testing</a>
     
   </div>
   
@@ -179,72 +177,87 @@
 </div>
 
 
-  <p></br>
-In a classification setting, <b>logistic regression</b> models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1]. For this, a <b>logistic function</b> which is given below can be used.</p>
+  
 
-<p>$$p(X) = \frac{e^{\beta_0 + \beta X}}{1 + e^{\beta_0 + \beta X}}$$</p>
+<p></br></p>
 
-<p>Manipulating the above function and taking the log, we get</p>
+<p>The <b>Wilcoxon Signed-Rank Test</b> is a distribution free test or non-parametric test which is used to test the population mean when the samples do not come from any specific distribution. The idea behind The Wilcoxon Signed-Rank Test is to median-center the samples and give signed-ranks to the individual values. If the sum of the negative ranks (S-) is larger, we can conclude that the population mean is lesser than the mentioned value. If the sum of the positive ranks(S+) is larger, the population mean is greater than the mentioned value. For detailed explanation, the post
+<a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/">  The Wilcoxon Signed-Rank Test </a> can be followed.</p>
 
-<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta X$$</p>
+<p>If the sample size is larger, the test statistic S+ is approximately normally distributed with mean $n(n+1)/4$ and variance $n(n+1)(2n+1)/4$. In this case, the Wilcoxon signed-rank test can be performed by computing the <b>z-score</b> of S+ and then the normal table can be used to find the <b>p-value</b>. The z-score is:</p>
 
-<p>The left hand side expression is called as <b>log-odds</b> of <b>logit</b>. For a logistic regression, <b>logit is linear in $X$</b>.</p>
+<p>$$z = \frac{(S+) - n(n+1)/4}{\sqrt{n(n+1)(2n+1)/24}}$$</p>
 
-<p>A method of <b>maximum-likelihood</b> is used to fit the logistic regression model. In maximum-likelihood, we seek estimates of $\beta_0$ and $\beta$ such that the predicted probabilities corresponds as closely as possible to the observed individual probabilities. The <b>likelihood-function</b> is given as:</p>
+<p>Let us look at the derivation for the distribution parameters.</p>
 
-<p>$$L(\beta _0, \beta) = \prod _{i:y_i=1}p(x_i) \prod _{i:y_i=0}(1 - p(x_i)) = \prod _{i=1}^{n}p(x_i)^{y_i} (1- p(x_i))^{1 - y_i}$$</p>
+<p></br></p>
 
-<p>In maximum-likelihood, our goal is to maximize the likelihood-function. As logarithm is an increasing function, we can transform the likelihood-function by taking logarithm and our objective remains unaltered. Hence, the <b>log-likelihood</b> (after taking the logarithm of the likelihood-function) is given as:</p>
+<h4 id="derivation-of-distribution-mean">Derivation of distribution mean :</h4>
 
-<p>$$l(\beta_0, \beta) = log(L(\beta_0, \beta)) = \sum _{i=1}^{n} y_i log(p(x_i)) + (1- y_i)(1 - log(p(x_i)))$$</p>
+<p>The statistic used in the Wilcoxon Signed-Rank Test(let us say it $W$ which is S+) can be denoted as:</p>
 
-<p>On further simplification, we get</p>
+<p>$$W = \sum _{i=1}^{n} I _{i}R _{i}$$</p>
 
-<p>$$l(\beta_0, \beta) = \sum _{i=1}^{n} log(1 - p(x_i)) + \sum _{i=1}^{n} y_i log \frac{p(x_i)}{1 - p(x_i)} =
--\sum _{i=1}^{n} log(1 + e^{\beta_0 + \beta x_i}) + \sum _{i=1}^{n} y_i (\beta_0 + \beta x_i)$$</p>
+<p>where $I_i$ is the indicator variable defined as 0 when $x_i - y_i$ is negative and 1 otherwise and $R_i$ is their ranks. When the sample size is $n$, the distribution of the sum of positive ranks is also equivalent to distribute the ranks from $1$ to $n$ randomly into two subsets, one denoting the positive ranks and other the negative ranks. Hence, this can be denoted as:</p>
 
-<p>To find the maximum likelihood estimates, we need to take the partial derivatives of log-likelihood function with respect to different parameters and set them to 0. Taking the derivative with respect to one component of $\beta$ (say it as $\beta_j$), we get</p>
+<p>$$U = \sum _{i=1}^{n} U _{i}$$</p>
 
-<p>$$\frac{\partial l}{\partial \beta_j} = -\sum _{i=1}^{n} \frac{1}{e^{\beta_0 + \beta x_i}} e^{\beta_0 + \beta x_i} x _{ij}+ \sum _{i=1}^{n} y_i x _{ij} = \sum _{i=1}^{n} (y_i - p(x_i; \beta_0, \beta)) x _{ij}$$</p>
+<p>where $U _{i}=i$, when the rank belongs to the positive ranks and $U _{i}=0$ otherwise (when the rank belongs to the negative ranks). As these two distributions are similar:</p>
 
-<p>As exponential function is a <b>transcendental function</b> (as it goes beyond the limit of algebra in that it can not be expressed in terms of a finite sequence of the algebraic operations (addition, multiplication,&hellip;)), the above equation is a <b>transcendental equation</b>. A transcendental equations do not have <b>closed-form solutions</b> (an expression that can be evaluated in a finite number of mathematical operations). However this can be solved approximately to get a numerical solution.</p>
+<p>$$E(W) = E(U)$$</p>
 
-<p><b>Newton-Raphson</b> method can be used to find an approximate solution for the above mentioned optimization problem. Let us first assume a simpler case of minimizing a function of one scalar variable, denoted as $f(\beta)$. We have to find the location of the <b>global-minima</b> $\beta^{*}$. For $\beta^{ * }$ to be a global-minima, the first-derivative at $\beta^{*}$ should be 0 and the second-derivative should be positive. Doing a <b>Taylor Series</b> expansion near minima, we get</p>
+<p>Now, as we are randomly distributing the ranks amongst the positive and negative ranks, the probability of each of the rank being negative or positive will be same and will be equal to <sup>1</sup>&frasl;<sub>2</sub>, i.e.</p>
 
-<p>$$f(\beta) \approx f(\beta^{ * }) + (\beta - \beta^{ * })f^{&lsquo;}(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&ldquo;}(\beta^{ * }) + &hellip; = f(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&ldquo;}(\beta^{ * })$$</p>
+<p>$$P(U_i = 0) = P(U_i = i) = 0.5$$</p>
 
-<p>The last expression comes due to the fact that the first-derivative at the global-minima, i.e. $f^{&lsquo;}(\beta^{*})$ is 0. Hence, instead of minimizing the original function, we can minimize the <b>quadratic approximation</b> of the original function.</p>
+<p>The expected value of $U$ can be calculated as:</p>
 
-<p>In the Newton-Raphson method, we guess an initial point (let it be $\beta^{0}$). If this point is close to the minima, we can take a second order taylor expansion around $\beta^{0}$ and it will still be close to the original expression:</p>
+<p>$$E(U) = \sum _{i=1}^{n} E(U_i) = \sum _{i=1}^{n} \big[\frac{1}{2}0 + \frac{1}{2}i \big] = \frac{1}{2} \sum _{i=1}^{n} i = \frac{n(n+1)}{4}$$</p>
 
-<p>$$f(\beta) \approx f(\beta^{0}) + (\beta - \beta^{0})f^{&lsquo;}(\beta^{0}) + \frac{(\beta - \beta^{*0})^2}{2} f^{&ldquo;}(\beta^{0})$$</p>
+<p>Hence,</p>
 
-<p>So, instead of minimizing the original expression, we minimize the right hand side, which is the second-order Taylor expansion of the original expression around $\beta^{0}$. Taking the derivative of the right hand side expression and setting it equal to 0, we get</p>
+<p>$$E(W) = E(U) = \frac{n(n+1)}{4}$$</p>
 
-<p>$$f^{&lsquo;}(\beta^{0}) + (\beta - \beta^{0}) f^{&ldquo;}(\beta^{0}) = 0$$</p>
+<p></br></p>
 
-<p>This gives us a new guess $\beta^{1}$ for the global-minima $\beta^{*}$ as</p>
+<h4 id="derivation-of-distribution-variance">Derivation of distribution variance :</h4>
 
-<p>$$\beta^{1} = \beta^{0} - \frac{f^{&lsquo;}(\beta^{0})}{f^{&ldquo;}(\beta^{0})}$$</p>
+<p>For the calculation of variance, we need to calculate the individual variances of each of the $U_i$s and sum them all. As, $Var(X) = E[X^2] - E^{2}[X]$, the variance of $U_i$ can be given as:</p>
 
-<p>After repeating the process till $n$ iterations, we get the $(n+1)^{th}$ guess as:</p>
+<p>$$Var(U_i) = E[U _{i}^2] - E^{2}[U_i]$$</p>
 
-<p>$$\beta^{n+1} = \beta^{n} - \frac{f^{&lsquo;}(\beta^{n})}{f^{&ldquo;}(\beta^{n})}$$</p>
+<p>Expected value of $U_i$ and $U_i^2$ can be calculated as:</p>
 
-<p>This gives us the approximation for global-minima.</p>
+<p>$$E[U_i] = 0.\frac{1}{2} + i.\frac{1}{2} = \frac{i}{2}$$</p>
+
+<p>$$E[U_i^2] = 0^2.\frac{1}{2} + i^2.\frac{1}{2} = \frac{i^2}{2}$$</p>
+
+<p>Hence,</p>
+
+<p>$$Var(U_i) = \frac{i^2}{2} - \big(\frac{i}{2} \big)^2 = \frac{i^2}{4}$$</p>
+
+<p>The variance of $W$ can be given as:</p>
+
+<p>$$Var(W) = Var(U) = \sum _{i=1}^{n} Var(U_i) = \sum _{i=1}^{n} \frac{i^2}{4} = \frac{n(n+1)(2n+1)}{24}$$</p>
+
+<p></br></p>
+
+<h4 id="reference">Reference :</h4>
+
+<p><a href="https://www.physicsforums.com/threads/expected-value-and-variance-for-wilcoxon-signed-rank-test.775604/">https://www.physicsforums.com/threads/expected-value-and-variance-for-wilcoxon-signed-rank-test.775604/</a></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://amitrajan012.github.io/post/logistic-regression/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/">Hypothesis Testing (Part 6)</a>
+      <a href="https://amitrajan012.github.io/post/logistic-regression/">Logistic Regression</a>
     </nav>
     
   </div>
@@ -253,14 +266,8 @@ In a classification setting, <b>logistic regression</b> models the probability o
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/">The Wilcoxon Signed-Rank Test</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
