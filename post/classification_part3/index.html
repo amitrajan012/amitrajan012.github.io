@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)" />
+    <meta property="og:title" content="ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)" />
+    <meta property="twitter:title" content="ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)" />
+    
+
+    
+    <meta name="description" content="ISLR Classification">
+    <meta property="og:description" content="ISLR Classification" />
+    <meta property="twitter:description" content="ISLR Classification" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/classification_part3/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/classification" title="Classification">
+                            Classification
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/conceptual" title="Conceptual">
+                            Conceptual
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Tuesday, May 15, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="47-exercises">4.7 Exercises</h3>
+<h4 id="conceptual">Conceptual</h4>
+<p>Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation
+for the logistic regression model are equivalent.</p>
+<p><b>Sol: </b> Logistic function representation is given as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$</p>
+<p>then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get</p>
+<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</p>
+<p>Q2. Under the assumption that the observations in the $k$th class is drawn from a normal distribution, the Bayes' classifier assign an observation to the class for which the discriminant function is maximized.</p>
+<p><b>Sol:</b> The posterior probability for the Bayes' classifier is given as:</p>
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum_{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+<p>In the Bayes' classifier, we have to find the class for which this is maximum. As log function is monotonically increasing, we can maximize the log of the posterior probability. Here the denominator is constant and hence for the maximization process, this can be ignored. For the constant variance case, the term $\frac{1}{\sqrt{2\pi}\sigma}$ in the neumerator is constant and hence can be ignored as well. Now taking the logarithm and expanding the quadratic term, we get:</p>
+<p>$$log(p_k(X)) = \delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2} - \frac{x^2}{2\sigma^2}$$</p>
+<p>The last term is constant in $k$ as well and hence can be ignored, which gives:</p>
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+<p>Q3. This problem relates to the QDA model, in which the observations within each class are drawn from a normal distribution with a classspecific mean vector and a class specific covariance matrix. We can not assume that the variance of each class is same. Prove that in this case, the Bayes’ classifier is not linear. Argue that it is in fact
+quadratic.</p>
+<p><b>Sol:</b> Replacing $\sigma$ with $\sigma_k$ in the second equation in question 2 and not ignoring the term $\frac{1}{\sqrt{2\pi}\sigma_k}$ in the neumerator before taking the log, we get the <b>discriminant function</b> as:</p>
+<p>$$\delta_k(X) = log(\pi_k) - log(\sigma_k) - \frac{\mu_k^2}{2\sigma_k^2} + x.\frac{\mu_k}{\sigma_k^2} - \frac{x^2}{2\sigma_k^2}$$</p>
+<p>And hence Bayes' classifier is not linear in $x$. In fact, it is quadratic.</p>
+<p>Q4. When the number of features p is large, there tends to be a deterioration in the performance of KNN and other local approaches that perform prediction using only observations that are near the test observation for which a prediction must be made. This phenomenon is known as the <b>curse of dimensionality</b>, and it ties into the fact that parametric approaches often perform poorly when p is large.</p>
+<p>(a) Suppose that we have a set of observations, each with measurements on p = 1 feature, X. We assume that X is uniformly distributed on [0, 1]. Associated with each observation is a response value. Suppose that we wish to predict a test observation’s response using only observations that are within 10% of the range of X closest to that test observation. For instance, in order to predict the response for a test observation with X = 0.6, we will use observations in the range [0.55, 0.65]. On average, what fraction of the available observations will we use to make
+the prediction?</p>
+<p><b>Sol:</b> As for each test observation, we use the observations in the range <b>0.1</b> (half left and half right) of the entire range of observation, and hence this accounts to the average value of <b>10%</b> of the available observation.</p>
+<p>To be more specific, for the test observation, x &lt; 0.05, we will use the observations in the range [0, x+0.05] and for x &gt; 0.95, we will use the observations in the range [x-0.05, 1]. As the observations are uniformly distributed, we can find the average fraction of observations used by integrating the individual ranges:</p>
+<p>$$fraction = \int_{0}^{0.05}(100x+5) dx + \int_{0.05}^{0.95} 10 dx + \int_{0.95}^{1} (105-100x)dx = 9.75$$</p>
+<p>And hence to be more specific, we use <b>9.75%</b> of the observations.</p>
+<p>(b) Solve the above case for 2 predictors $X_1$ and $X_2$.</p>
+<p><b>Sol:</b> For the two independent predictors, the fraction of observations used will be 9.75% for $X_1$ and 9.75% for $X_2$. Hence the total fraction of observations used is 9.75% $\times$ 9.75% = 0.95%.</p>
+<p>(c) Now suppose that we have a set of observations on p = 100 features. What fraction of the available observations will we use to make the prediction?</p>
+<p><b>Sol:</b> For p=100, we will use (9.75%)$^{100}$ = 0% of the total observations for the prediction.</p>
+<p>(e) Now suppose that we wish to make a prediction for a test observation by creating a p-dimensional hypercube centered around the test observation that contains, on average, 10% of the training observations. For p = 1, 2, and 100, what is the length of each side of the hypercube? Comment on your answer.</p>
+<p><b>Sol:</b> For $p=l$, the length of the hypercube is $(0.1)^{\frac{1}{l}}$. Hence, as $l$ increases, the lenghth of the cube increases.</p>
+<p>Q5. (a) If the Bayes decision boundary is linear, do we expect LDA or QDA to perform better on the training set? On the test set?</p>
+<p><b>Sol:</b> QDA may perform better on training set as it has higher flexibility. It may try to imitate training data as close as possible and hence may result in overfitting. LDA will perform better on test set.</p>
+<p>(b) If the Bayes decision boundary is non-linear, do we expect LDA or QDA to perform better on the training set? On the test set?</p>
+<p><b>Sol:</b> QDA will perform better both on the training as well as test sets.</p>
+<p>(c) In general, as the sample size n increases, do we expect the test prediction accuracy of QDA relative to LDA to improve, decline, or be unchanged? Why?</p>
+<p><b>Sol:</b> As in QDA, we assume different variance among classes. If sample size is small, QDA performs better. As sample size increases, the assumption of equal variance among classes (as assumed while doing LDA) may be true and hence the performance of LDA and QDA in this case solely depends on the Bayes' decision boundary.</p>
+<p>(d) True or False: Even if the Bayes decision boundary for a given problem is linear, we will probably achieve a superior test error rate using QDA rather than LDA because QDA is flexible enough to model a linear decision boundary.</p>
+<p><b>Sol:</b> False</p>
+<p>Q6. Suppose we collect data for a group of students in a statistics class with variables X1 =hours studied, X2 =undergrad GPA, and Y = receive an A. We fit a logistic regression and produce estimated coefficient, $\widehat{\beta_0}= −6$ , $\widehat{\beta_1} = 0.05$, $\widehat{\beta_2}= 1$.</p>
+<p>(a) Estimate the probability that a student who studies for 40h and has an undergrad GPA of 3.5 gets an A in the class.</p>
+<p><b>Sol:</b> The probability in logistic regression is given as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}$$</p>
+<p>Hence, the probability of a student getting A with the given data is</p>
+<p>$$p = \frac{e^{-6 + 0.05\times40 + 1\times 3.5}}{1 + e^{-6 + 0.05\times40 + 1\times 3.5}} = 0.3775$$</p>
+<p>(b) How many hours would the student in part (a) need to study to have a 50% chance of getting an A in the class?</p>
+<p><b>Sol:</b> Here probability is 0.5. Hence,</p>
+<p>$$e^{-6 + 0.05\times h + 1\times 3.5} = \frac{p}{1-p} = 1$$</p>
+<p>$$-2.5 + 0.05\times h = 0$$</p>
+<p>and hence value of h is <b>50</b>.</p>
+<p>Q7. Suppose that we wish to predict whether a given stock will issue a dividend this year (“Yes” or “No”) based on X, last year’s percent profit.We examine a large number of companies and discover that the mean value of X for companies that issued a dividend was $\bar{X}$ = 10, while the mean for those that didn’t was $\bar{X}$ = 0. In addition, the
+variance of X for these two sets of companies was $\widehat{\sigma^2}$ = 36. Finally, 80% of companies issued dividends. Assuming that X follows a normal distribution, predict the probability that a company will issue a dividend this year given that its percentage profit was X = 4 last year.</p>
+<p><b>Sol:</b> From Bayes' theorem:</p>
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum_{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+<p>Here, $\pi_{YES} = 0.8, \pi_{NO} = 0.2, \mu_{YES} = 10, \mu_{N0} = 0, \widehat{\sigma^2} = 36 $. Hence, $f_{YES}(4) = 0.04033, \ f_{NO}(4) = 0.05324$. Which gives the probability as:</p>
+<p>$$p_YES{4} = \frac{0.8 \times 0.04033}{0.8 \times 0.04033 + 0.2 \times 0.05324} = 0.75186$$</p>
+<p>Q8. Suppose that we take a data set, divide it into equally-sized training and test sets, and then try out two different classification procedures. First we use logistic regression and get an error rate of 20% on the training data and 30% on the test data. Next we use 1-nearest neighbors (i.e. K = 1) and get an average error rate (averaged over both test and training data sets) of 18%. Based on these results, which method should we prefer to use for classification of new observations? Why?</p>
+<p><b>Sol:</b> For KNN with K=1, the training errro rate is 0 as all the training data will be classified correctly. Hence for the KNN with average error rate of 18%, the test error rate is 36% which makes the logistic regression with test error rate 30% is better for classification.</p>
+<p>Q9. This problem has to do with odds.</p>
+<p>(a) On average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?</p>
+<p><b>Sol:</b> Odds is given as:</p>
+<p>$$\frac{p}{1-p} = 0.37$$</p>
+<p>which gives the probability as <b>0.27</b>.</p>
+<p>(b) Suppose that an individual has a 16% chance of defaulting on her credit card payment. What are the odds that she will default?</p>
+<p><b>Sol:</b> Here, p = 0.16. Hence odds of defaulting is</p>
+<p>$$odds = \frac{p}{1-p} = \frac{0.16}{1-0.16} = 0.19$$</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/classification_part2/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/classification_part4/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 4: Exercises- Applied)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

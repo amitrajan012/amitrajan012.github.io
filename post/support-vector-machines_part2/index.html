@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)" />
+    <meta property="og:title" content="ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)" />
+    <meta property="twitter:title" content="ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)" />
+    
+
+    
+    <meta name="description" content="ISLR Support Vector Machines">
+    <meta property="og:description" content="ISLR Support Vector Machines" />
+    <meta property="twitter:description" content="ISLR Support Vector Machines" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/support-vector-machines_part2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/support-vector-machines" title="Support Vector Machines">
+                            Support Vector Machines
+                        </a>
+                        
+                        <a class="tag" href="/tags/support-vector-classifiers" title="Support Vector Classifiers">
+                            Support Vector Classifiers
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Wednesday, June 20, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="92-support-vector-classifiers">9.2 Support Vector Classifiers</h3>
+<h4 id="921-overview-of-the-support-vector-classifier">9.2.1 Overview of the Support Vector Classifier</h4>
+<p>The maximal margin classifiers can be sensitive to individual observations. Sometimes, adding a single observation in the data set, can lead to dramatic change in the separating hyperplane. The sensitivity and the low margin for a maximal margin classifier may suggest that the maximal margin classifier has <b>overfit</b> the training data. So, sometimes we may be willing to consider a classifier based on a hyperplane that does not perfectly separate the two classes, and hence, will be <b>more robust (or less sensitive to individual observations)</b> and will give better results for the unseen data points.</p>
+<p><b>Support vector classifiers (soft margin classifiers)</b> misclassify a few observations for the sake of robustness and better results. In a soft margin classifier, some of the observations can lie on the wrong side of the margin or even on the wrong side of the hyperplane. Observations that are on the wrong side of the hyperplane are misclassified by the support vector classifier.</p>
+<h4 id="922-details-of-the-support-vector-classifier">9.2.2 Details of the Support Vector Classifier</h4>
+<p>Support vector classifier is the solution of the optimization problem which is given as:</p>
+<p>$$maximize _{\beta_0, \beta_1, &hellip;, \beta_p, \epsilon_1, \epsilon_2, &hellip;, \epsilon_n} M$$</p>
+<p>$$subject \ to \ \sum _{j=1}^{p} \beta_j^2 = 1,$$
+$$y_i(\beta_0 + \beta_1 X _{i1} + \beta_2 X _{i2} + &hellip; + \beta_p X _{ip}) \geq M(1 - \epsilon_i); \forall \  i=1,2,..,n,$$
+$$\epsilon_i \geq 0, \ \sum _{i=1}^{n}\epsilon_i \leq C$$</p>
+<p>where $C$ is a non-negative tuning parameter. Here $\epsilon_1, &hellip;, \epsilon_n$ are <b>slack variables</b> and allow individual observations to be on the wrong side of the margin or the hyperplane. For a test observation $x^{*}$, we simply classify it based on the sign of $f(x^*) = \beta_0 + \beta_1 x_1^* + &hellip; + \beta_p x_p^*$.</p>
+<p>The slack variable $\epsilon_i$ depicts the location of $i$th observation relative to the margin and the hyperplane. If $\epsilon_i = 0$, the observation <b>lies on the correct side of the margin</b>. If $\epsilon_i &gt; 0$, the observation is on the <b>wrong side of the margin</b> and if $\epsilon_i &gt; 1$, the observation is on the <b>wrong side of the hyperplane</b>.</p>
+<p>The hyperparamter $C$ amounts for the budget for the amount by which the margin can be violated by $n$ observations. If $C=0$, there is no budget for the violation of the margin and hence the support vector classifier turns into maximal margin classifier. For $C&gt;0$, no more than $C$ observations can be on the wrong side of the hyperplane (as $\epsilon_i &gt; 1$ for the observation to be on the wrong side of the hyperplane). If $C$ increases, the margin will widen and if it decreases, the margin will become narrow. $C$ is chosen via <b>cross-validation</b>. When $C$ is <b>small</b>, the margin narrows and hence the classifier fits more colsely to the data, giving a <b>high variance</b>. For <b>larger</b> $C$, the margin is wider and hence fitting the data less hard and obtaining a classifier whihc is <b>more biased</b> but have <b>low variance</b>.</p>
+<p>The observations that lie on the correct side of the margin do not affect the hyperplane. The observations that either lie on the margin or that violate the margin affect the hyperplane and hence are known as <b>support vectors</b>. For larger value of $C$, we will get a more number of support vectors and hence the hyperplane will depend on large number of observations, making the model low in variance.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/support-vector-machines_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 9: Support Vector Machines (Part 1: Maximal Margin Classifier)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/support-vector-machines_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

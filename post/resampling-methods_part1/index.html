@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)" />
+    <meta property="og:title" content="ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)" />
+    <meta property="twitter:title" content="ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)" />
+    
+
+    
+    <meta name="description" content="ISLR Resampling Methods">
+    <meta property="og:description" content="ISLR Resampling Methods" />
+    <meta property="twitter:description" content="ISLR Resampling Methods" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/resampling-methods_part1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/resampling" title="Resampling">
+                            Resampling
+                        </a>
+                        
+                        <a class="tag" href="/tags/cross-validation" title="Cross-Validation">
+                            Cross-Validation
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Thursday, May 17, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1><center>Resampling Methods</center></h1>
+<p><b>Resampling methods</b> involve repeatedly drawing samples from training data and refitting a model on them. Resampling approaches can be computationally expensive. <b>Cross-validation</b> and <b>bootstrap</b> are two of the most commonly used resampling methods. Cross-validation can be used to estimate the test error rate associated with a given model in order to evaluate its performance. The process of evaluating a model&rsquo;s performance is called <b>model assessment</b>. The process of selecting proper level of flexibility for a model is known as <b>model selection</b>.</p>
+<h3 id="51-cross-validation">5.1 Cross-Validation</h3>
+<p><b>Test error rate</b> can be easily calculated if a designated test set is available. This is usually not the case. One approach is to estimate the test error rate by <b>holding out</b> a subset of the training observation from the fitting process and then apply the model to the held out observations.</p>
+<h4 id="511-the-validation-set-approach">5.1.1 The Validation Set Approach</h4>
+<p>The validation set approach involves dividing the available set of observations into two part: a <b>training set</b> and a <b>validation set</b>. The model is fit on the training set and the fitted model is used to compute the validation set error rate. Validation set approach is simple and easy to implement but it has two drawbacks:</p>
+<ul>
+<li>
+<p>Validation set error rate can be highly variable, depending on which observations are included in the training set and which in the validation set.</p>
+</li>
+<li>
+<p>As only a subset of the observations is used to fit the model, the modle tends to perform worse. This suggests that the validation set error rate may tend to <b>overestimate</b> the test error rate for the model fitted on the entire data set.</p>
+</li>
+</ul>
+<h4 id="512-leave-one-out-cross-validation">5.1.2 Leave-One-Out Cross-Validation</h4>
+<p><b>Leave-one-out cross-validation (LOOCV)</b> is closely related to the validation set approach. LOOCV also involves splitting the data set into two parts. Instead of creating two subsets of comaparable size, a <b>single observation</b> is used for the validation set and the remaining observations are used for the trainig set. The <b>MSE</b> of a single observation of the validation set can provide an unbiased estimate for the test error but it is <b>highly variable</b>.</p>
+<p>The LOOCV process can be repeated $n$ times, producing $n$ different MSEs, when each time validation set consists of $i$th observation, where value of $i$ ranges from $1$ to $n$. The MSE for validation sets is given as:</p>
+<p>$$MSE_{i} = (y_i - \widehat{y_i})^2$$</p>
+<p>and the overall estimate of <b>test MSE</b> is the average of these $n$ validation errors:</p>
+<p>$$CV_{(n)} = \frac{1}{n} \sum _{i=1}^{n} MSE _{i}$$</p>
+<p>LOOCV has far <b>less bias</b> when compared to validation set approach. It does not tend to overestimate the test error rate as much as the validation set approach does. Performing LOOCV multiple times will always yield the same results as there is no randomness in the training/validation set split. LOOCV can be expensive to implement as the model has to be fitted n-times. LOOCV is a very generic approach and can be used with any kind of predictive modeling.</p>
+<h4 id="513-k-fold-cross-validation">5.1.3 k-Fold Cross-Validation</h4>
+<p><b>k-fold CV</b> is an alternative to LOOCV. In this aproach the observations are randomly divided into $k$ groups of approximately equal size. The first fold is treated as a validation set and the method is fit on the remaining $k-1$ folds. The $MSE_{1}$ is computed on the observations in the held-out fold. The process is repeated $k$ times. Each time a different group of observation is treated as the validation set. The $k$-fold CV estimate is given as:</p>
+<p>$$CV_{(k)} = \frac{1}{k} \sum _{i=1}^{k} MSE _{i}$$</p>
+<p>LOOCV is a special case of $k$-fold CV with $k=n$. Generally, a typical value of $K=5$ or $k=10$ is chosen. $k$-fold CV has an advantage of less computational complexity as model needs to be fitted $k$ times only. There may arise some variability in the CV estimates as there is some variability in the divison of the observations into the folds.</p>
+<p>Sometimes instead of arriving on a correct estimate of test MSE, we are more interested in selecting the model for which the test MSE will be minimum. Hence, for this purpose, the location of the minimum point in the estimated test MSE curve is more important, which can help in deciding the correct flecibility of the model. $k$-fold CV does a pretty decent job in this.</p>
+<h4 id="514-bias-variance-trade-off-for-k-fold-cross-validation">5.1.4 Bias-Variance Trade-Off for k-Fold Cross-Validation</h4>
+<p>Apart from computational advantage, $k$-fold CV gives more accurate estimates of the test error rate than LOOCV. Since LOOCV uses $n-1$ observations as training set, it will give approximately unbiased (low bias) estimates of the test error. Compared to validation set approach, $k$-fold CV has low bias as well. But from the prespective of <b>bias reduction</b>, LOOCV is to be preferred over $k$-fold CV.</p>
+<p>LOOCV has <b>higher variance</b> compared to $k$-fold CV for $k &lt; n$. As we know that, <b>mean of highly correlated quantities has higher variance compared to the mean of quantities that are not highly correlated.</b> For the LOOCV, as the different models share higher amount of data compared to $k$-fold CV, they are somewhat more correlated. Hence, the test error estimate of LOOCV has <b>higher variance</b> compared to $k$-fold CV. $k$-fold CV with $k=5$ or $k=10$, yields test error estimates that suffer neither from excessively high bias, nor from very high variance.</p>
+<p><b>Mean of highly correlated quantities have higher variance</b> as:</p>
+<ul>
+<li>
+<p>When the elements of each sample are positively correlated, when one value is high the others tend to be high, too. Their mean will then be high. When one value is low the others tend to be low, too. Their mean will then be low. Thus, the means tend either to be high or low.</p>
+</li>
+<li>
+<p>When elements of each sample are not correlated, the amount by which some elements are high is often balanced (or &ldquo;canceled out&rdquo;) by other low elements. Overall the mean tends to be very close to the average of the population from which the samples are drawn&ndash;and rarely much greater or much less than that.</p>
+</li>
+</ul>
+<h4 id="515-cross-validation-on-classification-problems">5.1.5 Cross-Validation on Classification Problems</h4>
+<p>In the case of classification, cross-validation works in the same way. However, instead of using MSE to quantify the test error, we can use the number of misclassified observations. For example, in classification setting, the LOOCV error rate takes the form:</p>
+<p>$$CV_{n} = \frac{1}{n} \sum _{i=1}^{n} Err_i$$</p>
+<p>where $Err_i = I(y_i \neq \widehat{y_i})$. $k$-fold CV error rate and validation set error rate are defined similarly.</p>
+<p>In general <b>10-fold CV</b> error rate provides a good approximation to the test error rate (though it somewhat underestimates it). It reaches a minimum value for the correct flexibiliy of model.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/classification_part4/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 4: Exercises- Applied)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/resampling-methods_part2/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

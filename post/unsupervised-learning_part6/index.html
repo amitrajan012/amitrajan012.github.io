@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)" />
+    <meta property="og:title" content="ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)" />
+    <meta property="twitter:title" content="ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)" />
+    
+
+    
+    <meta name="description" content="ISLR Unsupervised Learning">
+    <meta property="og:description" content="ISLR Unsupervised Learning" />
+    <meta property="twitter:description" content="ISLR Unsupervised Learning" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/unsupervised-learning_part6/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/unsupervised-learning" title="Unsupervised Learning">
+                            Unsupervised Learning
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/applied" title="Applied">
+                            Applied
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Thursday, July 19, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h4 id="applied">Applied</h4>
+<p>Q7. In the chapter, we mentioned the use of correlation-based distance and Euclidean distance as dissimilarity measures for hierarchical clustering. It turns out that these two measures are almost equivalent: if each observation has been centered to have mean zero and standard deviation one, and if we let $r_{ij}$ denote the correlation between the ith and jth observations, then the quantity $1−r _{ij}$ is proportional to the squared Euclidean distance between the ith and jth observations. On the USArrests data, show that this proportionality holds.</p>
+<p>Hint: The Euclidean distance can be calculated using the dist() function, and correlations can be calculated using the cor() function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">from</span> sklearn.preprocessing <span style="color:#f92672">import</span> scale
+<span style="color:#f92672">from</span> scipy.spatial.distance <span style="color:#f92672">import</span> cdist
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/USArrests.csv&#34;</span>)
+df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;State&#39;</span>}, inplace<span style="color:#f92672">=</span>True)
+df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]] <span style="color:#f92672">=</span> scale(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+d_euclidean <span style="color:#f92672">=</span> cdist(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]], df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]],
+          metric<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;euclidean&#39;</span>)
+d_correlation <span style="color:#f92672">=</span> cdist(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]], df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]],
+          metric<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;correlation&#39;</span>)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_relation <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(d_euclidean<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span><span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>d_correlation))
+df_relation<span style="color:#f92672">.</span>describe()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>...</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>0.917196</td>
+      <td>1.377766</td>
+      <td>0.768684</td>
+      <td>0.835502</td>
+      <td>0.633609</td>
+      <td>0.551528</td>
+      <td>0.636466</td>
+      <td>0.638445</td>
+      <td>0.929853</td>
+      <td>0.848389</td>
+      <td>...</td>
+      <td>0.387890</td>
+      <td>0.730992</td>
+      <td>0.490706</td>
+      <td>0.547206</td>
+      <td>0.543436</td>
+      <td>0.475501</td>
+      <td>0.400632</td>
+      <td>0.404453</td>
+      <td>3.159859</td>
+      <td>0.509535</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.491905</td>
+      <td>3.625065</td>
+      <td>2.114578</td>
+      <td>2.286917</td>
+      <td>1.747983</td>
+      <td>1.476750</td>
+      <td>0.579707</td>
+      <td>1.779954</td>
+      <td>2.525718</td>
+      <td>2.318681</td>
+      <td>...</td>
+      <td>0.806068</td>
+      <td>2.020526</td>
+      <td>1.366438</td>
+      <td>0.562794</td>
+      <td>0.564614</td>
+      <td>1.318453</td>
+      <td>0.867514</td>
+      <td>0.971656</td>
+      <td>2.161903</td>
+      <td>1.421946</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.032012</td>
+      <td>0.089498</td>
+      <td>0.016312</td>
+      <td>0.028225</td>
+      <td>0.031815</td>
+      <td>0.052559</td>
+      <td>0.176210</td>
+      <td>0.029639</td>
+      <td>0.034926</td>
+      <td>0.032570</td>
+      <td>...</td>
+      <td>0.037003</td>
+      <td>0.014472</td>
+      <td>0.035702</td>
+      <td>0.136008</td>
+      <td>0.129466</td>
+      <td>0.032512</td>
+      <td>0.062962</td>
+      <td>0.052856</td>
+      <td>1.396576</td>
+      <td>0.040784</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.194972</td>
+      <td>0.371256</td>
+      <td>0.121050</td>
+      <td>0.153813</td>
+      <td>0.123040</td>
+      <td>0.114278</td>
+      <td>0.501816</td>
+      <td>0.107965</td>
+      <td>0.195236</td>
+      <td>0.163924</td>
+      <td>...</td>
+      <td>0.166428</td>
+      <td>0.110865</td>
+      <td>0.102117</td>
+      <td>0.406559</td>
+      <td>0.416032</td>
+      <td>0.105314</td>
+      <td>0.154284</td>
+      <td>0.159624</td>
+      <td>2.840412</td>
+      <td>0.097088</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.661991</td>
+      <td>1.044089</td>
+      <td>0.525318</td>
+      <td>0.588041</td>
+      <td>0.389477</td>
+      <td>0.295860</td>
+      <td>0.981708</td>
+      <td>0.393930</td>
+      <td>0.673405</td>
+      <td>0.599727</td>
+      <td>...</td>
+      <td>0.392379</td>
+      <td>0.488617</td>
+      <td>0.266171</td>
+      <td>0.846270</td>
+      <td>0.819825</td>
+      <td>0.265969</td>
+      <td>0.355743</td>
+      <td>0.274510</td>
+      <td>4.886207</td>
+      <td>0.267781</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>16.482235</td>
+      <td>24.396269</td>
+      <td>13.874904</td>
+      <td>15.058890</td>
+      <td>11.408640</td>
+      <td>9.635337</td>
+      <td>2.790843</td>
+      <td>11.655091</td>
+      <td>16.705192</td>
+      <td>15.286165</td>
+      <td>...</td>
+      <td>5.393157</td>
+      <td>13.240649</td>
+      <td>8.948936</td>
+      <td>3.163273</td>
+      <td>3.277025</td>
+      <td>8.635749</td>
+      <td>5.784783</td>
+      <td>6.473499</td>
+      <td>7.762162</td>
+      <td>9.310704</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 50 columns</p>
+</div>
+<p>Q8. In Section 10.2.3, a formula for calculating PVE was given in Equation 10.8. We also saw that the PVE can be obtained using the sdev output of the prcomp() function.</p>
+<p>On the USArrests data, calculate PVE in two ways:</p>
+<p>(a) Using the sdev output of the prcomp() function, as was done in Section 10.2.3.</p>
+<p>(b) By applying Equation 10.8 directly. That is, use the prcomp() function to compute the principal component loadings. Then, use those loadings in Equation 10.8 to obtain the PVE.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> sklearn.decomposition <span style="color:#f92672">import</span> PCA
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/USArrests.csv&#34;</span>)
+df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;State&#39;</span>}, inplace<span style="color:#f92672">=</span>True)
+df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]] <span style="color:#f92672">=</span> scale(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+pca <span style="color:#f92672">=</span> PCA(n_components<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+principalComponents <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Variance Explained (from the model): &#34;</span> <span style="color:#f92672">+</span> str(pca<span style="color:#f92672">.</span>explained_variance_ratio_[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Variance Explained (calculated manually): &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>var(principalComponents)<span style="color:#f92672">/</span>df<span style="color:#f92672">.</span>var()<span style="color:#f92672">.</span>sum()))
+</code></pre></div><pre><code>Variance Explained (from the model): 0.9453253030966985
+Variance Explained (calculated manually): 0.926418797034764
+</code></pre>
+<p>Q9. Consider the USArrests data. We will now perform hierarchical clusteringon the states.</p>
+<p>(a) Using hierarchical clustering with complete linkage and Euclidean distance, cluster the states.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> AgglomerativeClustering
+<span style="color:#f92672">from</span> scipy.cluster.hierarchy <span style="color:#f92672">import</span> dendrogram
+<span style="color:#f92672">from</span> scipy.cluster.hierarchy <span style="color:#f92672">import</span> linkage
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/USArrests.csv&#34;</span>)
+df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;State&#39;</span>}, inplace<span style="color:#f92672">=</span>True)
+X <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]]
+
+clustering <span style="color:#f92672">=</span> AgglomerativeClustering(linkage<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;complete&#34;</span>, affinity<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;euclidean&#34;</span>, compute_full_tree<span style="color:#f92672">=</span>True)<span style="color:#f92672">.</span>fit(X)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Z <span style="color:#f92672">=</span> linkage(X, <span style="color:#e6db74">&#39;complete&#39;</span>)
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">10</span>))
+dn <span style="color:#f92672">=</span> dendrogram(Z, labels<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;State&#39;</span>]<span style="color:#f92672">.</span>tolist())
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_34_0.png" alt="">
+<p>(b) Cut the dendrogram at a height that results in three distinct clusters. Which states belong to which clusters?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">10</span>))
+dn <span style="color:#f92672">=</span> dendrogram(Z, labels<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;State&#39;</span>]<span style="color:#f92672">.</span>tolist(), color_threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">120</span>)
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_36_0.png" alt="">
+<p>(c) Hierarchically cluster the states using complete linkage and Euclidean distance, after scaling the variables to have standard deviation one.</p>
+<p>(d) What effect does scaling the variables have on the hierarchical clustering obtained? In your opinion, should the variables be scaled before the inter-observation dissimilarities are computed? Provide a justification for your answer.</p>
+<p><b>Sol:</b> The variables should be scaled as the units are different for different features.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]] <span style="color:#f92672">=</span> scale(df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+X <span style="color:#f92672">=</span> df[[<span style="color:#e6db74">&#39;Murder&#39;</span>, <span style="color:#e6db74">&#39;Assault&#39;</span>, <span style="color:#e6db74">&#39;UrbanPop&#39;</span>, <span style="color:#e6db74">&#39;Rape&#39;</span>]]
+Z <span style="color:#f92672">=</span> linkage(X, <span style="color:#e6db74">&#39;complete&#39;</span>)
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">10</span>))
+dn <span style="color:#f92672">=</span> dendrogram(Z, labels<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;State&#39;</span>]<span style="color:#f92672">.</span>tolist())
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_38_0.png" alt="">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">10</span>))
+dn <span style="color:#f92672">=</span> dendrogram(Z, labels<span style="color:#f92672">=</span>df[<span style="color:#e6db74">&#39;State&#39;</span>]<span style="color:#f92672">.</span>tolist(), color_threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">1.1</span>)
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_39_0.png" alt="">
+<p>Q10. In this problem, you will generate simulated data, and then perform PCA and K-means clustering on the data.</p>
+<p>(a) Generate a simulated data set with 20 observations in each of three classes (i.e. 60 observations total), and 50 variables.</p>
+<p>Hint: There are a number of functions in R that you can use to generate data. One example is the rnorm() function; runif() is another option. Be sure to add a mean shift to the observations in each class so that there are three distinct classes.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+c1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.01</span>, (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">50</span>)), np<span style="color:#f92672">.</span>full((<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">1</span>), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+c2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.01</span>, (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">50</span>)), np<span style="color:#f92672">.</span>full((<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">2</span>), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+c3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">0.01</span>, (<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">50</span>)), np<span style="color:#f92672">.</span>full((<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">3</span>), axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(np<span style="color:#f92672">.</span>vstack((c1,c2,c3)))
+</code></pre></div><p>(b) Perform PCA on the 60 observations and plot the first two principal component score vectors. Use a different color to indicate the observations in each of the three classes. If the three classes appear separated in this plot, then continue on to part (c). If not, then return to part (a) and modify the simulation so that there is greater separation between the three classes. Do not continue to part (c) until the three classes show at least some separation in the first two principal component score vectors.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.decomposition <span style="color:#f92672">import</span> PCA
+
+pca <span style="color:#f92672">=</span> PCA(n_components<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+principalComponents <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(df<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">50</span>])
+df_pca <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(principalComponents, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;first&#39;</span>, <span style="color:#e6db74">&#39;second&#39;</span>])
+df_pca[<span style="color:#e6db74">&#39;labels&#39;</span>] <span style="color:#f92672">=</span> df[[<span style="color:#ae81ff">50</span>]]
+df_pca<span style="color:#f92672">.</span>labels <span style="color:#f92672">=</span> df_pca<span style="color:#f92672">.</span>labels<span style="color:#f92672">.</span>astype(int)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;first&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;second&#34;</span>, hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;labels&#34;</span>, palette<span style="color:#f92672">=</span>{<span style="color:#ae81ff">1</span>:<span style="color:#e6db74">&#39;green&#39;</span>, <span style="color:#ae81ff">2</span>:<span style="color:#e6db74">&#39;red&#39;</span>, <span style="color:#ae81ff">3</span>:<span style="color:#e6db74">&#39;blue&#39;</span>}, data<span style="color:#f92672">=</span>df_pca)
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;First Principal Componenet&#34;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;Second Principal Componenet&#34;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_44_0.png" alt="">
+<p>(c) Perform K-means clustering of the observations with K = 3. How well do the clusters that you obtained in K-means clustering compare to the true class labels?</p>
+<p><b>Sol:</b> The results of clustering are well in sync with the class labels.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
+
+kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(df<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">50</span>])
+<span style="color:#66d9ef">print</span>(kmeans<span style="color:#f92672">.</span>labels_)
+</code></pre></div><pre><code>[2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+</code></pre>
+<p>(d) Perform K-means clustering with K = 2. Describe your results.</p>
+<p><b>Sol:</b> The observations belonging to first two class labels are clustered accordingly. The observations belonging to the third class label is clustered in the same group with the observations belonging to first class label.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(df<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">50</span>])
+<span style="color:#66d9ef">print</span>(kmeans<span style="color:#f92672">.</span>labels_)
+</code></pre></div><pre><code>[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+</code></pre>
+<p>(e) Now perform K-means clustering with K = 4, and describe your results.</p>
+<p><b>Sol:</b> The observations belonging to the first two class labels are clustered accordingly. The observations belonging to the third class label is further clustered into two subgroups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(df<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">50</span>])
+<span style="color:#66d9ef">print</span>(kmeans<span style="color:#f92672">.</span>labels_)
+</code></pre></div><pre><code>[2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 0 3 0 3 0 3 3 0 0 0 3 0 0 3 3 0 3 3 0 3]
+</code></pre>
+<p>(f) Now perform K-means clustering with K = 3 on the first two principal component score vectors, rather than on the raw data. That is, perform K-means clustering on the 60 × 2 matrix of which the first column is the first principal component score vector, and the second column is the second principal component score vector. Comment on the results.</p>
+<p><b>Sol:</b> The observations belonging to the last two class labels are clustered accordingly. The observations belonging to the first class label is further clustered into two subgroups.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(df_pca[[<span style="color:#e6db74">&#39;first&#39;</span>, <span style="color:#e6db74">&#39;second&#39;</span>]])
+<span style="color:#66d9ef">print</span>(kmeans<span style="color:#f92672">.</span>labels_)
+</code></pre></div><pre><code>[3 2 3 2 2 2 2 2 3 3 2 2 2 2 3 3 3 2 3 3 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+</code></pre>
+<p>Q11. On the book website, <a href="http://www.StatLearning.com">www.StatLearning.com</a>, there is a gene expression data set (Ch10Ex11.csv) that consists of 40 tissue samples with measurements on 1,000 genes. The first 20 samples are from healthy patients, while the second 20 are from a diseased group.</p>
+<p>(a) Load in the data using read.csv(). You will need to select header=F.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/GeneExpression.csv&#34;</span>, header<span style="color:#f92672">=</span>None)
+df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>T
+df<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>990</th>
+      <th>991</th>
+      <th>992</th>
+      <th>993</th>
+      <th>994</th>
+      <th>995</th>
+      <th>996</th>
+      <th>997</th>
+      <th>998</th>
+      <th>999</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.961933</td>
+      <td>-0.292526</td>
+      <td>0.258788</td>
+      <td>-1.152132</td>
+      <td>0.195783</td>
+      <td>0.030124</td>
+      <td>0.085418</td>
+      <td>1.116610</td>
+      <td>-1.218857</td>
+      <td>1.267369</td>
+      <td>...</td>
+      <td>1.325041</td>
+      <td>-0.116171</td>
+      <td>-1.470146</td>
+      <td>-0.379272</td>
+      <td>-1.465006</td>
+      <td>1.075148</td>
+      <td>-1.226125</td>
+      <td>-3.056328</td>
+      <td>1.450658</td>
+      <td>0.717977</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.441803</td>
+      <td>-1.139267</td>
+      <td>-0.972845</td>
+      <td>-2.213168</td>
+      <td>0.593306</td>
+      <td>-0.691014</td>
+      <td>-1.113054</td>
+      <td>1.341700</td>
+      <td>-1.277279</td>
+      <td>-0.918349</td>
+      <td>...</td>
+      <td>0.740838</td>
+      <td>-0.162392</td>
+      <td>-0.633375</td>
+      <td>-0.895521</td>
+      <td>2.034465</td>
+      <td>3.003267</td>
+      <td>-0.501702</td>
+      <td>0.449889</td>
+      <td>1.310348</td>
+      <td>0.763482</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-0.975005</td>
+      <td>0.195837</td>
+      <td>0.588486</td>
+      <td>-0.861525</td>
+      <td>0.282992</td>
+      <td>-0.403426</td>
+      <td>-0.677969</td>
+      <td>0.103278</td>
+      <td>-0.558925</td>
+      <td>-1.253500</td>
+      <td>...</td>
+      <td>-0.435533</td>
+      <td>-0.235912</td>
+      <td>1.446660</td>
+      <td>-1.127459</td>
+      <td>0.440849</td>
+      <td>-0.123441</td>
+      <td>-0.717430</td>
+      <td>1.880362</td>
+      <td>0.383837</td>
+      <td>0.313576</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.417504</td>
+      <td>-1.281121</td>
+      <td>-0.800258</td>
+      <td>0.630925</td>
+      <td>0.247147</td>
+      <td>-0.729859</td>
+      <td>-0.562929</td>
+      <td>0.390963</td>
+      <td>-1.344493</td>
+      <td>-1.067114</td>
+      <td>...</td>
+      <td>-3.065529</td>
+      <td>1.597294</td>
+      <td>0.737478</td>
+      <td>-0.631248</td>
+      <td>-0.530442</td>
+      <td>-1.036740</td>
+      <td>-0.169113</td>
+      <td>-0.742841</td>
+      <td>-0.408860</td>
+      <td>-0.326473</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.818815</td>
+      <td>-0.251439</td>
+      <td>-1.820398</td>
+      <td>0.951772</td>
+      <td>1.978668</td>
+      <td>-0.364099</td>
+      <td>0.938194</td>
+      <td>-1.927491</td>
+      <td>1.159115</td>
+      <td>-0.240638</td>
+      <td>...</td>
+      <td>-2.378938</td>
+      <td>-0.086946</td>
+      <td>-0.122342</td>
+      <td>1.418029</td>
+      <td>1.075337</td>
+      <td>-1.270604</td>
+      <td>0.599530</td>
+      <td>2.238346</td>
+      <td>-0.471111</td>
+      <td>-0.158700</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 1000 columns</p>
+</div>
+<p>(b) Apply hierarchical clustering to the samples using correlationbased distance, and plot the dendrogram. Do the genes separate the samples into the two groups? Do your results depend on the type of linkage used?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Z <span style="color:#f92672">=</span> linkage(df, <span style="color:#e6db74">&#39;complete&#39;</span>)
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">10</span>))
+dn <span style="color:#f92672">=</span> dendrogram(Z, color_threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">49</span>)
+</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_56_0.png" alt="">
+<p>(c) Your collaborator wants to know which genes differ the most across the two groups. Suggest a way to answer this question, and apply it here.</p>
+<p><b>Sol:</b> This can be achieved by doing PCA over the data set and reporting the genes whose loadings are maximum (as loading denotes the weight of each feature in a specified principal component) as the important genes.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/unsupervised-learning_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/introductory-data-analysis-and-recommendation-engine/" data-toggle="tooltip" data-placement="top" title="Content Based Movie Recommendation Engine">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

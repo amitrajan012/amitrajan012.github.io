@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Maximal Margin Classifier on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/maximal-margin-classifier/</link>
+    <description>Recent content in Maximal Margin Classifier on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jun 2018 12:14:23 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/maximal-margin-classifier/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 1: Maximal Margin Classifier)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part1/</link>
+      <pubDate>Tue, 19 Jun 2018 12:14:23 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part1/</guid>
+      <description>Support Vector Machines Support vector machine is a generalization of a simple and intutive classifier called the maximal margin classifier. Maximal margin classifier has a limitation that it can be only applied to a data set whose classes are seperated by a linaer boundary.
+9.1 Maximal Margin Classifier 9.1.1 What Is a Hyperplane? In a $p$-dimensional space, a hyperplane is a flat affine subspace of $p-1$ dimensions. In two dimensions, the hyperplane is a line and can be given as:</description>
+    </item>
+    
+  </channel>
+</rss>

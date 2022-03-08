@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Geometry of Linear Equations &amp; Matrix Multiplications" />
+    <meta property="og:title" content="Geometry of Linear Equations &amp; Matrix Multiplications" />
+    <meta property="twitter:title" content="Geometry of Linear Equations &amp; Matrix Multiplications" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 1">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 1" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 1" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Geometry of Linear Equations &amp; Matrix Multiplications-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-equations" title="Linear Equations">
+                            Linear Equations
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-multiplications" title="Matrix Multiplications">
+                            Matrix Multiplications
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                    </div>
+                    <h1>Geometry of Linear Equations &amp; Matrix Multiplications</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Monday, January 3, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="11-the-geometry-of-linear-equations">1.1 The Geometry of Linear Equations</h2>
+<p>The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:</p>
+<p>$$\begin{align}
+2x-y = 0
+\<br>
+-x+2y = 3
+\end{align}$$</p>
+<p>The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</p>
+<p>$$\begin{align}
+\begin{bmatrix}
+2 &amp; -1 \<br>
+-1 &amp; 2
+\end{bmatrix}
+\begin{bmatrix}
+x \<br>
+y
+\end{bmatrix} =
+\begin{bmatrix}
+0 \<br>
+3
+\end{bmatrix}
+\end{align}$$</p>
+<p>There are two ways to geometrically interpret the above system of linear equations. The first one can is called as: <b>row picture of the system of linear equations</b>. In this, we plot each of the individual equations and try to find the common intersection point (if exist) of all of them. The point of intersection is the solution to the system of equations. For the above system, the geometrical interpretation based on the row picture is shown below giving $(1,2)$ as solution.</p>
+<img src="https://drive.google.com/uc?export=view&id=11V4bIRPqvOq2HGZoUeWT4Q6HAsm3YRsg" width="300" height="400">
+<p>The above system of linear equation can be rewritten as</p>
+<p>$$\begin{align}
+x\begin{bmatrix}
+2 \<br>
+-1
+\end{bmatrix}
++y\begin{bmatrix}
+-1 \<br>
+2
+\end{bmatrix} =
+\begin{bmatrix}
+0 \<br>
+3
+\end{bmatrix}
+\end{align}$$</p>
+<p>which is the linear combination of the column vectors. The above mentioned way of representing the system of linear equations is called as <b>column picture</b> and can be geometrically interpreted as shown in the below figure. It should be noted that the solution of the equation is $(1,2)$ as $\begin{bmatrix} 2 \ -1 \end{bmatrix}$ when combined with twice of $\begin{bmatrix} -1 \ 2 \end{bmatrix}$ gives $\begin{bmatrix} 0 \ 3 \end{bmatrix}$.</p>
+<img src="https://drive.google.com/uc?export=view&id=1bXcU3bICTFXlBIxWOljuBkSytazU53vn" width="300" height="400">
+<h2 id="12-matrix-multiplication">1.2 Matrix Multiplication</h2>
+<p>Matrix Multiplication can be interpreted and done in different ways. All the discussed methods have different geometrical significance. Let $A,B$ and $C$ are $m \times n$, $n \times p$ and $m \times p$ matrices respectively such that $AB=C$ and $a_{ij}, b_{ij}, c_{ij}$ be the individual elements in row $i$ and column $j$ of the respective matrices.</p>
+<p>For the demonstration purpose, let the matrices $A,B$ be</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+2 &amp; -1 &amp; 3\<br>
+-1 &amp; 2 &amp; 4
+\end{bmatrix},
+B = \begin{bmatrix}
+0 &amp; 1\<br>
+2 &amp; 1 \<br>
+3 &amp; 5
+\end{bmatrix}
+\end{align}$$</p>
+<ul>
+<li><b>Standard Method (Row times Column):</b>
+The entry in cell $(i,j)$ of the resultant matrix $C$ is the <b>dot product</b> of $i^{th}$ row of first matrix $A$ and $j^{th}$ column of second matrix $B$.</li>
+</ul>
+<p>$$\begin{align}
+C_{11} = \begin{bmatrix}
+2 &amp; -1 &amp; 3
+\end{bmatrix} \cdot \begin{bmatrix}
+0 \<br>
+2  \<br>
+3
+\end{bmatrix} = 7
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{12} = \begin{bmatrix}
+2 &amp; -1 &amp; 3
+\end{bmatrix} \cdot \begin{bmatrix}
+1 \<br>
+1  \<br>
+5
+\end{bmatrix} = 16
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{21} = \begin{bmatrix}
+-1 &amp; 2 &amp; 4
+\end{bmatrix} \cdot \begin{bmatrix}
+0 \<br>
+2  \<br>
+3
+\end{bmatrix} = 16
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{22} = \begin{bmatrix}
+-1 &amp; 2 &amp; 4
+\end{bmatrix} \cdot \begin{bmatrix}
+1 \<br>
+1  \<br>
+5
+\end{bmatrix} = 21
+\end{align}$$</p>
+<p>$$\begin{align}
+C = \begin{bmatrix}
+C_{11} &amp; C_{12} \<br>
+C_{21} &amp; C_{22}
+\end{bmatrix} =
+\begin{bmatrix}
+7 &amp; 16 \<br>
+16 &amp; 21
+\end{bmatrix}
+\end{align}$$</p>
+<ul>
+<li><b>Columns:</b>
+The entry in the column $j$ of the resultant matrix $C$ is the product of first matrix $A$ and column $j$ of the second matrix $B$. This means that <b>columns of $C$ are combinations of columns of $A$</b>.</li>
+</ul>
+<p>$$\begin{align}
+C_{_1} = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \<br>
+-1 &amp; 2 &amp; 4
+\end{bmatrix} \begin{bmatrix}
+0 \<br>
+2  \<br>
+3
+\end{bmatrix} =
+0\begin{bmatrix}
+2 \<br>
+-1
+\end{bmatrix}
++2\begin{bmatrix}
+-1 \<br>
+2
+\end{bmatrix}
++3\begin{bmatrix}
+3 \<br>
+4
+\end{bmatrix}
+=\begin{bmatrix}
+7 \<br>
+16
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{_2} = \begin{bmatrix}
+2 &amp; -1 &amp; 3 \<br>
+-1 &amp; 2 &amp; 4
+\end{bmatrix} \begin{bmatrix}
+1 \<br>
+1  \<br>
+5
+\end{bmatrix} =
+1\begin{bmatrix}
+2 \<br>
+-1
+\end{bmatrix}
++1\begin{bmatrix}
+-1 \<br>
+2
+\end{bmatrix}
++5\begin{bmatrix}
+3 \<br>
+4
+\end{bmatrix}
+=\begin{bmatrix}
+16 \<br>
+21
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C = \begin{bmatrix}
+C_{_1} &amp; C_{_2}
+\end{bmatrix}
+= \begin{bmatrix}
+7 &amp; 16 \<br>
+16 &amp; 21
+\end{bmatrix}
+\end{align}$$</p>
+<ul>
+<li><b>Rows:</b> The entry in $i^{th}$ row of matrix $C$ is the product of $i^{th}$ row of matrix $A$ and matrix $B$. This means that <b>rows of $C$ are combination of rows of $B$</b>.</li>
+</ul>
+<p>$$\begin{align}
+C_{1_} = \begin{bmatrix}
+2 &amp; -1 &amp; 3
+\end{bmatrix} \begin{bmatrix}
+0 &amp; 1\<br>
+2 &amp; 1\<br>
+3 &amp; 5
+\end{bmatrix} =
+2\begin{bmatrix}
+0 &amp; 1
+\end{bmatrix}
++-1\begin{bmatrix}
+2 &amp; 1
+\end{bmatrix}
++3\begin{bmatrix}
+3 &amp; 5
+\end{bmatrix}
+=\begin{bmatrix}
+7 &amp; 16
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{2_} = \begin{bmatrix}
+-1 &amp; 2 &amp; 4
+\end{bmatrix} \begin{bmatrix}
+0 &amp; 1\<br>
+2 &amp; 1\<br>
+3 &amp; 5
+\end{bmatrix} =
+-1\begin{bmatrix}
+0 &amp; 1
+\end{bmatrix}
++2\begin{bmatrix}
+2 &amp; 1
+\end{bmatrix}
++4\begin{bmatrix}
+3 &amp; 5
+\end{bmatrix}
+=\begin{bmatrix}
+16 &amp; 21
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C = \begin{bmatrix}
+C_{1_} \<br>
+C_{2_}
+\end{bmatrix}
+= \begin{bmatrix}
+7 &amp; 16 \<br>
+16 &amp; 21
+\end{bmatrix}
+\end{align}$$</p>
+<ul>
+<li><b>Columns time Rows:</b> Another way to multiply matrices is by taking the columns in the first matrix $A$ and multiply it by the corresponding rows in the second matrix $B$ and sum all the resultant matrices together.</li>
+</ul>
+<p>$$\begin{align}
+C_{1} = \begin{bmatrix}
+2\<br>
+-1
+\end{bmatrix}
+\begin{bmatrix}
+0 &amp; 1
+\end{bmatrix}
+= \begin{bmatrix}
+0 &amp; 2 \<br>
+0 &amp; -1
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{2} = \begin{bmatrix}
+-1\<br>
+2
+\end{bmatrix}
+\begin{bmatrix}
+2 &amp; 1
+\end{bmatrix}
+= \begin{bmatrix}
+-2 &amp; -1 \<br>
+4 &amp; 2
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C_{3} = \begin{bmatrix}
+3\<br>
+4
+\end{bmatrix}
+\begin{bmatrix}
+3 &amp; 5
+\end{bmatrix}
+= \begin{bmatrix}
+9 &amp; 15 \<br>
+12 &amp; 20
+\end{bmatrix}
+\end{align}$$</p>
+<p>$$\begin{align}
+C = C_{1} + C_{2} + C_{3} =
+\begin{bmatrix}
+0 &amp; 2 \<br>
+0 &amp; -1
+\end{bmatrix}</p>
+<ul>
+<li>\begin{bmatrix}
+-2 &amp; -1 \<br>
+4 &amp; 2
+\end{bmatrix}</li>
+<li>\begin{bmatrix}
+9 &amp; 15 \<br>
+12 &amp; 20
+\end{bmatrix}
+= \begin{bmatrix}
+7 &amp; 16 \<br>
+16 &amp; 21
+\end{bmatrix}
+\end{align}$$</li>
+</ul>
+<ul>
+<li><b>Block Multiplication</b>: Matrices can be multiplied by dividing the matrices into conforming blocks and then multiplying those blocks together. For example, matrices $A$ and $B$ can be divided into confirming blocks as follows.</li>
+</ul>
+<p>$$\begin{align}
+A = \left[\begin{array}{c c| c}
+2 &amp; -1 &amp; 3\<br>
+-1 &amp; 2 &amp; 4
+\end{array}\right];
+B = \left[\begin{array}{c c}
+0 &amp; 1 \<br>
+2 &amp; 1 \<br>
+\hline
+3 &amp; 5
+\end{array}\right]
+\implies
+A = \left[\begin{array}{c | c}
+A_{22} &amp; A_{21}
+\end{array}\right];
+B = \left[\begin{array}{c c}
+B_{22} \<br>
+\hline
+B_{12}
+\end{array}\right] ;
+A_{22} = \left[\begin{array}{c c}
+2 &amp; -1\<br>
+-1 &amp; 2
+\end{array}\right];
+A_{21} = \left[\begin{array}{c}
+3\<br>
+4
+\end{array}\right];
+\<br>
+B_{22} = \left[\begin{array}{c c}
+0 &amp; 1\<br>
+2 &amp; 1
+\end{array}\right];
+B_{12} = \left[\begin{array}{c c}
+3 &amp; 5
+\end{array}\right]
+\end{align}$$</p>
+<p>$$\begin{align}
+AB = \left[\begin{array}{c | c}
+A_{22} &amp; A_{21}
+\end{array}\right]
+\left[\begin{array}{c c}
+B_{22} \<br>
+\hline
+B_{12}
+\end{array}\right]
+= A_{22}B_{22} + A_{21}B_{12}
+=  \left[\begin{array}{c c}
+2 &amp; -1\<br>
+-1 &amp; 2
+\end{array}\right]
+\left[\begin{array}{c c}
+0 &amp; 1\<br>
+2 &amp; 1
+\end{array}\right]
++
+\left[\begin{array}{c}
+3\<br>
+4
+\end{array}\right]
+\left[\begin{array}{c c}
+3 &amp; 5
+\end{array}\right]
+= \left[\begin{array}{c c}
+-2 &amp; 1\<br>
+4 &amp; 1
+\end{array}\right]</p>
+<ul>
+<li>\left[\begin{array}{c c}
+9 &amp; 15\<br>
+12 &amp; 20
+\end{array}\right]
+= \left[\begin{array}{c c}
+7 &amp; 16\<br>
+16 &amp; 21
+\end{array}\right]
+\end{align}$$</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter-9-correlation/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 9">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

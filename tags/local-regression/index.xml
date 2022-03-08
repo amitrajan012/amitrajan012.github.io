@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Local Regression on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/local-regression/</link>
+    <description>Recent content in Local Regression on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 04 Jun 2018 16:12:19 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/local-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
+      <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
+ Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+    </item>
+    
+  </channel>
+</rss>

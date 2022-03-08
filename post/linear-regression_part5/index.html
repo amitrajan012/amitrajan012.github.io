@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)" />
+    <meta property="og:title" content="ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)" />
+    <meta property="twitter:title" content="ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)" />
+    
+
+    
+    <meta name="description" content="ISLR Linear Regression">
+    <meta property="og:description" content="ISLR Linear Regression" />
+    <meta property="twitter:description" content="ISLR Linear Regression" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/linear-regression_part5/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-regression" title="Linear Regression">
+                            Linear Regression
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/applied" title="Applied">
+                            Applied
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Friday, May 11, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h4 id="applied">Applied</h4>
+<p><b>Solution 8:</b></p>
+<p>(a) Perform linear regression on auto data with <b>mpg</b> as response and <b>horsepower</b> as the predictor and display the summary results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
+
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(auto[[<span style="color:#e6db74">&#39;horsepower&#39;</span>]], prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>], X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prediction for horsepower 98: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>predict([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">98</span>])))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;95% CI: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>conf_int(alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>, cols<span style="color:#f92672">=</span>None)))
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                    mpg   R-squared:                       0.606
+Model:                            OLS   Adj. R-squared:                  0.605
+Method:                 Least Squares   F-statistic:                     599.7
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           7.03e-81
+Time:                        21:37:43   Log-Likelihood:                -1178.7
+No. Observations:                 392   AIC:                             2361.
+Df Residuals:                     390   BIC:                             2369.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         39.9359      0.717     55.660      0.000      38.525      41.347
+horsepower    -0.1578      0.006    -24.489      0.000      -0.171      -0.145
+==============================================================================
+Omnibus:                       16.432   Durbin-Watson:                   0.920
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               17.305
+Skew:                           0.492   Prob(JB):                     0.000175
+Kurtosis:                       3.299   Cond. No.                         322.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Prediction for horsepower 98: [24.46707715]
+95% CI:                     0          1
+const       38.525212  41.346510
+horsepower  -0.170517  -0.145172
+</code></pre>
+<p>i. Is there a relationship between the predictor and the response?</p>
+<p>Yes</p>
+<p>ii. How strong is the relationship between the predictor and the response?</p>
+<p>As the value of $R^2$-statistic is 0.606, which means that 60% variability is explained by the model.</p>
+<p>iii. Is the relationship between the predictor and the response positive or negative?</p>
+<p>Negative coefficient denotes negative relationship.</p>
+<p>iv. What is the predicted mpg associated with a horsepower of 98? What are the associated 95% confidence and prediction intervals?</p>
+<p>The value of mpg for horsepower = 98 is <b>24.4671</b>.</p>
+<p>(b) Plot the response and the predictor. Also show the regression line.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;horsepower&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpg&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, data<span style="color:#f92672">=</span>auto)
+
+x_vals <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(ax<span style="color:#f92672">.</span>get_xlim())
+y_vals <span style="color:#f92672">=</span> <span style="color:#ae81ff">39.9359</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.1578</span> <span style="color:#f92672">*</span> x_vals
+plt<span style="color:#f92672">.</span>plot(x_vals, y_vals, <span style="color:#e6db74">&#39;--&#39;</span>)
+</code></pre></div><pre><code>[&lt;matplotlib.lines.Line2D at 0x11a222048&gt;]
+</code></pre>
+<img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_56_1.png" alt="">
+<p><b>Solution 9:</b></p>
+<p>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Scatter plot of quantitative variables</span>
+sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cylinders&#39;</span>)
+</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
+
+
+
+
+
+&lt;seaborn.axisgrid.PairGrid at 0x11a1c4f98&gt;
+</code></pre>
+<img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_59_2.png" alt="">
+<p>(b) Compute the matrix of correlations between the variables.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto<span style="color:#f92672">.</span>corr()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>mpg</th>
+      <td>1.000000</td>
+      <td>-0.777618</td>
+      <td>-0.805127</td>
+      <td>-0.778427</td>
+      <td>-0.832244</td>
+      <td>0.423329</td>
+      <td>0.580541</td>
+      <td>0.565209</td>
+    </tr>
+    <tr>
+      <th>cylinders</th>
+      <td>-0.777618</td>
+      <td>1.000000</td>
+      <td>0.950823</td>
+      <td>0.842983</td>
+      <td>0.897527</td>
+      <td>-0.504683</td>
+      <td>-0.345647</td>
+      <td>-0.568932</td>
+    </tr>
+    <tr>
+      <th>displacement</th>
+      <td>-0.805127</td>
+      <td>0.950823</td>
+      <td>1.000000</td>
+      <td>0.897257</td>
+      <td>0.932994</td>
+      <td>-0.543800</td>
+      <td>-0.369855</td>
+      <td>-0.614535</td>
+    </tr>
+    <tr>
+      <th>horsepower</th>
+      <td>-0.778427</td>
+      <td>0.842983</td>
+      <td>0.897257</td>
+      <td>1.000000</td>
+      <td>0.864538</td>
+      <td>-0.689196</td>
+      <td>-0.416361</td>
+      <td>-0.455171</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>-0.832244</td>
+      <td>0.897527</td>
+      <td>0.932994</td>
+      <td>0.864538</td>
+      <td>1.000000</td>
+      <td>-0.416839</td>
+      <td>-0.309120</td>
+      <td>-0.585005</td>
+    </tr>
+    <tr>
+      <th>acceleration</th>
+      <td>0.423329</td>
+      <td>-0.504683</td>
+      <td>-0.543800</td>
+      <td>-0.689196</td>
+      <td>-0.416839</td>
+      <td>1.000000</td>
+      <td>0.290316</td>
+      <td>0.212746</td>
+    </tr>
+    <tr>
+      <th>year</th>
+      <td>0.580541</td>
+      <td>-0.345647</td>
+      <td>-0.369855</td>
+      <td>-0.416361</td>
+      <td>-0.309120</td>
+      <td>0.290316</td>
+      <td>1.000000</td>
+      <td>0.181528</td>
+    </tr>
+    <tr>
+      <th>origin</th>
+      <td>0.565209</td>
+      <td>-0.568932</td>
+      <td>-0.614535</td>
+      <td>-0.455171</td>
+      <td>-0.585005</td>
+      <td>0.212746</td>
+      <td>0.181528</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>(c) Perform a multiple linear regression with mpg as the response and all other variables except name as the predictors.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                    mpg   R-squared:                       0.821
+Model:                            OLS   Adj. R-squared:                  0.818
+Method:                 Least Squares   F-statistic:                     252.4
+Date:                Mon, 10 Sep 2018   Prob (F-statistic):          2.04e-139
+Time:                        19:11:35   Log-Likelihood:                -1023.5
+No. Observations:                 392   AIC:                             2063.
+Df Residuals:                     384   BIC:                             2095.
+Df Model:                           7
+Covariance Type:            nonrobust
+================================================================================
+                   coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------
+const          -17.2184      4.644     -3.707      0.000     -26.350      -8.087
+cylinders       -0.4934      0.323     -1.526      0.128      -1.129       0.142
+displacement     0.0199      0.008      2.647      0.008       0.005       0.035
+horsepower      -0.0170      0.014     -1.230      0.220      -0.044       0.010
+weight          -0.0065      0.001     -9.929      0.000      -0.008      -0.005
+acceleration     0.0806      0.099      0.815      0.415      -0.114       0.275
+year             0.7508      0.051     14.729      0.000       0.651       0.851
+origin           1.4261      0.278      5.127      0.000       0.879       1.973
+==============================================================================
+Omnibus:                       31.906   Durbin-Watson:                   1.309
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               53.100
+Skew:                           0.529   Prob(JB):                     2.95e-12
+Kurtosis:                       4.460   Cond. No.                     8.59e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 8.59e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</code></pre>
+<p>i. Is there a relationship between the predictors and the response?</p>
+<p>As the $R^2$-statistic is 0.821, we can say that 82% variability is explained by the model.</p>
+<p>ii. Which predictors appear to have a statistically significant relationship to the response?</p>
+<p>The predictors that have statistically significant relationship to the response are: <b>displacement, weight, year</b> and <b>origin</b>.</p>
+<p>iii. What does the coefficient for the year variable suggest?</p>
+<p>The coefficient of year varaible suggests that if all the other predictors are kept constant, increase of 1 in year results in 0.7508 increase in mpg.</p>
+<p>(e) Fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto[<span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;cylinders&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+auto[<span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+auto[<span style="color:#e6db74">&#39;weight_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+
+X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>,
+          <span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>, <span style="color:#e6db74">&#39;weight_displacement&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                    mpg   R-squared:                       0.866
+Model:                            OLS   Adj. R-squared:                  0.862
+Method:                 Least Squares   F-statistic:                     246.0
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):          1.96e-159
+Time:                        21:37:48   Log-Likelihood:                -967.41
+No. Observations:                 392   AIC:                             1957.
+Df Residuals:                     381   BIC:                             2000.
+Df Model:                          10
+Covariance Type:            nonrobust
+===========================================================================================
+                              coef    std err          t      P&gt;|t|      [0.025      0.975]
+-------------------------------------------------------------------------------------------
+const                      -2.4166      4.438     -0.545      0.586     -11.142       6.309
+cylinders                   0.8214      0.618      1.329      0.185      -0.394       2.037
+displacement               -0.0778      0.013     -5.822      0.000      -0.104      -0.052
+horsepower                 -0.1488      0.029     -5.222      0.000      -0.205      -0.093
+weight                     -0.0062      0.001     -4.443      0.000      -0.009      -0.003
+acceleration               -0.1312      0.097     -1.357      0.175      -0.321       0.059
+year                        0.7566      0.045     16.822      0.000       0.668       0.845
+origin                      0.5797      0.258      2.247      0.025       0.072       1.087
+cylinders_displacement     -0.0014      0.003     -0.516      0.606      -0.007       0.004
+horsepower_displacement     0.0004   8.27e-05      4.481      0.000       0.000       0.001
+weight_displacement      1.046e-05   4.37e-06      2.393      0.017    1.87e-06     1.9e-05
+==============================================================================
+Omnibus:                       47.260   Durbin-Watson:                   1.507
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               97.455
+Skew:                           0.662   Prob(JB):                     6.89e-22
+Kurtosis:                       5.053   Cond. No.                     2.56e+07
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.56e+07. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</code></pre>
+<p>Interactions of <b>horsepower and displacement</b> and <b>weight and displacement</b> have significant effect.</p>
+<p><b>Solution 10:</b> This question should be answered using the Carseats data set.</p>
+<p>(a) Fit a multiple regression model to predict Sales using Price, Urban, and US.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">carsets <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Carsets.csv&#34;</span>)
+carsets[<span style="color:#e6db74">&#39;US&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;US&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+
+X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;Urban&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                  Sales   R-squared:                       0.239
+Model:                            OLS   Adj. R-squared:                  0.234
+Method:                 Least Squares   F-statistic:                     41.52
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           2.39e-23
+Time:                        21:37:48   Log-Likelihood:                -927.66
+No. Observations:                 400   AIC:                             1863.
+Df Residuals:                     396   BIC:                             1879.
+Df Model:                           3
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         13.0435      0.651     20.036      0.000      11.764      14.323
+Price         -0.0545      0.005    -10.389      0.000      -0.065      -0.044
+Urban         -0.0219      0.272     -0.081      0.936      -0.556       0.512
+US             1.2006      0.259      4.635      0.000       0.691       1.710
+==============================================================================
+Omnibus:                        0.676   Durbin-Watson:                   1.912
+Prob(Omnibus):                  0.713   Jarque-Bera (JB):                0.758
+Skew:                           0.093   Prob(JB):                        0.684
+Kurtosis:                       2.897   Cond. No.                         628.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(b) Provide an interpretation of each coefficient in the model. Be careful—some of the variables in the model are qualitative!</p>
+<p>Sales decreases by 0.0545 per unit increase in Price given that all the other predictors are not changed. Urban has no significant effect on the response. If all the other predictors are constant, being a US car increases the Sales by average of 1.2006.</p>
+<p>(c) Write out the model in equation form, being careful to handle the qualitative variables properly.</p>
+<p>The model in equation form is as follows:</p>
+<p>$$Sales = 13.0435 - 0.0545 \times Price + 1.2006 - 0.0219 \ (if \ US, Urban)$$
+$$Sales = 13.0435 - 0.0545 \times Price + 1.2006 \ (if \ US, \ not \ Urban)$$
+$$Sales = 13.0435 - 0.0545 \times Price - 0.0219 \ (if \ not \ US, Urban)$$
+$$Sales = 13.0435 - 0.0545 \times Price \ (if \ not \ US, not \ Urban)$$</p>
+<p>(d) For which of the predictors can you reject the null hypothesis H0 : βj = 0?</p>
+<p>We can reject the null hypothesis for <b>Price</b> and <b>US</b>.</p>
+<p>(e) On the basis of your response to the previous question, fit a smaller model that only uses the predictors for which there is evidence of association with the outcome.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                  Sales   R-squared:                       0.239
+Model:                            OLS   Adj. R-squared:                  0.235
+Method:                 Least Squares   F-statistic:                     62.43
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           2.66e-24
+Time:                        21:37:48   Log-Likelihood:                -927.66
+No. Observations:                 400   AIC:                             1861.
+Df Residuals:                     397   BIC:                             1873.
+Df Model:                           2
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         13.0308      0.631     20.652      0.000      11.790      14.271
+Price         -0.0545      0.005    -10.416      0.000      -0.065      -0.044
+US             1.1996      0.258      4.641      0.000       0.692       1.708
+==============================================================================
+Omnibus:                        0.666   Durbin-Watson:                   1.912
+Prob(Omnibus):                  0.717   Jarque-Bera (JB):                0.749
+Skew:                           0.092   Prob(JB):                        0.688
+Kurtosis:                       2.895   Cond. No.                         607.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(f) How well do the models in (a) and (e) fit the data?</p>
+<p>If we see the $R^2$-statistic of the models, for both the models, it has a value of <b>0.239</b>. Hence both the models explains 23.9% variability in data and model in (a), which has one more predictor does not improve over accuracy.</p>
+<p>(g) Using the model from (e), obtain 95% confidence intervals for the coefficient(s).</p>
+<p>The 95% confidence intervals for the coefficients are:</p>
+<ul>
+<li>Intercept : [11.7688, 14.2928]</li>
+<li>Price : [-0.0555, 0.0535]</li>
+<li>US : [0.6836, 1.7156]</li>
+</ul>
+<p><b>Solution 11.</b> In this problem we will investigate the t-statistic for the null hypothesis H0 : β = 0 in simple linear regression without an intercept. To begin, we generate a predictor x and a response y as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
+
+random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</code></pre></div><p>(a) Perform a simple linear regression of y onto x, without an intercept. Report the coefficient estimate $\widehat{\beta}$, the standard error of this coefficient estimate, and the t-statistic and p-value associated with the null hypothesis H0 : β = 0. Comment on these results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.765
+Model:                            OLS   Adj. R-squared:                  0.763
+Method:                 Least Squares   F-statistic:                     322.1
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           6.90e-33
+Time:                        21:37:48   Log-Likelihood:                -136.69
+No. Observations:                 100   AIC:                             275.4
+Df Residuals:                      99   BIC:                             278.0
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1             1.8076      0.101     17.946      0.000       1.608       2.007
+==============================================================================
+Omnibus:                        0.587   Durbin-Watson:                   1.969
+Prob(Omnibus):                  0.746   Jarque-Bera (JB):                0.714
+Skew:                          -0.083   Prob(JB):                        0.700
+Kurtosis:                       2.620   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>Coefficient estimate is 1.9766 with a standard error of 0.099. The t-statistic associated with null hypothesis is 19.900 which gives a significantly low p-value. The $R^2$-statistic, whose value is 0.800, suggests that the predictor is significant and explains 80% of the variability.</p>
+<p>(b) Now perform a simple linear regression of x onto y without an intercept, and report the coefficient estimate, its standard error, and the corresponding t-statistic and p-values associated with the null hypothesis H0 : β = 0. Comment on these results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.765
+Model:                            OLS   Adj. R-squared:                  0.763
+Method:                 Least Squares   F-statistic:                     322.1
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           6.90e-33
+Time:                        21:37:48   Log-Likelihood:                -64.089
+No. Observations:                 100   AIC:                             130.2
+Df Residuals:                      99   BIC:                             132.8
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1             0.4232      0.024     17.946      0.000       0.376       0.470
+==============================================================================
+Omnibus:                        0.724   Durbin-Watson:                   1.990
+Prob(Omnibus):                  0.696   Jarque-Bera (JB):                0.841
+Skew:                           0.179   Prob(JB):                        0.657
+Kurtosis:                       2.729   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>Coefficient estimate is 0.4048 with a standard error of 0.020. The t-statistic associated with null hypothesis is 19.900 which gives a significantly low p-value. The $R^2$-statistic, whose value is 0.800, suggests that the predictor is significant and explains 80% of the variability.</p>
+<p>(c) What is the relationship between the results obtained in (a) and (b)?</p>
+<p>The coefficients for the two models follow inverse relationship. The t-statistic and $R^2$-statistic are same.</p>
+<p><b>Solution 12:</b> This problem involves simple linear regression without an intercept.</p>
+<p>(a) Recall that the coefficient estimate $\widehat{\beta}$ for the linear regression of Y onto X without an intercept is given by:</p>
+<p>$$\widehat{\beta} = \frac{\sum _{i=1}^{n}x_i y_i}{\sum _{i^{'}=1}^{n}x _{i^{'}}^2}$$</p>
+<p>Under what circumstance is the coefficient estimate for the regression of X onto Y the same as the coefficient estimate for the regression of Y onto X?</p>
+<p>The coefficients will be same when:</p>
+<p>$$\sum _{i=1}^{n}x _{i}^2 = \sum _{i=1}^{n}y _{i}^2$$</p>
+<p>(c) Generate an example with n = 100 observations in which the coefficient estimate for the regression of X onto Y is the same as the coefficient estimate for the regression of Y onto X.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>sum(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>sum(y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>83.09270311310463
+121.64942659232169
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                 -0.010
+Method:                 Least Squares   F-statistic:                  0.004235
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):              0.948
+Time:                        21:37:48   Log-Likelihood:                -151.69
+No. Observations:                 100   AIC:                             305.4
+Df Residuals:                      99   BIC:                             308.0
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.0079      0.122     -0.065      0.948      -0.249       0.233
+==============================================================================
+Omnibus:                        2.389   Durbin-Watson:                   1.875
+Prob(Omnibus):                  0.303   Jarque-Bera (JB):                1.867
+Skew:                          -0.319   Prob(JB):                        0.393
+Kurtosis:                       3.205   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.000
+Model:                            OLS   Adj. R-squared:                 -0.010
+Method:                 Least Squares   F-statistic:                  0.004235
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):              0.948
+Time:                        21:37:48   Log-Likelihood:                -132.63
+No. Observations:                 100   AIC:                             267.3
+Df Residuals:                      99   BIC:                             269.9
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.0054      0.083     -0.065      0.948      -0.170       0.159
+==============================================================================
+Omnibus:                        5.314   Durbin-Watson:                   1.818
+Prob(Omnibus):                  0.070   Jarque-Bera (JB):                5.119
+Skew:                           0.554   Prob(JB):                       0.0773
+Kurtosis:                       3.012   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p><b>Solution 13:</b> In this exercise you will create some simulated data and will fit simple linear regression models to it. Make sure to use set.seed(1) prior to starting part (a) to ensure consistent results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</code></pre></div><p>(a) Create a vector, x, containing 100 observations drawn from a N(0, 1) distribution. This represents a feature, X.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</code></pre></div><p>(b) Create a vector, eps, containing 100 observations drawn from a N(0, 0.25) distribution i.e. a normal distribution with mean zero and variance 0.25.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eps <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</code></pre></div><p>(c) Using X and eps, generate a vector y according to the model $Y = −1 + 0.5X + \epsilon$. What is the length of the vector Y? What are the values of β0 and β1 in this linear model?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X) <span style="color:#f92672">+</span> eps
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of Y:&#34;</span> <span style="color:#f92672">+</span>str(len(Y)))
+</code></pre></div><pre><code>Length of Y:100
+</code></pre>
+<p>Lengt of Y is 100. The values of $\beta_0$ and $\beta_1$ are <b>-1</b> and <b>0.5</b> respectively.</p>
+<p>(d) Create a scatterplot displaying the relationship between x and y. Comment on what you observe.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_99_0.png" alt="">
+<p>(e) Fit a least squares linear model to predict y using x. Comment on the model obtained. How do $\widehat{\beta_0}$ and $\widehat{\beta_1}$ compare to β0 and β1?</p>
+<p>The values of $\widehat\beta_0$ and $\widehat\beta_1$ are <b>-1.0145</b> and <b>0.5130</b> respectively. They are quite similar to $\beta_0$ and $\beta_1$.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X_1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_1)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.772
+Model:                            OLS   Adj. R-squared:                  0.770
+Method:                 Least Squares   F-statistic:                     332.6
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           2.89e-33
+Time:                        21:37:49   Log-Likelihood:                 3.2646
+No. Observations:                 100   AIC:                            -2.529
+Df Residuals:                      98   BIC:                             2.681
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -1.0103      0.024    -41.824      0.000      -1.058      -0.962
+x1             0.4691      0.026     18.237      0.000       0.418       0.520
+==============================================================================
+Omnibus:                        4.700   Durbin-Watson:                   2.124
+Prob(Omnibus):                  0.095   Jarque-Bera (JB):                4.057
+Skew:                          -0.464   Prob(JB):                        0.132
+Kurtosis:                       3.336   Cond. No.                         1.24
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(f) Display the least squares line on the scatterplot obtained in (d). Draw the population regression line on the plot, in a different color. Use the legend() command to create an appropriate legend.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+
+y_hat <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0145</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5130</span> <span style="color:#f92672">*</span> X)
+plt<span style="color:#f92672">.</span>plot(y_hat, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Least Square Line&#34;</span>)
+
+y_population <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> X)
+plt<span style="color:#f92672">.</span>plot(y_population, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Population Regression Line&#34;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
+ax<span style="color:#f92672">.</span>legend()
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_103_0.png" alt="">
+<p>(g) Now fit a polynomial regression model that predicts y using x and $x^2$. Is there evidence that the quadratic term improves the model fit? Explain your answer.</p>
+<p>As the p-value for the predictor $x^2$ is 0.644, it is not significant. The $R^2$-statistic has not improved much as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X_2 <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+X_pol <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X, X_2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+
+X_pol <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_pol, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_pol)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.775
+Model:                            OLS   Adj. R-squared:                  0.770
+Method:                 Least Squares   F-statistic:                     167.1
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           3.73e-32
+Time:                        21:37:49   Log-Likelihood:                 3.8606
+No. Observations:                 100   AIC:                            -1.721
+Df Residuals:                      97   BIC:                             6.094
+Df Model:                           2
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -1.0301      0.030    -33.950      0.000      -1.090      -0.970
+x1             0.4630      0.026     17.592      0.000       0.411       0.515
+x2             0.0238      0.022      1.078      0.283      -0.020       0.068
+==============================================================================
+Omnibus:                        5.916   Durbin-Watson:                   2.203
+Prob(Omnibus):                  0.052   Jarque-Bera (JB):                5.290
+Skew:                          -0.522   Prob(JB):                       0.0710
+Kurtosis:                       3.424   Cond. No.                         2.33
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p><b>Solution 14:</b> This problem focuses on the collinearity problem.</p>
+<p>(a) Generate data by following R command:</p>
+<ul>
+<li>set .seed (1)</li>
+<li>x1=runif (100)</li>
+<li>x2 =0.5* x1+rnorm (100) /10</li>
+<li>y=2+2* x1 +0.3* x2+rnorm (100)</li>
+</ul>
+<p>The last line corresponds to creating a linear model in which y is a function of x1 and x2. Write out the form of the linear model. What are the regression coefficients?</p>
+<p>The linear model is:</p>
+<p>$$ Y = 2 + 2 \times X1 + 0.3 \times X2 + \epsilon$$</p>
+<p>The regression coefficients are 2,2 and 0.3.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+X2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X1 <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)
+Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>X1) <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.3</span><span style="color:#f92672">*</span>X2) <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>))
+</code></pre></div><p>(b) What is the correlation between X1 and X2? Create a scatterplot displaying the relationship between the variables.</p>
+<p>The correlation coefficient between X1 and X2 is <b>0.9836387796085876</b>. The scatterplot shows the same tendency.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Correlation coefficient: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>corrcoef(X1, X2)[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>]))
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>X1, y<span style="color:#f92672">=</span>X2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X1&#34;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y2&#34;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Correlation coefficient: 0.9773524295882932
+</code></pre>
+<img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_109_1.png" alt="">
+<p>(c) Using this data, fit a least squares regression to predict y using x1 and x2. Describe the results obtained. What are $\widehat{\beta_0}, \widehat{\beta_1}, \widehat{\beta_2}$? How do these relate to the true β0, β1, and β2? Can you
+reject the null hypothesis H0 : β1 = 0? How about the null hypothesis H0 : β2 = 0?</p>
+<p>The values of $\widehat{\beta_0}, \widehat{\beta_1}, \widehat{\beta_2}$ are 1.8824, 1.1253 and  2.0781. We can reject the null hypothesis for $\widehat{\beta_0}$ and $\widehat{\beta_1}$ as p-values are less than 0.05. If we increase the level of confidence to 0.01, the null hypothesis for $\widehat{\beta_1}$ can not be rejected.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X1, X2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.841
+Model:                            OLS   Adj. R-squared:                  0.837
+Method:                 Least Squares   F-statistic:                     255.6
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           2.15e-39
+Time:                        21:37:49   Log-Likelihood:                -137.49
+No. Observations:                 100   AIC:                             281.0
+Df Residuals:                      97   BIC:                             288.8
+Df Model:                           2
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          2.0716      0.097     21.300      0.000       1.879       2.265
+x1             1.8083      0.457      3.956      0.000       0.901       2.716
+x2             0.7538      0.893      0.845      0.400      -1.018       2.525
+==============================================================================
+Omnibus:                        0.011   Durbin-Watson:                   2.033
+Prob(Omnibus):                  0.995   Jarque-Bera (JB):                0.108
+Skew:                           0.021   Prob(JB):                        0.947
+Kurtosis:                       2.844   Cond. No.                         11.6
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(d) Now fit a least squares regression to predict y using only x1. Comment on your results. Can you reject the null hypothesis H0 : β1 = 0?</p>
+<p>The values of $\widehat{\beta_0}$ and $\widehat{\beta_1}$ are 1.8988 and 2.1601. We can reject the null hypothesis for $\widehat{\beta_1}$ as p-value is very low.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X1, prepend<span style="color:#f92672">=</span>True)
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.839
+Model:                            OLS   Adj. R-squared:                  0.838
+Method:                 Least Squares   F-statistic:                     512.0
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           1.07e-40
+Time:                        21:37:49   Log-Likelihood:                -137.85
+No. Observations:                 100   AIC:                             279.7
+Df Residuals:                      98   BIC:                             284.9
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          2.0752      0.097     21.390      0.000       1.883       2.268
+x1             2.1856      0.097     22.628      0.000       1.994       2.377
+==============================================================================
+Omnibus:                        0.020   Durbin-Watson:                   1.985
+Prob(Omnibus):                  0.990   Jarque-Bera (JB):                0.152
+Skew:                          -0.009   Prob(JB):                        0.927
+Kurtosis:                       2.810   Cond. No.                         1.01
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(e) Now fit a least squares regression to predict y using only x2. Comment on your results. Can you reject the null hypothesis H0 : β1 = 0?</p>
+<p>The values of $\widehat{\beta_0}$ and $\widehat{\beta_1}$ are 1.8606 and 4.2647. We can reject the null hypothesis for $\widehat{\beta_1}$ as p-value is very low.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X2, prepend<span style="color:#f92672">=</span>True)
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.815
+Model:                            OLS   Adj. R-squared:                  0.813
+Method:                 Least Squares   F-statistic:                     431.1
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           1.16e-37
+Time:                        21:37:49   Log-Likelihood:                -144.97
+No. Observations:                 100   AIC:                             293.9
+Df Residuals:                      98   BIC:                             299.1
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          2.0543      0.104     19.721      0.000       1.848       2.261
+x1             4.2050      0.203     20.764      0.000       3.803       4.607
+==============================================================================
+Omnibus:                        0.125   Durbin-Watson:                   2.209
+Prob(Omnibus):                  0.939   Jarque-Bera (JB):                0.188
+Skew:                           0.081   Prob(JB):                        0.910
+Kurtosis:                       2.864   Cond. No.                         1.94
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>(f) Do the results obtained in (c)–(e) contradict each other? Explain your answer.</p>
+<p>In case of collinearity, t-statistic declines and consequently we may fail to reject the null hypothesis. This is the case for $\widehat{\beta_2}$ in (c). For the model in (c), the standard errors corresponding to $\beta$s are high and hence the t-statistic does not capture the accurate behaviour.</p>
+<p><b>Solution 15:</b> This problem involves the Boston data set, which we saw in the lab for this chapter. We will now try to predict per capita crime rate using the other variables in this data set. In other words, per capita crime rate is the response, and the other variables are the predictors.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_boston
+
+boston <span style="color:#f92672">=</span> load_boston()
+df_boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(boston<span style="color:#f92672">.</span>data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>, <span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>,
+                                               <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
+df_boston<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CRIM</th>
+      <th>ZN</th>
+      <th>INDUS</th>
+      <th>CHAS</th>
+      <th>NOX</th>
+      <th>RM</th>
+      <th>AGE</th>
+      <th>DIS</th>
+      <th>RAD</th>
+      <th>TAX</th>
+      <th>PTRATIO</th>
+      <th>B</th>
+      <th>LSTAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00632</td>
+      <td>18.0</td>
+      <td>2.31</td>
+      <td>0.0</td>
+      <td>0.538</td>
+      <td>6.575</td>
+      <td>65.2</td>
+      <td>4.0900</td>
+      <td>1.0</td>
+      <td>296.0</td>
+      <td>15.3</td>
+      <td>396.90</td>
+      <td>4.98</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.02731</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0.0</td>
+      <td>0.469</td>
+      <td>6.421</td>
+      <td>78.9</td>
+      <td>4.9671</td>
+      <td>2.0</td>
+      <td>242.0</td>
+      <td>17.8</td>
+      <td>396.90</td>
+      <td>9.14</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.02729</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0.0</td>
+      <td>0.469</td>
+      <td>7.185</td>
+      <td>61.1</td>
+      <td>4.9671</td>
+      <td>2.0</td>
+      <td>242.0</td>
+      <td>17.8</td>
+      <td>392.83</td>
+      <td>4.03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.03237</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0.0</td>
+      <td>0.458</td>
+      <td>6.998</td>
+      <td>45.8</td>
+      <td>6.0622</td>
+      <td>3.0</td>
+      <td>222.0</td>
+      <td>18.7</td>
+      <td>394.63</td>
+      <td>2.94</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.06905</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0.0</td>
+      <td>0.458</td>
+      <td>7.147</td>
+      <td>54.2</td>
+      <td>6.0622</td>
+      <td>3.0</td>
+      <td>222.0</td>
+      <td>18.7</td>
+      <td>396.90</td>
+      <td>5.33</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>(a) For each predictor, fit a simple linear regression model to predict the response. Describe your results. In which of the models is there a statistically significant association between the predictor and the response? Create some plots to back up your assertions.</p>
+<p>The p-values for $\beta_1$s suggest that for the model with predictor <b>CHAS</b>, we can not reject the null hypothesis and hence the model is not significant. The plots shown in the below figure suggest the same.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;INDUS&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;CHAS&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;NOX&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RM&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;AGE&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;DIS&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RAD&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;TAX&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;B&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.040
+Model:                            OLS   Adj. R-squared:                  0.038
+Method:                 Least Squares   F-statistic:                     20.88
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           6.15e-06
+Time:                        21:37:49   Log-Likelihood:                -1795.8
+No. Observations:                 506   AIC:                             3596.
+Df Residuals:                     504   BIC:                             3604.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          4.4292      0.417     10.620      0.000       3.610       5.249
+ZN            -0.0735      0.016     -4.570      0.000      -0.105      -0.042
+==============================================================================
+Omnibus:                      568.366   Durbin-Watson:                   0.862
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            32952.356
+Skew:                           5.270   Prob(JB):                         0.00
+Kurtosis:                      41.103   Cond. No.                         28.8
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.164
+Model:                            OLS   Adj. R-squared:                  0.162
+Method:                 Least Squares   F-statistic:                     98.58
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           2.44e-21
+Time:                        21:37:49   Log-Likelihood:                -1760.9
+No. Observations:                 506   AIC:                             3526.
+Df Residuals:                     504   BIC:                             3534.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -2.0509      0.668     -3.072      0.002      -3.362      -0.739
+INDUS          0.5068      0.051      9.929      0.000       0.407       0.607
+==============================================================================
+Omnibus:                      585.528   Durbin-Watson:                   0.990
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            41469.710
+Skew:                           5.456   Prob(JB):                         0.00
+Kurtosis:                      45.987   Cond. No.                         25.1
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.003
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     1.546
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):              0.214
+Time:                        21:37:49   Log-Likelihood:                -1805.3
+No. Observations:                 506   AIC:                             3615.
+Df Residuals:                     504   BIC:                             3623.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          3.7232      0.396      9.404      0.000       2.945       4.501
+CHAS          -1.8715      1.505     -1.243      0.214      -4.829       1.086
+==============================================================================
+Omnibus:                      562.698   Durbin-Watson:                   0.822
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            30864.755
+Skew:                           5.205   Prob(JB):                         0.00
+Kurtosis:                      39.818   Cond. No.                         3.96
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.174
+Model:                            OLS   Adj. R-squared:                  0.173
+Method:                 Least Squares   F-statistic:                     106.4
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           9.16e-23
+Time:                        21:37:50   Log-Likelihood:                -1757.6
+No. Observations:                 506   AIC:                             3519.
+Df Residuals:                     504   BIC:                             3528.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -13.5881      1.702     -7.986      0.000     -16.931     -10.245
+NOX           30.9753      3.003     10.315      0.000      25.076      36.875
+==============================================================================
+Omnibus:                      591.496   Durbin-Watson:                   0.994
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            42994.381
+Skew:                           5.544   Prob(JB):                         0.00
+Kurtosis:                      46.776   Cond. No.                         11.3
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.048
+Model:                            OLS   Adj. R-squared:                  0.046
+Method:                 Least Squares   F-statistic:                     25.62
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           5.84e-07
+Time:                        21:37:50   Log-Likelihood:                -1793.5
+No. Observations:                 506   AIC:                             3591.
+Df Residuals:                     504   BIC:                             3600.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         20.5060      3.362      6.099      0.000      13.901      27.111
+RM            -2.6910      0.532     -5.062      0.000      -3.736      -1.646
+==============================================================================
+Omnibus:                      576.890   Durbin-Watson:                   0.883
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            36966.825
+Skew:                           5.361   Prob(JB):                         0.00
+Kurtosis:                      43.477   Cond. No.                         58.4
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.123
+Model:                            OLS   Adj. R-squared:                  0.121
+Method:                 Least Squares   F-statistic:                     70.72
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           4.26e-16
+Time:                        21:37:50   Log-Likelihood:                -1772.9
+No. Observations:                 506   AIC:                             3550.
+Df Residuals:                     504   BIC:                             3558.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -3.7527      0.944     -3.974      0.000      -5.608      -1.898
+AGE            0.1071      0.013      8.409      0.000       0.082       0.132
+==============================================================================
+Omnibus:                      575.090   Durbin-Watson:                   0.960
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            36851.412
+Skew:                           5.331   Prob(JB):                         0.00
+Kurtosis:                      43.426   Cond. No.                         195.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.143
+Model:                            OLS   Adj. R-squared:                  0.141
+Method:                 Least Squares   F-statistic:                     83.97
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           1.27e-18
+Time:                        21:37:50   Log-Likelihood:                -1767.1
+No. Observations:                 506   AIC:                             3538.
+Df Residuals:                     504   BIC:                             3547.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          9.4489      0.731     12.934      0.000       8.014      10.884
+DIS           -1.5428      0.168     -9.163      0.000      -1.874      -1.212
+==============================================================================
+Omnibus:                      577.090   Durbin-Watson:                   0.957
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            37542.100
+Skew:                           5.357   Prob(JB):                         0.00
+Kurtosis:                      43.815   Cond. No.                         9.32
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.387
+Model:                            OLS   Adj. R-squared:                  0.386
+Method:                 Least Squares   F-statistic:                     318.1
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           1.62e-55
+Time:                        21:37:50   Log-Likelihood:                -1682.3
+No. Observations:                 506   AIC:                             3369.
+Df Residuals:                     504   BIC:                             3377.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -2.2709      0.445     -5.105      0.000      -3.145      -1.397
+RAD            0.6141      0.034     17.835      0.000       0.546       0.682
+==============================================================================
+Omnibus:                      654.232   Durbin-Watson:                   1.336
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            74327.568
+Skew:                           6.441   Prob(JB):                         0.00
+Kurtosis:                      60.961   Cond. No.                         19.2
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.336
+Model:                            OLS   Adj. R-squared:                  0.335
+Method:                 Least Squares   F-statistic:                     254.9
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           9.76e-47
+Time:                        21:37:50   Log-Likelihood:                -1702.5
+No. Observations:                 506   AIC:                             3409.
+Df Residuals:                     504   BIC:                             3418.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -8.4748      0.818    -10.365      0.000     -10.081      -6.868
+TAX            0.0296      0.002     15.966      0.000       0.026       0.033
+==============================================================================
+Omnibus:                      634.003   Durbin-Watson:                   1.252
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            63141.063
+Skew:                           6.134   Prob(JB):                         0.00
+Kurtosis:                      56.332   Cond. No.                     1.16e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.16e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.083
+Model:                            OLS   Adj. R-squared:                  0.081
+Method:                 Least Squares   F-statistic:                     45.67
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           3.88e-11
+Time:                        21:37:50   Log-Likelihood:                -1784.1
+No. Observations:                 506   AIC:                             3572.
+Df Residuals:                     504   BIC:                             3581.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -17.5307      3.147     -5.570      0.000     -23.714     -11.347
+PTRATIO        1.1446      0.169      6.758      0.000       0.812       1.477
+==============================================================================
+Omnibus:                      568.808   Durbin-Watson:                   0.909
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            34373.378
+Skew:                           5.256   Prob(JB):                         0.00
+Kurtosis:                      41.985   Cond. No.                         160.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.142
+Model:                            OLS   Adj. R-squared:                  0.141
+Method:                 Least Squares   F-statistic:                     83.69
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           1.43e-18
+Time:                        21:37:50   Log-Likelihood:                -1767.2
+No. Observations:                 506   AIC:                             3538.
+Df Residuals:                     504   BIC:                             3547.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         16.2680      1.430     11.376      0.000      13.458      19.078
+B             -0.0355      0.004     -9.148      0.000      -0.043      -0.028
+==============================================================================
+Omnibus:                      591.626   Durbin-Watson:                   1.001
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            43282.465
+Skew:                           5.543   Prob(JB):                         0.00
+Kurtosis:                      46.932   Cond. No.                     1.49e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.49e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+
+
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.205
+Model:                            OLS   Adj. R-squared:                  0.203
+Method:                 Least Squares   F-statistic:                     129.6
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           7.12e-27
+Time:                        21:37:50   Log-Likelihood:                -1748.2
+No. Observations:                 506   AIC:                             3500.
+Df Residuals:                     504   BIC:                             3509.
+Df Model:                           1
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -3.2946      0.695     -4.742      0.000      -4.660      -1.930
+LSTAT          0.5444      0.048     11.383      0.000       0.450       0.638
+==============================================================================
+Omnibus:                      600.766   Durbin-Watson:                   1.184
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            49637.173
+Skew:                           5.638   Prob(JB):                         0.00
+Kurtosis:                      50.193   Cond. No.                         29.7
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sns<span style="color:#f92672">.</span>pairplot(df_boston, y_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>], x_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>])
+</code></pre></div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x11bb509e8&gt;
+</code></pre>
+<img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_121_1.png" alt="">
+<p>(b) Fit a multiple regression model to predict the response using all of the predictors. Describe your results. For which predictors can we reject the null hypothesis H0 : βj = 0?</p>
+<p>For the predictors: <b>DIS, RAD, BLACK, LSTAT</b>, we can reject the null hypothesis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
+X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>, <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                   CRIM   R-squared:                       0.436
+Model:                            OLS   Adj. R-squared:                  0.422
+Method:                 Least Squares   F-statistic:                     31.77
+Date:                Thu, 06 Sep 2018   Prob (F-statistic):           6.16e-54
+Time:                        21:37:50   Log-Likelihood:                -1661.2
+No. Observations:                 506   AIC:                             3348.
+Df Residuals:                     493   BIC:                             3403.
+Df Model:                          12
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         10.3701      7.012      1.479      0.140      -3.408      24.148
+ZN             0.0365      0.019      1.936      0.053      -0.001       0.073
+INDUS         -0.0672      0.085     -0.794      0.428      -0.233       0.099
+CHAS          -1.3049      1.185     -1.101      0.271      -3.633       1.023
+NOX           -7.2552      5.250     -1.382      0.168     -17.570       3.060
+RM            -0.3851      0.575     -0.670      0.503      -1.515       0.745
+AGE            0.0019      0.018      0.105      0.917      -0.034       0.038
+DIS           -0.7163      0.273     -2.626      0.009      -1.252      -0.180
+RAD            0.5395      0.088      6.128      0.000       0.366       0.712
+TAX           -0.0013      0.005     -0.254      0.799      -0.011       0.009
+PTRATIO       -0.0907      0.180     -0.504      0.615      -0.445       0.263
+B             -0.0089      0.004     -2.428      0.016      -0.016      -0.002
+LSTAT          0.2309      0.069      3.346      0.001       0.095       0.366
+==============================================================================
+Omnibus:                      680.813   Durbin-Watson:                   1.507
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            94712.935
+Skew:                           6.846   Prob(JB):                         0.00
+Kurtosis:                      68.611   Cond. No.                     1.51e+04
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.51e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</code></pre>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/linear-regression_part4/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/classification_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 1: Logistic Regression)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)" />
+    <meta property="og:title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)" />
+    <meta property="twitter:title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)" />
+    
+
+    
+    <meta name="description" content="ISLR Linear Model Selection and Regularization">
+    <meta property="og:description" content="ISLR Linear Model Selection and Regularization" />
+    <meta property="twitter:description" content="ISLR Linear Model Selection and Regularization" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/linear-model-selection-and-regularization_part1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/resampling" title="Resampling">
+                            Resampling
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-model-selection" title="Linear Model Selection">
+                            Linear Model Selection
+                        </a>
+                        
+                        <a class="tag" href="/tags/regularization" title="Regularization">
+                            Regularization
+                        </a>
+                        
+                        <a class="tag" href="/tags/subset-selection" title="Subset Selection">
+                            Subset Selection
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Monday, May 21, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1><center>Linear Model Selection and Regularization</center></h1>
+<p>Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better <b>prediction accuracy</b> and <b>model interpretability</b>.</p>
+<ul>
+<li>
+<p><b>Prediction Accuracy:</b> Provided that the relationship between predictors and response is linear, the <b>least square estimates will have low bias</b>. If n &raquo; p, this model will have low variance as well. If n is not much larger than p, the model will have a lot of variability, resulting in overfitting and poor prediction accuracy. If p &gt; n, the variance is almost infinite and hence the plain least square method can not be used at all.</p>
+</li>
+<li>
+<p><b>Model Interpretability:</b> There may be the case that some of the predictors used in the linear model are not significant. Including such <b>irrelevant variables</b> may lead to unnecessary complexity in the model. These variables can be excluded from the model by <b>feature selection</b> or <b>variable selection</b> and hence a better model interpretability.</p>
+</li>
+</ul>
+<p>Some methods that can be used to improve least square fit are:</p>
+<ul>
+<li>
+<p><b>Subset Selection:</b> The predictors that are statistically significant are identified and the model using least squares is then fit on these reduced set of variables.</p>
+</li>
+<li>
+<p><b>Shrinkage:</b> The model is fit using all $p$ predictors and later on the estimated coefficients are shrunken towards 0 relative to the least square estimates. This shrinkage (also called as <b>regularization</b>) can reduce the variance and hence results in better fit.</p>
+</li>
+<li>
+<p><b>Dimension Reduction:</b> This method can be used to project the $p$ predictors into a $M$-dimensional space, where $M &lt; p$. These $M$ predictors are then used to fit a least squares linear regression model.</p>
+</li>
+</ul>
+<h3 id="61-subset-selection">6.1 Subset Selection</h3>
+<h4 id="611-best-subset-selection">6.1.1 Best Subset Selection</h4>
+<p>In <b>best subset selection</b>, a seperate least squares regression is fitted for each possible combination of $p$ predictors. We then identify the best model out of these. The algorithm for this is as follows:</p>
+<ul>
+<li>
+<p>Let $M_0$ denotes the <b>null model</b>, which contains no predictors. This model simply predicts the sample means of each observation.</p>
+</li>
+<li>
+<p>For $K=1, 2, &hellip;, p$, all $\dbinom{p}{k}$ models are fitted and the best among them is denoted as $M_k$. The bset is the one which has the <b>smallest RSS</b> or <b>largest R$^2$</b>.</p>
+</li>
+<li>
+<p>Single best model out of $M_0, M_1, &hellip;, M_k$ is selected using <b>cross-validation, AIC, BIC</b> or <b>adjusted R$^2$</b>.</p>
+</li>
+</ul>
+<p>After first two steps, the problem is reduced from $2^p$ possible models to $p+1$ possible models. Selecting one of the best models out of these $p+1$ models can be misleading. As number of predictors in the model increases, the <b>RSS monotonically decreases</b> and <b>R$^2$ monotonically increases</b> (as they depend on training error and training error improves as we keep on adding new predictors). Hence, we need to choose a model based on <b>test error</b>. This is the reason <b>cross-validation, $C_p$, BIC</b> or <b>adjusted R$^2$</b> is used in this step.</p>
+<p>In the best subset selection for logistic regression, insted of RSS or R$^2$, we use the <b>deviance</b>. Deviance is negative two times the maximized log-likelihood. The <b>smaller the deviance, the better the fit</b>. For large number of predictors, best subset selection is <b>computationally inefficient</b>.</p>
+<h4 id="612-stepwise-selection">6.1.2 Stepwise Selection</h4>
+<h5 id="forward-stepwise-selection">Forward Stepwise Selection</h5>
+<p><b>Forward Stepwise Selection</b> begins with no predictors and then add them to the model one-at-a-time, until all the predictors are in the model. At each step, the variable that gives the greatest <b>additional</b> improvement to the fit is added to the model. The algorithm is as follows:</p>
+<ul>
+<li>Let $M_0$ denotes the null model.</li>
+<li>Add a single predictor to the model which gives the <b>smallest RSS</b> or <b>largest R^$2$</b> for it. The model is denoted as $M_1$.</li>
+<li>Gradually get the models $M_0, M_1, M_2, &hellip; , M_p$ by following the same procedure.</li>
+<li>Select the single best model out of these based on <b>cross-validation, C$_p$, BIC</b> or <b>adjusted R$^2$</b>.</li>
+</ul>
+<p>For $p$ predictors, the forward stepwise selection requires fitting of $1+\frac{p(p+1)}{2}$ models. This is a substantial improvemenet over best subset selection. Though forward stepwise selection do well in practice, it does not guarantee the selection of best possible model out of all the possible $2^p$ models as all of them are not analyzed in this case.</p>
+<p>Forward stepwise selection can be applied in the case when $n&lt;p$ as well. But in this case the constructed sub-models range from $M_0$ to $M _{n-1}$, as least square method does not give a unique solution if $p \geq n$.</p>
+<h5 id="backward-stepwise-selection">Backward Stepwise Selection</h5>
+<p><b>Backward Stepwise Selection</b> begins with the model containing all the $p$ predictors and it iteratively removes the least useful predictor one at a time. The algorithms is similar to the ones descibed above. Like forward stepwise selection, we need to fit only $1+\frac{p(p+1)}{2}$ models in backward stepwise selection. It does not guarantee to yield the best model as well. As in this case, we start from fitting the model with all the $p$ predictors, it is needed that: $n &gt; p$.</p>
+<h5 id="hybrid-approaches">Hybrid Approaches</h5>
+<p>In <b>Hybrid Approaches</b>, forward and backward stepwise selection are used to mimic best subset selection. In this method while doing forward stepwise selection, the least significant predictor (the variable that no longer provide any improvement in the model fit) is removed as well.</p>
+<h4 id="613-choosing-the-optimal-model">6.1.3 Choosing the Optimal Model</h4>
+<p>In the last step of the algorithms described above, we need to choose the best model out of possible $(p+1)$ models. If we do this selection based on the parameters which are derived on the basis of training error (RSS or R$^2$), we will always end up selecting the model which has all the parameters. For the selection of the best model on the basis of <b>test error</b>, test error can be estimated as:</p>
+<ul>
+<li>By doing <b>adjustment</b> to the training error.</li>
+<li>can be directly estimated using a cross-validation approach.</li>
+</ul>
+<h5 id="c_p-aic-bic-and-adjusted-r2">$C_p$, AIC, BIC, and Adjusted R$^2$</h5>
+<p>In general, <b>training MSE</b> (MSE = $\frac{RSS}{n}$) is an underestimate of test MSE and hence the training RSS and R$^2$ can not be used to select the best model out of all possible ones. There are several techniques that can be used for <b>adjusting</b> the training error to get an estimate of test error. Some of these are : <b>$C_p$, Akaike information criterion (AIC), Bayesian information criterion (BIC)</b> and <b>Adjusted R$^2$</b>.</p>
+<p>$C_p$ estimate of the test MSE is given as:</p>
+<p>$$C_p = \frac{1}{n}(RSS + 2d\widehat{\sigma}^2)$$</p>
+<p>where $d$ is the number of predictors and $\widehat{\sigma}^2$ is the estimate of the variance of error $\epsilon$ associated with each response in the linear model given as:</p>
+<p>$$Y = \beta_0 X_1 + \beta_2 X_2 + &hellip; + \beta_p X_p + \epsilon$$</p>
+<p>The penality added is $2d\widehat{\sigma}^2$, which increases as the number of predictors increases. <b>If $\widehat{\sigma}^2$ is an unbiased estimator of $\sigma^2$, then $C_p$ is an unbiased estimate of test MSE.</b> Finally,  model with the lowest value of $C_p$ is chosen.</p>
+<p>The <b>AIC</b> criterion is used for the models fit by maximum likelihood. AIC is given as:</p>
+<p>$$C_p = \frac{1}{n\widehat{\sigma}^2}(RSS + 2d\widehat{\sigma}^2)$$</p>
+<p>where the terms has the same meaning as explained above. $C_p$ and AIC are proportional to each other.</p>
+<p><b>BIC</b> is derived from a Bayesian point of view. For a least square model, BIC is given as:</p>
+<p>$$BIC = \frac{1}{n}(RSS + log(n)d\widehat{\sigma}^2)$$</p>
+<p>As instead of 2, BIC has a factor of $log(n)$, for values of $n&gt;7$, BIC ends up penalizing models with higher predictors more and hence results in a selection of smaller models than $C_p$.</p>
+<p>The <b>Adjusted R$^2$</b> statistic is another measure for model selection. $R^2$ is defined as $1 - \frac{RSS}{TSS}$, where RSS is <b>Residual sum of squares</b> and TSS is <b>Total sum of squares</b>. TSS is given as $\sum(y_i - \bar{y})^2$. For a least squares model with $d$ predictors, Adjusted R$^2$ statistic is given as:</p>
+<p>$$Adjusted \ R^2 = 1 - \frac{RSS/(n-d-1)}{TSS/(n-1)}$$</p>
+<p>A <b>large value of adjusted R$^2$ indicates smaller test error</b>. The concept behind adjusted R$^2$ is the fact that once the model is saturated (in terms of predictor), adding more predictors will only decrease RSS by a lower value but as the denominator $(n-d-1)$ decreases by a larger proportion, the value $\frac{RSS}{n-d-1}$ will overall increase, decreasing the value of adjusted R$^2$.</p>
+<p>Here the expression for AIC, BIC and $C_p$ is given for linear model fit with least squares. The general expression for them can be computed as well.</p>
+<h5 id="validation-and-cross-validation">Validation and Cross-Validation</h5>
+<p>Instead of computing the above parameters, we can directly estimate the test error by cross-validation methods. This process has an advantage comared to the methods discussed above as it provides a direct estimate of the test error and makes fewer assumption about the underlying model. It can also be used in the cases when it is hard to identify the number of predictors in the model or estimation of error variance $\sigma^2$ is difficult.</p>
+<p><b>As the estimate of test MSE depends on the validation set or the method of cross-validation(the estimate will be different fro 5-fold and 10-fold cross-validation), for the models with slight variance in the estimated test MSE across the variation in the number of predictors, there is a chance that if the validation process is repeated with different split of data, the model selection will change.</b> For this reason, we follow <b>one-standard-error rule</b>. The rule suggests that the lowest point in the curve for the estimated test MSE is found, and eventually, the smallest model (model with smallest number of predictors) for which the estimated test error is within one standard error away from the lowest point is selected as the best model.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/resampling-methods_part4/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/linear-model-selection-and-regularization_part2/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

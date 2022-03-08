@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Classification on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/classification/</link>
+    <description>Recent content in Classification on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 May 2018 10:20:15 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/classification/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</title>
+      <link>https://amitrajan012.github.io/post/classification_part4/</link>
+      <pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
+      <description>Applied Q10. This question should be answered using the Weekly data set.
+(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/classification_part3/</link>
+      <pubDate>Tue, 15 May 2018 09:02:08 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
+      <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
+Sol:  Logistic function representation is given as:
+$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
+then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
+$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</title>
+      <link>https://amitrajan012.github.io/post/classification_part2/</link>
+      <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part2/</guid>
+      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&#39; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</title>
+      <link>https://amitrajan012.github.io/post/classification_part1/</link>
+      <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
+      <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
+4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)" />
+    <meta property="og:title" content="ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)" />
+    <meta property="twitter:title" content="ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)" />
+    
+
+    
+    <meta name="description" content="ISLR Linear Regression">
+    <meta property="og:description" content="ISLR Linear Regression" />
+    <meta property="twitter:description" content="ISLR Linear Regression" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/linear-regression_part4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-regression" title="Linear Regression">
+                            Linear Regression
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/conceptual" title="Conceptual">
+                            Conceptual
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Thursday, May 10, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h4 id="37-exercises">3.7 Exercises</h4>
+<h4 id="conceptual">Conceptual</h4>
+<img class="pure-img" src="/img/Linear%20Regression_files/Q3.3.png" alt="">
+<p><b>Solution:</b> The linear fit can be given as:</p>
+<p>$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$</p>
+<p>(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$. For the salary of male to be higher, $50 + 20GPA &gt; 85 + 10GPA$, i.e. $GPA &gt; 3.5$.</p>
+<p>Hence, the true statement is: <b>For a fixed value of IQ and GPA, males earn more on average than females provided that the GPA is high enough.</b></p>
+<p>(b) The prediction is 137.1 and hence the salary will be $137100.</p>
+<p>(c) <b>False</b>. We need to test the hypothesis for the coefficient to be equal to 0.</p>
+<p><b>Solution 4:</b> (a) As the true relationship between $X$ and $Y$ is linear, there is a chance that the RSS of training data for the linear model will be lower. But as the RSS highly depends on the distribution of points, there is a chance that the polynomial regression can overfit the points and hence can results in lower RSS.</p>
+<p>(b) Test RSS for the linear model should be lower as the test data should follow the linear curve.</p>
+<p>(c) The polynomial regression, being the more flexible one will follow the training data more closely and hence resulting in lower training RSS.</p>
+<p>(d) For the test data, we can not conclude anything without observing the data.</p>
+<p><b>Solution 5:</b> $a_i^{'}$ can be calculated as:</p>
+<p>$$a_i^{'} = \frac{x_i x_i^{'}}{\sum _{k=1}^{n}x_k^2}$$</p>
+<p><b>Solution 6:</b> The least square line can be denoted as:</p>
+<p>$$y = \widehat{\beta_0} + \widehat{\beta_1}x$$</p>
+<p>Substituting $\bar{x}$ and replacing the optimal value of $\beta_0$, we get:</p>
+<p>$$y = \widehat{\beta_0} + \widehat{\beta_1}\bar{x} = (\bar{y} - \widehat{\beta_1}\bar{x}) + \widehat{\beta_1}\bar{x} = \bar{y}$$</p>
+<p><b>Solution 7:</b> Assumption: $\bar{x} = 0, \bar{y} = 0$. The correlation is given as:</p>
+<p>$$r = \frac{\sum _{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum _{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum _{i=1}^{n} (y_i - \bar{y})^2}} = \frac{\sum _{i=1}^{n}(x_i)(y_i)}{\sqrt{\sum _{i=1}^{n} (x_i)^2} \sqrt{\sum _{i=1}^{n} (y_i)^2}}$$</p>
+<p>R-statistic is given as (Replacing $\bar{y} = 0, \beta_0 = 0$):</p>
+<p>$$R^2 = 1 - \frac{RSS}{TSS} = 1 - \frac{\sum _{i=1}^{n} (\widehat{y_i} - y_i)^2}{\sum _{i=1}^{n} (y_i - \bar{y})^2}
+= 1 - \frac{\sum _{i=1}^{n} (\widehat{y_i} - y_i)^2}{\sum _{i=1}^{n} (y_i)^2} =  1 - \frac{\sum _{i=1}^{n}(\beta_0 + \beta_1 x_i - y_i)^2}{\sum _{i=1}^{n} (y_i)^2} = 1 - \frac{\sum _{i=1}^{n} (\beta_1 x_i - y_i)^2}{\sum _{i=1}^{n} (y_i)^2}$$</p>
+<p>$\beta_1$ is given as:</p>
+<p>$$\beta_1 = \frac{\sum _{i=1}^{n} (x_i - \bar{x}) (y_i - \bar{y})}{\sum _{i=1}^{n}(x_i - \bar{x})^2} =
+\frac{\sum _{i=1}^{n} x_i y_i}{\sum _{i=1}^{n}(x_i)^2}$$</p>
+<p>Replacing $\beta_1$ in the above equation and solving we get,</p>
+<p>$$R^2 = \frac{\sum_i (y_i)^2 - (\sum_i (y_i)^2 + \sum_i (\beta_1x_i)^2 - \sum_i{2\beta_1 x_i y_i})}{\sum_i (y_i)^2}
+= \frac{\sum_i{2\beta_1 x_i y_i} - \sum_i (\beta_1x_i)^2}{\sum_i (y_i)^2} = r^2$$</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/linear-regression_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/linear-regression_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

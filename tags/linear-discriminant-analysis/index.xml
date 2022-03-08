@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Discriminant Analysis on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/linear-discriminant-analysis/</link>
+    <description>Recent content in Linear Discriminant Analysis on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 May 2018 11:12:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-discriminant-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</title>
+      <link>https://amitrajan012.github.io/post/classification_part2/</link>
+      <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part2/</guid>
+      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&#39; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
+    </item>
+    
+  </channel>
+</rss>

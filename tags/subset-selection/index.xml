@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Subset Selection on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/subset-selection/</link>
+    <description>Recent content in Subset Selection on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 May 2018 13:08:40 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/subset-selection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</link>
+      <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
+      <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
+  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CDF on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/cdf/</link>
+    <description>Recent content in CDF on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Aug 2018 09:22:46 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/cdf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 3</title>
+      <link>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</guid>
+      <description>3.1 The class size paradox For a probability distribution, the mean calculated from its PMF is lower than the one calculated by taking a sample from it. This happens because the larger classes tend to get oversampled. Exercise 3.1 Build the PMF of the college class-size data and compute the mean as perceived by the Dean. Find the distribution of class sizes as perceived by students and compute its mean.</description>
+    </item>
+    
+  </channel>
+</rss>

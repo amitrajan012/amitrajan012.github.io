@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cross-validation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/cross-validation/</link>
+    <description>Recent content in Cross-validation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Aug 2018 06:17:39 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/cross-validation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 7</title>
+      <link>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
+      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part1/</link>
+      <pubDate>Thu, 17 May 2018 05:22:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part1/</guid>
+      <description>Resampling Methods Resampling methods involve repeatedly drawing samples from training data and refitting a model on them. Resampling approaches can be computationally expensive. Cross-validation and bootstrap are two of the most commonly used resampling methods. Cross-validation can be used to estimate the test error rate associated with a given model in order to evaluate its performance. The process of evaluating a model&amp;rsquo;s performance is called model assessment. The process of selecting proper level of flexibility for a model is known as model selection.</description>
+    </item>
+    
+  </channel>
+</rss>

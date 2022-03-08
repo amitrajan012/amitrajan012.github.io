@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)" />
+    <meta property="og:title" content="ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)" />
+    <meta property="twitter:title" content="ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)" />
+    
+
+    
+    <meta name="description" content="ISLR Moving Beyond Linearity">
+    <meta property="og:description" content="ISLR Moving Beyond Linearity" />
+    <meta property="twitter:description" content="ISLR Moving Beyond Linearity" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/moving-beyond-linearity_part6/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/resampling" title="Resampling">
+                            Resampling
+                        </a>
+                        
+                        <a class="tag" href="/tags/moving-beyond-linearity" title="Moving Beyond Linearity">
+                            Moving Beyond Linearity
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/applied" title="Applied">
+                            Applied
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Friday, June 8, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h4 id="applied">Applied</h4>
+<p>Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.</p>
+<p>(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.</p>
+<p><b>Sol:</b> The optimal degree of polynomial selected from cross-validation is <b>4</b>. From the ANOVA of models of degree 1 to 5, it is found that the models of degree 2 and 3 are significant. The test MSE shows the lowest value for degree 3 model as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+wage <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Wage.csv&#34;</span>)
+wage<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>year</th>
+      <th>age</th>
+      <th>sex</th>
+      <th>maritl</th>
+      <th>race</th>
+      <th>education</th>
+      <th>region</th>
+      <th>jobclass</th>
+      <th>health</th>
+      <th>health_ins</th>
+      <th>logwage</th>
+      <th>wage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>231655</td>
+      <td>2006</td>
+      <td>18</td>
+      <td>1. Male</td>
+      <td>1. Never Married</td>
+      <td>1. White</td>
+      <td>1. &lt; HS Grad</td>
+      <td>2. Middle Atlantic</td>
+      <td>1. Industrial</td>
+      <td>1. &lt;=Good</td>
+      <td>2. No</td>
+      <td>4.318063</td>
+      <td>75.043154</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>86582</td>
+      <td>2004</td>
+      <td>24</td>
+      <td>1. Male</td>
+      <td>1. Never Married</td>
+      <td>1. White</td>
+      <td>4. College Grad</td>
+      <td>2. Middle Atlantic</td>
+      <td>2. Information</td>
+      <td>2. &gt;=Very Good</td>
+      <td>2. No</td>
+      <td>4.255273</td>
+      <td>70.476020</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>161300</td>
+      <td>2003</td>
+      <td>45</td>
+      <td>1. Male</td>
+      <td>2. Married</td>
+      <td>1. White</td>
+      <td>3. Some College</td>
+      <td>2. Middle Atlantic</td>
+      <td>1. Industrial</td>
+      <td>1. &lt;=Good</td>
+      <td>1. Yes</td>
+      <td>4.875061</td>
+      <td>130.982177</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>155159</td>
+      <td>2003</td>
+      <td>43</td>
+      <td>1. Male</td>
+      <td>2. Married</td>
+      <td>3. Asian</td>
+      <td>4. College Grad</td>
+      <td>2. Middle Atlantic</td>
+      <td>2. Information</td>
+      <td>2. &gt;=Very Good</td>
+      <td>1. Yes</td>
+      <td>5.041393</td>
+      <td>154.685293</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>11443</td>
+      <td>2005</td>
+      <td>50</td>
+      <td>1. Male</td>
+      <td>4. Divorced</td>
+      <td>1. White</td>
+      <td>2. HS Grad</td>
+      <td>2. Middle Atlantic</td>
+      <td>2. Information</td>
+      <td>1. &lt;=Good</td>
+      <td>1. Yes</td>
+      <td>4.318063</td>
+      <td>75.043154</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> preprocessing
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> LeaveOneOut
+<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">polynomial_regression</span>(X_train, Y_train, X_test, Y_test, M):
+    validation_MSE <span style="color:#f92672">=</span> {}
+    test_MSE <span style="color:#f92672">=</span> {}
+
+    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M:
+        poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>m)
+        X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_train)
+
+        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
+        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_):
+            X, X_CV <span style="color:#f92672">=</span> X_[train_index], X_[test_index]
+            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
+            <span style="color:#75715e"># Linear Regression (including higher order predictors)</span>
+            model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
+            model<span style="color:#f92672">.</span>fit(X, Y)
+            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
+            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
+        validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_)
+
+        <span style="color:#75715e"># Compute test MSE for the model</span>
+        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
+        model<span style="color:#f92672">.</span>fit(X_, Y_train)
+        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(poly<span style="color:#f92672">.</span>fit_transform(X_test))
+        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
+
+    <span style="color:#75715e"># Plot validation MSE</span>
+    lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+    plt<span style="color:#f92672">.</span>grid()
+    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Degree of Polynomial&#39;</span>)
+
+    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+    plt<span style="color:#f92672">.</span>grid()
+    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Degree of Polynomial&#39;</span>)
+    plt<span style="color:#f92672">.</span>show()
+
+
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]], wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">13</span>,<span style="color:#ae81ff">14</span>,<span style="color:#ae81ff">15</span>])
+</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_23_0.png" alt="">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
+
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+model1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+model1 <span style="color:#f92672">=</span> model1<span style="color:#f92672">.</span>fit()
+
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+model2 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+model2 <span style="color:#f92672">=</span> model2<span style="color:#f92672">.</span>fit()
+
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+model3 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+model3 <span style="color:#f92672">=</span> model3<span style="color:#f92672">.</span>fit()
+
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+model4 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+model4 <span style="color:#f92672">=</span> model4<span style="color:#f92672">.</span>fit()
+
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+model5 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+model5 <span style="color:#f92672">=</span> model5<span style="color:#f92672">.</span>fit()
+
+sm<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>anova_lm(model1, model2, model3, model4, model5)
+</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:879: RuntimeWarning: invalid value encountered in greater
+  return (self.a &lt; x) &amp; (x &lt; self.b)
+/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:879: RuntimeWarning: invalid value encountered in less
+  return (self.a &lt; x) &amp; (x &lt; self.b)
+/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:1821: RuntimeWarning: invalid value encountered in less_equal
+  cond2 = cond0 &amp; (x &lt;= self.a)
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>df_resid</th>
+      <th>ssr</th>
+      <th>df_diff</th>
+      <th>ss_diff</th>
+      <th>F</th>
+      <th>Pr(&gt;F)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2998.0</td>
+      <td>5.022216e+06</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2997.0</td>
+      <td>4.793430e+06</td>
+      <td>1.0</td>
+      <td>228786.010128</td>
+      <td>143.593107</td>
+      <td>2.363850e-32</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2996.0</td>
+      <td>4.777674e+06</td>
+      <td>1.0</td>
+      <td>15755.693664</td>
+      <td>9.888756</td>
+      <td>1.679202e-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2995.0</td>
+      <td>4.771604e+06</td>
+      <td>1.0</td>
+      <td>6070.152124</td>
+      <td>3.809813</td>
+      <td>5.104620e-02</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2994.0</td>
+      <td>4.770322e+06</td>
+      <td>1.0</td>
+      <td>1282.563017</td>
+      <td>0.804976</td>
+      <td>3.696820e-01</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>(b) Fit a step function to predict wage using age, and perform crossvalidation to choose the optimal number of cuts. Make a plot of the fit obtained. Code Source: <a href="https://rpubs.com/ppaquay/65563">https://rpubs.com/ppaquay/65563</a></p>
+<p>Q9. This question uses the variables dis (the weighted mean of distances to five Boston employment centers) and nox (nitrogen oxides concentration in parts per 10 million) from the Boston data. We will treat dis as the predictor and nox as the response.</p>
+<p>(a) Use the poly() function to fit a cubic polynomial regression to predict nox using dis. Report the regression output, and plot the resulting data and polynomial fits.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+boston<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                    nox   R-squared:                       0.715
+Model:                            OLS   Adj. R-squared:                  0.713
+Method:                 Least Squares   F-statistic:                     419.3
+Date:                Thu, 20 Sep 2018   Prob (F-statistic):          2.71e-136
+Time:                        19:22:18   Log-Likelihood:                 690.44
+No. Observations:                 506   AIC:                            -1373.
+Df Residuals:                     502   BIC:                            -1356.
+Df Model:                           3
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.9341      0.021     45.110      0.000       0.893       0.975
+x1            -0.1821      0.015    -12.389      0.000      -0.211      -0.153
+x2             0.0219      0.003      7.476      0.000       0.016       0.028
+x3            -0.0009      0.000     -5.124      0.000      -0.001      -0.001
+==============================================================================
+Omnibus:                       64.176   Durbin-Watson:                   0.286
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               87.386
+Skew:                           0.917   Prob(JB):                     1.06e-19
+Kurtosis:                       3.886   Cond. No.                     2.10e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.1e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> True)
+y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+plt<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cubic Fit&#34;</span>)
+plt<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+
+plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
+plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
+plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Cubic Fit&#39;</span>)
+plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
+
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_29_0.png" alt="">
+<p>(b) Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 10), and report the associated residual sum of squares.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_polt</span>(ax, x, y, RSS, degree):
+    ax<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Degree: &#34;</span> <span style="color:#f92672">+</span>str(degree))
+    ax<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_ylim(boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>, boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">0.1</span>)
+    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
+    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Degree: &#39;</span> <span style="color:#f92672">+</span>str(degree) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; Residuals: &#39;</span> <span style="color:#f92672">+</span> str(RSS))
+    ax<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
+    ax<span style="color:#f92672">.</span>grid()
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">40</span>))
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> True)
+
+degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+
+degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+
+degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+
+degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+<span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x4<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>)
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_31_0.png" alt="">
+<p>(c) Perform cross-validation or another approach to select the optimal degree for the polynomial, and explain your results.</p>
+<p><b>Sol:</b> The optimal degree of polynomial is <b>8</b>. Achieved test MSE at this value is decent as well.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]], boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>])
+</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_33_0.png" alt="">
+<p>(d) Use the bs() function to fit a regression spline to predict nox using dis. Report the output for the fit using four degrees of freedom. How did you choose the knots? Plot the resulting fit.</p>
+<p>(e) Now fit a regression spline for a range of degrees of freedom, and plot the resulting fits and report the resulting RSS. Describe the results obtained.</p>
+<p>(f) Perform cross-validation or another approach in order to select the best degrees of freedom for a regression spline on this data. Describe your results.</p>
+<p>Q10. This question relates to the College data set.</p>
+<p>(a) Split the data into a training set and a test set. Using out-of-state-tuition as the response and the other variables as the predictors, perform forward stepwise selection on the training set in order to identify a satisfactory model that uses just a subset of the predictors.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
+college <span style="color:#f92672">=</span> college<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;Name&#39;</span>})
+college[<span style="color:#e6db74">&#39;Private&#39;</span>] <span style="color:#f92672">=</span> college[<span style="color:#e6db74">&#39;Private&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+college<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Private</th>
+      <th>Apps</th>
+      <th>Accept</th>
+      <th>Enroll</th>
+      <th>Top10perc</th>
+      <th>Top25perc</th>
+      <th>F.Undergrad</th>
+      <th>P.Undergrad</th>
+      <th>Outstate</th>
+      <th>Room.Board</th>
+      <th>Books</th>
+      <th>Personal</th>
+      <th>PhD</th>
+      <th>Terminal</th>
+      <th>S.F.Ratio</th>
+      <th>perc.alumni</th>
+      <th>Expend</th>
+      <th>Grad.Rate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Abilene Christian University</td>
+      <td>1</td>
+      <td>1660</td>
+      <td>1232</td>
+      <td>721</td>
+      <td>23</td>
+      <td>52</td>
+      <td>2885</td>
+      <td>537</td>
+      <td>7440</td>
+      <td>3300</td>
+      <td>450</td>
+      <td>2200</td>
+      <td>70</td>
+      <td>78</td>
+      <td>18.1</td>
+      <td>12</td>
+      <td>7041</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelphi University</td>
+      <td>1</td>
+      <td>2186</td>
+      <td>1924</td>
+      <td>512</td>
+      <td>16</td>
+      <td>29</td>
+      <td>2683</td>
+      <td>1227</td>
+      <td>12280</td>
+      <td>6450</td>
+      <td>750</td>
+      <td>1500</td>
+      <td>29</td>
+      <td>30</td>
+      <td>12.2</td>
+      <td>16</td>
+      <td>10527</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adrian College</td>
+      <td>1</td>
+      <td>1428</td>
+      <td>1097</td>
+      <td>336</td>
+      <td>22</td>
+      <td>50</td>
+      <td>1036</td>
+      <td>99</td>
+      <td>11250</td>
+      <td>3750</td>
+      <td>400</td>
+      <td>1165</td>
+      <td>53</td>
+      <td>66</td>
+      <td>12.9</td>
+      <td>30</td>
+      <td>8735</td>
+      <td>54</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Agnes Scott College</td>
+      <td>1</td>
+      <td>417</td>
+      <td>349</td>
+      <td>137</td>
+      <td>60</td>
+      <td>89</td>
+      <td>510</td>
+      <td>63</td>
+      <td>12960</td>
+      <td>5450</td>
+      <td>450</td>
+      <td>875</td>
+      <td>92</td>
+      <td>97</td>
+      <td>7.7</td>
+      <td>37</td>
+      <td>19016</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alaska Pacific University</td>
+      <td>1</td>
+      <td>193</td>
+      <td>146</td>
+      <td>55</td>
+      <td>16</td>
+      <td>44</td>
+      <td>249</td>
+      <td>869</td>
+      <td>7560</td>
+      <td>4120</td>
+      <td>800</td>
+      <td>1500</td>
+      <td>76</td>
+      <td>72</td>
+      <td>11.9</td>
+      <td>2</td>
+      <td>10922</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+<span style="color:#f92672">from</span> sklearn.feature_selection <span style="color:#f92672">import</span> RFE
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(college)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
+train <span style="color:#f92672">=</span> college[msk]
+test <span style="color:#f92672">=</span> college[<span style="color:#f92672">~</span>msk]
+
+total_features <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
+validation_MSE <span style="color:#f92672">=</span> {}
+<span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, total_features<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+    estimator <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
+    selector <span style="color:#f92672">=</span> RFE(estimator, m, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+    selector<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
+    predictions <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+    mse <span style="color:#f92672">=</span> mean_squared_error(predictions, test[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
+    validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(test)
+
+<span style="color:#75715e"># Plot validation MSE</span>
+lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+plt<span style="color:#f92672">.</span>grid()
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of features&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Number of features&#39;</span>)
+</code></pre></div><pre><code>Text(0.5,1,'Validation MSE vs Number of features')
+</code></pre>
+<img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_37_1.png" alt="">
+<p>(b) Fit a GAM on the training data, using out-of-state tuition as the response and the features selected in the previous step as the predictors. Plot the results, and explain your findings.</p>
+<p>(c) Evaluate the model obtained on the test set, and explain the results obtained.</p>
+<p>(d) For which variables, if any, is there evidence of a non-linear relationship with the response?</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/moving-beyond-linearity_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/tree-based-methods_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Think Stats: Chapter 7" />
+    <meta property="og:title" content="Think Stats: Chapter 7" />
+    <meta property="twitter:title" content="Think Stats: Chapter 7" />
+    
+
+    
+    <meta name="description" content="Think Stats: Chapter 7">
+    <meta property="og:description" content="Think Stats: Chapter 7" />
+    <meta property="twitter:description" content="Think Stats: Chapter 7" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Think Stats: Chapter 7-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter-7-hypothesis-testing/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/think-stats" title="Think Stats">
+                            Think Stats
+                        </a>
+                        
+                        <a class="tag" href="/tags/hypothesis-testing" title="Hypothesis Testing">
+                            Hypothesis Testing
+                        </a>
+                        
+                        <a class="tag" href="/tags/cross-validation" title="Cross-validation">
+                            Cross-validation
+                        </a>
+                        
+                        <a class="tag" href="/tags/chi-square-test" title="Chi-square test">
+                            Chi-square test
+                        </a>
+                        
+                        <a class="tag" href="/tags/power" title="Power">
+                            Power
+                        </a>
+                        
+                    </div>
+                    <h1>Think Stats: Chapter 7</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Thursday, August 30, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+The process of <b>Hypothesis Testing</b> can be summarized by following three steps:
+<ul>
+<li>
+<p><b>Null Hypothesis:</b> The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.</p>
+</li>
+<li>
+<p><b>p-value:</b> The p-value is the probability of the apparent effect under the null hypothesis.</p>
+</li>
+<li>
+<p><b>Interpretation:</b> Based on the p-value, we can conclude that whether the effect is statistically significant or not.</p>
+</li>
+</ul>
+<p>Hence to test a hypothesis, we assume that it is not real (called as <b>null hypothesis</b>). Based on the assumption (i.e. null hypothesis), we compute the probability of the apparent effect (this is called <b>p-value</b>). If p-value is low enough, we can conclude that the null hypothesis is unlikely to be true.</p>
+<h3 id="71-testing-a-difference-in-means">7.1 Testing a difference in means</h3>
+<p><b>Null Hypothesis $H_0:$</b> The distributions (means) for the two groups are the same (apparent difference is due to the chance)</p>
+<p>For pregnancy length, we observed n = 4413 first babies and m = 4735 others, and the difference in mean was d = 0.078 weeks. To approximate the p-value of this effect, the distribution is pooled, and samples with sizes n and m are generated and the difference in mean is computed. Difference in means of 1000 sampled pairs is computed and the CDF of distribution is shown in the figure below. There are 125 pairs for which difference in mean is greater than d, which is 0.078 and hence the p-value is 125/1000 = 0.125. So We can&rsquo;t reject the null hypothesis and can conclude that the apparent effect is not very likely.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+
+pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
+                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
+                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
+                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
+                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
+                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
+babies <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]
+mean <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>mean()
+std <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>std()
+delta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.078</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_diff</span>(model1, model2, replace<span style="color:#f92672">=</span>True):
+    sample1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model1, size<span style="color:#f92672">=</span>model1<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
+    sample2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model2, size<span style="color:#f92672">=</span>model2<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
+    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>mean(sample1) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>mean(sample2)
+
+distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
+sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4413</span>) <span style="color:#75715e"># As number of first babies is 4413</span>
+sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4735</span>) <span style="color:#75715e"># Number of others 4735</span>
+
+diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count for which differnce is greater than 0.078 (mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
+      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
+             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Count for which differnce is greater than 0.078 (mean difference between first and other babies : 52
+</code></pre>
+<img class="pure-img" src="/img/Chapter%207%20-%20Hypothesis%20testing_files/Chapter%207%20-%20Hypothesis%20testing_4_1.png" alt="">
+<p><b>Exercise 7.1:</b> In the NSFG dataset, the difference in mean weight for first births is 2.0 ounces. Compute the p-value of this difference. For this kind of resampling it is important to sample with replacement.</p>
+<p>As the samples for which difference is greater is 11 which gives a p-value of 0.011 and hence we can reject the null hypothesis and claim that there is a significant difference in mean weight for the first babies and others.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+
+delta <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> first<span style="color:#f92672">.</span>mean()
+<span style="color:#66d9ef">print</span>(delta)
+
+pooled_mean <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(pooled)
+pooled_std <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>std(pooled)
+
+distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)
+sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+
+diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count for which differnce is greater than the mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
+      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
+             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>1.842283542317972
+Count for which differnce is greater than the mean difference between first and other babies : 8
+</code></pre>
+<img class="pure-img" src="/img/Chapter%207%20-%20Hypothesis%20testing_files/Chapter%207%20-%20Hypothesis%20testing_6_2.png" alt="">
+<h3 id="72-choosing-a-threshold">7.2 Choosing a threshold</h3>
+<p>There are two types of error:</p>
+<ul>
+<li><b>Type 1 Error (False Positive):</b> When we accept a hypothesis that is actually false</li>
+<li><b>Type 2 Error (False Negative):</b> When we reject a hypothesis that is actually true</li>
+</ul>
+<p>The most common approach for the hypothesis testing is to choose a threshold $\alpha$ for the <b>p-value</b> and reject the <b>Null Hypothesis</b> if p-value is <b>less than</b> $\alpha$. In this case the probability of <b>false positive</b> is $\alpha$ as the probability of rejecting null hypothesis which is the probability of accepting alternate hypothesis when it is actually false is the p-vlaue which can get a maximum value of $\alpha$. <b>We can decrease the chance of false positive by decreasing the threshold.</b> But by decreasing the threshold, we tend to increase the chance of rejecting the valid hypothesis as well and hence increasing the <b>Type 2 error(False Negative)</b>. The only way to decrease both at the same time is by <b>increasing the sample size.</b></p>
+<p><b>Exercise 7.2:</b> To investigate the effect of sample size on p-value, see what happens if you discard half of the data from the NSFG. What if you discard three-quarters of the data, and so on? What is the smallest sample size where the difference in mean birth weight is still significant with $\alpha$ = 5%? How much larger does the sample size have
+to be with $\alpha$ = 1%?</p>
+<p>Results should enforce the claim that for lowe value of $\alpha$, the sample size should be higher.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fracs <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.33</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.005</span>]
+live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+
+<span style="color:#66d9ef">for</span> frac <span style="color:#f92672">in</span> fracs:
+    pool_sample <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(pooled, int(pooled<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span>frac))
+    pool_mean <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>mean()
+    pool_std <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>std()
+    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+    p_value <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.842283542317972</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Sample Size = &#34;</span> <span style="color:#f92672">+</span> str(pool_sample<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : p-value = &#34;</span> <span style="color:#f92672">+</span> str(p_value))
+</code></pre></div><pre><code>Sample Size = 9087 : p-value = 0.006
+Sample Size = 4543 : p-value = 0.007
+Sample Size = 2271 : p-value = 0.009
+Sample Size = 2998 : p-value = 0.013
+Sample Size = 908 : p-value = 0.009
+Sample Size = 454 : p-value = 0.011
+Sample Size = 90 : p-value = 0.007
+Sample Size = 45 : p-value = 0.009
+</code></pre>
+<h3 id="73-defining-the-effect">7.3 Defining the effect</h3>
+<p>A test is called a <b>two-sided</b> test when we are testing the hypothesis that there is a significance difference between the distribution without specifying the sign of the difference. The alternative is to use <b>one-sided</b> test in which we ask something like that the &ldquo;mean weight of first babies is significantly higher that that of the others&rdquo;. As the test is more specific, the p-vlaue is lower(roughly half) in this case.</p>
+<h3 id="74-interpreting-the-result">7.4 Interpreting the result</h3>
+<p>The p-value can also be interpreted as P(E|$H_0$) which is probability of effect given the null hypothesis. There are several ways to interpret the results of a hypothesis testing:</p>
+<ul>
+<li><b>Classical:</b> When p-value is less than $\alpha$, we can cocnlude that the effect is statistically significant but we can not conclude that it is real.</li>
+<li><b>Practical:</b> In practical approach, we can conclude that the apparent effect is real. The lowe the p-value is, the higher the confidence of this conclusion.</li>
+<li><b>Bayesian:</b> What we really want to know is $P(H_A|E)$, where $H_A$ is the hypothesis that the effect is real. From Bayes&rsquo;s theorem:</li>
+</ul>
+<p>$$P(H_A|E) = \frac{P(E|H_A)P(H_A)}{P(E)}$$</p>
+<p>where P($H_A$) is the prior probability of $H_A$ befor we saw the effect, $P(E|H_A)$ is the probability of seeing E, assuming that the effect is real and P(E) is the probability of seeing E under any hypothesis which is given as:</p>
+<p>$$P(E) = P(E|H_A)P(H_A) + P(E|H_0)P(H_0)$$</p>
+<p><b>Exercise 7.3:</b> Using the data from the NSFG, what is the posterior probability that the distribution of birth weights is different for first babies and others?</p>
+<p>The posterior probability is 0.67</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+
+first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
+other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
+first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
+other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
+
+<span style="color:#75715e"># Assumption: H_A is true, i.e. both the distrinutions are different = 1.8423</span>
+<span style="color:#75715e"># We have to compute P(H_A|E) and for this we need P(E|H_A)</span>
+<span style="color:#75715e"># We need to take samples from individual distributions</span>
+
+first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+
+diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.8423</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
+p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p_ha_e))
+</code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.3125
+</code></pre>
+<h3 id="75-cross-validation">7.5 Cross-validation</h3>
+<p>In the previous example, we used the same dataset to formulate $H_A$ and to test it. In this case, $P(H_A|E)$ is likely to be higher even when $H_A$ is false. We can address this problem by <b>cross-validation</b> which uses one dataset to formulate the hypothesis and another to test it. The first dataset is called the <b>training-set</b> and other the <b>test-set</b>.</p>
+<p>The procedure is shown by the code below. The average posterior probability is 0.563 which is slightly lower than what we got in the previous result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+
+count <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
+    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(first)
+    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(other)
+
+    train_first <span style="color:#f92672">=</span> first[:int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
+    test_first <span style="color:#f92672">=</span> first[int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
+
+    train_other <span style="color:#f92672">=</span> other[:int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
+    test_other <span style="color:#f92672">=</span> other[int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
+
+    delta <span style="color:#f92672">=</span> train_other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> train_first<span style="color:#f92672">.</span>mean()
+
+    first_mean <span style="color:#f92672">=</span> test_first<span style="color:#f92672">.</span>mean()
+    other_mean <span style="color:#f92672">=</span> test_other<span style="color:#f92672">.</span>mean()
+
+    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+
+    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+    p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> delta)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+    p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
+    p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+    p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+    p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
+    p <span style="color:#f92672">+=</span> p_ha_e
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p<span style="color:#f92672">/</span>count))
+</code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.4827809819500527
+</code></pre>
+<h3 id="76-reporting-bayesian-probabilities">7.6 Reporting Bayesian probabilities</h3>
+<p>There are some objection to Bayesian probability as they depend on the prior probabilities. One response to this objection is that, in practice, starting with different priors tend to converge towards the same posterior probability as well. Another option is to report the <b>likelihood ratio</b> which is denoted as $P(E|H_A) / P(E|H_0)$ and hence posterior probability can be computed by giving their own priors.</p>
+<p><b>Exercise 7.4:</b> If your prior probability for a hypothesis, $H_A$, is 0.3 and new evidence becomes available that yields a likelihood ratio of 3 relative to the null hypothesis, $H_0$, what is your posterior probability for $H_A$?</p>
+<p><b>Solution:</b> Given, $P(H_A) = 0.3$ and $P(E|H_A) / P(E|H_0) = 3$. We have to compute $P(H_A|E)$, which is given as:</p>
+<p>$$P(H_A|E) = \frac{P(E|H_A)P(H_A)}{P(E)} = \frac{P(E|H_A)P(H_A)}{P(E|H_A)P(H_A) + P(E|H_0)P(H_0)} =
+\frac{P(H_A)}{P(H_A) + \frac{P(E|H_0)}{P(E|H_A)}P(H_0)}$$</p>
+<p>As $P(H_A) = 0.3$, $P(H_0) = 1-P(H_A) = 0.7$ and $ \frac {P(E|H_0)}{P(E|H_A)} = \frac{1}{3}$. Substituting the values in above equation we get,</p>
+<p>$$P(H_A|E)  = \frac{P(H_A)}{P(H_A) + \frac{P(E|H_0)}{P(E|H_A)}P(H_0)} = \frac{0.3}{0.3 + \frac{0.7}{3}} = 0.5625$$</p>
+<p><b>Exercise 7.5:</b> Two people have left traces of their own blood at the scene of a crime. A suspect, Oliver, is tested and found to have type O blood. The blood groups of the two traces are found to be of type O (a common type in the local population, having frequency 60%) and of type AB (a rare type, with frequency 1%). Do these data (the blood types found at the scene) give evidence in favor of the proposition that Oliver was one of the two people whose blood was found at the scene?</p>
+<p><b>Solution:</b> Here $H_A:$ Oliver was one of the two people, and $E:$ Blood types found at the scene. We have to find $P(H_A|E).$</p>
+<p>$P(E|H_A) = 0.01$ (As given $H_A$, oliver is one of the people found on the scene). $P(E|H_0) = 2<em>0.6</em>0.01 = 0.012$.
+And Hence the evidence is more likely under $H_0$, givining the <b>likelihood ratio</b> as 10/12 which is less than 1.</p>
+<h3 id="77-chi-square-test">7.7 Chi-square test</h3>
+<p>Sometimes we need to test the significance of the difference in variance, but variances are less robust than means. <b>Chi-square Statistics</b> is used to test whether there is significant difference in variance or not. The most common choice for chi-square statistic is:</p>
+<p>$$\chi^{2} = \sum_{i} \frac{(O_i - E_i)^2}{E_i}$$</p>
+<p>One feature of the chi-square test is that the distribution of the test statistic can be computed analytically.</p>
+<p><b>Exercise 7.6:</b> Suppose you run a casino and you suspect that a customer has replaced a die provided by the casino with a “crooked die;” that is, one that has been tampered with to make one of the faces more likely to come up than the others. You apprehend the alleged cheater and confiscate the die, but now you have to prove that it is crooked.</p>
+<p>You roll the die 60 times and get the following results:</p>
+<ul>
+<li>(Value, Frquency) : (1, 8), (2, 9), (3, 19), (4, 6), (5, 8), (6, 10)</li>
+</ul>
+<p>What is the chi-squared statistic for these values? What is the probability of seeing a chi-squared value as large by chance?</p>
+<p><b>Solution:</b> The chi-square statistic is given as:
+$$\chi^{2} = \frac{(10-8)^2 + (10-9)^2 + (10-19)^2 + (10-6)^2 + (10-8)^2 + (10-10)^2}{10} = 10.6$$</p>
+<p>From the chi-square table (degree of freedom = 6), we get the p-value in the range 0.1 and 0.05, i.e. $0.05 \lt p-value \lt 0.1$. The exact p-value as given by the code is 0.0599 which confirms our hypothesis and hence we can reject null hypothesis that die is not crooked.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> chisquare
+chisquare([<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>], f_exp<span style="color:#f92672">=</span>[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>])
+</code></pre></div><pre><code>Power_divergenceResult(statistic=10.6, pvalue=0.05991362580421519)
+</code></pre>
+<h3 id="79-power">7.9 Power</h3>
+<p>When the result of a hypothesis test is negative (that is the effect is not statistically significant), the conclusion that whether the effect is real or not, depends on the power of the test.</p>
+<p>Statistical <b>power</b> is the probability that the test will be positive if the null hypothesis is false. The power of a test depends on the sample size, the magnitude of the effect and the threshold $\alpha$.</p>
+<p><b>Exerceise 7.7:</b> What is the power of the test in Section 7.2, using $\alpha$ = 0.05 and assuming that the actual difference between the means is 0.078 weeks?</p>
+<p>You can estimate power by generating random samples from distributions with the given difference in the mean, testing the observed difference in the mean, and counting the number of positive tests.</p>
+<p>What is the power of the test with $\alpha$ = 0.10?</p>
+<p><b>Solution:</b> The power of the test for $\alpha$ = 0.05 is 91.8% and for $\alpha$ = 0.10 is 95.7%.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> scipy.stats
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+
+first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
+first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
+other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
+other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
+
+num_simulations <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+<span style="color:#75715e"># store the p value for each simulation</span>
+sim_p <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>empty(num_simulations)
+sim_p<span style="color:#f92672">.</span>fill(np<span style="color:#f92672">.</span>nan)
+
+<span style="color:#66d9ef">for</span> i_sim <span style="color:#f92672">in</span> range(num_simulations):
+    fisrt_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+    other_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+    res <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>ttest_ind(fisrt_samples, other_samples, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, equal_var<span style="color:#f92672">=</span>False)
+    sim_p[i_sim] <span style="color:#f92672">=</span> res[<span style="color:#ae81ff">1</span>]
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.05 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.05</span>)<span style="color:#f92672">/</span>float(num_simulations)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.10 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.10</span>)<span style="color:#f92672">/</span>float(num_simulations)))
+</code></pre></div><pre><code>Power of the test for alpha = 0.05 is: 0.91
+Power of the test for alpha = 0.10 is: 0.947
+</code></pre>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter-6-operations-on-distributions/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 6">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter-8-estimation/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 8">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

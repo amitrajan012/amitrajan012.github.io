@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Statistical Learning on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/statistical-learning/</link>
+    <description>Recent content in Statistical Learning on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 May 2018 07:24:34 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/statistical-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part4/</link>
+      <pubDate>Sun, 06 May 2018 07:24:34 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
+      <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part3/</link>
+      <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
+(a) The sample size n is extremely large, and the number of predic- tors p is small.
+Sol: Better
+(b) The number of predictors p is extremely large, and the number of observations n is small.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part2/</link>
+      <pubDate>Sat, 05 May 2018 07:11:10 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part2/</guid>
+      <description>2.2 Assessing Model Accuracy No one statistical learning method dominates all other over all possible data sets. Hence it is an important task to decide that for any given data set which model fits best.
+2.2.1 Measuring the Quality of Fit In the regression setting, the most commonly used measure for quality of fit is mean squared error (MSE), which is given as:
+$$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part1/</link>
+      <pubDate>Fri, 04 May 2018 09:32:21 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part1/</guid>
+      <description>Statistical Learning 2.1 What Is Statistical Learning? The Advertising data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: TV, radio, and newspaper. The plot of data is shown below. Our goal is to develop an accurate model that can be used to predict sales on the basis of the three media budgets.</description>
+    </item>
+    
+  </channel>
+</rss>

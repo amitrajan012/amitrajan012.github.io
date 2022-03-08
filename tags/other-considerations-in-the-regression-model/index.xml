@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Other Considerations in the Regression Model on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/other-considerations-in-the-regression-model/</link>
+    <description>Recent content in Other Considerations in the Regression Model on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 09 May 2018 11:11:48 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/other-considerations-in-the-regression-model/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part3/</link>
+      <pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part3/</guid>
+      <description>3.3 Other Considerations in the Regression Model 3.3.1 Qualitative Predictors There can be a case when predictor variables can be qualitative.
+Predictors with Only Two Levels For the predictors with only two values, we can create an indicator or dummy variable with values 0 and 1 and use it in the regression model. The final prediction will not depend on the coding scheme. Only difference will be in the model coefficients and the way they are interpreted.</description>
+    </item>
+    
+  </channel>
+</rss>

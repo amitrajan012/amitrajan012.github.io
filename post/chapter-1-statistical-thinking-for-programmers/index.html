@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Think Stats: Chapter 1" />
+    <meta property="og:title" content="Think Stats: Chapter 1" />
+    <meta property="twitter:title" content="Think Stats: Chapter 1" />
+    
+
+    
+    <meta name="description" content="Think Stats: Chapter 1">
+    <meta property="og:description" content="Think Stats: Chapter 1" />
+    <meta property="twitter:description" content="Think Stats: Chapter 1" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Think Stats: Chapter 1-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter-1-statistical-thinking-for-programmers/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/think-stats" title="Think Stats">
+                            Think Stats
+                        </a>
+                        
+                    </div>
+                    <h1>Think Stats: Chapter 1</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, August 5, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="11-do-first-babies-arrive-late">1.1 Do first babies arrive late?</h3>
+<p><b>Anecdotal Evidence </b> is based on data that is unpublished and usually personal. For example,
+<i><center>&ldquo;My two friends that have given birth recently to their first babies,
+BOTH went almost 2 weeks overdue before going into
+labour or being induced.” </center></i>
+Anecdotal Evidence usually fail because of <b>Small number of observations</b>, <b>Selection bias</b> (People who join a discussion of this question might be interested because their first babies were late.), <b>Confirmation bias</b> (People who believe the claim might be more likely to contribute examples that confirm it) and <b>Inaccuracy</b>.</p>
+<h3 id="12-a-statistical-approach">1.2 A Statistical Approach</h3>
+<p>Limitations of Anecdotal Evidence can be addressed by using the tools of statistics, which include <b>Data Collection</b>, <b>Descriptive Statistics</b>, <b>Exploratory Data Analysis</b>, <b>Hypothesis Testing</b> and <b>Estimation</b>.</p>
+<h3 id="13-the-national-survey-of-family-growth-nsfg">1.3 The National Survey of Family Growth (NSFG)</h3>
+<p>NSFG is a <b>cross-sectional</b> study (it captures a snapshot of a group at a point in time). The alternative is a <b>longitudinal</b> study which observes a group repeatedly over a period of time. The people who participate in a survey are called <b>respondents</b>. Cross-sectional studies are meant to be <b>representative</b>, which means that every member of the target population has an equal chance of participating. NSFG is deliberately <b>oversampled</b> as certain groups are sampled at higher rates compared to their representation in US population. Drawback of oversampling is that it is hard to arrive at a conclusion based on statistics from the survey.
+<br></br>
+<b>Exercise 1.2</b> Download data from the NSFG:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#75715e"># Reference to extract the columns: http://greenteapress.com/thinkstats/survey.py</span>
+pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
+                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
+                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
+                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
+                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
+                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
+pregnancies<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>caseid</th>
+      <th>nbrnaliv</th>
+      <th>babysex</th>
+      <th>birthwgt_lb</th>
+      <th>birthwgt_oz</th>
+      <th>prglength</th>
+      <th>outcome</th>
+      <th>birthord</th>
+      <th>agepreg</th>
+      <th>finalwgt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>8.0</td>
+      <td>13.0</td>
+      <td>39</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>33.0</td>
+      <td>6448.271112</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>7.0</td>
+      <td>14.0</td>
+      <td>39</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>39.0</td>
+      <td>6448.271112</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>9.0</td>
+      <td>2.0</td>
+      <td>39</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>14.0</td>
+      <td>12999.542264</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>39</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>17.0</td>
+      <td>12999.542264</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>6.0</td>
+      <td>3.0</td>
+      <td>39</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>18.0</td>
+      <td>12999.542264</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>The description for the fields are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>caseid</th>
+<th>prglength</th>
+<th>outcome</th>
+<th>birthord</th>
+<th>finalwgt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Integer ID of Respondent</td>
+<td>Integer Duration of pregnancy in weeks</td>
+<td>1 indicates a live birth</td>
+<td>code for first child: 1</td>
+<td>Number of people in US population this respondant represents</td>
+</tr>
+</tbody>
+</table>
+</br>
+<p><b>Exercise 1.3</b> Explore the data in the Pregnancies table. Count the number of live births and compute the average pregnancy length (in weeks) for first babies and others for the live births.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pregnancies<span style="color:#f92672">.</span>describe()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>caseid</th>
+      <th>nbrnaliv</th>
+      <th>babysex</th>
+      <th>birthwgt_lb</th>
+      <th>birthwgt_oz</th>
+      <th>prglength</th>
+      <th>outcome</th>
+      <th>birthord</th>
+      <th>agepreg</th>
+      <th>finalwgt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>13593.000000</td>
+      <td>9148.000000</td>
+      <td>9144.000000</td>
+      <td>9144.000000</td>
+      <td>9087.000000</td>
+      <td>13593.000000</td>
+      <td>13593.000000</td>
+      <td>9148.000000</td>
+      <td>13241.000000</td>
+      <td>13593.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>6216.526595</td>
+      <td>1.025907</td>
+      <td>1.494532</td>
+      <td>6.653762</td>
+      <td>7.403874</td>
+      <td>29.531229</td>
+      <td>1.763996</td>
+      <td>1.824552</td>
+      <td>24.230949</td>
+      <td>8196.422280</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3645.417341</td>
+      <td>0.252864</td>
+      <td>0.515295</td>
+      <td>1.588809</td>
+      <td>8.097454</td>
+      <td>13.802523</td>
+      <td>1.315930</td>
+      <td>1.037053</td>
+      <td>5.824302</td>
+      <td>9325.918114</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>10.000000</td>
+      <td>118.656790</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>3022.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>13.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>20.000000</td>
+      <td>3841.375308</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6161.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+      <td>7.000000</td>
+      <td>39.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>23.000000</td>
+      <td>6256.592133</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>9423.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>8.000000</td>
+      <td>11.000000</td>
+      <td>39.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>28.000000</td>
+      <td>9432.360931</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>12571.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+      <td>99.000000</td>
+      <td>50.000000</td>
+      <td>6.000000</td>
+      <td>9.000000</td>
+      <td>44.000000</td>
+      <td>261879.953864</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of live births is: &#34;</span> <span style="color:#f92672">+</span> str(live_births<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+mean_first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#39;birthord&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]<span style="color:#f92672">.</span>mean()
+mean_other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#39;birthord&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]<span style="color:#f92672">.</span>mean()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean Pregnancy length for live births of first babies is: &#34;</span> <span style="color:#f92672">+</span> str(mean_first))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean Pregnancy length for live births of other babies is: &#34;</span> <span style="color:#f92672">+</span> str(mean_other))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Difference in Mean Pregnancy length for first and other babies is : &#34;</span> <span style="color:#f92672">+</span> str(mean_first <span style="color:#f92672">-</span> mean_other))
+</code></pre></div><pre><code>Number of live births is: 9148
+Mean Pregnancy length for live births of first babies is: 38.6009517335
+Mean Pregnancy length for live births of other babies is: 38.5229144667
+Difference in Mean Pregnancy length for first and other babies is : 0.0780372667775
+</code></pre>
+</br>
+<h3 id="15-significance">1.5 Significance</h3>
+<p>From the above analysis, it is evident that the difference in mean pregnancy lengths of first and other babies is <b>13.11 hours</b>. A difference like this is called an <b>apparent effect</b> which means that there must be something going on but we are not sure yet. If the difference occurred by chance, we can conlcude that thet effect was not <b>statistically significant</b>. An apparent effect that is caused by bias, measurement error, or
+some other kind of error is called <b>artifact</b>.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/introductory-data-analysis-and-recommendation-engine/" data-toggle="tooltip" data-placement="top" title="Content Based Movie Recommendation Engine">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter-2-descriptive-statistics/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 2">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

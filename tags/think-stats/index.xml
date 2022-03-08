@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Think Stats on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/think-stats/</link>
+    <description>Recent content in Think Stats on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Sep 2018 11:13:31 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/think-stats/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 9</title>
+      <link>https://amitrajan012.github.io/post/chapter-9-correlation/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
+      <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
+ Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 8</title>
+      <link>https://amitrajan012.github.io/post/chapter-8-estimation/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-8-estimation/</guid>
+      <description>8.1 The estimation game In a rudimentary way, sample mean can be used to estimate a distribution. The process is called estimation and the statistic we used (sample mean) is called an estimator. If there are no outliers, sample mean minimizes the mean squared error (MSE). A maximum likelihood estimator (MLE) is an estimator that has the highest chance of being right (value with highest probability).
+ Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 7</title>
+      <link>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
+      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 6</title>
+      <link>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</guid>
+      <description>6.1 Skewness Skewness is a statistic that measures the assymetry of a distribution. Sample skewness is defined as:
+$$Skewness = \frac{Mean\ Cubed\ Deviation}{Mean\ Squared\ Deviation^{\frac{3}{2}}}$$
+Negative skewness means that the distribution skews left and positive skewness means that the distribution is skewed to right. Outliers have a disproportionate effect on skewness.
+Another way to evaluate the asymmetry of a distribution is to compare mean and median. For distributions that skews left, mean is less than the median.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 5</title>
+      <link>https://amitrajan012.github.io/post/chapter-5-probability/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-5-probability/</guid>
+      <description>The belief in which probability is expressed in terms of frequencies is called as frequentism. Frequentists believe that if there is no set of identical trials, there is no probability.
+An alternative is Bayesianism, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&amp;rsquo;s state of knowledge.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 4</title>
+      <link>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</link>
+      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</guid>
+      <description>4.1 The exponential distribution CDF of the exponential distribution is defined as (where lambda determines the shape of the distribution): $$CDF(x) = 1-e^{-\lambda x}$$ Mean and Median of exponential distribution is computed as follows: $$Mean = \frac{1}{\lambda}$$ $$Median = \frac{ln(2)}{\lambda}$$ In the real world, exponential distribution is encountered when we look at the series of events and measure the time between them which is called as interval times. The exponential distribution for different values of lambda is shown below.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 3</title>
+      <link>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</guid>
+      <description>3.1 The class size paradox For a probability distribution, the mean calculated from its PMF is lower than the one calculated by taking a sample from it. This happens because the larger classes tend to get oversampled. Exercise 3.1 Build the PMF of the college class-size data and compute the mean as perceived by the Dean. Find the distribution of class sizes as perceived by students and compute its mean.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 2</title>
+      <link>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</guid>
+      <description>2.1 Means and averages Mean of a sample is a summary statistics that can be computed as (where n is the total number of samples): $$\mu = \frac{1}{n} \sum_i{x_i}$$ An average is one of many summary statistics that can be used to describe the typical value or the central tendency of a sample.
+2.2 Variance As mean describes the central tendency of a sample, Variance is intended to describe the spread.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 1</title>
+      <link>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</link>
+      <pubDate>Sun, 05 Aug 2018 10:02:08 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</guid>
+      <description>1.1 Do first babies arrive late? Anecdotal Evidence  is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.”  Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
+    </item>
+    
+  </channel>
+</rss>

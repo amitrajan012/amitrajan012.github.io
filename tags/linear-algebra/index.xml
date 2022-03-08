@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Algebra on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
+    <description>Recent content in Linear Algebra on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Geometry of Linear Equations &amp; Matrix Multiplications</title>
+      <link>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</guid>
+      <description>1.1 The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:
+$$\begin{align} 2x-y = 0 \
+-x+2y = 3 \end{align}$$
+The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</description>
+    </item>
+    
+  </channel>
+</rss>

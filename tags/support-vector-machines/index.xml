@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Support Vector Machines on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/support-vector-machines/</link>
+    <description>Recent content in Support Vector Machines on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Jun 2018 06:19:12 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/support-vector-machines/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part5/</link>
+      <pubDate>Fri, 29 Jun 2018 06:19:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part5/</guid>
+      <description>Applied Q4. Generate a simulated two-class data set with 100 observations and two features in which there is a visible but non-linear separation between the two classes. Show that in this setting, a support vector machine with a polynomial kernel (with degree greater than 1) or a radial kernel will outperform a support vector classifier on the training data. Which technique performs best on the test data? Make plots and report training and test error rates in order to back up your assertions.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part4/</link>
+      <pubDate>Tue, 26 Jun 2018 03:29:17 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part4/</guid>
+      <description>9.7 Exercises Conceptual Q1. This problem involves hyperplanes in two dimensions.
+(a) Sketch the hyperplane 1 + 3X1 − X2 = 0. Indicate the set of points for which 1 + 3X1 − X2 &amp;gt; 0, as well as the set of points for which 1 + 3X1 − X2 &amp;lt; 0.
+(b) On the same plot, sketch the hyperplane −2 + X1 + 2X2 = 0. Indicate the set of points for which −2+ X1 +2X2 &amp;gt; 0, as well as the set of points for which −2+ X1 + 2X2 &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part3/</link>
+      <pubDate>Sat, 23 Jun 2018 04:19:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part3/</guid>
+      <description>9.3 Support Vector Machines 9.3.1 Classification with Non-linear Decision Boundaries Support vector classifiers, which are designed to work in the setting of linear decision boundary, can be extended to handle the case of non-linear decision boundary by enlarging the feature space using polynomial transformation of the predictors. For example, if we have a $p$-dimensional feature space given as: $X_1, X_2, &amp;hellip;, X_p$, we could instead fit a support vector classifier using $2p$ features: $X_1, X_1^2, X_2, X_2^2, &amp;hellip;, X_p, X_p^2$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part2/</link>
+      <pubDate>Wed, 20 Jun 2018 02:24:24 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part2/</guid>
+      <description>9.2 Support Vector Classifiers 9.2.1 Overview of the Support Vector Classifier The maximal margin classifiers can be sensitive to individual observations. Sometimes, adding a single observation in the data set, can lead to dramatic change in the separating hyperplane. The sensitivity and the low margin for a maximal margin classifier may suggest that the maximal margin classifier has overfit the training data. So, sometimes we may be willing to consider a classifier based on a hyperplane that does not perfectly separate the two classes, and hence, will be more robust (or less sensitive to individual observations) and will give better results for the unseen data points.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 1: Maximal Margin Classifier)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part1/</link>
+      <pubDate>Tue, 19 Jun 2018 12:14:23 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part1/</guid>
+      <description>Support Vector Machines Support vector machine is a generalization of a simple and intutive classifier called the maximal margin classifier. Maximal margin classifier has a limitation that it can be only applied to a data set whose classes are seperated by a linaer boundary.
+9.1 Maximal Margin Classifier 9.1.1 What Is a Hyperplane? In a $p$-dimensional space, a hyperplane is a flat affine subspace of $p-1$ dimensions. In two dimensions, the hyperplane is a line and can be given as:</description>
+    </item>
+    
+  </channel>
+</rss>

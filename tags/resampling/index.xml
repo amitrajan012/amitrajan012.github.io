@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resampling on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/resampling/</link>
+    <description>Recent content in Resampling on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jun 2018 03:17:36 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/resampling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</guid>
+      <description>Applied Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.
+(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.
+Sol: The optimal degree of polynomial selected from cross-validation is 4.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</link>
+      <pubDate>Wed, 06 Jun 2018 06:27:22 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</guid>
+      <description>7.9 Exercises Conceptual Q1. It was mentioned in the chapter that a cubic regression spline with one knot at ξ can be obtained using a basis of the form $x, x^2, x^3, (x − ξ)^3 _+$, where $(x − ξ)^3 _+ = (x − ξ)^3$ if x &amp;gt; ξ and equals 0 otherwise. We will now show that a function of the form $f(x) = β_0 + β_1x + β_2x^2 + β_3x^3 + β_4(x − ξ)^3 _+$ is indeed a cubic regression spline, regardless of the values of $β_0, β_1, β_2, β_3, β_4$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
+      <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
+ Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</link>
+      <pubDate>Wed, 30 May 2018 06:02:06 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</guid>
+      <description>7.5 Smoothing Splines 7.5.1 An Overview of Smoothing Splines Regression splines are created by specifying a set of knots, producing a sequence of basis functions and then estimate spline coefficients using least squares.
+To fit a smooth curve to a data set, we need to find a function $g(x)$ such that $RSS = \sum_{i=1}^{n}(y_i - g(x_i))^2$ is minimum. If we do not put any constraint on $g(x)$, we can always find a function $g(x)$, which will make RSS 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</link>
+      <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</guid>
+      <description>7.4 Regression Splines Regression splines are flixible class of basis functions that extend upon polynomial and piecewise constant regression approaches.
+7.4.1 Piecewise Polynomials Piecewise polynomial regression fits separate low-degree polynomials over different regions of $X$. For example, a piecewise squared polynomial fits squared regression model of the form
+$$y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \epsilon_i$$
+where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of the range of $X$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
+      <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
+  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+  Regression splines is the extension of polynomial regression and step functions.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
+      <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
+(a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</link>
+      <pubDate>Fri, 25 May 2018 06:18:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</guid>
+      <description>6.8 Exercises Conceptual Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, . . . , p predictors. Explain your answers:
+(a) Which of the three models with k predictors has the smallest training RSS?
+Sol: Training RSS is minimum for best subset selection.
+(b) Which of the three models with k predictors has the smallest test RSS?</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</link>
+      <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</guid>
+      <description>6.3 Dimension Reduction Methods Instead of performing a least squares regression on all the $p$ predictors, we can transform the predictors and then fit a least squares model on the transformed variables. Let the transformed variables be $Z_1, Z_2, &amp;hellip;, Z_M$, where $M &amp;lt; p$, where each of $Z_m$s is a linear combination of predictors $X_1, X_2, &amp;hellip;, X_p$.i.e.
+$$Z_m = \sum _{j=1}^{p} \phi _{jm}X_j$$
+We can then fit the least squares regression model as $Z_m$s as the predictors:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</link>
+      <pubDate>Tue, 22 May 2018 21:16:20 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</guid>
+      <description>6.2 Shrinkage Methods As an alternative to subset selection methods, a model containing all the $p$ predictors can be fit using a technique that constrains or regularizes the coefficient estimates (or shrinks the coefficeint estimates towards 0). Two best known techniques for shrinking the coefficient estimates towards 0 are: ridge regression and the lasso.
+6.2.1 Ridge Regression In a least squares fitting, the parameters of the model is estimated by minimizing</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</link>
+      <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
+      <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
+  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part4/</link>
+      <pubDate>Sat, 19 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part4/</guid>
+      <description>Applied Q5. In Chapter 4, we used logistic regression to predict the probability of default using income and balance on the Default data set. We will now estimate the test error of this logistic regression model using the validation set approach. Do not forget to set a random seed before beginning your analysis.
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt import numpy as np import statsmodels.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part3/</link>
+      <pubDate>Fri, 18 May 2018 07:18:30 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part3/</guid>
+      <description>5.4 Exercises Conceptual Q1. Using basic statistical properties of the variance, as well as singlevariable calculus, derive that the value of $\alpha$ which minimizes $Var(\alpha X + (1 - \alpha) Y)$ is:
+$$\alpha = \frac{\sigma_Y^2 - \sigma _{XY}}{\sigma_X^2 + \sigma_Y^2 - 2\sigma _{XY}}$$
+Sol: As we know that $Var(aX + bY) = a^2 Var(X) + b^2 Var(Y) + 2abCov(X, Y)$, the above quantity (that needs to be minimized) can be transformed as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part2/</link>
+      <pubDate>Fri, 18 May 2018 02:26:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part2/</guid>
+      <description>5.2 The Bootstrap Bootstrap can be used to to quantify the uncertainty associated with a given statistical model. For example, bootstrap can be used to estimate standard errors (which measures the uncertainty) of the coefficients from a linear regression fit. Bootstrap can be applied to a wide range of statistical learning methods. The method of bootstrap is explained below via an example:
+Suppose we wish to invest money in two financial assests which yield returns of $X$ and $Y$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part1/</link>
+      <pubDate>Thu, 17 May 2018 05:22:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part1/</guid>
+      <description>Resampling Methods Resampling methods involve repeatedly drawing samples from training data and refitting a model on them. Resampling approaches can be computationally expensive. Cross-validation and bootstrap are two of the most commonly used resampling methods. Cross-validation can be used to estimate the test error rate associated with a given model in order to evaluate its performance. The process of evaluating a model&amp;rsquo;s performance is called model assessment. The process of selecting proper level of flexibility for a model is known as model selection.</description>
+    </item>
+    
+  </channel>
+</rss>

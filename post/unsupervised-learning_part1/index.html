@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)" />
+    <meta property="og:title" content="ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)" />
+    <meta property="twitter:title" content="ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)" />
+    
+
+    
+    <meta name="description" content="ISLR Unsupervised Learning">
+    <meta property="og:description" content="ISLR Unsupervised Learning" />
+    <meta property="twitter:description" content="ISLR Unsupervised Learning" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/unsupervised-learning_part1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/unsupervised-learning" title="Unsupervised Learning">
+                            Unsupervised Learning
+                        </a>
+                        
+                        <a class="tag" href="/tags/principal-components-analysis" title="Principal Components Analysis">
+                            Principal Components Analysis
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Wednesday, July 4, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1><center>Unsupervised Learning</center></h1>
+<h3 id="101-the-challenge-of-unsupervised-learning">10.1 The Challenge of Unsupervised Learning</h3>
+<p><b>Unsupervised learning</b> is often performed as a a part of an <b>exploratory data analysis</b>. In unsupervised learning there is no practical way to assess the performance of the model as we do not have the true answer.</p>
+<h3 id="102-principal-components-analysis">10.2 Principal Components Analysis</h3>
+<p>In the case of a large set of correlated variables, principal component analysis helps in summarizing the data set with a small number of representative variables that explains most of the variability in the data. The principal component directions are the directions in the feature space along which the original data is <b>highly variable</b>. <b>Principal component analysis (PCA)</b> refers to the process by which principal components are computed.</p>
+<h4 id="1021-what-are-principal-components">10.2.1 What Are Principal Components?</h4>
+<p>To visualize a data set with $n$ observations with a $p$ sets of features $X_1, X_2, &hellip;, X_p$, we can examine $p \choose 2$ two-dimensional scatter plots of the data. For a large value of $p$, the process is cumbersome and most likely none of them will informative as each contain only a small fraction of total information present in the data. Hence, we would be keen to find a low-dimensional representation of the data that captures as much of the information as possible in the data set. PCA finds this low-dimensional representation of the data set that contains as much as possible of the variation. Each of the dimensions found by PCA is a <b>linear combination</b> of the $p$ features.</p>
+<p>The <b>first principal component</b> of a set of features $X_1, X_2, &hellip;, X_p$ is the <b>normalized</b> linear combination of the featues</p>
+<p>$$Z_1 = \phi _{11}X_1 + \phi _{21}X_2 + &hellip; + \phi _{p1}X_p$$</p>
+<p>that has the <b>largest variance</b>. By <b>normalized</b>, we mean that $\sum _{j=1}^{p} \phi _{j1}^2 = 1$. The elements $\phi _{11}, \phi _{21}, &hellip; \phi _{p1}$ are referred to as the <b>loading</b> of the first principal component. Without normalization of the loadings, the  values can be set to arbitrarily large values and hence resulting is a large variance.</p>
+<p>As for the computation of first principal componenet, we are mainly interested in the variance, we can assume that each of the features in the data set has been centered to have 0 mean. Then, we need to maximize the variance with a constraint that the loadings are normalized. Hence, the first principal component loading vector solves the optimization problem</p>
+<p>$$maximize _{\phi _{11}, \phi _{21}, &hellip;, \phi _{p1}} \bigg( \frac{1}{n} \sum _{i=1}^{n} \bigg( \sum _{j=1}^{p}  \phi _{j1}x _{ij}\bigg)^2\bigg) \ subject \ \ to \ \ \sum _{j=1}^{p}\phi _{j1}^2 = 1$$</p>
+<p>The above mentioned objective can instead be written as $\frac{1}{n} \sum _{i=1}^{n} z _{i1}^2$. As the mean of $z_i$s will be 0 as well, the objective that we are maximizing is simply the sample varince of the $n$ values of z _{i1}. $z _{11}, z _{21}, &hellip;, z _{n1}$ are called as the <b>scores</b> of the first principal component. This problem can be solved via an <b>eigen decomposition</b>.</p>
+<p>Geometrically, if we project the $n$ data points $x_1, x_2, &hellip;, x_n$ along the direction of the loading vector of the first principal component, the projected values are the principal componenet scores $z _{11}, z _{21}, &hellip;, z _{n1}$.</p>
+<p>Similarly, the <b>second principal component</b> is the linear combination of $X_1, X_2, &hellip;, X_p$ that has maximal variance out of all linear combinations that are <b>uncorrelated</b> with $Z_1$. It takes the form</p>
+<p>$$z _{i2} = \phi _{12}x _{i1} + \phi _{22}x _{i2} + &hellip; + \phi _{p2}x _{ip}$$</p>
+<p>where $\phi_2$ is the second principal component loading vector, with elements $\phi _{12}, \phi _{22}, &hellip;, \phi _{p2}$. Constraining $Z_2$ to be uncorrelated with $Z_1$ results in the direction of $\phi_2$ to be <b>orthogonal</b> of $\phi_1$. The optimization problem for finding the second principal componenet can be formed in a similar way as the one for the first principal component with an additional constraint that the $\phi_2$ is orthogonal to $\phi_1$. It turns out that the principal component directions $\phi_1, \phi_2, \phi_3, &hellip;$ are the ordered sequence of eigenvectors of the matrix $X^TX$, and the eigenvalues are the variance of the components.</p>
+<p>Usually, PCA is performed after <b>standardizing each variable to have mean 0 and standard deviation 1</b>.</p>
+<h4 id="1022-another-interpretation-of-principal-components">10.2.2 Another Interpretation of Principal Components</h4>
+<p>Alternatively, principal components can be viewed as the low-dimensional linear surfaces that are <b>closest</b> to the observations. The first principal component loading vector can be viewed as the line in the $p$-dimensional space that is closest to the $n$ observations (closeness is defined in terms of Euclidean distance). This can be explained simply as we seek a single dimension of the data which is as close as possible to all the data points. It is more likely that this line will explain the variation in data more aptly.</p>
+<p>This notion can be extended for second and higher principal components as well. The first two principal components can be viewed as the plane that is closest to the $n$ observations in terms of Euclidean distance. Using this interpretation, first $M$ principal components, with their scores and loading vectors, provides the best $M$-dimensional approximation of the data set in terms of the Euclidean distance. For a sufficiently large value of $M$, the $M$ principal components score and loading vectors provide a good approximation for the observations. When $M = min(n-1, p)$, the the representation is exact and hence $x _{ij} = \sum _{m=1}^{M} z _{im} \phi _{jm}$.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/support-vector-machines_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/unsupervised-learning_part2/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

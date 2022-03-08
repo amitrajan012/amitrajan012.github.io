@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Moving Beyond Linearity on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/moving-beyond-linearity/</link>
+    <description>Recent content in Moving Beyond Linearity on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Jun 2018 03:17:36 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/moving-beyond-linearity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</guid>
+      <description>Applied Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.
+(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.
+Sol: The optimal degree of polynomial selected from cross-validation is 4.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</link>
+      <pubDate>Wed, 06 Jun 2018 06:27:22 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</guid>
+      <description>7.9 Exercises Conceptual Q1. It was mentioned in the chapter that a cubic regression spline with one knot at ξ can be obtained using a basis of the form $x, x^2, x^3, (x − ξ)^3 _+$, where $(x − ξ)^3 _+ = (x − ξ)^3$ if x &amp;gt; ξ and equals 0 otherwise. We will now show that a function of the form $f(x) = β_0 + β_1x + β_2x^2 + β_3x^3 + β_4(x − ξ)^3 _+$ is indeed a cubic regression spline, regardless of the values of $β_0, β_1, β_2, β_3, β_4$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
+      <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
+ Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</link>
+      <pubDate>Wed, 30 May 2018 06:02:06 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</guid>
+      <description>7.5 Smoothing Splines 7.5.1 An Overview of Smoothing Splines Regression splines are created by specifying a set of knots, producing a sequence of basis functions and then estimate spline coefficients using least squares.
+To fit a smooth curve to a data set, we need to find a function $g(x)$ such that $RSS = \sum_{i=1}^{n}(y_i - g(x_i))^2$ is minimum. If we do not put any constraint on $g(x)$, we can always find a function $g(x)$, which will make RSS 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</link>
+      <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</guid>
+      <description>7.4 Regression Splines Regression splines are flixible class of basis functions that extend upon polynomial and piecewise constant regression approaches.
+7.4.1 Piecewise Polynomials Piecewise polynomial regression fits separate low-degree polynomials over different regions of $X$. For example, a piecewise squared polynomial fits squared regression model of the form
+$$y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \epsilon_i$$
+where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of the range of $X$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
+      <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
+  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+  Regression splines is the extension of polynomial regression and step functions.</description>
+    </item>
+    
+  </channel>
+</rss>

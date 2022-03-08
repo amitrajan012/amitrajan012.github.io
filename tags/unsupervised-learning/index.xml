@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Unsupervised Learning on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/unsupervised-learning/</link>
+    <description>Recent content in Unsupervised Learning on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Jul 2018 02:12:38 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/unsupervised-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Content Based Movie Recommendation Engine</title>
+      <link>https://amitrajan012.github.io/post/introductory-data-analysis-and-recommendation-engine/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/introductory-data-analysis-and-recommendation-engine/</guid>
+      <description>Introduction The dataset consists information of 5000 movies with their genres, budget, revenue, production company, revenue, user-rating , vote-count and popularity as the primary fields. It also has the detailed information of cast and crew.
+ # import modules import pandas as pd import numpy as np from matplotlib import pyplot as plt import json import cufflinks as cf import seaborn as sns import plotly.graph_objs as go import plotly from wordcloud import WordCloud plotly.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part6/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part6/</guid>
+      <description>Applied Q7. In the chapter, we mentioned the use of correlation-based distance and Euclidean distance as dissimilarity measures for hierarchical clustering. It turns out that these two measures are almost equivalent: if each observation has been centered to have mean zero and standard deviation one, and if we let $r_{ij}$ denote the correlation between the ith and jth observations, then the quantity $1−r _{ij}$ is proportional to the squared Euclidean distance between the ith and jth observations.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part5/</link>
+      <pubDate>Sun, 15 Jul 2018 03:51:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part5/</guid>
+      <description>10.7 Exercises Conceptual Q1. This problem involves the K-means clustering algorithm.
+(a) Prove (10.12).
+Sol: Equation 10.12 is:
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
+where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{i^{&#39;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&#39;}j} \</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part4/</link>
+      <pubDate>Thu, 12 Jul 2018 13:01:01 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part4/</guid>
+      <description>10.3.2 Hierarchical Clustering K-means clustering has a disadvantage that there is a need to pre-specify the number of clusters $K$. Hierarchical clutsring is an alternative approach which is free from this problem which results in an altarnative tree-based representation of the observations, called as dendrogram.
+The most common technique used for hierarchical clustering is bottom-up or agglomerative clustering. It is based on the fact that the dendrogram (generally depicted as an upside-down tree) is built starting from leaves and combining the clusters up to the trunk.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part3/</link>
+      <pubDate>Mon, 09 Jul 2018 17:09:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part3/</guid>
+      <description>10.3 Clustering Methods Clustering is a technique for finding subgroups or clusters in a data set based on similarity between individual observations. For clustering, we need to define the measure of similarity which depends on the knowledge of the data set. Two best known clustering methods are K-means clustering and hierarchical clustering. In K-means clustering, we partition the observations into a pre-defined number of clusters. In hierarchical clustering, the number of clusters is unknown and the results of clustering is represented as a dendrogram, which is a tree-like visualization technique that allows us to view the clustering results for various number of clusters (from 1 to $n$).</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part2/</link>
+      <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part2/</guid>
+      <description>10.2.3 More on PCA Scaling the Variables The results of PCA also depend on the fact that whether the variables are individually scaled or not. If we perform PCA on the unscaled variables, the variables with higher variance will have very large loading. As it is undesirable for the principal components obtained to depend on the scale of the variables, we scale each variables to have the standard deviation 1 before performing PCA.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part1/</link>
+      <pubDate>Wed, 04 Jul 2018 03:09:02 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part1/</guid>
+      <description>Unsupervised Learning 10.1 The Challenge of Unsupervised Learning Unsupervised learning is often performed as a a part of an exploratory data analysis. In unsupervised learning there is no practical way to assess the performance of the model as we do not have the true answer.
+10.2 Principal Components Analysis In the case of a large set of correlated variables, principal component analysis helps in summarizing the data set with a small number of representative variables that explains most of the variability in the data.</description>
+    </item>
+    
+  </channel>
+</rss>

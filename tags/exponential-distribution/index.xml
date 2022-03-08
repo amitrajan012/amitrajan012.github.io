@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exponential Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/exponential-distribution/</link>
+    <description>Recent content in Exponential Distribution on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Sep 2018 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/exponential-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 8</title>
+      <link>https://amitrajan012.github.io/post/chapter-8-estimation/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-8-estimation/</guid>
+      <description>8.1 The estimation game In a rudimentary way, sample mean can be used to estimate a distribution. The process is called estimation and the statistic we used (sample mean) is called an estimator. If there are no outliers, sample mean minimizes the mean squared error (MSE). A maximum likelihood estimator (MLE) is an estimator that has the highest chance of being right (value with highest probability).
+ Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 4</title>
+      <link>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</link>
+      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</guid>
+      <description>4.1 The exponential distribution CDF of the exponential distribution is defined as (where lambda determines the shape of the distribution): $$CDF(x) = 1-e^{-\lambda x}$$ Mean and Median of exponential distribution is computed as follows: $$Mean = \frac{1}{\lambda}$$ $$Median = \frac{ln(2)}{\lambda}$$ In the real world, exponential distribution is encountered when we look at the series of events and measure the time between them which is called as interval times. The exponential distribution for different values of lambda is shown below.</description>
+    </item>
+    
+  </channel>
+</rss>

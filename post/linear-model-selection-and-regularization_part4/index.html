@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)" />
+    <meta property="og:title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)" />
+    <meta property="twitter:title" content="ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)" />
+    
+
+    
+    <meta name="description" content="ISLR Linear Model Selection and Regularization">
+    <meta property="og:description" content="ISLR Linear Model Selection and Regularization" />
+    <meta property="twitter:description" content="ISLR Linear Model Selection and Regularization" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/linear-model-selection-and-regularization_part4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/resampling" title="Resampling">
+                            Resampling
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-model-selection" title="Linear Model Selection">
+                            Linear Model Selection
+                        </a>
+                        
+                        <a class="tag" href="/tags/regularization" title="Regularization">
+                            Regularization
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/conceptual" title="Conceptual">
+                            Conceptual
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Friday, May 25, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="68-exercises">6.8 Exercises</h3>
+<h4 id="conceptual">Conceptual</h4>
+<p>Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, . . . , p predictors. Explain your answers:</p>
+<p>(a) Which of the three models with k predictors has the smallest training RSS?</p>
+<p><b>Sol:</b> Training RSS is minimum for best subset selection.</p>
+<p>(b) Which of the three models with k predictors has the smallest test RSS?</p>
+<p><b>Sol:</b> The test RSS can not be predicted accurately based on the training procedure but as best subset selection takes into account all the possible models, there is a more chance of its getting the best test RSS.</p>
+<p>(c) True or False:</p>
+<ul>
+<li>
+<p>The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k+1)-variable model identified by forward stepwise selection: <b>True</b></p>
+</li>
+<li>
+<p>The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)- variable model identified by backward stepwise selection.: <b>True</b></p>
+</li>
+<li>
+<p>The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)- variable model identified by forward stepwise selection.: <b>False</b></p>
+</li>
+<li>
+<p>The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k+1)-variable model identified by backward stepwise selection.: <b>False</b></p>
+</li>
+<li>
+<p>The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.: <b>False</b></p>
+</li>
+</ul>
+<p>Q2. For parts (a) through (c), indicate which of i. through iv. is correct. Justify your answer.</p>
+<p>(a) The lasso, relative to least squares, is:</p>
+<p>i. More flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.: <b>False</b></p>
+<p>ii. More flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.: <b>False</b></p>
+<p>iii. Less flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.: <b>True</b></p>
+<p>iv. Less flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.: <b>False</b>, as lasso will decrease the variance and increase the bias.</p>
+<p>(b) Repeat (a) for ridge regression relative to least squares.</p>
+<p><b>Sol:</b> Less flexible and hence will give improved prediction accuracy when its increase in bias is less than its decrease in variance.</p>
+<p>(c) Repeat (a) for non-linear methods relative to least squares.</p>
+<p><b>Sol:</b> More flexible and hence will give improved prediction accuracy when its increase in variance is less than its decrease in bias.</p>
+<p>Q3. Suppose we estimate the regression coefficients in a linear regression model by minimizing</p>
+<p>$$minimize _{\beta}\bigg [ \sum _{i=1}^{n} \bigg( y_i - (\beta_0 + \sum _{j=1}^{p} \beta_j x _{ij})\bigg)^2 \bigg] \ \ \   subject \ to \  \sum _{j=1}^{p} |\beta_j| \leq s$$</p>
+<p>for a particular value of s. For parts (a) through (e), indicate which of i. through v. is correct. Justify your answer.</p>
+<p>(a) As we increase s from 0, the training RSS will:</p>
+<p><b>Sol:</b> Steadily decrease, as training RSS will become better and better as we will keep on adding new parameters.</p>
+<p>(b) Repeat (a) for test RSS.</p>
+<p><b>Sol:</b> Decrease initially, and then eventually start increasing in a U shape.</p>
+<p>(c) Repeat (a) for variance.</p>
+<p><b>Sol:</b> Steadily increase.</p>
+<p>(d) Repeat (a) for (squared) bias.</p>
+<p><b>Sol:</b> Steadily decrease.</p>
+<p>(e) Repeat (a) for the irreducible error.</p>
+<p><b>Sol:</b> Remain constant.</p>
+<p>Q4. Suppose we estimate the regression coefficients in a linear regression model by minimizing</p>
+<p>$$minimize _{\beta}\bigg [ \sum _{i=1}^{n} \bigg( y_i - (\beta_0 + \sum _{j=1}^{p} \beta_j x _{ij})\bigg)^2 \bigg] \ \ \   subject \ to \  \sum _{j=1}^{p} \beta_j^2 \leq s$$</p>
+<p>for a particular value of λ. For parts (a) through (e), indicate which of i. through v. is correct. Justify your answer.</p>
+<p>(a) As we increase λ from 0, the training RSS will:</p>
+<p><b>Sol:</b> Steadily increase.</p>
+<p>(b) Repeat (a) for test RSS.</p>
+<p><b>Sol:</b> Decrease initially, and then eventually start increasing in a U shape.</p>
+<p>(c) Repeat (a) for variance.</p>
+<p><b>Sol:</b> Steadily decrease.</p>
+<p>(d) Repeat (a) for (squared) bias.</p>
+<p><b>Sol:</b> Steadily increase.</p>
+<p>(e) Repeat (a) for the irreducible error.</p>
+<p><b>Sol:</b> Remain constant.</p>
+<p>Q5. It is well-known that ridge regression tends to give similar coefficient values to correlated variables, whereas the lasso may give quite different coefficient values to correlated variables. We will now explore this property in a very simple setting.</p>
+<p>Suppose that n = 2, p = 2, $x _{11} = x _{12}, x _{21} = x _{22}$. Furthermore, suppose that $y_1+y_2 = 0$ and $x _{11}+x _{21} = 0$ and $x _{12} + x _{22} = 0$, so that the estimate for the intercept in a least squares, ridge regression, or lasso model is zero: $\widehat{\beta_0}$ = 0.</p>
+<p><b>The estimate of the intercept is 0, as $y_1+y_2 = 0$.</b></p>
+<p>(a) Write out the ridge regression optimization problem in this setting.</p>
+<p><b>Sol:</b> Let the estimates of coefficients be $\beta_1$ and $\beta_2$. In case of ridge regression, we need to optimize:</p>
+<p>$$(y_1 - \beta_1 X _{11} - \beta_2 X _{12})^2 + (y_2 - \beta_1 X _{21}- \beta_2 X _{22})^2 + \lambda(\beta_1^2 + \beta_2^2 )$$</p>
+<p>(b) Argue that in this setting, the ridge coefficient estimates satisfy $\beta_1 = \beta_2$.</p>
+<p><b>Sol:</b> For the optimization, we need to take the partial derivative of the above expression with respect to $\beta_1$ and $\beta_2$ and evaluate it to 0. Replacing $X _{11} = X _{12} = -X _{21} = -X _{22} = a$ and $y_1 = -y_2 = b$ the equation reduces to:</p>
+<p>$$2[b - a(\beta_1 + \beta_2)]^2 + \lambda(\beta_1^2 + \beta_2^2)$$</p>
+<p>Taking partial derivatives with respect to $\beta_1$ and $\beta_2$ and setting them to 0, we get:</p>
+<p>$$2\lambda \beta_1 = 4a[b - a(\beta_1 + \beta_2)]$$</p>
+<p>$$2\lambda \beta_2 = 4a[b - a(\beta_1 + \beta_2)]$$</p>
+<p>As the RHS of both the equations are same, we get $\beta_1 = \beta_2$.</p>
+<p>(c) Write out the lasso optimization problem in this setting.</p>
+<p><b>Sol:</b> The lasso optimaization problem is:</p>
+<p>$$(y_1 - \beta_1 X _{11} - \beta_2 X _{12})^2 + (y_2 - \beta_1 X _{21}- \beta_2 X _{22})^2 + \lambda(|\beta_1| + |\beta_2| )$$</p>
+<p>(d) Argue that in this setting, the lasso coefficients $\beta_1$ and $\beta_2$ are not unique—in other words, there are many possible solutions to the optimization problem in (c). Describe these solutions.</p>
+<p><b>Sol:</b> Replacing the values as discussed above, we get the optimization problem:</p>
+<p>$$2[b - a(\beta_1 + \beta_2)]^2 + \lambda(|\beta_1| + |\beta_2|)$$</p>
+<p>Taking partial derivatives with respect to $\beta_1$ and $\beta_2$ and setting them to 0, we get:</p>
+<p>$$4a[b - a(\beta_1 + \beta_2)] = \pm \lambda$$</p>
+<p>The sign of RHS depends on the sign of $\beta$s. If $\beta_1$ and $\beta_2$ are positive, sign is +, if they are negative sign is -. This equation represents the boundary of the lasso constraint and hence the lasso optimization problem has many possible solutions.</p>
+<p>Q6. We will now explore (6.12) and (6.13) further. These equation represents the special case for the lasso and ridge regression. In this case $n=p$ and all the diagonal elements of data set is 1 and the non-diagonal elements are 0. In this case the optimization problem for ridge regression and the lasso reduces to:</p>
+<p>$$\sum _{j=1}^{p}(y_j - \beta_j)^2 + \lambda \sum _{j=1}^{p} \beta_j^2$$</p>
+<p>$$\sum _{j=1}^{p}(y_j - \beta_j)^2 + \lambda \sum _{j=1}^{p} |\beta_j|$$</p>
+<p>(a) Consider (6.12) with p = 1. For some choice of $y_1$ and λ &gt; 0, plot (6.12) as a function of $\beta_1$. Your plot should confirm that (6.12) is solved by (6.14).</p>
+<p><b>Sol:</b> Equation (6.14) is given as:</p>
+<p>$$\widehat{\beta_j}^R = \frac{y_j}{1 + \lambda}$$</p>
+<p>Let $y_1 = 5, \lambda = 10$. The plot is shown below. The red line shows the plot of the solution for the ridge regression in this case. It is evident that the line crosses through the minimum error value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+<span style="color:#66d9ef">print</span>(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))
+beta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">0.1</span>)
+ridge  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>(beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+plt<span style="color:#f92672">.</span>plot(beta, ridge)
+plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda)), (y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Ridge Residual + Regularization&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Ridge Residual + Regularization vs Beta&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>0.18181818181818182
+</code></pre>
+<img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_58_1.png" alt="">
+<p>(b) Consider (6.13) with p = 1. For some choice of $y_1$ and λ &gt; 0, plot (6.13) as a function of $\beta_1$. Your plot should confirm that (6.13) is solved by (6.15).</p>
+<p><b>Sol:</b> Equation (6.15) is given as:</p>
+<p>$$
+\begin{equation*}
+\beta_j^L= \left{
+\begin{array}{@{}ll@{}}
+y_j - \lambda/2, &amp; \text{if}\ y_j &gt; \lambda/2 \<br>
+y_j + \lambda/2, &amp; \text{if}\ y_j &lt; -\lambda/2 \<br>
+1, &amp; \text{if} \ |y_j| \leq \lambda/2
+\end{array}\right.
+\end{equation*}
+$$</p>
+<p>The plot is shown below. The red line shows the plot of the solution for the lasso in this case (solution is $y_j - \lambda/2$). It is evident that the line crosses through the minimum error value.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y<span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+lasso  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>absolute(beta)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+plt<span style="color:#f92672">.</span>plot(beta, lasso)
+plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Lasso Residual + Regularization&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Lasso Residual + Regularization vs Beta&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_60_0.png" alt="">
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/linear-model-selection-and-regularization_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/linear-model-selection-and-regularization_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/</link>
+    <description>Recent content in Tags on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gilbert Strang</title>
+      <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Equations</title>
+      <link>https://amitrajan012.github.io/tags/linear-equations/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-equations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matrix Multiplications</title>
+      <link>https://amitrajan012.github.io/tags/matrix-multiplications/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/matrix-multiplications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Correlation</title>
+      <link>https://amitrajan012.github.io/tags/correlation/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Covariance</title>
+      <link>https://amitrajan012.github.io/tags/covariance/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/covariance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Goodness of fit</title>
+      <link>https://amitrajan012.github.io/tags/goodness-of-fit/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/goodness-of-fit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Least squares fit</title>
+      <link>https://amitrajan012.github.io/tags/least-squares-fit/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/least-squares-fit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spearman’s rank correlation</title>
+      <link>https://amitrajan012.github.io/tags/spearmans-rank-correlation/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/spearmans-rank-correlation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Standard scores</title>
+      <link>https://amitrajan012.github.io/tags/standard-scores/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/standard-scores/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Think Stats</title>
+      <link>https://amitrajan012.github.io/tags/think-stats/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/think-stats/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Estimation</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-estimation/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-estimation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals</title>
+      <link>https://amitrajan012.github.io/tags/confidence-intervals/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/confidence-intervals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Estimation</title>
+      <link>https://amitrajan012.github.io/tags/estimation/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/estimation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exponential Distribution</title>
+      <link>https://amitrajan012.github.io/tags/exponential-distribution/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/exponential-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chi-square test</title>
+      <link>https://amitrajan012.github.io/tags/chi-square-test/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/chi-square-test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cross-validation</title>
+      <link>https://amitrajan012.github.io/tags/cross-validation/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cross-validation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing</title>
+      <link>https://amitrajan012.github.io/tags/hypothesis-testing/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/hypothesis-testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Power</title>
+      <link>https://amitrajan012.github.io/tags/power/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/power/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Central limit Theorem</title>
+      <link>https://amitrajan012.github.io/tags/central-limit-theorem/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/central-limit-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convolution</title>
+      <link>https://amitrajan012.github.io/tags/convolution/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/convolution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Variables</title>
+      <link>https://amitrajan012.github.io/tags/random-variables/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/random-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Skewness</title>
+      <link>https://amitrajan012.github.io/tags/skewness/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/skewness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes&#39;s Theorem</title>
+      <link>https://amitrajan012.github.io/tags/bayess-theorem/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayess-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binomial Distribution</title>
+      <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/binomial-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monty Hall Problem</title>
+      <link>https://amitrajan012.github.io/tags/monty-hall-problem/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/monty-hall-problem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probability</title>
+      <link>https://amitrajan012.github.io/tags/probability/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LogNormal Distribution</title>
+      <link>https://amitrajan012.github.io/tags/lognormal-distribution/</link>
+      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/lognormal-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Normal Distribution</title>
+      <link>https://amitrajan012.github.io/tags/normal-distribution/</link>
+      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/normal-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CDF</title>
+      <link>https://amitrajan012.github.io/tags/cdf/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cdf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conditional Distribution</title>
+      <link>https://amitrajan012.github.io/tags/conditional-distribution/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conditional-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PMF</title>
+      <link>https://amitrajan012.github.io/tags/pmf/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pmf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distributions</title>
+      <link>https://amitrajan012.github.io/tags/distributions/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mean</title>
+      <link>https://amitrajan012.github.io/tags/mean/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mean/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Variance</title>
+      <link>https://amitrajan012.github.io/tags/variance/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/variance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Content based filtering</title>
+      <link>https://amitrajan012.github.io/tags/content-based-filtering/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/content-based-filtering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Recommendation Engine</title>
+      <link>https://amitrajan012.github.io/tags/recommendation-engine/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/recommendation-engine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tf–idf</title>
+      <link>https://amitrajan012.github.io/tags/tfidf/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/tfidf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Unsupervised Learning</title>
+      <link>https://amitrajan012.github.io/tags/unsupervised-learning/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/unsupervised-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Applied</title>
+      <link>https://amitrajan012.github.io/tags/applied/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/applied/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exercises</title>
+      <link>https://amitrajan012.github.io/tags/exercises/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/exercises/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ISLR</title>
+      <link>https://amitrajan012.github.io/tags/islr/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/islr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conceptual</title>
+      <link>https://amitrajan012.github.io/tags/conceptual/</link>
+      <pubDate>Sun, 15 Jul 2018 03:51:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conceptual/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clustering Methods</title>
+      <link>https://amitrajan012.github.io/tags/clustering-methods/</link>
+      <pubDate>Thu, 12 Jul 2018 13:01:01 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/clustering-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hierarchical Clustering</title>
+      <link>https://amitrajan012.github.io/tags/hierarchical-clustering/</link>
+      <pubDate>Thu, 12 Jul 2018 13:01:01 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/hierarchical-clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K-Means Clustering</title>
+      <link>https://amitrajan012.github.io/tags/k-means-clustering/</link>
+      <pubDate>Mon, 09 Jul 2018 17:09:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/k-means-clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Principal Components Analysis</title>
+      <link>https://amitrajan012.github.io/tags/principal-components-analysis/</link>
+      <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/principal-components-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Support Vector Machines</title>
+      <link>https://amitrajan012.github.io/tags/support-vector-machines/</link>
+      <pubDate>Fri, 29 Jun 2018 06:19:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/support-vector-machines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Support Vector Classifiers</title>
+      <link>https://amitrajan012.github.io/tags/support-vector-classifiers/</link>
+      <pubDate>Wed, 20 Jun 2018 02:24:24 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/support-vector-classifiers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximal Margin Classifier</title>
+      <link>https://amitrajan012.github.io/tags/maximal-margin-classifier/</link>
+      <pubDate>Tue, 19 Jun 2018 12:14:23 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximal-margin-classifier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tree-Based Methods</title>
+      <link>https://amitrajan012.github.io/tags/tree-based-methods/</link>
+      <pubDate>Sat, 16 Jun 2018 01:34:53 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/tree-based-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bagging</title>
+      <link>https://amitrajan012.github.io/tags/bagging/</link>
+      <pubDate>Wed, 13 Jun 2018 13:04:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bagging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Boosting</title>
+      <link>https://amitrajan012.github.io/tags/boosting/</link>
+      <pubDate>Wed, 13 Jun 2018 13:04:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/boosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Random Forests</title>
+      <link>https://amitrajan012.github.io/tags/random-forests/</link>
+      <pubDate>Wed, 13 Jun 2018 13:04:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/random-forests/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decision Trees</title>
+      <link>https://amitrajan012.github.io/tags/decision-trees/</link>
+      <pubDate>Mon, 11 Jun 2018 17:07:13 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/decision-trees/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moving Beyond Linearity</title>
+      <link>https://amitrajan012.github.io/tags/moving-beyond-linearity/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/moving-beyond-linearity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resampling</title>
+      <link>https://amitrajan012.github.io/tags/resampling/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/resampling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generalized Additive Models</title>
+      <link>https://amitrajan012.github.io/tags/generalized-additive-models/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/generalized-additive-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Local Regression</title>
+      <link>https://amitrajan012.github.io/tags/local-regression/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/local-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Smoothing Splines</title>
+      <link>https://amitrajan012.github.io/tags/smoothing-splines/</link>
+      <pubDate>Wed, 30 May 2018 06:02:06 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/smoothing-splines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regression Splines</title>
+      <link>https://amitrajan012.github.io/tags/regression-splines/</link>
+      <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/regression-splines/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basis Functions</title>
+      <link>https://amitrajan012.github.io/tags/basis-functions/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/basis-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polynomial Regression</title>
+      <link>https://amitrajan012.github.io/tags/polynomial-regression/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/polynomial-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Step Functions</title>
+      <link>https://amitrajan012.github.io/tags/step-functions/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/step-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Model Selection</title>
+      <link>https://amitrajan012.github.io/tags/linear-model-selection/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-model-selection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>https://amitrajan012.github.io/tags/regularization/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/regularization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dimension Reduction</title>
+      <link>https://amitrajan012.github.io/tags/dimension-reduction/</link>
+      <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/dimension-reduction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shrinkage Methods</title>
+      <link>https://amitrajan012.github.io/tags/shrinkage-methods/</link>
+      <pubDate>Tue, 22 May 2018 21:16:20 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/shrinkage-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Subset Selection</title>
+      <link>https://amitrajan012.github.io/tags/subset-selection/</link>
+      <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/subset-selection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Bootstrap</title>
+      <link>https://amitrajan012.github.io/tags/the-bootstrap/</link>
+      <pubDate>Fri, 18 May 2018 02:26:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/the-bootstrap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://amitrajan012.github.io/tags/classification/</link>
+      <pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Discriminant Analysis</title>
+      <link>https://amitrajan012.github.io/tags/linear-discriminant-analysis/</link>
+      <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-discriminant-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
+      <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Regression</title>
+      <link>https://amitrajan012.github.io/tags/linear-regression/</link>
+      <pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Other Considerations in the Regression Model</title>
+      <link>https://amitrajan012.github.io/tags/other-considerations-in-the-regression-model/</link>
+      <pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/other-considerations-in-the-regression-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multiple Linear Regression</title>
+      <link>https://amitrajan012.github.io/tags/multiple-linear-regression/</link>
+      <pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multiple-linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Simple Linear Regression</title>
+      <link>https://amitrajan012.github.io/tags/simple-linear-regression/</link>
+      <pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/simple-linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Statistical Learning</title>
+      <link>https://amitrajan012.github.io/tags/statistical-learning/</link>
+      <pubDate>Sun, 06 May 2018 07:24:34 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/statistical-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://amitrajan012.github.io/tags/introduction/</link>
+      <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/introduction/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Think Stats: Chapter 5" />
+    <meta property="og:title" content="Think Stats: Chapter 5" />
+    <meta property="twitter:title" content="Think Stats: Chapter 5" />
+    
+
+    
+    <meta name="description" content="Think Stats: Chapter 5">
+    <meta property="og:description" content="Think Stats: Chapter 5" />
+    <meta property="twitter:description" content="Think Stats: Chapter 5" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Think Stats: Chapter 5-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter-5-probability/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/think-stats" title="Think Stats">
+                            Think Stats
+                        </a>
+                        
+                        <a class="tag" href="/tags/probability" title="Probability">
+                            Probability
+                        </a>
+                        
+                        <a class="tag" href="/tags/monty-hall-problem" title="Monty Hall Problem">
+                            Monty Hall Problem
+                        </a>
+                        
+                        <a class="tag" href="/tags/binomial-distribution" title="Binomial Distribution">
+                            Binomial Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/bayess-theorem" title="Bayes&#39;s Theorem">
+                            Bayes&#39;s Theorem
+                        </a>
+                        
+                    </div>
+                    <h1>Think Stats: Chapter 5</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Wednesday, August 22, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>The belief in which probability is expressed in terms of frequencies is called as <b>frequentism</b>. Frequentists believe that if there is no set of identical trials, there is no probability.</p>
+<p>An alternative is <b>Bayesianism</b>, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&rsquo;s state of knowledge. People with different information might have different degree of belief about the same event. This is the reason that many people think that Bayesian probability is more subjective than frequentists.</p>
+<h3 id="51-rules-of-probability">5.1 Rules of Probability</h3>
+<p>Conditional probability is defined as:
+$$P(A|B) = \frac{P(A \wedge B)}{P(B)}$$</p>
+<p><b>Exercise 5.1:</b> If I roll two dice and the total is 8, what is the chance that one of the dice is a 6?</p>
+<p><b>Solution:</b> A total of 8 can be received in 5 ways: (2,6),(3,5),(4,4),(5,3),(6,2). Out of these, there are two cases for which 1 dice is 6 and hence the probability is 2/5 = 0.4</p>
+<p><b>Exercise 5.2:</b> If I roll 100 dice, what is the chance of getting all sixes? What is the chance of getting no sixes?</p>
+<p><b>Solution:</b> Chance of getting all sixes is (1/6)^100 and chance of getting no sixes is (5/6)^100.</p>
+<p><b>Exercise 5.3:</b> The following questions are adapted from Mlodinow, The Drunkard’s Walk</p>
+<ul>
+<li>If a family has two children, what is the chance that they have two girls?</li>
+</ul>
+<p>Two children can either be (Boy, Boy), (Boy, Girl) or (Girl, Girl) and hence the probability is 0.33</p>
+<ul>
+<li>If a family has two children and we know that at least one of them is a girl, what is the chance that they have two girls?</li>
+</ul>
+<p>The probability is 0.5 as out of two outcomes (Boy, Girl) and (Girl, Girl), one is favourable.</p>
+<ul>
+<li>If a family has two children and we know that the older one is a girl, what is the chance that they have two girls?</li>
+</ul>
+<p>The probability is 0.5 as out of two outcomes (Girl, Boy) and (Girl, Girl), one is favourable.</p>
+<ul>
+<li>If a family has two children and we know that at least one of them is a girl named Florida, what is the chance that they have two girls?</li>
+</ul>
+<p>Same as above, as the name of the girl being Florida does not affect the outcome.</p>
+<h3 id="52-monty-hall-problem">5.2 Monty Hall Problem</h3>
+<p>The problem statement is: Out of 3 doors, one has a car. Contestant has to choose one of the three doors as the guess  behind which the car is present. The presenter then opens one of the two remaining doors (the one which does not have the car) and gives the contestant the option to switch his choice. The problem is, should the contestant “stick” or “switch” or does it make no difference?</p>
+<p>Intutively it seems that it makes no difference but switching doubles the chance of winning. There are three possible scenarios which are: Car is behind Door A or B or C. Suppose the contestant chooses Door A. So his chance of winnig is 1/3. The chance of the car being behind Door B or C is 2/3 and hence after switching the chance of contestant guessing the correct door increases to 2/3.</p>
+<p><b>Exercise 5.4:</b> Write a program that simulates the Monty Hall problem and use it to estimate the probability of winning if you stick and if you switch.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
+        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">else</span>:
+        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
+</code></pre></div><pre><code>Probability of winning when sticks: 0.338
+Probability of winning when switches: 0.662
+</code></pre>
+<p><b>Exercise 5.5:</b> To understand the Monty Hall problem, it is important to realize that by deciding which door to open, Monty is giving you information. To see why this matters, imagine the case where Monty doesn’t know where the prizes are, so he chooses Door B or C at random.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
+trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+    doors <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]
+    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+    doors<span style="color:#f92672">.</span>remove(guess)
+    result_switch <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>choice(doors) <span style="color:#75715e"># As one door is removed randomly</span>
+    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
+        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">elif</span> result_switch <span style="color:#f92672">==</span> winning_door:
+        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
+</code></pre></div><pre><code>Probability of winning when sticks: 0.335
+Probability of winning when switches: 0.348
+</code></pre>
+<p><b>Exercise 5.7</b> If you go to a dance where partners are paired up randomly, what percentage of opposite sex couples will you see where the woman is taller than the man? The distribution of height is roughly normal with mean = 178cm and variance = 59.4cm for men and mean = 163cm and variance = 52.8cm for women.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+<span style="color:#f92672">import</span> math
+trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+mean_men <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
+std_men <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">59.4</span>)
+mean_women <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
+std_women <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">52.8</span>)
+favourable_outcomes <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+    men <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_men, scale<span style="color:#f92672">=</span>std_men, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span>None)[<span style="color:#ae81ff">0</span>]
+    women <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_women, scale<span style="color:#f92672">=</span>std_women, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span>None)[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">if</span> women <span style="color:#f92672">&gt;</span> men:
+        favourable_outcomes <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Perccentage couples in which women is taller than the men is: &#34;</span> <span style="color:#f92672">+</span>str((favourable_outcomes<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span>trials) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>)
+</code></pre></div><pre><code>Perccentage couples in which women is taller than the men is: 49.98%
+</code></pre>
+<p><b>Exercise 5.8:</b> If I roll 2 dice, what is the chance of rolling at least one six?</p>
+<p><b>Solution: </b> Total number of outcomes is 36 when we roll two dice and out of those there are 25 outcomes of getting no 6. Hence favourable outcomes are (36-25) = 11 and probability is 11/36.</p>
+<h3 id="55-binomial-distribution">5.5 Binomial Distribution</h3>
+<p><b>Binomial Distribution</b> has PMF defined as (where n is the number of trials, p is the probability of success and k is the number of success):
+$$PMF(k) = \binom{n}{k}p^{k}(1-p)^{n-k}$$</p>
+<p><b>Exercise 5.10:</b> If you flip a coin 100 times, you expect about 50 heads, but what is the probability of getting exactly 50 heads?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">nCr</span>(n,r):
+    f <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>factorial
+    <span style="color:#66d9ef">return</span> f(n) <span style="color:#f92672">/</span> f(r) <span style="color:#f92672">/</span> f(n<span style="color:#f92672">-</span>r)
+
+probability <span style="color:#f92672">=</span> nCr(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability is: &#34;</span> <span style="color:#f92672">+</span>str(probability))
+</code></pre></div><pre><code>Probability is: 0.07958923738717877
+</code></pre>
+<h3 id="56-streaks-and-hot-spots">5.6 Streaks and hot spots</h3>
+<p>In real scenarios of random processes, there is no such thing as streak. A related phenomenon is the clustering illusion, which is the tendency to see clusters in random spatial pattern.</p>
+<p><b>Exercise 5.11:</b> If there are 10 players in a basketball game and each one takes 15 shots during the course of the game, and each shot has a 50% probability of going in, what is the probability that you will see, in a given game, at least one player who hits 10 winning shots in a row? If you watch a season of 82 games, what are the chances you will see at least one streak of 10 hits or misses?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> shuffle
+
+trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(trials):
+    <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
+        shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
+        <span style="color:#75715e"># Find winning streak</span>
+        winning_streak <span style="color:#f92672">=</span> False
+        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
+            window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
+            <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>:
+                winning_streak <span style="color:#f92672">=</span> True
+            <span style="color:#66d9ef">if</span> winning_streak:
+                <span style="color:#66d9ef">break</span>
+        <span style="color:#66d9ef">if</span> winning_streak:
+            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">break</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of seeing 10 winning shots in a game: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>trials))
+
+seasons <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+games <span style="color:#f92672">=</span> <span style="color:#ae81ff">82</span>
+
+<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(seasons):
+    <span style="color:#66d9ef">for</span> g <span style="color:#f92672">in</span> range(games):
+        streak <span style="color:#f92672">=</span> False
+        <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
+            shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
+            <span style="color:#75715e"># Find streaks of hits and misses</span>
+            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
+                window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
+                <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">or</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+                    streak <span style="color:#f92672">=</span> True
+                <span style="color:#66d9ef">if</span> streak:
+                    <span style="color:#66d9ef">break</span>
+            <span style="color:#66d9ef">if</span> streak:
+                    <span style="color:#66d9ef">break</span>
+        <span style="color:#66d9ef">if</span> streak:
+            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">break</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of seeing a streak in a season is: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>seasons))
+</code></pre></div><pre><code>Probability of seeing 10 winning shots in a game: 0.0285
+Probability of seeing a streak in a season is: 0.994
+</code></pre>
+<h3 id="57-bayess-theorem">5.7 Bayes&rsquo;s Theorem</h3>
+<p>Bayes&rsquo;s Theorem states that:
+$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$</p>
+<p>Suppose H is a hypothesis and E an event, then from Bayes&rsquo;s Theorem:</p>
+<p>$$P(H|E) = P(H)\frac{P(E|H)}{P(E)}$$</p>
+<p>This equation says that the probability of hypothesis H after the occurrence of event E is the product of the probability of H before the occurrence of event E and the ratio of the probability of occurrence of the event given the hypothesis has occurred and the total probability of the occurrence of event. This gives a knowledge about how the <b>probability of a hypothesis get updated overtime, usually in the light of new event/evidence.</b> Here, P(H) is called the <b>prior probability</b>, P(H|E) the <b>posterior probability</b>, P(E|H) the <b>likelihood of the event</b> and P(E) is the <b>normalizing constant</b>.</p>
+<p><b>Exercise 5.15:</b> Suppose there are two full bowls of cookies. Bowl 1 has 10 chocolate chip and 30 plain cookies, while Bowl 2 has 20 of each. Our friend Fred picks a bowl at random, and then picks a cookie at random. The cookie turns out to be a plain one. How probable is it that Fred picked it out of Bowl 1?</p>
+<p><b>Solution: </b>We have to find P(Bowl 1 | Plain), which can be evaluated as:
+$$P(Bowl 1| Plain) = P(Bowl 1)\frac{P(Plain|Bowl 1)}{P(Plain)}$$</p>
+<p>Here, P(Bowl 1) = 0.5, P(Plain | Bowl 1) = 30/40 = 0.75 and P(Plain) = 50/80 = 0.625</p>
+<p>Hence, P(Bowl 1 | Plain) = 0.6</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter-4-continuous-distributions/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 4">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter-6-operations-on-distributions/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 6">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

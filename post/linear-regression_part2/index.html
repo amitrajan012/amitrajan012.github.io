@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)" />
+    <meta property="og:title" content="ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)" />
+    <meta property="twitter:title" content="ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)" />
+    
+
+    
+    <meta name="description" content="ISLR Linear Regression">
+    <meta property="og:description" content="ISLR Linear Regression" />
+    <meta property="twitter:description" content="ISLR Linear Regression" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/linear-regression_part2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-regression" title="Linear Regression">
+                            Linear Regression
+                        </a>
+                        
+                        <a class="tag" href="/tags/multiple-linear-regression" title="Multiple Linear Regression">
+                            Multiple Linear Regression
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Tuesday, May 8, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="32-multiple-linear-regression">3.2 Multiple Linear Regression</h3>
+<p>In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:</p>
+<p>$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &hellip; + \beta_p X_p + \epsilon$$</p>
+<p>where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, <b>holding all other predictors fixed.</b></p>
+<h4 id="321-estimating-the-regression-coefficients">3.2.1 Estimating the Regression Coefficients</h4>
+<p>Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&hellip;, \widehat{\beta_p}$, predictions can be done as:</p>
+<p>$$\widehat{y} = \widehat{\beta_0} + \widehat{\beta_1}x_1 + \widehat{\beta_2}x_2 + &hellip; + \widehat{\beta_p}x_p$$</p>
+<p>$\beta$s can be estimated by minimizing the sum of squared residuals:</p>
+<p>$$RSS = \sum _{i=1}^{n}(y_i - \widehat{y_i})^2 = \sum _{i=1}^{n}(y_i - \widehat{\beta_0} + \widehat{\beta_1}x _{i1} + \widehat{\beta_2}x _{i2} + &hellip; + \widehat{\beta_p}x _{ip})^2$$</p>
+<p>The model coefficients for multiple linear regression for advertisement data is calculated below. It is observed that the coefficient for newspaper is almost equal to 0. As we analyze the correlation table for the data, the correlation coefficient between radio and newspaper is 0.35 and hence the rise in sales due to newspaper may arise due to the radio advertising, though if we fit a model for sales and newspaper the coefficient will not be 0.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> linear_model
+
+reg <span style="color:#f92672">=</span> linear_model<span style="color:#f92672">.</span>LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
+reg<span style="color:#f92672">.</span>fit (adv[[<span style="color:#e6db74">&#39;TV&#39;</span>, <span style="color:#e6db74">&#39;Radio&#39;</span>, <span style="color:#e6db74">&#39;Newspaper&#39;</span>]], adv[<span style="color:#e6db74">&#39;Sales&#39;</span>])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model Coefficients: &#34;</span> <span style="color:#f92672">+</span> str(reg<span style="color:#f92672">.</span>coef_))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Intercept: &#34;</span> <span style="color:#f92672">+</span> str(reg<span style="color:#f92672">.</span>intercept_))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;R-statistics: &#34;</span> <span style="color:#f92672">+</span> str(reg<span style="color:#f92672">.</span>score(adv[[<span style="color:#e6db74">&#39;TV&#39;</span>, <span style="color:#e6db74">&#39;Radio&#39;</span>, <span style="color:#e6db74">&#39;Newspaper&#39;</span>]], adv[<span style="color:#e6db74">&#39;Sales&#39;</span>])))
+</code></pre></div><pre><code>Model Coefficients: [ 0.04576465  0.18853002 -0.00103749]
+Intercept: 2.9388893694594085
+R-statistics: 0.8972106381789521
+
+
+/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/sklearn/linear_model/base.py:509: RuntimeWarning: internal gelsd driver lwork query error, required iwork dimension not returned. This is likely the result of LAPACK bug 0038, fixed in LAPACK 3.2.2 (released July 21, 2010). Falling back to 'gelss' driver.
+  linalg.lstsq(X, y)
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Correlation Coefficients:&#34;</span>)
+adv[[<span style="color:#e6db74">&#39;TV&#39;</span>, <span style="color:#e6db74">&#39;Radio&#39;</span>, <span style="color:#e6db74">&#39;Newspaper&#39;</span>, <span style="color:#e6db74">&#39;Sales&#39;</span>]]<span style="color:#f92672">.</span>corr()
+</code></pre></div><pre><code>Correlation Coefficients:
+</code></pre>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>TV</th>
+      <th>Radio</th>
+      <th>Newspaper</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>TV</th>
+      <td>1.000000</td>
+      <td>0.054809</td>
+      <td>0.056648</td>
+      <td>0.782224</td>
+    </tr>
+    <tr>
+      <th>Radio</th>
+      <td>0.054809</td>
+      <td>1.000000</td>
+      <td>0.354104</td>
+      <td>0.576223</td>
+    </tr>
+    <tr>
+      <th>Newspaper</th>
+      <td>0.056648</td>
+      <td>0.354104</td>
+      <td>1.000000</td>
+      <td>0.228299</td>
+    </tr>
+    <tr>
+      <th>Sales</th>
+      <td>0.782224</td>
+      <td>0.576223</td>
+      <td>0.228299</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<h4 id="is-there-a-relationship-between-the-response-and-predictors">Is There a Relationship Between the Response and Predictors?</h4>
+<p>To check whether there is a relationship between response and predictors, we need to check whether $\beta_1 = \beta_2 = &hellip; = \beta_p = 0$. The hypothesis is as follows:</p>
+<ul>
+<li>$H_0$: $\beta_1 = \beta_2 = &hellip; = \beta_p = 0$</li>
+<li>$H_A$: at least one of $\beta_j$ is non-zero.</li>
+</ul>
+<p>The hypothesis test is performed by computing the <b>F-statistic</b>:</p>
+<p>$$F = \frac{(TSS-RSS) \ / \ p}{RSS \ / \ (n-p-1)}$$</p>
+<p>where TSS is <b>total sum of squares</b> and RSS is <b>residual sum of squares</b>. If linear model assumption is true the denominator equals $\sigma^2$. If the <b>null hypothesis is true</b>, the numerator equals $\sigma^2$ as well and hence value of <b>F-statistic equals 1</b>. If the alternate hypothesis is true <b>F is greater than 1.</b> How large does the F-statistic have to be to reject $H_0$? For large value of $n$, F-statistic that is little larger than $n$ provides the evidence against $H_0$. A large F-statistic is needed to reject $H_0$ if n is small. When $H_0$ is true and the errors $\epsilon_i$ have a normal distribution, F-statistics follows an <b>F-distribution</b> and hence <b>p-value</b> can be calculated from that.</p>
+<p>Sometimes we want to test that whether a particular set of predictors have a relationship with response. This corresponds to null hypothesis:</p>
+<ul>
+<li>$H_0$: $\beta _{p-q+1} = \beta _{p-q+2} = &hellip; = \beta _{p} = 0$</li>
+</ul>
+<p>In this case we can fit a model that uses all the variables except these last $q$. Suppose the residual sum of squares for this model is $RSS_0$, then the F-statistic is defined as:</p>
+<p>$$F = \frac{(RSS_0 - RSS)\ / \ q }{RSS\ /\ (n-p-1)}$$</p>
+<p>For <b>very large number of variables</b> (p &gt; n), we can not fit the multiple linear regression and F-statistic can not be used as well.</p>
+<h4 id="deciding-on-important-variables">Deciding on Important Variables</h4>
+<p>The task of determining which predictors are associated with the response, in order to fit a single model involving only those predictors, is referred to as <b>variable selection.</b> One approach is to use all the possible combinations of predictors, build the model and select the one which fits best. But for large value of p, this approach is not feasible. There are three calssic approaches for this:</p>
+<ul>
+<li>
+<p><b>Forward Selection:</b> We begin with a <b>null model</b> (only with intercept) and fit $p$ linear regressions and add to the null model the variable that results in the <b>lowest RSS</b>. Then we can add to the model (with one variable) the variable that contributes lowest RSS for the new two-variable model. This process is continued until some stopping criteria is satisfied.</p>
+</li>
+<li>
+<p><b>Backward Selection:</b> This works in the same way but in the reverse order. We start with a p-variable model and remove the variable with <b>largest p-value</b> resulting in a (p-1)-variable model. We can continue further until all remaining variables have a p-value below some threshold.</p>
+</li>
+<li>
+<p><b>Mixed Selection:</b> This is a combination of forward and backward selection.</p>
+</li>
+</ul>
+<p>Backward selection can not be used if $p &gt; n$, but forward selection can always be used.</p>
+<h4 id="model-fit">Model Fit</h4>
+<p>Two most common numerical measure that can be used to describe the model fit are <b>RSE</b> and <b>R</b>^2. These quantities can be interpreted in the same way for multiple linear regression with one difference. For simple linear regression, $R^2$ is equal to the square of the correlation between response and the predictor. In the case of multiple linear regression, it equals $Cor(Y, \widehat{Y})^2$ instead. <b>$R^2$ will always increase if more variables are added to the model, even if those variables are weakly associated with the response.</b> Analysing the plot of the data is also a good way to check the model fit.</p>
+<h4 id="predictions">Predictions</h4>
+<p>We can use the least square plane to make the prediction for the response variable but there are some uncertainty associated with the prediction:</p>
+<ul>
+<li>
+<p>The model coefficients are only an estimation of the true population regression plane.</p>
+</li>
+<li>
+<p>In practice, assuming a linear model for $f(X)$ is an approximation and hence there is an additional reducible error which was called as <b>model bias.</b></p>
+</li>
+<li>
+<p>Even if $f(X)$ is known, there are some irreducible errors due to $\epsilon$, which can not be predicted.</p>
+</li>
+</ul>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/linear-regression_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/linear-regression_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

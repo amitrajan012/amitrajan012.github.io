@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K-Means Clustering on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/k-means-clustering/</link>
+    <description>Recent content in K-Means Clustering on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jul 2018 17:09:41 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/k-means-clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part3/</link>
+      <pubDate>Mon, 09 Jul 2018 17:09:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part3/</guid>
+      <description>10.3 Clustering Methods Clustering is a technique for finding subgroups or clusters in a data set based on similarity between individual observations. For clustering, we need to define the measure of similarity which depends on the knowledge of the data set. Two best known clustering methods are K-means clustering and hierarchical clustering. In K-means clustering, we partition the observations into a pre-defined number of clusters. In hierarchical clustering, the number of clusters is unknown and the results of clustering is represented as a dendrogram, which is a tree-like visualization technique that allows us to view the clustering results for various number of clusters (from 1 to $n$).</description>
+    </item>
+    
+  </channel>
+</rss>

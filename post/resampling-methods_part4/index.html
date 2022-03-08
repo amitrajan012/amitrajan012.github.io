@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)" />
+    <meta property="og:title" content="ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)" />
+    <meta property="twitter:title" content="ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)" />
+    
+
+    
+    <meta name="description" content="ISLR Resampling Methods">
+    <meta property="og:description" content="ISLR Resampling Methods" />
+    <meta property="twitter:description" content="ISLR Resampling Methods" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/resampling-methods_part4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/resampling" title="Resampling">
+                            Resampling
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/applied" title="Applied">
+                            Applied
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Saturday, May 19, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h4 id="applied">Applied</h4>
+<p>Q5. In Chapter 4, we used logistic regression to predict the probability of default using income and balance on the Default data set. We will now estimate the test error of this logistic regression model using the validation set approach. Do not forget to set a random seed before beginning your analysis.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
+
+np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
+default[<span style="color:#e6db74">&#39;student&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;student&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+default[<span style="color:#e6db74">&#39;default&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</code></pre></div><p>(a) Fit a logistic regression model that uses income and balance to predict default.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
+
+X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.078948
+         Iterations 10
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                default   No. Observations:                10000
+Model:                          Logit   Df Residuals:                     9997
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                  0.4594
+Time:                        12:36:14   Log-Likelihood:                -789.48
+converged:                       True   LL-Null:                       -1460.3
+                                        LLR p-value:                4.541e-292
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.5405      0.435    -26.544      0.000     -12.393     -10.688
+income      2.081e-05   4.99e-06      4.174      0.000     1.1e-05    3.06e-05
+balance        0.0056      0.000     24.835      0.000       0.005       0.006
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.14 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+</code></pre>
+<p>(b) Using the validation set approach, estimate the test error of this model.</p>
+<p><b>Sol:</b> The estimated test error rate is <b>2.46%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+
+train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+
+X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+
+X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
+predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.083176
+         Iterations 10
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                default   No. Observations:                 5000
+Model:                          Logit   Df Residuals:                     4997
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                  0.4634
+Time:                        12:39:27   Log-Likelihood:                -415.88
+converged:                       True   LL-Null:                       -775.08
+                                        LLR p-value:                1.001e-156
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.5308      0.604    -19.078      0.000     -12.715     -10.346
+income      2.357e-05   6.78e-06      3.476      0.001    1.03e-05    3.69e-05
+balance        0.0057      0.000     17.920      0.000       0.005       0.006
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.14 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+Estimation for test error rate is: 0.0246
+</code></pre>
+<p>(c) Repeat the process in (b) three times, using three different splits of the observations into a training set and a validation set. Comment on the results obtained.</p>
+<p><b>Sol:</b> The estimated test error rate for the three cases are: <b>2.66%, 2.7%</b> and <b>2.8%</b>. It varies a lot along iteration.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+    train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+
+    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+    model <span style="color:#f92672">=</span> Logit(y, X)
+    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+
+    X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+    X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
+    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.079463
+         Iterations 10
+Estimation for test error rate is: 0.0266
+Optimization terminated successfully.
+         Current function value: 0.081072
+         Iterations 10
+Estimation for test error rate is: 0.027
+Optimization terminated successfully.
+         Current function value: 0.073826
+         Iterations 10
+Estimation for test error rate is: 0.028
+</code></pre>
+<p>(d) Now consider a logistic regression model that predicts the probability of default using income, balance, and a dummy variable for student. Estimate the test error for this model using the validation set approach. Comment on whether or not including a dummy variable for student leads to a reduction in the test error rate.</p>
+<p><b>Sol:</b> Including student in the model does not improve the test erro rate much.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+
+X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+
+X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
+X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
+predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.070154
+         Iterations 10
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                default   No. Observations:                 5000
+Model:                          Logit   Df Residuals:                     4996
+Method:                           MLE   Df Model:                            3
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                  0.4739
+Time:                        12:47:51   Log-Likelihood:                -350.77
+converged:                       True   LL-Null:                       -666.74
+                                        LLR p-value:                1.191e-136
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.3053      0.760    -14.878      0.000     -12.795      -9.816
+income     -1.877e-06   1.22e-05     -0.154      0.878   -2.58e-05    2.21e-05
+balance        0.0061      0.000     16.602      0.000       0.005       0.007
+student       -0.9074      0.348     -2.610      0.009      -1.589      -0.226
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.19 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+Estimation for test error rate is: 0.0306
+</code></pre>
+<p>Q6. We continue to consider the use of a logistic regression model to predict the probability of default using income and balance on the Default data set. In particular, we will now compute estimates for the standard errors of the income and balance logistic regression coefficients in two different ways: (1) using the bootstrap, and (2) using the standard formula for computing the standard errors in the glm() function. Do not forget to set a random seed before beginning your analysis.</p>
+<p>(a) Using the summary() and glm() functions, determine the estimated standard errors for the coefficients associated with income and balance in a multiple logistic regression model that uses both predictors.</p>
+<p><b>Sol:</b> The standard errors for the coefficients are <b>0.435, 4.99e-06 and 0.000</b> respectively.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
+
+X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.078948
+         Iterations 10
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                default   No. Observations:                10000
+Model:                          Logit   Df Residuals:                     9997
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                  0.4594
+Time:                        13:21:36   Log-Likelihood:                -789.48
+converged:                       True   LL-Null:                       -1460.3
+                                        LLR p-value:                4.541e-292
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.5405      0.435    -26.544      0.000     -12.393     -10.688
+income      2.081e-05   4.99e-06      4.174      0.000     1.1e-05    3.06e-05
+balance        0.0056      0.000     24.835      0.000       0.005       0.006
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.14 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+</code></pre>
+<p>(b) Write a function, boot.fn(), that takes as input the Default data set as well as an index of the observations, and that outputs the coefficient estimates for income and balance in the multiple logistic regression model.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.utils <span style="color:#f92672">import</span> resample
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
+    <span style="color:#66d9ef">return</span> resample(df)
+
+train <span style="color:#f92672">=</span> boot(default)
+X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.076003
+         Iterations 10
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                default   No. Observations:                10000
+Model:                          Logit   Df Residuals:                     9997
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                  0.4672
+Time:                        13:34:46   Log-Likelihood:                -760.03
+converged:                       True   LL-Null:                       -1426.5
+                                        LLR p-value:                3.634e-290
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        -11.8500      0.449    -26.380      0.000     -12.730     -10.970
+income      2.468e-05   5.02e-06      4.919      0.000    1.48e-05    3.45e-05
+balance        0.0057      0.000     24.615      0.000       0.005       0.006
+==============================================================================
+
+Possibly complete quasi-separation: A fraction 0.15 of observations can be
+perfectly predicted. This might indicate that there is complete
+quasi-separation. In this case some parameters will not be identified.
+</code></pre>
+<p>(c) Use the boot() function to estimate the standard errors of the logistic regression coefficients for income and balance.</p>
+<p><b>Sol:</b> The standard errors for the coefficients are <b>0.4212, 4.554e-06 and 0.00022</b> respectively.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+
+intercept <span style="color:#f92672">=</span> []
+income <span style="color:#f92672">=</span> []
+balance <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+    train <span style="color:#f92672">=</span> boot(default)
+    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+
+    model <span style="color:#f92672">=</span> Logit(y, X)
+    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span>False)
+    intercept<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const)
+    income<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>income)
+    balance<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>balance)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for intercept: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(intercept, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for income: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(income, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for balance: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(balance, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</code></pre></div><pre><code>SE for intercept: 0.421160671038164
+SE for income: 4.5539698907803916e-06
+SE for balance: 0.00022086255501253455
+</code></pre>
+<p>(d) Comment on the estimated standard errors obtained using the glm() function and using your bootstrap function.</p>
+<p><b>Sol:</b> The standard errors obtained using both of the methods are in accordance.</p>
+<p>Q7. You will now take this approach in order to compute the LOOCV error for a simple logistic regression model on the Weekly data set.</p>
+<p>(a) Fit a logistic regression model that predicts Direction using Lag1 and Lag2.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">weekly <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Weekly.csv&#34;</span>)
+weekly[<span style="color:#e6db74">&#39;trend&#39;</span>] <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;Direction&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Down&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;Up&#39;</span>: <span style="color:#ae81ff">1</span>})
+
+X <span style="color:#f92672">=</span> weekly[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;trend&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.683297
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                 1089
+Model:                          Logit   Df Residuals:                     1086
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                0.005335
+Time:                        14:01:38   Log-Likelihood:                -744.11
+converged:                       True   LL-Null:                       -748.10
+                                        LLR p-value:                   0.01848
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2212      0.061      3.599      0.000       0.101       0.342
+Lag1          -0.0387      0.026     -1.477      0.140      -0.090       0.013
+Lag2           0.0602      0.027      2.270      0.023       0.008       0.112
+==============================================================================
+</code></pre>
+<p>(b) Fit a logistic regressionmodel that predicts Direction using Lag1 and Lag2 using all but the first observation.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>:len(weekly),:]
+test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>, :]
+
+X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.683147
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                 1088
+Model:                          Logit   Df Residuals:                     1085
+Method:                           MLE   Df Model:                            2
+Date:                Wed, 12 Sep 2018   Pseudo R-squ.:                0.005387
+Time:                        14:41:45   Log-Likelihood:                -743.26
+converged:                       True   LL-Null:                       -747.29
+                                        LLR p-value:                   0.01785
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2232      0.061      3.630      0.000       0.103       0.344
+Lag1          -0.0384      0.026     -1.466      0.143      -0.090       0.013
+Lag2           0.0608      0.027      2.291      0.022       0.009       0.113
+==============================================================================
+</code></pre>
+<p>(c) Use the model from (b) to predict the direction of the first observation. You can do this by predicting that the first observation will go up if P(Direction=&ldquo;Up&rdquo;|Lag1, Lag2) &gt; 0.5. Was this observation correctly classified?</p>
+<p><b>Sol:</b> The observation is not correctly classified as the prediction is <b>Up</b> but true trend is <b>Down</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
+predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prediction: &#34;</span> <span style="color:#f92672">+</span> str(predictions[<span style="color:#ae81ff">0</span>]))
+</code></pre></div><pre><code>Prediction: True
+</code></pre>
+<p>(d) Write a for loop from i = 1 to i = n, where n is the number of observations in the data set, that performs each of the following steps:</p>
+<ul>
+<li>Fit a logistic regression model using all but the ith observation to predict Direction using Lag1 and Lag2.</li>
+<li>Compute the posterior probability of the market moving up for the ith observation.</li>
+<li>Use the posterior probability for the ith observation in order to predict whether or not the market moves up.</li>
+<li>Determine whether or not an error was made in predicting the direction for the ith observation. If an error was made, then indicate this as a 1, and otherwise indicate it as a 0.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">n <span style="color:#f92672">=</span> len(weekly)
+
+error <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+    test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[[i]]
+    train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>drop(weekly<span style="color:#f92672">.</span>index[i])
+
+    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
+
+    model <span style="color:#f92672">=</span> Logit(y, X)
+    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span>False)
+
+    X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
+    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X)<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+    error<span style="color:#f92672">.</span>append(predictions <span style="color:#f92672">==</span> test[<span style="color:#e6db74">&#39;trend&#39;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>])
+</code></pre></div><p>(e) Take the average of the n numbers obtained in (d)iv in order to obtain the LOOCV estimate for the test error. Comment on the results.</p>
+<p><b>Sol:</b> The LOOCV estimate for the test error is <b>0.44995</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;LOOCV estimate for the test error is: &#34;</span> <span style="color:#f92672">+</span> str((len(error) <span style="color:#f92672">-</span> sum(error)) <span style="color:#f92672">/</span> (len(error))))
+</code></pre></div><pre><code>LOOCV estimate for the test error is: 0.44995408631772266
+</code></pre>
+<p>Q8. We will now perform cross-validation on a simulated data set.</p>
+<p>(a) Generate a simulated data set as follows:</p>
+<blockquote>
+<p>set .seed (1)
+y=rnorm (100)
+x=rnorm (100)
+y=x-2* x^2+ rnorm (100)</p>
+</blockquote>
+<p>In this data set, what is n and what is p? Write out the model used to generate the data in equation form.</p>
+<p><b>Sol:</b> In this data set, $n=100$ and $p=2$. The model used is:</p>
+<p>$$Y = X - 2X^2 + \epsilon$$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+y <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</code></pre></div><p>(b) Create a scatterplot of X against Y . Comment on what you find.</p>
+<p><b>Sol:</b> The scatterplot suggests a quadratic relationship.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>x, y<span style="color:#f92672">=</span>y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</code></pre></div><img class="pure-img" src="/img/Resampling%20Methods_files/Resampling%20Methods_52_1.png" alt="">
+<p>(c) Set a random seed, and then compute the LOOCV errors that result from fitting the following four models using least squares:</p>
+<pre><code>i. Y = β0 + β1X + e
+ii. Y = β0 + β1X + β2X2 + e
+iii. Y = β0 + β1X + β2X2 + β3X3 + e
+iv. Y = β0 + β1X + β2X2 + β3X3 + β4X4 + e
+</code></pre>
+<p><b>Sol:</b> Instead models upto 7th power of X has been fitted. The model with 4 parameters has the lowest LOOCV error.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
+<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">LOOCV</span>(df):
+    n <span style="color:#f92672">=</span> len(df)
+    error <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+        test <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[[i]]
+        train <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(df<span style="color:#f92672">.</span>index[i])
+
+        X_ <span style="color:#f92672">=</span> train<span style="color:#f92672">.</span>loc[:, train<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+        y_ <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;y&#39;</span>]
+
+        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
+        model<span style="color:#f92672">.</span>fit (X_, y_)
+
+        X_ <span style="color:#f92672">=</span> test<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+        predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_)
+        error <span style="color:#f92672">+=</span> (predictions <span style="color:#f92672">-</span> test<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;y&#39;</span>])<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+
+    <span style="color:#66d9ef">return</span> (error<span style="color:#f92672">/</span>n)
+
+random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># Model 1</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 1</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 3</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 4</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 5</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 6</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 7</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</code></pre></div><pre><code>MSE for model 1: [6.26076433]
+MSE for model 2: [0.91428971]
+MSE for model 3: [0.92687688]
+MSE for model 4: [0.86691169]
+MSE for model 5: [0.88748397]
+MSE for model 6: [0.95120753]
+MSE for model 7: [1.71904764]
+</code></pre>
+<p>(d) Repeat (c) using another random seed, and report your results. Are your results the same as what you got in (c)? Why?</p>
+<p><b>Sol:</b> The results are identical.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+<span style="color:#75715e"># Model 1</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 1</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 3</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 4</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 5</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 6</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+
+<span style="color:#75715e"># Model 7</span>
+df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</code></pre></div><pre><code>MSE for model 1: [6.26076433]
+MSE for model 2: [0.91428971]
+MSE for model 3: [0.92687688]
+MSE for model 4: [0.86691169]
+MSE for model 5: [0.88748397]
+MSE for model 6: [0.95120753]
+MSE for model 7: [1.71904764]
+</code></pre>
+<p>(e) Which of the models in (c) had the smallest LOOCV error? Is this what you expected? Explain your answer.</p>
+<p><b>Sol:</b> The 4th model (the one with 4 parameters) has the lowest LOOCV error. This is not expected as the relationship between X and Y is quadratic.</p>
+<p>(f) Comment on the statistical significance of the coefficient estimates that results from fitting each of the models in (c) using least squares. Do these results agree with the conclusions drawn based on the cross-validation results?</p>
+<p><b>Sol:</b> From the test of statistical significance for the model (with 4 parameters), it is observed that the cubic term is not statistically significant.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+
+X_ <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+X_ <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_, prepend<span style="color:#f92672">=</span>True)
+y_ <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;y&#39;</span>]
+
+model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y_, X_)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.873
+Model:                            OLS   Adj. R-squared:                  0.867
+Method:                 Least Squares   F-statistic:                     163.0
+Date:                Wed, 12 Sep 2018   Prob (F-statistic):           1.24e-41
+Time:                        19:10:57   Log-Likelihood:                -130.63
+No. Observations:                 100   AIC:                             271.3
+Df Residuals:                      95   BIC:                             284.3
+Df Model:                           4
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.3140      0.136      2.311      0.023       0.044       0.584
+x              0.9127      0.183      4.999      0.000       0.550       1.275
+x2            -2.5445      0.248    -10.264      0.000      -3.037      -2.052
+x3             0.0992      0.064      1.556      0.123      -0.027       0.226
+x4             0.1394      0.057      2.437      0.017       0.026       0.253
+==============================================================================
+Omnibus:                        1.537   Durbin-Watson:                   2.100
+Prob(Omnibus):                  0.464   Jarque-Bera (JB):                1.088
+Skew:                          -0.238   Prob(JB):                        0.581
+Kurtosis:                       3.184   Cond. No.                         15.9
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</code></pre>
+<p>Q9. We will now consider the Boston housing data set, from the MASS library.</p>
+<p>(a) Based on this data set, provide an estimate for the population mean of medv. Call this estimate $\widehat{\mu}$.</p>
+<p><b>Sol:</b> Estimate for the population mean of medv is <b>22.5328</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for population mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean()))
+</code></pre></div><pre><code>Estimate for population mean of medv is: 22.532806324110677
+</code></pre>
+<p>(b) Provide an estimate of the standard error of $\widehat{\mu}$. Interpret this result.</p>
+<p>Hint: We can compute the standard error of the sample mean by dividing the sample standard deviation by the square root of the number of observations.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>std() <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(len(boston))))
+</code></pre></div><pre><code>Estimate of standard error of sample mean of medv is: 0.40886114749753505
+</code></pre>
+<p>(c) Now estimate the standard error of $\widehat{\mu}$ using the bootstrap. How does this compare to your answer from (b)?</p>
+<p><b>Sol:</b> The estimate using bootstrap is <b>0.40932</b>, which is quite close to the estimate in (b).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
+    <span style="color:#66d9ef">return</span> resample(df)
+
+B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+sample_mean <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+    df <span style="color:#f92672">=</span> boot(boston)
+    sample_mean<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean())
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_mean, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</code></pre></div><pre><code>Estimate of standard error of sample mean of medv (using bootstrap) is: 0.4093238681867342
+</code></pre>
+<p>(d) Based on your bootstrap estimate from (c), provide a 95% confidence interval for the mean of medv. Compare it to the results obtained using t.test(Boston$medv).</p>
+<p><b>Sol:</b> The 95% confidence interval calculated from bootstrap is <b>(22.12348,22.94212)</b>. The p-value for t-test of the mean of medv for the equality with 0 is approximately equal to 0, which is in accordance with the results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> scipy.stats <span style="color:#f92672">as</span> stats
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;95% Confidence interval using bootstrap is: (&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span>)
+stats<span style="color:#f92672">.</span>ttest_1samp(a<span style="color:#f92672">=</span> boston[<span style="color:#e6db74">&#39;medv&#39;</span>], popmean<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</code></pre></div><pre><code>95% Confidence interval using bootstrap is: (22.12348,22.942120000000003)
+Ttest_1sampResult(statistic=55.11114583037392, pvalue=9.370623727132662e-216)
+</code></pre>
+<p>(e) Based on this data set, provide an estimate, $\widehat{\mu_{med}}$, for the median value of medv in the population.</p>
+<p><b>Sol:</b> Estimate for the population median of medv is <b>21.2</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for population median of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median()))
+</code></pre></div><pre><code>Estimate for population median of medv is: 21.2
+</code></pre>
+<p>(f) We now would like to estimate the standard error of $\widehat{\mu_{med}}$. Unfortunately, there is no simple formula for computing the standard error of the median. Instead, estimate the standard error of the median using the bootstrap. Comment on your findings.</p>
+<p><b>Sol:</b> The estimate of the standard error of median using bootstrap is <b>0.378564</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+sample_median <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+    df <span style="color:#f92672">=</span> boot(boston)
+    sample_median<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median())
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample median of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_median, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</code></pre></div><pre><code>Estimate of standard error of sample median of medv (using bootstrap) is: 0.36913325081446763
+</code></pre>
+<p>(g) Based on this data set, provide an estimate for the tenth percentile of medv in Boston suburbs. Call this quantity $\widehat{\mu_{0.1}}$. (You can use the quantile() function.)</p>
+<p><b>Sol:</b> Estimate for the 10th percentile of medv is <b>12.75</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for the tenth percentile of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)))
+</code></pre></div><pre><code>Estimate for the tenth percentile of medv is: 12.75
+</code></pre>
+<p>(h) Use the bootstrap to estimate the standard error of $\widehat{\mu_{0.1}}$. Comment on your findings.</p>
+<p><b>Sol:</b> The estimate of the standard error of median using bootstrap is <b>0.49295</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+sample_percentile <span style="color:#f92672">=</span> []
+
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+    df <span style="color:#f92672">=</span> boot(boston)
+    sample_percentile<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error for the tenth percentile of medv (using bootstrap) is: &#34;</span>
+      <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_percentile, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</code></pre></div><pre><code>Estimate of standard error for the tenth percentile of medv (using bootstrap) is: 0.5069736998428344
+</code></pre>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/resampling-methods_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 5: Resampling Methods (Part 3: Exercises - Conceptual)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/linear-model-selection-and-regularization_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

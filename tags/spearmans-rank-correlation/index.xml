@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spearman’s rank correlation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/spearmans-rank-correlation/</link>
+    <description>Recent content in Spearman’s rank correlation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Sep 2018 11:13:31 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/spearmans-rank-correlation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 9</title>
+      <link>https://amitrajan012.github.io/post/chapter-9-correlation/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
+      <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
+ Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+    </item>
+    
+  </channel>
+</rss>

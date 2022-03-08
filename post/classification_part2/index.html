@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)" />
+    <meta property="og:title" content="ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)" />
+    <meta property="twitter:title" content="ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)" />
+    
+
+    
+    <meta name="description" content="ISLR Classification">
+    <meta property="og:description" content="ISLR Classification" />
+    <meta property="twitter:description" content="ISLR Classification" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/classification_part2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/classification" title="Classification">
+                            Classification
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-discriminant-analysis" title="Linear Discriminant Analysis">
+                            Linear Discriminant Analysis
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Monday, May 14, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="44-linear-discriminant-analysis">4.4 Linear Discriminant Analysis</h3>
+<p>In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use <b>Bayes' Theorem</b> to flip these around into estimates for <b>Pr(Y = k | X = x)</b>. When these distributions are assumed to be <b>normal</b>, this model is very similar to logistic regression. The advantage of LDA is as follows:</p>
+<ul>
+<li>Fro well-seperated classes, the parameter estimates for the logistic regression model are unstable.</li>
+<li>For small $n$ and the normal distribution of predictors $X$ for each classes, linear discriminant model is more stable.</li>
+<li>LDA is popular when we have more than two response classes.</li>
+</ul>
+<h4 id="441-using-bayes-theorem-for-classification">4.4.1 Using Bayes’ Theorem for Classification</h4>
+<p>Let $\pi_k$ represents the <b>prior probability</b> that a randomly chosen observation comes from the $k$th class and $f_k(X) = Pr(X=x \ | \ Y=k)$ is the <b>density function</b> of $X$ for an observation that comes from the $k$th class. From Bayes' Theorem:</p>
+<p>$$Pr(Y=k|X=x) \ Pr(X=x) = Pr(X=x|Y=k) \ Pr(Y=k)$$</p>
+<p>$$Pr(Y=k|X=x) = \frac{Pr(X=x|Y=k) \ Pr(Y=k)}{Pr(X=x)}$$</p>
+<p>From the definition of prior probability, $\pi_k = Pr(Y=k)$ and $Pr(X=x)$ can be computed by summing/integrating $Pr(X=x|Y=l) \ Pr(Y=l)$ over l. Hence, the equation reduces to:</p>
+<p>$$p_k(X) = Pr(Y=k|X=x) = \frac{\pi_k \ f_k(X)}{Pr(X=x)} = \frac{\pi_k \ f_k(X)}{\sum _{l=1}^{k}\pi_lf_l(X)}$$</p>
+<p>Hence, $p_k(X)$ can be computed by plugging in the estimates of $\pi_k$ and $f_k(X)$. $\pi_k$ can be computed easily by taking the fraction of training samples that belong to the class-k. Estimating $f_k(X)$ is challenging. $p_k(X)$ is called as the <b>posterior probability</b> that observation $X=x$ belongs to the class-k, given the value of $X$. <b>Hence, if we can estimate $f_k(X)$, we can develop a classifier that approximates the Bayes classifier.</b></p>
+<h4 id="442-linear-discriminant-analysis-for-p--1">4.4.2 Linear Discriminant Analysis for p = 1</h4>
+<p>In order to estimate $f_k(X)$, we need to make some assumption about it&rsquo;s form. Let us assume that it takes <b>Normal / Gaussian form</b>. In one dimensional settings, normal distribution is given as:</p>
+<p>$$f_k(X) = \frac{1}{\sqrt{2\pi}\sigma_k} exp \bigg( {-\frac{1}{2\sigma_k^2}(x - \mu_k)^2} \bigg)$$</p>
+<p>where $\mu_k$ and $\sigma_k^2$ are the mean and variance for $k$th class. Let us assume that $\sigma_1^2 = \sigma_2^2 = &hellip; = \sigma_k^2 = \sigma^2$. Plugging this value, we get $p_k(X)$ as:</p>
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum _{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+<p>Bayes' classifier assigns $X=x$ to the class for which $p_k(X)$ is maximum. Taking the log and removing the constant terms, we get:</p>
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+<p>which, we have to maximize (or we assign $X$ to the class for which this value is maximum). For <b>two-class case</b> (K=2), and assuming that the <b>prior probability of both the classes are same</b> ($\pi_1 = \pi_2$), we assign an observation to class-1 if :</p>
+<p>$$log(\pi_1) - \frac{\mu_1^2}{2\sigma^2} + x.\frac{\mu_1}{\sigma^2} &gt;
+log(\pi_2) - \frac{\mu_2^2}{2\sigma^2} + x.\frac{\mu_2}{\sigma^2}$$</p>
+<p>$$2x(\mu_1 - \mu_2) &gt; \mu_1^2 - \mu_2^2$$</p>
+<p>Hence, for this case, the <b>bayes decision boundary corresponds to</b></p>
+<p>$$x = \frac{\mu_1^2 - \mu_2^2}{2(\mu_1 - \mu_2)} = \frac{\mu_1 + \mu_2}{2}$$</p>
+<p>For example, for two classes 1 and 2, with the normal density functions $f_1(X)$ and $f_2(X)$ with $\mu_1 = -1, \mu_2 = 1, \sigma^2 = 1$, the bayes decision boundary is $x=0$. Hence, the Bayes classifier will assign the observation to class 1 if $x&lt;0$ and class 2 otherwise. <b>In real life scenario, we can not calculate the Bayes classifier as we do not have the knowledge of the distribution within classes.</b></p>
+<p><b>LDA</b> approximates the Bayes classifier by estimating $\pi_k, \mu_k$ and $\sigma^2$. In particular, following estimates are used:</p>
+<p>$$\mu_k = \frac{1}{n_k} \sum _{i:y_i=k}x_i$$</p>
+<p>$$\sigma^2 = \frac{1}{n-K}\sum _{k=1}^{K}\sum _{i:y_i=k}(x_i - \mu_k)^2$$</p>
+<p>$$\pi_k = \frac{n_k}{n}$$</p>
+<p>The estimate of $\mu_k$ is the average of all the training observations from the $k$th class. The above estimates are plugged in the following <b>discriminant function</b> and probability for each of the classes is computed.</p>
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+<p>The word linear stems from the fact that the <b>discriminant function is linear in x</b>.</p>
+<h4 id="443-linear-discriminant-analysis-for-p-1">4.4.3 Linear Discriminant Analysis for p &gt;1</h4>
+<p>LDA classifier can be extended for the case of p predictors. For this we assume that $X=(X_1, X_2, &hellip;, X_p)$ is drawn from a <b>multivariate Gaussian</b>. Multivariate Gaussian assumes that each individual predictor follows a one-dimensional normal distribution, with some correlation between them. Below figure shows multivariate Gaussian distribution for 2 predictors. For the left figure, the two variables are uncorrelated. There is some correlation in the right hand side distribution.</p>
+<img class="pure-img" src="/img/Classification_files/MultivariateGaussian.png" alt="">
+<p>The height of the surface at any point represents the probability of both $X_1$ and $X_2$ falling in the region around the point. The left figure has $Var(X_1) = Var(X_2)$ and $Cor(X_1, X_2) = 0$ and has a <b>bell shape</b>. The bell shape will be distorted if the predictors are correlated or have unequal variances. A multivariate Gaussian can be denoted as $X \sim N(\mu, \Sigma)$, where $E(X) = \mu$ is the mean of $X$ (a p-dimensional vector) and $Cov(X) = \Sigma$ is the $p\times p$ covariance matrix of $X$. The <b>discriminant function</b> for multivariate Gaussian can be devised by replacing $\mu_k^2$ with $\mu_k^T\mu_k$ and $\frac{1}{\sigma^2}$ with $\Sigma^{-1}$:</p>
+<p>$$\delta_k(X) = log(\pi_k) - \frac{1}{2}\mu_k^T \Sigma^{-1} \mu_k + x^T \Sigma^{-1} \mu_k$$</p>
+<p>We can estimate the unknown parameters for this in the same way as for the single parameter. The following code performs a LDA for default data with balnce and student as parameter. The error rate for the model on training data is <b>2.75%</b>. This sounds like a low erroe rate, but as only 3.33% individuals in the training data are defaulters, the trivial <b>null classifier</b> will achieve an error rate of 3.33%, which is just higher than the LDA classifier.</p>
+<p>The overall performance of the classifier can be analysed using <b>confusion matrix</b>. For a binary classifier, confusion matrix consists of <b>true positive(TP), flase positive(FP), true negative(TN) and false negative(FN)</b>. If we analyze the performance of the classifier based on the parameter that whether it detects the defaulter correctly, the error rate is $\frac{252}{81+252} = 75.7 %$, which is very high.</p>
+<p><b>Sensitivity</b> can be defined as the percentage of the true defaulters that are identified ($\frac{TP}{TP+FN}$), which is $\frac{81}{81+252} = 24.3 %$. <b>Specificity</b> is the precentage of non-defaulters that are correctly identifies ($\frac{TN}{TN+FP}$), which is $\frac{9644}{9644+23} = 99.8 %$. The LDA has an overall decent accuracy but somehow it does not meet the need of the credit card company. The credit card company should be more interested in correctly classifying the defaulters.</p>
+<p>LDA as an extension of the Bayes classifier, works on the basis of threshold value of 0.5(fro two class case) as:</p>
+<p>$$Pr(default = Yes | X = x) &gt; 0.5$$</p>
+<p>If we lower this threshold, $Pr(default = Yes | X = x) &gt; 0.2$, the sensitivity can be improved. In this case, the sensitivity comes out to be:</p>
+<p>$$\frac{TP}{TP+FN} = \frac{195}{195+138} = 58.6 %$$</p>
+<p>However this improvement comes at a cost of increasing the overall error rate. The plot below shows the error rate vs threshold. It can be seen that as the threshold increases, error decreases. The choice of threshold can be done based on the <b>domain knowledge</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.discriminant_analysis <span style="color:#f92672">import</span> LinearDiscriminantAnalysis
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix
+
+default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
+default[<span style="color:#e6db74">&#39;student&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;student&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+default[<span style="color:#e6db74">&#39;default&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+
+clf <span style="color:#f92672">=</span> LinearDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(default[[<span style="color:#e6db74">&#39;student&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]], default[<span style="color:#e6db74">&#39;default&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(default[[<span style="color:#e6db74">&#39;student&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]])
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Error Rate for LDA: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">100</span> <span style="color:#f92672">-</span> clf<span style="color:#f92672">.</span>score(default[[<span style="color:#e6db74">&#39;student&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]], default[<span style="color:#e6db74">&#39;default&#39;</span>])<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>))
+tn, fp, fn, tp <span style="color:#f92672">=</span> confusion_matrix(y_true<span style="color:#f92672">=</span>default[<span style="color:#e6db74">&#39;default&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)<span style="color:#f92672">.</span>ravel()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;(tn, fp, fn, tp):&#34;</span> <span style="color:#f92672">+</span> str((tn, fp, fn, tp)))
+</code></pre></div><pre><code>Error Rate for LDA: 2.75
+(tn, fp, fn, tp):(9644, 23, 252, 81)
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># LDA with different threshold</span>
+probs <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict_proba(default[[<span style="color:#e6db74">&#39;student&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]])[:, <span style="color:#ae81ff">1</span>]
+prediction <span style="color:#f92672">=</span> probs <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.2</span>
+tn, fp, fn, tp <span style="color:#f92672">=</span> confusion_matrix(y_true<span style="color:#f92672">=</span>default[<span style="color:#e6db74">&#39;default&#39;</span>], y_pred<span style="color:#f92672">=</span>prediction)<span style="color:#f92672">.</span>ravel()
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;(tn, fp, fn, tp):&#34;</span> <span style="color:#f92672">+</span> str((tn, fp, fn, tp)))
+</code></pre></div><pre><code>(tn, fp, fn, tp):(9432, 235, 138, 195)
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Error rate with different thresholds</span>
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+thresholds <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0.0</span>,<span style="color:#ae81ff">0.6</span>,<span style="color:#ae81ff">1000</span>)
+error_rate <span style="color:#f92672">=</span> {}
+<span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> thresholds:
+    prediction <span style="color:#f92672">=</span> probs <span style="color:#f92672">&gt;</span> t
+    e <span style="color:#f92672">=</span> (len(prediction) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(prediction <span style="color:#f92672">==</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]))<span style="color:#f92672">/</span> len(prediction)
+    error_rate[t] <span style="color:#f92672">=</span> e
+
+lists <span style="color:#f92672">=</span> sorted(error_rate<span style="color:#f92672">.</span>items())
+x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Thrreshold&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Error&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Error vs Threshold&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_30_0.png" alt="">
+<p>The <b>ROC Curve</b> is a popular graphic to display the two types of errors for all possible thresholds. The overall performance of a classifier, summarized over all possible thresholds, is given by the <b>area under the ROC Curve (AUC).</b> Larger the AUC, better the classifier. Hence an ideal ROC curve will hug the top left corner. ROC curves are useful for comparing different classifiers as they take into account all the possible threshold values. The ROC curve is the plot of <b>True positive rate(sensitivity)</b> vs <b>False positive rate (1-specificity)</b> for the possible values of thresholds. The ROC curve for the default data is shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">roc <span style="color:#f92672">=</span> {}
+<span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> thresholds:
+    prediction <span style="color:#f92672">=</span> probs <span style="color:#f92672">&gt;</span> t
+    tn, fp, fn, tp <span style="color:#f92672">=</span> confusion_matrix(y_true<span style="color:#f92672">=</span>default[<span style="color:#e6db74">&#39;default&#39;</span>], y_pred<span style="color:#f92672">=</span>prediction)<span style="color:#f92672">.</span>ravel()
+    sensitivity <span style="color:#f92672">=</span> tp <span style="color:#f92672">/</span> (tp <span style="color:#f92672">+</span> fn)
+    specificity <span style="color:#f92672">=</span> tn <span style="color:#f92672">/</span> (tn <span style="color:#f92672">+</span> fp)
+    roc[<span style="color:#ae81ff">1</span><span style="color:#f92672">-</span>specificity] <span style="color:#f92672">=</span> sensitivity
+
+lists <span style="color:#f92672">=</span> sorted(roc<span style="color:#f92672">.</span>items())
+x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;False Positive Rate (1 - specificity)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;True Positive Rate (sensitivity)&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;ROC Curve&#39;</span>)
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_32_0.png" alt="">
+<h4 id="444-quadratic-discriminant-analysis">4.4.4 Quadratic Discriminant Analysis</h4>
+<p>Like LDA, the <b>Quadratic discriminant analysis (QDA)</b> classifier assumes that the observations from each class are drawn from the Gaussian distribution and plugs estimates into Bayes' theorem to predict. But QDA assumes that <b>each class has its own covariance matrix</b>. The resultant discriminant function is quadratic in $x$.</p>
+<p>$$\delta_k(x) = log(\pi_k) - \frac{1}{2}\mu_k^T \Sigma_k^{-1} \mu_k - \frac{1}{2}x^T \Sigma_k^{-1} x + x^T \Sigma_k^{-1} \mu_k$$</p>
+<p>LDA is sometimes preferred over QDA as predicting variances of the individual classes is a cumbersome task. LDA is much less flexible classifier and hence has low variance. But the LDA&rsquo;s assumption that all the classes share the same variance, makes LDA carry a high bias. <b>LDA performs better than QDA if there are fewer training samples.</b></p>
+<h3 id="45-a-comparison-of-classification-methods">4.5 A Comparison of Classification Methods</h3>
+<p>The logistic regression and LDA methods are closely connected. The only difference between the two models is the fact that the parameters of the logistic regression is estimated using <b>maximum likelihood</b>, while for LDA, parameters are computed using the estimated mean and variance of a Gaussian distribution. LDA assumes that the obesrvations are drawn fron a normal distribution with a common covariance matrix for each class. If this assumption holds true, LDA outperforms logistic regression. Logistic regression can outperform LDA if these assumptions are not true.</p>
+<p><b>KNN</b> is a completely non-parametric approach as it makes no assumption about the shape of the distribution. KNN dominates over LDA and logistic regression when the decision boundary is highly non-linear. One drawback of KNN is the fact that it does not tell about the importance of individual predictors.</p>
+<p><b>QDA</b> assumes a quadratic decision boundary and hence can model a wider range of problems than the linear methods. Not as flexible as KNN, QDA can perfrom better in the presence of a limited number of training observations.</p>
+<p>In a nutshell, <b>when the true decision boundary is linear, LDA and logistic regression methods will tend to perform better. When the boundary is moderately non-linear, QDA may give better results. For a much more complicated decision boundaries, a non-parametric approach such as KNN can perform bettre. The level of smootheness for a non-parametric approach needs to be chosen carefully though.</b></p>
+<h3 id="47-exercises">4.7 Exercises</h3>
+<h4 id="conceptual">Conceptual</h4>
+<p>Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation
+for the logistic regression model are equivalent.</p>
+<p><b>Sol: </b> Logistic function representation is given as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$</p>
+<p>then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get</p>
+<p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</p>
+<p>Q2. Under the assumption that the observations in the $k$th class is drawn from a normal distribution, the Bayes' classifier assign an observation to the class for which the discriminant function is maximized.</p>
+<p><b>Sol:</b> The posterior probability for the Bayes' classifier is given as:</p>
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum _{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+<p>In the Bayes' classifier, we have to find the class for which this is maximum. As log function is monotonically increasing, we can maximize the log of the posterior probability. Here the denominator is constant and hence for the maximization process, this can be ignored. For the constant variance case, the term $\frac{1}{\sqrt{2\pi}\sigma}$ in the neumerator is constant and hence can be ignored as well. Now taking the logarithm and expanding the quadratic term, we get:</p>
+<p>$$log(p_k(X)) = \delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2} - \frac{x^2}{2\sigma^2}$$</p>
+<p>The last term is constant in $k$ as well and hence can be ignored, which gives:</p>
+<p>$$\delta_k(X) = log(\pi_k) - \frac{\mu_k^2}{2\sigma^2} + x.\frac{\mu_k}{\sigma^2}$$</p>
+<p>Q3. This problem relates to the QDA model, in which the observations within each class are drawn from a normal distribution with a classspecific mean vector and a class specific covariance matrix. We can not assume that the variance of each class is same. Prove that in this case, the Bayes’ classifier is not linear. Argue that it is in fact
+quadratic.</p>
+<p><b>Sol:</b> Replacing $\sigma$ with $\sigma_k$ in the second equation in question 2 and not ignoring the term $\frac{1}{\sqrt{2\pi}\sigma_k}$ in the neumerator before taking the log, we get the <b>discriminant function</b> as:</p>
+<p>$$\delta_k(X) = log(\pi_k) - log(\sigma_k) - \frac{\mu_k^2}{2\sigma_k^2} + x.\frac{\mu_k}{\sigma_k^2} - \frac{x^2}{2\sigma_k^2}$$</p>
+<p>And hence Bayes' classifier is not linear in $x$. In fact, it is quadratic.</p>
+<p>Q4. When the number of features p is large, there tends to be a deterioration in the performance of KNN and other local approaches that perform prediction using only observations that are near the test observation for which a prediction must be made. This phenomenon is known as the <b>curse of dimensionality</b>, and it ties into the fact that parametric approaches often perform poorly when p is large.</p>
+<p>(a) Suppose that we have a set of observations, each with measurements on p = 1 feature, X. We assume that X is uniformly distributed on [0, 1]. Associated with each observation is a response value. Suppose that we wish to predict a test observation’s response using only observations that are within 10% of the range of X closest to that test observation. For instance, in order to predict the response for a test observation with X = 0.6, we will use observations in the range [0.55, 0.65]. On average, what fraction of the available observations will we use to make
+the prediction?</p>
+<p><b>Sol:</b> As for each test observation, we use the observations in the range <b>0.1</b> (half left and half right) of the entire range of observation, and hence this accounts to the average value of <b>10%</b> of the available observation.</p>
+<p>To be more specific, for the test observation, x &lt; 0.05, we will use the observations in the range [0, x+0.05] and for x &gt; 0.95, we will use the observations in the range [x-0.05, 1]. As the observations are uniformly distributed, we can find the average fraction of observations used by integrating the individual ranges:</p>
+<p>$$fraction = \int _{0}^{0.05}(100x+5) dx + \int _{0.05}^{0.95} 10 dx + \int _{0.95}^{1} (105-100x)dx = 9.75$$</p>
+<p>And hence to be more specific, we use <b>9.75%</b> of the observations.</p>
+<p>(b) Solve the above case for 2 predictors $X_1$ and $X_2$.</p>
+<p><b>Sol:</b> For the two independent predictors, the fraction of observations used will be 9.75% for $X_1$ and 9.75% for $X_2$. Hence the total fraction of observations used is 9.75% $\times$ 9.75% = 0.95%.</p>
+<p>(c) Now suppose that we have a set of observations on p = 100 features. What fraction of the available observations will we use to make the prediction?</p>
+<p><b>Sol:</b> For p=100, we will use (9.75%)$^{100}$ = 0% of the total observations for the prediction.</p>
+<p>(e) Now suppose that we wish to make a prediction for a test observation by creating a p-dimensional hypercube centered around the test observation that contains, on average, 10% of the training observations. For p = 1, 2, and 100, what is the length of each side of the hypercube? Comment on your answer.</p>
+<p><b>Sol:</b> For $p=l$, the length of the hypercube is $(0.1)^{\frac{1}{l}}$. Hence, as $l$ increases, the lenghth of the cube increases.</p>
+<p>Q5. (a) If the Bayes decision boundary is linear, do we expect LDA or QDA to perform better on the training set? On the test set?</p>
+<p><b>Sol:</b> QDA may perform better on training set as it has higher flexibility. It may try to imitate training data as close as possible and hence may result in overfitting. LDA will perform better on test set.</p>
+<p>(b) If the Bayes decision boundary is non-linear, do we expect LDA or QDA to perform better on the training set? On the test set?</p>
+<p><b>Sol:</b> QDA will perform better both on the training as well as test sets.</p>
+<p>(c) In general, as the sample size n increases, do we expect the test prediction accuracy of QDA relative to LDA to improve, decline, or be unchanged? Why?</p>
+<p><b>Sol:</b> As in QDA, we assume different variance among classes. If sample size is small, QDA performs better. As sample size increases, the assumption of equal variance among classes (as assumed while doing LDA) may be true and hence the performance of LDA and QDA in this case solely depends on the Bayes' decision boundary.</p>
+<p>(d) True or False: Even if the Bayes decision boundary for a given problem is linear, we will probably achieve a superior test error rate using QDA rather than LDA because QDA is flexible enough to model a linear decision boundary.</p>
+<p><b>Sol:</b> False</p>
+<p>Q6. Suppose we collect data for a group of students in a statistics class with variables X1 =hours studied, X2 =undergrad GPA, and Y = receive an A. We fit a logistic regression and produce estimated coefficient, $\widehat{\beta_0}= −6$ , $\widehat{\beta_1} = 0.05$, $\widehat{\beta_2}= 1$.</p>
+<p>(a) Estimate the probability that a student who studies for 40h and has an undergrad GPA of 3.5 gets an A in the class.</p>
+<p><b>Sol:</b> The probability in logistic regression is given as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}$$</p>
+<p>Hence, the probability of a student getting A with the given data is</p>
+<p>$$p = \frac{e^{-6 + 0.05\times40 + 1\times 3.5}}{1 + e^{-6 + 0.05\times40 + 1\times 3.5}} = 0.3775$$</p>
+<p>(b) How many hours would the student in part (a) need to study to have a 50% chance of getting an A in the class?</p>
+<p><b>Sol:</b> Here probability is 0.5. Hence,</p>
+<p>$$e^{-6 + 0.05\times h + 1\times 3.5} = \frac{p}{1-p} = 1$$</p>
+<p>$$-2.5 + 0.05\times h = 0$$</p>
+<p>and hence value of h is <b>50</b>.</p>
+<p>Q7. Suppose that we wish to predict whether a given stock will issue a dividend this year (“Yes” or “No”) based on X, last year’s percent profit.We examine a large number of companies and discover that the mean value of X for companies that issued a dividend was $\bar{X}$ = 10, while the mean for those that didn’t was $\bar{X}$ = 0. In addition, the
+variance of X for these two sets of companies was $\widehat{\sigma^2}$ = 36. Finally, 80% of companies issued dividends. Assuming that X follows a normal distribution, predict the probability that a company will issue a dividend this year given that its percentage profit was X = 4 last year.</p>
+<p><b>Sol:</b> From Bayes' theorem:</p>
+<p>$$p_k(X) = \frac{\pi_k \frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_k)^2} \bigg)}
+{\sum _{l=1}^{k}\pi_l\frac{1}{\sqrt{2\pi}\sigma} exp \bigg( {-\frac{1}{2\sigma^2}(x - \mu_l)^2} \bigg)}$$</p>
+<p>Here, $\pi_ {YES} = 0.8, \pi_ {NO} = 0.2, \mu_ {YES} = 10, \mu_ {N0} = 0, \widehat{\sigma^2} = 36 $. Hence, $f_ {YES}(4) = 0.04033, \ f_ {NO}(4) = 0.05324$. Which gives the probability as:</p>
+<p>$$p_YES{4} = \frac{0.8 \times 0.04033}{0.8 \times 0.04033 + 0.2 \times 0.05324} = 0.75186$$</p>
+<p>Q8. Suppose that we take a data set, divide it into equally-sized training and test sets, and then try out two different classification procedures. First we use logistic regression and get an error rate of 20% on the training data and 30% on the test data. Next we use 1-nearest neighbors (i.e. K = 1) and get an average error rate (averaged over both test and training data sets) of 18%. Based on these results, which method should we prefer to use for classification of new observations? Why?</p>
+<p><b>Sol:</b> For KNN with K=1, the training errro rate is 0 as all the training data will be classified correctly. Hence for the KNN with average error rate of 18%, the test error rate is 36% which makes the logistic regression with test error rate 30% is better for classification.</p>
+<p>Q9. This problem has to do with odds.</p>
+<p>(a) On average, what fraction of people with an odds of 0.37 of defaulting on their credit card payment will in fact default?</p>
+<p><b>Sol:</b> Odds is given as:</p>
+<p>$$\frac{p}{1-p} = 0.37$$</p>
+<p>which gives the probability as <b>0.27</b>.</p>
+<p>(b) Suppose that an individual has a 16% chance of defaulting on her credit card payment. What are the odds that she will default?</p>
+<p><b>Sol:</b> Here, p = 0.16. Hence odds of defaulting is</p>
+<p>$$odds = \frac{p}{1-p} = \frac{0.16}{1-0.16} = 0.19$$</p>
+<h4 id="applied">Applied</h4>
+<p>Q10. This question should be answered using the Weekly data set.</p>
+<p>(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+weekly <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Weekly.csv&#34;</span>)
+
+sns<span style="color:#f92672">.</span>pairplot(weekly, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>, <span style="color:#e6db74">&#39;Lag3&#39;</span>, <span style="color:#e6db74">&#39;Lag4&#39;</span>, <span style="color:#e6db74">&#39;Lag5&#39;</span>, <span style="color:#e6db74">&#39;Volume&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Direction&#39;</span>)
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_49_2.png" alt="">
+<p>(b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results. Do any of the predictors appear to be statistically significant? If so, which ones?</p>
+<p><b>Sol:</b> Significant predictors are: <b>Lag2</b></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
+<span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
+
+weekly[<span style="color:#e6db74">&#39;trend&#39;</span>] <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;Direction&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Down&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;Up&#39;</span>: <span style="color:#ae81ff">1</span>})
+X <span style="color:#f92672">=</span> weekly[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>, <span style="color:#e6db74">&#39;Lag3&#39;</span>, <span style="color:#e6db74">&#39;Lag4&#39;</span>, <span style="color:#e6db74">&#39;Lag5&#39;</span>, <span style="color:#e6db74">&#39;Volume&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;trend&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.682441
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                 1089
+Model:                          Logit   Df Residuals:                     1082
+Method:                           MLE   Df Model:                            6
+Date:                Mon, 10 Sep 2018   Pseudo R-squ.:                0.006580
+Time:                        19:13:02   Log-Likelihood:                -743.18
+converged:                       True   LL-Null:                       -748.10
+                                        LLR p-value:                    0.1313
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2669      0.086      3.106      0.002       0.098       0.435
+Lag1          -0.0413      0.026     -1.563      0.118      -0.093       0.010
+Lag2           0.0584      0.027      2.175      0.030       0.006       0.111
+Lag3          -0.0161      0.027     -0.602      0.547      -0.068       0.036
+Lag4          -0.0278      0.026     -1.050      0.294      -0.080       0.024
+Lag5          -0.0145      0.026     -0.549      0.583      -0.066       0.037
+Volume        -0.0227      0.037     -0.616      0.538      -0.095       0.050
+==============================================================================
+</code></pre>
+<p>(c) Compute the confusion matrix and overall fraction of correct predictions. Explain what the confusion matrix is telling you about the types of mistakes made by logistic regression.</p>
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>56.11%</b>. The model has higher <b>flase positive</b> rate.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down  Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(result<span style="color:#f92672">.</span>pred_table(threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(result<span style="color:#f92672">.</span>pred_table(threshold<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down  Up(Predicted)
+Down 	[ 23. 418.]
+Up 	[ 20. 524.]
+</code></pre>
+<p>(d) Now fit the logistic regression model using a training data period from 1990 to 2008, with Lag2 as the only predictor. Compute the confusion matrix and the overall fraction of correct predictions for the held out data (that is, the data from 2009 and 2010).</p>
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>62.5%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>loc[weekly[<span style="color:#e6db74">&#39;Year&#39;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">2008</span>]
+test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>loc[weekly[<span style="color:#e6db74">&#39;Year&#39;</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">2009</span>]
+
+X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
+y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
+
+model <span style="color:#f92672">=</span> Logit(y, X)
+result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
+</code></pre></div><pre><code>Optimization terminated successfully.
+         Current function value: 0.685555
+         Iterations 4
+                           Logit Regression Results
+==============================================================================
+Dep. Variable:                  trend   No. Observations:                  985
+Model:                          Logit   Df Residuals:                      983
+Method:                           MLE   Df Model:                            1
+Date:                Mon, 10 Sep 2018   Pseudo R-squ.:                0.003076
+Time:                        19:53:30   Log-Likelihood:                -675.27
+converged:                       True   LL-Null:                       -677.35
+                                        LLR p-value:                   0.04123
+==============================================================================
+                 coef    std err          z      P&gt;|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.2033      0.064      3.162      0.002       0.077       0.329
+Lag2           0.0581      0.029      2.024      0.043       0.002       0.114
+==============================================================================
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix
+
+X_test <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+X_test <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_test, prepend<span style="color:#f92672">=</span>True)
+y_test <span style="color:#f92672">=</span> test[<span style="color:#e6db74">&#39;trend&#39;</span>]
+predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_test) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_test, predictions)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_test, predictions)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[ 9 34]
+Up 	[ 5 56]
+</code></pre>
+<p>(e) Repeat (d) using LDA.</p>
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>62.5%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.discriminant_analysis <span style="color:#f92672">import</span> LinearDiscriminantAnalysis
+<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> confusion_matrix
+
+clf <span style="color:#f92672">=</span> LinearDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]], train[<span style="color:#e6db74">&#39;trend&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[ 9 34]
+Up 	[ 5 56]
+</code></pre>
+<p>(f) Repeat (d) using QDA.</p>
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>58.65%</b>. The model always predict that the market will go up.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.discriminant_analysis <span style="color:#f92672">import</span> QuadraticDiscriminantAnalysis
+
+clf <span style="color:#f92672">=</span> QuadraticDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]], train[<span style="color:#e6db74">&#39;trend&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[ 0 43]
+Up 	[ 0 61]
+</code></pre>
+<p>(g) Repeat (d) using KNN with K = 1.</p>
+<p><b>Sol:</b> The confusion matrix is shown below. The overall fraction of correct predictions is <b>49.04%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.neighbors <span style="color:#f92672">import</span> KNeighborsClassifier
+
+neigh <span style="color:#f92672">=</span> KNeighborsClassifier(n_neighbors<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+neigh<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]], train[<span style="color:#e6db74">&#39;trend&#39;</span>])
+y_predict <span style="color:#f92672">=</span> neigh<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;Lag2&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;trend&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[21 22]
+Up 	[31 30]
+</code></pre>
+<p>(h) Which of these methods appears to provide the best results on this data?</p>
+<p><b>Sol:</b> The logistic regression and LDA have the minimum error rate.</p>
+<p>Q11. In this problem, you will develop a model to predict whether a given car gets high or low gas mileage based on the Auto data set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Auto.csv&#34;</span>)
+auto<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
+auto <span style="color:#f92672">=</span> auto[auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;?&#39;</span>]
+auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>astype(int)
+auto<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>chevrolet chevelle malibu</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>buick skylark 320</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>plymouth satellite</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>amc rebel sst</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>ford torino</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>(a) Create a binary variable, mpg01, that contains a 1 if mpg contains a value above its median, and a 0 if mpg contains a value below its median.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">&gt;=</span>auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>median(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
+auto<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mpg</th>
+      <th>cylinders</th>
+      <th>displacement</th>
+      <th>horsepower</th>
+      <th>weight</th>
+      <th>acceleration</th>
+      <th>year</th>
+      <th>origin</th>
+      <th>name</th>
+      <th>mpg01</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>307.0</td>
+      <td>130</td>
+      <td>3504</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>chevrolet chevelle malibu</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>15.0</td>
+      <td>8</td>
+      <td>350.0</td>
+      <td>165</td>
+      <td>3693</td>
+      <td>11.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>buick skylark 320</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18.0</td>
+      <td>8</td>
+      <td>318.0</td>
+      <td>150</td>
+      <td>3436</td>
+      <td>11.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>plymouth satellite</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16.0</td>
+      <td>8</td>
+      <td>304.0</td>
+      <td>150</td>
+      <td>3433</td>
+      <td>12.0</td>
+      <td>70</td>
+      <td>1</td>
+      <td>amc rebel sst</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17.0</td>
+      <td>8</td>
+      <td>302.0</td>
+      <td>140</td>
+      <td>3449</td>
+      <td>10.5</td>
+      <td>70</td>
+      <td>1</td>
+      <td>ford torino</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p>(b) Explore the data graphically in order to investigate the association between mpg01 and the other features. Which of the other features seem most likely to be useful in predicting mpg01? Scatterplots and boxplots may be useful tools to answer this question. Describe your findings.</p>
+<p><b>Sol:</b> The scatterplot of the data is shown below. As mpg01 with value 1 is shown with orange and value 0 is shown with blue, it is evident that certain combinations of predictors are present which can be used to model a classifier with high accuracy. For example, if we take a look at the scatter plot of weight and accelaration, it can be noted that the observations are decently segregated based on class.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>,
+                         <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;mpg01&#39;</span>)
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_69_2.png" alt="">
+<p>(c) Split the data into a training set and a test set.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(auto)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
+train <span style="color:#f92672">=</span> auto[msk]
+test <span style="color:#f92672">=</span> auto[<span style="color:#f92672">~</span>msk]
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of training data: &#34;</span> <span style="color:#f92672">+</span>str(len(train)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of test data: &#34;</span> <span style="color:#f92672">+</span>str(len(test)))
+</code></pre></div><pre><code>Length of training data: 311
+Length of test data: 81
+</code></pre>
+<p>(d) Perform LDA on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> LinearDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]], train[<span style="color:#e6db74">&#39;mpg01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[32  3]
+Up 	[ 0 46]
+</code></pre>
+<p>(e) Perform QDA on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>97.53%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> QuadraticDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]], train[<span style="color:#e6db74">&#39;mpg01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 1 45]
+</code></pre>
+<p>(f) Perform logistic regression on the training data in order to predict mpg01 using the variables that seemed most associated with mpg01 in (b). What is the test error of the model obtained?</p>
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+
+clf <span style="color:#f92672">=</span> LogisticRegression()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]], train[<span style="color:#e6db74">&#39;mpg01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 2 44]
+</code></pre>
+<p>(g) Perform KNN on the training data, with several values of K, in order to predict mpg01. Use only the variables that seemed most associated with mpg01 in (b). What test errors do you obtain? Which value of K seems to perform the best on this data set?</p>
+<p><b>Sol:</b> The test prediction accuracy for the model is <b>96.30%</b>. The optimal value of K is 20. On further increasing the value, no improvement is achieved.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">K_values <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>]
+<span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> K_values:
+    neigh <span style="color:#f92672">=</span> KNeighborsClassifier(n_neighbors<span style="color:#f92672">=</span>k)
+    neigh<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]], train[<span style="color:#e6db74">&#39;mpg01&#39;</span>])
+    y_predict <span style="color:#f92672">=</span> neigh<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>]])
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix for K = &#34;</span> <span style="color:#f92672">+</span>str(k))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;mpg01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix for K = 1
+     Down Up(Predicted)
+Down 	[33  2]
+Up 	[ 5 41]
+         Confusion Matrix for K = 2
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 6 40]
+         Confusion Matrix for K = 4
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 6 40]
+         Confusion Matrix for K = 8
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 2 44]
+         Confusion Matrix for K = 15
+     Down Up(Predicted)
+Down 	[33  2]
+Up 	[ 2 44]
+         Confusion Matrix for K = 20
+     Down Up(Predicted)
+Down 	[33  2]
+Up 	[ 1 45]
+         Confusion Matrix for K = 30
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 2 44]
+         Confusion Matrix for K = 50
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 2 44]
+         Confusion Matrix for K = 100
+     Down Up(Predicted)
+Down 	[34  1]
+Up 	[ 2 44]
+</code></pre>
+<p>Q13. Using the Boston data set, fit classification models in order to predict whether a given suburb has a crime rate above or below the median. Explore logistic regression, LDA, and KNN models using various subsets of the predictors. Describe your findings.</p>
+<p><b>Sol:</b> From the scatterplot it is identified that the predictors that can be used to model the classifier are: &lsquo;zn&rsquo;, &lsquo;chas&rsquo;, &lsquo;nox&rsquo;, &lsquo;rm&rsquo;, &lsquo;age&rsquo;, &lsquo;dis&rsquo;, &lsquo;black&rsquo;, &lsquo;lstat&rsquo;, &lsquo;medv&rsquo;.</p>
+<p>The test prediction accuracy for <b>logistic regression is 81.48%</b>. The test prediction accuracy for <b>LDA is 81.48%</b>. The test prediction accuracy for <b>LDA is 77.78%</b>. The test prediction accuracy for <b>KNN (K=120) is 82.41%</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+boston[<span style="color:#e6db74">&#39;crime01&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(boston[<span style="color:#e6db74">&#39;crim&#39;</span>]<span style="color:#f92672">&gt;=</span>boston[<span style="color:#e6db74">&#39;crim&#39;</span>]<span style="color:#f92672">.</span>median(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
+boston<span style="color:#f92672">.</span>head()
+</code></pre></div><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p></style></p>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>crim</th>
+      <th>zn</th>
+      <th>indus</th>
+      <th>chas</th>
+      <th>nox</th>
+      <th>rm</th>
+      <th>age</th>
+      <th>dis</th>
+      <th>rad</th>
+      <th>tax</th>
+      <th>ptratio</th>
+      <th>black</th>
+      <th>lstat</th>
+      <th>medv</th>
+      <th>crime01</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.00632</td>
+      <td>18.0</td>
+      <td>2.31</td>
+      <td>0</td>
+      <td>0.538</td>
+      <td>6.575</td>
+      <td>65.2</td>
+      <td>4.0900</td>
+      <td>1</td>
+      <td>296</td>
+      <td>15.3</td>
+      <td>396.90</td>
+      <td>4.98</td>
+      <td>24.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.02731</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>6.421</td>
+      <td>78.9</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>396.90</td>
+      <td>9.14</td>
+      <td>21.6</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.02729</td>
+      <td>0.0</td>
+      <td>7.07</td>
+      <td>0</td>
+      <td>0.469</td>
+      <td>7.185</td>
+      <td>61.1</td>
+      <td>4.9671</td>
+      <td>2</td>
+      <td>242</td>
+      <td>17.8</td>
+      <td>392.83</td>
+      <td>4.03</td>
+      <td>34.7</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.03237</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>6.998</td>
+      <td>45.8</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>394.63</td>
+      <td>2.94</td>
+      <td>33.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.06905</td>
+      <td>0.0</td>
+      <td>2.18</td>
+      <td>0</td>
+      <td>0.458</td>
+      <td>7.147</td>
+      <td>54.2</td>
+      <td>6.0622</td>
+      <td>3</td>
+      <td>222</td>
+      <td>18.7</td>
+      <td>396.90</td>
+      <td>5.33</td>
+      <td>36.2</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sns<span style="color:#f92672">.</span>pairplot(boston, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;indus&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>,
+                         <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;rad&#39;</span>, <span style="color:#e6db74">&#39;tax&#39;</span>, <span style="color:#e6db74">&#39;ptratio&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;crime01&#39;</span>)
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_82_2.png" alt="">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(boston)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
+train <span style="color:#f92672">=</span> boston[msk]
+test <span style="color:#f92672">=</span> boston[<span style="color:#f92672">~</span>msk]
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of training data: &#34;</span> <span style="color:#f92672">+</span>str(len(train)))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of test data: &#34;</span> <span style="color:#f92672">+</span>str(len(test)))
+</code></pre></div><pre><code>Length of training data: 398
+Length of test data: 108
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> LogisticRegression()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]], train[<span style="color:#e6db74">&#39;crime01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[40  6]
+Up 	[14 48]
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> LinearDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]], train[<span style="color:#e6db74">&#39;crime01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[43  3]
+Up 	[17 45]
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> QuadraticDiscriminantAnalysis()
+clf<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]], train[<span style="color:#e6db74">&#39;crime01&#39;</span>])
+y_predict <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]])
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix
+     Down Up(Predicted)
+Down 	[40  6]
+Up 	[18 44]
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">K_values <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">120</span>, <span style="color:#ae81ff">150</span>]
+<span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> K_values:
+    neigh <span style="color:#f92672">=</span> KNeighborsClassifier(n_neighbors<span style="color:#f92672">=</span>k)
+    neigh<span style="color:#f92672">.</span>fit(train[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]], train[<span style="color:#e6db74">&#39;crime01&#39;</span>])
+    y_predict <span style="color:#f92672">=</span> neigh<span style="color:#f92672">.</span>predict(test[[<span style="color:#e6db74">&#39;zn&#39;</span>, <span style="color:#e6db74">&#39;chas&#39;</span>, <span style="color:#e6db74">&#39;nox&#39;</span>, <span style="color:#e6db74">&#39;rm&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>, <span style="color:#e6db74">&#39;dis&#39;</span>, <span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;lstat&#39;</span>, <span style="color:#e6db74">&#39;medv&#39;</span>]])
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t\t</span><span style="color:#e6db74"> Confusion Matrix for K = &#34;</span> <span style="color:#f92672">+</span>str(k))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\t</span><span style="color:#e6db74"> Down Up(Predicted)&#34;</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Down </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">0</span>]))
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Up </span><span style="color:#ae81ff">\t</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> str(confusion_matrix(y_true<span style="color:#f92672">=</span>test[<span style="color:#e6db74">&#39;crime01&#39;</span>], y_pred<span style="color:#f92672">=</span>y_predict)[<span style="color:#ae81ff">1</span>]))
+</code></pre></div><pre><code>         Confusion Matrix for K = 1
+     Down Up(Predicted)
+Down 	[40  6]
+Up 	[17 45]
+         Confusion Matrix for K = 2
+     Down Up(Predicted)
+Down 	[42  4]
+Up 	[29 33]
+         Confusion Matrix for K = 4
+     Down Up(Predicted)
+Down 	[42  4]
+Up 	[22 40]
+         Confusion Matrix for K = 8
+     Down Up(Predicted)
+Down 	[42  4]
+Up 	[19 43]
+         Confusion Matrix for K = 15
+     Down Up(Predicted)
+Down 	[41  5]
+Up 	[19 43]
+         Confusion Matrix for K = 20
+     Down Up(Predicted)
+Down 	[42  4]
+Up 	[20 42]
+         Confusion Matrix for K = 30
+     Down Up(Predicted)
+Down 	[43  3]
+Up 	[17 45]
+         Confusion Matrix for K = 50
+     Down Up(Predicted)
+Down 	[41  5]
+Up 	[19 43]
+         Confusion Matrix for K = 100
+     Down Up(Predicted)
+Down 	[38  8]
+Up 	[12 50]
+         Confusion Matrix for K = 120
+     Down Up(Predicted)
+Down 	[38  8]
+Up 	[11 51]
+         Confusion Matrix for K = 150
+     Down Up(Predicted)
+Down 	[38  8]
+Up 	[12 50]
+</code></pre>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/classification_part1/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 1: Logistic Regression)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/classification_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

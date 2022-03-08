@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)" />
+    <meta property="og:title" content="ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)" />
+    <meta property="twitter:title" content="ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)" />
+    
+
+    
+    <meta name="description" content="ISLR Support Vector Machines">
+    <meta property="og:description" content="ISLR Support Vector Machines" />
+    <meta property="twitter:description" content="ISLR Support Vector Machines" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/support-vector-machines_part4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/support-vector-machines" title="Support Vector Machines">
+                            Support Vector Machines
+                        </a>
+                        
+                        <a class="tag" href="/tags/exercises" title="Exercises">
+                            Exercises
+                        </a>
+                        
+                        <a class="tag" href="/tags/conceptual" title="Conceptual">
+                            Conceptual
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Tuesday, June 26, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="97-exercises">9.7 Exercises</h3>
+<h4 id="conceptual">Conceptual</h4>
+<p>Q1. This problem involves hyperplanes in two dimensions.</p>
+<p>(a) Sketch the hyperplane 1 + 3X1 − X2 = 0. Indicate the set of points for which 1 + 3X1 − X2 &gt; 0, as well as the set of points for which 1 + 3X1 − X2 &lt; 0.</p>
+<p>(b) On the same plot, sketch the hyperplane −2 + X1 + 2X2 = 0. Indicate the set of points for which −2+ X1 +2X2 &gt; 0, as well as the set of points for which −2+ X1 + 2X2 &lt; 0.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10000</span>)
+plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>x), color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1 + 3X1 − X2 = 0&#34;</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">200</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+
+plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>x)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;−2 + X1 + 2X2 = 0&#34;</span>)
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">70</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">230</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Hyperplane: 1 + 3X1 − X2 = 0&#39;</span>)
+
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_7_0.png" alt="">
+<p>Q2. We have seen that in p = 2 dimensions, a linear decision boundary takes the form $\beta_0 + \beta_1 X_1 + \beta_2 X_2 = 0$. We now investigate a non-linear decision boundary.</p>
+<p>(a) Sketch the curve $(1+ X_1)^2 + (2- X_2)^2 = 4$.</p>
+<p>(b) On your sketch, indicate the set of points for which $(1+ X_1)^2 + (2- X_2)^2 &gt; 4$, as well as the set of points for which $(1+ X_1)^2 + (2- X_2)^2 \leq 4$.</p>
+<p>(c) Suppose that a classifier assigns an observation to the blue class if $(1+ X_1)^2 + (2- X_2)^2 &gt; 4$,
+and to the red class otherwise. To what class is the observation (0, 0) classified? (−1, 1)? (2, 2)? (3, 8)?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">circle <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>Circle((<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), radius<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2.0</span>)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+ax<span style="color:#f92672">.</span>add_artist(circle)
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;less than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">3.5</span>, <span style="color:#ae81ff">4.5</span>, <span style="color:#e6db74">&#34;greater than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+plt<span style="color:#f92672">.</span>scatter([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
+
+ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>)
+ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">9</span>)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_9_0.png" alt="">
+<p>(d) Argue that while the decision boundary in (c) is not linear in terms of $X_1$ and $X_2$, it is linear in terms of $X_1, X_2, X_1^2$ and $X_2^2$.</p>
+<p><b>Sol:</b> Expanding the above equation, we get</p>
+<p>$$X_1^2 + X_2^2 + 2X_1 - 4X_2 = -1$$</p>
+<p>which is linear in terms of $X_1, X_2, X_1^2$ and $X_2^2$.</p>
+<p>Q3. Here we explore the maximal margin classifier on a toy data set.</p>
+<p>(a) We are given n = 7 observations in p = 2 dimensions. For each observation, there is an associated class label. Sketch the observations.</p>
+<p>(b) Sketch the optimal separating hyperplane, and provide the equation for this hyperplane (of the form (9.1)).</p>
+<p><b>Sol:</b> The optimal separating hyperplane with margins is shown below.</p>
+<p>(c) Describe the classification rule for the maximal margin classifier. It should be something along the lines of “Classify to Red if $\beta_0 + \beta_1 X_1 + \beta_2 X_2 &gt; 0$, and classify to Blue otherwise.” Provide the values for $\beta_0, \beta_1, \beta_2$.</p>
+<p><b>Sol:</b> The decision boundary is given as:</p>
+<p>$$0.99970703 -1.99941406 X_1 +  1.99941406 X_2 = 0$$</p>
+<p>The classification rule is: Classify to Red if &lt; 0 and Blue otherwise.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> svm
+
+X <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>]]
+Y <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>]
+
+<span style="color:#75715e"># fit the model</span>
+clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+clf<span style="color:#f92672">.</span>fit(np<span style="color:#f92672">.</span>array(X)<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>tolist(), Y)
+
+<span style="color:#75715e"># get the separating hyperplane</span>
+w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
+a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+
+<span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
+<span style="color:#75715e"># support vectors</span>
+b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
+yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+
+plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+plt<span style="color:#f92672">.</span>scatter(X[<span style="color:#ae81ff">0</span>], X[<span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
+plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+
+plt<span style="color:#f92672">.</span>grid()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_12_0.png" alt="">
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/support-vector-machines_part3/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/support-vector-machines_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

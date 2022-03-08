@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smoothing Splines on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/smoothing-splines/</link>
+    <description>Recent content in Smoothing Splines on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 06:02:06 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/smoothing-splines/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</link>
+      <pubDate>Wed, 30 May 2018 06:02:06 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</guid>
+      <description>7.5 Smoothing Splines 7.5.1 An Overview of Smoothing Splines Regression splines are created by specifying a set of knots, producing a sequence of basis functions and then estimate spline coefficients using least squares.
+To fit a smooth curve to a data set, we need to find a function $g(x)$ such that $RSS = \sum_{i=1}^{n}(y_i - g(x_i))^2$ is minimum. If we do not put any constraint on $g(x)$, we can always find a function $g(x)$, which will make RSS 0.</description>
+    </item>
+    
+  </channel>
+</rss>

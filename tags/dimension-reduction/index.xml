@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dimension Reduction on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/dimension-reduction/</link>
+    <description>Recent content in Dimension Reduction on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 May 2018 01:06:16 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/dimension-reduction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</link>
+      <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</guid>
+      <description>6.3 Dimension Reduction Methods Instead of performing a least squares regression on all the $p$ predictors, we can transform the predictors and then fit a least squares model on the transformed variables. Let the transformed variables be $Z_1, Z_2, &amp;hellip;, Z_M$, where $M &amp;lt; p$, where each of $Z_m$s is a linear combination of predictors $X_1, X_2, &amp;hellip;, X_p$.i.e.
+$$Z_m = \sum _{j=1}^{p} \phi _{jm}X_j$$
+We can then fit the least squares regression model as $Z_m$s as the predictors:</description>
+    </item>
+    
+  </channel>
+</rss>

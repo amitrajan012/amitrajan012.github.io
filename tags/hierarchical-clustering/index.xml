@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hierarchical Clustering on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/hierarchical-clustering/</link>
+    <description>Recent content in Hierarchical Clustering on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 Jul 2018 13:01:01 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/hierarchical-clustering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part4/</link>
+      <pubDate>Thu, 12 Jul 2018 13:01:01 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part4/</guid>
+      <description>10.3.2 Hierarchical Clustering K-means clustering has a disadvantage that there is a need to pre-specify the number of clusters $K$. Hierarchical clutsring is an alternative approach which is free from this problem which results in an altarnative tree-based representation of the observations, called as dendrogram.
+The most common technique used for hierarchical clustering is bottom-up or agglomerative clustering. It is based on the fact that the dendrogram (generally depicted as an upside-down tree) is built starting from leaves and combining the clusters up to the trunk.</description>
+    </item>
+    
+  </channel>
+</rss>

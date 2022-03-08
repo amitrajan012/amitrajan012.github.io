@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amit Rajan</title>
+    <link>https://amitrajan012.github.io/</link>
+    <description>Recent content on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 03 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Geometry of Linear Equations &amp; Matrix Multiplications</title>
+      <link>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</link>
+      <pubDate>Mon, 03 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</guid>
+      <description>1.1 The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:
+$$\begin{align} 2x-y = 0 \
+-x+2y = 3 \end{align}$$
+The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 9</title>
+      <link>https://amitrajan012.github.io/post/chapter-9-correlation/</link>
+      <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
+      <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
+ Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 8</title>
+      <link>https://amitrajan012.github.io/post/chapter-8-estimation/</link>
+      <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-8-estimation/</guid>
+      <description>8.1 The estimation game In a rudimentary way, sample mean can be used to estimate a distribution. The process is called estimation and the statistic we used (sample mean) is called an estimator. If there are no outliers, sample mean minimizes the mean squared error (MSE). A maximum likelihood estimator (MLE) is an estimator that has the highest chance of being right (value with highest probability).
+ Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 7</title>
+      <link>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
+      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 6</title>
+      <link>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</guid>
+      <description>6.1 Skewness Skewness is a statistic that measures the assymetry of a distribution. Sample skewness is defined as:
+$$Skewness = \frac{Mean\ Cubed\ Deviation}{Mean\ Squared\ Deviation^{\frac{3}{2}}}$$
+Negative skewness means that the distribution skews left and positive skewness means that the distribution is skewed to right. Outliers have a disproportionate effect on skewness.
+Another way to evaluate the asymmetry of a distribution is to compare mean and median. For distributions that skews left, mean is less than the median.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 5</title>
+      <link>https://amitrajan012.github.io/post/chapter-5-probability/</link>
+      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-5-probability/</guid>
+      <description>The belief in which probability is expressed in terms of frequencies is called as frequentism. Frequentists believe that if there is no set of identical trials, there is no probability.
+An alternative is Bayesianism, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&amp;rsquo;s state of knowledge.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 4</title>
+      <link>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</link>
+      <pubDate>Fri, 17 Aug 2018 19:02:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</guid>
+      <description>4.1 The exponential distribution CDF of the exponential distribution is defined as (where lambda determines the shape of the distribution): $$CDF(x) = 1-e^{-\lambda x}$$ Mean and Median of exponential distribution is computed as follows: $$Mean = \frac{1}{\lambda}$$ $$Median = \frac{ln(2)}{\lambda}$$ In the real world, exponential distribution is encountered when we look at the series of events and measure the time between them which is called as interval times. The exponential distribution for different values of lambda is shown below.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 3</title>
+      <link>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</link>
+      <pubDate>Sun, 12 Aug 2018 09:22:46 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</guid>
+      <description>3.1 The class size paradox For a probability distribution, the mean calculated from its PMF is lower than the one calculated by taking a sample from it. This happens because the larger classes tend to get oversampled. Exercise 3.1 Build the PMF of the college class-size data and compute the mean as perceived by the Dean. Find the distribution of class sizes as perceived by students and compute its mean.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 2</title>
+      <link>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</guid>
+      <description>2.1 Means and averages Mean of a sample is a summary statistics that can be computed as (where n is the total number of samples): $$\mu = \frac{1}{n} \sum_i{x_i}$$ An average is one of many summary statistics that can be used to describe the typical value or the central tendency of a sample.
+2.2 Variance As mean describes the central tendency of a sample, Variance is intended to describe the spread.</description>
+    </item>
+    
+    <item>
+      <title>Think Stats: Chapter 1</title>
+      <link>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</link>
+      <pubDate>Sun, 05 Aug 2018 10:02:08 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</guid>
+      <description>1.1 Do first babies arrive late? Anecdotal Evidence  is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.”  Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
+    </item>
+    
+    <item>
+      <title>Content Based Movie Recommendation Engine</title>
+      <link>https://amitrajan012.github.io/post/introductory-data-analysis-and-recommendation-engine/</link>
+      <pubDate>Mon, 30 Jul 2018 02:12:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/introductory-data-analysis-and-recommendation-engine/</guid>
+      <description>Introduction The dataset consists information of 5000 movies with their genres, budget, revenue, production company, revenue, user-rating , vote-count and popularity as the primary fields. It also has the detailed information of cast and crew.
+ # import modules import pandas as pd import numpy as np from matplotlib import pyplot as plt import json import cufflinks as cf import seaborn as sns import plotly.graph_objs as go import plotly from wordcloud import WordCloud plotly.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part6/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part6/</guid>
+      <description>Applied Q7. In the chapter, we mentioned the use of correlation-based distance and Euclidean distance as dissimilarity measures for hierarchical clustering. It turns out that these two measures are almost equivalent: if each observation has been centered to have mean zero and standard deviation one, and if we let $r_{ij}$ denote the correlation between the ith and jth observations, then the quantity $1−r _{ij}$ is proportional to the squared Euclidean distance between the ith and jth observations.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part5/</link>
+      <pubDate>Sun, 15 Jul 2018 03:51:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part5/</guid>
+      <description>10.7 Exercises Conceptual Q1. This problem involves the K-means clustering algorithm.
+(a) Prove (10.12).
+Sol: Equation 10.12 is:
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
+where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{i^{&#39;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&#39;}j} \</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part4/</link>
+      <pubDate>Thu, 12 Jul 2018 13:01:01 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part4/</guid>
+      <description>10.3.2 Hierarchical Clustering K-means clustering has a disadvantage that there is a need to pre-specify the number of clusters $K$. Hierarchical clutsring is an alternative approach which is free from this problem which results in an altarnative tree-based representation of the observations, called as dendrogram.
+The most common technique used for hierarchical clustering is bottom-up or agglomerative clustering. It is based on the fact that the dendrogram (generally depicted as an upside-down tree) is built starting from leaves and combining the clusters up to the trunk.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part3/</link>
+      <pubDate>Mon, 09 Jul 2018 17:09:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part3/</guid>
+      <description>10.3 Clustering Methods Clustering is a technique for finding subgroups or clusters in a data set based on similarity between individual observations. For clustering, we need to define the measure of similarity which depends on the knowledge of the data set. Two best known clustering methods are K-means clustering and hierarchical clustering. In K-means clustering, we partition the observations into a pre-defined number of clusters. In hierarchical clustering, the number of clusters is unknown and the results of clustering is represented as a dendrogram, which is a tree-like visualization technique that allows us to view the clustering results for various number of clusters (from 1 to $n$).</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part2/</link>
+      <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part2/</guid>
+      <description>10.2.3 More on PCA Scaling the Variables The results of PCA also depend on the fact that whether the variables are individually scaled or not. If we perform PCA on the unscaled variables, the variables with higher variance will have very large loading. As it is undesirable for the principal components obtained to depend on the scale of the variables, we scale each variables to have the standard deviation 1 before performing PCA.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part1/</link>
+      <pubDate>Wed, 04 Jul 2018 03:09:02 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part1/</guid>
+      <description>Unsupervised Learning 10.1 The Challenge of Unsupervised Learning Unsupervised learning is often performed as a a part of an exploratory data analysis. In unsupervised learning there is no practical way to assess the performance of the model as we do not have the true answer.
+10.2 Principal Components Analysis In the case of a large set of correlated variables, principal component analysis helps in summarizing the data set with a small number of representative variables that explains most of the variability in the data.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part5/</link>
+      <pubDate>Fri, 29 Jun 2018 06:19:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part5/</guid>
+      <description>Applied Q4. Generate a simulated two-class data set with 100 observations and two features in which there is a visible but non-linear separation between the two classes. Show that in this setting, a support vector machine with a polynomial kernel (with degree greater than 1) or a radial kernel will outperform a support vector classifier on the training data. Which technique performs best on the test data? Make plots and report training and test error rates in order to back up your assertions.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part4/</link>
+      <pubDate>Tue, 26 Jun 2018 03:29:17 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part4/</guid>
+      <description>9.7 Exercises Conceptual Q1. This problem involves hyperplanes in two dimensions.
+(a) Sketch the hyperplane 1 + 3X1 − X2 = 0. Indicate the set of points for which 1 + 3X1 − X2 &amp;gt; 0, as well as the set of points for which 1 + 3X1 − X2 &amp;lt; 0.
+(b) On the same plot, sketch the hyperplane −2 + X1 + 2X2 = 0. Indicate the set of points for which −2+ X1 +2X2 &amp;gt; 0, as well as the set of points for which −2+ X1 + 2X2 &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part3/</link>
+      <pubDate>Sat, 23 Jun 2018 04:19:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part3/</guid>
+      <description>9.3 Support Vector Machines 9.3.1 Classification with Non-linear Decision Boundaries Support vector classifiers, which are designed to work in the setting of linear decision boundary, can be extended to handle the case of non-linear decision boundary by enlarging the feature space using polynomial transformation of the predictors. For example, if we have a $p$-dimensional feature space given as: $X_1, X_2, &amp;hellip;, X_p$, we could instead fit a support vector classifier using $2p$ features: $X_1, X_1^2, X_2, X_2^2, &amp;hellip;, X_p, X_p^2$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part2/</link>
+      <pubDate>Wed, 20 Jun 2018 02:24:24 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part2/</guid>
+      <description>9.2 Support Vector Classifiers 9.2.1 Overview of the Support Vector Classifier The maximal margin classifiers can be sensitive to individual observations. Sometimes, adding a single observation in the data set, can lead to dramatic change in the separating hyperplane. The sensitivity and the low margin for a maximal margin classifier may suggest that the maximal margin classifier has overfit the training data. So, sometimes we may be willing to consider a classifier based on a hyperplane that does not perfectly separate the two classes, and hence, will be more robust (or less sensitive to individual observations) and will give better results for the unseen data points.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 1: Maximal Margin Classifier)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part1/</link>
+      <pubDate>Tue, 19 Jun 2018 12:14:23 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part1/</guid>
+      <description>Support Vector Machines Support vector machine is a generalization of a simple and intutive classifier called the maximal margin classifier. Maximal margin classifier has a limitation that it can be only applied to a data set whose classes are seperated by a linaer boundary.
+9.1 Maximal Margin Classifier 9.1.1 What Is a Hyperplane? In a $p$-dimensional space, a hyperplane is a flat affine subspace of $p-1$ dimensions. In two dimensions, the hyperplane is a line and can be given as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part4/</link>
+      <pubDate>Sat, 16 Jun 2018 01:34:53 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part4/</guid>
+      <description>Applied Q 7. In the lab, we applied random forests to the Boston data using mtry=6 and using ntree=25 and ntree=500. Create a plot displaying the test error resulting from random forests on this data set for a more comprehensive range of values for mtry and ntree. You can model your plot after Figure 8.10. Describe the results obtained.
+import pandas as pd from sklearn.ensemble import RandomForestRegressor from sklearn.metrics import mean_squared_error from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part3/</link>
+      <pubDate>Thu, 14 Jun 2018 07:14:13 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part3/</guid>
+      <description>8.4 Exercises Conceptual Q2. It is mentioned in Section 8.2.3 that boosting using depth-one trees (or stumps) leads to an additive model: that is, a model of the form
+$$f(X) = \sum_{j=1}^{p} f_j(X_j)$$
+Explain why this is the case. You can begin with (8.12) in Algorithm 8.2.
+Sol: As for depth-one trees, value of $d$ is 1. Each tree is generated by splitting the data on only one predictor and the final model is formed by adding the shrunken version of them repeatedly.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part2/</link>
+      <pubDate>Wed, 13 Jun 2018 13:04:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part2/</guid>
+      <description>8.2 Bagging, Random Forests, Boosting 8.2.1 Bagging The decision trees discussed above suffers from a problem of high variance. Bootstrap aggregation or bagging is a procedure that reduces the variance of a statistical learning method.
+Give a set of $n$ independent observation sets $Z_1, Z_2, &amp;hellip;, Z_n$, each with variance $\sigma^2$, the variance of the mean $\bar{Z}$ is given by $\sigma^2/n$, i.e. averaging a set of observations reduces variance. Hence, a natural way to reduce the variance of a statistical model is to take many training samples from the population, fit individual models on them, and give the average of them as the final model.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part1/</link>
+      <pubDate>Mon, 11 Jun 2018 17:07:13 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part1/</guid>
+      <description>Tree-Based Methods Tree-based methods stratify or segment the predictor space into a number of simple regions. To make a prediction, we use the mean or the mode of the training observations in the region in which the observation to be predicted belongs. The set of splitting rules can be summarized via a tree, these methods are also known as decision tree methods. Bagging, random forests and boosting produce multiple trees and then combine them in a single model to make the prediction.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</guid>
+      <description>Applied Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.
+(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.
+Sol: The optimal degree of polynomial selected from cross-validation is 4.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</link>
+      <pubDate>Wed, 06 Jun 2018 06:27:22 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</guid>
+      <description>7.9 Exercises Conceptual Q1. It was mentioned in the chapter that a cubic regression spline with one knot at ξ can be obtained using a basis of the form $x, x^2, x^3, (x − ξ)^3 _+$, where $(x − ξ)^3 _+ = (x − ξ)^3$ if x &amp;gt; ξ and equals 0 otherwise. We will now show that a function of the form $f(x) = β_0 + β_1x + β_2x^2 + β_3x^3 + β_4(x − ξ)^3 _+$ is indeed a cubic regression spline, regardless of the values of $β_0, β_1, β_2, β_3, β_4$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</link>
+      <pubDate>Mon, 04 Jun 2018 16:12:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
+      <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
+ Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</link>
+      <pubDate>Wed, 30 May 2018 06:02:06 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part3/</guid>
+      <description>7.5 Smoothing Splines 7.5.1 An Overview of Smoothing Splines Regression splines are created by specifying a set of knots, producing a sequence of basis functions and then estimate spline coefficients using least squares.
+To fit a smooth curve to a data set, we need to find a function $g(x)$ such that $RSS = \sum_{i=1}^{n}(y_i - g(x_i))^2$ is minimum. If we do not put any constraint on $g(x)$, we can always find a function $g(x)$, which will make RSS 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</link>
+      <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</guid>
+      <description>7.4 Regression Splines Regression splines are flixible class of basis functions that extend upon polynomial and piecewise constant regression approaches.
+7.4.1 Piecewise Polynomials Piecewise polynomial regression fits separate low-degree polynomials over different regions of $X$. For example, a piecewise squared polynomial fits squared regression model of the form
+$$y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \epsilon_i$$
+where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of the range of $X$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</link>
+      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
+      <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
+  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+  Regression splines is the extension of polynomial regression and step functions.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
+      <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
+(a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</link>
+      <pubDate>Fri, 25 May 2018 06:18:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</guid>
+      <description>6.8 Exercises Conceptual Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, . . . , p predictors. Explain your answers:
+(a) Which of the three models with k predictors has the smallest training RSS?
+Sol: Training RSS is minimum for best subset selection.
+(b) Which of the three models with k predictors has the smallest test RSS?</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</link>
+      <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</guid>
+      <description>6.3 Dimension Reduction Methods Instead of performing a least squares regression on all the $p$ predictors, we can transform the predictors and then fit a least squares model on the transformed variables. Let the transformed variables be $Z_1, Z_2, &amp;hellip;, Z_M$, where $M &amp;lt; p$, where each of $Z_m$s is a linear combination of predictors $X_1, X_2, &amp;hellip;, X_p$.i.e.
+$$Z_m = \sum _{j=1}^{p} \phi _{jm}X_j$$
+We can then fit the least squares regression model as $Z_m$s as the predictors:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</link>
+      <pubDate>Tue, 22 May 2018 21:16:20 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</guid>
+      <description>6.2 Shrinkage Methods As an alternative to subset selection methods, a model containing all the $p$ predictors can be fit using a technique that constrains or regularizes the coefficient estimates (or shrinks the coefficeint estimates towards 0). Two best known techniques for shrinking the coefficient estimates towards 0 are: ridge regression and the lasso.
+6.2.1 Ridge Regression In a least squares fitting, the parameters of the model is estimated by minimizing</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</link>
+      <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
+      <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
+  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part4/</link>
+      <pubDate>Sat, 19 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part4/</guid>
+      <description>Applied Q5. In Chapter 4, we used logistic regression to predict the probability of default using income and balance on the Default data set. We will now estimate the test error of this logistic regression model using the validation set approach. Do not forget to set a random seed before beginning your analysis.
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt import numpy as np import statsmodels.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part3/</link>
+      <pubDate>Fri, 18 May 2018 07:18:30 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part3/</guid>
+      <description>5.4 Exercises Conceptual Q1. Using basic statistical properties of the variance, as well as singlevariable calculus, derive that the value of $\alpha$ which minimizes $Var(\alpha X + (1 - \alpha) Y)$ is:
+$$\alpha = \frac{\sigma_Y^2 - \sigma _{XY}}{\sigma_X^2 + \sigma_Y^2 - 2\sigma _{XY}}$$
+Sol: As we know that $Var(aX + bY) = a^2 Var(X) + b^2 Var(Y) + 2abCov(X, Y)$, the above quantity (that needs to be minimized) can be transformed as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part2/</link>
+      <pubDate>Fri, 18 May 2018 02:26:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part2/</guid>
+      <description>5.2 The Bootstrap Bootstrap can be used to to quantify the uncertainty associated with a given statistical model. For example, bootstrap can be used to estimate standard errors (which measures the uncertainty) of the coefficients from a linear regression fit. Bootstrap can be applied to a wide range of statistical learning methods. The method of bootstrap is explained below via an example:
+Suppose we wish to invest money in two financial assests which yield returns of $X$ and $Y$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part1/</link>
+      <pubDate>Thu, 17 May 2018 05:22:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part1/</guid>
+      <description>Resampling Methods Resampling methods involve repeatedly drawing samples from training data and refitting a model on them. Resampling approaches can be computationally expensive. Cross-validation and bootstrap are two of the most commonly used resampling methods. Cross-validation can be used to estimate the test error rate associated with a given model in order to evaluate its performance. The process of evaluating a model&amp;rsquo;s performance is called model assessment. The process of selecting proper level of flexibility for a model is known as model selection.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</title>
+      <link>https://amitrajan012.github.io/post/classification_part4/</link>
+      <pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
+      <description>Applied Q10. This question should be answered using the Weekly data set.
+(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/classification_part3/</link>
+      <pubDate>Tue, 15 May 2018 09:02:08 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
+      <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
+Sol:  Logistic function representation is given as:
+$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
+then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
+$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</title>
+      <link>https://amitrajan012.github.io/post/classification_part2/</link>
+      <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part2/</guid>
+      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&#39; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</title>
+      <link>https://amitrajan012.github.io/post/classification_part1/</link>
+      <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
+      <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
+4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part5/</link>
+      <pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
+      <description>Applied Solution 8:
+(a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
+import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part4/</link>
+      <pubDate>Thu, 10 May 2018 10:28:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part4/</guid>
+      <description>3.7 Exercises Conceptual Solution: The linear fit can be given as:
+$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$
+(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part3/</link>
+      <pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part3/</guid>
+      <description>3.3 Other Considerations in the Regression Model 3.3.1 Qualitative Predictors There can be a case when predictor variables can be qualitative.
+Predictors with Only Two Levels For the predictors with only two values, we can create an indicator or dummy variable with values 0 and 1 and use it in the regression model. The final prediction will not depend on the coding scheme. Only difference will be in the model coefficients and the way they are interpreted.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part2/</link>
+      <pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part2/</guid>
+      <description>3.2 Multiple Linear Regression In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:
+$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &amp;hellip; + \beta_p X_p + \epsilon$$
+where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, holding all other predictors fixed.
+3.2.1 Estimating the Regression Coefficients Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&amp;hellip;, \widehat{\beta_p}$, predictions can be done as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part1/</link>
+      <pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part1/</guid>
+      <description>Linear Regression Linear Regression is a useful tool for predicting a quantitative response.
+3.1 Simple Linear Regression Simple linear regression is a straightforward approach for predicting a quantitative response on the basis of a single predictor variable. Mathematically it can be written as:
+$$Y \approx \beta_0 + \beta_1 X$$
+$\beta_0$ and $\beta_1$ represent intercept and slope and are called as model coefficients or parameters. The estimated equation is given as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part4/</link>
+      <pubDate>Sun, 06 May 2018 07:24:34 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
+      <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part3/</link>
+      <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
+(a) The sample size n is extremely large, and the number of predic- tors p is small.
+Sol: Better
+(b) The number of predictors p is extremely large, and the number of observations n is small.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part2/</link>
+      <pubDate>Sat, 05 May 2018 07:11:10 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part2/</guid>
+      <description>2.2 Assessing Model Accuracy No one statistical learning method dominates all other over all possible data sets. Hence it is an important task to decide that for any given data set which model fits best.
+2.2.1 Measuring the Quality of Fit In the regression setting, the most commonly used measure for quality of fit is mean squared error (MSE), which is given as:
+$$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part1/</link>
+      <pubDate>Fri, 04 May 2018 09:32:21 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part1/</guid>
+      <description>Statistical Learning 2.1 What Is Statistical Learning? The Advertising data set consists of the sales of that product in 200 different markets, along with advertising budgets for the product in each of those markets for three different media: TV, radio, and newspaper. The plot of data is shown below. Our goal is to develop an accurate model that can be used to predict sales on the basis of the three media budgets.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 1: Introduction</title>
+      <link>https://amitrajan012.github.io/post/introduction/</link>
+      <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/introduction/</guid>
+      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;#34;age&amp;#34;, y=&amp;#34;wage&amp;#34;, color=&amp;#39;#D7DBDD&amp;#39;, data=wage, order=2, scatter_kws={&amp;#39;alpha&amp;#39;:0.</description>
+    </item>
+    
+  </channel>
+</rss>

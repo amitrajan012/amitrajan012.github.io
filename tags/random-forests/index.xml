@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Random Forests on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/random-forests/</link>
+    <description>Recent content in Random Forests on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 13 Jun 2018 13:04:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/random-forests/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part2/</link>
+      <pubDate>Wed, 13 Jun 2018 13:04:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part2/</guid>
+      <description>8.2 Bagging, Random Forests, Boosting 8.2.1 Bagging The decision trees discussed above suffers from a problem of high variance. Bootstrap aggregation or bagging is a procedure that reduces the variance of a statistical learning method.
+Give a set of $n$ independent observation sets $Z_1, Z_2, &amp;hellip;, Z_n$, each with variance $\sigma^2$, the variance of the mean $\bar{Z}$ is given by $\sigma^2/n$, i.e. averaging a set of observations reduces variance. Hence, a natural way to reduce the variance of a statistical model is to take many training samples from the population, fit individual models on them, and give the average of them as the final model.</description>
+    </item>
+    
+  </channel>
+</rss>

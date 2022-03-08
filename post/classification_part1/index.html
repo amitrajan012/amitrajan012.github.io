@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="ISLR Chapter 4: Classification (Part 1: Logistic Regression)" />
+    <meta property="og:title" content="ISLR Chapter 4: Classification (Part 1: Logistic Regression)" />
+    <meta property="twitter:title" content="ISLR Chapter 4: Classification (Part 1: Logistic Regression)" />
+    
+
+    
+    <meta name="description" content="ISLR Classification">
+    <meta property="og:description" content="ISLR Classification" />
+    <meta property="twitter:description" content="ISLR Classification" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/classification_part1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/islr" title="ISLR">
+                            ISLR
+                        </a>
+                        
+                        <a class="tag" href="/tags/classification" title="Classification">
+                            Classification
+                        </a>
+                        
+                        <a class="tag" href="/tags/logistic-regression" title="Logistic Regression">
+                            Logistic Regression
+                        </a>
+                        
+                    </div>
+                    <h1>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, May 13, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1><center>Classification</center></h1>
+<p>A process for predicting <b>qualitative</b> or <b>categorical</b> variables is called as <b>Classification</b>.</p>
+<h3 id="41-an-overview-of-classification">4.1 An Overview of Classification</h3>
+<p>The dataset used in this chapter will be <b>Default</b> dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
+
+markers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;+&#34;</span>}
+palette <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;red&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;green&#34;</span>}
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, markers<span style="color:#f92672">=</span>markers, palette<span style="color:#f92672">=</span>palette,
+                alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, data<span style="color:#f92672">=</span>default)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Scatter Plot&#39;</span>)
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, data<span style="color:#f92672">=</span>default)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
+
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, data<span style="color:#f92672">=</span>default)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
+
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_5_0.png" alt="">
+<img class="pure-img" src="/img/Classification_files/Classification_5_1.png" alt="">
+<h3 id="42-why-not-linear-regression">4.2 Why Not Linear Regression?</h3>
+<p>In general, there is no natural way to convert a qualitative response variable with more than two levels into a quantitative response that is ready for linear regression. For the binary qualitative response, we can simply encode the variables as 0 and 1 and predict the values taking 0.5 as threshold.</p>
+<h3 id="43-logistic-regression">4.3 Logistic Regression</h3>
+<p>Rather than modeling the response directly, <b>logistic regression</b> models the probability that response $Y$ belongs to a particular category. For the Default data, logistic regression models the probability of default. The probability of default given balance can be written as $Pr \ (default=Yes \ | \ balance)$, and can be abbreviated as $p(balance)$. We can choose a threshold and then predict <b>default</b> as Yes if $p(balance) &gt; 0.5$. If we want to be more conservative, we can lower the threshold.</p>
+<h4 id="431-the-logistic-model">4.3.1 The Logistic Model</h4>
+<p>The problem with using linear regression to predict a qualitative variable is that any time a straight line is fit to a binary response that is coded as 0 and 1, in principle we can always predict $p(X) &lt; 0$ and $p(X) &gt; 1$ for some values of X. To avoid this problem, we can use a function instead that gives output between 0 and 1 for all values of X. In logistic regression we use <b>logistic function</b>, which is given as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$</p>
+<p>and to fit the model, we can use <b>maximum likelihood</b>. The logistic function produces a <b>S-shaped</b> curve. Manipulating the above equation, we get:</p>
+<p>$$\frac{p(X)}{1 - p(X)} = e^{\beta_0 + \beta_1X}$$</p>
+<p>The quantity on the left hand side is called as <b>odds</b> and can take any value between 0 and $\infty$. A lower and higher value of odds suggest a very low and high probabilities of default respectively. By taking the logarithm of both sides, we get:</p>
+<p>$$log \bigg( \frac{p(X)}{1 - p(X)} \bigg) = \beta_0 + \beta_1X$$</p>
+<p>The left hand side of above equation is called <b>log-odds</b> or <b>logit</b>. For a logistic regression model, <b>logit is linear in X.</b> The interpretation is as follows: For a one unit increase in X, the logit increases by $\beta_1$, or <b>odds is multiplied by $e^{\beta_1}$</b>.</p>
+<p>The amount that $p(X)$ changes due to one unit change in X, depends on current value of X. If $\beta_1$ is positive, increasing X is associated with increasing $p(X)$. If $\beta_1$ is negative, increasing X is associated with decreasing $p(X)$.</p>
+<h4 id="432-estimating-the-regression-coefficients">4.3.2 Estimating the Regression Coefficients</h4>
+<p>Non-linear least squares can be used to fit the logistic regression model but a more general method of <b>maximum-likelihood</b> is preferred as it has better statistical properties. In maximum-likelihood, we seek estimates of $\beta_0$ and $\beta_1$ such that the predicted probabilities corresponds as closely as possible to the observed individual probabilities. In the case of the prediction of default status, by plugging in the values of $\beta$s in the model, we should get value of $p(X)$ for default as Yes close to 1 and for No, close to 0. This intution can be formalized using a mathematical equation called as <b>likelihood function</b>:</p>
+<p>$$l(\beta_0, \beta_1) = \prod _{i:y_i = 1} p(x_i) \prod _{i^{'}:y _{i^{'}} = 0} (1 - p(x _{i^{'}}))$$</p>
+<p>The estimates are chosen to <b>maximize</b> this function. Maximum likelihood is a very general approach that can be used to fit many of the non-linear models.</p>
+<p>In the logistic regression output, we can verify the statistical signifance of the model the same way as for the linear regression output. Instead of t-statistic, we use <b>z-statistic</b> which is defined the same ($\widehat{\beta_1} \ / \  SE(\widehat{\beta_1})$). The null hypothesis implies that $\beta_1 = 0$, i.e. $p(X) = \frac{e^{\beta_0}}{1 + e^{\beta_0}}$, which means the probability of default does not depend on balance. The main purpose of the intercept is to adjust the average fitted probability to the proportion of ones in the data.</p>
+<h4 id="433-making-predictions">4.3.3 Making Predictions</h4>
+<p>The prediction step is similar to the linear regression as well. Qualitative variables can be used in the similar manner as the linear regression.</p>
+<h4 id="434-multiple-logistic-regression">4.3.4 Multiple Logistic Regression</h4>
+<p>Multiple logistic regression can be modeled as:</p>
+<p>$$p(X) = \frac{e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p}}$$</p>
+<p>$$log \bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X_1 + &hellip; + \beta_pX_p$$</p>
+<p><b>Confounding</b> is a phenomenon which explains the errors associated with logistic regression when results obtained using one predictor is quite different than the one using multiple predictors, especially when there is a correlation among the predictors.</p>
+<h4 id="435-logistic-regression-for-2-response-classes">4.3.5 Logistic Regression for &gt;2 Response Classes</h4>
+<p>Multi-class logistic regression is not used much. Instead, <b>discriminant analysis</b> is popular for multi-class classification.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/linear-regression_part5/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/classification_part2/" data-toggle="tooltip" data-placement="top" title="ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Regression on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/linear-regression/</link>
+    <description>Recent content in Linear Regression on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 May 2018 05:18:18 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part5/</link>
+      <pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
+      <description>Applied Solution 8:
+(a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
+import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part4/</link>
+      <pubDate>Thu, 10 May 2018 10:28:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part4/</guid>
+      <description>3.7 Exercises Conceptual Solution: The linear fit can be given as:
+$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$
+(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part3/</link>
+      <pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part3/</guid>
+      <description>3.3 Other Considerations in the Regression Model 3.3.1 Qualitative Predictors There can be a case when predictor variables can be qualitative.
+Predictors with Only Two Levels For the predictors with only two values, we can create an indicator or dummy variable with values 0 and 1 and use it in the regression model. The final prediction will not depend on the coding scheme. Only difference will be in the model coefficients and the way they are interpreted.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part2/</link>
+      <pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part2/</guid>
+      <description>3.2 Multiple Linear Regression In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:
+$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &amp;hellip; + \beta_p X_p + \epsilon$$
+where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, holding all other predictors fixed.
+3.2.1 Estimating the Regression Coefficients Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&amp;hellip;, \widehat{\beta_p}$, predictions can be done as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part1/</link>
+      <pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part1/</guid>
+      <description>Linear Regression Linear Regression is a useful tool for predicting a quantitative response.
+3.1 Simple Linear Regression Simple linear regression is a straightforward approach for predicting a quantitative response on the basis of a single predictor variable. Mathematically it can be written as:
+$$Y \approx \beta_0 + \beta_1 X$$
+$\beta_0$ and $\beta_1$ represent intercept and slope and are called as model coefficients or parameters. The estimated equation is given as:</description>
+    </item>
+    
+  </channel>
+</rss>

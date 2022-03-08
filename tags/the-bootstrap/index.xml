@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Bootstrap on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/the-bootstrap/</link>
+    <description>Recent content in The Bootstrap on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 May 2018 02:26:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/the-bootstrap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part2/</link>
+      <pubDate>Fri, 18 May 2018 02:26:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part2/</guid>
+      <description>5.2 The Bootstrap Bootstrap can be used to to quantify the uncertainty associated with a given statistical model. For example, bootstrap can be used to estimate standard errors (which measures the uncertainty) of the coefficients from a linear regression fit. Bootstrap can be applied to a wide range of statistical learning methods. The method of bootstrap is explained below via an example:
+Suppose we wish to invest money in two financial assests which yield returns of $X$ and $Y$.</description>
+    </item>
+    
+  </channel>
+</rss>

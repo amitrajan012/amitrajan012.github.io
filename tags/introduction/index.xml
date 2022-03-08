@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/introduction/</link>
+    <description>Recent content in Introduction on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 May 2018 11:14:32 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/introduction/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 1: Introduction</title>
+      <link>https://amitrajan012.github.io/post/introduction/</link>
+      <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/introduction/</guid>
+      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;#34;age&amp;#34;, y=&amp;#34;wage&amp;#34;, color=&amp;#39;#D7DBDD&amp;#39;, data=wage, order=2, scatter_kws={&amp;#39;alpha&amp;#39;:0.</description>
+    </item>
+    
+  </channel>
+</rss>

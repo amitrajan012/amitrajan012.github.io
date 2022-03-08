@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shrinkage Methods on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/shrinkage-methods/</link>
+    <description>Recent content in Shrinkage Methods on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 May 2018 21:16:20 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/shrinkage-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</link>
+      <pubDate>Tue, 22 May 2018 21:16:20 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</guid>
+      <description>6.2 Shrinkage Methods As an alternative to subset selection methods, a model containing all the $p$ predictors can be fit using a technique that constrains or regularizes the coefficient estimates (or shrinks the coefficeint estimates towards 0). Two best known techniques for shrinking the coefficient estimates towards 0 are: ridge regression and the lasso.
+6.2.1 Ridge Regression In a least squares fitting, the parameters of the model is estimated by minimizing</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mean on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/mean/</link>
+    <description>Recent content in Mean on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Aug 2018 04:17:12 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/mean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 2</title>
+      <link>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</link>
+      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</guid>
+      <description>2.1 Means and averages Mean of a sample is a summary statistics that can be computed as (where n is the total number of samples): $$\mu = \frac{1}{n} \sum_i{x_i}$$ An average is one of many summary statistics that can be used to describe the typical value or the central tendency of a sample.
+2.2 Variance As mean describes the central tendency of a sample, Variance is intended to describe the spread.</description>
+    </item>
+    
+  </channel>
+</rss>

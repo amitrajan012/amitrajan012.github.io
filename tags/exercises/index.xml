@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exercises on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/exercises/</link>
+    <description>Recent content in Exercises on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Jul 2018 06:25:52 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/exercises/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part6/</link>
+      <pubDate>Thu, 19 Jul 2018 06:25:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part6/</guid>
+      <description>Applied Q7. In the chapter, we mentioned the use of correlation-based distance and Euclidean distance as dissimilarity measures for hierarchical clustering. It turns out that these two measures are almost equivalent: if each observation has been centered to have mean zero and standard deviation one, and if we let $r_{ij}$ denote the correlation between the ith and jth observations, then the quantity $1−r _{ij}$ is proportional to the squared Euclidean distance between the ith and jth observations.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part5/</link>
+      <pubDate>Sun, 15 Jul 2018 03:51:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part5/</guid>
+      <description>10.7 Exercises Conceptual Q1. This problem involves the K-means clustering algorithm.
+(a) Prove (10.12).
+Sol: Equation 10.12 is:
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
+where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get
+$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{i^{&#39;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&#39;}j} \</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part5/</link>
+      <pubDate>Fri, 29 Jun 2018 06:19:12 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part5/</guid>
+      <description>Applied Q4. Generate a simulated two-class data set with 100 observations and two features in which there is a visible but non-linear separation between the two classes. Show that in this setting, a support vector machine with a polynomial kernel (with degree greater than 1) or a radial kernel will outperform a support vector classifier on the training data. Which technique performs best on the test data? Make plots and report training and test error rates in order to back up your assertions.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/support-vector-machines_part4/</link>
+      <pubDate>Tue, 26 Jun 2018 03:29:17 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/support-vector-machines_part4/</guid>
+      <description>9.7 Exercises Conceptual Q1. This problem involves hyperplanes in two dimensions.
+(a) Sketch the hyperplane 1 + 3X1 − X2 = 0. Indicate the set of points for which 1 + 3X1 − X2 &amp;gt; 0, as well as the set of points for which 1 + 3X1 − X2 &amp;lt; 0.
+(b) On the same plot, sketch the hyperplane −2 + X1 + 2X2 = 0. Indicate the set of points for which −2+ X1 +2X2 &amp;gt; 0, as well as the set of points for which −2+ X1 + 2X2 &amp;lt; 0.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part4/</link>
+      <pubDate>Sat, 16 Jun 2018 01:34:53 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part4/</guid>
+      <description>Applied Q 7. In the lab, we applied random forests to the Boston data using mtry=6 and using ntree=25 and ntree=500. Create a plot displaying the test error resulting from random forests on this data set for a more comprehensive range of values for mtry and ntree. You can model your plot after Figure 8.10. Describe the results obtained.
+import pandas as pd from sklearn.ensemble import RandomForestRegressor from sklearn.metrics import mean_squared_error from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 8: Tree-Based Methods (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/tree-based-methods_part3/</link>
+      <pubDate>Thu, 14 Jun 2018 07:14:13 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/tree-based-methods_part3/</guid>
+      <description>8.4 Exercises Conceptual Q2. It is mentioned in Section 8.2.3 that boosting using depth-one trees (or stumps) leads to an additive model: that is, a model of the form
+$$f(X) = \sum_{j=1}^{p} f_j(X_j)$$
+Explain why this is the case. You can begin with (8.12) in Algorithm 8.2.
+Sol: As for depth-one trees, value of $d$ is 1. Each tree is generated by splitting the data on only one predictor and the final model is formed by adding the shrunken version of them repeatedly.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</link>
+      <pubDate>Fri, 08 Jun 2018 03:17:36 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part6/</guid>
+      <description>Applied Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.
+(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.
+Sol: The optimal degree of polynomial selected from cross-validation is 4.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</link>
+      <pubDate>Wed, 06 Jun 2018 06:27:22 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part5/</guid>
+      <description>7.9 Exercises Conceptual Q1. It was mentioned in the chapter that a cubic regression spline with one knot at ξ can be obtained using a basis of the form $x, x^2, x^3, (x − ξ)^3 _+$, where $(x − ξ)^3 _+ = (x − ξ)^3$ if x &amp;gt; ξ and equals 0 otherwise. We will now show that a function of the form $f(x) = β_0 + β_1x + β_2x^2 + β_3x^3 + β_4(x − ξ)^3 _+$ is indeed a cubic regression spline, regardless of the values of $β_0, β_1, β_2, β_3, β_4$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
+      <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
+(a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</link>
+      <pubDate>Fri, 25 May 2018 06:18:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</guid>
+      <description>6.8 Exercises Conceptual Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, . . . , p predictors. Explain your answers:
+(a) Which of the three models with k predictors has the smallest training RSS?
+Sol: Training RSS is minimum for best subset selection.
+(b) Which of the three models with k predictors has the smallest test RSS?</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part4/</link>
+      <pubDate>Sat, 19 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part4/</guid>
+      <description>Applied Q5. In Chapter 4, we used logistic regression to predict the probability of default using income and balance on the Default data set. We will now estimate the test error of this logistic regression model using the validation set approach. Do not forget to set a random seed before beginning your analysis.
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt import numpy as np import statsmodels.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 5: Resampling Methods (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/resampling-methods_part3/</link>
+      <pubDate>Fri, 18 May 2018 07:18:30 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/resampling-methods_part3/</guid>
+      <description>5.4 Exercises Conceptual Q1. Using basic statistical properties of the variance, as well as singlevariable calculus, derive that the value of $\alpha$ which minimizes $Var(\alpha X + (1 - \alpha) Y)$ is:
+$$\alpha = \frac{\sigma_Y^2 - \sigma _{XY}}{\sigma_X^2 + \sigma_Y^2 - 2\sigma _{XY}}$$
+Sol: As we know that $Var(aX + bY) = a^2 Var(X) + b^2 Var(Y) + 2abCov(X, Y)$, the above quantity (that needs to be minimized) can be transformed as:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</title>
+      <link>https://amitrajan012.github.io/post/classification_part4/</link>
+      <pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
+      <description>Applied Q10. This question should be answered using the Weekly data set.
+(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/classification_part3/</link>
+      <pubDate>Tue, 15 May 2018 09:02:08 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
+      <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
+Sol:  Logistic function representation is given as:
+$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
+then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
+$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part5/</link>
+      <pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
+      <description>Applied Solution 8:
+(a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
+import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-regression_part4/</link>
+      <pubDate>Thu, 10 May 2018 10:28:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-regression_part4/</guid>
+      <description>3.7 Exercises Conceptual Solution: The linear fit can be given as:
+$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$
+(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 4: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part4/</link>
+      <pubDate>Sun, 06 May 2018 07:24:34 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
+      <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 2: Statistical Learning (Part 3: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/statistical-learning_part3/</link>
+      <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
+(a) The sample size n is extremely large, and the number of predic- tors p is small.
+Sol: Better
+(b) The number of predictors p is extremely large, and the number of observations n is small.</description>
+    </item>
+    
+  </channel>
+</rss>

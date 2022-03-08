@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Think Stats: Chapter 3" />
+    <meta property="og:title" content="Think Stats: Chapter 3" />
+    <meta property="twitter:title" content="Think Stats: Chapter 3" />
+    
+
+    
+    <meta name="description" content="Think Stats: Chapter 3">
+    <meta property="og:description" content="Think Stats: Chapter 3" />
+    <meta property="twitter:description" content="Think Stats: Chapter 3" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Think Stats: Chapter 3-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter-3-cumulative-distribution-functions/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/think-stats" title="Think Stats">
+                            Think Stats
+                        </a>
+                        
+                        <a class="tag" href="/tags/pmf" title="PMF">
+                            PMF
+                        </a>
+                        
+                        <a class="tag" href="/tags/cdf" title="CDF">
+                            CDF
+                        </a>
+                        
+                        <a class="tag" href="/tags/conditional-distribution" title="Conditional Distribution">
+                            Conditional Distribution
+                        </a>
+                        
+                    </div>
+                    <h1>Think Stats: Chapter 3</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, August 12, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="31-the-class-size-paradox">3.1 The class size paradox</h3>
+<p>For a probability distribution, the mean calculated from its PMF is lower than the one calculated by taking a sample from it. This happens because the larger classes tend to get oversampled.
+<br><br></p>
+<p><b>Exercise 3.1</b> Build the PMF of the college class-size data and compute the mean as perceived by the Dean. Find the distribution of class sizes as perceived by students and compute
+its mean.</p>
+<p><b>Solution:</b> The mean class size perceived by the dean is <b>23.692</b> which is significantly lower than the mean class size perceived by the students, which is <b>30.019</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Mean Class Size perceived by dean</span>
+<span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
+class_size_dict <span style="color:#f92672">=</span> {
+    <span style="color:#ae81ff">7</span>: <span style="color:#ae81ff">8</span>,
+    <span style="color:#ae81ff">12</span>: <span style="color:#ae81ff">8</span>,
+    <span style="color:#ae81ff">17</span>: <span style="color:#ae81ff">14</span>,
+    <span style="color:#ae81ff">22</span>: <span style="color:#ae81ff">4</span>,
+    <span style="color:#ae81ff">27</span>: <span style="color:#ae81ff">6</span>,
+    <span style="color:#ae81ff">32</span>: <span style="color:#ae81ff">12</span>,
+    <span style="color:#ae81ff">37</span>: <span style="color:#ae81ff">8</span>,
+    <span style="color:#ae81ff">42</span>: <span style="color:#ae81ff">3</span>,
+    <span style="color:#ae81ff">47</span>: <span style="color:#ae81ff">2</span>
+}
+l <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> class_size_dict<span style="color:#f92672">.</span>items():
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(value):
+        l<span style="color:#f92672">.</span>append(key)
+class_sizes <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(l)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean Class Size as perceived by the dean is: &#34;</span> <span style="color:#f92672">+</span> str(class_sizes<span style="color:#f92672">.</span>mean()))
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(class_sizes, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">40</span>, hist<span style="color:#f92672">=</span>True, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Class Size&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of Class Size (as perceived by Dean)&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Mean Class Size as perceived by the dean is: 23.6923076923
+
+
+
+&lt;Figure size 800x600 with 1 Axes&gt;
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Mean Class Size perceived by students</span>
+l <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> key, value <span style="color:#f92672">in</span> class_size_dict<span style="color:#f92672">.</span>items():
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(key<span style="color:#f92672">*</span>value):
+        l<span style="color:#f92672">.</span>append(key)
+population <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>Series(l)
+sample <span style="color:#f92672">=</span> population<span style="color:#f92672">.</span>sample(frac<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, replace<span style="color:#f92672">=</span>False)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean Class Size perceived by the students is: &#34;</span> <span style="color:#f92672">+</span> str(sample<span style="color:#f92672">.</span>mean()))
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(sample, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">40</span>, hist<span style="color:#f92672">=</span>True, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True)
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Class Size&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of Class Size (as perceived by Students)&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><pre><code>Mean Class Size perceived by the students is: 28.9805194805
+</code></pre>
+<img class="pure-img" src="/img/Chapter%203%20-%20Cumulative%20distribution%20functions_files/Chapter%203%20-%20Cumulative%20distribution%20functions_4_1.png" alt="">
+<h3 id="32-the-limits-of-pmfs">3.2 The limits of PMFs</h3>
+<p>PMFs work well if the number of values is small. But as the number of values increases, the probability associated with each value gets smaller and the effect of random noise increases. The plot of PMFs for birth weight for first babies and others is shown below and it is evident that they are hard to compare. Binning can be used to get a more smooth plot but with a drawback that they can also smooth out useful information.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
+                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
+                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
+                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
+                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
+                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
+
+first_child <span style="color:#f92672">=</span> pregnancies[(pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;</span> (pregnancies[<span style="color:#e6db74">&#39;birthord&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>)][[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>, <span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]]<span style="color:#f92672">.</span>dropna()
+other <span style="color:#f92672">=</span> pregnancies[(pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;</span> (pregnancies[<span style="color:#e6db74">&#39;birthord&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>)][[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>, <span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]]<span style="color:#f92672">.</span>dropna()
+
+first_child <span style="color:#f92672">=</span> first_child[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> first_child[<span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]
+other <span style="color:#f92672">=</span> other[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> other[<span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]
+
+bins <span style="color:#f92672">=</span>  int(max(first_child<span style="color:#f92672">.</span>max(), other<span style="color:#f92672">.</span>max()) <span style="color:#f92672">-</span> min(first_child<span style="color:#f92672">.</span>min() , other<span style="color:#f92672">.</span>min()))
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(first_child, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;first babies&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.3</span>})
+sns<span style="color:#f92672">.</span>distplot(other, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;other&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.2</span>})
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Weight&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of Weight (for first baby and others)&#39;</span>)
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Chapter%203%20-%20Cumulative%20distribution%20functions_files/Chapter%203%20-%20Cumulative%20distribution%20functions_7_0.png" alt="">
+<h3 id="34-cumulative-distribution-functions">3.4 Cumulative distribution functions</h3>
+<p>The <b>Cumulative Distribution Function (CDF)</b> is the function that maps values to their percentile rank in a distribution. The CDF of the birth weight is shown below and it can be perceived that first babies tend to have lower birth weight.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(first_child, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;first babies&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.3</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+sns<span style="color:#f92672">.</span>distplot(other, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;other&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.2</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Weight&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF of Weight (for first baby and others)&#39;</span>)
+plt<span style="color:#f92672">.</span>legend()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Chapter%203%20-%20Cumulative%20distribution%20functions_files/Chapter%203%20-%20Cumulative%20distribution%20functions_10_0.png" alt="">
+<h3 id="37-conditional-distributions">3.7 Conditional Distributions</h3>
+<p>A <b>conditional distribution</b> is the distribution of a subset of the data which is selected according to a condition.</p>
+<h3 id="38-random-numbers">3.8 Random numbers</h3>
+<p>CDF can be used to generate random numbers from a given distribution. For this, we can choose a random probability in the range 0-1 and can find the value in the CDF that corresponds to the chosen probability.
+<br></br>
+<b>Exercise 3.9</b> Using the distribution of birth weights from the NSFG, generate a random sample with 1000 elements. Compute the CDF of the sample. Make a plot that shows the original CDF and the CDF of the random sample. For large values of n, the distributions should be the same.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy <span style="color:#f92672">import</span> stats
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+weights <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>, <span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]]<span style="color:#f92672">.</span>dropna()
+weights <span style="color:#f92672">=</span> weights[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> weights[<span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]
+weights <span style="color:#f92672">=</span> weights<span style="color:#f92672">.</span>astype(int)
+
+<span style="color:#75715e"># Generate CDF and 1000 RVs</span>
+W <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>asarray(weights)
+S <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>itemfreq(W)
+N <span style="color:#f92672">=</span> len(W)
+xk <span style="color:#f92672">=</span> []
+pk <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, S<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]):
+    xk<span style="color:#f92672">.</span>append(S[i, <span style="color:#ae81ff">0</span>])
+    pk<span style="color:#f92672">.</span>append(S[i, <span style="color:#ae81ff">1</span>]<span style="color:#f92672">/</span>N)
+cdf_weights <span style="color:#f92672">=</span> stats<span style="color:#f92672">.</span>rv_discrete(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cdf_weights&#39;</span>, values<span style="color:#f92672">=</span>(xk, pk))
+l_50 <span style="color:#f92672">=</span> cdf_weights<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>)
+l_1000 <span style="color:#f92672">=</span> cdf_weights<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+
+<span style="color:#75715e"># Plot CDF of Sample</span>
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+sns<span style="color:#f92672">.</span>distplot(l_50, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;50 samples&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.3</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+sns<span style="color:#f92672">.</span>distplot(l_1000, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1000 Samples&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.2</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+sns<span style="color:#f92672">.</span>distplot(weights, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Original Data&#39;</span>, bins<span style="color:#f92672">=</span>bins, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True, hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.2</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Weight&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF of Weight (for Original and Sampled Data)&#39;</span>)
+ax<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;left&#39;</span>)
+plt<span style="color:#f92672">.</span>show()
+
+</code></pre></div><img class="pure-img" src="/img/Chapter%203%20-%20Cumulative%20distribution%20functions_files/Chapter%203%20-%20Cumulative%20distribution%20functions_15_1.png" alt="">
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter-2-descriptive-statistics/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 2">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter-4-continuous-distributions/" data-toggle="tooltip" data-placement="top" title="Think Stats: Chapter 4">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

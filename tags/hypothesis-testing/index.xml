@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hypothesis Testing on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/hypothesis-testing/</link>
+    <description>Recent content in Hypothesis Testing on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 30 Aug 2018 06:17:39 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/hypothesis-testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 7</title>
+      <link>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</link>
+      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
+      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+    </item>
+    
+  </channel>
+</rss>

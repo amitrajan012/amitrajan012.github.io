@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Skewness on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/skewness/</link>
+    <description>Recent content in Skewness on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Aug 2018 16:27:09 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/skewness/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Think Stats: Chapter 6</title>
+      <link>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</link>
+      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-6-operations-on-distributions/</guid>
+      <description>6.1 Skewness Skewness is a statistic that measures the assymetry of a distribution. Sample skewness is defined as:
+$$Skewness = \frac{Mean\ Cubed\ Deviation}{Mean\ Squared\ Deviation^{\frac{3}{2}}}$$
+Negative skewness means that the distribution skews left and positive skewness means that the distribution is skewed to right. Outliers have a disproportionate effect on skewness.
+Another way to evaluate the asymmetry of a distribution is to compare mean and median. For distributions that skews left, mean is less than the median.</description>
+    </item>
+    
+  </channel>
+</rss>

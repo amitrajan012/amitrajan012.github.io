@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Principal Components Analysis on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/principal-components-analysis/</link>
+    <description>Recent content in Principal Components Analysis on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 Jul 2018 01:19:52 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/principal-components-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part2/</link>
+      <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part2/</guid>
+      <description>10.2.3 More on PCA Scaling the Variables The results of PCA also depend on the fact that whether the variables are individually scaled or not. If we perform PCA on the unscaled variables, the variables with higher variance will have very large loading. As it is undesirable for the principal components obtained to depend on the scale of the variables, we scale each variables to have the standard deviation 1 before performing PCA.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</title>
+      <link>https://amitrajan012.github.io/post/unsupervised-learning_part1/</link>
+      <pubDate>Wed, 04 Jul 2018 03:09:02 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/unsupervised-learning_part1/</guid>
+      <description>Unsupervised Learning 10.1 The Challenge of Unsupervised Learning Unsupervised learning is often performed as a a part of an exploratory data analysis. In unsupervised learning there is no practical way to assess the performance of the model as we do not have the true answer.
+10.2 Principal Components Analysis In the case of a large set of correlated variables, principal component analysis helps in summarizing the data set with a small number of representative variables that explains most of the variability in the data.</description>
+    </item>
+    
+  </channel>
+</rss>

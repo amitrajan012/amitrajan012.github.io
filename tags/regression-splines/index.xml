@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regression Splines on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/regression-splines/</link>
+    <description>Recent content in Regression Splines on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 May 2018 11:12:18 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/regression-splines/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</title>
+      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</link>
+      <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part2/</guid>
+      <description>7.4 Regression Splines Regression splines are flixible class of basis functions that extend upon polynomial and piecewise constant regression approaches.
+7.4.1 Piecewise Polynomials Piecewise polynomial regression fits separate low-degree polynomials over different regions of $X$. For example, a piecewise squared polynomial fits squared regression model of the form
+$$y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \epsilon_i$$
+where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of the range of $X$.</description>
+    </item>
+    
+  </channel>
+</rss>

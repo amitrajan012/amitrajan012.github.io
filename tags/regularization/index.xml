@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regularization on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/regularization/</link>
+    <description>Recent content in Regularization on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 May 2018 11:08:14 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/regularization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</link>
+      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
+      <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
+(a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</link>
+      <pubDate>Fri, 25 May 2018 06:18:38 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part4/</guid>
+      <description>6.8 Exercises Conceptual Q1. We perform best subset, forward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing 0, 1, 2, . . . , p predictors. Explain your answers:
+(a) Which of the three models with k predictors has the smallest training RSS?
+Sol: Training RSS is minimum for best subset selection.
+(b) Which of the three models with k predictors has the smallest test RSS?</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</link>
+      <pubDate>Thu, 24 May 2018 01:06:16 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part3/</guid>
+      <description>6.3 Dimension Reduction Methods Instead of performing a least squares regression on all the $p$ predictors, we can transform the predictors and then fit a least squares model on the transformed variables. Let the transformed variables be $Z_1, Z_2, &amp;hellip;, Z_M$, where $M &amp;lt; p$, where each of $Z_m$s is a linear combination of predictors $X_1, X_2, &amp;hellip;, X_p$.i.e.
+$$Z_m = \sum _{j=1}^{p} \phi _{jm}X_j$$
+We can then fit the least squares regression model as $Z_m$s as the predictors:</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</link>
+      <pubDate>Tue, 22 May 2018 21:16:20 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part2/</guid>
+      <description>6.2 Shrinkage Methods As an alternative to subset selection methods, a model containing all the $p$ predictors can be fit using a technique that constrains or regularizes the coefficient estimates (or shrinks the coefficeint estimates towards 0). Two best known techniques for shrinking the coefficient estimates towards 0 are: ridge regression and the lasso.
+6.2.1 Ridge Regression In a least squares fitting, the parameters of the model is estimated by minimizing</description>
+    </item>
+    
+    <item>
+      <title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</title>
+      <link>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</link>
+      <pubDate>Mon, 21 May 2018 13:08:40 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
+      <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
+  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+    </item>
+    
+  </channel>
+</rss>
