@@ -225,54 +225,54 @@
 <p>The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:</p>
 <p>$$\begin{align}
 2x-y = 0
-\<br>
+\\<br>
 -x+2y = 3
 \end{align}$$</p>
 <p>The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</p>
 <p>$$\begin{align}
 \begin{bmatrix}
-2 &amp; -1 \<br>
+2 &amp; -1 \\<br>
 -1 &amp; 2
 \end{bmatrix}
 \begin{bmatrix}
-x \<br>
+x \\<br>
 y
 \end{bmatrix} =
 \begin{bmatrix}
-0 \<br>
+0 \\<br>
 3
 \end{bmatrix}
 \end{align}$$</p>
 <p>There are two ways to geometrically interpret the above system of linear equations. The first one can is called as: <b>row picture of the system of linear equations</b>. In this, we plot each of the individual equations and try to find the common intersection point (if exist) of all of them. The point of intersection is the solution to the system of equations. For the above system, the geometrical interpretation based on the row picture is shown below giving $(1,2)$ as solution.</p>
-<img src="https://drive.google.com/uc?export=view&id=11V4bIRPqvOq2HGZoUeWT4Q6HAsm3YRsg" width="300" height="400">
+<img class="pure-img" src="/img/Linear_Algebra/row_picture.png" alt="">
 <p>The above system of linear equation can be rewritten as</p>
 <p>$$\begin{align}
 x\begin{bmatrix}
-2 \<br>
+2 \\<br>
 -1
 \end{bmatrix}
 +y\begin{bmatrix}
--1 \<br>
+-1 \\<br>
 2
 \end{bmatrix} =
 \begin{bmatrix}
-0 \<br>
+0 \\<br>
 3
 \end{bmatrix}
 \end{align}$$</p>
 <p>which is the linear combination of the column vectors. The above mentioned way of representing the system of linear equations is called as <b>column picture</b> and can be geometrically interpreted as shown in the below figure. It should be noted that the solution of the equation is $(1,2)$ as $\begin{bmatrix} 2 \ -1 \end{bmatrix}$ when combined with twice of $\begin{bmatrix} -1 \ 2 \end{bmatrix}$ gives $\begin{bmatrix} 0 \ 3 \end{bmatrix}$.</p>
-<img src="https://drive.google.com/uc?export=view&id=1bXcU3bICTFXlBIxWOljuBkSytazU53vn" width="300" height="400">
+<img class="pure-img" src="/img/Linear_Algebra/column_picture.png" alt="">
 <h2 id="12-matrix-multiplication">1.2 Matrix Multiplication</h2>
 <p>Matrix Multiplication can be interpreted and done in different ways. All the discussed methods have different geometrical significance. Let $A,B$ and $C$ are $m \times n$, $n \times p$ and $m \times p$ matrices respectively such that $AB=C$ and $a_{ij}, b_{ij}, c_{ij}$ be the individual elements in row $i$ and column $j$ of the respective matrices.</p>
 <p>For the demonstration purpose, let the matrices $A,B$ be</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-2 &amp; -1 &amp; 3\<br>
+2 &amp; -1 &amp; 3\\<br>
 -1 &amp; 2 &amp; 4
 \end{bmatrix},
 B = \begin{bmatrix}
-0 &amp; 1\<br>
-2 &amp; 1 \<br>
+0 &amp; 1\\<br>
+2 &amp; 1 \\<br>
 3 &amp; 5
 \end{bmatrix}
 \end{align}$$</p>
@@ -284,8 +284,8 @@ The entry in cell $(i,j)$ of the resultant matrix $C$ is the <b>dot product</b> 
 C_{11} = \begin{bmatrix}
 2 &amp; -1 &amp; 3
 \end{bmatrix} \cdot \begin{bmatrix}
-0 \<br>
-2  \<br>
+0 \\<br>
+2  \\<br>
 3
 \end{bmatrix} = 7
 \end{align}$$</p>
@@ -293,8 +293,8 @@ C_{11} = \begin{bmatrix}
 C_{12} = \begin{bmatrix}
 2 &amp; -1 &amp; 3
 \end{bmatrix} \cdot \begin{bmatrix}
-1 \<br>
-1  \<br>
+1 \\<br>
+1  \\<br>
 5
 \end{bmatrix} = 16
 \end{align}$$</p>
@@ -302,8 +302,8 @@ C_{12} = \begin{bmatrix}
 C_{21} = \begin{bmatrix}
 -1 &amp; 2 &amp; 4
 \end{bmatrix} \cdot \begin{bmatrix}
-0 \<br>
-2  \<br>
+0 \\<br>
+2  \\<br>
 3
 \end{bmatrix} = 16
 \end{align}$$</p>
@@ -311,18 +311,18 @@ C_{21} = \begin{bmatrix}
 C_{22} = \begin{bmatrix}
 -1 &amp; 2 &amp; 4
 \end{bmatrix} \cdot \begin{bmatrix}
-1 \<br>
-1  \<br>
+1 \\<br>
+1  \\<br>
 5
 \end{bmatrix} = 21
 \end{align}$$</p>
 <p>$$\begin{align}
 C = \begin{bmatrix}
-C_{11} &amp; C_{12} \<br>
+C_{11} &amp; C_{12} \\<br>
 C_{21} &amp; C_{22}
 \end{bmatrix} =
 \begin{bmatrix}
-7 &amp; 16 \<br>
+7 &amp; 16 \\<br>
 16 &amp; 21
 \end{bmatrix}
 \end{align}$$</p>
@@ -332,53 +332,53 @@ The entry in the column $j$ of the resultant matrix $C$ is the product of first 
 </ul>
 <p>$$\begin{align}
 C_{_1} = \begin{bmatrix}
-2 &amp; -1 &amp; 3 \<br>
+2 &amp; -1 &amp; 3 \\<br>
 -1 &amp; 2 &amp; 4
 \end{bmatrix} \begin{bmatrix}
-0 \<br>
-2  \<br>
+0 \\<br>
+2  \\<br>
 3
 \end{bmatrix} =
 0\begin{bmatrix}
-2 \<br>
+2 \\<br>
 -1
 \end{bmatrix}
 +2\begin{bmatrix}
--1 \<br>
+-1 \\<br>
 2
 \end{bmatrix}
 +3\begin{bmatrix}
-3 \<br>
+3 \\<br>
 4
 \end{bmatrix}
 =\begin{bmatrix}
-7 \<br>
+7 \\<br>
 16
 \end{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 C_{_2} = \begin{bmatrix}
-2 &amp; -1 &amp; 3 \<br>
+2 &amp; -1 &amp; 3 \\<br>
 -1 &amp; 2 &amp; 4
 \end{bmatrix} \begin{bmatrix}
-1 \<br>
-1  \<br>
+1 \\<br>
+1  \\<br>
 5
 \end{bmatrix} =
 1\begin{bmatrix}
-2 \<br>
+2 \\<br>
 -1
 \end{bmatrix}
 +1\begin{bmatrix}
--1 \<br>
+-1 \\<br>
 2
 \end{bmatrix}
 +5\begin{bmatrix}
-3 \<br>
+3 \\<br>
 4
 \end{bmatrix}
 =\begin{bmatrix}
-16 \<br>
+16 \\<br>
 21
 \end{bmatrix}
 \end{align}$$</p>
@@ -387,25 +387,25 @@ C = \begin{bmatrix}
 C_{_1} &amp; C_{_2}
 \end{bmatrix}
 = \begin{bmatrix}
-7 &amp; 16 \<br>
+7 &amp; 16 \\<br>
 16 &amp; 21
 \end{bmatrix}
 \end{align}$$</p>
 <ul>
-<li><b>Rows:</b> The entry in $i^{th}$ row of matrix $C$ is the product of $i^{th}$ row of matrix $A$ and matrix $B$. This means that <b>rows of $C$ are combination of rows of $B$</b>.</li>
-</ul>
-<p>$$\begin{align}
-C_{1_} = \begin{bmatrix}
+<li><b>Rows:</b> The entry in $i^{th}$ row of matrix $C$ is the product of $i^{th}$ row of matrix $A$ and matrix $B$. This means that <b>rows of $C$ are combination of rows of $B$</b>.
+$$\begin{align}
+C_1 = \begin{bmatrix}
 2 &amp; -1 &amp; 3
-\end{bmatrix} \begin{bmatrix}
-0 &amp; 1\<br>
-2 &amp; 1\<br>
+\end{bmatrix}
+\begin{bmatrix}
+0 &amp; 1 \\<br>
+2 &amp; 1 \\<br>
 3 &amp; 5
 \end{bmatrix} =
 2\begin{bmatrix}
 0 &amp; 1
-\end{bmatrix}
-+-1\begin{bmatrix}
+\end{bmatrix} + -1
+\begin{bmatrix}
 2 &amp; 1
 \end{bmatrix}
 +3\begin{bmatrix}
@@ -414,13 +414,14 @@ C_{1_} = \begin{bmatrix}
 =\begin{bmatrix}
 7 &amp; 16
 \end{bmatrix}
-\end{align}$$</p>
+\end{align}$$</li>
+</ul>
 <p>$$\begin{align}
-C_{2_} = \begin{bmatrix}
+C_2 = \begin{bmatrix}
 -1 &amp; 2 &amp; 4
 \end{bmatrix} \begin{bmatrix}
-0 &amp; 1\<br>
-2 &amp; 1\<br>
+0 &amp; 1\\<br>
+2 &amp; 1\\<br>
 3 &amp; 5
 \end{bmatrix} =
 -1\begin{bmatrix}
@@ -438,11 +439,11 @@ C_{2_} = \begin{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 C = \begin{bmatrix}
-C_{1_} \<br>
-C_{2_}
+C_1 \\<br>
+C_2
 \end{bmatrix}
 = \begin{bmatrix}
-7 &amp; 16 \<br>
+7 &amp; 16 \\<br>
 16 &amp; 21
 \end{bmatrix}
 \end{align}$$</p>
@@ -451,75 +452,71 @@ C_{2_}
 </ul>
 <p>$$\begin{align}
 C_{1} = \begin{bmatrix}
-2\<br>
+2\\<br>
 -1
 \end{bmatrix}
 \begin{bmatrix}
 0 &amp; 1
 \end{bmatrix}
 = \begin{bmatrix}
-0 &amp; 2 \<br>
+0 &amp; 2 \\<br>
 0 &amp; -1
 \end{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 C_{2} = \begin{bmatrix}
--1\<br>
+-1\\<br>
 2
 \end{bmatrix}
 \begin{bmatrix}
 2 &amp; 1
 \end{bmatrix}
 = \begin{bmatrix}
--2 &amp; -1 \<br>
+-2 &amp; -1 \\<br>
 4 &amp; 2
 \end{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 C_{3} = \begin{bmatrix}
-3\<br>
+3\\<br>
 4
 \end{bmatrix}
 \begin{bmatrix}
 3 &amp; 5
 \end{bmatrix}
 = \begin{bmatrix}
-9 &amp; 15 \<br>
+9 &amp; 15 \\<br>
 12 &amp; 20
 \end{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 C = C_{1} + C_{2} + C_{3} =
 \begin{bmatrix}
-0 &amp; 2 \<br>
+0 &amp; 2 \\<br>
 0 &amp; -1
-\end{bmatrix}</p>
-<ul>
-<li>\begin{bmatrix}
--2 &amp; -1 \<br>
+\end{bmatrix} + \begin{bmatrix}
+-2 &amp; -1 \\<br>
 4 &amp; 2
-\end{bmatrix}</li>
-<li>\begin{bmatrix}
-9 &amp; 15 \<br>
+\end{bmatrix} + \begin{bmatrix}
+9 &amp; 15 \\<br>
 12 &amp; 20
 \end{bmatrix}
 = \begin{bmatrix}
-7 &amp; 16 \<br>
+7 &amp; 16 \\<br>
 16 &amp; 21
 \end{bmatrix}
-\end{align}$$</li>
-</ul>
+\end{align}$$</p>
 <ul>
 <li><b>Block Multiplication</b>: Matrices can be multiplied by dividing the matrices into conforming blocks and then multiplying those blocks together. For example, matrices $A$ and $B$ can be divided into confirming blocks as follows.</li>
 </ul>
 <p>$$\begin{align}
 A = \left[\begin{array}{c c| c}
-2 &amp; -1 &amp; 3\<br>
+2 &amp; -1 &amp; 3\\
 -1 &amp; 2 &amp; 4
 \end{array}\right];
 B = \left[\begin{array}{c c}
-0 &amp; 1 \<br>
-2 &amp; 1 \<br>
+0 &amp; 1 \\<br>
+2 &amp; 1 \\<br>
 \hline
 3 &amp; 5
 \end{array}\right]
@@ -528,21 +525,22 @@ A = \left[\begin{array}{c | c}
 A_{22} &amp; A_{21}
 \end{array}\right];
 B = \left[\begin{array}{c c}
-B_{22} \<br>
+B_{22} \\<br>
 \hline
 B_{12}
-\end{array}\right] ;
+\end{array}\right] \end{align}$$</p>
+<p>where
+$$\begin{align}
 A_{22} = \left[\begin{array}{c c}
-2 &amp; -1\<br>
+2 &amp; -1\\<br>
 -1 &amp; 2
 \end{array}\right];
 A_{21} = \left[\begin{array}{c}
-3\<br>
+3\\
 4
 \end{array}\right];
-\<br>
 B_{22} = \left[\begin{array}{c c}
-0 &amp; 1\<br>
+0 &amp; 1\\
 2 &amp; 1
 \end{array}\right];
 B_{12} = \left[\begin{array}{c c}
@@ -554,44 +552,41 @@ AB = \left[\begin{array}{c | c}
 A_{22} &amp; A_{21}
 \end{array}\right]
 \left[\begin{array}{c c}
-B_{22} \<br>
+B_{22} \\<br>
 \hline
 B_{12}
 \end{array}\right]
 = A_{22}B_{22} + A_{21}B_{12}
 =  \left[\begin{array}{c c}
-2 &amp; -1\<br>
+2 &amp; -1\\<br>
 -1 &amp; 2
 \end{array}\right]
 \left[\begin{array}{c c}
-0 &amp; 1\<br>
+0 &amp; 1\\<br>
 2 &amp; 1
 \end{array}\right]
 +
 \left[\begin{array}{c}
-3\<br>
+3\\<br>
 4
 \end{array}\right]
 \left[\begin{array}{c c}
 3 &amp; 5
-\end{array}\right]
+\end{array}\right]\end{align}$$</p>
+<p>$$\begin{align}
 = \left[\begin{array}{c c}
--2 &amp; 1\<br>
+-2 &amp; 1\\
 4 &amp; 1
-\end{array}\right]</p>
-<ul>
-<li>\left[\begin{array}{c c}
-9 &amp; 15\<br>
+\end{array}\right] + \left[\begin{array}{c c}
+9 &amp; 15\\<br>
 12 &amp; 20
 \end{array}\right]
 = \left[\begin{array}{c c}
-7 &amp; 16\<br>
+7 &amp; 16\\<br>
 16 &amp; 21
 \end{array}\right]
-\end{align}$$</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
-</code></pre></div>
+\end{align}$$</p>
+
 
                 
 
