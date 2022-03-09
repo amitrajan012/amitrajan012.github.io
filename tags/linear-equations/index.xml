@@ -6,7 +6,32 @@
     <description>Recent content in Linear Equations on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-equations/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 12 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-equations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inverse of a Matrix &amp; Factorization into $A=LU$</title>
+      <link>https://amitrajan012.github.io/post/chapter_3_inverse_factorization_and_symmetric_matrices/</link>
+      <pubDate>Wed, 12 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_3_inverse_factorization_and_symmetric_matrices/</guid>
+      <description>3.1 Inverse of a Matrix &amp;amp; Factorization into $A=LU$ Given a square matrix $A$, $A^{-1}$ is it&amp;rsquo;s inverse if $AA^{-1} = A^{-1}A = I$, where $I$ is the Identity Matrix and we say that $A$ is invertible or nonsingular.
+For a singular matrix $A$, the inverse does not exist and it&amp;rsquo;s determinant is $0$. Also, we can find a vector $x$ such that $Ax=0$. This means that one or more than one columns of $A$ is linear combination of other columns.</description>
+    </item>
+    
+    <item>
+      <title>Elimination &amp; Permutation with Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/</link>
+      <pubDate>Sat, 08 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/</guid>
+      <description>2.1 Elimination &amp;amp; Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let $Ax=b$ is a system of linear equation where
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 1\\
+3 &amp;amp; 8 &amp;amp; 1\\
+0 &amp;amp; 4 &amp;amp; 1 \end{bmatrix}, b = \begin{bmatrix} 2 \\
+12 \\
+2 \end{bmatrix} \end{align}$$
+The idea of elimination is to transform $A$ into a matrix where all the entries in the cell below the diagonal is 0.</description>
+    </item>
+    
     <item>
       <title>Geometry of Linear Equations &amp; Matrix Multiplications</title>
       <link>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</link>

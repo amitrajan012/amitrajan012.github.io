@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Inverse of a Matrix &amp; Factorization into $A=LU$" />
+    <meta property="og:title" content="Inverse of a Matrix &amp; Factorization into $A=LU$" />
+    <meta property="twitter:title" content="Inverse of a Matrix &amp; Factorization into $A=LU$" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 3">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 3" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 3" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Inverse of a Matrix &amp; Factorization into $A=LU$-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter_3_inverse_factorization_and_symmetric_matrices/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/linear-equations" title="Linear Equations">
+                            Linear Equations
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-multiplications" title="Matrix Multiplications">
+                            Matrix Multiplications
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                        <a class="tag" href="/tags/inverse-matrix" title="Inverse Matrix">
+                            Inverse Matrix
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-factorization" title="Matrix Factorization">
+                            Matrix Factorization
+                        </a>
+                        
+                    </div>
+                    <h1>Inverse of a Matrix &amp; Factorization into $A=LU$</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Wednesday, January 12, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="31-inverse-of-a-matrix--factorization-into-alu">3.1 Inverse of a Matrix &amp; Factorization into $A=LU$</h2>
+<p>Given a <b>square matrix</b> $A$, $A^{-1}$ is it&rsquo;s inverse if $AA^{-1} = A^{-1}A = I$, where $I$ is the <b>Identity Matrix</b> and we say that $A$ is <b>invertible</b> or <b>nonsingular</b>.</p>
+<p>For a <b>singular</b> matrix $A$, the inverse does not exist and it&rsquo;s <b>determinant</b> is $0$. Also, we can find a vector $x$ such that $Ax=0$. This means that one or more than one columns of $A$ is linear combination of other columns. For example, below $2 \times 2$ matrix is not invertible.</p>
+<p>$$\begin{align}
+\begin{bmatrix}
+1 &amp; 2\\<br>
+2 &amp; 4\\<br>
+\end{bmatrix}
+\begin{bmatrix}
+2 \\<br>
+-1
+\end{bmatrix}=
+\begin{bmatrix}
+0 \\<br>
+0
+\end{bmatrix}
+\end{align}$$</p>
+<p>The inverse of the product of two matrices given as $AB$ is $B^{-1}A^{-1}$. This can be verified as follows. Let $M$ be the inverse of $AB$.
+$$\begin{align}
+M(AB) = I \\<br>
+M(AB)B^{-1} = IB^{-1} \\<br>
+MA = B^{-1} \\<br>
+MAA^{-1} = B^{-1}A^{-1} \\<br>
+M = B^{-1}A^{-1}
+\end{align}$$</p>
+<p>Multiplication of two matrices can be viewed as performing an operation on second matrix based on the first. For example, for the row multiplication and subtraction elimination step, the operation is encoded as an elimination matrix. Elimination matrix $E_{21}$ for value at $row \ 2, column \ 1$ with the corresponding origianl matrix $A$ and the result $E_{21}A$ is shown below.</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+1 &amp; 2\\<br>
+3 &amp; 8\<br>
+\end{bmatrix},
+E_{21} = \begin{bmatrix}
+1 &amp; 0\\<br>
+-3 &amp; 1\<br>
+\end{bmatrix},
+E_{21}A = \begin{bmatrix}
+1 &amp; 2\\<br>
+0 &amp; 2\<br>
+\end{bmatrix}
+\end{align}$$</p>
+<p>Let us say we want to reverse this operation. This means that we want to get matrix $A$ from $E_{21}A$. As the resultant matrix is obtained by the row operation $row_2 \leftarrow row_2 - 3row_1$, the operation can be reversed if $3$ times $row_1$ is added back to $row_2$, i.e, $row_2 \leftarrow row_2 + 3row_1$. This operation can be achieved by the below multiplication matrix.</p>
+<p>$$\begin{align}
+E_{21}^{-1} = \begin{bmatrix}
+1 &amp; 0\\<br>
+3 &amp; 1\<br>
+\end{bmatrix}
+\end{align}$$</p>
+<p>It should be noted that $E_{21}^{-1}E_{21}=I$ and $E_{21}^{-1}$ is called the <b>inverse</b> of $E_{21}$.</p>
+<p>$$\begin{align}
+E_{21}^{-1}E_{21} = \begin{bmatrix}
+1 &amp; 0\\<br>
+3 &amp; 1\<br>
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0\\<br>
+-3 &amp; 1\<br>
+\end{bmatrix}=
+\begin{bmatrix}
+1 &amp; 0\\<br>
+0 &amp; 1\<br>
+\end{bmatrix} = I
+\end{align}$$</p>
+<p>The resultant matrix $E_{21}A = U$ is an <b>upper triangular matrix</b>. If we multiply $U$ with $E_{21}^{-1}$, we will get back $A$, i.e. $E_{21}^{-1}(E_{21}A) = E_{21}^{-1}U = A$. Here, the matrix $E_{21}^{-1}=L$ is a <b>lower triangular matrix</b>. This process of factoring matrix $A$ into $LU$ is shown below.</p>
+<p>$$\begin{align}
+A = LU \implies
+\begin{bmatrix}
+1 &amp; 2\\<br>
+3 &amp; 8\<br>
+\end{bmatrix} =
+\begin{bmatrix}
+1 &amp; 0\\<br>
+3 &amp; 1\<br>
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2\\<br>
+0 &amp; 2\<br>
+\end{bmatrix}
+\end{align}$$</p>
+<p>Another thing to notice is that all the diagonal elements of $L$ is $1$ but that of $U$, they are not. To have all the diagonal entries in $U$ as $1$, the matrix can be further factorized as follows. Matrix $D$ is a <b>diagonal matrix</b> where diagonals (<b>also called as pivots</b>) are the ones from $U$.</p>
+<p>$$\begin{align}
+A = LU = LDU^{'}\implies
+\begin{bmatrix}
+1 &amp; 2\\<br>
+3 &amp; 8\<br>
+\end{bmatrix} =
+\begin{bmatrix}
+1 &amp; 0\\<br>
+3 &amp; 1\<br>
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0\\<br>
+0 &amp; 2\<br>
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 2\\<br>
+0 &amp; 1\<br>
+\end{bmatrix}
+\end{align}$$</p>
+<h2 id="32-permutation-matrix-inverse-and-factorization">3.2 Permutation Matrix: Inverse and Factorization</h2>
+<p><b>Permutation Matrices</b> are the class of matrices which are needed for the <b>row exchange operation</b>. In some of the cases, to get a <b>upper triangular matrix</b> from a matrix, some row exchange operations can also be needed. Let us look at the following transformation step for matrix $A$.</p>
+<p>$$\begin{align}
+A =
+\begin{bmatrix}
+0 &amp; 2 &amp; 1\\<br>
+1 &amp; 2 &amp; 3\\<br>
+1 &amp; 6 &amp; 3
+\end{bmatrix}
+\xrightarrow{\text{P}}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3\\<br>
+0 &amp; 2 &amp; 1\\<br>
+1 &amp; 6 &amp; 3
+\end{bmatrix}
+\xrightarrow{\text{E}}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3\\<br>
+0 &amp; 2 &amp; 1\\<br>
+0 &amp; 0 &amp; -2
+\end{bmatrix} = U
+\end{align}$$</p>
+<p>The steps are: $P \equiv row_2 \leftrightarrow row_1$, $E \equiv row_3 \leftarrow row_3 - row_1 - 2row_2$. The <b>permutation matrix</b> $P$ which is nothing but <b>the identity matrix with reordered rows</b> for the above case is shown below.</p>
+<p>$$\begin{align}
+P =
+\begin{bmatrix}
+0 &amp; 1 &amp; 0\\<br>
+1 &amp; 0 &amp; 0\\<br>
+0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{align}$$</p>
+<p><b>All the permutation matrices are invertible</b> with $P^{-1} = P^T$. With row exchange as one of the elimination steps, the factorization $A = LU$ is transformed as $PA = LU$.</p>
+<h2 id="33-symmetric-matrices">3.3 Symmetric Matrices</h2>
+<p>There is one more special class of matrices called as <b>symmetric matrices</b>. For a symmetric matirx $A$, $A^T = A$. This means that the entry in cell $(i,j)$ is the same as entry in cell $(j,i)$ for $A$ as $A^T_{i,j} = A_{j,i}$. Apart from this, <b>for any matrix $R$, $R^TR$ is symmetric</b>. This can be easily seen as:$(R^TR)^T = R^T(R^T)^T = R^TR$, which implies that the <b>transpose of $R^TR$ is same as $R^TR$ and hence it is symmetric</b>. Another way to look at it is by matrix multiplication. First of all, <b>the transpose of a matrix exchanges it&rsquo;s rows and columns</b>, i.e. $i^{th}$ row of original matrix is the $j^{th}$ column of the transpose matrix. For example,</p>
+<p>$$\begin{align}
+R =
+\begin{bmatrix}
+1 &amp; 3\\<br>
+2 &amp; 3\\<br>
+4 &amp; 1
+\end{bmatrix},
+R^T =
+\begin{bmatrix}
+1 &amp; 2 &amp; 4\\<br>
+3 &amp; 3 &amp; 1
+\end{bmatrix}
+\end{align}$$</p>
+<p>Let us now evaluate $R^TR$ using <b>row times column method</b> of mtrix multiplication. The entries in the resultant matrix $S$ can be viewed as $S_{12} = R^T_{row_1} \times R_{col_2}$ and $S_{21} = R^T_{row_2} \times R_{col_1}$. But as $R^T_{row_1} = R_{col_1}$ and $R^T_{row_2} = R_{col_2}$ which gives us $S_{12} = S_{21}$.</p>
+<p>$$\begin{align}
+R^TR =
+\begin{bmatrix}
+1 &amp; 2 &amp; 4\\<br>
+3 &amp; 3 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 3\\<br>
+2 &amp; 3\\<br>
+4 &amp; 1
+\end{bmatrix}=
+\begin{bmatrix}
+21 &amp; 13\\<br>
+13 &amp; 19
+\end{bmatrix} = S
+\end{align}$$</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter_2_elimination_and_permutation/" data-toggle="tooltip" data-placement="top" title="Elimination &amp; Permutation with Matrices">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter_4_vector_spaces/" data-toggle="tooltip" data-placement="top" title="Vector Space and Subspace">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

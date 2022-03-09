@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Inverse Matrix on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/inverse-matrix/</link>
+    <description>Recent content in Inverse Matrix on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/inverse-matrix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Inverse of a Matrix &amp; Factorization into $A=LU$</title>
+      <link>https://amitrajan012.github.io/post/chapter_3_inverse_factorization_and_symmetric_matrices/</link>
+      <pubDate>Wed, 12 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_3_inverse_factorization_and_symmetric_matrices/</guid>
+      <description>3.1 Inverse of a Matrix &amp;amp; Factorization into $A=LU$ Given a square matrix $A$, $A^{-1}$ is it&amp;rsquo;s inverse if $AA^{-1} = A^{-1}A = I$, where $I$ is the Identity Matrix and we say that $A$ is invertible or nonsingular.
+For a singular matrix $A$, the inverse does not exist and it&amp;rsquo;s determinant is $0$. Also, we can find a vector $x$ such that $Ax=0$. This means that one or more than one columns of $A$ is linear combination of other columns.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Matrix Independence, Span, Basis &amp; Dimension" />
+    <meta property="og:title" content="Matrix Independence, Span, Basis &amp; Dimension" />
+    <meta property="twitter:title" content="Matrix Independence, Span, Basis &amp; Dimension" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 7">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 7" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 7" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Matrix Independence, Span, Basis &amp; Dimension-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter_7_independence_basis_and_dimension/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-multiplications" title="Matrix Multiplications">
+                            Matrix Multiplications
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                        <a class="tag" href="/tags/vector-space" title="Vector Space">
+                            Vector Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-factorization" title="Matrix Factorization">
+                            Matrix Factorization
+                        </a>
+                        
+                        <a class="tag" href="/tags/subspace" title="Subspace">
+                            Subspace
+                        </a>
+                        
+                        <a class="tag" href="/tags/column-space" title="Column Space">
+                            Column Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/null-space" title="Null Space">
+                            Null Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/independence" title="Independence">
+                            Independence
+                        </a>
+                        
+                        <a class="tag" href="/tags/span" title="Span">
+                            Span
+                        </a>
+                        
+                        <a class="tag" href="/tags/basis" title="Basis">
+                            Basis
+                        </a>
+                        
+                        <a class="tag" href="/tags/dimension" title="Dimension">
+                            Dimension
+                        </a>
+                        
+                    </div>
+                    <h1>Matrix Independence, Span, Basis &amp; Dimension</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, January 30, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="71-independence">7.1 Independence</h3>
+<p>Vectors $x_1,x_2, &hellip;, x_n$ are <b>linearly independent</b> if no combinations of these vectors gives zero vector, except the zero combination. i.e.</p>
+<p>$$\begin{align}
+c_1x_1 + c_2x_2 + &hellip; + c_nx_n \neq 0; except \ \forall c_i=0
+\end{align}$$</p>
+<p>As we know that, for a $m \times n$ matrix $A$, if $m &lt; n$, then we will have at least one non-zero solution to $Ax=0$. It implies that we will always find some non-zero combinations of $c_i$ that will make satisfy the above condition. This means that whenever we are in a m-dimensional space with $n$ vectors in it such that $m &lt; n$, these $n$ vectors will always be <b>linearly dependent</b>.</p>
+<p>In general, given the vectors $v_1, v_2, &hellip;, v_n$, to check for their indepedence we can form a matrix $A$ with these vectors as the columns. Once the matrix is formed, we have to find the null-space of it (i.e. solution for $Ax=0$). If the <b>null-space of $A$ is just a zero vector, the columns of $A$ are independent</b>. We will not have any non-zero vector in the null-space of $A$ if and only there are not any <b>free columns</b> after the substitution steps. This means that all the columns are <b>pivot columns</b> and hence the <b>rank of matrix $A$ is $n$</b>. The columns in $A$ are dependent if there exist any <b>non-zero</b> $c$ such that $Ac=0$, which implies that there are some <b>free columns</b> in $A$, i.e. <b>rank of $A &lt; n$</b></p>
+<h3 id="72-span-basis-and-dimension">7.2 Span, Basis and Dimension</h3>
+<p>Vectors $v_1, v_2, &hellip;, v_l$ <b>spans a space</b> if the vector space consists of all combinations of these vectors. For example, columns of a matrix spans it&rsquo;s column space. The vectors which span a space can be dependent as well. For example, for a one dimnesional space $S_1$, we need at least one vector to span the entire space. But even if we have more that one vectors in that one-dimensional space, they will span the same $S_1$. This gives rise to basis.</p>
+<p><b>Basis</b> for a space is a sequence of vectors $v_1, v_2, &hellip;, v_d$ which have following properties:</p>
+<ul>
+<li>They are independent.</li>
+<li>They span the space.</li>
+</ul>
+<p>Example: For the space be $R^3$, one basis is $\begin{bmatrix}
+1 \\<br>
+0 \\<br>
+0
+\end{bmatrix}, \begin{bmatrix}
+0 \\<br>
+1 \\<br>
+0
+\end{bmatrix}, \begin{bmatrix}
+0 \\<br>
+0 \\<br>
+1
+\end{bmatrix}$.</p>
+<p>For a space $R^n$, $n$ vectors is a basis for it if the $n \times n$ matrix is <b>invertible</b>. Other fact about basis is: Given a space $S$, <b>every basis for the space has the same number of vectors and this number is the dimension of the space</b>.</p>
+<p>Let us take an example. For the below matrix $A$, we have to find the basis for it&rsquo;s <b>column space</b> $C(A)$.</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 1 \\<br>
+1 &amp; 1 &amp; 2 &amp; 1 \\<br>
+1 &amp; 2 &amp; 3 &amp; 1
+\end{bmatrix}
+\end{align}$$</p>
+<p>The first thing to notice is the fact that the columns of the matrix $A$ are not independent. This means that all the four columns do not form the basis for $C(A)$. If we start looking at the columns of $A$ from left to right the first two columns are linearly indepndent. Third column is the sum of the first and second and the fourth column is same as the first one. This makes $col_1, col_2$ as one of the basis of $C(A)$. It should also be noted that the rank of matrix $A$ is $2$. In a matrix $A$, <b>rank is equal to the number of pivot columns and the dimensions of $C(A)$</b>. i.e.</p>
+<p>$$\begin{align}
+dim(C(A)) = rank(A)
+\end{align}$$</p>
+<p>Similary, <b>the dimension of the null-space of $A$ is the number of free variables.</b> Hence, for a $m \times n$ matrix $A$, the dimension of null-space can be given as</p>
+<p>$$\begin{align}
+dim(N(A)) = n - rank(A)
+\end{align}$$</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter_6_solving_for_axb/" data-toggle="tooltip" data-placement="top" title="Algorithm for solving $Ax=b$">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

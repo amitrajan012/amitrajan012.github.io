@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vector Space on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/vector-space/</link>
+    <description>Recent content in Vector Space on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/vector-space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix Independence, Span, Basis &amp; Dimension</title>
+      <link>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</link>
+      <pubDate>Sun, 30 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</guid>
+      <description>7.1 Independence Vectors $x_1,x_2, &amp;hellip;, x_n$ are linearly independent if no combinations of these vectors gives zero vector, except the zero combination. i.e.
+$$\begin{align} c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n \neq 0; except \ \forall c_i=0 \end{align}$$
+As we know that, for a $m \times n$ matrix $A$, if $m &amp;lt; n$, then we will have at least one non-zero solution to $Ax=0$. It implies that we will always find some non-zero combinations of $c_i$ that will make satisfy the above condition.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm for solving $Ax=b$</title>
+      <link>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</link>
+      <pubDate>Tue, 25 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</guid>
+      <description>6.1 Algorithm for solving $Ax=b$ The idea behind this exercise is to come up with the solution for $Ax=b$. Let us start by taking a matrix $A$ and vector $b$.
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
+2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
+3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix}; b = \begin{bmatrix} b_1 \\
+b_2 \\
+b_3 \end{bmatrix} \end{align}$$
+The augumented matrix $\begin{bmatrix} A &amp;amp; b \end{bmatrix}$ can be formed and elimination steps can be performed on it as follows.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm for solving $Ax=0$</title>
+      <link>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</link>
+      <pubDate>Thu, 20 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</guid>
+      <description>5.1 Algorithm for solving $Ax=0$ The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix $A$. Let us start by taking a matrix $A$.
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
+2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
+3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix} \end{align}$$
+One of the first thing to notice in $A$ is that $row_3$ is a linear combination of $row_1$ and $row_2$ ($row_3 = row_1 + row_2$).</description>
+    </item>
+    
+    <item>
+      <title>Vector Space and Subspace</title>
+      <link>https://amitrajan012.github.io/post/chapter_4_vector_spaces/</link>
+      <pubDate>Mon, 17 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_4_vector_spaces/</guid>
+      <description>4.1 Vector Space and Subspace Vector Space is a set of vectors whose linear combinations belong to the same set. This means that whenever we pick $2$ vectors from a vector space and find thier linear combination, the resultant vector will be in the vector space. A vector space in two and three dimensions is $R^2$ and $R^3$.
+We can make some common observations about vector spaces. Let $u,v$ be two vectors, then their linear combination can be described as $w=au+bv$ where $a,b$ are scalars.</description>
+    </item>
+    
+  </channel>
+</rss>

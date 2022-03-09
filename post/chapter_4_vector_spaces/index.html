@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Vector Space and Subspace" />
+    <meta property="og:title" content="Vector Space and Subspace" />
+    <meta property="twitter:title" content="Vector Space and Subspace" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 4">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 4" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 4" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Vector Space and Subspace-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter_4_vector_spaces/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-multiplications" title="Matrix Multiplications">
+                            Matrix Multiplications
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                        <a class="tag" href="/tags/vector-space" title="Vector Space">
+                            Vector Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-factorization" title="Matrix Factorization">
+                            Matrix Factorization
+                        </a>
+                        
+                        <a class="tag" href="/tags/subspace" title="Subspace">
+                            Subspace
+                        </a>
+                        
+                        <a class="tag" href="/tags/column-space" title="Column Space">
+                            Column Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/null-space" title="Null Space">
+                            Null Space
+                        </a>
+                        
+                    </div>
+                    <h1>Vector Space and Subspace</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Monday, January 17, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="41-vector-space-and-subspace">4.1 Vector Space and Subspace</h2>
+<p><b>Vector Space</b> is a set of vectors whose linear combinations belong to the same set. This means that whenever we pick $2$ vectors from a vector space and find thier linear combination, the resultant vector will be in the vector space.
+A vector space in two and three dimensions is $R^2$ and $R^3$.</p>
+<p>We can make some common observations about vector spaces. Let $u,v$ be two vectors, then their linear combination can be described as $w=au+bv$ where $a,b$ are scalars. If $a=b=0$, $w=au+bv=0$. This means that <b>for any vector space (which contains vectors $u,v$), the zero vector will always be in it</b>. This observation gives us a powerful tool to deduce whether a set is a vector space or not. If zero vector is not in the set, it&rsquo;s not a vector space.</p>
+<p>A vector space that is contained within another vector space is called a <b>subspace</b> of that space. A space defined in $R^2$ contianing just zero vector as $S=\bigg\{\begin{bmatrix}
+0 \\<br>
+0
+\end{bmatrix}\bigg\}$ is a <b>subspace</b> as any linear combination of zero vector is still a zero vector. Another example of subspace in $R^2$ is <b>a line passing through origin</b> as any multiple of the vector will also be on the line and hence fulfilling the criteria of a vector space. Any plane passing through origin is a subspace in $R^3$ as linear combination of the vectors in the plane will still reside in the plane.</p>
+<h2 id="42-union-and-intersection-of-vector-space">4.2 Union and Intersection of Vector Space</h2>
+<p>Let $S_1,S_2$ be two vector spaces, their union $S_1 \cup S_2$ is not a subsapce. For example, let $S_1$ and $S_2$ be two lines, the sum of two non-zero vectors in $S_1$ and $S_2$ respectively will not be on any of the lines and hence the union is not a subspace.</p>
+<p>The <b>intersection of the subspaces denoted as $S_1 \cap S_2$ is a subspace</b>. Let there are two vectors $u,v$ such that both $u,v \in S_1 \cap S_2$. This means that $u,v \in S_1$ and $u,v \in S_2$. For $S_1 \cap S_2$ to be a <b>subsapce</b>, $au + bv \in S_1 \cap S_2$ where $a$ and $b$ are scalars. <b>As $u,v \in S_1$ and $S_1$ is a subspace, it&rsquo;s linear combination $au + bv \in S_1$</b>. Similarly, $au + bv \in S_2$ and hence $au + bv \in S_1 \cap S_2$.</p>
+<h2 id="43-column-space">4.3 Column Space</h2>
+<p>Given a matrix $A$, it&rsquo;s columns and all their linear combinations form a vector space called as the <b>column space</b> $C(A)$ of $A$. For example, for the matrix $A = \begin{bmatrix}
+1, 3 \\<br>
+2, 3 \\<br>
+4, 1
+\end{bmatrix}$ it&rsquo;s column space $C(A)$ is a plane passing through $\begin{bmatrix}
+0 \\<br>
+0 \\<br>
+0
+\end{bmatrix}$ (origin), $\begin{bmatrix}
+1 \\<br>
+2 \\<br>
+4
+\end{bmatrix}$, $\begin{bmatrix}
+3 \\<br>
+3 \\<br>
+1
+\end{bmatrix}$ in $R^3$.</p>
+<p>Let us look at another example. Following matrix $A$ is in $R^4$. The <b>column space $C(A)$</b> of $A$ is formed by <b>all linear combinations of columns of $A$</b>. Let there be a system of linear equations $Ax = b$ where $x,b$ are column vectors. <b>Does this system of linear equation will have a solution $x$ for all values of $b$?</b></p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+1 &amp; 1 &amp; 2 \\<br>
+2 &amp; 1 &amp; 3 \\<br>
+3 &amp; 1 &amp; 4 \\<br>
+4 &amp; 1 &amp; 5
+\end{bmatrix},
+x = \begin{bmatrix}
+x_1 \\<br>
+x_2 \\<br>
+x_3
+\end{bmatrix},
+b = \begin{bmatrix}
+b_1 \\<br>
+b_2 \\<br>
+b_3 \\<br>
+b_4
+\end{bmatrix}
+\end{align}$$</p>
+<p>The system of linear equation $Ax = b$ can be further reduced to:</p>
+<p>$$\begin{align}
+Ax =b \implies\begin{bmatrix}
+1 &amp; 1 &amp; 2 \\<br>
+2 &amp; 1 &amp; 3 \\<br>
+3 &amp; 1 &amp; 4 \\<br>
+4 &amp; 1 &amp; 5
+\end{bmatrix} \begin{bmatrix}
+x_1 \\<br>
+x_2 \\<br>
+x_3
+\end{bmatrix} = b
+\implies x_1\begin{bmatrix}
+1 \\<br>
+2 \\<br>
+3 \\<br>
+4
+\end{bmatrix} +
+x_2\begin{bmatrix}
+1 \\<br>
+1 \\<br>
+1 \\<br>
+1
+\end{bmatrix} +
+x_3\begin{bmatrix}
+2 \\<br>
+3 \\<br>
+4 \\<br>
+5
+\end{bmatrix} = b
+\end{align}$$</p>
+<p>This means that for $Ax=b$ to have a solution, $b$ should be the linear combination of the columns of $A$. Hence, <b>the system of linear equation $Ax=b$ will have a solution only if $b \in C(A)$</b>, where $C(A)$ is the column space of $A$.</p>
+<p>If we further look at the columns of $A$, $col_3$ is a linear combination of $col_1$ and $col_2$ as $col_3 = col_1 + col_2$. This means that $col_3$ does not contribnute or add any dimension while forming the column space of $A$. $C(A)$ can be defined just using $col_1$ and $col_2$. Hence <b>column space</b> $C(A)$ of $A$ is a two dimensional plane in $R^4$.</p>
+<h2 id="44-null-space">4.4 Null Space</h2>
+<p><b>Null space of marix $A$ contains all solutions of $Ax=0$</b>, i.e null space is the solution of following equation for above $A$. Here the null space will be in $R^3$ as $x$ is a three dimensional vector.</p>
+<p>$$\begin{align}
+Ax=0 \implies \begin{bmatrix}
+1 &amp; 1 &amp; 2 \\<br>
+2 &amp; 1 &amp; 3 \\<br>
+3 &amp; 1 &amp; 4 \\<br>
+4 &amp; 1 &amp; 5
+\end{bmatrix} \begin{bmatrix}
+x_1 \\<br>
+x_2 \\<br>
+x_3
+\end{bmatrix} =
+\begin{bmatrix}
+0 \\<br>
+0 \\<br>
+0 \\<br>
+0
+\end{bmatrix}
+\end{align}$$</p>
+<p>Some the vectors which will be in the null space of $A$ are: $\begin{bmatrix}
+0 \\<br>
+0 \\<br>
+0
+\end{bmatrix},
+\begin{bmatrix}
+1 \\<br>
+1 \\<br>
+-1
+\end{bmatrix},
+\begin{bmatrix}
+2 \\<br>
+2 \\<br>
+-2
+\end{bmatrix},&hellip;$ In general, all vectors of the form $\begin{bmatrix}
+c \\<br>
+c \\<br>
+-c
+\end{bmatrix}$ forms the <b>null space of $A$</b>.</p>
+<p>For these set of vectors to be a subspace, for two solutions $u,v$ of $Ax=0$, their linear combination $au+bv$ should also be a solution of $Ax=0$. As $u, v$ are solutions of $Ax=0$, $Au=0;Av=0$. This means:</p>
+<p>$$\begin{align}
+aAu=0;bAv=0 \implies Aau=0; Abv=0 \implies Aau+Abv=0 \implies A(au+bv)=0
+\end{align}$$</p>
+<p>Hence, $au+bv$ is also a solution of $Ax=0$ which makes nullspace a vector space. One of the major intution about null space is the fact that <b>for any matrix $A$, null space will contains non-zero vectors only if all of it&rsquo;s columns are not lineraly independent</b>, i.e. at least one of the columns of $A$ should be the linear combination of all the other columns.</p>
+<p>Another important question which can be asked that whether for any non-zero $b$, whether the solutions of the equation $Ax=b$ forms a subspace. <b>No, they don&rsquo;t</b>. As for non-zero $b$, the zero vector is not a solution and hence the set of solutions don&rsquo;t form a subspace as every subspace should contain the zero vector.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter_3_inverse_factorization_and_symmetric_matrices/" data-toggle="tooltip" data-placement="top" title="Inverse of a Matrix &amp; Factorization into $A=LU$">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter_5_computing_nullspace/" data-toggle="tooltip" data-placement="top" title="Algorithm for solving $Ax=0$">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

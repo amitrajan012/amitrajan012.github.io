@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basis on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/basis/</link>
+    <description>Recent content in Basis on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/basis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix Independence, Span, Basis &amp; Dimension</title>
+      <link>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</link>
+      <pubDate>Sun, 30 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</guid>
+      <description>7.1 Independence Vectors $x_1,x_2, &amp;hellip;, x_n$ are linearly independent if no combinations of these vectors gives zero vector, except the zero combination. i.e.
+$$\begin{align} c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n \neq 0; except \ \forall c_i=0 \end{align}$$
+As we know that, for a $m \times n$ matrix $A$, if $m &amp;lt; n$, then we will have at least one non-zero solution to $Ax=0$. It implies that we will always find some non-zero combinations of $c_i$ that will make satisfy the above condition.</description>
+    </item>
+    
+  </channel>
+</rss>

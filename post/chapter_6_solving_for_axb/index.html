@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Algorithm for solving $Ax=b$" />
+    <meta property="og:title" content="Algorithm for solving $Ax=b$" />
+    <meta property="twitter:title" content="Algorithm for solving $Ax=b$" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 6">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 6" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 6" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Algorithm for solving $Ax=b$-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter_6_solving_for_axb/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-multiplications" title="Matrix Multiplications">
+                            Matrix Multiplications
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                        <a class="tag" href="/tags/vector-space" title="Vector Space">
+                            Vector Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/matrix-factorization" title="Matrix Factorization">
+                            Matrix Factorization
+                        </a>
+                        
+                        <a class="tag" href="/tags/subspace" title="Subspace">
+                            Subspace
+                        </a>
+                        
+                        <a class="tag" href="/tags/column-space" title="Column Space">
+                            Column Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/null-space" title="Null Space">
+                            Null Space
+                        </a>
+                        
+                        <a class="tag" href="/tags/reduced-row-echelon-form" title="Reduced Row-Echelon Form">
+                            Reduced Row-Echelon Form
+                        </a>
+                        
+                    </div>
+                    <h1>Algorithm for solving $Ax=b$</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Tuesday, January 25, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h3 id="61-algorithm-for-solving-axb">6.1 Algorithm for solving $Ax=b$</h3>
+<p>The idea behind this exercise is to come up with the solution for $Ax=b$. Let us start by taking a matrix $A$ and vector $b$.</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+1 &amp; 2 &amp; 2 &amp; 2 \\<br>
+2 &amp; 4 &amp; 6 &amp; 8 \\<br>
+3 &amp; 6 &amp; 8 &amp; 10
+\end{bmatrix};
+b = \begin{bmatrix}
+b_1 \\<br>
+b_2 \\<br>
+b_3
+\end{bmatrix}
+\end{align}$$</p>
+<p>The <b>augumented matrix</b> $\begin{bmatrix} A &amp; b \end{bmatrix}$ can be formed and elimination steps can be performed on it as follows.</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
+2 &amp; 4 &amp; 6 &amp; 8 &amp; b_2\\<br>
+3 &amp; 6 &amp; 8 &amp; 10 &amp; b_3
+\end{bmatrix} \rightarrow
+\begin{bmatrix}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\<br>
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_3-3b_1
+\end{bmatrix} \rightarrow
+\begin{bmatrix}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\<br>
+0 &amp; 0 &amp; 0 &amp; 0 &amp; b_3-b_2-b_1
+\end{bmatrix} = U
+\end{align}$$</p>
+<p>The last row of the augumented matrix after elimination implies that $b_3-b_2-b_1 = 0$ and this is the <b>condition for solvability</b>. The condition of solvability can be listed as:</p>
+<ul>
+<li>$Ax=b$ is solvable when $b \in C(A)$</li>
+<li>If a combination of rows of $A$ gives a zero row, the same combination of entries of $b$ must be $0$.</li>
+</ul>
+<p>One of the valid values of $b$ for which we will have the solution can be $\begin{bmatrix}
+1 \\<br>
+5 \\<br>
+6
+\end{bmatrix}$. Putting this value for $b$, we get the following augumented  row-echelon matrix.</p>
+<p>\begin{align}
+U = \begin{bmatrix}
+1 &amp; 2 &amp; 2 &amp; 2 &amp; 1\\<br>
+0 &amp; 0 &amp; 2 &amp; 4 &amp; 3\\<br>
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix} \rightarrow
+\begin{bmatrix}
+1 &amp; 2 &amp; 0 &amp; -2 &amp; -2\\<br>
+0 &amp; 0 &amp; 1 &amp; 2 &amp; 3/2\\<br>
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{bmatrix} = R
+\end{align}</p>
+<p>To find the complete solution of $Ax=b$, we can start with finding a particular solution (x_p) and then proceed from there. The steps are as follows:</p>
+<ul>
+<li>Set all <b>free varibales</b> in $x$, variables corresponding to <b>free columns</b> to $0$ and solve for the <b>pivot variables</b>. This gives us the set of equations as: $x_1 + 2x_3 =0;2x_3=3;x_2=0;x_4=0$ (as $x_2,x_4$ are free variables). Hence, $x_p = \begin{bmatrix}-2 \\<br>
+0 \\<br>
+3/2 \\<br>
+0
+\end{bmatrix}$.</li>
+<li>The <b>complete solution</b> can be given as:
+\begin{align}
+x = x_p + x_n
+\end{align}
+where $x_n$ is any vector in the <b>null space</b>. This is valid as the particular solution gives $Ax_p = b$ and any vector in null space gives $Ax_n = 0$. Adding these two, we get $x=x_p+x_n$. For this particular $A$, the null space is $\begin{bmatrix}
+-2 &amp; 0 \\<br>
+2 &amp; -2 \\<br>
+1 &amp; 0 \\<br>
+0 &amp; 1
+\end{bmatrix}$. Hence the complete solution is:
+\begin{align}
+x = \begin{bmatrix}
+-2 \\<br>
+0 \\<br>
+3/2 \\<br>
+0
+\end{bmatrix}+
+c_1\begin{bmatrix}
+-2 \\<br>
+2  \\<br>
+1  \\<br>
+0
+\end{bmatrix} +
+c_2\begin{bmatrix}
+0 \\<br>
+-2  \\<br>
+0 \\<br>
+1
+\end{bmatrix}
+\end{align}</li>
+</ul>
+<p>The above solution forms a two-dimensional plain in $R^4$ which goes through $x_p$. It should be noted that this is not a subsapce as it does not goes through origin.</p>
+<p>Let us further explore about the nature of the solutions of $Ax=b$. For a $m \times n$ matrix $A$, the <b>rank $r$</b> satisfies: $r \leq m$ and $r \leq n$, as there can&rsquo;t be more pivots than number of columns or number of rows in the matrix.</p>
+<ul>
+<li>
+<p>A <b>full column rank</b> means $r=n &lt; m$. A full columnn rank means we have $n$ pivots, no <b>free variables</b> and hence the nullspace will only have the zero vector. It&rsquo;s reduced row-echelon matrix will look like $\begin{bmatrix}
+I \\<br>
+0
+\end{bmatrix}$. This means that the solution $x$ for $Ax=b$ will be just $x_p$ i.e. <b>a unique solution if it exists</b> i.e. $0$ or $1$ solution.</p>
+</li>
+<li>
+<p>A <b>full row rank</b> means $r=m &lt; n$. This means we will have $m$ pivots, i.e. every row will have pivot and there will be $n-r=n-m$ <b>free columns/variables</b>. It&rsquo;s typical reduced row-echelon matrix will look like $\begin{bmatrix}
+I &amp; F
+\end{bmatrix}$In this case, there isn&rsquo;t any restriction on $b$ as well as the equation will be solvable for each $b$ and will have <b>infinitely many solutions</b>.</p>
+</li>
+<li>
+<p>For a case, when $r=m=n$, the matrix is a square matrix and we call the matrix a <b>full rank</b> matrix. A full rank rank matrix is <b>always invertible</b>. It should also be noted that it&rsquo;s reduced row-echelon form is $I$. It&rsquo;s nullspace is a zero vector and for the equation $Ax=b$ to be solvable, there is&rsquo;t any restriction on $b$.</p>
+</li>
+<li>
+<p>For a case when, $r &lt; m;r &lt; n$, the typical reduced row-echelon matrix will look like $\begin{bmatrix}
+I &amp; F \\<br>
+0 &amp; F
+\end{bmatrix}$ and $Ax=b$ can have $0$ or infinitely many solutions.</p>
+</li>
+</ul>
+<p>One more thing to consider is the fact that for a $m \times n$ matrix $A$, if $m &lt; n$, then we will have at least one non-zero solution to $Ax=0$.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter_5_computing_nullspace/" data-toggle="tooltip" data-placement="top" title="Algorithm for solving $Ax=0$">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter_7_independence_basis_and_dimension/" data-toggle="tooltip" data-placement="top" title="Matrix Independence, Span, Basis &amp; Dimension">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

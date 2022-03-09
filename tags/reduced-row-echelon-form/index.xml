@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reduced Row-Echelon Form on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/reduced-row-echelon-form/</link>
+    <description>Recent content in Reduced Row-Echelon Form on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/reduced-row-echelon-form/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Algorithm for solving $Ax=b$</title>
+      <link>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</link>
+      <pubDate>Tue, 25 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</guid>
+      <description>6.1 Algorithm for solving $Ax=b$ The idea behind this exercise is to come up with the solution for $Ax=b$. Let us start by taking a matrix $A$ and vector $b$.
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
+2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
+3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix}; b = \begin{bmatrix} b_1 \\
+b_2 \\
+b_3 \end{bmatrix} \end{align}$$
+The augumented matrix $\begin{bmatrix} A &amp;amp; b \end{bmatrix}$ can be formed and elimination steps can be performed on it as follows.</description>
+    </item>
+    
+    <item>
+      <title>Algorithm for solving $Ax=0$</title>
+      <link>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</link>
+      <pubDate>Thu, 20 Jan 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</guid>
+      <description>5.1 Algorithm for solving $Ax=0$ The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix $A$. Let us start by taking a matrix $A$.
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
+2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
+3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix} \end{align}$$
+One of the first thing to notice in $A$ is that $row_3$ is a linear combination of $row_1$ and $row_2$ ($row_3 = row_1 + row_2$).</description>
+    </item>
+    
+  </channel>
+</rss>

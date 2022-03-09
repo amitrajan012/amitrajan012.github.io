@@ -3,27 +3,78 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/basis/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/column-space/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/dimension/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/gilbert-strang/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/independence/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/linear-algebra/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/linear-equations/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/matrix-factorization/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/matrix-multiplications/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/null-space/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-01-03T14:07:28+01:00</lastmod>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/span/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/subspace/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/vector-space/</loc>
+    <lastmod>2022-01-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</loc>
+    <lastmod>2022-01-25T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/reduced-row-echelon-form/</loc>
+    <lastmod>2022-01-25T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</loc>
+    <lastmod>2022-01-20T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_4_vector_spaces/</loc>
+    <lastmod>2022-01-17T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/inverse-matrix/</loc>
+    <lastmod>2022-01-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_3_inverse_factorization_and_symmetric_matrices/</loc>
+    <lastmod>2022-01-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-equations/</loc>
+    <lastmod>2022-01-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/</loc>
+    <lastmod>2022-01-08T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</loc>
     <lastmod>2022-01-03T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/correlation/</loc>
