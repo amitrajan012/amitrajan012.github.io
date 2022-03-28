@@ -6,7 +6,30 @@
     <description>Recent content in Binomial Distribution on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Aug 2018 09:12:36 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/binomial-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Nov 2018 05:07:15 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/binomial-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
+      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
+$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
+where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
+    </item>
+    
+    <item>
+      <title>Commonly used Distributions (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
+      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
+$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
+$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
+ #### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
+    </item>
+    
     <item>
       <title>Think Stats: Chapter 5</title>
       <link>https://amitrajan012.github.io/post/chapter-5-probability/</link>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discrete Random Variables on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/discrete-random-variables/</link>
+    <description>Recent content in Discrete Random Variables on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Nov 2018 13:11:27 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/discrete-random-variables/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random Variables (Part 1: Discrete Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/random-variables/</link>
+      <pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/random-variables/</guid>
+      <description>Random Variable is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: discrete and continuous.</description>
+    </item>
+    
+  </channel>
+</rss>

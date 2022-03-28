@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Confidence Intervals (Part 1)" />
+    <meta property="og:title" content="Confidence Intervals (Part 1)" />
+    <meta property="twitter:title" content="Confidence Intervals (Part 1)" />
+    
+
+    
+    <meta name="description" content="Confidence Intervals for a Population Mean">
+    <meta property="og:description" content="Confidence Intervals for a Population Mean" />
+    <meta property="twitter:description" content="Confidence Intervals for a Population Mean" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Confidence Intervals (Part 1)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/confidence-intervals_1/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/confidence-intervals" title="Confidence Intervals">
+                            Confidence Intervals
+                        </a>
+                        
+                        <a class="tag" href="/tags/population-mean" title="Population Mean">
+                            Population Mean
+                        </a>
+                        
+                        <a class="tag" href="/tags/normal-distribution" title="Normal Distribution">
+                            Normal Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/students-t-distribution" title="Student&#39;s t Distribution">
+                            Student&#39;s t Distribution
+                        </a>
+                        
+                    </div>
+                    <h1>Confidence Intervals (Part 1)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Saturday, November 17, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+A <b>confidence interval</b> is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated <b>confidence level</b> that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.
+</br>
+#### Confidence Intervals for a Population Mean (Large-Sample) :
+<p>For $X_1, X_2, &hellip;, X_n$ be a <b>large</b> ($n &gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem). Then a level $100(1- \alpha)%$ confidence interval of $\mu$ is</p>
+<p>$$\overline{X} \pm z _{\alpha/2} \sigma _{\overline{X}}$$</p>
+<p>where $\sigma_{\overline{X}} = \frac{\sigma}{\sqrt{n}}$. When the value of population standard deviation $\sigma$ is unknown, it can be replaced with the sample standard deviation $s$.</p>
+<p><b>Example:</b> The sample mean and standard deviation for the fill weights of 100 boxes are $\overline{X} = 12.05$ and $s = 0.1$. Find an 85% confidence interval for the mean fill weight of the boxes.</p>
+<p><b>Sol:</b> First of all, $1 - \alpha = 85%$, and hence $\frac{\alpha}{2} = .075$. From the <b>z-table</b>, the <b>z-value</b> corresponding to $0.075$ is 1.44. Hence, the confidence interval is</p>
+<p>$$12.05 \pm 1.44 (\frac{0.1}{\sqrt{100}}) = 12.05 \pm 0.0144 = (12.0356, 12.0644)$$</p>
+<p>Let us design an experiment to understand the meaning of confidence interval in deep. A random data set is generated (treated as population) and 100 random samples of size 1000 are drawn from it and 68%, 95.6% and 99.7% confidence interval for the population mean is computed. The experimental results are well in accordance with the theoretical values.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+
+X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100000</span>), <span style="color:#ae81ff">10000</span>))<span style="color:#f92672">/</span><span style="color:#ae81ff">100000</span>
+population_mean <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>mean()
+
+<span style="color:#75715e"># Generate 100 random samples</span>
+count_68 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+count_96 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+count_99 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>):
+    S <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(X, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, replace<span style="color:#f92672">=</span>True)
+    <span style="color:#75715e"># Compute 68% confidene interval</span>
+    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+        count_68 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#75715e"># Compute 95% confidene interval</span>
+    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+        count_96 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#75715e"># Compute 99.7% confidene interval</span>
+    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+        count_99 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 68</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_68<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 95.6</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_96<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 99.7</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_99<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+</code></pre></div><pre><code>The percentage of time the 68% confidence interval covers the population mean is: 68.0%
+The percentage of time the 95.6% confidence interval covers the population mean is: 95.1%
+The percentage of time the 99.7% confidence interval covers the population mean is: 99.7%
+</code></pre>
+<p>Sometimes it is required to find the sample size needed for a confidence interval to be of specified width. The needed sample size can be calculated as shown in the below example.</p>
+<p><b>Example:</b> In an experiment, the sample standard deviation of weights from 100 boxes was s = 0.1 oz. How many boxes must be sampled to obtain a 99% confidence interval of width ±0.012 oz?</p>
+<p><b>Sol:</b> For a 99% confidence interval, $\alpha = 0.01$, and hence $z _{\alpha/2} = z _{0.005} = 2.58$. Given, $s= 0.1$ and hence, the required equation is</p>
+<p>$$\frac{2.58 \times 0.1}{\sqrt{n}} = 0.012$$</p>
+<p>which gives $n \approx 463$.</p>
+<p>Sometimes <b>one-sided confidence interval</b> is desirable. The $100(1-\alpha)%$ one sided confidence interval can be calculated as:</p>
+<p>$$Lower \ bound  = \overline{X} - z _{\alpha}\sigma _{\overline{X}}$$</p>
+<p>$$Upper \ bound  = \overline{X} + z _{\alpha}\sigma _{\overline{X}}$$</p>
+<p>where $\sigma _{\overline{X}} = \frac{\sigma}{\sqrt{n}}$ and the value of $\sigma$ can be estimated from sample standard deviation $s$.</p>
+<p>It should be noted that the method described above is based on the fact that <b>the data is a random sample from the
+population</b>. If this condition is violated, the above explained method does not hold true.</p>
+</br>
+#### Confidence Intervals for a Population Mean (Small-Sample) :
+<p>For a small sample size, there is no generic method to find the confidence interval for the population mean. However, when the population is <b>approximately normal</b>, a probability distribution called as the <b>Student&rsquo;s t distribution</b> can be used to compute confidence intervals for the population mean. The plot of <b>probability density functions</b> for various Student&rsquo;s t distribution is shown below. The shape of the PDF of Student&rsquo;s t distribution is same as that of the normal distribution but the spread is more. For a sample size of $n$, the degree of freedom of Student&rsquo;s t distribution is $n-1$. As the degree of freedom (or the sample size) increases, the shape of Student&rsquo;s t distribution approximates normal distribution. The plot of Student&rsquo;s t distribution with $df=30$ will be almost indistinguishable from the normal PDF plot.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> t
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+<span style="color:#75715e"># Plot of PDF of normal distribution</span>
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal distribution&#39;</span>)
+
+<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+df <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 1&#39;</span>)
+
+<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+df <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 4&#39;</span>)
+
+<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+df <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;y-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 10&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;PDF Plot (Normal and Student&#39;s t distribution)&#34;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Confidence%20Intervals_files/Confidence%20Intervals_6_0.png" alt="">
+<p>Let $X_1, X_2, &hellip;, X_n$ be a small sample ($n &lt; 30$) from a normal population with mean $\mu$. The quantity</p>
+<p>$$\frac{\overline{X} - \mu}{s/\sqrt{n}}$$</p>
+<p>will have a Student&rsquo;s t distribution with $n-1$ degree of freedoms, denoted as $t_{n-1}$. For large value of $n$, the distribution of above quantity is close to normal and hence the normal curve can be used. Hence, a $100(1-\alpha)%$ confidence interval for $\mu$ can be given as:</p>
+<p>$$\overline{X} \pm t_{n-1, \alpha/2} \frac{s}{\sqrt{n}}$$</p>
+<p>It should be noted that the essential condition for the application of Student&rsquo;s t distribution while computing the confidence interval is the fact that <b>sample comes from a population that is approximately normal</b>. The <b>one-sided</b> confidence interval can be given as:</p>
+<p>$$Lower \ bound  = \overline{X} - t_{n-1, \alpha}\frac{s}{\sqrt{n}}$$</p>
+<p>$$Upper \ bound  = \overline{X} + t_{n-1, \alpha}\frac{s}{\sqrt{n}}$$</p>
+<p>One reason to use Student&rsquo;s t distribution while computing the confidence interval is the fact that the population standard deviation $\sigma$ is unknown and hence is approximated by sample standard deviation $s$. <b>When population standard deviation $\sigma$ is known, normal distribution (z-table) is used instead for the computation of the confidence interval</b>.</p>
+</br>
+#### Reference :
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/commonly-used-distributions_2/" data-toggle="tooltip" data-placement="top" title="Commonly used Distributions (Part 2)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/confidence-intervals_2/" data-toggle="tooltip" data-placement="top" title="Confidence Intervals (Part 2)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

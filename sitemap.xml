@@ -77,11 +77,287 @@
     <loc>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</loc>
     <lastmod>2022-01-03T14:07:28+01:00</lastmod>
   </url><url>
+    <loc>https://amitrajan012.github.io/tags/distribution-free-tests/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-12-07T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/classification/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/logistic-regression/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/logistic-regression/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/newton-raphson-method/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/taylor-series/</loc>
+    <lastmod>2018-12-05T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/equality-of-variances/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/f-test/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/normal-distribution/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/power/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/type-1-error/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/type-2-error/</loc>
+    <lastmod>2018-11-26T07:26:51+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/categorical-data/</loc>
+    <lastmod>2018-11-25T17:06:08+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/chi-square-test/</loc>
+    <lastmod>2018-11-25T17:06:08+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/</loc>
+    <lastmod>2018-11-25T17:06:08+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/tests-for-homogeneity/</loc>
+    <lastmod>2018-11-25T17:06:08+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/tests-for-independence/</loc>
+    <lastmod>2018-11-25T17:06:08+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/alternate-hypothesis/</loc>
+    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</loc>
+    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/null-hypothesis/</loc>
+    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test/</loc>
+    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/the-wilcoxon-signed-rank-test/</loc>
+    <lastmod>2018-11-25T11:36:18+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</loc>
+    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mean/</loc>
+    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/one-tailed-test/</loc>
+    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/students-t-distribution/</loc>
+    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/two-tailed-test/</loc>
+    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/</loc>
+    <lastmod>2018-11-23T19:38:29+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/proportion/</loc>
+    <lastmod>2018-11-23T19:38:29+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</loc>
+    <lastmod>2018-11-22T09:17:41+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/confidence-intervals/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_3/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/paired-data/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/prediction-intervals/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/variance/</loc>
+    <lastmod>2018-11-20T16:41:05+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bernoulli-distribution/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/binomial-distribution/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_2/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/proportions/</loc>
+    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/confidence-intervals_1/</loc>
+    <lastmod>2018-11-17T11:27:09+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/population-mean/</loc>
+    <lastmod>2018-11-17T11:27:09+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/commonly-used-distributions_2/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/continuous-distributions/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/exponential-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/lognormal-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/probability-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/uniform-distribution/</loc>
+    <lastmod>2018-11-16T01:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/commonly-used-distributions_1/</loc>
+    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/multinomial-distribution/</loc>
+    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/poisson-distribution/</loc>
+    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/dependent-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/independent-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/neural-networks/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/repeated-measurements/</loc>
+    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</loc>
+    <lastmod>2018-11-14T02:18:29+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/conditional-distributions/</loc>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
     <loc>https://amitrajan012.github.io/tags/correlation/</loc>
-    <lastmod>2018-09-10T11:13:31+01:00</lastmod>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/covariance/</loc>
-    <lastmod>2018-09-10T11:13:31+01:00</lastmod>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/iid/</loc>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/marginal-probability-density/</loc>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/randomvariables_part3/</loc>
+    <lastmod>2018-11-13T06:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/cdf/</loc>
+    <lastmod>2018-11-12T03:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/continuous-random-variables/</loc>
+    <lastmod>2018-11-12T03:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pmf/</loc>
+    <lastmod>2018-11-12T03:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/randomvariables_part2/</loc>
+    <lastmod>2018-11-12T03:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/discrete-random-variables/</loc>
+    <lastmod>2018-11-11T13:11:27+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/random-variables/</loc>
+    <lastmod>2018-11-11T13:11:27+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/f1-score/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/precision/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/recall/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/roc-curve/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/sensitivity/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/specificity/</loc>
+    <lastmod>2018-10-29T12:11:37+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/hypothesis-testing/</loc>
+    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/p-value/</loc>
+    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/t-statistic/</loc>
+    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/z-statistic/</loc>
+    <lastmod>2018-10-29T02:01:07+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
+    <lastmod>2018-10-28T17:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/log-likelihood/</loc>
+    <lastmod>2018-10-28T17:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-likelihood-estimation/</loc>
+    <lastmod>2018-10-28T17:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</loc>
+    <lastmod>2018-10-28T17:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mle/</loc>
+    <lastmod>2018-10-28T17:11:47+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayes-theorem/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/laplace-smoothing/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/map/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/naive-bayes-classifier/</loc>
+    <lastmod>2018-10-24T05:01:19+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/goodness-of-fit/</loc>
     <lastmod>2018-09-10T11:13:31+01:00</lastmod>
@@ -104,28 +380,10 @@
     <loc>https://amitrajan012.github.io/tags/bayesian-estimation/</loc>
     <lastmod>2018-09-04T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/confidence-intervals/</loc>
-    <lastmod>2018-09-04T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/estimation/</loc>
-    <lastmod>2018-09-04T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/exponential-distribution/</loc>
-    <lastmod>2018-09-04T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-8-estimation/</loc>
     <lastmod>2018-09-04T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/chi-square-test/</loc>
-    <lastmod>2018-08-30T06:17:39+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/cross-validation/</loc>
-    <lastmod>2018-08-30T06:17:39+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/hypothesis-testing/</loc>
-    <lastmod>2018-08-30T06:17:39+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/power/</loc>
     <lastmod>2018-08-30T06:17:39+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</loc>
@@ -137,9 +395,6 @@
     <loc>https://amitrajan012.github.io/tags/convolution/</loc>
     <lastmod>2018-08-26T16:27:09+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/random-variables/</loc>
-    <lastmod>2018-08-26T16:27:09+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/skewness/</loc>
     <lastmod>2018-08-26T16:27:09+01:00</lastmod>
   </url><url>
@@ -147,9 +402,6 @@
     <lastmod>2018-08-26T16:27:09+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bayess-theorem/</loc>
-    <lastmod>2018-08-22T09:12:36+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/binomial-distribution/</loc>
     <lastmod>2018-08-22T09:12:36+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/monty-hall-problem/</loc>
@@ -161,22 +413,10 @@
     <loc>https://amitrajan012.github.io/post/chapter-5-probability/</loc>
     <lastmod>2018-08-22T09:12:36+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/lognormal-distribution/</loc>
-    <lastmod>2018-08-17T19:02:16+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/normal-distribution/</loc>
-    <lastmod>2018-08-17T19:02:16+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-4-continuous-distributions/</loc>
     <lastmod>2018-08-17T19:02:16+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/cdf/</loc>
-    <lastmod>2018-08-12T09:22:46+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/conditional-distribution/</loc>
-    <lastmod>2018-08-12T09:22:46+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/pmf/</loc>
     <lastmod>2018-08-12T09:22:46+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</loc>
@@ -185,13 +425,7 @@
     <loc>https://amitrajan012.github.io/tags/distributions/</loc>
     <lastmod>2018-08-08T04:17:12+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/mean/</loc>
-    <lastmod>2018-08-08T04:17:12+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</loc>
-    <lastmod>2018-08-08T04:17:12+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/variance/</loc>
     <lastmod>2018-08-08T04:17:12+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</loc>
@@ -395,9 +629,6 @@
     <loc>https://amitrajan012.github.io/post/resampling-methods_part1/</loc>
     <lastmod>2018-05-17T05:22:19+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/classification/</loc>
-    <lastmod>2018-05-16T10:20:15+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/classification_part4/</loc>
     <lastmod>2018-05-16T10:20:15+01:00</lastmod>
   </url><url>
@@ -411,9 +642,6 @@
     <lastmod>2018-05-14T11:12:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/classification_part1/</loc>
-    <lastmod>2018-05-13T02:17:58+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/logistic-regression/</loc>
     <lastmod>2018-05-13T02:17:58+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/linear-regression_part5/</loc>

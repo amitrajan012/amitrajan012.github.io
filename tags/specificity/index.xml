@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Specificity on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/specificity/</link>
+    <description>Recent content in Specificity on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Oct 2018 12:11:37 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/specificity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Performance Metrics for Classification Algorithms</title>
+      <link>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
+      <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
+ ### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+    </item>
+    
+  </channel>
+</rss>

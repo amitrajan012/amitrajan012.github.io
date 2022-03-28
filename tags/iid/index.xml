@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IID on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/iid/</link>
+    <description>Recent content in IID on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 13 Nov 2018 06:11:47 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/iid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random Variables (Part 3: Jointly Distributed Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/randomvariables_part3/</link>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/randomvariables_part3/</guid>
+      <description>#### Independent Random Variables : If $X$ and $Y$ are independent random variables and $S$ and $T$ are sets of numbers then,
+$$P(X \in S \ and \ Y \in T) = P(X \in S) P(Y \in T)$$
+Hence, for independent random variables $X_1, X_2, &amp;hellip;, X_n$ and constants $c_1, c_2, &amp;hellip;, c_n$, the variance of linear combination $c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n$ is given as:
+$$\sigma _{c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &amp;hellip; + c_n^2\sigma _{X_n}^2$$</description>
+    </item>
+    
+  </channel>
+</rss>

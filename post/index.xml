@@ -94,6 +94,228 @@ The above system of linear equation when written in matrix multiplication form c
     </item>
     
     <item>
+      <title>The Wilcoxon Signed-Rank Test</title>
+      <link>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</link>
+      <pubDate>Fri, 07 Dec 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</guid>
+      <description>The Wilcoxon Signed-Rank Test is a distribution free test or non-parametric test which is used to test the population mean when the samples do not come from any specific distribution. The idea behind The Wilcoxon Signed-Rank Test is to median-center the samples and give signed-ranks to the individual values. If the sum of the negative ranks (S-) is larger, we can conclude that the population mean is lesser than the mentioned value.</description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://amitrajan012.github.io/post/logistic-regression/</link>
+      <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/logistic-regression/</guid>
+      <description>In a classification setting, logistic regression models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1].</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 6)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</guid>
+      <description>### Tests for Variances of Normal Populations : Let $X_1, X_2, &amp;hellip;, X_n$ be a simple random sample from a normal population given as $N(\mu, \sigma^2)$. The sample variance $s^2$ is given as:
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X})^2$$
+Then the test statistic $\frac{(n-1)s^2}{\sigma_0^2}$ follows a chi-square distribution with $n-1$ degrees of freedom. The null hypothesis can take any of the form:
+$$H_0: \sigma^2 \leq \sigma_0^2;\ \sigma^2 = \sigma_0^2;\ \sigma^2 \geq \sigma_0^2$$</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 5)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/</link>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/</guid>
+      <description>### Tests with Categorical Data : A generalization of the Bernoulli trial is the multinomial trial, which is an experiment that can rsult in any one of the $k$ outcomes where $k \geq 2$. Let the probabilities of the $k$ outcomes be denoted by $p_1, p_2, p_3, &amp;hellip;, p_k$ and the prespecified values be $p _{01}, p _{02}, &amp;hellip;, p _{0k}$. We need to conduct a test to chek whether the probabilities are equal to the prespecified values or not.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 4)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</guid>
+      <description>### Distribution-Free Tests : The one assumption for the Student&amp;rsquo;s t tests performed above was the fact that the samples should come from the normal distribution. In distribution-free tests, this restriction is relaxed, i.e. the samnples are not required to come from any specific distribution. Distribution-free tests are sometimes called as nonparametric tests. Mainly, there are two types of distribution-free tests: Wilcoxon signed-rank test(test for population mean) and Wilcoxon rank-sum test / Mann-Whitney test (analogous to the two-sample t test).</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</link>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</guid>
+      <description>### Tests for the Difference Between Two Means (Large-Sample) : The basic idea to conduct the hypothesis test for difference between two means is to find the distribution for the difference of two means and test whether it is equal to 0 or not. Here is an example.
+Example: Suppose that a production manager for a manufacturer of industrial machinery is concerned that ball bearings produced in environments with low ambient temperatures may have smaller diameters than those produced under higher temperatures.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/</link>
+      <pubDate>Fri, 23 Nov 2018 19:38:29 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/</guid>
+      <description>### Tests for a Population Proportion : The hypothesis testing for population proportion can be conducted in a similar manner. Here are some examples to depict it.
+Example: A supplier of semiconductor wafers claims that of all the wafers he supplies, no more than 10% are defective. A sample of 400 wafers is tested, and 50 of them, or 12.5%, are defective. Can we conclude that the claim is false?</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</link>
+      <pubDate>Thu, 22 Nov 2018 09:17:41 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</guid>
+      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu  10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_3/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid>
+      <description>#### Confidence Intervals with Paired Data : Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a small random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately normal, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
+      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
+$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
+where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_1/</link>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_1/</guid>
+      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.  #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
+    </item>
+    
+    <item>
+      <title>Commonly used Distributions (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/commonly-used-distributions_2/</link>
+      <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_2/</guid>
+      <description>#### The Normal Distribution : The normal distribution is a continuous distribution with any mean and a positive variance. The probability density function of a normal distribution with mean $\mu$ and variance $\sigma^2$ is given as:
+$$f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+The above normal distribution is denoted as $X \sim N(\mu, \sigma^2)$ with mean and variance as:
+$$\mu_X = \mu$$
+$$\sigma_X^2 = \sigma^2$$
+For a normal distribution, about 68% of the population is in the interval $\mu \pm \sigma$, 95% in $\mu \pm 2\sigma$ and 99.</description>
+    </item>
+    
+    <item>
+      <title>Commonly used Distributions (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
+      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
+$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
+$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
+ #### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
+    </item>
+    
+    <item>
+      <title>Measurement and Propagation of Error (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</link>
+      <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</guid>
+      <description>#### Linear Combinations of Dependent Measurements : In the case of dependent measurement, to quantify the uncertainty, we need to know the value of covariance for all the possible pairs of measurements. This is practically not feasible. In this case, an upper bound can be placed on the uncertainty. If $X_1, X_2, &amp;hellip;, X_n$ are $n$ dependent measurements and $c_1, c_2, &amp;hellip;, c_n$ are constants, then the uncertainty of $c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n$ can be bounded as:</description>
+    </item>
+    
+    <item>
+      <title>Measurement and Propagation of Error (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</link>
+      <pubDate>Wed, 14 Nov 2018 02:18:29 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</guid>
+      <description>Any measurement in a scientific or an engineering process, consists of two error parts: systematic error or bias and random error. The bias is the part of the error that is same for every measurement. Random error varies from measurement to measurement and averages out to 0 in the long run. Hence, the measured value can be written as: $$Measured \ Value = True \ Value + Bias + Random \ Error$$</description>
+    </item>
+    
+    <item>
+      <title>Random Variables (Part 3: Jointly Distributed Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/randomvariables_part3/</link>
+      <pubDate>Tue, 13 Nov 2018 06:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/randomvariables_part3/</guid>
+      <description>#### Independent Random Variables : If $X$ and $Y$ are independent random variables and $S$ and $T$ are sets of numbers then,
+$$P(X \in S \ and \ Y \in T) = P(X \in S) P(Y \in T)$$
+Hence, for independent random variables $X_1, X_2, &amp;hellip;, X_n$ and constants $c_1, c_2, &amp;hellip;, c_n$, the variance of linear combination $c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n$ is given as:
+$$\sigma _{c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c_2^2\sigma _{X_2}^2 + &amp;hellip; + c_n^2\sigma _{X_n}^2$$</description>
+    </item>
+    
+    <item>
+      <title>Random Variables (Part 2: Continuous Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/randomvariables_part2/</link>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
+      <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
+ #### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
+    </item>
+    
+    <item>
+      <title>Random Variables (Part 1: Discrete Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/random-variables/</link>
+      <pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/random-variables/</guid>
+      <description>Random Variable is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: discrete and continuous.</description>
+    </item>
+    
+    <item>
+      <title>Performance Metrics for Classification Algorithms</title>
+      <link>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</link>
+      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
+      <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
+ ### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis testing</title>
+      <link>https://amitrajan012.github.io/post/hypothesis-testing/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/hypothesis-testing/</guid>
+      <description>### Introduction : Hypothesis testing is a procedure that is used to determine that whether a made statistical statement (known as hypothesis) is a reasonable one and should not be rejected, or is unreasonable and should be rejected. Hypothesis testing setup is initialized by formulating a Null Hypothesis ($H_0$), which is the hypothesis associated with a contradiction to the theory that one would like to prove and Alternate Hypothesis ($H_A$), which is the hypothesis associated with the theory that one would like to prove.</description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Estimation</title>
+      <link>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</guid>
+      <description>### Introduction : Maximum Likelihood Estimation is the method of estimating the parameters of a statistical model, given the observations. It attempts to find the parameter values that maximize the likelihood function. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.
+Suppose we have the data points (random samples) $X_1, X_2, &amp;hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &amp;hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &amp;hellip;, \theta_m)$.</description>
+    </item>
+    
+    <item>
+      <title>Naive Bayes Classifier</title>
+      <link>https://amitrajan012.github.io/post/naive-bayes-classifier/</link>
+      <pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/naive-bayes-classifier/</guid>
+      <description>Introduction : Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are independent.
+The Bayes theorem is given as:
+$$P(c|X) = \frac{P(c)P(X|c)}{P(X)}$$
+where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c)$ and $P(X)$ are the prior probabilities of the class and the predictor. $P(X|c)$ is the prior probability or likelihood of observing a feature $X$ given class $c$.</description>
+    </item>
+    
+    <item>
       <title>Think Stats: Chapter 9</title>
       <link>https://amitrajan012.github.io/post/chapter-9-correlation/</link>
       <pubDate>Mon, 10 Sep 2018 11:13:31 +0100</pubDate>

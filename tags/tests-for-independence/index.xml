@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tests for Independence on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/tests-for-independence/</link>
+    <description>Recent content in Tests for Independence on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Nov 2018 17:06:08 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/tests-for-independence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 5)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/</link>
+      <pubDate>Sun, 25 Nov 2018 17:06:08 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_5/</guid>
+      <description>### Tests with Categorical Data : A generalization of the Bernoulli trial is the multinomial trial, which is an experiment that can rsult in any one of the $k$ outcomes where $k \geq 2$. Let the probabilities of the $k$ outcomes be denoted by $p_1, p_2, p_3, &amp;hellip;, p_k$ and the prespecified values be $p _{01}, p _{02}, &amp;hellip;, p _{0k}$. We need to conduct a test to chek whether the probabilities are equal to the prespecified values or not.</description>
+    </item>
+    
+  </channel>
+</rss>

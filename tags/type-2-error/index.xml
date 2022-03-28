@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Type-2 Error on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/type-2-error/</link>
+    <description>Recent content in Type-2 Error on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Nov 2018 07:26:51 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/type-2-error/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 6)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</guid>
+      <description>### Tests for Variances of Normal Populations : Let $X_1, X_2, &amp;hellip;, X_n$ be a simple random sample from a normal population given as $N(\mu, \sigma^2)$. The sample variance $s^2$ is given as:
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X})^2$$
+Then the test statistic $\frac{(n-1)s^2}{\sigma_0^2}$ follows a chi-square distribution with $n-1$ degrees of freedom. The null hypothesis can take any of the form:
+$$H_0: \sigma^2 \leq \sigma_0^2;\ \sigma^2 = \sigma_0^2;\ \sigma^2 \geq \sigma_0^2$$</description>
+    </item>
+    
+  </channel>
+</rss>

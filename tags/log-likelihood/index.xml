@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Log likelihood on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/log-likelihood/</link>
+    <description>Recent content in Log likelihood on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Oct 2018 17:11:47 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/log-likelihood/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Maximum Likelihood Estimation</title>
+      <link>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</guid>
+      <description>### Introduction : Maximum Likelihood Estimation is the method of estimating the parameters of a statistical model, given the observations. It attempts to find the parameter values that maximize the likelihood function. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.
+Suppose we have the data points (random samples) $X_1, X_2, &amp;hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &amp;hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &amp;hellip;, \theta_m)$.</description>
+    </item>
+    
+  </channel>
+</rss>

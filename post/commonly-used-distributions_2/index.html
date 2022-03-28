@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Commonly used Distributions (Part 2)" />
+    <meta property="og:title" content="Commonly used Distributions (Part 2)" />
+    <meta property="twitter:title" content="Commonly used Distributions (Part 2)" />
+    
+
+    
+    <meta name="description" content="Commonly used Distributions">
+    <meta property="og:description" content="Commonly used Distributions" />
+    <meta property="twitter:description" content="Commonly used Distributions" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Commonly used Distributions (Part 2)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/commonly-used-distributions_2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/probability-distribution" title="Probability Distribution">
+                            Probability Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/continuous-distributions" title="Continuous Distributions">
+                            Continuous Distributions
+                        </a>
+                        
+                        <a class="tag" href="/tags/normal-distribution" title="Normal Distribution">
+                            Normal Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/lognormal-distribution" title="Lognormal Distribution">
+                            Lognormal Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/exponential-distribution" title="Exponential Distribution">
+                            Exponential Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/uniform-distribution" title="Uniform Distribution">
+                            Uniform Distribution
+                        </a>
+                        
+                    </div>
+                    <h1>Commonly used Distributions (Part 2)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Friday, November 16, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+#### The Normal Distribution :
+<p>The <b>normal distribution</b> is a continuous distribution with any mean and a positive variance. The <b>probability density function</b> of a normal distribution with mean $\mu$  and variance $\sigma^2$ is given as:</p>
+<p>$$f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$</p>
+<p>The above normal distribution is denoted as $X \sim N(\mu, \sigma^2)$ with mean and variance as:</p>
+<p>$$\mu_X = \mu$$</p>
+<p>$$\sigma_X^2 = \sigma^2$$</p>
+<p>For a normal distribution, about <b>68%</b> of the population is in the interval $\mu \pm \sigma$, <b>95%</b> in $\mu \pm 2\sigma$ and <b>99.7%</b> in $\mu \pm 3\sigma$. It is a widespread practice to convert the units of the normal population to the <b>standard units</b> which tells us that how many standard deviations an observation is from the population mean. It is sometimes called as <b>z-score</b> and is given as:</p>
+<p>$$z = \frac{x-\mu}{\sigma}$$</p>
+<p>z-score can also be viewed as an item sampled from a normal distribution with mean 0 and standard deviation 1, which is called as the <b>standard normal population</b>. As normal distribution is a continuous distribution, to calculate the probabilities we need to find the area under the curve and hence need to do the integration of the normal density function. But the integration of the normal density funaction can not be found by the use of elementary calculus and hence the area under the standard normal curve is extensively tabulated and is called as <b>standard normal table</b> or <b>z table</b>.</p>
+<p>The parameters of a normal distribution can be estimated from the sample mean and sample standard deviation. The estimate of <b>population mean</b> $\mu$ is the <b>sample mean</b> $\overline{X}$. <b>Sample variance</b> $s^2$ gives the estimate of <b>population variance</b> $\sigma^2$. Sample mean is the unbiased estimator of population mean with an uncertainty of $\frac{\sigma}{\sqrt{n}}$.</p>
+<p>If $X$ is a normal random variable with distribution $N(\mu, \sigma^2)$, the distribution of $aX+b$ is given as:</p>
+<p>$$N(a\mu+b, a^2 \sigma^2)$$</p>
+<p>For independent and normally distributed random variables $X_1, X_2, &hellip;, X_n$, with means $\mu_1, \mu_2, &hellip;, \mu_n$ and variances $\sigma_1^2, \sigma_2^2, &hellip;, \sigma_n^2$ and constants $c_1, c_2, &hellip;, c_n$, the distribution of the linear combination $c_1X_1 + c_2X_2 + &hellip; + c_nX_n$ is given as:</p>
+<p>$$N(c_1\mu_1 + c_2\mu_2 + &hellip; + c_n\mu_n, c_1^2\sigma_1^2 + c_2^2\sigma_2^2 + &hellip; + c_n^2\sigma_n^2)$$</p>
+<p>For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of a normal distribution is shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># Plot of PMF</span>
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_7_0.png" alt="">
+</br>
+#### The Lognormal Distribution :
+<p>If $X$ is a normal random variable with mean $\mu$ and variance $\sigma^2$, then the random variable $Y=e^X$ is said to have a <b>lognormal distribution</b> with parameters $\mu$ and $\sigma^2$. Hence, $X=ln Y$ is a normal distribution with parameter $\mu$ and $\sigma^2$. The lognornmal distribution is highly skewed to the right and hence is often used to model datasets that have outliers. It should be noted that $\mu$ and $\sigma^2$ in the lognormal distribution is the mean and variance of the underlying normal distribution. The mean and variance of the lognormal distribution is given as:</p>
+<p>$$\mu_Y = e^{(\mu + \frac{\sigma^2}{2})}$$</p>
+<p>$$\sigma_Y^2 = e^{(2\mu + 2\sigma^2)} - e^{(2\mu + \sigma^2)}$$</p>
+<p>To check whether the data comes from a lognormal distribution or not, we can take the natural logarithm of the data points and try to see whether they follow a normal distribution or not. For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of a lognormal distribution is shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> lognorm
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># Plot of PMF</span>
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>pdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
+
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>cdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_9_0.png" alt="">
+</br>
+#### The Exponential Distribution :
+<p>The <b>exponential distribution</b> is a continuous distribution that is used to model the time (called as <b>waiting time</b>) that elapses before an event occurs. There is a close connection between the exponential and the Poisson distribution. The <b>probability density function</b> of the exponential distribution with parameter $\lambda$, where $\lambda &gt; 0$ is given as:</p>
+<p>$$f(x) = \lambda e^{-\lambda x}$$</p>
+<p>The <b>cumulative distribution function</b> of the exponential distribution can be computed as:</p>
+<p>$$F(x) = P(X \leq x) = \int_{0}^{x} \lambda e^{-\lambda t} dt = 1 - e^{-\lambda x}$$</p>
+<p>The mean and variance of the exponential distribution is given as:</p>
+<p>$$\mu_X = \frac{1}{\lambda}$$</p>
+<p>$$\sigma_X^2 = \frac{1}{\lambda^2}$$</p>
+<p>The exponential distribution suffers from the <b>lack of memory property</b>. For an exponential distribution, the probability that we must wait an additional $t$ units, given that we have already waited $s$ units, is the same as the probability that we must wait $t$ units from the start. This can be shown from an example.</p>
+<p><b>Example:</b> The lifetime of a particular integrated circuit has an exponential distribution with mean 2 years. Find the probability that the circuit lasts longer than three years.</p>
+<p><b>Sol:</b> As the mean $\mu = \frac{1}{\lambda} = 2$, $\lambda = 0.5$ and hence variance $\sigma^2 = 4$. We have to find $P(T&gt;3)$.</p>
+<p>$$P(T&gt;3) = 1 - P(T \leq 3) = 1 - (1 - e^{-0.5 \times 3}) = 0.223$$</p>
+<p><b>Example:</b> Assume the circuit is now four years old and is still functioning. Find the probability that it functions for more than three additional years.</p>
+<p><b>Sol:</b> Here, we have to find the conditional probability $P(T&gt;7 \ \big| \ T&gt;4)$.</p>
+<p>$$P(T&gt;7 \ \big| \ T&gt;4) = \frac{P(T&gt;7 \ and \ T&gt;4)}{P(T&gt;4)} = \frac{P(T&gt;7)}{P(T&gt;4)} = \frac{e^{-0.5 \times 7}}{e^{-0.5 \times 4}} = e^{-0.5 \times 3} = 0.223$$</p>
+<p>Hence, the probability of syrviving three more years is same in both the case. This shows the lack of memory property of the exponential distribution.</p>
+<p>For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of several exponential distributions is shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
+<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
+
+fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+
+<span style="color:#75715e"># Plot of PMF</span>
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
+
+x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
+
+ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+ax<span style="color:#f92672">.</span>legend()
+ax<span style="color:#f92672">.</span>grid()
+
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_11_0.png" alt="">
+</br>
+#### The Uniform Distribution :
+<p>The <b>uniform distribution</b> (which is a continuous distribution), with parameters $a$ and $b$ is defined as:</p>
+<p>$$f(x) = \frac{1}{b-a}, \ when\ a&lt; x &lt; b, \ othersise \ 0$$</p>
+<p>The mean and variance of uniform distribution can be computed as:</p>
+<p>$$\mu _X = \int _{-\infty}^{\infty} xf(x) \ dx = \int _{a}^{b} \frac{x}{b-a} \ dx = \frac{x^2}{b-a} \bigg|_a^b = \frac{a+b}{2}$$</p>
+<p>$$\sigma_X^2 = E[{(x-\mu_X)^2}] = \int _{-\infty}^{\infty} (x-\mu_X)^2f(x) \ dx = \int _{a}^{b} \frac{(x-\mu_X)^2}{b-a} \ dx = \frac{(x-\mu_X)^3}{3(b-a)} \bigg|_a^b = \frac{(b- \frac{a+b}{2})^3}{3(b-a)} - \frac{(a- \frac{a+b}{2})^3}{3(b-a)} = \frac{(b- a)^2}{12}$$</p>
+</br>
+#### Reference :
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+<p><a href="https://medium.com/@andrew.chamberlain/deriving-the-poisson-distribution-from-the-binomial-distribution-840cc1668239">https://medium.com/@andrew.chamberlain/deriving-the-poisson-distribution-from-the-binomial-distribution-840cc1668239</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/commonly-used-distributions_1/" data-toggle="tooltip" data-placement="top" title="Commonly used Distributions (Part 1)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/confidence-intervals_1/" data-toggle="tooltip" data-placement="top" title="Confidence Intervals (Part 1)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

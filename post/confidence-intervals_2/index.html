@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Confidence Intervals (Part 2)" />
+    <meta property="og:title" content="Confidence Intervals (Part 2)" />
+    <meta property="twitter:title" content="Confidence Intervals (Part 2)" />
+    
+
+    
+    <meta name="description" content="Confidence Intervals for Proportions and the Difference">
+    <meta property="og:description" content="Confidence Intervals for Proportions and the Difference" />
+    <meta property="twitter:description" content="Confidence Intervals for Proportions and the Difference" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Confidence Intervals (Part 2)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/confidence-intervals_2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/confidence-intervals" title="Confidence Intervals">
+                            Confidence Intervals
+                        </a>
+                        
+                        <a class="tag" href="/tags/proportions" title="Proportions">
+                            Proportions
+                        </a>
+                        
+                        <a class="tag" href="/tags/binomial-distribution" title="Binomial Distribution">
+                            Binomial Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/bernoulli-distribution" title="Bernoulli Distribution">
+                            Bernoulli Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/students-t-distribution" title="Student&#39;s t Distribution">
+                            Student&#39;s t Distribution
+                        </a>
+                        
+                    </div>
+                    <h1>Confidence Intervals (Part 2)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, November 18, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+#### Confidence Intervals for Proportions :
+<p>Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where <b>the number of trials $n$ is large enough</b>, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:</p>
+<p>$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$</p>
+<p>where $\widehat{p}$ is the <b>sample proportion</b> and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the <b>sample variance</b>. This method of computation of the confidence interval for the proportion works for large sample size or we can say that the experiment should containt at least 10 successes and 10 failures.</p>
+<p>To tackle the problem of <b>smaller sample size</b>, we need to make certain changes in the above estimate. Let $\widetilde{n} = n+4$ and $\widetilde{p} = \frac{X+2}{\widetilde{n}}$, a $100(1-\alpha)%$ confidence interval for $p$ is given as:</p>
+<p>$$\widetilde{p} \pm z_{\alpha/2}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+<p>If the interval exceeds from the limit, we should limit it by 0 and 1 as lower and upper limit respectively. The above described method is usually preferred for the computation of confidence interval for population proportion of any sample size. The <b>one-sided</b> confidence interval is given as:</p>
+<p>$$Lower \ bound  = \widetilde{p} - z_{\alpha}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+<p>$$Upper \ bound  = \widetilde{p} + z_{\alpha}\sqrt{\frac{\widetilde{p}(1-\widetilde{p})}{\widetilde{n}}}$$</p>
+<p>where the symbols have the usual meaning.</p>
+</br>
+#### Confidence Intervals for the Difference Between Two Means :
+<p>Let $X$ and $Y$ be independent random variables, with $X \sim N(\mu_X, \sigma_X^2)$ and $Y \sim N(\mu_Y, \sigma_Y^2)$, then</p>
+<p>$$X+Y \sim N(\mu_X + \mu_Y, \sigma_X^2 + \sigma_Y^2)$$</p>
+<p>$$X-Y \sim N(\mu_X - \mu_Y, \sigma_X^2 + \sigma_Y^2)$$</p>
+<p>As the distribution of the difference of two independent normal random variables is normal, we can use this property with the central limit theorem to obtain a confidence interval for the difference of the means.</p>
+<p>Let $X _1, X_2, &hellip;, X _{n_X}$ be a <b>large random sample</b> of size $n_X$ from a population with mean $\mu_X$ and standard deviation $\sigma_X$, and let $Y_1, Y_2, &hellip;, Y _{n_Y}$ be a <b>large random sample</b> of size $n_Y$ from a population with mean $\mu_Y$ and standard deviation $\sigma_Y$. If the two samples are <b>independent</b>, then a $100(1-\alpha) %$ confidence interval for the difference of means $\mu_X - \mu_Y$ is given as:</p>
+<p>$$\overline{X} - \overline{Y} \pm z _{\alpha/2} \sqrt{\frac{\sigma_X^2}{n_X} + \frac{\sigma_Y^2}{n_Y}}$$</p>
+<p>If the values of population standard deviations $\sigma_X$ and $\sigma_Y$ are unknown, they can be replaced with sample standard deviation $s_X$ and $s_Y$.</p>
+</br>
+#### Confidence Intervals for the Difference Between Two Proportions :
+<p>The confidence interval for the difference between two proportions can be computed in a similar way as described above. Let $X$ and $Y$ be the number of successes in $n_X$ and $n_Y$ independent Bernoulli trials with success probabilities $p_X$ and $p_Y$ respectively, such that $X \sim Bin(n_X, p_X)$ and $Y \sim Bin(n_Y, p_Y)$. Let $\tilde{n_X} = n_X+2$, $\tilde{n_Y} = n_Y+2$, $\tilde{p_X} = \frac{X+1}{\tilde{n_X}}$ and $\tilde{p_Y} = \frac{Y+1}{\tilde{n_Y}}$, then a $100(1 - \alpha) %$ confidence interval for the difference $p_X - p_Y$ is given as:</p>
+<p>$$\tilde{p_X} - \tilde{p_Y} \pm z _{\alpha/2} \sqrt{\frac{\tilde{p_X}(1- \tilde{p_X})}{n_X} + \frac{\tilde{p_Y}(1- \tilde{p_Y})}{n_Y}}$$</p>
+<p>If the lower and upper limit go beyond -1 and 1, they should be replaced with -1 and 1 respectively. The adjustments used is similar as the one described for the confidence interval of single proportion, instead they are equally divided amongst the two samples.</p>
+<p>If $n_X$ and $n_y$ are <b>large</b> enough, the confidence interval can be given as:</p>
+<p>$$\widehat{p_X} - \widehat{p_Y} \pm z _{\alpha/2} \sqrt{\frac{\widehat{p_X}(1- \widehat{p_X})}{n_X} + \frac{\widehat{p_Y}(1- \widehat{p_Y})}{n_Y}}$$</p>
+<p>where $\widehat{p_X}$ and $\widehat{p_Y}$ are the probability of successes. This method can only be used if both the samples contain at least 10 successes and 10 failures.</p>
+</br>
+#### Confidence Intervals for the Difference Between Two Means (Small-Sample) :
+<p>The confidence interval for the difference between two means for small sample sizes can be computed using the <b>Student&rsquo;s t distribution</b>. As the sample size is small, the central limit theorem can not be applied and given that both the population is <b>normal</b>, the Student&rsquo;s t distribution can be used to compute the confidence interval.</p>
+<p>Let $X_1, X_2, &hellip;, X _{n_X}$ and $Y_1, Y_2, &hellip;, Y _{n_Y}$ be two independent random samples of size $n_X$ and $n_Y$ from a <b>normal</b> population with mean $\mu_X$ and $\mu_Y$ respectively, then a $100(1-\alpha) %$ confidence interval for $\mu_X - \mu_Y$ is given as:</p>
+<p>$$\overline{X} - \overline{Y} \pm t _{v, \alpha/2} \sqrt{\frac{s_X^2}{n_X} + \frac{s_Y^2}{n_Y}}$$</p>
+<p>where the population standard deviations are estimated from sample standard deviations as $s_X$ and $s_Y$ respectively and the number of <b>degree of freedoms</b> $v$ of the $t$-distribution is given as:</p>
+<p>$$v = \frac{\big( \frac{s_X^2}{n_X} + \frac{s_Y^2}{n_Y}\big)^2}{\frac{(\frac{s_X^2}{n_X})^2}{n_X-1} + \frac{(\frac{s_Y^2}{n_Y})^2}{n_Y-1}}$$</p>
+<p>When the <b>two population have equal variances</b>, we can use the pooled sample variances as the estimate of the population variance. The confidence interval in this case is given as:</p>
+<p>$$\overline{X} - \overline{Y} \pm t _{n_X+n_Y-2, \alpha/2} \times s_p \sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}$$</p>
+<p>where $s_p$ is the <b>pooled standard deviation</b> and is given as:</p>
+<p>$$s_p = \sqrt{\frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}}$$</p>
+<p>One common miss-conception while using this method is the assumption that if the sample variances are equal, the population variances are equal. For a smaller sample size, sample variance does not serve as a good approximation for the population variance and hence this assumption will not be true.</p>
+</br>
+#### Reference :
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/confidence-intervals_1/" data-toggle="tooltip" data-placement="top" title="Confidence Intervals (Part 1)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/confidence-intervals_3/" data-toggle="tooltip" data-placement="top" title="Confidence Intervals (Part 3)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

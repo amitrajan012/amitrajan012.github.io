@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Propagation of Error on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/propagation-of-error/</link>
+    <description>Recent content in Propagation of Error on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Nov 2018 03:08:14 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/propagation-of-error/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Measurement and Propagation of Error (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</link>
+      <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</guid>
+      <description>#### Linear Combinations of Dependent Measurements : In the case of dependent measurement, to quantify the uncertainty, we need to know the value of covariance for all the possible pairs of measurements. This is practically not feasible. In this case, an upper bound can be placed on the uncertainty. If $X_1, X_2, &amp;hellip;, X_n$ are $n$ dependent measurements and $c_1, c_2, &amp;hellip;, c_n$ are constants, then the uncertainty of $c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n$ can be bounded as:</description>
+    </item>
+    
+    <item>
+      <title>Measurement and Propagation of Error (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</link>
+      <pubDate>Wed, 14 Nov 2018 02:18:29 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/measurement-and-propagation-of-error/</guid>
+      <description>Any measurement in a scientific or an engineering process, consists of two error parts: systematic error or bias and random error. The bias is the part of the error that is same for every measurement. Random error varies from measurement to measurement and averages out to 0 in the long run. Hence, the measured value can be written as: $$Measured \ Value = True \ Value + Bias + Random \ Error$$</description>
+    </item>
+    
+  </channel>
+</rss>

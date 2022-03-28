@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Wilcoxon Rank-Sum Test on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test/</link>
+    <description>Recent content in The Wilcoxon Rank-Sum Test on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Nov 2018 11:36:18 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/the-wilcoxon-rank-sum-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 4)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</guid>
+      <description>### Distribution-Free Tests : The one assumption for the Student&amp;rsquo;s t tests performed above was the fact that the samples should come from the normal distribution. In distribution-free tests, this restriction is relaxed, i.e. the samnples are not required to come from any specific distribution. Distribution-free tests are sometimes called as nonparametric tests. Mainly, there are two types of distribution-free tests: Wilcoxon signed-rank test(test for population mean) and Wilcoxon rank-sum test / Mann-Whitney test (analogous to the two-sample t test).</description>
+    </item>
+    
+  </channel>
+</rss>

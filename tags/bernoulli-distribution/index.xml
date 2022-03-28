@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bernoulli Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
+    <description>Recent content in Bernoulli Distribution on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 Nov 2018 05:07:15 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bernoulli-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
+      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
+$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
+where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
+    </item>
+    
+    <item>
+      <title>Commonly used Distributions (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
+      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
+$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
+$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
+ #### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Estimation</title>
+      <link>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</link>
+      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</guid>
+      <description>### Introduction : Maximum Likelihood Estimation is the method of estimating the parameters of a statistical model, given the observations. It attempts to find the parameter values that maximize the likelihood function. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.
+Suppose we have the data points (random samples) $X_1, X_2, &amp;hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &amp;hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &amp;hellip;, \theta_m)$.</description>
+    </item>
+    
+  </channel>
+</rss>

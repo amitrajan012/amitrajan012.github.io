@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Hypothesis Testing (Part 4)" />
+    <meta property="og:title" content="Hypothesis Testing (Part 4)" />
+    <meta property="twitter:title" content="Hypothesis Testing (Part 4)" />
+    
+
+    
+    <meta name="description" content="Distribution-Free Tests">
+    <meta property="og:description" content="Distribution-Free Tests" />
+    <meta property="twitter:description" content="Distribution-Free Tests" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hypothesis Testing (Part 4)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/detailed-hypothesis-testing_4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/hypothesis-testing" title="Hypothesis Testing">
+                            Hypothesis Testing
+                        </a>
+                        
+                        <a class="tag" href="/tags/distribution-free-tests" title="Distribution-Free Tests">
+                            Distribution-Free Tests
+                        </a>
+                        
+                        <a class="tag" href="/tags/null-hypothesis" title="Null Hypothesis">
+                            Null Hypothesis
+                        </a>
+                        
+                        <a class="tag" href="/tags/alternate-hypothesis" title="Alternate Hypothesis">
+                            Alternate Hypothesis
+                        </a>
+                        
+                        <a class="tag" href="/tags/the-wilcoxon-signed-rank-test" title="The Wilcoxon Signed-Rank Test">
+                            The Wilcoxon Signed-Rank Test
+                        </a>
+                        
+                        <a class="tag" href="/tags/the-wilcoxon-rank-sum-test" title="The Wilcoxon Rank-Sum Test">
+                            The Wilcoxon Rank-Sum Test
+                        </a>
+                        
+                    </div>
+                    <h1>Hypothesis Testing (Part 4)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Sunday, November 25, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+### Distribution-Free Tests :
+<p>The one assumption for the Student&rsquo;s t tests performed above was the fact that the samples should come from the normal distribution. In <b>distribution-free tests</b>, this restriction is relaxed, i.e. the samnples are not required to come from any specific distribution. Distribution-free tests are sometimes called as <b>nonparametric tests</b>. Mainly, there are two types of distribution-free tests: <b>Wilcoxon signed-rank test</b>(test for population mean) and <b>Wilcoxon rank-sum test / Mann-Whitney test</b> (analogous to the two-sample t test).</p>
+</br>
+#### The Wilcoxon Signed-Rank Test :
+<p>Let us see an example to understand the Wilcoxon signed-rank test. Below table shows the measurement of a quantity in a particular experiment. A test for $H_0: \mu \geq 12$ against $H_A: \mu &lt; 12$ needs to be conducted. From the data set, it can be seen that it contains two outliers as 0.9 and 21.7 and hence the samples do not come from normal population. This makes the Student&rsquo;s t test inappropriate.</p>
+<img class="pure-img" src="/img/Hypothesis_Testing/Wilcoxon_1.png" alt="">
+<p>The Wilcoxon Signed-Rank test does not require the population to be normal. Instead, it requires that the <b>population has a continuous and symmetric probability density function</b>. As the outliers are present on both sides, we can assume that the population is continuous and symmetric. As the population is symmetric, the median will be same as the mean. The next step is to make the data points <b>median-centered</b>. As, $\mu = 12$, the median will also be 12, we subtract 12 from each observation. Next, we find the rank (ignoring the signs) of median-centered observation, giving the rank 1 to the point which is closest to the median. Then the ranks are given the same sign as the one for the meadian-centered observations. Now, we calculate the sum of the <b>positive</b> and <b>negative</b> ranks as: $S+ = 2+5 = 7$ and S- = 1 + 3 + 4 + 6 = 14. Using simple mathematics, it can be shon that $(S+) + (S-) = \frac{n(n+1)}{2}$, where $n$ is the sample size. Hence, for a larger sample size, instead of finding both the sums, we can find one of the sums and can compute the another one as $S+ = n(n+1)/2 - S-$.</p>
+<p>When, $\mu &gt; 12$, the positive ranks are more probable than the negative ranks and tend to be larger in the magnitude as well, i.e. S_+ is likely to be large. If $\mu &lt; 12$, the situation is reversed and hence the positive ranks are likely to be fewer in number and smaller in magnitude, so S_+ is likely to be small. Hence, in a nut shell, <b>large value of $S_+$ will provide evidence against a null hypothesis of the form $H _0: \mu \leq \mu_0$ while smaller values of $S+$ will provide evidence against a null hypothesis of the form $H _0: \mu \geq \mu_0$</b>. Here $S+$ is smaller and hence it gives the evidence against the null hypothesis which is $H_0: \mu \geq 12$. The p-value for the test can be calculated from the table as well as through various scientific packages.</p>
+<p>One major hurdle while assigning the ranks is the case when a tie occurs. In this case, an average of the ranks is assigned to both the observations. For example, if there is a tie for the third and fourth rank, a rank of 3.5 is assigned to both the observations. Another cocern is the case when one of the observation is exactly equal to median (or mean). In this case, the difference will be 0 and the observation can not be assigned a rank. One way to deal with this is to drop this observation.</p>
+<p>When the sample size is <b>large</b>, the test statistic $S+$ is approximately normally distributed with mean $n(n+1)/4$ and standard deviation $n(n+1)(2n+1)/24$. In this case, the Wilcoxon signed-rank test can be performed by computing the <b>z-score</b> of $S+$ and then the normal table can be used to find the <b>p-value</b>. The z-score is:</p>
+<p>$$z = \frac{(S+) - n(n+1)/4}{\sqrt{n(n+1)(2n+1)/24}}$$</p>
+</br>
+#### The Wilcoxon Rank-Sum Test :
+<p>The <b>Wilcoxon rank-sum test</b> can be used to test the difference in population mean in the case when populations are not normal. It makes two assumptions: <b>the populations must be continuous</b> and <b>their probability density functions must be identical in shape and size (location does not matter)</b>.</p>
+<p>Let the random samples from two different populations be $X_1, X_2, &hellip;, X_m$ and $Y_1, Y_2, &hellip;, Y_n$ and the population means be $\mu_X$ and $\mu_Y$. The Wilcoxon rank-sum test is performed by combining the two samples and assigning a rank of $1, 2, &hellip;, m+n$ to them. The test statistic, $W$, is the sum of the ranks of the samples from $X$ (where $m \leq n$). As the populations are identical apart from the location, if $\mu_X &lt; \mu_Y$, the sum of the rank of the observations from population $X$, which is the test statistic, will be smaller. If $\mu_X &gt; \mu_Y$, $W$ will tend to be larger.</p>
+<p>Let us look at an example. Following code performs a <b>two-tailed</b> Wilcoxon rank-sum on the samples from two populations $X$ and $Y$. For a <b>one-tailed</b> test, such as: $H_0: \mu_X \geq \mu_Y$ against $H_A: \mu_X &lt; \mu_Y$, the p-value will be the half of the two-tailed test, which is <b>0.0223</b>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> ranksums
+
+X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">38</span>]
+Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">34</span>, <span style="color:#ae81ff">41</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">47</span>, <span style="color:#ae81ff">49</span>, <span style="color:#ae81ff">46</span>]
+
+<span style="color:#66d9ef">print</span>(ranksums(X, Y))
+</code></pre></div><pre><code>RanksumsResult(statistic=-2.008316044185609, pvalue=0.044609718024939606)
+</code></pre>
+<p>For a larger sample size ($m, n &gt; 8$), it can be shown that the null disribution of test statistic $W$ is approximately normal with mean $\mu = m(m+n+1 /2)$ and variance $\sigma^2 = mn(m+n+1)/12$. In this case, we can compute the <b>z-score</b> of $W$ and a <b>z-test</b> can be performed. The test statistic is given as:</p>
+<p>$$z = \frac{W - m(m+n+1 /2)}{\sqrt{mn(m+n+1)/12}}$$</p>
+<p>There is a widespread misconception that distribution-free test methods are restriction free. <b>Befor applying the distribution-free methods, one should always remember the restrictions of symmetry for the signed-rank test and of identical shape and size for rank-sum test</b>.</p>
+</br>
+### Reference :
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/detailed-hypothesis-testing_3/" data-toggle="tooltip" data-placement="top" title="Hypothesis Testing (Part 3)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/detailed-hypothesis-testing_5/" data-toggle="tooltip" data-placement="top" title="Hypothesis Testing (Part 5)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

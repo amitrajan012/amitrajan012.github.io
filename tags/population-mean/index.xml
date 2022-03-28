@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Population Mean on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/population-mean/</link>
+    <description>Recent content in Population Mean on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Nov 2018 11:27:09 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/population-mean/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_1/</link>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_1/</guid>
+      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.  #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
+    </item>
+    
+  </channel>
+</rss>

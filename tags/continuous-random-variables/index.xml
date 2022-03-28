@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Continuous Random Variables on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/continuous-random-variables/</link>
+    <description>Recent content in Continuous Random Variables on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Nov 2018 03:01:07 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/continuous-random-variables/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random Variables (Part 2: Continuous Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/randomvariables_part2/</link>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
+      <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
+ #### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
+    </item>
+    
+  </channel>
+</rss>

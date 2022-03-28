@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Hypothesis Testing (Part 3)" />
+    <meta property="og:title" content="Hypothesis Testing (Part 3)" />
+    <meta property="twitter:title" content="Hypothesis Testing (Part 3)" />
+    
+
+    
+    <meta name="description" content="Tests for the Difference Between Two Means (Large and Small Samples) and Tests with Paired Data">
+    <meta property="og:description" content="Tests for the Difference Between Two Means (Large and Small Samples) and Tests with Paired Data" />
+    <meta property="twitter:description" content="Tests for the Difference Between Two Means (Large and Small Samples) and Tests with Paired Data" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Hypothesis Testing (Part 3)-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/detailed-hypothesis-testing_3/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/hypothesis-testing" title="Hypothesis Testing">
+                            Hypothesis Testing
+                        </a>
+                        
+                        <a class="tag" href="/tags/mean" title="Mean">
+                            Mean
+                        </a>
+                        
+                        <a class="tag" href="/tags/null-hypothesis" title="Null Hypothesis">
+                            Null Hypothesis
+                        </a>
+                        
+                        <a class="tag" href="/tags/alternate-hypothesis" title="Alternate Hypothesis">
+                            Alternate Hypothesis
+                        </a>
+                        
+                        <a class="tag" href="/tags/one-tailed-test" title="One-tailed Test">
+                            One-tailed Test
+                        </a>
+                        
+                        <a class="tag" href="/tags/two-tailed-test" title="Two-tailed Test">
+                            Two-tailed Test
+                        </a>
+                        
+                        <a class="tag" href="/tags/students-t-distribution" title="Student&#39;s t Distribution">
+                            Student&#39;s t Distribution
+                        </a>
+                        
+                    </div>
+                    <h1>Hypothesis Testing (Part 3)</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Saturday, November 24, 2018
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                </br>
+### Tests for the Difference Between Two Means (Large-Sample) :
+<p>The basic idea to conduct the hypothesis test for difference between two means is to find the distribution for the difference of two means and test whether it is equal to 0 or not. Here is an example.</p>
+<p><b>Example:</b> Suppose that a production manager for a manufacturer of industrial machinery is concerned that <b>ball bearings produced in environments with low ambient temperatures may have smaller diameters than those produced under higher temperatures</b>. To investigate this concern, she samples 120 ball bearings that were manufactured early in the morning, before the shop was fully heated, and finds their mean diameter to be 5.068 mm and their standard deviation to be 0.011 mm. She independently samples 65 ball bearings manufactured during the afternoon and finds their mean diameter to be 5.072 mm and their standard deviation to be 0.007 mm. Can she conclude that ball bearings manufactured in the morning have smaller diameters, on average, than ball bearings manufactured in the afternoon?</p>
+<p><b>Sol:</b> Let $X$ and $Y$ denote the samples from the morning and afternoon respectively. Then, $\mu_X = 5.068$, $n_X = 120$, $s_X = 0.11$, $\mu_Y = 5.072$, $n_Y = 65$, $s_X = 0.007$. We can formulate the null and alternate hypothesis as:</p>
+<p>$$H_0: \mu_X - \mu_Y \geq 0$$</p>
+<p>$$H_A: \mu_X - \mu_Y &lt; 0$$</p>
+<p>Since both the sample size is large enough, $\overline{X}$ and $\overline{Y}$ are normally distributed and hence the distribution of $\overline{X} - \overline{Y}$ can be given as:</p>
+<p>$$\overline{X} - \overline{Y} \sim N(\mu_X - \mu_Y, \sigma _{\overline{X}}^2 + \sigma _{\overline{Y}}^2) = N\bigg(\mu_X - \mu_Y, \frac{\sigma _{{X}}^2}{n_X} + \frac{\sigma _{{Y}}^2}{n_Y} \bigg)$$</p>
+<p>As the sample size is large, we can estimate the population standard deviation from sample standard deviation, i.e. $\sigma_X = s_X = 0.011$ and $\sigma_Y = s_Y = 0.007$. Hence, the standard deviation of the <b>null disstribution</b> is $\sqrt{0.011^2 /120 + 0.007^2 /65} = 0.001327$. The null distribution is given as:</p>
+<p>$$\overline{X} - \overline{Y} = N(0, 0.001327^2)$$</p>
+<p>The observed value is $\overline{X} - \overline{Y} = -0.004$, which gives the <b>z-score</b> as:</p>
+<p>$$z-score = \frac{-0.004 - 0}{0.001327} = -3.01$$</p>
+<p>and hence the <b>p-value</b> is <b>0.0013</b>, which makes the null hypothesis to be rejected. The alternate hypothesis is true, whcih means that the manager&rsquo;s suspicion is correct.</p>
+<p>We can also conduct a test for the statement that whether the two population means differ by some value or not. The structure of the test will be (rest of the things remain the same):</p>
+<p>$$H_0: \mu_X - \mu_Y \leq \Delta_0$$</p>
+<p>$$H_A: \mu_X - \mu_Y &gt; \Delta_0$$</p>
+<p>$$test \ statistic (z) = \frac{(\overline{X} - \overline{Y}) - \Delta_0}{\sqrt{\sigma_X^2/n_X + \sigma_Y^2/n_Y}}$$</p>
+<p>It should be noted that it is more appropriate to use <b>t-statistic</b> than the <b>z-statistic</b> whenever sample standard deviation is used to estimate the population standard deviation. For a large sample size, <b>z-distribution</b> approximates the <b>t-distribution</b> and hence can be used instead.</p>
+</br>
+### Tests for the Difference Between Two Means (Small-Sample) :
+<p>The hypothesis test for the difference between two means for a small sample size can be conducted in a similar manner. As the sample size is small, the central limit theorem does not apply and if both the populations are approximately normal, <b>t-distribution</b> can be used instead. Here is an example:</p>
+<p><b>Example:</b> Assume that in an experiment, six identically prepared DNA specimens are prepared without the enzyme, and the numbers of a specific molecules counted are 33, 30, 26, 22, 37, and 34. Assume that in four identically prepared specimens with the enzyme present, the counts were 22, 29, 25, and 23. Can we conclude that the counts are lower when the enzyme is present?</p>
+<p><b>Sol:</b> As the sample size is small, we can not apply the central limit theorem. Let the samples without the enzyme is denoted by $X$ and the one with the enzyme is denoted by $Y$. Then, $\overline{X} = 30.333$, $n_X = 6$, $s_X = 5.538$, $\overline{Y} = 24.750$, $n_Y = 4$, $s_Y = 3.096$. The null and alternate hypothesis can be formulated as:</p>
+<p>$$H_0: \mu_X - \mu_Y \leq 0$$</p>
+<p>$$H_A: \mu_X - \mu_Y &gt; 0$$</p>
+<p>As the sample size is small, the following quantity approximately follows the <b>Student&rsquo;s t distribution</b></p>
+<p>$$\frac{(\overline{X} - \overline{Y}) - (\mu_X - \mu_Y)}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}}$$</p>
+<p>with degree of freedom $v$ given as</p>
+<p>$$v = \frac{(s_X^2/n_X + s_Y^2/n_Y)^2}{\bigg(\frac{s_X^2/n_X}{n_X-1} + \frac{s_Y^2/n_Y}{n_Y-1}\bigg)}$$</p>
+<p>Under the assumption that the null hypothesis is true, the test statistic is given as:</p>
+<p>$$t = \frac{(\overline{X} - \overline{Y}) - 0}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}} = \frac{5.583 - 0}{2.740} = 2.038$$</p>
+<p>From the t table, we can find that <b>0.025 &lt; p-value &lt; 0.05 </b>, and hence the null hypothesis can be rejected stating that the mean count without the enzyme is lower.</p>
+<p>We can also conduct a test for the statement that whether the two population means differ by some value or not. The structure of the test will be (rest of the things remain the same):</p>
+<p>$$H_0: \mu_X - \mu_Y \leq \Delta_0$$</p>
+<p>$$H_A: \mu_X - \mu_Y &gt; \Delta_0$$</p>
+<p>$$test \ statistic (t) = \frac{(\overline{X} - \overline{Y}) - \Delta_0}{\sqrt{s_X^2/n_X + s_Y^2/n_Y}}$$</p>
+<p>When the populations have <b>equal variances</b>, <b>pooled variance</b> can be used, which is given as:</p>
+<p>$$s_p^2 = \frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}$$</p>
+<p>The <b>test statistic</b> for the testing of equality of mean can be given as:</p>
+<p>$$t = \frac{\overline{X} - \overline{Y}}{s_p \sqrt{1/n_X + 1/n_Y}}$$</p>
+<p>Under the assumption that the null hypothesis is true, the test statistic follows Student&rsquo;s t distribution with <b>degree of freedom</b> $n_X + n_Y - 2$.</p>
+<p><b>Example:</b> Two methods have been developed to determine the nickel content of steel. In a sample of five replications of the first method on a certain kind of steel, the average measurement (in percent) was $\overline{X} = 3.16$ and the standard deviation was $s_X = 0.042$. The average of seven replications of the second method was $\overline{Y} = 3.24$ and the standard deviation was $s_Y = 0.048$. Assume that it is known that the population variances are nearly equal. Can we conclude that there is a difference in the mean measurements between the two methods?</p>
+<p><b>Sol:</b> First of all, as we have to find that whether the means are equal or not, the null and alternate hypothesis will be:</p>
+<p>$$H_0: \mu_X = \mu_Y$$</p>
+<p>$$H_A: \mu_X \neq \mu_Y$$</p>
+<p>The pooled standard deviation can be calculated as:</p>
+<p>$$s_p = \sqrt{\frac{(n_X-1)s_X^2 + (n_Y-1)s_Y^2}{n_X + n_Y - 2}} = 0.0457$$</p>
+<p>Hence, the <b>t-statistic</b> is:</p>
+<p>$$t = \frac{3.16-3.24}{0.0457 \sqrt{1 /5 + 1 /7}} = -2.990$$</p>
+<p>As this is a <b>two-tailed</b> test, we need to sum the area between the left and the right tails, which gives the p-value as: <b>0.01 &lt; p-value &lt; 0.02</b>. Hence, we can reject the null hypothesis, stating that the two means are different.</p>
+<p>We should refrain ourselves from making the assumption that the population variances are equal based on the equality of sample variances. The test for the difference of two means by a specific quantity can be conducted in a similar way as described above.</p>
+</br>
+### Tests with Paired Data :
+<p>The test with paired data can be conducted in a similar way as the calculation of the confidence interval. We can treat the collection of differnces as the single random sample from the population of differences. Rest of the proceduer remains the same.</p>
+<p><b>Example:</b> The emission of the automobiles for two conditions is shown below.</p>
+<img class="pure-img" src="/img/Hypothesis_Testing/paired_data.png" alt="">
+<p>Can we conclude that the mean level of emissions is less for highway driving than for stop-and-go driving?</p>
+<p><b>Sol:</b> The mean and standard deviation for the differences are : $\overline{D} = 190.5$, $s_D = 284.1$. The null and alternate hypothesis can be designed as:</p>
+<p>$$H_0: \mu_D \leq 0$$</p>
+<p>$$H_A: \mu_D &gt; 0$$</p>
+<p>The test statistic is given as (the test is for small samples):</p>
+<p>$$t = \frac{\overline{D} - 0}{s_D/\sqrt{n}} = \frac{190.5 - 0}{284.1/\sqrt{8}} = 1.897$$</p>
+<p>which gives the p-value barely less than 0.05.</p>
+</br>
+### Reference :
+<p><a href="https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html">https://www.mheducation.com/highered/product/statistics-engineers-scientists-navidi/M0073401331.html</a></p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/detailed-hypothesis-testing_2/" data-toggle="tooltip" data-placement="top" title="Hypothesis Testing (Part 2)">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/detailed-hypothesis-testing_4/" data-toggle="tooltip" data-placement="top" title="Hypothesis Testing (Part 4)">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

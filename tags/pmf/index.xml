@@ -6,7 +6,26 @@
     <description>Recent content in PMF on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Aug 2018 09:22:46 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/pmf/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Nov 2018 03:01:07 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/pmf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Random Variables (Part 2: Continuous Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/randomvariables_part2/</link>
+      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
+      <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
+ #### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
+    </item>
+    
+    <item>
+      <title>Random Variables (Part 1: Discrete Random Variables)</title>
+      <link>https://amitrajan012.github.io/post/random-variables/</link>
+      <pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/random-variables/</guid>
+      <description>Random Variable is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: discrete and continuous.</description>
+    </item>
+    
     <item>
       <title>Think Stats: Chapter 3</title>
       <link>https://amitrajan012.github.io/post/chapter-3-cumulative-distribution-functions/</link>

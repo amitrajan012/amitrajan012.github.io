@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Student&#39;s t Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/students-t-distribution/</link>
+    <description>Recent content in Student&#39;s t Distribution on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Nov 2018 01:08:17 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/students-t-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</link>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</guid>
+      <description>### Tests for the Difference Between Two Means (Large-Sample) : The basic idea to conduct the hypothesis test for difference between two means is to find the distribution for the difference of two means and test whether it is equal to 0 or not. Here is an example.
+Example: Suppose that a production manager for a manufacturer of industrial machinery is concerned that ball bearings produced in environments with low ambient temperatures may have smaller diameters than those produced under higher temperatures.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</link>
+      <pubDate>Thu, 22 Nov 2018 09:17:41 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</guid>
+      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu  10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_3/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid>
+      <description>#### Confidence Intervals with Paired Data : Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a small random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately normal, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
+      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
+$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
+where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_1/</link>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_1/</guid>
+      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.  #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
+    </item>
+    
+  </channel>
+</rss>

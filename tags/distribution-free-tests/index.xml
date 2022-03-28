@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distribution-Free Tests on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/distribution-free-tests/</link>
+    <description>Recent content in Distribution-Free Tests on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Dec 2018 07:26:51 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/distribution-free-tests/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Wilcoxon Signed-Rank Test</title>
+      <link>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</link>
+      <pubDate>Fri, 07 Dec 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/the-wilcoxon-signed-rank-test/</guid>
+      <description>The Wilcoxon Signed-Rank Test is a distribution free test or non-parametric test which is used to test the population mean when the samples do not come from any specific distribution. The idea behind The Wilcoxon Signed-Rank Test is to median-center the samples and give signed-ranks to the individual values. If the sum of the negative ranks (S-) is larger, we can conclude that the population mean is lesser than the mentioned value.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 4)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</link>
+      <pubDate>Sun, 25 Nov 2018 11:36:18 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_4/</guid>
+      <description>### Distribution-Free Tests : The one assumption for the Student&amp;rsquo;s t tests performed above was the fact that the samples should come from the normal distribution. In distribution-free tests, this restriction is relaxed, i.e. the samnples are not required to come from any specific distribution. Distribution-free tests are sometimes called as nonparametric tests. Mainly, there are two types of distribution-free tests: Wilcoxon signed-rank test(test for population mean) and Wilcoxon rank-sum test / Mann-Whitney test (analogous to the two-sample t test).</description>
+    </item>
+    
+  </channel>
+</rss>

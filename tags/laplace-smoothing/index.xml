@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laplace Smoothing on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/laplace-smoothing/</link>
+    <description>Recent content in Laplace Smoothing on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Oct 2018 05:01:19 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/laplace-smoothing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Naive Bayes Classifier</title>
+      <link>https://amitrajan012.github.io/post/naive-bayes-classifier/</link>
+      <pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/naive-bayes-classifier/</guid>
+      <description>Introduction : Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are independent.
+The Bayes theorem is given as:
+$$P(c|X) = \frac{P(c)P(X|c)}{P(X)}$$
+where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c)$ and $P(X)$ are the prior probabilities of the class and the predictor. $P(X|c)$ is the prior probability or likelihood of observing a feature $X$ given class $c$.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,36 @@
     <description>Recent content in Confidence Intervals on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Sep 2018 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/confidence-intervals/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Nov 2018 16:41:05 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/confidence-intervals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_3/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid>
+      <description>#### Confidence Intervals with Paired Data : Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a small random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately normal, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
+      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
+      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
+$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
+where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
+    </item>
+    
+    <item>
+      <title>Confidence Intervals (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_1/</link>
+      <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_1/</guid>
+      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.  #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
+    </item>
+    
     <item>
       <title>Think Stats: Chapter 8</title>
       <link>https://amitrajan012.github.io/post/chapter-8-estimation/</link>

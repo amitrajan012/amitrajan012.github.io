@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Two-tailed Test on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/two-tailed-test/</link>
+    <description>Recent content in Two-tailed Test on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Nov 2018 01:08:17 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/two-tailed-test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</link>
+      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_3/</guid>
+      <description>### Tests for the Difference Between Two Means (Large-Sample) : The basic idea to conduct the hypothesis test for difference between two means is to find the distribution for the difference of two means and test whether it is equal to 0 or not. Here is an example.
+Example: Suppose that a production manager for a manufacturer of industrial machinery is concerned that ball bearings produced in environments with low ambient temperatures may have smaller diameters than those produced under higher temperatures.</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/</link>
+      <pubDate>Fri, 23 Nov 2018 19:38:29 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_2/</guid>
+      <description>### Tests for a Population Proportion : The hypothesis testing for population proportion can be conducted in a similar manner. Here are some examples to depict it.
+Example: A supplier of semiconductor wafers claims that of all the wafers he supplies, no more than 10% are defective. A sample of 400 wafers is tested, and 50 of them, or 12.5%, are defective. Can we conclude that the claim is false?</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis Testing (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</link>
+      <pubDate>Thu, 22 Nov 2018 09:17:41 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</guid>
+      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu  10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
+    </item>
+    
+  </channel>
+</rss>

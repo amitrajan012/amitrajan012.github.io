@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Taylor Series on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/taylor-series/</link>
+    <description>Recent content in Taylor Series on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Dec 2018 07:26:51 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/taylor-series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://amitrajan012.github.io/post/logistic-regression/</link>
+      <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/logistic-regression/</guid>
+      <description>In a classification setting, logistic regression models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1].</description>
+    </item>
+    
+    <item>
+      <title>Measurement and Propagation of Error (Part 2)</title>
+      <link>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</link>
+      <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</guid>
+      <description>#### Linear Combinations of Dependent Measurements : In the case of dependent measurement, to quantify the uncertainty, we need to know the value of covariance for all the possible pairs of measurements. This is practically not feasible. In this case, an upper bound can be placed on the uncertainty. If $X_1, X_2, &amp;hellip;, X_n$ are $n$ dependent measurements and $c_1, c_2, &amp;hellip;, c_n$ are constants, then the uncertainty of $c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n$ can be bounded as:</description>
+    </item>
+    
+  </channel>
+</rss>

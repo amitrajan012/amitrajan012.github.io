@@ -6,7 +6,28 @@
     <description>Recent content in Power on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Aug 2018 06:17:39 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Nov 2018 07:26:51 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hypothesis Testing (Part 6)</title>
+      <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</link>
+      <pubDate>Mon, 26 Nov 2018 07:26:51 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</guid>
+      <description>### Tests for Variances of Normal Populations : Let $X_1, X_2, &amp;hellip;, X_n$ be a simple random sample from a normal population given as $N(\mu, \sigma^2)$. The sample variance $s^2$ is given as:
+$$s^2 = \frac{1}{n-1}\sum_{i=1}^{n} (X_i - \overline{X})^2$$
+Then the test statistic $\frac{(n-1)s^2}{\sigma_0^2}$ follows a chi-square distribution with $n-1$ degrees of freedom. The null hypothesis can take any of the form:
+$$H_0: \sigma^2 \leq \sigma_0^2;\ \sigma^2 = \sigma_0^2;\ \sigma^2 \geq \sigma_0^2$$</description>
+    </item>
+    
+    <item>
+      <title>Hypothesis testing</title>
+      <link>https://amitrajan012.github.io/post/hypothesis-testing/</link>
+      <pubDate>Mon, 29 Oct 2018 02:01:07 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/hypothesis-testing/</guid>
+      <description>### Introduction : Hypothesis testing is a procedure that is used to determine that whether a made statistical statement (known as hypothesis) is a reasonable one and should not be rejected, or is unreasonable and should be rejected. Hypothesis testing setup is initialized by formulating a Null Hypothesis ($H_0$), which is the hypothesis associated with a contradiction to the theory that one would like to prove and Alternate Hypothesis ($H_A$), which is the hypothesis associated with the theory that one would like to prove.</description>
+    </item>
+    
     <item>
       <title>Think Stats: Chapter 7</title>
       <link>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</link>

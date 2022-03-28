@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paired Data on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/paired-data/</link>
+    <description>Recent content in Paired Data on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Nov 2018 16:41:05 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/paired-data/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Confidence Intervals (Part 3)</title>
+      <link>https://amitrajan012.github.io/post/confidence-intervals_3/</link>
+      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid>
+      <description>#### Confidence Intervals with Paired Data : Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a small random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately normal, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:</description>
+    </item>
+    
+  </channel>
+</rss>

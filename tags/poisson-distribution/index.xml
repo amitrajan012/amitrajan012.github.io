@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Poisson Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/poisson-distribution/</link>
+    <description>Recent content in Poisson Distribution on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Nov 2018 12:03:41 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/poisson-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commonly used Distributions (Part 1)</title>
+      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
+      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
+      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
+$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
+$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
+ #### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
+    </item>
+    
+  </channel>
+</rss>
