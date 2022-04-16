@@ -245,81 +245,81 @@
 <p>The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix $A$. Let us start by taking a matrix $A$.</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-2 &amp; 4 &amp; 6 &amp; 8 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+2 &amp; 4 &amp; 6 &amp; 8 \\
 3 &amp; 6 &amp; 8 &amp; 10
 \end{bmatrix}
 \end{align}$$</p>
 <p>One of the first thing to notice in $A$ is that $row_3$ is a linear combination of $row_1$ and $row_2$ ($row_3 = row_1 + row_2$). The way to solve a system of linear equations is by elimination. Different <b>row elimination steps</b> can be used to transform $A$ into an <b>upper triangular matrix</b> with the same steps repeated on the right hand side. As the right hand side is $0$ here, the elimination steps can be skipped for it.</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-2 &amp; 4 &amp; 6 &amp; 8 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+2 &amp; 4 &amp; 6 &amp; 8 \\
 3 &amp; 6 &amp; 8 &amp; 10
 \end{bmatrix}
 \xrightarrow{\text{S1}}
 \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-0 &amp; 0 &amp; 2 &amp; 4 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+0 &amp; 0 &amp; 2 &amp; 4 \\
 0 &amp; 0 &amp; 2 &amp; 4
 \end{bmatrix}
 \xrightarrow{\text{S3}}
 \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-0 &amp; 0 &amp; 2 &amp; 4 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+0 &amp; 0 &amp; 2 &amp; 4 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} = U
 \end{align}$$</p>
 <p>The resultant matrix after the elimination steps is $U$ which is in the <b>echelon form</b>. Now, instead of solving $Ax=0$, $Ux=0$ can be solved. There are <b>two pivots</b>: $U_{11} = 1,U_{23} = 2$. The number of pivots is also called as the <b>rank of the matrix</b>. Here, the rank is $2$. The columns in which pivots are there ($col_1, col_3$) are called as <b>pivot columns</b>. Remaining columns ($col_2, col_4$) are called as <b>free columns</b>. The equation $Ux=0$ can be written as follows.</p>
 <p>$$\begin{align}
 x_1\begin{bmatrix}
-1  \\<br>
-0  \\<br>
+1  \\
+0  \\
 0
 \end{bmatrix} +
 x_2\begin{bmatrix}
-2  \\<br>
-0  \\<br>
+2  \\
+0  \\
 0
 \end{bmatrix} +
 x_3\begin{bmatrix}
-2  \\<br>
-2  \\<br>
+2  \\
+2  \\
 0
 \end{bmatrix} +
 x_4\begin{bmatrix}
-2  \\<br>
-4  \\<br>
+2  \\
+4  \\
 0
 \end{bmatrix} =
 \begin{bmatrix}
-0  \\<br>
-0  \\<br>
+0  \\
+0  \\
 0
 \end{bmatrix}
 \end{align}$$</p>
 <p>The values in $x$ corresponding to the free columns (here they are $x_2,x_4$) can be assigned any values and then we can find the values of $x_1,x_3$ to complete the solution. We can systematically assign values to the multipliers corresponding to the free columns. Let $x_2=1,x_4=0$, this gives $x_1=-2,x_3=0$ and hence $\begin{bmatrix}
--2 \\<br>
-1 \\<br>
-0 \\<br>
+-2 \\
+1 \\
+0 \\
 0
 \end{bmatrix}$ is a solution (or any multiple of this vector), a vector in the <b>null space</b>. Another choice for free variables can be $x_2=0,x_4=1$, which gives $x_1=2,x_3=-2$ and hence $\begin{bmatrix}
-2 \\<br>
-0 \\<br>
--2 \\<br>
+2 \\
+0 \\
+-2 \\
 1
 \end{bmatrix}$ is another solution (or any multiple of this vector), another vector in the <b>null space</b>. Hence, the general solution can be given as:</p>
 <p>$$\begin{align}
 x = c\begin{bmatrix}
--2  \\<br>
-1  \\<br>
-0 \\<br>
+-2  \\
+1  \\
+0 \\
 0
 \end{bmatrix} +
 d\begin{bmatrix}
-2  \\<br>
-0  \\<br>
--2 \\<br>
+2  \\
+0  \\
+-2 \\
 1
 \end{bmatrix}
 \end{align}$$</p>
@@ -329,60 +329,60 @@ d\begin{bmatrix}
 <p>$$\begin{align}
 U =
 \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-0 &amp; 0 &amp; 2 &amp; 4 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+0 &amp; 0 &amp; 2 &amp; 4 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 0 &amp; -2 \\<br>
-0 &amp; 0 &amp; 1 &amp; 2 \\<br>
+1 &amp; 2 &amp; 0 &amp; -2 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} = R
 \end{align}$$</p>
 <p>If we further examine the matrix $R$, it can be noticed that an <b>identity matrix</b> $\begin{bmatrix}
-1 &amp; 0  \\<br>
+1 &amp; 0  \\
 0 &amp; 1
 \end{bmatrix} = I$ sits in the <b>pivot rows and columns</b> ($row_1, row_2, col_1, col_2$). Corresponding entries in the <b>free columns</b> are $\begin{bmatrix}
-2 &amp; -2  \\<br>
+2 &amp; -2  \\
 0 &amp; 2
 \end{bmatrix} = F$. If we look at $I$ and $F$, they are nothing but the rearranged individual solutions with sign switched for $F$. Let us just rearrnage the reduced row-echelon matrix $R$ as follows, where the last matrix is nothing but matrix represented in the <b>block form</b>. We have to find $x$ such that $Rx=0$.</p>
 <p>$$\begin{align}
 R =
 \begin{bmatrix}
-1 &amp; 2 &amp; 0 &amp; -2 \\<br>
-0 &amp; 0 &amp; 1 &amp; 2 \\<br>
+1 &amp; 2 &amp; 0 &amp; -2 \\
+0 &amp; 0 &amp; 1 &amp; 2 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 0 &amp; 2 &amp; -2 \\<br>
-0 &amp; 1 &amp; 0 &amp; 2 \\<br>
+1 &amp; 0 &amp; 2 &amp; -2 \\
+0 &amp; 1 &amp; 0 &amp; 2 \\
 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} =
 \begin{bmatrix}
-I &amp; F \\<br>
+I &amp; F \\
 0 &amp; 0
 \end{bmatrix}
 \end{align}$$</p>
 <p>For the given R in the block form, the solution can be given as:</p>
 <p>$$\begin{align}
 \begin{bmatrix}
-I &amp; F \\<br>
+I &amp; F \\
 0 &amp; 0
 \end{bmatrix}\begin{bmatrix}
--F \\<br>
+-F \\
 I
 \end{bmatrix} = 0
 \end{align}$$</p>
 <p>Hence, the final solution in the rearranged form is:</p>
 <p>$$\begin{align}
 \begin{bmatrix}
--F \\<br>
+-F \\
 I
 \end{bmatrix} =
 \begin{bmatrix}
--2 &amp; 0 \\<br>
-2 &amp; -2 \\<br>
-1 &amp; 0 \\<br>
+-2 &amp; 0 \\
+2 &amp; -2 \\
+1 &amp; 0 \\
 0 &amp; 1
 \end{bmatrix}
 \end{align}$$</p>
@@ -390,66 +390,66 @@ I
 <p>Let us look at one more example. The system of equations which we have to solve is $Bx=0$ where $B=A^T$ for the above matrix $A$.</p>
 <p>$$\begin{align}
 B = \begin{bmatrix}
-1 &amp; 2 &amp; 3 \\<br>
-2 &amp; 4 &amp; 6 \\<br>
-2 &amp; 6 &amp; 8 \\<br>
+1 &amp; 2 &amp; 3 \\
+2 &amp; 4 &amp; 6 \\
+2 &amp; 6 &amp; 8 \\
 2 &amp; 8 &amp; 10
 \end{bmatrix}
 \end{align}$$</p>
 <p>The transformation of $B$ into <b>row-reduced echelon form</b> can be given as follows:</p>
 <p>$$\begin{align}
 B = \begin{bmatrix}
-1 &amp; 2 &amp; 3 \\<br>
-2 &amp; 4 &amp; 6 \\<br>
-2 &amp; 6 &amp; 8 \\<br>
+1 &amp; 2 &amp; 3 \\
+2 &amp; 4 &amp; 6 \\
+2 &amp; 6 &amp; 8 \\
 2 &amp; 8 &amp; 10
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 3 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 2 &amp; 2 \\<br>
+1 &amp; 2 &amp; 3 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 2 &amp; 2 \\
 0 &amp; 4 &amp; 4
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 3 \\<br>
-0 &amp; 2 &amp; 2 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
+1 &amp; 2 &amp; 3 \\
+0 &amp; 2 &amp; 2 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 0 &amp; 1 \\<br>
-0 &amp; 2 &amp; 2 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
+1 &amp; 0 &amp; 1 \\
+0 &amp; 2 &amp; 2 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 0 &amp; 1 \\<br>
-0 &amp; 1 &amp; 1 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
-0 &amp; 0 &amp; 0 \\<br>
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
 \end{bmatrix}
 \end{align}$$</p>
 <p>$$\begin{align}
 I =
 \begin{bmatrix}
-1 &amp; 0\\<br>
+1 &amp; 0\\
 0 &amp; 1
 \end{bmatrix};
 F =
 \begin{bmatrix}
-1 \\<br>
+1 \\
 1
 \end{bmatrix}
 \end{align}$$</p>
 <p>Hence the <b>null space</b> can be given as
 $$\begin{align}
 c\begin{bmatrix}
--F \\<br>
+-F \\
 I
 \end{bmatrix} =
 c\begin{bmatrix}
--1 \\<br>
--1 \\<br>
+-1 \\
+-1 \\
 1
 \end{bmatrix}
 \end{align}$$</p>

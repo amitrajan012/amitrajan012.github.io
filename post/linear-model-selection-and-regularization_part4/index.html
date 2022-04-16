@@ -319,27 +319,27 @@
 <p><b>Sol:</b> Equation (6.14) is given as:</p>
 <p>$$\widehat{\beta_j}^R = \frac{y_j}{1 + \lambda}$$</p>
 <p>Let $y_1 = 5, \lambda = 10$. The plot is shown below. The red line shows the plot of the solution for the ridge regression in this case. It is evident that the line crosses through the minimum error value.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-<span style="color:#66d9ef">print</span>(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))
-beta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">0.1</span>)
-ridge  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>(beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>plot(beta, ridge)
-plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda)), (y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Ridge Residual + Regularization&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Ridge Residual + Regularization vs Beta&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>0.18181818181818182
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>print(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))
+</span></span><span style="display:flex;"><span>beta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>,<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>ridge  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>(beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(beta, ridge)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [(y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda)), (y<span style="color:#f92672">/</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> _lambda))], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Ridge Residual + Regularization&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Ridge Residual + Regularization vs Beta&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>0.18181818181818182
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_58_1.png" alt="">
 <p>(b) Consider (6.13) with p = 1. For some choice of $y_1$ and λ &gt; 0, plot (6.13) as a function of $\beta_1$. Your plot should confirm that (6.13) is solved by (6.15).</p>
@@ -348,29 +348,29 @@ plt<span style="color:#f92672">.</span>show()
 \begin{equation*}
 \beta_j^L= \left{
 \begin{array}{@{}ll@{}}
-y_j - \lambda/2, &amp; \text{if}\ y_j &gt; \lambda/2 \<br>
-y_j + \lambda/2, &amp; \text{if}\ y_j &lt; -\lambda/2 \<br>
+y_j - \lambda/2, &amp; \text{if}\ y_j &gt; \lambda/2 \
+y_j + \lambda/2, &amp; \text{if}\ y_j &lt; -\lambda/2 \
 1, &amp; \text{if} \ |y_j| \leq \lambda/2
 \end{array}\right.
 \end{equation*}
 $$</p>
 <p>The plot is shown below. The red line shows the plot of the solution for the lasso in this case (solution is $y_j - \lambda/2$). It is evident that the line crosses through the minimum error value.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y<span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-lasso  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>absolute(beta)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>plot(beta, lasso)
-plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Lasso Residual + Regularization&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Lasso Residual + Regularization vs Beta&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_60_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>y<span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>_lambda <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>lasso  <span style="color:#f92672">=</span> (y<span style="color:#f92672">-</span>beta)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> _lambda<span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>absolute(beta)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(beta, lasso)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot([<span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">20</span>], [y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, y<span style="color:#f92672">-</span>_lambda<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>], <span style="color:#e6db74">&#39;k-&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># Plot of solution</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Beta&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Lasso Residual + Regularization&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Lasso Residual + Regularization vs Beta&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_60_0.png" alt="">
 
 
                 

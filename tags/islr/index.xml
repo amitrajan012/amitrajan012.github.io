@@ -25,9 +25,9 @@
       <description>10.7 Exercises Conceptual Q1. This problem involves the K-means clustering algorithm.
 (a) Prove (10.12).
 Sol: Equation 10.12 is:
-$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
+$$\frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&amp;rsquo;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
 where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get
-$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{i^{&#39;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&#39;}j} \</description>
+$$\frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&amp;rsquo;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{i^{&amp;rsquo;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&amp;rsquo;}j} \ = 2 \sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&amp;rsquo;}j} $$</description>
     </item>
     
     <item>
@@ -229,7 +229,7 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
       <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
 (a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
-import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+import numpy as np  np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
     </item>
     
     <item>
@@ -323,7 +323,7 @@ Suppose we wish to invest money in two financial assests which yield returns of 
       <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
       <description>Applied Q10. This question should be answered using the Weekly data set.
 (a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
-import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors.</description>
     </item>
     
     <item>
@@ -345,7 +345,7 @@ $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
       <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/classification_part2/</guid>
-      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&#39; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
+      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&amp;rsquo; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
     </item>
     
     <item>
@@ -356,7 +356,7 @@ $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
       <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
       <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
 4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  default = pd.</description>
     </item>
     
     <item>
@@ -367,7 +367,7 @@ import pandas as pd import seaborn as sns import matplotlib.pyplot as plt defaul
       <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
       <description>Applied Solution 8:
 (a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
-import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+import statsmodels.api as sm  X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
     </item>
     
     <item>
@@ -422,7 +422,7 @@ $\beta_0$ and $\beta_1$ represent intercept and slope and are called as model co
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
       <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
-import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
     </item>
     
     <item>
@@ -463,7 +463,7 @@ $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</description>
       <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/introduction/</guid>
-      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;#34;age&amp;#34;, y=&amp;#34;wage&amp;#34;, color=&amp;#39;#D7DBDD&amp;#39;, data=wage, order=2, scatter_kws={&amp;#39;alpha&amp;#39;:0.</description>
+      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns  wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head()  fig = plt.figure(figsize=(15,8))  ax = fig.</description>
     </item>
     
   </channel>

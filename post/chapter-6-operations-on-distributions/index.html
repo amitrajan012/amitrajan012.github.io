@@ -232,79 +232,79 @@
 <p>Another way to evaluate the asymmetry of a distribution is to compare mean and median. For distributions that skews left, mean is less than the median. This statistic is denoted by <b>Pearson&rsquo;s Median Skewness Coefficient</b> which is given as:</p>
 <p>$$Pearson&rsquo;s\ Median\ Skewness\ Coefficient = 3\frac{(Mean \ - \ Median)}{\sigma}$$</p>
 <p><b>Exercise 6.1: </b>Compute the skewness for the distributions of pregnancy length and birth weight. Are the results consistent with the shape of the distributions? Compute PearsonSkewness as well and compare the results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-<span style="color:#f92672">import</span> math
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">skewness</span>(x):
-    mean <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>mean()
-    m2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(np<span style="color:#f92672">.</span>power((x <span style="color:#f92672">-</span> mean), <span style="color:#ae81ff">2</span>))
-    m3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(np<span style="color:#f92672">.</span>power((x <span style="color:#f92672">-</span> mean), <span style="color:#ae81ff">3</span>))
-    g1 <span style="color:#f92672">=</span> m3 <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>pow(m2, <span style="color:#ae81ff">1.5</span>)
-    <span style="color:#66d9ef">return</span> g1
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pearson_skewness</span>(x):
-    mean <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>mean()
-    std <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>std()
-    median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(x)
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>(mean <span style="color:#f92672">-</span> median) <span style="color:#f92672">/</span> std
-
-<span style="color:#75715e"># Reference to extract the columns: http://greenteapress.com/thinkstats/survey.py</span>
-pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
-                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
-                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
-                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
-                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
-                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
-
-lengths <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]<span style="color:#f92672">.</span>dropna()
-weights <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>, <span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]]<span style="color:#f92672">.</span>dropna()
-weights <span style="color:#f92672">=</span> weights[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> weights[<span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]
-
-l1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Skewness : &#34;</span> <span style="color:#f92672">+</span>  str(skewness(lengths)) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Pearson Skewness: &#34;</span> <span style="color:#f92672">+</span> str(pearson_skewness(lengths))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">6</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-sns<span style="color:#f92672">.</span>distplot(lengths, label<span style="color:#f92672">=</span>l1, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
-             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: False})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Pregnancy Length&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of Pregnancy Lengths (live births)&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-
-l2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Skewness : &#34;</span> <span style="color:#f92672">+</span>  str(skewness(weights)) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Pearson Skewness: &#34;</span> <span style="color:#f92672">+</span> str(pearson_skewness(weights))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-sns<span style="color:#f92672">.</span>distplot(weights, label<span style="color:#f92672">=</span>l2, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
-             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: False})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Weights(oz)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of birth weights (live births)&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_3_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">skewness</span>(x):
+</span></span><span style="display:flex;"><span>    mean <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    m2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(np<span style="color:#f92672">.</span>power((x <span style="color:#f92672">-</span> mean), <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>    m3 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(np<span style="color:#f92672">.</span>power((x <span style="color:#f92672">-</span> mean), <span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>    g1 <span style="color:#f92672">=</span> m3 <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>pow(m2, <span style="color:#ae81ff">1.5</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> g1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pearson_skewness</span>(x):
+</span></span><span style="display:flex;"><span>    mean <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    std <span style="color:#f92672">=</span> x<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>    median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(x)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>(mean <span style="color:#f92672">-</span> median) <span style="color:#f92672">/</span> std
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Reference to extract the columns: http://greenteapress.com/thinkstats/survey.py</span>
+</span></span><span style="display:flex;"><span>pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
+</span></span><span style="display:flex;"><span>                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
+</span></span><span style="display:flex;"><span>                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
+</span></span><span style="display:flex;"><span>                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lengths <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>weights <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>, <span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>weights <span style="color:#f92672">=</span> weights[<span style="color:#e6db74">&#39;birthwgt_lb&#39;</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span> <span style="color:#f92672">+</span> weights[<span style="color:#e6db74">&#39;birthwgt_oz&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>l1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Skewness : &#34;</span> <span style="color:#f92672">+</span>  str(skewness(lengths)) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Pearson Skewness: &#34;</span> <span style="color:#f92672">+</span> str(pearson_skewness(lengths))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(lengths, label<span style="color:#f92672">=</span>l1, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, norm_hist<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: <span style="color:#66d9ef">False</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Pregnancy Length&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of Pregnancy Lengths (live births)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>l2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Skewness : &#34;</span> <span style="color:#f92672">+</span>  str(skewness(weights)) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;Pearson Skewness: &#34;</span> <span style="color:#f92672">+</span> str(pearson_skewness(weights))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(weights, label<span style="color:#f92672">=</span>l2, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, norm_hist<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: <span style="color:#66d9ef">False</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Weights(oz)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Probability&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF of birth weights (live births)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_3_1.png" alt="">
 <p><b>Exercise 6.3:</b> What fraction of the population reports a taxable income below the mean for the IRS data? Compute the median, mean, skewness and Pearson’s skewness of the income data. Because the data has been binned, you will have to make some approximations.</p>
 <p><b>Solution:</b> Mean and median suggests that the data is right skewed. Skewness confirms this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">income_dist <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2489989</span>), (<span style="color:#ae81ff">2500</span>, <span style="color:#ae81ff">11638707</span>), (<span style="color:#ae81ff">7500</span>, <span style="color:#ae81ff">12139638</span>),
-               (<span style="color:#ae81ff">12500</span>, <span style="color:#ae81ff">11702056</span>), (<span style="color:#ae81ff">17500</span>, <span style="color:#ae81ff">11076002</span>), (<span style="color:#ae81ff">22500</span>, <span style="color:#ae81ff">9866247</span>),
-               (<span style="color:#ae81ff">27500</span>, <span style="color:#ae81ff">8743581</span>), (<span style="color:#ae81ff">35000</span>, <span style="color:#ae81ff">14554280</span>), (<span style="color:#ae81ff">45000</span>, <span style="color:#ae81ff">11087123</span>),
-               (<span style="color:#ae81ff">62500</span>, <span style="color:#ae81ff">19196461</span>), (<span style="color:#ae81ff">87500</span>, <span style="color:#ae81ff">11729485</span>), (<span style="color:#ae81ff">150000</span>, <span style="color:#ae81ff">13851341</span>),
-               (<span style="color:#ae81ff">350000</span>, <span style="color:#ae81ff">3476747</span>), (<span style="color:#ae81ff">750000</span>, <span style="color:#ae81ff">577618</span>), (<span style="color:#ae81ff">1250000</span>, <span style="color:#ae81ff">140635</span>),
-               (<span style="color:#ae81ff">1750000</span>, <span style="color:#ae81ff">59460</span>), (<span style="color:#ae81ff">3500000</span>, <span style="color:#ae81ff">86329</span>), (<span style="color:#ae81ff">7500000</span>, <span style="color:#ae81ff">21390</span>),
-               (<span style="color:#ae81ff">15000000</span>, <span style="color:#ae81ff">13480</span>)]
-population <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> income, count <span style="color:#f92672">in</span> income_dist:
-    l <span style="color:#f92672">=</span> [income] <span style="color:#f92672">*</span> count
-    population<span style="color:#f92672">.</span>extend(l)
-population <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(population)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>mean(population)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Median of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>median(population)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Skewness of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(skewness(population)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Pearson&#39;s Skewness of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(pearson_skewness(population)))
-</code></pre></div><pre><code>Mean of the income distribution is: 61983.03958687592
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>income_dist <span style="color:#f92672">=</span> [(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2489989</span>), (<span style="color:#ae81ff">2500</span>, <span style="color:#ae81ff">11638707</span>), (<span style="color:#ae81ff">7500</span>, <span style="color:#ae81ff">12139638</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">12500</span>, <span style="color:#ae81ff">11702056</span>), (<span style="color:#ae81ff">17500</span>, <span style="color:#ae81ff">11076002</span>), (<span style="color:#ae81ff">22500</span>, <span style="color:#ae81ff">9866247</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">27500</span>, <span style="color:#ae81ff">8743581</span>), (<span style="color:#ae81ff">35000</span>, <span style="color:#ae81ff">14554280</span>), (<span style="color:#ae81ff">45000</span>, <span style="color:#ae81ff">11087123</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">62500</span>, <span style="color:#ae81ff">19196461</span>), (<span style="color:#ae81ff">87500</span>, <span style="color:#ae81ff">11729485</span>), (<span style="color:#ae81ff">150000</span>, <span style="color:#ae81ff">13851341</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">350000</span>, <span style="color:#ae81ff">3476747</span>), (<span style="color:#ae81ff">750000</span>, <span style="color:#ae81ff">577618</span>), (<span style="color:#ae81ff">1250000</span>, <span style="color:#ae81ff">140635</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">1750000</span>, <span style="color:#ae81ff">59460</span>), (<span style="color:#ae81ff">3500000</span>, <span style="color:#ae81ff">86329</span>), (<span style="color:#ae81ff">7500000</span>, <span style="color:#ae81ff">21390</span>),
+</span></span><span style="display:flex;"><span>               (<span style="color:#ae81ff">15000000</span>, <span style="color:#ae81ff">13480</span>)]
+</span></span><span style="display:flex;"><span>population <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> income, count <span style="color:#f92672">in</span> income_dist:
+</span></span><span style="display:flex;"><span>    l <span style="color:#f92672">=</span> [income] <span style="color:#f92672">*</span> count
+</span></span><span style="display:flex;"><span>    population<span style="color:#f92672">.</span>extend(l)
+</span></span><span style="display:flex;"><span>population <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(population)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Mean of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>mean(population)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Median of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>median(population)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Skewness of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(skewness(population)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Pearson&#39;s Skewness of the income distribution is: &#34;</span> <span style="color:#f92672">+</span>str(pearson_skewness(population)))
+</span></span></code></pre></div><pre><code>Mean of the income distribution is: 61983.03958687592
 Median of the income distribution is: 35000.0
 Skewness of the income distribution is: 42.45022874829252
 Pearson's Skewness of the income distribution is: 0.3809114874445705
@@ -313,26 +313,26 @@ Pearson's Skewness of the income distribution is: 0.3809114874445705
 <p><b>Random Variable</b> represents a process that generates a random number. Formal definition of Cumulative Distribution Function (CDF) is (CDF of a random variable X evaluated for a particular value x):</p>
 <p>$$CDF_{X}(x) = P(X \leq x)$$</p>
 <p><b>Exercise 6.4:</b> Write a definition for a class that represents a random variable with a Gumbel distribution (see <a href="http://wikipedia.org/wiki/Gumbel_distribution)">http://wikipedia.org/wiki/Gumbel_distribution)</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> gumbel_r, gumbel_l
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(gumbel_r<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), gumbel_r<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">1000</span>)
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">6</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-ax<span style="color:#f92672">.</span>plot(x, gumbel_r<span style="color:#f92672">.</span>pdf(x), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gumbel_r pdf&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF for Gumbel Distribution(right skewed with 0 mean)&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-ax<span style="color:#f92672">.</span>plot(x, gumbel_l<span style="color:#f92672">.</span>pdf(x), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gumbel_l pdf&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF for Gumbel Distribution(left skewed with 0 mean)&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Random Variate: &#34;</span> <span style="color:#f92672">+</span>str(gumbel_r<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, random_state<span style="color:#f92672">=</span>None)))
-</code></pre></div><pre><code>Random Variate: []
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> gumbel_r, gumbel_l
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(gumbel_r<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), gumbel_r<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">6</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, gumbel_r<span style="color:#f92672">.</span>pdf(x), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gumbel_r pdf&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF for Gumbel Distribution(right skewed with 0 mean)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, gumbel_l<span style="color:#f92672">.</span>pdf(x), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;gumbel_l pdf&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;x&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF for Gumbel Distribution(left skewed with 0 mean)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Random Variate: &#34;</span> <span style="color:#f92672">+</span>str(gumbel_r<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, random_state<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)))
+</span></span></code></pre></div><pre><code>Random Variate: []
 </code></pre>
 <img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_9_1.png" alt="">
 <h3 id="63-pdfs">6.3 PDFs</h3>
@@ -341,22 +341,22 @@ ax<span style="color:#f92672">.</span>legend()
 <p>or since the CDF is the integral of PDF,</p>
 <p>$$P(\alpha \leq X \lt \beta) = CDF _{X}(\beta) - CDF _{X}(\alpha)$$</p>
 <p><b>Exercise 6.5:</b> What is the probability that a value chosen from an exponential distribution with parameter lambda falls between 1 and 20? Express your answer as a function of lambda.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate_probability_expon</span>(x1, x2, l):
-    <span style="color:#66d9ef">return</span> expon<span style="color:#f92672">.</span>cdf(x2, loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>l) <span style="color:#f92672">-</span> expon<span style="color:#f92672">.</span>cdf(x1, loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>l)
-
-<span style="color:#66d9ef">print</span>(calculate_probability_expon(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>))
-</code></pre></div><pre><code>0.9999999943972036
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calculate_probability_expon</span>(x1, x2, l):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> expon<span style="color:#f92672">.</span>cdf(x2, loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>l) <span style="color:#f92672">-</span> expon<span style="color:#f92672">.</span>cdf(x1, loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1.0</span><span style="color:#f92672">/</span>l)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(calculate_probability_expon(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><pre><code>0.9999999943972036
 </code></pre>
 <p><b>Exercise 6.6:</b> In the BRFSS (see Section 4.5), the distribution of heights is roughly normal with parameters mean = 178 cm and variance = 59.4 cm for men, and mean = 163 cm and variance = 52.8 cm for women. In order to join Blue Man Group, you have to be male between 5’10” and 6’1”. What percentage of the U.S. male population is in this range?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> math
-
-norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">178</span>, scale<span style="color:#f92672">=</span>math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">59.4</span>))
-prob <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>cdf(<span style="color:#ae81ff">185.42</span>) <span style="color:#f92672">-</span> norm<span style="color:#f92672">.</span>cdf(<span style="color:#ae81ff">177.8</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Percentage of male population in range: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (prob <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;%&#39;</span>)
-</code></pre></div><pre><code>Percentage of male population in range: 34.251%
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">178</span>, scale<span style="color:#f92672">=</span>math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">59.4</span>))
+</span></span><span style="display:flex;"><span>prob <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>cdf(<span style="color:#ae81ff">185.42</span>) <span style="color:#f92672">-</span> norm<span style="color:#f92672">.</span>cdf(<span style="color:#ae81ff">177.8</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Percentage of male population in range: </span><span style="color:#e6db74">%.3f</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (prob <span style="color:#f92672">*</span> <span style="color:#ae81ff">100</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;%&#39;</span>)
+</span></span></code></pre></div><pre><code>Percentage of male population in range: 34.251%
 </code></pre>
 <h3 id="64-convolution">6.4 Convolution</h3>
 <p>Suppose X and Y are two random variables with their individual CDFs. A random variable Z is defined as Z = X+Y. The distribution of Z can be calculated as follows:</p>
@@ -379,34 +379,33 @@ prob <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</spa
 <p>Hence,</p>
 <p>$$PDF _{Z} = \frac{e^{-\lambda z} \lambda^{k+1}}{(k-1)!}\int _{-\infty}^{\infty} (z-x)^{k-1} dx$$</p>
 <p><b>Exercise 6.9:</b> If you are given PMF objects, you can compute the distribution of the new RV by enumerating all pairs of values. Write a function that computes the PMF of Z = max(X, Y).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-x_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
-y_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>)
-
-xs <span style="color:#f92672">=</span> x_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
-ys <span style="color:#f92672">=</span> y_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
-xs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sort(xs)
-ys <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sort(ys)
-
-zs <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> idx, val <span style="color:#f92672">in</span> enumerate(xs):
-    zs<span style="color:#f92672">.</span>append(max(xs[idx], ys[idx]))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>kdeplot(zs, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;max(X,Y)&#39;</span>)
-sns<span style="color:#f92672">.</span>kdeplot(xs, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X&#39;</span>)
-sns<span style="color:#f92672">.</span>kdeplot(ys, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;z = max(X, Y)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of max(X, Y)&#39;</span>)
-plt<span style="color:#f92672">.</span>show()
-
-</code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_17_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>y_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">1.75</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>xs <span style="color:#f92672">=</span> x_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>ys <span style="color:#f92672">=</span> y_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>xs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sort(xs)
+</span></span><span style="display:flex;"><span>ys <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sort(ys)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>zs <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, val <span style="color:#f92672">in</span> enumerate(xs):
+</span></span><span style="display:flex;"><span>    zs<span style="color:#f92672">.</span>append(max(xs[idx], ys[idx]))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(zs, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;max(X,Y)&#39;</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(xs, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(ys, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;z = max(X, Y)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of max(X, Y)&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_17_1.png" alt="">
 <h3 id="65-why-normal">6.5 Why Normal?</h3>
 <p><b>Normal distribution is closed under linear transformation and convolution.</b> This means that for a distribution Y = aX + b, where X is a normal distribution with mean $\mu$ and standard deviation $\sigma$, the distribution of Y is given as:</p>
 <p>$$Y \sim N(a\mu + b, \ a^{2}\sigma^{2})$$</p>
@@ -416,32 +415,32 @@ plt<span style="color:#f92672">.</span>show()
 <p><b>Solution:</b> The distribution of Z is given as:
 $$Z \sim N(a\mu _{X} + b\mu _{Y}, \ a^{2}\sigma _{X}^{2} + b^{2}\sigma _{Y}^{2})$$</p>
 <p><b>Exerciese 6.11:</b> Choose a pair of distributions (any two of exponential, normal, lognormal, and Pareto) and choose parameters that make their mean and variance similar. Generate random numbers from these distributions and compute the distribution of their sums.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
-<span style="color:#f92672">import</span> math
-
-mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-std <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-
-x_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
-xs <span style="color:#f92672">=</span> x_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
-y_expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
-ys <span style="color:#f92672">=</span> y_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
-
-zs <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> idx, val <span style="color:#f92672">in</span> enumerate(xs):
-    zs<span style="color:#f92672">.</span>append(xs[idx] <span style="color:#f92672">+</span> ys[idx])
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>kdeplot(xs, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X&#39;</span>)
-sns<span style="color:#f92672">.</span>kdeplot(ys, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>)
-sns<span style="color:#f92672">.</span>kdeplot(zs, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X+Y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;z = X + Y&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of X + Y&#39;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_20_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>std <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
+</span></span><span style="display:flex;"><span>xs <span style="color:#f92672">=</span> x_norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>y_expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
+</span></span><span style="display:flex;"><span>ys <span style="color:#f92672">=</span> y_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>zs <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, val <span style="color:#f92672">in</span> enumerate(xs):
+</span></span><span style="display:flex;"><span>    zs<span style="color:#f92672">.</span>append(xs[idx] <span style="color:#f92672">+</span> ys[idx])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(xs, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(ys, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(zs, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;X+Y&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;z = X + Y&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of X + Y&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_20_1.png" alt="">
 <h3 id="66-central-limit-theorem">6.6 Central limit Theorem</h3>
 <p><b>Central limit theorem</b> states that if we add large number of values from almost any distribution, the distribution of the sum converges to normal. More specifically, if the distribution of the values has mean and standard deviation $\mu$ and $\sigma$, the distribution of the sum is approximately $N(n\mu, \ n\sigma^{2})$. There are certain limitations to it which are stated as follows:</p>
 <ul>
@@ -451,49 +450,49 @@ plt<span style="color:#f92672">.</span>show()
 <li>The number of values needed depends on the skewness of the distributions. Sums for exponential distribution converges for small sample size but for the lognormal distribution does not.</li>
 </ul>
 <p><b>Exercise 6.13:</b> Choose a distribution (one of exponential, lognormal or Pareto) and choose values for the parameter(s). Generate samples with sizes 2, 4, 8, etc., and compute the distribution of their sums. Use a normal probability plot to see if the distribution is approximately normal. How many terms do you have to add to see convergence?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x_expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-y_2 <span style="color:#f92672">=</span> []
-y_4 <span style="color:#f92672">=</span> []
-y_10 <span style="color:#f92672">=</span> []
-y_100 <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
-    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 2 samples drawn randomly from the distribution</span>
-    y_2<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
-    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># 4 samples drawn randomly from the distribution</span>
-    y_4<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
-    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># 10 samples drawn randomly from the distribution</span>
-    y_10<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
-    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e"># 8 samples drawn randomly from the distribution</span>
-    y_100<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
-sns<span style="color:#f92672">.</span>kdeplot(y_2, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 2 samples)&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
-sns<span style="color:#f92672">.</span>kdeplot(y_4, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 4 samples)&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
-sns<span style="color:#f92672">.</span>kdeplot(y_10, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 10 samples)&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
-sns<span style="color:#f92672">.</span>kdeplot(y_100, shade<span style="color:#f92672">=</span>True, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 100 samples)&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_23_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x_expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>y_2 <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>y_4 <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>y_10 <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>y_100 <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
+</span></span><span style="display:flex;"><span>    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>) <span style="color:#75715e"># 2 samples drawn randomly from the distribution</span>
+</span></span><span style="display:flex;"><span>    y_2<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
+</span></span><span style="display:flex;"><span>    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># 4 samples drawn randomly from the distribution</span>
+</span></span><span style="display:flex;"><span>    y_4<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
+</span></span><span style="display:flex;"><span>    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>) <span style="color:#75715e"># 10 samples drawn randomly from the distribution</span>
+</span></span><span style="display:flex;"><span>    y_10<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
+</span></span><span style="display:flex;"><span>    ys <span style="color:#f92672">=</span> x_expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>) <span style="color:#75715e"># 8 samples drawn randomly from the distribution</span>
+</span></span><span style="display:flex;"><span>    y_100<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>sum(ys))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(y_2, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 2 samples)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(y_4, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 4 samples)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(y_10, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 10 samples)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>kdeplot(y_100, shade<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Y&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Z&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF of Z (for 100 samples)&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Chapter%206%20-%20Operations%20on%20distributions_files/Chapter%206%20-%20Operations%20on%20distributions_23_1.png" alt="">
 <p><b>In a nut shell, to get PMF from CDF, differences in cumulative probabilities can be computed. A PDF is the derivative of continuous CDF or CDF is the integral of PDF. But PDF maps the values to probability densities. To get the probability, we need to integrate PDF.</b></p>
 
 

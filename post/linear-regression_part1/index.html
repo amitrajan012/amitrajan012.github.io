@@ -234,29 +234,29 @@
 \frac{Cov(X, Y)}{Var(X)}$$</p>
 <p>$$\beta_0 = \bar{y} - \widehat{\beta_1}\bar{x}$$</p>
 <p>where $\bar{y}$ and $\bar{x}$ are the sample means. Below figure shows the simple regression and residual plot for advertisement data (sales vs TV).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-adv <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Advertising.csv&#34;</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, fit_reg<span style="color:#f92672">=</span>True, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Regression Plot&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-sns<span style="color:#f92672">.</span>residplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Residual&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Residual Plot&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>adv <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Advertising.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, fit_reg<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Regression Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>residplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Residual&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Residual Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
   return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
 
 

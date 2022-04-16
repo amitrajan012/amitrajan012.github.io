@@ -215,68 +215,68 @@
                 
                 <h1><center>Chapter 1: Introduction</center></h1>
 <h3 id="wage-data">Wage Data</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-wage <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Wage.csv&#34;</span>)
-wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1. &lt; HS Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;2. HS Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;3. Some College&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;4. College Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;5. Advanced Degree&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-wage<span style="color:#f92672">.</span>head()
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#D7DBDD&#39;</span>, data<span style="color:#f92672">=</span>wage, order<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.5</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Age&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Age&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;year&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#D7DBDD&#39;</span>, data<span style="color:#f92672">=</span>wage, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.5</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Year&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Year&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;education&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, data<span style="color:#f92672">=</span>wage)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Education&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Education&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Introduction_files/Introduction_3_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>wage <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Wage.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1. &lt; HS Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;2. HS Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;3. Some College&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;4. College Grad&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>loc[df[<span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;5. Advanced Degree&#39;</span>, <span style="color:#e6db74">&#39;education&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>head()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;age&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#D7DBDD&#39;</span>, data<span style="color:#f92672">=</span>wage, order<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.5</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Age&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Age&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;year&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#D7DBDD&#39;</span>, data<span style="color:#f92672">=</span>wage, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.5</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Year&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Year&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;education&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;wage&#34;</span>, data<span style="color:#f92672">=</span>wage)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Education&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Wage&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Wage vs Education&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Introduction_files/Introduction_3_1.png" alt="">
 <p>The Wage dataset consists of data containing income, age, year and education level of different individuals. As shown in the above figure, it can be interpreted that wage increases with increase in age upto 60 years and decreases afterwards (but deviation is significant). Wage increases linearly with the year (but deviation is significant). The people with higher education level tends to have higher wage. So ideally if we want to predict wage, we should consider the non-linear relationship between wage and age and take into consideration the effect of year and education level as well. This process involves predicting a <b>continuous</b> or <b>quantitative</b> value and is often referred to as a <b>regression</b> problem.</p>
 <h3 id="stock-market-data">Stock Market Data</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Smarket <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Smarket.csv&#34;</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag1&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Yesterday&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag2&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Two Days Previous&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag3&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Three Days Previous&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Introduction_files/Introduction_6_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Smarket <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Smarket.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag1&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Yesterday&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag2&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Two Days Previous&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Direction&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Lag3&#34;</span>, data<span style="color:#f92672">=</span>Smarket)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Today</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">s Direction&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Percentage change in S&amp;P&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Three Days Previous&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Introduction_files/Introduction_6_0.png" alt="">
 <p>The dataset consists of daily movement of S&amp;P stock over a 5 year period. The goal is to predict that whether the index will increase or decrease on a given day using the past 5 days percentage change in index. Here the statictical modeling involves predicting that whether the performance will fall into the <b>Up</b> or <b>Down</b> bucket. This is known as a <b>classification</b> problem.</p>
 <p>The first plot in the figure shows the movement based on yesterday&rsquo;s data. The two plots look almost identical, suggest- ing that there is no simple strategy for using yesterday’s movement in the S&amp;P to predict today’s returns. The remaining panels, which display box- plots for the percentage changes 2 and 3 days previous to today, similarly indicate little association between past and present returns.</p>
 <h3 id="notation-and-simple-matrix-algebra">Notation and Simple Matrix Algebra</h3>

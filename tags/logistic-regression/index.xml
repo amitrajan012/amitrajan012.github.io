@@ -24,7 +24,7 @@
       <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
       <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
 4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  default = pd.</description>
     </item>
     
   </channel>

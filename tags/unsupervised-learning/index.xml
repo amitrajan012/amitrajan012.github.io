@@ -35,9 +35,9 @@
       <description>10.7 Exercises Conceptual Q1. This problem involves the K-means clustering algorithm.
 (a) Prove (10.12).
 Sol: Equation 10.12 is:
-$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
+$$\frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&amp;rsquo;}j})^2 = 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$
 where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get
-$$\frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&#39;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{i^{&#39;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&#39;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&#39;}j} \</description>
+$$\frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&amp;rsquo;}j})^2 = \frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{i^{&amp;rsquo;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&amp;rsquo;}j} \ = 2 \sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&amp;rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&amp;rsquo;}j} $$</description>
     </item>
     
     <item>

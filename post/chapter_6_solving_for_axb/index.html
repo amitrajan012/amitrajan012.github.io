@@ -245,31 +245,31 @@
 <p>The idea behind this exercise is to come up with the solution for $Ax=b$. Let us start by taking a matrix $A$ and vector $b$.</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 \\<br>
-2 &amp; 4 &amp; 6 &amp; 8 \\<br>
+1 &amp; 2 &amp; 2 &amp; 2 \\
+2 &amp; 4 &amp; 6 &amp; 8 \\
 3 &amp; 6 &amp; 8 &amp; 10
 \end{bmatrix};
 b = \begin{bmatrix}
-b_1 \\<br>
-b_2 \\<br>
+b_1 \\
+b_2 \\
 b_3
 \end{bmatrix}
 \end{align}$$</p>
 <p>The <b>augumented matrix</b> $\begin{bmatrix} A &amp; b \end{bmatrix}$ can be formed and elimination steps can be performed on it as follows.</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
-2 &amp; 4 &amp; 6 &amp; 8 &amp; b_2\\<br>
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\
+2 &amp; 4 &amp; 6 &amp; 8 &amp; b_2\\
 3 &amp; 6 &amp; 8 &amp; 10 &amp; b_3
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
-0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\<br>
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\
 0 &amp; 0 &amp; 2 &amp; 4 &amp; b_3-3b_1
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\<br>
-0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\<br>
+1 &amp; 2 &amp; 2 &amp; 2 &amp; b_1\\
+0 &amp; 0 &amp; 2 &amp; 4 &amp; b_2-2b_1\\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; b_3-b_2-b_1
 \end{bmatrix} = U
 \end{align}$$</p>
@@ -279,27 +279,27 @@ A = \begin{bmatrix}
 <li>If a combination of rows of $A$ gives a zero row, the same combination of entries of $b$ must be $0$.</li>
 </ul>
 <p>One of the valid values of $b$ for which we will have the solution can be $\begin{bmatrix}
-1 \\<br>
-5 \\<br>
+1 \\
+5 \\
 6
 \end{bmatrix}$. Putting this value for $b$, we get the following augumented  row-echelon matrix.</p>
 <p>\begin{align}
 U = \begin{bmatrix}
-1 &amp; 2 &amp; 2 &amp; 2 &amp; 1\\<br>
-0 &amp; 0 &amp; 2 &amp; 4 &amp; 3\\<br>
+1 &amp; 2 &amp; 2 &amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 2 &amp; 4 &amp; 3\\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} \rightarrow
 \begin{bmatrix}
-1 &amp; 2 &amp; 0 &amp; -2 &amp; -2\\<br>
-0 &amp; 0 &amp; 1 &amp; 2 &amp; 3/2\\<br>
+1 &amp; 2 &amp; 0 &amp; -2 &amp; -2\\
+0 &amp; 0 &amp; 1 &amp; 2 &amp; 3/2\\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
 \end{bmatrix} = R
 \end{align}</p>
-<p>To find the complete solution of $Ax=b$, we can start with finding a particular solution (x_p) and then proceed from there. The steps are as follows:</p>
+<p>To find the complete solution of $Ax=b$, we can start with finding a particular solution $(x_p)$ and then proceed from there. The steps are as follows:</p>
 <ul>
-<li>Set all <b>free varibales</b> in $x$, variables corresponding to <b>free columns</b> to $0$ and solve for the <b>pivot variables</b>. This gives us the set of equations as: $x_1 + 2x_3 =1;2x_3=3;x_2=0;x_4=0$ (as $x_2,x_4$ are free variables). Hence, $x_p = \begin{bmatrix}-2 \\<br>
-0 \\<br>
-3/2 \\<br>
+<li>Set all <b>free varibales</b> in $x$, variables corresponding to <b>free columns</b> to $0$ and solve for the <b>pivot variables</b>. This gives us the set of equations as: $x_1 + 2x_3 =1;2x_3=3;x_2=0;x_4=0$ (as $x_2,x_4$ are free variables). Hence, $x_p = \begin{bmatrix}-2 \\
+0 \\
+3/2 \\
 0
 \end{bmatrix}$.</li>
 <li>The <b>complete solution</b> can be given as:
@@ -307,28 +307,28 @@ U = \begin{bmatrix}
 x = x_p + x_n
 \end{align}
 where $x_n$ is any vector in the <b>null space</b>. This is valid as the particular solution gives $Ax_p = b$ and any vector in null space gives $Ax_n = 0$. Adding these two, we get $x=x_p+x_n$. For this particular $A$, the null space is $\begin{bmatrix}
--2 &amp; 0 \\<br>
-2 &amp; -2 \\<br>
-1 &amp; 0 \\<br>
+-2 &amp; 0 \\
+2 &amp; -2 \\
+1 &amp; 0 \\
 0 &amp; 1
 \end{bmatrix}$. Hence the complete solution is:
 \begin{align}
 x = \begin{bmatrix}
--2 \\<br>
-0 \\<br>
-3/2 \\<br>
+-2 \\
+0 \\
+3/2 \\
 0
 \end{bmatrix}+
 c_1\begin{bmatrix}
--2 \\<br>
-2  \\<br>
-1  \\<br>
+-2 \\
+2  \\
+1  \\
 0
 \end{bmatrix} +
 c_2\begin{bmatrix}
-0 \\<br>
--2  \\<br>
-0 \\<br>
+0 \\
+-2  \\
+0 \\
 1
 \end{bmatrix}
 \end{align}</li>
@@ -338,7 +338,7 @@ c_2\begin{bmatrix}
 <ul>
 <li>
 <p>A <b>full column rank</b> means $r=n &lt; m$. A full columnn rank means we have $n$ pivots, no <b>free variables</b> and hence the nullspace will only have the zero vector. It&rsquo;s reduced row-echelon matrix will look like $\begin{bmatrix}
-I \\<br>
+I \\
 0
 \end{bmatrix}$. This means that the solution $x$ for $Ax=b$ will be just $x_p$ i.e. <b>a unique solution if it exists</b> i.e. $0$ or $1$ solution.</p>
 </li>
@@ -352,7 +352,7 @@ I &amp; F
 </li>
 <li>
 <p>For a case when, $r &lt; m;r &lt; n$, the typical reduced row-echelon matrix will look like $\begin{bmatrix}
-I &amp; F \\<br>
+I &amp; F \\
 0 &amp; F
 \end{bmatrix}$ and $Ax=b$ can have $0$ or infinitely many solutions.</p>
 </li>

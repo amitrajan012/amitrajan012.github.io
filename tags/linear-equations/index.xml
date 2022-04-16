@@ -24,11 +24,7 @@ For a singular matrix $A$, the inverse does not exist and it&amp;rsquo;s determi
       
       <guid>https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/</guid>
       <description>2.1 Elimination &amp;amp; Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let $Ax=b$ is a system of linear equation where
-$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 1\\
-3 &amp;amp; 8 &amp;amp; 1\\
-0 &amp;amp; 4 &amp;amp; 1 \end{bmatrix}, b = \begin{bmatrix} 2 \\
-12 \\
-2 \end{bmatrix} \end{align}$$
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 1\\ 3 &amp;amp; 8 &amp;amp; 1\\ 0 &amp;amp; 4 &amp;amp; 1 \end{bmatrix}, b = \begin{bmatrix} 2 \\ 12 \\ 2 \end{bmatrix} \end{align}$$
 The idea of elimination is to transform $A$ into a matrix where all the entries in the cell below the diagonal is 0.</description>
     </item>
     
@@ -39,8 +35,7 @@ The idea of elimination is to transform $A$ into a matrix where all the entries 
       
       <guid>https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/</guid>
       <description>1.1 The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:
-$$\begin{align} 2x-y = 0 \\
--x+2y = 3 \end{align}$$
+$$\begin{align} 2x-y = 0 \\ -x+2y = 3 \end{align}$$
 The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</description>
     </item>
     

@@ -255,58 +255,58 @@ $$P(A|B) = \frac{P(A \wedge B)}{P(B)}$$</p>
 <p>The problem statement is: Out of 3 doors, one has a car. Contestant has to choose one of the three doors as the guess  behind which the car is present. The presenter then opens one of the two remaining doors (the one which does not have the car) and gives the contestant the option to switch his choice. The problem is, should the contestant “stick” or “switch” or does it make no difference?</p>
 <p>Intutively it seems that it makes no difference but switching doubles the chance of winning. There are three possible scenarios which are: Car is behind Door A or B or C. Suppose the contestant chooses Door A. So his chance of winnig is 1/3. The chance of the car being behind Door B or C is 2/3 and hence after switching the chance of contestant guessing the correct door increases to 2/3.</p>
 <p><b>Exercise 5.4:</b> Write a program that simulates the Monty Hall problem and use it to estimate the probability of winning if you stick and if you switch.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
-    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
-    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
-    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
-        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">else</span>:
-        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
-</code></pre></div><pre><code>Probability of winning when sticks: 0.338
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+</span></span><span style="display:flex;"><span>    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
+</span></span><span style="display:flex;"><span>        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
+</span></span></code></pre></div><pre><code>Probability of winning when sticks: 0.338
 Probability of winning when switches: 0.662
 </code></pre>
 <p><b>Exercise 5.5:</b> To understand the Monty Hall problem, it is important to realize that by deciding which door to open, Monty is giving you information. To see why this matters, imagine the case where Monty doesn’t know where the prizes are, so he chooses Door B or C at random.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
-trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
-    doors <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]
-    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
-    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
-    doors<span style="color:#f92672">.</span>remove(guess)
-    result_switch <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>choice(doors) <span style="color:#75715e"># As one door is removed randomly</span>
-    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
-        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">elif</span> result_switch <span style="color:#f92672">==</span> winning_door:
-        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
-</code></pre></div><pre><code>Probability of winning when sticks: 0.335
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>number_of_wins_stick <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>number_of_wins_switch <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+</span></span><span style="display:flex;"><span>    doors <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]
+</span></span><span style="display:flex;"><span>    winning_door <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    guess <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>    doors<span style="color:#f92672">.</span>remove(guess)
+</span></span><span style="display:flex;"><span>    result_switch <span style="color:#f92672">=</span> random<span style="color:#f92672">.</span>choice(doors) <span style="color:#75715e"># As one door is removed randomly</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> guess <span style="color:#f92672">==</span> winning_door:
+</span></span><span style="display:flex;"><span>        number_of_wins_stick <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> result_switch <span style="color:#f92672">==</span> winning_door:
+</span></span><span style="display:flex;"><span>        number_of_wins_switch <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of winning when sticks: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_stick<span style="color:#f92672">/</span>trials))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of winning when switches: &#34;</span> <span style="color:#f92672">+</span> str(number_of_wins_switch<span style="color:#f92672">/</span>trials))
+</span></span></code></pre></div><pre><code>Probability of winning when sticks: 0.335
 Probability of winning when switches: 0.348
 </code></pre>
 <p><b>Exercise 5.7</b> If you go to a dance where partners are paired up randomly, what percentage of opposite sex couples will you see where the woman is taller than the man? The distribution of height is roughly normal with mean = 178cm and variance = 59.4cm for men and mean = 163cm and variance = 52.8cm for women.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> math
-trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
-mean_men <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
-std_men <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">59.4</span>)
-mean_women <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
-std_women <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">52.8</span>)
-favourable_outcomes <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
-    men <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_men, scale<span style="color:#f92672">=</span>std_men, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span>None)[<span style="color:#ae81ff">0</span>]
-    women <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_women, scale<span style="color:#f92672">=</span>std_women, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span>None)[<span style="color:#ae81ff">0</span>]
-    <span style="color:#66d9ef">if</span> women <span style="color:#f92672">&gt;</span> men:
-        favourable_outcomes <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Perccentage couples in which women is taller than the men is: &#34;</span> <span style="color:#f92672">+</span>str((favourable_outcomes<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span>trials) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>)
-</code></pre></div><pre><code>Perccentage couples in which women is taller than the men is: 49.98%
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>mean_men <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
+</span></span><span style="display:flex;"><span>std_men <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">59.4</span>)
+</span></span><span style="display:flex;"><span>mean_women <span style="color:#f92672">=</span> <span style="color:#ae81ff">163</span>
+</span></span><span style="display:flex;"><span>std_women <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>sqrt(<span style="color:#ae81ff">52.8</span>)
+</span></span><span style="display:flex;"><span>favourable_outcomes <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(trials):
+</span></span><span style="display:flex;"><span>    men <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_men, scale<span style="color:#f92672">=</span>std_men, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    women <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(loc<span style="color:#f92672">=</span>mean_women, scale<span style="color:#f92672">=</span>std_women, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_state<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> women <span style="color:#f92672">&gt;</span> men:
+</span></span><span style="display:flex;"><span>        favourable_outcomes <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Perccentage couples in which women is taller than the men is: &#34;</span> <span style="color:#f92672">+</span>str((favourable_outcomes<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span>trials) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;%&#34;</span>)
+</span></span></code></pre></div><pre><code>Perccentage couples in which women is taller than the men is: 49.98%
 </code></pre>
 <p><b>Exercise 5.8:</b> If I roll 2 dice, what is the chance of rolling at least one six?</p>
 <p><b>Solution: </b> Total number of outcomes is 36 when we roll two dice and out of those there are 25 outcomes of getting no 6. Hence favourable outcomes are (36-25) = 11 and probability is 11/36.</p>
@@ -314,67 +314,67 @@ favourable_outcomes <span style="color:#f92672">=</span> <span style="color:#ae8
 <p><b>Binomial Distribution</b> has PMF defined as (where n is the number of trials, p is the probability of success and k is the number of success):
 $$PMF(k) = \binom{n}{k}p^{k}(1-p)^{n-k}$$</p>
 <p><b>Exercise 5.10:</b> If you flip a coin 100 times, you expect about 50 heads, but what is the probability of getting exactly 50 heads?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">nCr</span>(n,r):
-    f <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>factorial
-    <span style="color:#66d9ef">return</span> f(n) <span style="color:#f92672">/</span> f(r) <span style="color:#f92672">/</span> f(n<span style="color:#f92672">-</span>r)
-
-probability <span style="color:#f92672">=</span> nCr(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability is: &#34;</span> <span style="color:#f92672">+</span>str(probability))
-</code></pre></div><pre><code>Probability is: 0.07958923738717877
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">nCr</span>(n,r):
+</span></span><span style="display:flex;"><span>    f <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>factorial
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> f(n) <span style="color:#f92672">/</span> f(r) <span style="color:#f92672">/</span> f(n<span style="color:#f92672">-</span>r)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>probability <span style="color:#f92672">=</span> nCr(<span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>) <span style="color:#f92672">*</span> math<span style="color:#f92672">.</span>pow(<span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability is: &#34;</span> <span style="color:#f92672">+</span>str(probability))
+</span></span></code></pre></div><pre><code>Probability is: 0.07958923738717877
 </code></pre>
 <h3 id="56-streaks-and-hot-spots">5.6 Streaks and hot spots</h3>
 <p>In real scenarios of random processes, there is no such thing as streak. A related phenomenon is the clustering illusion, which is the tendency to see clusters in random spatial pattern.</p>
 <p><b>Exercise 5.11:</b> If there are 10 players in a basketball game and each one takes 15 shots during the course of the game, and each shot has a 50% probability of going in, what is the probability that you will see, in a given game, at least one player who hits 10 winning shots in a row? If you watch a season of 82 games, what are the chances you will see at least one streak of 10 hits or misses?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> shuffle
-
-trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
-favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-
-<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(trials):
-    <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
-        shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
-        <span style="color:#75715e"># Find winning streak</span>
-        winning_streak <span style="color:#f92672">=</span> False
-        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
-            window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
-            <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>:
-                winning_streak <span style="color:#f92672">=</span> True
-            <span style="color:#66d9ef">if</span> winning_streak:
-                <span style="color:#66d9ef">break</span>
-        <span style="color:#66d9ef">if</span> winning_streak:
-            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-            <span style="color:#66d9ef">break</span>
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of seeing 10 winning shots in a game: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>trials))
-
-seasons <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-games <span style="color:#f92672">=</span> <span style="color:#ae81ff">82</span>
-
-<span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(seasons):
-    <span style="color:#66d9ef">for</span> g <span style="color:#f92672">in</span> range(games):
-        streak <span style="color:#f92672">=</span> False
-        <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
-            shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
-            <span style="color:#75715e"># Find streaks of hits and misses</span>
-            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
-                window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
-                <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">or</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-                    streak <span style="color:#f92672">=</span> True
-                <span style="color:#66d9ef">if</span> streak:
-                    <span style="color:#66d9ef">break</span>
-            <span style="color:#66d9ef">if</span> streak:
-                    <span style="color:#66d9ef">break</span>
-        <span style="color:#66d9ef">if</span> streak:
-            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-            <span style="color:#66d9ef">break</span>
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of seeing a streak in a season is: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>seasons))
-</code></pre></div><pre><code>Probability of seeing 10 winning shots in a game: 0.0285
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> shuffle
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>trials <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>
+</span></span><span style="display:flex;"><span>favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(trials):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
+</span></span><span style="display:flex;"><span>        shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Find winning streak</span>
+</span></span><span style="display:flex;"><span>        winning_streak <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>            window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span>:
+</span></span><span style="display:flex;"><span>                winning_streak <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> winning_streak:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> winning_streak:
+</span></span><span style="display:flex;"><span>            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of seeing 10 winning shots in a game: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>trials))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>seasons <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>favourable_outcome <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>players <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>games <span style="color:#f92672">=</span> <span style="color:#ae81ff">82</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(seasons):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> g <span style="color:#f92672">in</span> range(games):
+</span></span><span style="display:flex;"><span>        streak <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> p <span style="color:#f92672">in</span> range(players):
+</span></span><span style="display:flex;"><span>            shots <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>) <span style="color:#75715e"># As every shot has 50% probability of going in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Find streaks of hits and misses</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(shots)<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>):
+</span></span><span style="display:flex;"><span>                window <span style="color:#f92672">=</span> shots[i:i<span style="color:#f92672">+</span><span style="color:#ae81ff">10</span>]
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">or</span> sum(window) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                    streak <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> streak:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> streak:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> streak:
+</span></span><span style="display:flex;"><span>            favourable_outcome <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of seeing a streak in a season is: &#34;</span> <span style="color:#f92672">+</span>str(favourable_outcome<span style="color:#f92672">/</span>seasons))
+</span></span></code></pre></div><pre><code>Probability of seeing 10 winning shots in a game: 0.0285
 Probability of seeing a streak in a season is: 0.994
 </code></pre>
 <h3 id="57-bayess-theorem">5.7 Bayes&rsquo;s Theorem</h3>

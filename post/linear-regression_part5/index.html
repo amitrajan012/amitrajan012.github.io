@@ -224,15 +224,15 @@
                 <h4 id="applied">Applied</h4>
 <p><b>Solution 8:</b></p>
 <p>(a) Perform linear regression on auto data with <b>mpg</b> as response and <b>horsepower</b> as the predictor and display the summary results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
-
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(auto[[<span style="color:#e6db74">&#39;horsepower&#39;</span>]], prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>], X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prediction for horsepower 98: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>predict([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">98</span>])))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;95% CI: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>conf_int(alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>, cols<span style="color:#f92672">=</span>None)))
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> statsmodels.api <span style="color:#66d9ef">as</span> sm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(auto[[<span style="color:#e6db74">&#39;horsepower&#39;</span>]], prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>], X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Prediction for horsepower 98: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>predict([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">98</span>])))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;95% CI: &#34;</span> <span style="color:#f92672">+</span>str(result<span style="color:#f92672">.</span>conf_int(alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.05</span>, cols<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)))
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                    mpg   R-squared:                       0.606
 Model:                            OLS   Adj. R-squared:                  0.605
@@ -271,25 +271,25 @@ horsepower  -0.170517  -0.145172
 <p>iv. What is the predicted mpg associated with a horsepower of 98? What are the associated 95% confidence and prediction intervals?</p>
 <p>The value of mpg for horsepower = 98 is <b>24.4671</b>.</p>
 <p>(b) Plot the response and the predictor. Also show the regression line.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;horsepower&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpg&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, data<span style="color:#f92672">=</span>auto)
-
-x_vals <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(ax<span style="color:#f92672">.</span>get_xlim())
-y_vals <span style="color:#f92672">=</span> <span style="color:#ae81ff">39.9359</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.1578</span> <span style="color:#f92672">*</span> x_vals
-plt<span style="color:#f92672">.</span>plot(x_vals, y_vals, <span style="color:#e6db74">&#39;--&#39;</span>)
-</code></pre></div><pre><code>[&lt;matplotlib.lines.Line2D at 0x11a222048&gt;]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;horsepower&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mpg&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>, data<span style="color:#f92672">=</span>auto)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_vals <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(ax<span style="color:#f92672">.</span>get_xlim())
+</span></span><span style="display:flex;"><span>y_vals <span style="color:#f92672">=</span> <span style="color:#ae81ff">39.9359</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.1578</span> <span style="color:#f92672">*</span> x_vals
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x_vals, y_vals, <span style="color:#e6db74">&#39;--&#39;</span>)
+</span></span></code></pre></div><pre><code>[&lt;matplotlib.lines.Line2D at 0x11a222048&gt;]
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_56_1.png" alt="">
 <p><b>Solution 9:</b></p>
 <p>(a) Produce a scatterplot matrix which includes all of the variables in the data set.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Scatter plot of quantitative variables</span>
-sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cylinders&#39;</span>)
-</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Scatter plot of quantitative variables</span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cylinders&#39;</span>)
+</span></span></code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/stats.py:1713: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
   return np.add.reduce(sorted[indexer] * weights, axis=axis) / sumval
 
 
@@ -300,8 +300,8 @@ sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f9
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_59_2.png" alt="">
 <p>(b) Compute the matrix of correlations between the variables.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto<span style="color:#f92672">.</span>corr()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>corr()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -422,14 +422,14 @@ sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f9
 </table>
 </div>
 <p>(c) Perform a multiple linear regression with mpg as the response and all other variables except name as the predictors.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                    mpg   R-squared:                       0.821
 Model:                            OLS   Adj. R-squared:                  0.818
@@ -470,19 +470,19 @@ strong multicollinearity or other numerical problems.
 <p>iii. What does the coefficient for the year variable suggest?</p>
 <p>The coefficient of year varaible suggests that if all the other predictors are kept constant, increase of 1 in year results in 0.7508 increase in mpg.</p>
 <p>(e) Fit linear regression models with interaction effects. Do any interactions appear to be statistically significant?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto[<span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;cylinders&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
-auto[<span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
-auto[<span style="color:#e6db74">&#39;weight_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
-
-X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>,
-          <span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>, <span style="color:#e6db74">&#39;weight_displacement&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;cylinders&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+</span></span><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+</span></span><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;weight_displacement&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">*</span>auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#39;cylinders_displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower_displacement&#39;</span>, <span style="color:#e6db74">&#39;weight_displacement&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                    mpg   R-squared:                       0.866
 Model:                            OLS   Adj. R-squared:                  0.862
@@ -522,18 +522,18 @@ strong multicollinearity or other numerical problems.
 <p>Interactions of <b>horsepower and displacement</b> and <b>weight and displacement</b> have significant effect.</p>
 <p><b>Solution 10:</b> This question should be answered using the Carseats data set.</p>
 <p>(a) Fit a multiple regression model to predict Sales using Price, Urban, and US.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">carsets <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Carsets.csv&#34;</span>)
-carsets[<span style="color:#e6db74">&#39;US&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;US&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-
-X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;Urban&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>carsets <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Carsets.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>carsets[<span style="color:#e6db74">&#39;US&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;US&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>] <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Urban&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;Urban&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                  Sales   R-squared:                       0.239
 Model:                            OLS   Adj. R-squared:                  0.234
@@ -572,14 +572,14 @@ $$Sales = 13.0435 - 0.0545 \times Price \ (if \ not \ US, not \ Urban)$$</p>
 <p>(d) For which of the predictors can you reject the null hypothesis H0 : βj = 0?</p>
 <p>We can reject the null hypothesis for <b>Price</b> and <b>US</b>.</p>
 <p>(e) On the basis of your response to the previous question, fit a smaller model that only uses the predictors for which there is evidence of association with the outcome.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> carsets[[<span style="color:#e6db74">&#39;Price&#39;</span>, <span style="color:#e6db74">&#39;US&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> carsets[<span style="color:#e6db74">&#39;Sales&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                  Sales   R-squared:                       0.239
 Model:                            OLS   Adj. R-squared:                  0.235
@@ -616,16 +616,16 @@ Warnings:
 <li>US : [0.6836, 1.7156]</li>
 </ul>
 <p><b>Solution 11.</b> In this problem we will investigate the t-statistic for the null hypothesis H0 : β = 0 in simple linear regression without an intercept. To begin, we generate a predictor x and a response y as:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
-
-random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-</code></pre></div><p>(a) Perform a simple linear regression of y onto x, without an intercept. Report the coefficient estimate $\widehat{\beta}$, the standard error of this coefficient estimate, and the t-statistic and p-value associated with the null hypothesis H0 : β = 0. Comment on these results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>(a) Perform a simple linear regression of y onto x, without an intercept. Report the coefficient estimate $\widehat{\beta}$, the standard error of this coefficient estimate, and the t-statistic and p-value associated with the null hypothesis H0 : β = 0. Comment on these results.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.765
 Model:                            OLS   Adj. R-squared:                  0.763
@@ -652,10 +652,10 @@ Warnings:
 </code></pre>
 <p>Coefficient estimate is 1.9766 with a standard error of 0.099. The t-statistic associated with null hypothesis is 19.900 which gives a significantly low p-value. The $R^2$-statistic, whose value is 0.800, suggests that the predictor is significant and explains 80% of the variability.</p>
 <p>(b) Now perform a simple linear regression of x onto y without an intercept, and report the coefficient estimate, its standard error, and the corresponding t-statistic and p-values associated with the null hypothesis H0 : β = 0. Comment on these results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.765
 Model:                            OLS   Adj. R-squared:                  0.763
@@ -685,27 +685,27 @@ Warnings:
 <p>The coefficients for the two models follow inverse relationship. The t-statistic and $R^2$-statistic are same.</p>
 <p><b>Solution 12:</b> This problem involves simple linear regression without an intercept.</p>
 <p>(a) Recall that the coefficient estimate $\widehat{\beta}$ for the linear regression of Y onto X without an intercept is given by:</p>
-<p>$$\widehat{\beta} = \frac{\sum _{i=1}^{n}x_i y_i}{\sum _{i^{'}=1}^{n}x _{i^{'}}^2}$$</p>
+<p>$$\widehat{\beta} = \frac{\sum _{i=1}^{n}x_i y_i}{\sum _{i^{&rsquo;}=1}^{n}x _{i^{&rsquo;}}^2}$$</p>
 <p>Under what circumstance is the coefficient estimate for the regression of X onto Y the same as the coefficient estimate for the regression of Y onto X?</p>
 <p>The coefficients will be same when:</p>
 <p>$$\sum _{i=1}^{n}x _{i}^2 = \sum _{i=1}^{n}y _{i}^2$$</p>
 <p>(c) Generate an example with n = 100 observations in which the coefficient estimate for the regression of X onto Y is the same as the coefficient estimate for the regression of Y onto X.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>sum(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
-<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>sum(y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>83.09270311310463
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>print(np<span style="color:#f92672">.</span>sum(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>print(np<span style="color:#f92672">.</span>sum(y<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, x)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(x, y)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>83.09270311310463
 121.64942659232169
                             OLS Regression Results
 ==============================================================================
@@ -760,33 +760,33 @@ Warnings:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </code></pre>
 <p><b>Solution 13:</b> In this exercise you will create some simulated data and will fit simple linear regression models to it. Make sure to use set.seed(1) prior to starting part (a) to ensure consistent results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-</code></pre></div><p>(a) Create a vector, x, containing 100 observations drawn from a N(0, 1) distribution. This represents a feature, X.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-</code></pre></div><p>(b) Create a vector, eps, containing 100 observations drawn from a N(0, 0.25) distribution i.e. a normal distribution with mean zero and variance 0.25.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">eps <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-</code></pre></div><p>(c) Using X and eps, generate a vector y according to the model $Y = −1 + 0.5X + \epsilon$. What is the length of the vector Y? What are the values of β0 and β1 in this linear model?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X) <span style="color:#f92672">+</span> eps
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Length of Y:&#34;</span> <span style="color:#f92672">+</span>str(len(Y)))
-</code></pre></div><pre><code>Length of Y:100
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span></code></pre></div><p>(a) Create a vector, x, containing 100 observations drawn from a N(0, 1) distribution. This represents a feature, X.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>(b) Create a vector, eps, containing 100 observations drawn from a N(0, 0.25) distribution i.e. a normal distribution with mean zero and variance 0.25.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>eps <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.25</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>(c) Using X and eps, generate a vector y according to the model $Y = −1 + 0.5X + \epsilon$. What is the length of the vector Y? What are the values of β0 and β1 in this linear model?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X) <span style="color:#f92672">+</span> eps
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Length of Y:&#34;</span> <span style="color:#f92672">+</span>str(len(Y)))
+</span></span></code></pre></div><pre><code>Length of Y:100
 </code></pre>
 <p>Lengt of Y is 100. The values of $\beta_0$ and $\beta_1$ are <b>-1</b> and <b>0.5</b> respectively.</p>
 <p>(d) Create a scatterplot displaying the relationship between x and y. Comment on what you observe.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_99_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_99_0.png" alt="">
 <p>(e) Fit a least squares linear model to predict y using x. Comment on the model obtained. How do $\widehat{\beta_0}$ and $\widehat{\beta_1}$ compare to β0 and β1?</p>
 <p>The values of $\widehat\beta_0$ and $\widehat\beta_1$ are <b>-1.0145</b> and <b>0.5130</b> respectively. They are quite similar to $\beta_0$ and $\beta_1$.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X_1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_1)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X_1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_1)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.772
 Model:                            OLS   Adj. R-squared:                  0.770
@@ -813,32 +813,32 @@ Warnings:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </code></pre>
 <p>(f) Display the least squares line on the scatterplot obtained in (d). Draw the population regression line on the plot, in a different color. Use the legend() command to create an appropriate legend.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-
-y_hat <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0145</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5130</span> <span style="color:#f92672">*</span> X)
-plt<span style="color:#f92672">.</span>plot(y_hat, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Least Square Line&#34;</span>)
-
-y_population <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> X)
-plt<span style="color:#f92672">.</span>plot(y_population, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Population Regression Line&#34;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
-ax<span style="color:#f92672">.</span>legend()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_103_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(Y, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_hat <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0145</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5130</span> <span style="color:#f92672">*</span> X)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(y_hat, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Least Square Line&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y_population <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.5</span> <span style="color:#f92672">*</span> X)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(y_population, X, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Population Regression Line&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_103_0.png" alt="">
 <p>(g) Now fit a polynomial regression model that predicts y using x and $x^2$. Is there evidence that the quadratic term improves the model fit? Explain your answer.</p>
 <p>As the p-value for the predictor $x^2$ is 0.644, it is not significant. The $R^2$-statistic has not improved much as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X_2 <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-X_pol <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X, X_2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
-
-X_pol <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_pol, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_pol)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X_2 <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>X_pol <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X, X_2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_pol <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_pol, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X_pol)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.775
 Model:                            OLS   Adj. R-squared:                  0.770
@@ -877,34 +877,34 @@ Warnings:
 <p>The linear model is:</p>
 <p>$$ Y = 2 + 2 \times X1 + 0.3 \times X2 + \epsilon$$</p>
 <p>The regression coefficients are 2,2 and 0.3.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-X2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X1 <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)
-Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>X1) <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.3</span><span style="color:#f92672">*</span>X2) <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>))
-</code></pre></div><p>(b) What is the correlation between X1 and X2? Create a scatterplot displaying the relationship between the variables.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>X2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span><span style="color:#f92672">*</span>X1 <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>X1) <span style="color:#f92672">+</span> (<span style="color:#ae81ff">0.3</span><span style="color:#f92672">*</span>X2) <span style="color:#f92672">+</span> (np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>))
+</span></span></code></pre></div><p>(b) What is the correlation between X1 and X2? Create a scatterplot displaying the relationship between the variables.</p>
 <p>The correlation coefficient between X1 and X2 is <b>0.9836387796085876</b>. The scatterplot shows the same tendency.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Correlation coefficient: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>corrcoef(X1, X2)[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>]))
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>X1, y<span style="color:#f92672">=</span>X2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X1&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y2&#34;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>Correlation coefficient: 0.9773524295882932
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Correlation coefficient: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>corrcoef(X1, X2)[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">1</span>]))
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>X1, y<span style="color:#f92672">=</span>X2, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;X1&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Y2&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>Correlation coefficient: 0.9773524295882932
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_109_1.png" alt="">
 <p>(c) Using this data, fit a least squares regression to predict y using x1 and x2. Describe the results obtained. What are $\widehat{\beta_0}, \widehat{\beta_1}, \widehat{\beta_2}$? How do these relate to the true β0, β1, and β2? Can you
 reject the null hypothesis H0 : β1 = 0? How about the null hypothesis H0 : β2 = 0?</p>
 <p>The values of $\widehat{\beta_0}, \widehat{\beta_1}, \widehat{\beta_2}$ are 1.8824, 1.1253 and  2.0781. We can reject the null hypothesis for $\widehat{\beta_0}$ and $\widehat{\beta_1}$ as p-values are less than 0.05. If we increase the level of confidence to 0.01, the null hypothesis for $\widehat{\beta_1}$ can not be rejected.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X1, X2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>stack((X1, X2), axis<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.841
 Model:                            OLS   Adj. R-squared:                  0.837
@@ -933,12 +933,12 @@ Warnings:
 </code></pre>
 <p>(d) Now fit a least squares regression to predict y using only x1. Comment on your results. Can you reject the null hypothesis H0 : β1 = 0?</p>
 <p>The values of $\widehat{\beta_0}$ and $\widehat{\beta_1}$ are 1.8988 and 2.1601. We can reject the null hypothesis for $\widehat{\beta_1}$ as p-value is very low.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X1, prepend<span style="color:#f92672">=</span>True)
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X1, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.839
 Model:                            OLS   Adj. R-squared:                  0.838
@@ -966,12 +966,12 @@ Warnings:
 </code></pre>
 <p>(e) Now fit a least squares regression to predict y using only x2. Comment on your results. Can you reject the null hypothesis H0 : β1 = 0?</p>
 <p>The values of $\widehat{\beta_0}$ and $\widehat{\beta_1}$ are 1.8606 and 4.2647. We can reject the null hypothesis for $\widehat{\beta_1}$ as p-value is very low.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X2, prepend<span style="color:#f92672">=</span>True)
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X2, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(Y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.815
 Model:                            OLS   Adj. R-squared:                  0.813
@@ -1000,13 +1000,13 @@ Warnings:
 <p>(f) Do the results obtained in (c)–(e) contradict each other? Explain your answer.</p>
 <p>In case of collinearity, t-statistic declines and consequently we may fail to reject the null hypothesis. This is the case for $\widehat{\beta_2}$ in (c). For the model in (c), the standard errors corresponding to $\beta$s are high and hence the t-statistic does not capture the accurate behaviour.</p>
 <p><b>Solution 15:</b> This problem involves the Boston data set, which we saw in the lab for this chapter. We will now try to predict per capita crime rate using the other variables in this data set. In other words, per capita crime rate is the response, and the other variables are the predictors.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_boston
-
-boston <span style="color:#f92672">=</span> load_boston()
-df_boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(boston<span style="color:#f92672">.</span>data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>, <span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>,
-                                               <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
-df_boston<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_boston
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>boston <span style="color:#f92672">=</span> load_boston()
+</span></span><span style="display:flex;"><span>df_boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(boston<span style="color:#f92672">.</span>data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>, <span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>,
+</span></span><span style="display:flex;"><span>                                               <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
+</span></span><span style="display:flex;"><span>df_boston<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1125,92 +1125,92 @@ df_boston<span style="color:#f92672">.</span>head()
 </div>
 <p>(a) For each predictor, fit a simple linear regression model to predict the response. Describe your results. In which of the models is there a statistically significant association between the predictor and the response? Create some plots to back up your assertions.</p>
 <p>The p-values for $\beta_1$s suggest that for the model with predictor <b>CHAS</b>, we can not reject the null hypothesis and hence the model is not significant. The plots shown in the below figure suggest the same.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;INDUS&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;CHAS&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;NOX&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RM&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;AGE&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;DIS&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RAD&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;TAX&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;B&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;INDUS&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;CHAS&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;NOX&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RM&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;AGE&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;DIS&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;RAD&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;TAX&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;B&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n\n</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                   CRIM   R-squared:                       0.040
 Model:                            OLS   Adj. R-squared:                  0.038
@@ -1548,19 +1548,19 @@ Kurtosis:                      50.193   Cond. No.                         29.7
 Warnings:
 [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sns<span style="color:#f92672">.</span>pairplot(df_boston, y_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>], x_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>])
-</code></pre></div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x11bb509e8&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(df_boston, y_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>], x_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>])
+</span></span></code></pre></div><pre><code>&lt;seaborn.axisgrid.PairGrid at 0x11bb509e8&gt;
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Regression_files/Linear%20Regression_121_1.png" alt="">
 <p>(b) Fit a multiple regression model to predict the response using all of the predictors. Describe your results. For which predictors can we reject the null hypothesis H0 : βj = 0?</p>
 <p>For the predictors: <b>DIS, RAD, BLACK, LSTAT</b>, we can reject the null hypothesis.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">Y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
-X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>, <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> df_boston[[<span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>, <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                   CRIM   R-squared:                       0.436
 Model:                            OLS   Adj. R-squared:                  0.422

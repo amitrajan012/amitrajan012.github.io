@@ -238,38 +238,38 @@
 <p>The quantity</p>
 <p>$$\frac{(n-1)s^2}{\sigma^2} = \frac{\sum _{i=1}^{n} (X_i - \overline{X})^2}{\sigma^2}$$</p>
 <p>follows a <b>chi-square</b> distribution with degree of freedom $n-1$ and is denoted as $\chi _{n-1}^2$. The plot of chi-square distribution for various degree of freedoms is shown below. It should be noted that chi-square distribution are <b>right-skewed</b> and the value of chi-square statistic is always positive. Due to <b>asymmetric</b> nature of the chi-square distribution, the upper and lower conficence bound is computed by two different quantities. To find the upper and lower bounds for a $100(1 - \alpha) %$ confidence interval for a variance, the values that cut off areas of $\frac{\alpha}{2}$ in the right and left tails of the chi-square probability density curve are used. The calculation of confidence interval is shown by an example below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> chi2
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-df<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
-ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
-
-df<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
-ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
-
-df<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
-ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
-
-df<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
-ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;y-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
-
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.30</span>)
-ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">50</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;PDF Plot (chi-squared distribution)&#34;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Confidence%20Intervals_files/Confidence%20Intervals_14_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> chi2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), chi2<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, chi2<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;y-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;DF: &#39;</span><span style="color:#f92672">+</span>str(df))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.30</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;PDF Plot (chi-squared distribution)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Confidence%20Intervals_files/Confidence%20Intervals_14_0.png" alt="">
 <p><b>Example:</b> A simple random sample of 15 pistons is selected from a large population whose diameters are known to be normally distributed. The sample standard deviation of the piston diameters is s = 2.0 mm. Find a 95% confidence for the population variance $\sigma^2$ and population standard deviation $\sigma$.</p>
 <p><b>Sol:</b> The degree of freedom of chi-square distribution is $n-1 = 14$. From chi-square table, the upper and lower cut off points can be found as $\chi _{14, .975} = 5.63$ and $\chi _{14, .025} = 26.12$, i.e.</p>
 <p>$$5.63 &lt; \frac{(n-1)s^2}{\sigma^2} &lt; 26.12$$</p>

@@ -226,12 +226,12 @@
 <p>Q1. This problem involves the K-means clustering algorithm.</p>
 <p>(a) Prove (10.12).</p>
 <p><b>Sol:</b> Equation 10.12 is:</p>
-<p>$$\frac{1}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{'}j})^2 =
+<p>$$\frac{1}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&rsquo;}j})^2 =
 2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2$$</p>
 <p>where $\bar{x} _{kj} = \frac{1}{|C_k|} \sum _{i \in C_k} x _{ij}$, is the mean of feature $j$ in cluster $C_k$. Expanding LHS, we get</p>
-<p>$$\frac{1}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{'}j})^2 =
-\frac{1}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} x _{i^{'}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{'}j} \<br>
-= 2 \sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{'}j} $$</p>
+<p>$$\frac{1}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} (x _{ij} - x _{i^{&rsquo;}j})^2 =
+\frac{1}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}^2 + \frac{1}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} x _{i^{&rsquo;}j}^2 - \frac{2}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&rsquo;}j} \
+= 2 \sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&rsquo;}j} $$</p>
 <p>Expanding RHS and substituting the value of $\bar{x} _{kj}$, we get</p>
 <p>$$2\sum _{i \in C_k} \sum _{j=1}^{p} (x _{ij} - \bar{x} _{kj})^2 =
 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 4\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}\bar{x} _{kj}</p>
@@ -239,132 +239,132 @@
 <li>2\sum _{i \in C_k} \sum _{j=1}^{p} \bar{x} _{kj}^2 =
 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 4|C_k| \sum _{j=1}^{p} \bar{x} _{kj}^2 +
 2 |C_k| \sum _{j=1}^{p}\bar{x} _{kj}^2  = 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - 2|C_k| \sum _{j=1}^{p} \bar{x} _{kj}^2
-= 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{'} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{'}j} $$</li>
+= 2\sum _{i \in C_k} \sum _{j=1}^{p} x _{ij}^2 - \frac{2}{|C_k|} \sum _{i, i^{&rsquo;} \in C_k} \sum _{j=1}^{p} x _{ij}x _{i^{&rsquo;}j} $$</li>
 </ul>
 <p>Hence, LHS and RHS are equal.</p>
 <p>(b) On the basis of this identity, argue that the K-means clustering algorithm (Algorithm 10.1) decreases the objective (10.11) at each iteration.</p>
 <p><b>Sol:</b> As K-means clustering algorithm assigns the observations to the clusters to which they are nearest, after each iteration, the value of RHS will decrease (as this quantity is the sum of squared distance of each observation from the cluster mean). Hence, the clustering algorithm decreases the objective at each iteration.</p>
 <p>Q2. Suppose that we have four observations, for which we compute a dissimilarity matrix, given by</p>
 <p>$$\begin{bmatrix}
-&amp; 0.3 &amp; 0.4  &amp; 0.7 \<br>
-0.3   &amp;     &amp; 0.5  &amp; 0.8 \<br>
-0.4   &amp; 0.5 &amp;      &amp; 0.45 \<br>
-0.7   &amp; 0.8 &amp; 0.45 &amp;      \<br>
+&amp; 0.3 &amp; 0.4  &amp; 0.7 \
+0.3   &amp;     &amp; 0.5  &amp; 0.8 \
+0.4   &amp; 0.5 &amp;      &amp; 0.45 \
+0.7   &amp; 0.8 &amp; 0.45 &amp;      \
 \end{bmatrix}$$</p>
 <p>For instance, the dissimilarity between the first and second observations is 0.3, and the dissimilarity between the second and fourth observations is 0.8.</p>
 <p>(a) On the basis of this dissimilarity matrix, sketch the dendrogram that results from hierarchically clustering these four observations using complete linkage. Be sure to indicate on the plot the height at which each fusion occurs, as well as the observations corresponding to each leaf in the dendrogram.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-<span style="color:#f92672">from</span> scipy.cluster.hierarchy <span style="color:#f92672">import</span> dendrogram, linkage
-<span style="color:#f92672">from</span> scipy.spatial.distance <span style="color:#f92672">import</span> squareform
-
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-dis_mat <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.7</span>], [<span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.8</span>], [<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.45</span>], [<span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.45</span>, <span style="color:#ae81ff">0.0</span>]])
-dists <span style="color:#f92672">=</span> squareform(dis_mat)
-linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;complete&#34;</span>)
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>])
-plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_9_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.cluster.hierarchy <span style="color:#f92672">import</span> dendrogram, linkage
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.spatial.distance <span style="color:#f92672">import</span> squareform
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>dis_mat <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.7</span>], [<span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.8</span>], [<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.45</span>], [<span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.45</span>, <span style="color:#ae81ff">0.0</span>]])
+</span></span><span style="display:flex;"><span>dists <span style="color:#f92672">=</span> squareform(dis_mat)
+</span></span><span style="display:flex;"><span>linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;complete&#34;</span>)
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_9_0.png" alt="">
 <p>(b) Repeat (a), this time using single linkage clustering.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;single&#34;</span>)
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>])
-plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_11_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;single&#34;</span>)
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_11_0.png" alt="">
 <p>(c) Suppose that we cut the dendogram obtained in (a) such that two clusters result. Which observations are in each cluster?</p>
 <p><b>Sol:</b> Observations 1 and 2 are in Cluster A and 3 and 4 in Cluster B.</p>
 <p>(d) Suppose that we cut the dendogram obtained in (b) such that two clusters result. Which observations are in each cluster?</p>
 <p><b>Sol:</b> Observations 1, 2 and 3 are in Cluster A and 4 in Cluster B.</p>
 <p>(e) It is mentioned in the chapter that at each fusion in the dendrogram, the position of the two clusters being fused can be swapped without changing the meaning of the dendrogram. Draw a dendrogram that is equivalent to the dendrogram in (a), for which two or more of the leaves are repositioned, but for which the meaning of the dendrogram is the same.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dis_mat <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.7</span>], [<span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.8</span>], [<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.45</span>], [<span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.45</span>, <span style="color:#ae81ff">0.0</span>]])
-dists <span style="color:#f92672">=</span> squareform(dis_mat)
-linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;complete&#34;</span>)
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>])
-plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_13_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>dis_mat <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.7</span>], [<span style="color:#ae81ff">0.3</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.8</span>], [<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.45</span>], [<span style="color:#ae81ff">0.7</span>, <span style="color:#ae81ff">0.8</span>, <span style="color:#ae81ff">0.45</span>, <span style="color:#ae81ff">0.0</span>]])
+</span></span><span style="display:flex;"><span>dists <span style="color:#f92672">=</span> squareform(dis_mat)
+</span></span><span style="display:flex;"><span>linkage_matrix <span style="color:#f92672">=</span> linkage(dists, <span style="color:#e6db74">&#34;complete&#34;</span>)
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>dendrogram(linkage_matrix, labels<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;4&#34;</span>, <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;2&#34;</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;Dendrogram&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_13_0.png" alt="">
 <p>Q3. In this problem, you will perform K-means clustering manually, with K = 2, on a small example with n = 6 observations and p = 2 features. The observations are as follows.</p>
 <p>(a) Plot the observations.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">4</span>]
-x2 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>]
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_15_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x1 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span>x2 <span style="color:#f92672">=</span> [<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_15_0.png" alt="">
 <p>(b) Randomly assign a cluster label to each observation. You can use the sample() command in R to do this. Report the cluster labels for each observation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
-cluster_labels <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>)
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_17_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>cluster_labels <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">2</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_17_0.png" alt="">
 <p>(c) Compute the centroid for each cluster.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">centroid_0_x1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-centroid_0_x2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-centroid_1_x1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-centroid_1_x2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-count_0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-count_1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-
-<span style="color:#66d9ef">for</span> idx, cluster <span style="color:#f92672">in</span> enumerate(cluster_labels):
-    <span style="color:#66d9ef">if</span> cluster <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        centroid_0_x1 <span style="color:#f92672">+=</span> x1[idx]
-        centroid_0_x2 <span style="color:#f92672">+=</span> x2[idx]
-        count_0 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">else</span>:
-        centroid_1_x1 <span style="color:#f92672">+=</span> x1[idx]
-        centroid_1_x2 <span style="color:#f92672">+=</span> x2[idx]
-        count_1 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-
-centroid_0_x1 <span style="color:#f92672">=</span> centroid_0_x1<span style="color:#f92672">/</span>count_0
-centroid_0_x2 <span style="color:#f92672">=</span> centroid_0_x2<span style="color:#f92672">/</span>count_0
-centroid_1_x1 <span style="color:#f92672">=</span> centroid_1_x1<span style="color:#f92672">/</span>count_1
-centroid_1_x2 <span style="color:#f92672">=</span> centroid_1_x2<span style="color:#f92672">/</span>count_1
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Centriod for Clutser 0 is: &#34;</span> <span style="color:#f92672">+</span> str(centroid_0_x1) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">+</span> str(centroid_0_x2))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Centriod for Clutser 1 is: &#34;</span> <span style="color:#f92672">+</span> str(centroid_1_x1) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">+</span> str(centroid_1_x2))
-</code></pre></div><pre><code>Centriod for Clutser 0 is: 3.0, 2.5
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>centroid_0_x1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>centroid_0_x2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>centroid_1_x1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>centroid_1_x2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>count_0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>count_1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, cluster <span style="color:#f92672">in</span> enumerate(cluster_labels):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> cluster <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        centroid_0_x1 <span style="color:#f92672">+=</span> x1[idx]
+</span></span><span style="display:flex;"><span>        centroid_0_x2 <span style="color:#f92672">+=</span> x2[idx]
+</span></span><span style="display:flex;"><span>        count_0 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        centroid_1_x1 <span style="color:#f92672">+=</span> x1[idx]
+</span></span><span style="display:flex;"><span>        centroid_1_x2 <span style="color:#f92672">+=</span> x2[idx]
+</span></span><span style="display:flex;"><span>        count_1 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>centroid_0_x1 <span style="color:#f92672">=</span> centroid_0_x1<span style="color:#f92672">/</span>count_0
+</span></span><span style="display:flex;"><span>centroid_0_x2 <span style="color:#f92672">=</span> centroid_0_x2<span style="color:#f92672">/</span>count_0
+</span></span><span style="display:flex;"><span>centroid_1_x1 <span style="color:#f92672">=</span> centroid_1_x1<span style="color:#f92672">/</span>count_1
+</span></span><span style="display:flex;"><span>centroid_1_x2 <span style="color:#f92672">=</span> centroid_1_x2<span style="color:#f92672">/</span>count_1
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Centriod for Clutser 0 is: &#34;</span> <span style="color:#f92672">+</span> str(centroid_0_x1) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">+</span> str(centroid_0_x2))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Centriod for Clutser 1 is: &#34;</span> <span style="color:#f92672">+</span> str(centroid_1_x1) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, &#34;</span> <span style="color:#f92672">+</span> str(centroid_1_x2))
+</span></span></code></pre></div><pre><code>Centriod for Clutser 0 is: 3.0, 2.5
 Centriod for Clutser 1 is: 2.75, 2.25
 </code></pre>
 <p>(d) Assign each observation to the centroid to which it is closest, in terms of Euclidean distance. Report the cluster labels for each observation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> idx, cluster <span style="color:#f92672">in</span> enumerate(cluster_labels):
-    dist_0 <span style="color:#f92672">=</span> (x1[idx] <span style="color:#f92672">-</span> centroid_0_x1)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (x2[idx] <span style="color:#f92672">-</span> centroid_0_x2)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-    dist_1 <span style="color:#f92672">=</span> (x1[idx] <span style="color:#f92672">-</span> centroid_1_x1)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (x2[idx] <span style="color:#f92672">-</span> centroid_1_x2)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-    <span style="color:#66d9ef">if</span> dist_0 <span style="color:#f92672">&gt;</span> dist_1:
-        cluster_labels[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">else</span>:
-        cluster_labels[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_21_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, cluster <span style="color:#f92672">in</span> enumerate(cluster_labels):
+</span></span><span style="display:flex;"><span>    dist_0 <span style="color:#f92672">=</span> (x1[idx] <span style="color:#f92672">-</span> centroid_0_x1)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (x2[idx] <span style="color:#f92672">-</span> centroid_0_x2)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    dist_1 <span style="color:#f92672">=</span> (x1[idx] <span style="color:#f92672">-</span> centroid_1_x1)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> (x2[idx] <span style="color:#f92672">-</span> centroid_1_x2)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> dist_0 <span style="color:#f92672">&gt;</span> dist_1:
+</span></span><span style="display:flex;"><span>        cluster_labels[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        cluster_labels[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_21_0.png" alt="">
 <p>(e) Repeat (c) and (d) until the answers obtained stop changing.</p>
 <p>(f) In your plot from (a), color the observations according to the cluster labels obtained.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
-
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((x1,x2))
-kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(M)
-cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_23_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.cluster <span style="color:#f92672">import</span> KMeans
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((x1,x2))
+</span></span><span style="display:flex;"><span>kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(M)
+</span></span><span style="display:flex;"><span>cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(x1, x2, c<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_23_0.png" alt="">
 <p>Q4. Suppose that for a particular data set, we perform hierarchical clustering using single linkage and using complete linkage. We obtain two dendrograms.</p>
 <p>(a) At a certain point on the single linkage dendrogram, the clusters {1, 2, 3} and {4, 5} fuse. On the complete linkage dendrogram, the clusters {1, 2, 3} and {4, 5} also fuse at a certain point. Which fusion will occur higher on the tree, or will they fuse at the same height, or is there not enough information to tell?</p>
 <p><b>Sol:</b> In the case of complete linkage, the fusion will occure higher on the tree as it takes into account the maximum intercluster dissimilarity as the dissimilarity of the group.</p>
@@ -372,38 +372,38 @@ plt<span style="color:#f92672">.</span>show()
 <p><b>Sol:</b> With two points, the fusion will occur at the same height as the minimal (for single) and maximal (for complete) intercluster distance will be same.</p>
 <p>Q5. In words, describe the results that you would expect if you performed K-means clustering of the eight shoppers in Figure 10.14, on the basis of their sock and computer purchases, with K = 2. Give three answers, one for each of the variable scalings displayed. Explain.</p>
 <p><b>Sol:</b> If we do the clustering on the basis of raw numbers, socks will dominate as there purchase count is higher. For the case of scaled version, the number of computer purchased should play a greater role. If we consider the clustering based on purchase amount in dollar, once again compuetr will dominate in deciding the outcome of the clustering. The graphical representation of clustering results is shown below as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.cluster.vq <span style="color:#f92672">import</span> whiten
-
-socks <span style="color:#f92672">=</span> [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>]
-computers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
-
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((socks,computers))
-kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(M)
-cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-plt<span style="color:#f92672">.</span>scatter(socks, computers, c<span style="color:#f92672">=</span>color)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Socks&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Computers&#34;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Raw Numbers&#34;</span>)
-ax<span style="color:#f92672">.</span>grid()
-
-whitened <span style="color:#f92672">=</span> whiten(M)
-kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(whitened)
-cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-plt<span style="color:#f92672">.</span>scatter(whitened[:, <span style="color:#ae81ff">0</span>], whitened[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>color)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Socks&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Computers&#34;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Scaled Numbers&#34;</span>)
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_26_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.cluster.vq <span style="color:#f92672">import</span> whiten
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>socks <span style="color:#f92672">=</span> [<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span>computers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((socks,computers))
+</span></span><span style="display:flex;"><span>kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(M)
+</span></span><span style="display:flex;"><span>cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(socks, computers, c<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Socks&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Computers&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Raw Numbers&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>whitened <span style="color:#f92672">=</span> whiten(M)
+</span></span><span style="display:flex;"><span>kmeans <span style="color:#f92672">=</span> KMeans(n_clusters<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>fit(whitened)
+</span></span><span style="display:flex;"><span>cluster_labels <span style="color:#f92672">=</span> kmeans<span style="color:#f92672">.</span>labels_
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> cluster_labels]
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(whitened[:, <span style="color:#ae81ff">0</span>], whitened[:, <span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Socks&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Computers&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Scaled Numbers&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Unsupervised%20Learning_files/Unsupervised%20Learning_26_0.png" alt="">
 
 
                 

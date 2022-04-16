@@ -223,27 +223,27 @@
                 
                 <h4 id="applied">Applied</h4>
 <p>Q5. In Chapter 4, we used logistic regression to predict the probability of default using income and balance on the Default data set. We will now estimate the test error of this logistic regression model using the validation set approach. Do not forget to set a random seed before beginning your analysis.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
-default[<span style="color:#e6db74">&#39;student&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;student&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-default[<span style="color:#e6db74">&#39;default&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-</code></pre></div><p>(a) Fit a logistic regression model that uses income and balance to predict default.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
-
-X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> statsmodels.api <span style="color:#66d9ef">as</span> sm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
+</span></span><span style="display:flex;"><span>default[<span style="color:#e6db74">&#39;student&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;student&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>default[<span style="color:#e6db74">&#39;default&#39;</span>] <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span></code></pre></div><p>(a) Fit a logistic regression model that uses income and balance to predict default.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.078948
          Iterations 10
                            Logit Regression Results
@@ -269,25 +269,25 @@ quasi-separation. In this case some parameters will not be identified.
 </code></pre>
 <p>(b) Using the validation set approach, estimate the test error of this model.</p>
 <p><b>Sol:</b> The estimated test error rate is <b>2.46%</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-
-train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
-
-X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-
-X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
-predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
-      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.083176
          Iterations 10
                            Logit Regression Results
@@ -314,23 +314,23 @@ Estimation for test error rate is: 0.0246
 </code></pre>
 <p>(c) Repeat the process in (b) three times, using three different splits of the observations into a training set and a validation set. Comment on the results obtained.</p>
 <p><b>Sol:</b> The estimated test error rate for the three cases are: <b>2.66%, 2.7%</b> and <b>2.8%</b>. It varies a lot along iteration.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
-    train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
-
-    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-    model <span style="color:#f92672">=</span> Logit(y, X)
-    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-
-    X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-    X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
-    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
-      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">3</span>):
+</span></span><span style="display:flex;"><span>    train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>    X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.079463
          Iterations 10
 Estimation for test error rate is: 0.0266
@@ -345,23 +345,23 @@ Estimation for test error rate is: 0.028
 </code></pre>
 <p>(d) Now consider a logistic regression model that predicts the probability of default using income, balance, and a dummy variable for student. Estimate the test error for this model using the validation set approach. Comment on whether or not including a dummy variable for student leads to a reduction in the test error rate.</p>
 <p><b>Sol:</b> Including student in the model does not improve the test erro rate much.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
-
-X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-
-X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
-X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span>True)
-predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
-      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>train, validation <span style="color:#f92672">=</span> train_test_split(default, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> validation[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>, <span style="color:#e6db74">&#39;student&#39;</span>]]
+</span></span><span style="display:flex;"><span>X_val <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_val, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X_val) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimation for test error rate is: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span>str((len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>sum(predictions <span style="color:#f92672">==</span> validation[<span style="color:#e6db74">&#39;default&#39;</span>])) <span style="color:#f92672">/</span> (len(validation[<span style="color:#e6db74">&#39;default&#39;</span>]))))
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.070154
          Iterations 10
                            Logit Regression Results
@@ -390,16 +390,16 @@ Estimation for test error rate is: 0.0306
 <p>Q6. We continue to consider the use of a logistic regression model to predict the probability of default using income and balance on the Default data set. In particular, we will now compute estimates for the standard errors of the income and balance logistic regression coefficients in two different ways: (1) using the bootstrap, and (2) using the standard formula for computing the standard errors in the glm() function. Do not forget to set a random seed before beginning your analysis.</p>
 <p>(a) Using the summary() and glm() functions, determine the estimated standard errors for the coefficients associated with income and balance in a multiple logistic regression model that uses both predictors.</p>
 <p><b>Sol:</b> The standard errors for the coefficients are <b>0.435, 4.99e-06 and 0.000</b> respectively.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
-
-X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> statsmodels.discrete.discrete_model <span style="color:#f92672">import</span> Logit
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> default[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> default[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.078948
          Iterations 10
                            Logit Regression Results
@@ -424,20 +424,20 @@ perfectly predicted. This might indicate that there is complete
 quasi-separation. In this case some parameters will not be identified.
 </code></pre>
 <p>(b) Write a function, boot.fn(), that takes as input the Default data set as well as an index of the observations, and that outputs the coefficient estimates for income and balance in the multiple logistic regression model.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.utils <span style="color:#f92672">import</span> resample
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
-    <span style="color:#66d9ef">return</span> resample(df)
-
-train <span style="color:#f92672">=</span> boot(default)
-X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.utils <span style="color:#f92672">import</span> resample
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> resample(df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>train <span style="color:#f92672">=</span> boot(default)
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.076003
          Iterations 10
                            Logit Regression Results
@@ -463,28 +463,28 @@ quasi-separation. In this case some parameters will not be identified.
 </code></pre>
 <p>(c) Use the boot() function to estimate the standard errors of the logistic regression coefficients for income and balance.</p>
 <p><b>Sol:</b> The standard errors for the coefficients are <b>0.4212, 4.554e-06 and 0.00022</b> respectively.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-
-intercept <span style="color:#f92672">=</span> []
-income <span style="color:#f92672">=</span> []
-balance <span style="color:#f92672">=</span> []
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
-    train <span style="color:#f92672">=</span> boot(default)
-    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
-    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
-
-    model <span style="color:#f92672">=</span> Logit(y, X)
-    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span>False)
-    intercept<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const)
-    income<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>income)
-    balance<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>balance)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for intercept: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(intercept, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for income: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(income, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;SE for balance: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(balance, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-</code></pre></div><pre><code>SE for intercept: 0.421160671038164
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>intercept <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>income <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>balance <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+</span></span><span style="display:flex;"><span>    train <span style="color:#f92672">=</span> boot(default)
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;income&#39;</span>, <span style="color:#e6db74">&#39;balance&#39;</span>]]
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;default&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    intercept<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const)
+</span></span><span style="display:flex;"><span>    income<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>income)
+</span></span><span style="display:flex;"><span>    balance<span style="color:#f92672">.</span>append(result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>balance)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;SE for intercept: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(intercept, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;SE for income: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(income, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;SE for balance: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(balance, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span></code></pre></div><pre><code>SE for intercept: 0.421160671038164
 SE for income: 4.5539698907803916e-06
 SE for balance: 0.00022086255501253455
 </code></pre>
@@ -492,17 +492,17 @@ SE for balance: 0.00022086255501253455
 <p><b>Sol:</b> The standard errors obtained using both of the methods are in accordance.</p>
 <p>Q7. You will now take this approach in order to compute the LOOCV error for a simple logistic regression model on the Weekly data set.</p>
 <p>(a) Fit a logistic regression model that predicts Direction using Lag1 and Lag2.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">weekly <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Weekly.csv&#34;</span>)
-weekly[<span style="color:#e6db74">&#39;trend&#39;</span>] <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;Direction&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Down&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;Up&#39;</span>: <span style="color:#ae81ff">1</span>})
-
-X <span style="color:#f92672">=</span> weekly[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;trend&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>weekly <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Weekly.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>weekly[<span style="color:#e6db74">&#39;trend&#39;</span>] <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;Direction&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Down&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;Up&#39;</span>: <span style="color:#ae81ff">1</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> weekly[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> weekly[<span style="color:#e6db74">&#39;trend&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.683297
          Iterations 4
                            Logit Regression Results
@@ -523,17 +523,17 @@ Lag2           0.0602      0.027      2.270      0.023       0.008       0.112
 ==============================================================================
 </code></pre>
 <p>(b) Fit a logistic regressionmodel that predicts Direction using Lag1 and Lag2 using all but the first observation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>:len(weekly),:]
-test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>, :]
-
-X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
-
-model <span style="color:#f92672">=</span> Logit(y, X)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>Optimization terminated successfully.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">1</span>:len(weekly),:]
+</span></span><span style="display:flex;"><span>test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">1</span>, :]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>Optimization terminated successfully.
          Current function value: 0.683147
          Iterations 4
                            Logit Regression Results
@@ -555,11 +555,11 @@ Lag2           0.0608      0.027      2.291      0.022       0.009       0.113
 </code></pre>
 <p>(c) Use the model from (b) to predict the direction of the first observation. You can do this by predicting that the first observation will go up if P(Direction=&ldquo;Up&rdquo;|Lag1, Lag2) &gt; 0.5. Was this observation correctly classified?</p>
 <p><b>Sol:</b> The observation is not correctly classified as the prediction is <b>Up</b> but true trend is <b>Down</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
-X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
-predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Prediction: &#34;</span> <span style="color:#f92672">+</span> str(predictions[<span style="color:#ae81ff">0</span>]))
-</code></pre></div><pre><code>Prediction: True
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Prediction: &#34;</span> <span style="color:#f92672">+</span> str(predictions[<span style="color:#ae81ff">0</span>]))
+</span></span></code></pre></div><pre><code>Prediction: True
 </code></pre>
 <p>(d) Write a for loop from i = 1 to i = n, where n is the number of observations in the data set, that performs each of the following steps:</p>
 <ul>
@@ -568,28 +568,28 @@ predictions <span style="color:#f92672">=</span> result<span style="color:#f9267
 <li>Use the posterior probability for the ith observation in order to predict whether or not the market moves up.</li>
 <li>Determine whether or not an error was made in predicting the direction for the ith observation. If an error was made, then indicate this as a 1, and otherwise indicate it as a 0.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">n <span style="color:#f92672">=</span> len(weekly)
-
-error <span style="color:#f92672">=</span> []
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-    test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[[i]]
-    train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>drop(weekly<span style="color:#f92672">.</span>index[i])
-
-    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
-    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True)
-    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
-
-    model <span style="color:#f92672">=</span> Logit(y, X)
-    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span>False)
-
-    X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
-    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span>True, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
-    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X)<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-    error<span style="color:#f92672">.</span>append(predictions <span style="color:#f92672">==</span> test[<span style="color:#e6db74">&#39;trend&#39;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>])
-</code></pre></div><p>(e) Take the average of the n numbers obtained in (d)iv in order to obtain the LOOCV estimate for the test error. Comment on the results.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>n <span style="color:#f92672">=</span> len(weekly)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>error <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>    test <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>iloc[[i]]
+</span></span><span style="display:flex;"><span>    train <span style="color:#f92672">=</span> weekly<span style="color:#f92672">.</span>drop(weekly<span style="color:#f92672">.</span>index[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> train[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    y <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;trend&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> Logit(y, X)
+</span></span><span style="display:flex;"><span>    result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(disp<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> test[[<span style="color:#e6db74">&#39;Lag1&#39;</span>, <span style="color:#e6db74">&#39;Lag2&#39;</span>]]
+</span></span><span style="display:flex;"><span>    X <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, has_constant<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;add&#39;</span>)
+</span></span><span style="display:flex;"><span>    predictions <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>predict(X)<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    error<span style="color:#f92672">.</span>append(predictions <span style="color:#f92672">==</span> test[<span style="color:#e6db74">&#39;trend&#39;</span>]<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>])
+</span></span></code></pre></div><p>(e) Take the average of the n numbers obtained in (d)iv in order to obtain the LOOCV estimate for the test error. Comment on the results.</p>
 <p><b>Sol:</b> The LOOCV estimate for the test error is <b>0.44995</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;LOOCV estimate for the test error is: &#34;</span> <span style="color:#f92672">+</span> str((len(error) <span style="color:#f92672">-</span> sum(error)) <span style="color:#f92672">/</span> (len(error))))
-</code></pre></div><pre><code>LOOCV estimate for the test error is: 0.44995408631772266
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;LOOCV estimate for the test error is: &#34;</span> <span style="color:#f92672">+</span> str((len(error) <span style="color:#f92672">-</span> sum(error)) <span style="color:#f92672">/</span> (len(error))))
+</span></span></code></pre></div><pre><code>LOOCV estimate for the test error is: 0.44995408631772266
 </code></pre>
 <p>Q8. We will now perform cross-validation on a simulated data set.</p>
 <p>(a) Generate a simulated data set as follows:</p>
@@ -602,14 +602,14 @@ y=x-2* x^2+ rnorm (100)</p>
 <p>In this data set, what is n and what is p? Write out the model used to generate the data in equation form.</p>
 <p><b>Sol:</b> In this data set, $n=100$ and $p=2$. The model used is:</p>
 <p>$$Y = X - 2X^2 + \epsilon$$</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-y <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-</code></pre></div><p>(b) Create a scatterplot of X against Y . Comment on what you find.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> x <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>(b) Create a scatterplot of X against Y . Comment on what you find.</p>
 <p><b>Sol:</b> The scatterplot suggests a quadratic relationship.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>x, y<span style="color:#f92672">=</span>y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-</code></pre></div><img class="pure-img" src="/img/Resampling%20Methods_files/Resampling%20Methods_52_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span>x, y<span style="color:#f92672">=</span>y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span></code></pre></div><img class="pure-img" src="/img/Resampling%20Methods_files/Resampling%20Methods_52_1.png" alt="">
 <p>(c) Set a random seed, and then compute the LOOCV errors that result from fitting the following four models using least squares:</p>
 <pre><code>i. Y = β0 + β1X + e
 ii. Y = β0 + β1X + β2X2 + e
@@ -617,58 +617,58 @@ iii. Y = β0 + β1X + β2X2 + β3X3 + e
 iv. Y = β0 + β1X + β2X2 + β3X3 + β4X4 + e
 </code></pre>
 <p><b>Sol:</b> Instead models upto 7th power of X has been fitted. The model with 4 parameters has the lowest LOOCV error.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
-<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">LOOCV</span>(df):
-    n <span style="color:#f92672">=</span> len(df)
-    error <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
-        test <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[[i]]
-        train <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(df<span style="color:#f92672">.</span>index[i])
-
-        X_ <span style="color:#f92672">=</span> train<span style="color:#f92672">.</span>loc[:, train<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
-        y_ <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;y&#39;</span>]
-
-        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-        model<span style="color:#f92672">.</span>fit (X_, y_)
-
-        X_ <span style="color:#f92672">=</span> test<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
-        predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_)
-        error <span style="color:#f92672">+=</span> (predictions <span style="color:#f92672">-</span> test<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;y&#39;</span>])<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-
-    <span style="color:#66d9ef">return</span> (error<span style="color:#f92672">/</span>n)
-
-random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-<span style="color:#75715e"># Model 1</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 1</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 3</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 4</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 5</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 6</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 7</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-</code></pre></div><pre><code>MSE for model 1: [6.26076433]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">LOOCV</span>(df):
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> len(df)
+</span></span><span style="display:flex;"><span>    error <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(n):
+</span></span><span style="display:flex;"><span>        test <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[[i]]
+</span></span><span style="display:flex;"><span>        train <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>drop(df<span style="color:#f92672">.</span>index[i])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        X_ <span style="color:#f92672">=</span> train<span style="color:#f92672">.</span>loc[:, train<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+</span></span><span style="display:flex;"><span>        y_ <span style="color:#f92672">=</span> train[<span style="color:#e6db74">&#39;y&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit (X_, y_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        X_ <span style="color:#f92672">=</span> test<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+</span></span><span style="display:flex;"><span>        predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_)
+</span></span><span style="display:flex;"><span>        error <span style="color:#f92672">+=</span> (predictions <span style="color:#f92672">-</span> test<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;y&#39;</span>])<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (error<span style="color:#f92672">/</span>n)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 1</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 1</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 3</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 4</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 5</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 6</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 7</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span></code></pre></div><pre><code>MSE for model 1: [6.26076433]
 MSE for model 2: [0.91428971]
 MSE for model 3: [0.92687688]
 MSE for model 4: [0.86691169]
@@ -678,35 +678,35 @@ MSE for model 7: [1.71904764]
 </code></pre>
 <p>(d) Repeat (c) using another random seed, and report your results. Are your results the same as what you got in (c)? Why?</p>
 <p><b>Sol:</b> The results are identical.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
-<span style="color:#75715e"># Model 1</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 1</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 3</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 4</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 5</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 6</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-
-<span style="color:#75715e"># Model 7</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
-</code></pre></div><pre><code>MSE for model 1: [6.26076433]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 1</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 1: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 1</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 2: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 3</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 3: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 4</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 4: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 5</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 5: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 6</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 6: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Model 7</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;x5&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;x6&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;x7&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE for model 7: &#34;</span> <span style="color:#f92672">+</span>str(LOOCV(df)))
+</span></span></code></pre></div><pre><code>MSE for model 1: [6.26076433]
 MSE for model 2: [0.91428971]
 MSE for model 3: [0.92687688]
 MSE for model 4: [0.86691169]
@@ -718,16 +718,16 @@ MSE for model 7: [1.71904764]
 <p><b>Sol:</b> The 4th model (the one with 4 parameters) has the lowest LOOCV error. This is not expected as the relationship between X and Y is quadratic.</p>
 <p>(f) Comment on the statistical significance of the coefficient estimates that results from fitting each of the models in (c) using least squares. Do these results agree with the conclusions drawn based on the cross-validation results?</p>
 <p><b>Sol:</b> From the test of statistical significance for the model (with 4 parameters), it is observed that the cubic term is not statistically significant.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
-
-X_ <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
-X_ <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_, prepend<span style="color:#f92672">=</span>True)
-y_ <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;y&#39;</span>]
-
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y_, X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({<span style="color:#e6db74">&#39;x&#39;</span>:x, <span style="color:#e6db74">&#39;x2&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;x3&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;x4&#39;</span>:x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;y&#39;</span>:y})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>loc[:, df<span style="color:#f92672">.</span>columns <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;y&#39;</span>]
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>add_constant(X_, prepend<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y_ <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;y&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(y_, X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                      y   R-squared:                       0.873
 Model:                            OLS   Adj. R-squared:                  0.867
@@ -759,75 +759,75 @@ Warnings:
 <p>Q9. We will now consider the Boston housing data set, from the MASS library.</p>
 <p>(a) Based on this data set, provide an estimate for the population mean of medv. Call this estimate $\widehat{\mu}$.</p>
 <p><b>Sol:</b> Estimate for the population mean of medv is <b>22.5328</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for population mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean()))
-</code></pre></div><pre><code>Estimate for population mean of medv is: 22.532806324110677
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate for population mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean()))
+</span></span></code></pre></div><pre><code>Estimate for population mean of medv is: 22.532806324110677
 </code></pre>
 <p>(b) Provide an estimate of the standard error of $\widehat{\mu}$. Interpret this result.</p>
 <p>Hint: We can compute the standard error of the sample mean by dividing the sample standard deviation by the square root of the number of observations.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>std() <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(len(boston))))
-</code></pre></div><pre><code>Estimate of standard error of sample mean of medv is: 0.40886114749753505
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>std() <span style="color:#f92672">/</span> math<span style="color:#f92672">.</span>sqrt(len(boston))))
+</span></span></code></pre></div><pre><code>Estimate of standard error of sample mean of medv is: 0.40886114749753505
 </code></pre>
 <p>(c) Now estimate the standard error of $\widehat{\mu}$ using the bootstrap. How does this compare to your answer from (b)?</p>
 <p><b>Sol:</b> The estimate using bootstrap is <b>0.40932</b>, which is quite close to the estimate in (b).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
-    <span style="color:#66d9ef">return</span> resample(df)
-
-B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-sample_mean <span style="color:#f92672">=</span> []
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
-    df <span style="color:#f92672">=</span> boot(boston)
-    sample_mean<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean())
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_mean, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-</code></pre></div><pre><code>Estimate of standard error of sample mean of medv (using bootstrap) is: 0.4093238681867342
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">boot</span>(df):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> resample(df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>sample_mean <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> boot(boston)
+</span></span><span style="display:flex;"><span>    sample_mean<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>mean())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate of standard error of sample mean of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_mean, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span></code></pre></div><pre><code>Estimate of standard error of sample mean of medv (using bootstrap) is: 0.4093238681867342
 </code></pre>
 <p>(d) Based on your bootstrap estimate from (c), provide a 95% confidence interval for the mean of medv. Compare it to the results obtained using t.test(Boston$medv).</p>
 <p><b>Sol:</b> The 95% confidence interval calculated from bootstrap is <b>(22.12348,22.94212)</b>. The p-value for t-test of the mean of medv for the equality with 0 is approximately equal to 0, which is in accordance with the results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> scipy.stats <span style="color:#f92672">as</span> stats
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;95% Confidence interval using bootstrap is: (&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span>)
-stats<span style="color:#f92672">.</span>ttest_1samp(a<span style="color:#f92672">=</span> boston[<span style="color:#e6db74">&#39;medv&#39;</span>], popmean<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-</code></pre></div><pre><code>95% Confidence interval using bootstrap is: (22.12348,22.942120000000003)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> scipy.stats <span style="color:#66d9ef">as</span> stats
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;95% Confidence interval using bootstrap is: (&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">22.5328</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.40932</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;)&#34;</span>)
+</span></span><span style="display:flex;"><span>stats<span style="color:#f92672">.</span>ttest_1samp(a<span style="color:#f92672">=</span> boston[<span style="color:#e6db74">&#39;medv&#39;</span>], popmean<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><pre><code>95% Confidence interval using bootstrap is: (22.12348,22.942120000000003)
 Ttest_1sampResult(statistic=55.11114583037392, pvalue=9.370623727132662e-216)
 </code></pre>
 <p>(e) Based on this data set, provide an estimate, $\widehat{\mu_{med}}$, for the median value of medv in the population.</p>
 <p><b>Sol:</b> Estimate for the population median of medv is <b>21.2</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for population median of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median()))
-</code></pre></div><pre><code>Estimate for population median of medv is: 21.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate for population median of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median()))
+</span></span></code></pre></div><pre><code>Estimate for population median of medv is: 21.2
 </code></pre>
 <p>(f) We now would like to estimate the standard error of $\widehat{\mu_{med}}$. Unfortunately, there is no simple formula for computing the standard error of the median. Instead, estimate the standard error of the median using the bootstrap. Comment on your findings.</p>
 <p><b>Sol:</b> The estimate of the standard error of median using bootstrap is <b>0.378564</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-sample_median <span style="color:#f92672">=</span> []
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
-    df <span style="color:#f92672">=</span> boot(boston)
-    sample_median<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median())
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error of sample median of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_median, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-</code></pre></div><pre><code>Estimate of standard error of sample median of medv (using bootstrap) is: 0.36913325081446763
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>sample_median <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> boot(boston)
+</span></span><span style="display:flex;"><span>    sample_median<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>median())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate of standard error of sample median of medv (using bootstrap) is: &#34;</span> <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_median, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span></code></pre></div><pre><code>Estimate of standard error of sample median of medv (using bootstrap) is: 0.36913325081446763
 </code></pre>
 <p>(g) Based on this data set, provide an estimate for the tenth percentile of medv in Boston suburbs. Call this quantity $\widehat{\mu_{0.1}}$. (You can use the quantile() function.)</p>
 <p><b>Sol:</b> Estimate for the 10th percentile of medv is <b>12.75</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate for the tenth percentile of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)))
-</code></pre></div><pre><code>Estimate for the tenth percentile of medv is: 12.75
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate for the tenth percentile of medv is: &#34;</span> <span style="color:#f92672">+</span>str(boston[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)))
+</span></span></code></pre></div><pre><code>Estimate for the tenth percentile of medv is: 12.75
 </code></pre>
 <p>(h) Use the bootstrap to estimate the standard error of $\widehat{\mu_{0.1}}$. Comment on your findings.</p>
 <p><b>Sol:</b> The estimate of the standard error of median using bootstrap is <b>0.49295</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-sample_percentile <span style="color:#f92672">=</span> []
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
-    df <span style="color:#f92672">=</span> boot(boston)
-    sample_percentile<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Estimate of standard error for the tenth percentile of medv (using bootstrap) is: &#34;</span>
-      <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_percentile, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
-</code></pre></div><pre><code>Estimate of standard error for the tenth percentile of medv (using bootstrap) is: 0.5069736998428344
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>B <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>sample_percentile <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(B):
+</span></span><span style="display:flex;"><span>    df <span style="color:#f92672">=</span> boot(boston)
+</span></span><span style="display:flex;"><span>    sample_percentile<span style="color:#f92672">.</span>append(df[<span style="color:#e6db74">&#39;medv&#39;</span>]<span style="color:#f92672">.</span>quantile(q<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Estimate of standard error for the tenth percentile of medv (using bootstrap) is: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span>str(np<span style="color:#f92672">.</span>std(sample_percentile, ddof<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)))
+</span></span></code></pre></div><pre><code>Estimate of standard error for the tenth percentile of medv (using bootstrap) is: 0.5069736998428344
 </code></pre>
 
 

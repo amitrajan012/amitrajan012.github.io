@@ -25,11 +25,7 @@ As we know that, for a $m \times n$ matrix $A$, if $m &amp;lt; n$, then we will 
       
       <guid>https://amitrajan012.github.io/post/chapter_6_solving_for_axb/</guid>
       <description>6.1 Algorithm for solving $Ax=b$ The idea behind this exercise is to come up with the solution for $Ax=b$. Let us start by taking a matrix $A$ and vector $b$.
-$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
-2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
-3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix}; b = \begin{bmatrix} b_1 \\
-b_2 \\
-b_3 \end{bmatrix} \end{align}$$
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\ 2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\ 3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix}; b = \begin{bmatrix} b_1 \\ b_2 \\ b_3 \end{bmatrix} \end{align}$$
 The augumented matrix $\begin{bmatrix} A &amp;amp; b \end{bmatrix}$ can be formed and elimination steps can be performed on it as follows.</description>
     </item>
     
@@ -40,9 +36,7 @@ The augumented matrix $\begin{bmatrix} A &amp;amp; b \end{bmatrix}$ can be forme
       
       <guid>https://amitrajan012.github.io/post/chapter_5_computing_nullspace/</guid>
       <description>5.1 Algorithm for solving $Ax=0$ The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix $A$. Let us start by taking a matrix $A$.
-$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\
-2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\
-3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix} \end{align}$$
+$$\begin{align} A = \begin{bmatrix} 1 &amp;amp; 2 &amp;amp; 2 &amp;amp; 2 \\ 2 &amp;amp; 4 &amp;amp; 6 &amp;amp; 8 \\ 3 &amp;amp; 6 &amp;amp; 8 &amp;amp; 10 \end{bmatrix} \end{align}$$
 One of the first thing to notice in $A$ is that $row_3$ is a linear combination of $row_1$ and $row_2$ ($row_3 = row_1 + row_2$).</description>
     </item>
     

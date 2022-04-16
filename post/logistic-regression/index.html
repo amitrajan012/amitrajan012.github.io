@@ -238,16 +238,16 @@ In a classification setting, <b>logistic regression</b> models the probability o
 <p>$$\frac{\partial l}{\partial \beta_j} = -\sum _{i=1}^{n} \frac{1}{e^{\beta_0 + \beta x_i}} e^{\beta_0 + \beta x_i} x _{ij}+ \sum _{i=1}^{n} y_i x _{ij} = \sum _{i=1}^{n} (y_i - p(x_i; \beta_0, \beta)) x _{ij}$$</p>
 <p>As exponential function is a <b>transcendental function</b> (as it goes beyond the limit of algebra in that it can not be expressed in terms of a finite sequence of the algebraic operations (addition, multiplication,&hellip;)), the above equation is a <b>transcendental equation</b>. A transcendental equations do not have <b>closed-form solutions</b> (an expression that can be evaluated in a finite number of mathematical operations). However this can be solved approximately to get a numerical solution.</p>
 <p><b>Newton-Raphson</b> method can be used to find an approximate solution for the above mentioned optimization problem. Let us first assume a simpler case of minimizing a function of one scalar variable, denoted as $f(\beta)$. We have to find the location of the <b>global-minima</b> $\beta^{<em>}$. For $\beta^{ * }$ to be a global-minima, the first-derivative at $\beta^{</em>}$ should be 0 and the second-derivative should be positive. Doing a <b>Taylor Series</b> expansion near minima, we get</p>
-<p>$$f(\beta) \approx f(\beta^{ * }) + (\beta - \beta^{ * })f^{'}(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&quot;}(\beta^{ * }) + &hellip; = f(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&quot;}(\beta^{ * })$$</p>
-<p>The last expression comes due to the fact that the first-derivative at the global-minima, i.e. $f^{'}(\beta^{*})$ is 0. Hence, instead of minimizing the original function, we can minimize the <b>quadratic approximation</b> of the original function.</p>
+<p>$$f(\beta) \approx f(\beta^{ * }) + (\beta - \beta^{ * })f^{&rsquo;}(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&quot;}(\beta^{ * }) + &hellip; = f(\beta^{ * }) + \frac{(\beta - \beta^{ * })^2}{2} f^{&quot;}(\beta^{ * })$$</p>
+<p>The last expression comes due to the fact that the first-derivative at the global-minima, i.e. $f^{&rsquo;}(\beta^{*})$ is 0. Hence, instead of minimizing the original function, we can minimize the <b>quadratic approximation</b> of the original function.</p>
 <p>In the Newton-Raphson method, we guess an initial point (let it be $\beta^{0}$). If this point is close to the minima, we can take a second order taylor expansion around $\beta^{0}$ and it will still be close to the original expression:</p>
-<p>$$f(\beta) \approx f(\beta^{0}) + (\beta - \beta^{0})f^{'}(\beta^{0}) + \frac{(\beta - \beta^{*0})^2}{2} f^{&quot;}(\beta^{0})$$</p>
+<p>$$f(\beta) \approx f(\beta^{0}) + (\beta - \beta^{0})f^{&rsquo;}(\beta^{0}) + \frac{(\beta - \beta^{*0})^2}{2} f^{&quot;}(\beta^{0})$$</p>
 <p>So, instead of minimizing the original expression, we minimize the right hand side, which is the second-order Taylor expansion of the original expression around $\beta^{0}$. Taking the derivative of the right hand side expression and setting it equal to 0, we get</p>
-<p>$$f^{'}(\beta^{0}) + (\beta - \beta^{0}) f^{&quot;}(\beta^{0}) = 0$$</p>
+<p>$$f^{&rsquo;}(\beta^{0}) + (\beta - \beta^{0}) f^{&quot;}(\beta^{0}) = 0$$</p>
 <p>This gives us a new guess $\beta^{1}$ for the global-minima $\beta^{*}$ as</p>
-<p>$$\beta^{1} = \beta^{0} - \frac{f^{'}(\beta^{0})}{f^{&quot;}(\beta^{0})}$$</p>
+<p>$$\beta^{1} = \beta^{0} - \frac{f^{&rsquo;}(\beta^{0})}{f^{&quot;}(\beta^{0})}$$</p>
 <p>After repeating the process till $n$ iterations, we get the $(n+1)^{th}$ guess as:</p>
-<p>$$\beta^{n+1} = \beta^{n} - \frac{f^{'}(\beta^{n})}{f^{&quot;}(\beta^{n})}$$</p>
+<p>$$\beta^{n+1} = \beta^{n} - \frac{f^{&rsquo;}(\beta^{n})}{f^{&quot;}(\beta^{n})}$$</p>
 <p>This gives us the approximation for global-minima.</p>
 
 

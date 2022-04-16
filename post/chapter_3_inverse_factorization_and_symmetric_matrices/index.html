@@ -234,97 +234,97 @@
 <p>For a <b>singular</b> matrix $A$, the inverse does not exist and it&rsquo;s <b>determinant</b> is $0$. Also, we can find a vector $x$ such that $Ax=0$. This means that one or more than one columns of $A$ is linear combination of other columns. For example, below $2 \times 2$ matrix is not invertible.</p>
 <p>$$\begin{align}
 \begin{bmatrix}
-1 &amp; 2\\<br>
-2 &amp; 4\\<br>
+1 &amp; 2\\
+2 &amp; 4\\
 \end{bmatrix}
 \begin{bmatrix}
-2 \\<br>
+2 \\
 -1
 \end{bmatrix}=
 \begin{bmatrix}
-0 \\<br>
+0 \\
 0
 \end{bmatrix}
 \end{align}$$</p>
 <p>The inverse of the product of two matrices given as $AB$ is $B^{-1}A^{-1}$. This can be verified as follows. Let $M$ be the inverse of $AB$.
 $$\begin{align}
-M(AB) = I \\<br>
-M(AB)B^{-1} = IB^{-1} \\<br>
-MA = B^{-1} \\<br>
-MAA^{-1} = B^{-1}A^{-1} \\<br>
+M(AB) = I \\
+M(AB)B^{-1} = IB^{-1} \\
+MA = B^{-1} \\
+MAA^{-1} = B^{-1}A^{-1} \\
 M = B^{-1}A^{-1}
 \end{align}$$</p>
 <p>Multiplication of two matrices can be viewed as performing an operation on second matrix based on the first. For example, for the row multiplication and subtraction elimination step, the operation is encoded as an elimination matrix. Elimination matrix $E_{21}$ for value at $row \ 2, column \ 1$ with the corresponding origianl matrix $A$ and the result $E_{21}A$ is shown below.</p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 2\\<br>
-3 &amp; 8\<br>
+1 &amp; 2\\
+3 &amp; 8\
 \end{bmatrix},
 E_{21} = \begin{bmatrix}
-1 &amp; 0\\<br>
--3 &amp; 1\<br>
+1 &amp; 0\\
+-3 &amp; 1\
 \end{bmatrix},
 E_{21}A = \begin{bmatrix}
-1 &amp; 2\\<br>
-0 &amp; 2\<br>
+1 &amp; 2\\
+0 &amp; 2\
 \end{bmatrix}
 \end{align}$$</p>
 <p>Let us say we want to reverse this operation. This means that we want to get matrix $A$ from $E_{21}A$. As the resultant matrix is obtained by the row operation $row_2 \leftarrow row_2 - 3row_1$, the operation can be reversed if $3$ times $row_1$ is added back to $row_2$, i.e, $row_2 \leftarrow row_2 + 3row_1$. This operation can be achieved by the below multiplication matrix.</p>
 <p>$$\begin{align}
 E_{21}^{-1} = \begin{bmatrix}
-1 &amp; 0\\<br>
-3 &amp; 1\<br>
+1 &amp; 0\\
+3 &amp; 1\
 \end{bmatrix}
 \end{align}$$</p>
 <p>It should be noted that $E_{21}^{-1}E_{21}=I$ and $E_{21}^{-1}$ is called the <b>inverse</b> of $E_{21}$.</p>
 <p>$$\begin{align}
 E_{21}^{-1}E_{21} = \begin{bmatrix}
-1 &amp; 0\\<br>
-3 &amp; 1\<br>
+1 &amp; 0\\
+3 &amp; 1\
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 0\\<br>
--3 &amp; 1\<br>
+1 &amp; 0\\
+-3 &amp; 1\
 \end{bmatrix}=
 \begin{bmatrix}
-1 &amp; 0\\<br>
-0 &amp; 1\<br>
+1 &amp; 0\\
+0 &amp; 1\
 \end{bmatrix} = I
 \end{align}$$</p>
 <p>The resultant matrix $E_{21}A = U$ is an <b>upper triangular matrix</b>. If we multiply $U$ with $E_{21}^{-1}$, we will get back $A$, i.e. $E_{21}^{-1}(E_{21}A) = E_{21}^{-1}U = A$. Here, the matrix $E_{21}^{-1}=L$ is a <b>lower triangular matrix</b>. This process of factoring matrix $A$ into $LU$ is shown below.</p>
 <p>$$\begin{align}
 A = LU \implies
 \begin{bmatrix}
-1 &amp; 2\\<br>
-3 &amp; 8\<br>
+1 &amp; 2\\
+3 &amp; 8\
 \end{bmatrix} =
 \begin{bmatrix}
-1 &amp; 0\\<br>
-3 &amp; 1\<br>
+1 &amp; 0\\
+3 &amp; 1\
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 2\\<br>
-0 &amp; 2\<br>
+1 &amp; 2\\
+0 &amp; 2\
 \end{bmatrix}
 \end{align}$$</p>
 <p>Another thing to notice is that all the diagonal elements of $L$ is $1$ but that of $U$, they are not. To have all the diagonal entries in $U$ as $1$, the matrix can be further factorized as follows. Matrix $D$ is a <b>diagonal matrix</b> where diagonals (<b>also called as pivots</b>) are the ones from $U$.</p>
 <p>$$\begin{align}
-A = LU = LDU^{'}\implies
+A = LU = LDU^{&rsquo;}\implies
 \begin{bmatrix}
-1 &amp; 2\\<br>
-3 &amp; 8\<br>
+1 &amp; 2\\
+3 &amp; 8\
 \end{bmatrix} =
 \begin{bmatrix}
-1 &amp; 0\\<br>
-3 &amp; 1\<br>
+1 &amp; 0\\
+3 &amp; 1\
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 0\\<br>
-0 &amp; 2\<br>
+1 &amp; 0\\
+0 &amp; 2\
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 2\\<br>
-0 &amp; 1\<br>
+1 &amp; 2\\
+0 &amp; 1\
 \end{bmatrix}
 \end{align}$$</p>
 <h2 id="32-permutation-matrix-inverse-and-factorization">3.2 Permutation Matrix: Inverse and Factorization</h2>
@@ -332,20 +332,20 @@ A = LU = LDU^{'}\implies
 <p>$$\begin{align}
 A =
 \begin{bmatrix}
-0 &amp; 2 &amp; 1\\<br>
-1 &amp; 2 &amp; 3\\<br>
+0 &amp; 2 &amp; 1\\
+1 &amp; 2 &amp; 3\\
 1 &amp; 6 &amp; 3
 \end{bmatrix}
 \xrightarrow{\text{P}}
 \begin{bmatrix}
-1 &amp; 2 &amp; 3\\<br>
-0 &amp; 2 &amp; 1\\<br>
+1 &amp; 2 &amp; 3\\
+0 &amp; 2 &amp; 1\\
 1 &amp; 6 &amp; 3
 \end{bmatrix}
 \xrightarrow{\text{E}}
 \begin{bmatrix}
-1 &amp; 2 &amp; 3\\<br>
-0 &amp; 2 &amp; 1\\<br>
+1 &amp; 2 &amp; 3\\
+0 &amp; 2 &amp; 1\\
 0 &amp; 0 &amp; -2
 \end{bmatrix} = U
 \end{align}$$</p>
@@ -353,8 +353,8 @@ A =
 <p>$$\begin{align}
 P =
 \begin{bmatrix}
-0 &amp; 1 &amp; 0\\<br>
-1 &amp; 0 &amp; 0\\<br>
+0 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 0\\
 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{align}$$</p>
@@ -364,13 +364,13 @@ P =
 <p>$$\begin{align}
 R =
 \begin{bmatrix}
-1 &amp; 3\\<br>
-2 &amp; 3\\<br>
+1 &amp; 3\\
+2 &amp; 3\\
 4 &amp; 1
 \end{bmatrix},
 R^T =
 \begin{bmatrix}
-1 &amp; 2 &amp; 4\\<br>
+1 &amp; 2 &amp; 4\\
 3 &amp; 3 &amp; 1
 \end{bmatrix}
 \end{align}$$</p>
@@ -378,16 +378,16 @@ R^T =
 <p>$$\begin{align}
 R^TR =
 \begin{bmatrix}
-1 &amp; 2 &amp; 4\\<br>
+1 &amp; 2 &amp; 4\\
 3 &amp; 3 &amp; 1
 \end{bmatrix}
 \begin{bmatrix}
-1 &amp; 3\\<br>
-2 &amp; 3\\<br>
+1 &amp; 3\\
+2 &amp; 3\\
 4 &amp; 1
 \end{bmatrix}=
 \begin{bmatrix}
-21 &amp; 13\\<br>
+21 &amp; 13\\
 13 &amp; 19
 \end{bmatrix} = S
 \end{align}$$</p>

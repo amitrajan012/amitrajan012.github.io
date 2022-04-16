@@ -226,51 +226,51 @@
 <p>Q1. This problem involves hyperplanes in two dimensions.</p>
 <p>(a) Sketch the hyperplane 1 + 3X1 − X2 = 0. Indicate the set of points for which 1 + 3X1 − X2 &gt; 0, as well as the set of points for which 1 + 3X1 − X2 &lt; 0.</p>
 <p>(b) On the same plot, sketch the hyperplane −2 + X1 + 2X2 = 0. Indicate the set of points for which −2+ X1 +2X2 &gt; 0, as well as the set of points for which −2+ X1 + 2X2 &lt; 0.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10000</span>)
-plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>x), color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1 + 3X1 − X2 = 0&#34;</span>)
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">200</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-
-plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>x)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;−2 + X1 + 2X2 = 0&#34;</span>)
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">70</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">230</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Hyperplane: 1 + 3X1 − X2 = 0&#39;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>legend()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_7_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>x), color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1 + 3X1 − X2 = 0&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">200</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, (<span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>x)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;−2 + X1 + 2X2 = 0&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">70</span>, <span style="color:#e6db74">&#34;greater than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">30</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">230</span>, <span style="color:#e6db74">&#34;less than 0&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Hyperplane: 1 + 3X1 − X2 = 0&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_7_0.png" alt="">
 <p>Q2. We have seen that in p = 2 dimensions, a linear decision boundary takes the form $\beta_0 + \beta_1 X_1 + \beta_2 X_2 = 0$. We now investigate a non-linear decision boundary.</p>
 <p>(a) Sketch the curve $(1+ X_1)^2 + (2- X_2)^2 = 4$.</p>
 <p>(b) On your sketch, indicate the set of points for which $(1+ X_1)^2 + (2- X_2)^2 &gt; 4$, as well as the set of points for which $(1+ X_1)^2 + (2- X_2)^2 \leq 4$.</p>
 <p>(c) Suppose that a classifier assigns an observation to the blue class if $(1+ X_1)^2 + (2- X_2)^2 &gt; 4$,
 and to the red class otherwise. To what class is the observation (0, 0) classified? (−1, 1)? (2, 2)? (3, 8)?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">circle <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>Circle((<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), radius<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2.0</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-ax<span style="color:#f92672">.</span>add_artist(circle)
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;less than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">3.5</span>, <span style="color:#ae81ff">4.5</span>, <span style="color:#e6db74">&#34;greater than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
-plt<span style="color:#f92672">.</span>scatter([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
-
-ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">9</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_9_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>circle <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>Circle((<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), radius<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, facecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">2.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>add_artist(circle)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">1.5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#34;less than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>text(<span style="color:#f92672">-</span><span style="color:#ae81ff">3.5</span>, <span style="color:#ae81ff">4.5</span>, <span style="color:#e6db74">&#34;greater than 4&#34;</span>, fontdict<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;black&#39;</span>, <span style="color:#e6db74">&#39;size&#39;</span>:<span style="color:#ae81ff">15</span>})
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter([<span style="color:#ae81ff">0</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">8</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">9</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_9_0.png" alt="">
 <p>(d) Argue that while the decision boundary in (c) is not linear in terms of $X_1$ and $X_2$, it is linear in terms of $X_1, X_2, X_1^2$ and $X_2^2$.</p>
 <p><b>Sol:</b> Expanding the above equation, we get</p>
 <p>$$X_1^2 + X_2^2 + 2X_1 - 4X_2 = -1$$</p>
@@ -283,46 +283,46 @@ plt<span style="color:#f92672">.</span>show()
 <p><b>Sol:</b> The decision boundary is given as:</p>
 <p>$$0.99970703 -1.99941406 X_1 +  1.99941406 X_2 = 0$$</p>
 <p>The classification rule is: Classify to Red if &lt; 0 and Blue otherwise.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> svm
-
-X <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>]]
-Y <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>]
-
-<span style="color:#75715e"># fit the model</span>
-clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-clf<span style="color:#f92672">.</span>fit(np<span style="color:#f92672">.</span>array(X)<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>tolist(), Y)
-
-<span style="color:#75715e"># get the separating hyperplane</span>
-w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
-a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
-yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-
-<span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
-<span style="color:#75715e"># support vectors</span>
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
-yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(X[<span style="color:#ae81ff">0</span>], X[<span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
-plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_12_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> svm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>]]
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit the model</span>
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(np<span style="color:#f92672">.</span>array(X)<span style="color:#f92672">.</span>T<span style="color:#f92672">.</span>tolist(), Y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get the separating hyperplane</span>
+</span></span><span style="display:flex;"><span>w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># support vectors</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[<span style="color:#ae81ff">0</span>], X[<span style="color:#ae81ff">1</span>], c<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;r&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>, <span style="color:#e6db74">&#39;b&#39;</span>])
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_12_0.png" alt="">
 
 
                 

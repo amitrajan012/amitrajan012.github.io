@@ -245,83 +245,83 @@
 <p>For independent and normally distributed random variables $X_1, X_2, &hellip;, X_n$, with means $\mu_1, \mu_2, &hellip;, \mu_n$ and variances $\sigma_1^2, \sigma_2^2, &hellip;, \sigma_n^2$ and constants $c_1, c_2, &hellip;, c_n$, the distribution of the linear combination $c_1X_1 + c_2X_2 + &hellip; + c_nX_n$ is given as:</p>
 <p>$$N(c_1\mu_1 + c_2\mu_2 + &hellip; + c_n\mu_n, c_1^2\sigma_1^2 + c_2^2\sigma_2^2 + &hellip; + c_n^2\sigma_n^2)$$</p>
 <p>For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of a normal distribution is shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-<span style="color:#75715e"># Plot of PMF</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_7_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PMF</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Standard Deviation = 3&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_7_0.png" alt="">
 </br>
 #### The Lognormal Distribution :
 <p>If $X$ is a normal random variable with mean $\mu$ and variance $\sigma^2$, then the random variable $Y=e^X$ is said to have a <b>lognormal distribution</b> with parameters $\mu$ and $\sigma^2$. Hence, $X=ln Y$ is a normal distribution with parameter $\mu$ and $\sigma^2$. The lognornmal distribution is highly skewed to the right and hence is often used to model datasets that have outliers. It should be noted that $\mu$ and $\sigma^2$ in the lognormal distribution is the mean and variance of the underlying normal distribution. The mean and variance of the lognormal distribution is given as:</p>
 <p>$$\mu_Y = e^{(\mu + \frac{\sigma^2}{2})}$$</p>
 <p>$$\sigma_Y^2 = e^{(2\mu + 2\sigma^2)} - e^{(2\mu + \sigma^2)}$$</p>
 <p>To check whether the data comes from a lognormal distribution or not, we can take the natural logarithm of the data points and try to see whether they follow a normal distribution or not. For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of a lognormal distribution is shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> lognorm
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-<span style="color:#75715e"># Plot of PMF</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>pdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
-
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>cdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_9_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> lognorm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PMF</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>pdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">0</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), lognorm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, lognorm<span style="color:#f92672">.</span>cdf(x, s<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scale<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>exp(<span style="color:#ae81ff">1</span>)), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal SD = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_9_0.png" alt="">
 </br>
 #### The Exponential Distribution :
 <p>The <b>exponential distribution</b> is a continuous distribution that is used to model the time (called as <b>waiting time</b>) that elapses before an event occurs. There is a close connection between the exponential and the Poisson distribution. The <b>probability density function</b> of the exponential distribution with parameter $\lambda$, where $\lambda &gt; 0$ is given as:</p>
@@ -340,47 +340,47 @@ plt<span style="color:#f92672">.</span>show()
 <p>$$P(T&gt;7 \ \big| \ T&gt;4) = \frac{P(T&gt;7 \ and \ T&gt;4)}{P(T&gt;4)} = \frac{P(T&gt;7)}{P(T&gt;4)} = \frac{e^{-0.5 \times 7}}{e^{-0.5 \times 4}} = e^{-0.5 \times 3} = 0.223$$</p>
 <p>Hence, the probability of syrviving three more years is same in both the case. This shows the lack of memory property of the exponential distribution.</p>
 <p>For a better understanding, the plot of <b>PDF</b> and <b>CDF</b> of several exponential distributions is shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-<span style="color:#75715e"># Plot of PMF</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
-
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_11_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PMF</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 2&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), expon<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, expon<span style="color:#f92672">.</span>cdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lambda = 3&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Commonly%20Used%20Distributions_files/Commonly%20Used%20Distributions_11_0.png" alt="">
 </br>
 #### The Uniform Distribution :
 <p>The <b>uniform distribution</b> (which is a continuous distribution), with parameters $a$ and $b$ is defined as:</p>

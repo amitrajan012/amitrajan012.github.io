@@ -229,12 +229,12 @@
 <p>Q6. In this exercise, you will further analyze the Wage data set considered throughout this chapter.</p>
 <p>(a) Perform polynomial regression to predict wage using age. Use cross-validation to select the optimal degree d for the polynomial. What degree was chosen, and how does this compare to the results of hypothesis testing using ANOVA? Make a plot of the resulting polynomial fit to the data.</p>
 <p><b>Sol:</b> The optimal degree of polynomial selected from cross-validation is <b>4</b>. From the ANOVA of models of degree 1 to 5, it is found that the models of degree 2 and 3 are significant. The test MSE shows the lowest value for degree 3 model as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-wage <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Wage.csv&#34;</span>)
-wage<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>wage <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Wage.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>wage<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -351,94 +351,94 @@ wage<span style="color:#f92672">.</span>head()
   </tbody>
 </table>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> preprocessing
-<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> LeaveOneOut
-<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">polynomial_regression</span>(X_train, Y_train, X_test, Y_test, M):
-    validation_MSE <span style="color:#f92672">=</span> {}
-    test_MSE <span style="color:#f92672">=</span> {}
-
-    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M:
-        poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>m)
-        X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_train)
-
-        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
-        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_):
-            X, X_CV <span style="color:#f92672">=</span> X_[train_index], X_[test_index]
-            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
-            <span style="color:#75715e"># Linear Regression (including higher order predictors)</span>
-            model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-            model<span style="color:#f92672">.</span>fit(X, Y)
-            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
-            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
-        validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_)
-
-        <span style="color:#75715e"># Compute test MSE for the model</span>
-        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-        model<span style="color:#f92672">.</span>fit(X_, Y_train)
-        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(poly<span style="color:#f92672">.</span>fit_transform(X_test))
-        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
-
-    <span style="color:#75715e"># Plot validation MSE</span>
-    lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Degree of Polynomial&#39;</span>)
-
-    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Degree of Polynomial&#39;</span>)
-    plt<span style="color:#f92672">.</span>show()
-
-
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]], wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
-polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">13</span>,<span style="color:#ae81ff">14</span>,<span style="color:#ae81ff">15</span>])
-</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_23_0.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> statsmodels.api <span style="color:#f92672">as</span> sm
-
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
-model1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
-model1 <span style="color:#f92672">=</span> model1<span style="color:#f92672">.</span>fit()
-
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
-model2 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
-model2 <span style="color:#f92672">=</span> model2<span style="color:#f92672">.</span>fit()
-
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
-model3 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
-model3 <span style="color:#f92672">=</span> model3<span style="color:#f92672">.</span>fit()
-
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
-model4 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
-model4 <span style="color:#f92672">=</span> model4<span style="color:#f92672">.</span>fit()
-
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
-model5 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
-model5 <span style="color:#f92672">=</span> model5<span style="color:#f92672">.</span>fit()
-
-sm<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>anova_lm(model1, model2, model3, model4, model5)
-</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:879: RuntimeWarning: invalid value encountered in greater
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> preprocessing
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> LeaveOneOut
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">polynomial_regression</span>(X_train, Y_train, X_test, Y_test, M):
+</span></span><span style="display:flex;"><span>    validation_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    test_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M:
+</span></span><span style="display:flex;"><span>        poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>m)
+</span></span><span style="display:flex;"><span>        X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(X_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_):
+</span></span><span style="display:flex;"><span>            X, X_CV <span style="color:#f92672">=</span> X_[train_index], X_[test_index]
+</span></span><span style="display:flex;"><span>            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Linear Regression (including higher order predictors)</span>
+</span></span><span style="display:flex;"><span>            model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
+</span></span><span style="display:flex;"><span>            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
+</span></span><span style="display:flex;"><span>        validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Compute test MSE for the model</span>
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X_, Y_train)
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(poly<span style="color:#f92672">.</span>fit_transform(X_test))
+</span></span><span style="display:flex;"><span>        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Plot validation MSE</span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Degree of Polynomial&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Degree of Polynomial&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Degree of Polynomial&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]], wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">11</span>,<span style="color:#ae81ff">12</span>,<span style="color:#ae81ff">13</span>,<span style="color:#ae81ff">14</span>,<span style="color:#ae81ff">15</span>])
+</span></span></code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_23_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> statsmodels.api <span style="color:#66d9ef">as</span> sm
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+</span></span><span style="display:flex;"><span>model1 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>model1 <span style="color:#f92672">=</span> model1<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+</span></span><span style="display:flex;"><span>model2 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>model2 <span style="color:#f92672">=</span> model2<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+</span></span><span style="display:flex;"><span>model3 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>model3 <span style="color:#f92672">=</span> model3<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+</span></span><span style="display:flex;"><span>model4 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>model4 <span style="color:#f92672">=</span> model4<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(wage[[<span style="color:#e6db74">&#39;age&#39;</span>]])
+</span></span><span style="display:flex;"><span>model5 <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(wage[[<span style="color:#e6db74">&#39;wage&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>model5 <span style="color:#f92672">=</span> model5<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sm<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>anova_lm(model1, model2, model3, model4, model5)
+</span></span></code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:879: RuntimeWarning: invalid value encountered in greater
   return (self.a &lt; x) &amp; (x &lt; self.b)
 /Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/scipy/stats/_distn_infrastructure.py:879: RuntimeWarning: invalid value encountered in less
   return (self.a &lt; x) &amp; (x &lt; self.b)
@@ -523,14 +523,14 @@ sm<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>a
 <p>(b) Fit a step function to predict wage using age, and perform crossvalidation to choose the optimal number of cuts. Make a plot of the fit obtained. Code Source: <a href="https://rpubs.com/ppaquay/65563">https://rpubs.com/ppaquay/65563</a></p>
 <p>Q9. This question uses the variables dis (the weighted mean of distances to five Boston employment centers) and nox (nitrogen oxides concentration in parts per 10 million) from the Boston data. We will treat dis as the predictor and nox as the response.</p>
 <p>(a) Use the poly() function to fit a cubic polynomial regression to predict nox using dis. Report the regression output, and plot the resulting data and polynomial fits.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
-boston<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-<span style="color:#66d9ef">print</span>(result<span style="color:#f92672">.</span>summary())
-</code></pre></div><pre><code>                            OLS Regression Results
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>boston<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>print(result<span style="color:#f92672">.</span>summary())
+</span></span></code></pre></div><pre><code>                            OLS Regression Results
 ==============================================================================
 Dep. Variable:                    nox   R-squared:                       0.715
 Model:                            OLS   Adj. R-squared:                  0.713
@@ -560,90 +560,90 @@ Warnings:
 [2] The condition number is large, 2.1e+03. This might indicate that there are
 strong multicollinearity or other numerical problems.
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> True)
-y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-plt<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cubic Fit&#34;</span>)
-plt<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
-
-plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
-plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
-plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Cubic Fit&#39;</span>)
-plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_29_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Cubic Fit&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Cubic Fit&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_29_0.png" alt="">
 <p>(b) Plot the polynomial fits for a range of different polynomial degrees (say, from 1 to 10), and report the associated residual sum of squares.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_polt</span>(ax, x, y, RSS, degree):
-    ax<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Degree: &#34;</span> <span style="color:#f92672">+</span>str(degree))
-    ax<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylim(boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>, boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">0.1</span>)
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Degree: &#39;</span> <span style="color:#f92672">+</span>str(degree) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; Residuals: &#39;</span> <span style="color:#f92672">+</span> str(RSS))
-    ax<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
-    ax<span style="color:#f92672">.</span>grid()
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">40</span>))
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> True)
-
-degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
-add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
-
-degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
-add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
-
-degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
-add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
-
-degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
-X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
-model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
-result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
-y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
-<span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x4<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
-add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_31_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_polt</span>(ax, x, y, RSS, degree):
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>plot(x, y, <span style="color:#e6db74">&#39;red&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Degree: &#34;</span> <span style="color:#f92672">+</span>str(degree))
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>scatter(boston[<span style="color:#e6db74">&#39;dis&#39;</span>], boston[<span style="color:#e6db74">&#39;nox&#39;</span>], alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylim(boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>, boston[<span style="color:#e6db74">&#39;nox&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;dis&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;nox&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Degree: &#39;</span> <span style="color:#f92672">+</span>str(degree) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39; Residuals: &#39;</span> <span style="color:#f92672">+</span> str(RSS))
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;best&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">40</span>))
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>min()<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, boston[<span style="color:#e6db74">&#39;dis&#39;</span>]<span style="color:#f92672">.</span>max()<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">256</span>, endpoint <span style="color:#f92672">=</span> <span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+</span></span><span style="display:flex;"><span>add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+</span></span><span style="display:flex;"><span>add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+</span></span><span style="display:flex;"><span>add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>degree <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>poly <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>PolynomialFeatures(degree<span style="color:#f92672">=</span>degree)
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> poly<span style="color:#f92672">.</span>fit_transform(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]])
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> sm<span style="color:#f92672">.</span>OLS(boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], X_)
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit()
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>const <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x1<span style="color:#f92672">*</span>x <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x2<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x3<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">+</span> result<span style="color:#f92672">.</span>params<span style="color:#f92672">.</span>x4<span style="color:#f92672">*</span>(x<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, degree)
+</span></span><span style="display:flex;"><span>add_polt(ax, x, y, result<span style="color:#f92672">.</span>ssr, degree)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_31_0.png" alt="">
 <p>(c) Perform cross-validation or another approach to select the optimal degree for the polynomial, and explain your results.</p>
 <p><b>Sol:</b> The optimal degree of polynomial is <b>8</b>. Achieved test MSE at this value is decent as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]], boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
-polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>])
-</code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_33_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(boston[[<span style="color:#e6db74">&#39;dis&#39;</span>]], boston[[<span style="color:#e6db74">&#39;nox&#39;</span>]], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+</span></span><span style="display:flex;"><span>polynomial_regression(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test, [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">10</span>])
+</span></span></code></pre></div><img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_33_0.png" alt="">
 <p>(d) Use the bs() function to fit a regression spline to predict nox using dis. Report the output for the fit using four degrees of freedom. How did you choose the knots? Plot the resulting fit.</p>
 <p>(e) Now fit a regression spline for a range of degrees of freedom, and plot the resulting fits and report the resulting RSS. Describe the results obtained.</p>
 <p>(f) Perform cross-validation or another approach in order to select the best degrees of freedom for a regression spline on this data. Describe your results.</p>
 <p>Q10. This question relates to the College data set.</p>
 <p>(a) Split the data into a training set and a test set. Using out-of-state-tuition as the response and the other variables as the predictors, perform forward stepwise selection on the training set in order to identify a satisfactory model that uses just a subset of the predictors.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
-college <span style="color:#f92672">=</span> college<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;Name&#39;</span>})
-college[<span style="color:#e6db74">&#39;Private&#39;</span>] <span style="color:#f92672">=</span> college[<span style="color:#e6db74">&#39;Private&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-college<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>college <span style="color:#f92672">=</span> college<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;Name&#39;</span>})
+</span></span><span style="display:flex;"><span>college[<span style="color:#e6db74">&#39;Private&#39;</span>] <span style="color:#f92672">=</span> college[<span style="color:#e6db74">&#39;Private&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -796,36 +796,36 @@ college<span style="color:#f92672">.</span>head()
   </tbody>
 </table>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-<span style="color:#f92672">from</span> sklearn.feature_selection <span style="color:#f92672">import</span> RFE
-<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(college)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
-train <span style="color:#f92672">=</span> college[msk]
-test <span style="color:#f92672">=</span> college[<span style="color:#f92672">~</span>msk]
-
-total_features <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
-validation_MSE <span style="color:#f92672">=</span> {}
-<span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, total_features<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
-    estimator <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-    selector <span style="color:#f92672">=</span> RFE(estimator, m, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-    selector<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
-    predictions <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-    mse <span style="color:#f92672">=</span> mean_squared_error(predictions, test[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
-    validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(test)
-
-<span style="color:#75715e"># Plot validation MSE</span>
-lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of features&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Number of features&#39;</span>)
-</code></pre></div><pre><code>Text(0.5,1,'Validation MSE vs Number of features')
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.feature_selection <span style="color:#f92672">import</span> RFE
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(college)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
+</span></span><span style="display:flex;"><span>train <span style="color:#f92672">=</span> college[msk]
+</span></span><span style="display:flex;"><span>test <span style="color:#f92672">=</span> college[<span style="color:#f92672">~</span>msk]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>total_features <span style="color:#f92672">=</span> <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span>validation_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, total_features<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>):
+</span></span><span style="display:flex;"><span>    estimator <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    selector <span style="color:#f92672">=</span> RFE(estimator, m, step<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    selector<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
+</span></span><span style="display:flex;"><span>    predictions <span style="color:#f92672">=</span> selector<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Outstate&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>    mse <span style="color:#f92672">=</span> mean_squared_error(predictions, test[<span style="color:#e6db74">&#39;Outstate&#39;</span>])
+</span></span><span style="display:flex;"><span>    validation_MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot validation MSE</span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(validation_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of features&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Number of features&#39;</span>)
+</span></span></code></pre></div><pre><code>Text(0.5,1,'Validation MSE vs Number of features')
 </code></pre>
 <img class="pure-img" src="/img/Moving%20Beyond%20Linearity_files/Moving%20Beyond%20Linearity_37_1.png" alt="">
 <p>(b) Fit a GAM on the training data, using out-of-state tuition as the response and the features selected in the previous step as the predictors. Plot the results, and explain your findings.</p>

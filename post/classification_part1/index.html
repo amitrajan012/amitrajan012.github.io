@@ -221,39 +221,39 @@
 <p>A process for predicting <b>qualitative</b> or <b>categorical</b> variables is called as <b>Classification</b>.</p>
 <h3 id="41-an-overview-of-classification">4.1 An Overview of Classification</h3>
 <p>The dataset used in this chapter will be <b>Default</b> dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
-
-markers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;+&#34;</span>}
-palette <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;red&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;green&#34;</span>}
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, markers<span style="color:#f92672">=</span>markers, palette<span style="color:#f92672">=</span>palette,
-                alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, data<span style="color:#f92672">=</span>default)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Scatter Plot&#39;</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, data<span style="color:#f92672">=</span>default)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, data<span style="color:#f92672">=</span>default)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
-
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_5_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>default <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#34;data/Default.xlsx&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>markers <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;+&#34;</span>}
+</span></span><span style="display:flex;"><span>palette <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;Yes&#34;</span>: <span style="color:#e6db74">&#34;red&#34;</span>, <span style="color:#e6db74">&#34;No&#34;</span>: <span style="color:#e6db74">&#34;green&#34;</span>}
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>scatterplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, markers<span style="color:#f92672">=</span>markers, palette<span style="color:#f92672">=</span>palette,
+</span></span><span style="display:flex;"><span>                alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, data<span style="color:#f92672">=</span>default)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Scatter Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;balance&#34;</span>, data<span style="color:#f92672">=</span>default)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Balance&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;default&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;income&#34;</span>, data<span style="color:#f92672">=</span>default)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Default&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Income&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Box Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Classification_files/Classification_5_0.png" alt="">
 <img class="pure-img" src="/img/Classification_files/Classification_5_1.png" alt="">
 <h3 id="42-why-not-linear-regression">4.2 Why Not Linear Regression?</h3>
 <p>In general, there is no natural way to convert a qualitative response variable with more than two levels into a quantitative response that is ready for linear regression. For the binary qualitative response, we can simply encode the variables as 0 and 1 and predict the values taking 0.5 as threshold.</p>
@@ -270,7 +270,7 @@ plt<span style="color:#f92672">.</span>show()
 <p>The amount that $p(X)$ changes due to one unit change in X, depends on current value of X. If $\beta_1$ is positive, increasing X is associated with increasing $p(X)$. If $\beta_1$ is negative, increasing X is associated with decreasing $p(X)$.</p>
 <h4 id="432-estimating-the-regression-coefficients">4.3.2 Estimating the Regression Coefficients</h4>
 <p>Non-linear least squares can be used to fit the logistic regression model but a more general method of <b>maximum-likelihood</b> is preferred as it has better statistical properties. In maximum-likelihood, we seek estimates of $\beta_0$ and $\beta_1$ such that the predicted probabilities corresponds as closely as possible to the observed individual probabilities. In the case of the prediction of default status, by plugging in the values of $\beta$s in the model, we should get value of $p(X)$ for default as Yes close to 1 and for No, close to 0. This intution can be formalized using a mathematical equation called as <b>likelihood function</b>:</p>
-<p>$$l(\beta_0, \beta_1) = \prod _{i:y_i = 1} p(x_i) \prod _{i^{'}:y _{i^{'}} = 0} (1 - p(x _{i^{'}}))$$</p>
+<p>$$l(\beta_0, \beta_1) = \prod _{i:y_i = 1} p(x_i) \prod _{i^{&rsquo;}:y _{i^{&rsquo;}} = 0} (1 - p(x _{i^{&rsquo;}}))$$</p>
 <p>The estimates are chosen to <b>maximize</b> this function. Maximum likelihood is a very general approach that can be used to fit many of the non-linear models.</p>
 <p>In the logistic regression output, we can verify the statistical signifance of the model the same way as for the linear regression output. Instead of t-statistic, we use <b>z-statistic</b> which is defined the same ($\widehat{\beta_1} \ / \  SE(\widehat{\beta_1})$). The null hypothesis implies that $\beta_1 = 0$, i.e. $p(X) = \frac{e^{\beta_0}}{1 + e^{\beta_0}}$, which means the probability of default does not depend on balance. The main purpose of the intercept is to adjust the average fitted probability to the proportion of ones in the data.</p>
 <h4 id="433-making-predictions">4.3.3 Making Predictions</h4>

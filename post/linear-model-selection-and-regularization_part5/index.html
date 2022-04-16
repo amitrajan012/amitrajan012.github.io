@@ -232,116 +232,116 @@
                 <h4 id="applied">Applied</h4>
 <p>Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.</p>
 <p>(a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
-e <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
-</code></pre></div><p>(b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">beta0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
-beta1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
-beta2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
-beta3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-
-y <span style="color:#f92672">=</span> beta0 <span style="color:#f92672">+</span> beta1<span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> beta2<span style="color:#f92672">*</span>(X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> beta3<span style="color:#f92672">*</span>(X<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> e
-</code></pre></div><p>(c) Use the regsubsets() function to perform best subset selection in order to choose the best model containing the predictors $X,X^2, . . ., X^{10}$. What is the best model obtained according to $C_p$, BIC, and adjusted $R^2$? Show some plots to provide evidence for your answer, and report the coefficients of the best model obtained. Note you will need to use the data.frame() function to create a single data set containing both X and Y .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>e <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
+</span></span></code></pre></div><p>(b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>beta0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>beta1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>beta2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>beta3 <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> beta0 <span style="color:#f92672">+</span> beta1<span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> beta2<span style="color:#f92672">*</span>(X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> beta3<span style="color:#f92672">*</span>(X<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>) <span style="color:#f92672">+</span> e
+</span></span></code></pre></div><p>(c) Use the regsubsets() function to perform best subset selection in order to choose the best model containing the predictors $X,X^2, . . ., X^{10}$. What is the best model obtained according to $C_p$, BIC, and adjusted $R^2$? Show some plots to provide evidence for your answer, and report the coefficients of the best model obtained. Note you will need to use the data.frame() function to create a single data set containing both X and Y .</p>
 <p><b>Sol:</b> Test MSE is minimum for model with size <b>3</b> and having predictors <b>[0, 1, 2]</b>, which is perfectly in accordance with the generated data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> itertools <span style="color:#f92672">as</span> it
-<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_subset_sizeK</span>(X_, y_, k):
-    model <span style="color:#f92672">=</span> LinearRegression()
-    best_score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-    M_k <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">for</span> combo <span style="color:#f92672">in</span> it<span style="color:#f92672">.</span>combinations(range(X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]), k):
-        X <span style="color:#f92672">=</span> X_[:, list(combo)]
-        model<span style="color:#f92672">.</span>fit(X, y_)
-        s <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>score(X, y_)
-        <span style="color:#66d9ef">if</span> s <span style="color:#f92672">&gt;</span> best_score:
-            M_k <span style="color:#f92672">=</span> list(combo)
-            best_score <span style="color:#f92672">=</span> s
-    <span style="color:#66d9ef">return</span> M_k
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subset_selection</span>(X_, y_):
-    <span style="color:#75715e"># Fit model with intercept only (Null model)</span>
-    train_MSE <span style="color:#f92672">=</span> {}
-    model_cols <span style="color:#f92672">=</span> {}
-    y_pred <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(y_)
-    train_MSE[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_ <span style="color:#f92672">-</span> y_pred)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_)
-    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]):
-        cols <span style="color:#f92672">=</span> select_subset_sizeK(X_, y_, s)
-        X <span style="color:#f92672">=</span> X_[:, cols]
-        model <span style="color:#f92672">=</span> LinearRegression()
-        model<span style="color:#f92672">.</span>fit(X, y_)
-        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X)
-        train_MSE[s] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_)
-        model_cols[s] <span style="color:#f92672">=</span> cols
-    <span style="color:#66d9ef">return</span> (model_cols, train_MSE)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-
-X_ <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>vstack((X, X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">8</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">9</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">10</span>))<span style="color:#f92672">.</span>T
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X_, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
-
-t <span style="color:#f92672">=</span> subset_selection(X_train, y_train)
-models <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">0</span>]
-train_MSE <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">1</span>]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-
-lists <span style="color:#f92672">=</span> sorted(train_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Training MSE&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Training MSE vs Model Size&#39;</span>)
-
-test_MSE <span style="color:#f92672">=</span> {}
-<span style="color:#66d9ef">for</span> size, cols <span style="color:#f92672">in</span> models<span style="color:#f92672">.</span>items():
-    <span style="color:#66d9ef">if</span> size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        test_MSE[size] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_test <span style="color:#f92672">-</span> cols)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_test)
-    <span style="color:#66d9ef">else</span>:
-        model <span style="color:#f92672">=</span> LinearRegression()
-        model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
-        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test[:, cols])
-        test_MSE[size] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_test)
-
-lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Model Size&#39;</span>)
-</code></pre></div><pre><code>Text(0.5,1,'Test MSE vs Model Size')
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> itertools <span style="color:#66d9ef">as</span> it
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_subset_sizeK</span>(X_, y_, k):
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>    best_score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    M_k <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> combo <span style="color:#f92672">in</span> it<span style="color:#f92672">.</span>combinations(range(X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]), k):
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> X_[:, list(combo)]
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X, y_)
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>score(X, y_)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s <span style="color:#f92672">&gt;</span> best_score:
+</span></span><span style="display:flex;"><span>            M_k <span style="color:#f92672">=</span> list(combo)
+</span></span><span style="display:flex;"><span>            best_score <span style="color:#f92672">=</span> s
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> M_k
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subset_selection</span>(X_, y_):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Fit model with intercept only (Null model)</span>
+</span></span><span style="display:flex;"><span>    train_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    model_cols <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    y_pred <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(y_)
+</span></span><span style="display:flex;"><span>    train_MSE[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_ <span style="color:#f92672">-</span> y_pred)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]):
+</span></span><span style="display:flex;"><span>        cols <span style="color:#f92672">=</span> select_subset_sizeK(X_, y_, s)
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> X_[:, cols]
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X, y_)
+</span></span><span style="display:flex;"><span>        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>        train_MSE[s] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_)
+</span></span><span style="display:flex;"><span>        model_cols[s] <span style="color:#f92672">=</span> cols
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (model_cols, train_MSE)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_ <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>vstack((X, X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">3</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">4</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">5</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">6</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">7</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">8</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">9</span>, X<span style="color:#f92672">**</span><span style="color:#ae81ff">10</span>))<span style="color:#f92672">.</span>T
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X_, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> subset_selection(X_train, y_train)
+</span></span><span style="display:flex;"><span>models <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>train_MSE <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(train_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Training MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Training MSE vs Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> size, cols <span style="color:#f92672">in</span> models<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        test_MSE[size] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_test <span style="color:#f92672">-</span> cols)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_test)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
+</span></span><span style="display:flex;"><span>        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test[:, cols])
+</span></span><span style="display:flex;"><span>        test_MSE[size] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Model Size&#39;</span>)
+</span></span></code></pre></div><pre><code>Text(0.5,1,'Test MSE vs Model Size')
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_68_1.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test MSE is minimum for model size: &#34;</span> <span style="color:#f92672">+</span>str(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get)))
-cols <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>get(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Columns used in the model: &#34;</span> <span style="color:#f92672">+</span>str(cols))
-model <span style="color:#f92672">=</span> LinearRegression()
-model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model Coefficients: &#34;</span> <span style="color:#f92672">+</span>str(model<span style="color:#f92672">.</span>coef_))
-</code></pre></div><pre><code>Test MSE is minimum for model size: 3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test MSE is minimum for model size: &#34;</span> <span style="color:#f92672">+</span>str(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get)))
+</span></span><span style="display:flex;"><span>cols <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>get(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Columns used in the model: &#34;</span> <span style="color:#f92672">+</span>str(cols))
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Model Coefficients: &#34;</span> <span style="color:#f92672">+</span>str(model<span style="color:#f92672">.</span>coef_))
+</span></span></code></pre></div><pre><code>Test MSE is minimum for model size: 3
 Columns used in the model: [0, 1, 2]
 Model Coefficients: [2.00715291 3.06050471 4.07996844]
 </code></pre>
 <p>(e) Now fit a lasso model to the simulated data, again using $X,X^2, . . ., X^{10}$ as predictors. Use cross-validation to select the optimal value of λ. Report the resulting coefficient estimates, and discuss the results obtained.</p>
 <p><b>Sol:</b> The lasso model has significant coefficients for predictors 0,1,2,3,4. All other coefficients are insignificant.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LassoCV
-
-n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
-alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
-<span style="color:#75715e"># Leave one out cross-validation</span>
-model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span>True, cv<span style="color:#f92672">=</span>None)
-model<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
-</code></pre></div><pre><code>Test Error: 4687.204168578645
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LassoCV
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, cv<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
+</span></span></code></pre></div><pre><code>Test Error: 4687.204168578645
 Model coefficients: [ 1.83007496e+00  2.54077338e+00  3.91756182e+00  2.22585449e-01
   2.89062042e-01 -3.33340397e-02 -2.88216147e-02 -3.80527416e-03
  -9.90808115e-03  3.31479566e-03]
@@ -353,11 +353,11 @@ Model coefficients: [ 1.83007496e+00  2.54077338e+00  3.91756182e+00  2.22585449
   ConvergenceWarning)
 </code></pre>
 <p>Q9. In this exercise, we will predict the number of applications received using the other variables in the College data set.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-
-college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
-college<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -511,46 +511,46 @@ college<span style="color:#f92672">.</span>head()
 </table>
 </div>
 <p>(a) Split the data set into a training set and a test set.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">college <span style="color:#f92672">=</span> college<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;Name&#39;</span>})
-college[<span style="color:#e6db74">&#39;Private&#39;</span>] <span style="color:#f92672">=</span> college[<span style="color:#e6db74">&#39;Private&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(college)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
-train <span style="color:#f92672">=</span> college[msk]
-test <span style="color:#f92672">=</span> college[<span style="color:#f92672">~</span>msk]
-</code></pre></div><p>(b) Fit a linear model using least squares on the training set, and report the test error obtained.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
-
-model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
-</code></pre></div><pre><code>Test Error: 1178528.8421813124
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>college <span style="color:#f92672">=</span> college<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>: <span style="color:#e6db74">&#39;Name&#39;</span>})
+</span></span><span style="display:flex;"><span>college[<span style="color:#e6db74">&#39;Private&#39;</span>] <span style="color:#f92672">=</span> college[<span style="color:#e6db74">&#39;Private&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>msk <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>rand(len(college)) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.8</span>
+</span></span><span style="display:flex;"><span>train <span style="color:#f92672">=</span> college[msk]
+</span></span><span style="display:flex;"><span>test <span style="color:#f92672">=</span> college[<span style="color:#f92672">~</span>msk]
+</span></span></code></pre></div><p>(b) Fit a linear model using least squares on the training set, and report the test error obtained.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
+</span></span></code></pre></div><pre><code>Test Error: 1178528.8421813124
 </code></pre>
 <p>(c) Fit a ridge regression model on the training set, with λ chosen by cross-validation. Report the test error obtained.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> RidgeCV
-
-n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
-alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
-<span style="color:#75715e"># Leave one out cross-validation</span>
-model <span style="color:#f92672">=</span> RidgeCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span>True, cv<span style="color:#f92672">=</span>None, store_cv_values<span style="color:#f92672">=</span>True)
-model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
-
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
-</code></pre></div><pre><code>Test Error: 1188298.4979038904
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> RidgeCV
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> RidgeCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, cv<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>, store_cv_values<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
+</span></span></code></pre></div><pre><code>Test Error: 1188298.4979038904
 </code></pre>
 <p>(d) Fit a lasso model on the training set, with λ chosen by crossvalidation. Report the test error obtained, along with the number of non-zero coefficient estimates.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LassoCV
-
-<span style="color:#75715e"># Leave one out cross-validation</span>
-model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span>True, cv<span style="color:#f92672">=</span>None)
-model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
-
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of Non-zero coefficients: &#34;</span> <span style="color:#f92672">+</span> str(len(model<span style="color:#f92672">.</span>coef_)))
-</code></pre></div><pre><code>Test Error: 1207847.543688796
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LassoCV
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, cv<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(test[<span style="color:#e6db74">&#39;Apps&#39;</span>], predictions)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Number of Non-zero coefficients: &#34;</span> <span style="color:#f92672">+</span> str(len(model<span style="color:#f92672">.</span>coef_)))
+</span></span></code></pre></div><pre><code>Test Error: 1207847.543688796
 Number of Non-zero coefficients: 17
 
 
@@ -558,121 +558,121 @@ Number of Non-zero coefficients: 17
   ConvergenceWarning)
 </code></pre>
 <p>(e) Fit a PCR model on the training set, with M chosen by crossvalidation. Report the test error obtained, along with the value of M selected by cross-validation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> preprocessing
-<span style="color:#f92672">from</span> sklearn.decomposition <span style="color:#f92672">import</span> PCA
-<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> LeaveOneOut
-<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-<span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">PCR_CV</span>(X_train, Y_train, X_test, Y_test, M):
-    X_train_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_train)
-    X_test_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_test)
-
-    MSE <span style="color:#f92672">=</span> {}
-    test_MSE <span style="color:#f92672">=</span> {}
-
-    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M: <span style="color:#75715e"># Iterate over number of principal components</span>
-        pca <span style="color:#f92672">=</span> PCA(n_components<span style="color:#f92672">=</span>m)
-        X_train_reduced <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(X_train_scaled)
-        X_test_reduced <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(X_test_scaled)
-
-        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        test_mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
-        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_train_reduced):
-            X, X_CV <span style="color:#f92672">=</span> X_train_reduced[train_index], X_train_reduced[test_index]
-            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
-            model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-            model<span style="color:#f92672">.</span>fit(X, Y)
-            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
-            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
-        MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_train_reduced)
-
-        <span style="color:#75715e"># Compute test MSE for the model</span>
-        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span>True)
-        model<span style="color:#f92672">.</span>fit(X_train_reduced, Y_train)
-        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test_reduced)
-        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
-
-    <span style="color:#75715e"># Plot validation MSE</span>
-    lists <span style="color:#f92672">=</span> sorted(MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of Principal Components&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Principal Components&#39;</span>)
-
-    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of Principal Components&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Principal Components&#39;</span>)
-    plt<span style="color:#f92672">.</span>show()
-
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
-PCR_CV(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>]<span style="color:#f92672">.</span>values, test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
-       test[<span style="color:#e6db74">&#39;Apps&#39;</span>], M)
-</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_83_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn <span style="color:#f92672">import</span> preprocessing
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.decomposition <span style="color:#f92672">import</span> PCA
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> LeaveOneOut
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> mean_squared_error
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">PCR_CV</span>(X_train, Y_train, X_test, Y_test, M):
+</span></span><span style="display:flex;"><span>    X_train_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_train)
+</span></span><span style="display:flex;"><span>    X_test_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    test_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M: <span style="color:#75715e"># Iterate over number of principal components</span>
+</span></span><span style="display:flex;"><span>        pca <span style="color:#f92672">=</span> PCA(n_components<span style="color:#f92672">=</span>m)
+</span></span><span style="display:flex;"><span>        X_train_reduced <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(X_train_scaled)
+</span></span><span style="display:flex;"><span>        X_test_reduced <span style="color:#f92672">=</span> pca<span style="color:#f92672">.</span>fit_transform(X_test_scaled)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        test_mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_train_reduced):
+</span></span><span style="display:flex;"><span>            X, X_CV <span style="color:#f92672">=</span> X_train_reduced[train_index], X_train_reduced[test_index]
+</span></span><span style="display:flex;"><span>            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
+</span></span><span style="display:flex;"><span>            model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
+</span></span><span style="display:flex;"><span>            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
+</span></span><span style="display:flex;"><span>        MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_train_reduced)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Compute test MSE for the model</span>
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression(fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X_train_reduced, Y_train)
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test_reduced)
+</span></span><span style="display:flex;"><span>        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Plot validation MSE</span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of Principal Components&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs Principal Components&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Number of Principal Components&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Principal Components&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
+</span></span><span style="display:flex;"><span>PCR_CV(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>]<span style="color:#f92672">.</span>values, test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>       test[<span style="color:#e6db74">&#39;Apps&#39;</span>], M)
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_83_0.png" alt="">
 <p>(f) Fit a PLS model on the training set, with M chosen by crossvalidation. Report the test error obtained, along with the value of M selected by cross-validation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.cross_decomposition <span style="color:#f92672">import</span> PLSRegression
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">PLS_CV</span>(X_train, Y_train, X_test, Y_test, M):
-    X_train_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_train)
-    X_test_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_test)
-
-    MSE <span style="color:#f92672">=</span> {}
-    test_MSE <span style="color:#f92672">=</span> {}
-
-    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M: <span style="color:#75715e"># Iterate over number of principal components</span>
-        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        test_mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
-        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_train_scaled):
-            X, X_CV <span style="color:#f92672">=</span> X_train_scaled[train_index], X_train_scaled[test_index]
-            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
-            model <span style="color:#f92672">=</span> PLSRegression(n_components<span style="color:#f92672">=</span>m)
-            model<span style="color:#f92672">.</span>fit(X, Y)
-            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
-            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
-        MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_train_scaled)
-
-        <span style="color:#75715e"># Compute test MSE for the model</span>
-        model <span style="color:#f92672">=</span> PLSRegression(n_components<span style="color:#f92672">=</span>m)
-        model<span style="color:#f92672">.</span>fit(X_train_scaled, Y_train)
-        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test_scaled)
-        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
-
-    <span style="color:#75715e"># Plot validation MSE</span>
-    lists <span style="color:#f92672">=</span> sorted(MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;M&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs M&#39;</span>)
-
-    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-    plt<span style="color:#f92672">.</span>grid()
-    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;M&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
-    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs M&#39;</span>)
-    plt<span style="color:#f92672">.</span>show()
-
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
-PLS_CV(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>]<span style="color:#f92672">.</span>values, test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
-       test[<span style="color:#e6db74">&#39;Apps&#39;</span>], M)
-</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_85_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.cross_decomposition <span style="color:#f92672">import</span> PLSRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">PLS_CV</span>(X_train, Y_train, X_test, Y_test, M):
+</span></span><span style="display:flex;"><span>    X_train_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_train)
+</span></span><span style="display:flex;"><span>    X_test_scaled <span style="color:#f92672">=</span> preprocessing<span style="color:#f92672">.</span>scale(X_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    test_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> M: <span style="color:#75715e"># Iterate over number of principal components</span>
+</span></span><span style="display:flex;"><span>        mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        test_mse <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        loo <span style="color:#f92672">=</span> LeaveOneOut() <span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> train_index, test_index <span style="color:#f92672">in</span> loo<span style="color:#f92672">.</span>split(X_train_scaled):
+</span></span><span style="display:flex;"><span>            X, X_CV <span style="color:#f92672">=</span> X_train_scaled[train_index], X_train_scaled[test_index]
+</span></span><span style="display:flex;"><span>            Y, Y_CV <span style="color:#f92672">=</span> Y_train[train_index], Y_train[test_index]
+</span></span><span style="display:flex;"><span>            model <span style="color:#f92672">=</span> PLSRegression(n_components<span style="color:#f92672">=</span>m)
+</span></span><span style="display:flex;"><span>            model<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>            p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_CV)
+</span></span><span style="display:flex;"><span>            mse <span style="color:#f92672">+=</span> mean_squared_error(p, Y_CV)
+</span></span><span style="display:flex;"><span>        MSE[m] <span style="color:#f92672">=</span> mse<span style="color:#f92672">/</span>len(X_train_scaled)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Compute test MSE for the model</span>
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> PLSRegression(n_components<span style="color:#f92672">=</span>m)
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X_train_scaled, Y_train)
+</span></span><span style="display:flex;"><span>        p <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test_scaled)
+</span></span><span style="display:flex;"><span>        test_MSE[m] <span style="color:#f92672">=</span> mean_squared_error(p, Y_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Plot validation MSE</span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;M&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Validation MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Validation MSE vs M&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>    x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>    ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;M&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>    ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs M&#39;</span>)
+</span></span><span style="display:flex;"><span>    plt<span style="color:#f92672">.</span>show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
+</span></span><span style="display:flex;"><span>PLS_CV(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), train[<span style="color:#e6db74">&#39;Apps&#39;</span>]<span style="color:#f92672">.</span>values, test<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Name&#39;</span>, <span style="color:#e6db74">&#39;Apps&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>       test[<span style="color:#e6db74">&#39;Apps&#39;</span>], M)
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_85_0.png" alt="">
 <p>(g) Comment on the results obtained. How accurately can we predict the number of college applications received? Is there much difference among the test errors resulting from these five approaches?</p>
 <p><b>Sol:</b> The test errors (with order of magnitude $10^7$) for various methods are as follows:</p>
 <ul>
@@ -697,144 +697,144 @@ PLS_CV(train<span style="color:#f92672">.</span>drop([<span style="color:#e6db74
 <p>(a) Generate a data set with $p = 15$ features, $n = 1,000$ observations, and an associated quantitative response vector generated according to the model
 $$Y = Xβ + \epsilon$$
 where β has some elements that are exactly equal to zero.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">15</span>))
-beta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
-beta[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-beta[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-beta[<span style="color:#ae81ff">9</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-e <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot(X, beta) <span style="color:#f92672">+</span> e
-</code></pre></div><p>(b) Split your data set into a training set containing 100 observations and a test set containing 900 observations.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
-</code></pre></div><p>(c) Perform best subset selection on the training set, and plot the training set MSE associated with the best model of each size.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">15</span>))
+</span></span><span style="display:flex;"><span>beta <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>)
+</span></span><span style="display:flex;"><span>beta[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>beta[<span style="color:#ae81ff">5</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>beta[<span style="color:#ae81ff">9</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>e <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot(X, beta) <span style="color:#f92672">+</span> e
+</span></span></code></pre></div><p>(b) Split your data set into a training set containing 100 observations and a test set containing 900 observations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(X, y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span></code></pre></div><p>(c) Perform best subset selection on the training set, and plot the training set MSE associated with the best model of each size.</p>
 <p>(d) Plot the test set MSE associated with the best model of each size.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> itertools <span style="color:#f92672">as</span> it
-<span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_subset_sizeK</span>(X_, y_, k):
-    model <span style="color:#f92672">=</span> LinearRegression()
-    best_score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-    M_k <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">for</span> combo <span style="color:#f92672">in</span> it<span style="color:#f92672">.</span>combinations(range(X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]), k):
-        X <span style="color:#f92672">=</span> X_[:, list(combo)]
-        model<span style="color:#f92672">.</span>fit(X, y_)
-        s <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>score(X, y_)
-        <span style="color:#66d9ef">if</span> s <span style="color:#f92672">&gt;</span> best_score:
-            M_k <span style="color:#f92672">=</span> list(combo)
-            best_score <span style="color:#f92672">=</span> s
-    <span style="color:#66d9ef">return</span> M_k
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subset_selection</span>(X_, y_):
-    <span style="color:#75715e"># Fit model with intercept only (Null model)</span>
-    train_MSE <span style="color:#f92672">=</span> {}
-    model_cols <span style="color:#f92672">=</span> {}
-    y_pred <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(y_)
-    train_MSE[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_ <span style="color:#f92672">-</span> y_pred)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_)
-    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]):
-        cols <span style="color:#f92672">=</span> select_subset_sizeK(X_, y_, s)
-        X <span style="color:#f92672">=</span> X_[:, cols]
-        model <span style="color:#f92672">=</span> LinearRegression()
-        model<span style="color:#f92672">.</span>fit(X, y_)
-        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X)
-        train_MSE[s] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_)
-        model_cols[s] <span style="color:#f92672">=</span> cols
-    <span style="color:#66d9ef">return</span> (model_cols, train_MSE)
-
-t <span style="color:#f92672">=</span> subset_selection(X_train, y_train)
-models <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">0</span>]
-train_MSE <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">1</span>]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-
-lists <span style="color:#f92672">=</span> sorted(train_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Training MSE&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Training MSE vs Model Size&#39;</span>)
-
-test_MSE <span style="color:#f92672">=</span> {}
-<span style="color:#66d9ef">for</span> size, cols <span style="color:#f92672">in</span> models<span style="color:#f92672">.</span>items():
-    <span style="color:#66d9ef">if</span> size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
-        test_MSE[size] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_test <span style="color:#f92672">-</span> cols)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_test)
-    <span style="color:#66d9ef">else</span>:
-        model <span style="color:#f92672">=</span> LinearRegression()
-        model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
-        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test[:, cols])
-        test_MSE[size] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_test)
-
-lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Model Size&#39;</span>)
-</code></pre></div><pre><code>Text(0.5,1,'Test MSE vs Model Size')
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> itertools <span style="color:#66d9ef">as</span> it
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LinearRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">select_subset_sizeK</span>(X_, y_, k):
+</span></span><span style="display:flex;"><span>    model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>    best_score <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    M_k <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> combo <span style="color:#f92672">in</span> it<span style="color:#f92672">.</span>combinations(range(X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]), k):
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> X_[:, list(combo)]
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X, y_)
+</span></span><span style="display:flex;"><span>        s <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>score(X, y_)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> s <span style="color:#f92672">&gt;</span> best_score:
+</span></span><span style="display:flex;"><span>            M_k <span style="color:#f92672">=</span> list(combo)
+</span></span><span style="display:flex;"><span>            best_score <span style="color:#f92672">=</span> s
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> M_k
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">subset_selection</span>(X_, y_):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Fit model with intercept only (Null model)</span>
+</span></span><span style="display:flex;"><span>    train_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    model_cols <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    y_pred <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(y_)
+</span></span><span style="display:flex;"><span>    train_MSE[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_ <span style="color:#f92672">-</span> y_pred)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, X_<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">1</span>]):
+</span></span><span style="display:flex;"><span>        cols <span style="color:#f92672">=</span> select_subset_sizeK(X_, y_, s)
+</span></span><span style="display:flex;"><span>        X <span style="color:#f92672">=</span> X_[:, cols]
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X, y_)
+</span></span><span style="display:flex;"><span>        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>        train_MSE[s] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_)
+</span></span><span style="display:flex;"><span>        model_cols[s] <span style="color:#f92672">=</span> cols
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (model_cols, train_MSE)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>t <span style="color:#f92672">=</span> subset_selection(X_train, y_train)
+</span></span><span style="display:flex;"><span>models <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>train_MSE <span style="color:#f92672">=</span> t[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(train_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Training MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Training MSE vs Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>test_MSE <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> size, cols <span style="color:#f92672">in</span> models<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> size <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        test_MSE[size] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum((y_test <span style="color:#f92672">-</span> cols)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">/</span> len(y_test)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
+</span></span><span style="display:flex;"><span>        y_pred <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test[:, cols])
+</span></span><span style="display:flex;"><span>        test_MSE[size] <span style="color:#f92672">=</span> mean_squared_error(y_pred, y_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(test_MSE<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Model Size&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Test MSE&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Test MSE vs Model Size&#39;</span>)
+</span></span></code></pre></div><pre><code>Text(0.5,1,'Test MSE vs Model Size')
 </code></pre>
 <img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_92_1.png" alt="">
 <p>(e) For which model size does the test set MSE take on its minimum value? Comment on your results. If it takes on its minimum value for a model containing only an intercept or a model containing all of the features, then play around with the way that you are generating the data in (a) until you come up with a scenario in which the test set MSE is minimized for an intermediate model size.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test MSE is minimum for model size: &#34;</span> <span style="color:#f92672">+</span>str(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get)))
-</code></pre></div><pre><code>Test MSE is minimum for model size: 13
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test MSE is minimum for model size: &#34;</span> <span style="color:#f92672">+</span>str(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get)))
+</span></span></code></pre></div><pre><code>Test MSE is minimum for model size: 13
 </code></pre>
 <p>(f) How does the model at which the test set MSE is minimized compare to the true model used to generate the data? Comment on the coefficient values.</p>
 <p><b>Sol:</b> The model is well in accordance with the way data is generated, First of all, the columns that are not used for model generation are: <b>5, 9</b>. While generating data, we set the coefficients 3,5, and 9 to 0 and hence the model captures this well. Apart from this, the coefficient of feature 3 is <b>-0.07353929</b>, which is quite low as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">cols <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>get(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Columns used in the model: &#34;</span> <span style="color:#f92672">+</span>str(cols))
-model <span style="color:#f92672">=</span> LinearRegression()
-model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model Coefficients: &#34;</span> <span style="color:#f92672">+</span>str(model<span style="color:#f92672">.</span>coef_))
-</code></pre></div><pre><code>Columns used in the model: [0, 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cols <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>get(min(test_MSE, key<span style="color:#f92672">=</span>test_MSE<span style="color:#f92672">.</span>get))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Columns used in the model: &#34;</span> <span style="color:#f92672">+</span>str(cols))
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LinearRegression()
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train[:, cols], y_train)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Model Coefficients: &#34;</span> <span style="color:#f92672">+</span>str(model<span style="color:#f92672">.</span>coef_))
+</span></span></code></pre></div><pre><code>Columns used in the model: [0, 1, 2, 3, 4, 6, 7, 8, 10, 11, 12, 13, 14]
 Model Coefficients: [-2.50852562 -0.43695144  1.40013156 -0.07353929 -0.85895357 -1.89061122
  -0.30136561  1.12543061  0.09474982 -0.70489182 -0.6278358  -1.40983561
   0.17529716]
 </code></pre>
 <p>Q11. We will now try to predict per capita crime rate in the Boston data set.</p>
 <p>(a) Try out some of the regression methods explored in this chapter, such as best subset selection, the lasso, ridge regression, and PCR. Present and discuss results for the approaches that you consider.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
-boston<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(boston<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">1</span>:], boston[<span style="color:#e6db74">&#39;crim&#39;</span>], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
-
-<span style="color:#75715e"># The lasso</span>
-n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
-alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
-<span style="color:#75715e"># Leave one out cross-validation</span>
-model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span>True, cv<span style="color:#f92672">=</span>None)
-model<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
-</code></pre></div><pre><code>Test Error: 54.95744135110768
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Boston.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>boston<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(boston<span style="color:#f92672">.</span>iloc[:,<span style="color:#ae81ff">1</span>:], boston[<span style="color:#e6db74">&#39;crim&#39;</span>], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The lasso</span>
+</span></span><span style="display:flex;"><span>n_alphas <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+</span></span><span style="display:flex;"><span>alphas <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>logspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>, n_alphas)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Leave one out cross-validation</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> LassoCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, cv<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
+</span></span></code></pre></div><pre><code>Test Error: 54.95744135110768
 Model coefficients: [ 0.04198738 -0.07640927 -0.         -0.          0.32159534 -0.00722933
  -0.67844741  0.5220804  -0.0022908  -0.09016879 -0.00174827  0.13527718
  -0.15964042]
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Ridge Regression</span>
-model <span style="color:#f92672">=</span> RidgeCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span>True, cv<span style="color:#f92672">=</span>None)
-model<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
-</code></pre></div><pre><code>Test Error: 55.55453079915659
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Ridge Regression</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> RidgeCV(alphas<span style="color:#f92672">=</span>alphas, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, cv<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>)
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error: &#34;</span> <span style="color:#f92672">+</span>str(mean_squared_error(y_test, predictions)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Model coefficients: &#34;</span> <span style="color:#f92672">+</span> str(model<span style="color:#f92672">.</span>coef_))
+</span></span></code></pre></div><pre><code>Test Error: 55.55453079915659
 Model coefficients: [ 0.0406467  -0.08234663 -0.20301002 -0.09532246  0.55364958 -0.00933135
  -0.70209263  0.52848777 -0.00235438 -0.14191045 -0.00127377  0.14595535
  -0.17415457]
 </code></pre>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># PCR</span>
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
-PCR_CV(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test<span style="color:#f92672">.</span>values, M)
-</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_101_0.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># PLS</span>
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
-PLS_CV(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test<span style="color:#f92672">.</span>values, M)
-</code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_102_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># PCR</span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
+</span></span><span style="display:flex;"><span>PCR_CV(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test<span style="color:#f92672">.</span>values, M)
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_101_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># PLS</span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>arange(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">1</span>) <span style="color:#75715e"># Principal components</span>
+</span></span><span style="display:flex;"><span>PLS_CV(X_train, y_train<span style="color:#f92672">.</span>values, X_test, y_test<span style="color:#f92672">.</span>values, M)
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear%20Model%20Selection%20and%20Regularization_files/Linear%20Model%20Selection%20and%20Regularization_102_0.png" alt="">
 <p>(b) Propose a model (or set of models) that seem to perform well on this data set, and justify your answer. Make sure that you are evaluating model performance using validation set error, crossvalidation, or some other reasonable alternative, as opposed to using training error.</p>
 <p><b>Sol:</b> Except PCR, the lasso, PLS and ridge regression performs decently well.</p>
 <p>(c) Does your chosen model involve all of the features in the data set? Why or why not?</p>

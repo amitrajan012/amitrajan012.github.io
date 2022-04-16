@@ -219,34 +219,34 @@
 <p>In general, suppose that we observe a quantitative response $Y$ and $p$ different predictors, $X_1$, $X_2$, &hellip; , $X_p$, we assume that there is some relationship between $Y$ and $X = (X_1, X_2, &hellip; , X_p)$, which can be written in general form as:</p>
 <p>$$Y = f(X) + \epsilon$$</p>
 <p>where, $\epsilon$ is a random error term which is independent of X and has mean 0. In this formula, $f$ represents the systematic information that $X$ provides about $Y$. <b>In essence, statistical learning refers to a set of approaches for estimating  $f$.</b></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-adv <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Advertising.csv&#34;</span>)
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Radio&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Radio&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
-sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Newspaper&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
-            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Newspaper&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_4_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>adv <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Advertising.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">131</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TV&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;TV&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">132</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Radio&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Radio&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">133</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>regplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Newspaper&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Sales&#34;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, data<span style="color:#f92672">=</span>adv, order<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, scatter_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.4</span>},
+</span></span><span style="display:flex;"><span>            line_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;color&#39;</span>:<span style="color:#e6db74">&#39;g&#39;</span>, <span style="color:#e6db74">&#39;alpha&#39;</span>:<span style="color:#ae81ff">0.7</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Newspaper&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Sales&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_4_1.png" alt="">
 <h4 id="211-why-estimate-f-">2.1.1 Why Estimate f ?</h4>
 <p>There are two main reasons that we may wish to estimate $f$:</p>
 <ul>
@@ -355,13 +355,13 @@ $1 - max_{j}Pr(Y=j \ | \ X=x_0)$. Hence, overall bayes error rate is given as:</
 <p><b>Sol:</b> For highly non-linear Bayes decision boundary, the value of K will be small.</p>
 <h4 id="applied">Applied</h4>
 <p><b>Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.</b></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-
-college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
-college<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>, drop<span style="color:#f92672">=</span>True, inplace<span style="color:#f92672">=</span>True)
-college<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Name&#39;</span>]
-college<span style="color:#f92672">.</span>describe()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>college <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/College.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>set_index(<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>, drop<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>index<span style="color:#f92672">.</span>names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Name&#39;</span>]
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>describe()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -562,78 +562,78 @@ college<span style="color:#f92672">.</span>describe()
   </tbody>
 </table>
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># produce a scatterplot matrix of the first ten columns or variables of the data.</span>
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-sns<span style="color:#f92672">.</span>pairplot(college<span style="color:#f92672">.</span>loc[:, <span style="color:#e6db74">&#39;Apps&#39;</span>:<span style="color:#e6db74">&#39;Books&#39;</span>])
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_35_1.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># produce side-by-side boxplots of Outstate versus Private.</span>
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Private&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>, data<span style="color:#f92672">=</span>college)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Private University&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Outstate Tution (in USD)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Outstate Tution vs University Type&#39;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_36_0.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Create a new qualitative variable, called Elite, by binning the Top10perc variable.</span>
-college[<span style="color:#e6db74">&#39;Elite&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-college<span style="color:#f92672">.</span>loc[college[<span style="color:#e6db74">&#39;Top10perc&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#39;Elite&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of elite universities are: &#34;</span> <span style="color:#f92672">+</span>str(college[<span style="color:#e6db74">&#39;Elite&#39;</span>]<span style="color:#f92672">.</span>sum()))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Elite&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>, data<span style="color:#f92672">=</span>college)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Elite University&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Outstate Tution (in USD)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Outstate Tution vs University Type&#39;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>Number of elite universities are: 78
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># produce a scatterplot matrix of the first ten columns or variables of the data.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(college<span style="color:#f92672">.</span>loc[:, <span style="color:#e6db74">&#39;Apps&#39;</span>:<span style="color:#e6db74">&#39;Books&#39;</span>])
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_35_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># produce side-by-side boxplots of Outstate versus Private.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Private&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>, data<span style="color:#f92672">=</span>college)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Private University&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Outstate Tution (in USD)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Outstate Tution vs University Type&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_36_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create a new qualitative variable, called Elite, by binning the Top10perc variable.</span>
+</span></span><span style="display:flex;"><span>college[<span style="color:#e6db74">&#39;Elite&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>loc[college[<span style="color:#e6db74">&#39;Top10perc&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span>, <span style="color:#e6db74">&#39;Elite&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Number of elite universities are: &#34;</span> <span style="color:#f92672">+</span>str(college[<span style="color:#e6db74">&#39;Elite&#39;</span>]<span style="color:#f92672">.</span>sum()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>boxplot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Elite&#34;</span>, y<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Outstate&#34;</span>, data<span style="color:#f92672">=</span>college)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Elite University&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Outstate Tution (in USD)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Outstate Tution vs University Type&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>Number of elite universities are: 78
 </code></pre>
 <img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_37_1.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># produce some histograms with differing numbers of bins for a few of the quantitative vari- ables.</span>
-college<span style="color:#f92672">.</span>head()
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
-sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;Books&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span>False, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Estinated Books Cost&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Books Cost&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
-sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;PhD&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span>False, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Percent of faculty with Ph.D.’s&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Percent of faculty with Ph.D.’s&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
-sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;Grad.Rate&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span>False, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Graduation rate&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Graduation rate&#39;</span>)
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
-sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;perc.alumni&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span>False, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yellow&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Percent of alumni who donate&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Percent of alumni who donate&#39;</span>)
-
-plt<span style="color:#f92672">.</span>tight_layout() <span style="color:#75715e">#Stop subplots from overlapping</span>
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_38_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># produce some histograms with differing numbers of bins for a few of the quantitative vari- ables.</span>
+</span></span><span style="display:flex;"><span>college<span style="color:#f92672">.</span>head()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;Books&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Estinated Books Cost&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Books Cost&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;PhD&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Percent of faculty with Ph.D.’s&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Percent of faculty with Ph.D.’s&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;Grad.Rate&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;blue&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Graduation rate&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Graduation rate&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(college[<span style="color:#e6db74">&#39;perc.alumni&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;yellow&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Percent of alumni who donate&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Percent of alumni who donate&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>tight_layout() <span style="color:#75715e">#Stop subplots from overlapping</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_38_0.png" alt="">
 <p><b>Q9. This exercise involves the Auto data set studied in the lab. Make sure that the missing values have been removed from the data.</b></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Auto.csv&#34;</span>)
-auto<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
-auto <span style="color:#f92672">=</span> auto[auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;?&#39;</span>]
-auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>astype(int)
-auto<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>auto <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Auto.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>auto <span style="color:#f92672">=</span> auto[auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;?&#39;</span>]
+</span></span><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -730,20 +730,20 @@ auto<span style="color:#f92672">.</span>head()
 <p><b>Sol:</b> Quantitative: displacement, weight, horsepower, acceleration, mpg</p>
 <p>Qualitative: cylinders, year, origin</p>
 <p>(b) What is the range of each quantitative predictor?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Range of displacement: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]<span style="color:#f92672">.</span>max()))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Range of weight: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">.</span>max()))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Range of horsepower: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>max()))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Range of acceleration: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;acceleration&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;acceleration&#39;</span>]<span style="color:#f92672">.</span>max()))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Range of mpg: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>max()))
-</code></pre></div><pre><code>Range of displacement: 68.0 - 455.0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Range of displacement: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;displacement&#39;</span>]<span style="color:#f92672">.</span>max()))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Range of weight: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;weight&#39;</span>]<span style="color:#f92672">.</span>max()))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Range of horsepower: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>max()))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Range of acceleration: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;acceleration&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;acceleration&#39;</span>]<span style="color:#f92672">.</span>max()))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Range of mpg: &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>min()) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; - &#34;</span> <span style="color:#f92672">+</span> str(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>max()))
+</span></span></code></pre></div><pre><code>Range of displacement: 68.0 - 455.0
 Range of weight: 1613 - 5140
 Range of horsepower: 46 - 230
 Range of acceleration: 8.0 - 24.8
 Range of mpg: 9.0 - 46.6
 </code></pre>
 <p>(c) What is the mean and standard deviation of each quantitative predictor?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">auto<span style="color:#f92672">.</span>describe()[[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>]]<span style="color:#f92672">.</span>loc[[<span style="color:#e6db74">&#39;mean&#39;</span>, <span style="color:#e6db74">&#39;std&#39;</span>]]
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>describe()[[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>]]<span style="color:#f92672">.</span>loc[[<span style="color:#e6db74">&#39;mean&#39;</span>, <span style="color:#e6db74">&#39;std&#39;</span>]]
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -789,9 +789,9 @@ Range of mpg: 9.0 - 46.6
 </table>
 </div>
 <p>(d) Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">temp <span style="color:#f92672">=</span> auto<span style="color:#f92672">.</span>drop(auto<span style="color:#f92672">.</span>index[<span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">85</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-temp<span style="color:#f92672">.</span>describe()<span style="color:#f92672">.</span>loc[[<span style="color:#e6db74">&#39;mean&#39;</span>, <span style="color:#e6db74">&#39;std&#39;</span>, <span style="color:#e6db74">&#39;min&#39;</span>, <span style="color:#e6db74">&#39;max&#39;</span>]]
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>temp <span style="color:#f92672">=</span> auto<span style="color:#f92672">.</span>drop(auto<span style="color:#f92672">.</span>index[<span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">85</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>temp<span style="color:#f92672">.</span>describe()<span style="color:#f92672">.</span>loc[[<span style="color:#e6db74">&#39;mean&#39;</span>, <span style="color:#e6db74">&#39;std&#39;</span>, <span style="color:#e6db74">&#39;min&#39;</span>, <span style="color:#e6db74">&#39;max&#39;</span>]]
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -869,21 +869,21 @@ temp<span style="color:#f92672">.</span>describe()<span style="color:#f92672">.<
 </div>
 <p>(e) Using the full data set, investigate the predictors graphically, using scatterplots or other tools of your choice.</p>
 <p><b>Sol:</b> Two scatterplots of all the quantitative variables segregated by cylinders and origin is shown below. It is evident that vehicles with higher number of cylinders have higher displacement, weight and horsepower, while lower acceleration and mpg. The relationship of mpg with displacement, weight and horsepower is somewhat predictable. Similarly, the relationships of horsepower, weight and displacement with all the other variables follow a trend. Vehicles are somehow distinguishable by origin as well.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Scatter plot of quantitative variables</span>
-sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cylinders&#39;</span>)
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_49_2.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;origin&#39;</span>)
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_50_2.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Scatter plot of quantitative variables</span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;cylinders&#39;</span>)
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_49_2.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(auto, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;mpg&#39;</span>], hue<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;origin&#39;</span>)
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_50_2.png" alt="">
 <p>(f) Suppose that we wish to predict gas mileage (mpg) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting mpg? Justify your answer.</p>
 <p><b>Sol:</b> From the plot, it is evident that displacement, weight and horsepower can play a significant role in the prediction of mpg. As displacement is highly correlated with weight and horsepower, we can pick any one of them for the prediction. Origin and cylinders can also be used for prediction.</p>
 <p><b>Q10. This exercise involves the Boston housing data set.</b></p>
 <p>(a) How many rows are in this data set? How many columns? What do the rows and columns represent?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_boston
-
-boston <span style="color:#f92672">=</span> load_boston()
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;(Rows, Cols): &#34;</span> <span style="color:#f92672">+</span>str(boston<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>shape))
-<span style="color:#66d9ef">print</span>(boston<span style="color:#f92672">.</span>DESCR)
-</code></pre></div><pre><code>(Rows, Cols): (506, 13)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.datasets <span style="color:#f92672">import</span> load_boston
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>boston <span style="color:#f92672">=</span> load_boston()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;(Rows, Cols): &#34;</span> <span style="color:#f92672">+</span>str(boston<span style="color:#f92672">.</span>data<span style="color:#f92672">.</span>shape))
+</span></span><span style="display:flex;"><span>print(boston<span style="color:#f92672">.</span>DESCR)
+</span></span></code></pre></div><pre><code>(Rows, Cols): (506, 13)
 Boston House Prices dataset
 ===========================
 
@@ -940,46 +940,46 @@ problems.
 </code></pre>
 <p>(b) Make some pairwise scatterplots of the predictors (columns) in this data set. Describe your findings.</p>
 <p><b>Sol:</b> Pairwise scatterplot of <b>nitric oxides concentration</b> vs <b>weighted distances to five Boston employment centres</b> shows that as distance decreases, the concentration of nitrous oxide increases.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(boston<span style="color:#f92672">.</span>data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>, <span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>,
-                                               <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
-
-sns<span style="color:#f92672">.</span>pairplot(df_boston, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>])
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_55_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_boston <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(boston<span style="color:#f92672">.</span>data, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>, <span style="color:#e6db74">&#39;ZN&#39;</span>, <span style="color:#e6db74">&#39;INDUS&#39;</span>, <span style="color:#e6db74">&#39;CHAS&#39;</span>, <span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;RAD&#39;</span>, <span style="color:#e6db74">&#39;TAX&#39;</span>,
+</span></span><span style="display:flex;"><span>                                               <span style="color:#e6db74">&#39;PTRATIO&#39;</span>, <span style="color:#e6db74">&#39;B&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(df_boston, vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>])
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_55_1.png" alt="">
 <p>(c) Are any of the predictors associated with per capita crime rate? If so, explain the relationship.</p>
 <p><b>Sol:</b> As most of the area has crime rate less than 20%, we will analyze the scatterplot for those areas only.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>distplot(df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span>False, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Crime Rate&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Crime Rate Histogram&#39;</span>)
-</code></pre></div><pre><code>Text(0.5,1,'Crime Rate Histogram')
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>], bins<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, hist_kws<span style="color:#f92672">=</span>dict(edgecolor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>, linewidth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;Crime Rate&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Count&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Crime Rate Histogram&#39;</span>)
+</span></span></code></pre></div><pre><code>Text(0.5,1,'Crime Rate Histogram')
 </code></pre>
 <img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_57_1.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">temp <span style="color:#f92672">=</span> df_boston[df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">20</span>]
-sns<span style="color:#f92672">.</span>pairplot(temp, y_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>], x_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
-</code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_58_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>temp <span style="color:#f92672">=</span> df_boston[df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>] <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">20</span>]
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>pairplot(temp, y_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;CRIM&#39;</span>], x_vars<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;NOX&#39;</span>, <span style="color:#e6db74">&#39;RM&#39;</span>, <span style="color:#e6db74">&#39;AGE&#39;</span>, <span style="color:#e6db74">&#39;DIS&#39;</span>, <span style="color:#e6db74">&#39;LSTAT&#39;</span>])
+</span></span></code></pre></div><img class="pure-img" src="/img/Statistical%20Learning_files/Statistical%20Learning_58_1.png" alt="">
 <p>(d) Do any of the suburbs of Boston appear to have particularly high crime rates? Tax rates? Pupil-teacher ratios? Comment on the range of each predictor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count of suburbs with higher crime rate: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count of suburbs with higher tax rate: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;TAX&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">600</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count of suburbs with higher pupil-teacher ratio: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-</code></pre></div><pre><code>Count of suburbs with higher crime rate: 18
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Count of suburbs with higher crime rate: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;CRIM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Count of suburbs with higher tax rate: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;TAX&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">600</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Count of suburbs with higher pupil-teacher ratio: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span></code></pre></div><pre><code>Count of suburbs with higher crime rate: 18
 Count of suburbs with higher tax rate: 137
 Count of suburbs with higher pupil-teacher ratio: 201
 </code></pre>
 <p>(e) How many of the suburbs in this data set bound the Charles river?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Suburbs bound the Charles river: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;CHAS&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-</code></pre></div><pre><code>Suburbs bound the Charles river: 35
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Suburbs bound the Charles river: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;CHAS&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span></code></pre></div><pre><code>Suburbs bound the Charles river: 35
 </code></pre>
 <p>(f) What is the median pupil-teacher ratio among the towns in this data set?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Median pupil-teacher ratio is: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>]<span style="color:#f92672">.</span>median()))
-</code></pre></div><pre><code>Median pupil-teacher ratio is: 19.05
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Median pupil-teacher ratio is: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[<span style="color:#e6db74">&#39;PTRATIO&#39;</span>]<span style="color:#f92672">.</span>median()))
+</span></span></code></pre></div><pre><code>Median pupil-teacher ratio is: 19.05
 </code></pre>
 <p>(h) In this data set, how many of the suburbs average more than seven rooms per dwelling? More than eight rooms per dwelling?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Suburbs with average more than 7 rooms per dwelling: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;RM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">7</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Suburbs with average more than 7 rooms per dwelling: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;RM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">8</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
-</code></pre></div><pre><code>Suburbs with average more than 7 rooms per dwelling: 64
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Suburbs with average more than 7 rooms per dwelling: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;RM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">7</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Suburbs with average more than 7 rooms per dwelling: &#34;</span> <span style="color:#f92672">+</span> str(df_boston[df_boston[<span style="color:#e6db74">&#39;RM&#39;</span>] <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">8</span>]<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]))
+</span></span></code></pre></div><pre><code>Suburbs with average more than 7 rooms per dwelling: 64
 Suburbs with average more than 7 rooms per dwelling: 13
 </code></pre>
 

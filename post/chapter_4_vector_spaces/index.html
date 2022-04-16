@@ -242,7 +242,7 @@
 A vector space in two and three dimensions is $R^2$ and $R^3$.</p>
 <p>We can make some common observations about vector spaces. Let $u,v$ be two vectors, then their linear combination can be described as $w=au+bv$ where $a,b$ are scalars. If $a=b=0$, $w=au+bv=0$. This means that <b>for any vector space (which contains vectors $u,v$), the zero vector will always be in it</b>. This observation gives us a powerful tool to deduce whether a set is a vector space or not. If zero vector is not in the set, it&rsquo;s not a vector space.</p>
 <p>A vector space that is contained within another vector space is called a <b>subspace</b> of that space. A space defined in $R^2$ contianing just zero vector as $S=\bigg\{\begin{bmatrix}
-0 \\<br>
+0 \\
 0
 \end{bmatrix}\bigg\}$ is a <b>subspace</b> as any linear combination of zero vector is still a zero vector. Another example of subspace in $R^2$ is <b>a line passing through origin</b> as any multiple of the vector will also be on the line and hence fulfilling the criteria of a vector space. Any plane passing through origin is a subspace in $R^3$ as linear combination of the vectors in the plane will still reside in the plane.</p>
 <h2 id="42-union-and-intersection-of-vector-space">4.2 Union and Intersection of Vector Space</h2>
@@ -250,70 +250,70 @@ A vector space in two and three dimensions is $R^2$ and $R^3$.</p>
 <p>The <b>intersection of the subspaces denoted as $S_1 \cap S_2$ is a subspace</b>. Let there are two vectors $u,v$ such that both $u,v \in S_1 \cap S_2$. This means that $u,v \in S_1$ and $u,v \in S_2$. For $S_1 \cap S_2$ to be a <b>subsapce</b>, $au + bv \in S_1 \cap S_2$ where $a$ and $b$ are scalars. <b>As $u,v \in S_1$ and $S_1$ is a subspace, it&rsquo;s linear combination $au + bv \in S_1$</b>. Similarly, $au + bv \in S_2$ and hence $au + bv \in S_1 \cap S_2$.</p>
 <h2 id="43-column-space">4.3 Column Space</h2>
 <p>Given a matrix $A$, it&rsquo;s columns and all their linear combinations form a vector space called as the <b>column space</b> $C(A)$ of $A$. For example, for the matrix $A = \begin{bmatrix}
-1 &amp; 3 \\<br>
-2 &amp; 3 \\<br>
+1 &amp; 3 \\
+2 &amp; 3 \\
 4 &amp; 1
 \end{bmatrix}$ it&rsquo;s column space $C(A)$ is a plane passing through $\begin{bmatrix}
-0 \\<br>
-0 \\<br>
+0 \\
+0 \\
 0
 \end{bmatrix}$ (origin), $\begin{bmatrix}
-1 \\<br>
-2 \\<br>
+1 \\
+2 \\
 4
 \end{bmatrix}$, $\begin{bmatrix}
-3 \\<br>
-3 \\<br>
+3 \\
+3 \\
 1
 \end{bmatrix}$ in $R^3$.</p>
 <p>Let us look at another example. Following matrix $A$ is in $R^4$. The <b>column space $C(A)$</b> of $A$ is formed by <b>all linear combinations of columns of $A$</b>. Let there be a system of linear equations $Ax = b$ where $x,b$ are column vectors. <b>Does this system of linear equation will have a solution $x$ for all values of $b$?</b></p>
 <p>$$\begin{align}
 A = \begin{bmatrix}
-1 &amp; 1 &amp; 2 \\<br>
-2 &amp; 1 &amp; 3 \\<br>
-3 &amp; 1 &amp; 4 \\<br>
+1 &amp; 1 &amp; 2 \\
+2 &amp; 1 &amp; 3 \\
+3 &amp; 1 &amp; 4 \\
 4 &amp; 1 &amp; 5
 \end{bmatrix},
 x = \begin{bmatrix}
-x_1 \\<br>
-x_2 \\<br>
+x_1 \\
+x_2 \\
 x_3
 \end{bmatrix},
 b = \begin{bmatrix}
-b_1 \\<br>
-b_2 \\<br>
-b_3 \\<br>
+b_1 \\
+b_2 \\
+b_3 \\
 b_4
 \end{bmatrix}
 \end{align}$$</p>
 <p>The system of linear equation $Ax = b$ can be further reduced to:</p>
 <p>$$\begin{align}
 Ax =b \implies\begin{bmatrix}
-1 &amp; 1 &amp; 2 \\<br>
-2 &amp; 1 &amp; 3 \\<br>
-3 &amp; 1 &amp; 4 \\<br>
+1 &amp; 1 &amp; 2 \\
+2 &amp; 1 &amp; 3 \\
+3 &amp; 1 &amp; 4 \\
 4 &amp; 1 &amp; 5
 \end{bmatrix} \begin{bmatrix}
-x_1 \\<br>
-x_2 \\<br>
+x_1 \\
+x_2 \\
 x_3
 \end{bmatrix} = b
 \implies x_1\begin{bmatrix}
-1 \\<br>
-2 \\<br>
-3 \\<br>
+1 \\
+2 \\
+3 \\
 4
 \end{bmatrix} +
 x_2\begin{bmatrix}
-1 \\<br>
-1 \\<br>
-1 \\<br>
+1 \\
+1 \\
+1 \\
 1
 \end{bmatrix} +
 x_3\begin{bmatrix}
-2 \\<br>
-3 \\<br>
-4 \\<br>
+2 \\
+3 \\
+4 \\
 5
 \end{bmatrix} = b
 \end{align}$$</p>
@@ -323,46 +323,46 @@ x_3\begin{bmatrix}
 <p><b>Null space of marix $A$ contains all solutions of $Ax=0$</b>, i.e null space is the solution of following equation for above $A$. Here the null space will be in $R^3$ as $x$ is a three dimensional vector.</p>
 <p>$$\begin{align}
 Ax=0 \implies \begin{bmatrix}
-1 &amp; 1 &amp; 2 \\<br>
-2 &amp; 1 &amp; 3 \\<br>
-3 &amp; 1 &amp; 4 \\<br>
+1 &amp; 1 &amp; 2 \\
+2 &amp; 1 &amp; 3 \\
+3 &amp; 1 &amp; 4 \\
 4 &amp; 1 &amp; 5
 \end{bmatrix} \begin{bmatrix}
-x_1 \\<br>
-x_2 \\<br>
+x_1 \\
+x_2 \\
 x_3
 \end{bmatrix} =
 \begin{bmatrix}
-0 \\<br>
-0 \\<br>
-0 \\<br>
+0 \\
+0 \\
+0 \\
 0
 \end{bmatrix}
 \end{align}$$</p>
 <p>Some the vectors which will be in the null space of $A$ are: $\begin{bmatrix}
-0 \\<br>
-0 \\<br>
+0 \\
+0 \\
 0
 \end{bmatrix},
 \begin{bmatrix}
-1 \\<br>
-1 \\<br>
+1 \\
+1 \\
 -1
 \end{bmatrix},
 \begin{bmatrix}
-2 \\<br>
-2 \\<br>
+2 \\
+2 \\
 -2
 \end{bmatrix},&hellip;$ In general, all vectors of the form $\begin{bmatrix}
-c \\<br>
-c \\<br>
+c \\
+c \\
 -c
 \end{bmatrix}$ forms the <b>null space of $A$</b>.</p>
 <p>For these set of vectors to be a subspace, for two solutions $u,v$ of $Ax=0$, their linear combination $au+bv$ should also be a solution of $Ax=0$. As $u, v$ are solutions of $Ax=0$, $Au=0;Av=0$. This means:</p>
 <p>$$\begin{align}
 aAu=0;bAv=0 \implies Aau=0; Abv=0 \implies Aau+Abv=0 \implies A(au+bv)=0
 \end{align}$$</p>
-<p>Hence, $au+bv$ is also a solution of $Ax=0$ which makes nullspace a vector space. One of the major intution about null space is the fact that <b>for any matrix $A$, null space will contains non-zero vectors only if all of it&rsquo;s columns are not lineraly independent</b>, i.e. at least one of the columns of $A$ should be the linear combination of all the other columns.</p>
+<p>Hence, $au+bv$ is also a solution of $Ax=0$ which makes nullspace a vector space. One of the major intution about null space is the fact that <b>for any matrix $A$, null space will contain non-zero vectors only if all of it&rsquo;s columns are not lineraly independent</b>, i.e. at least one of the columns of $A$ should be the linear combination of all the other columns.</p>
 <p>Another important question which can be asked that whether for any non-zero $b$, whether the solutions of the equation $Ax=b$ forms a subspace. <b>No, they don&rsquo;t</b>. As for non-zero $b$, the zero vector is not a solution and hence the set of solutions don&rsquo;t form a subspace as every subspace should contain the zero vector.</p>
 
 

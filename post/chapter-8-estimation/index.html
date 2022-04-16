@@ -231,23 +231,23 @@
 <p><b>Exercise 8.1:</b> Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1. Use the sample mean to estimate m and compute the error $\bar{x} - \mu$. Run the function 1000 times and compute MSE.</p>
 <p>Now modify the program to use the median as an estimator. Compute MSE again and compare to the MSE for $\bar{x}$.</p>
 <p><b>Solution:</b> MSE for mean as the estimator is less.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-MSE_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-MSE_median <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, count):
-    rvs <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>)
-    sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
-    sample_median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(rvs)
-    MSE_mean <span style="color:#f92672">+=</span> (sample_mean<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
-    MSE_median <span style="color:#f92672">+=</span> (sample_median<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE when maen is the estimator is: &#34;</span> <span style="color:#f92672">+</span>str(MSE_mean<span style="color:#f92672">/</span>count))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;MSE when madian is the estimator is: &#34;</span> <span style="color:#f92672">+</span>str(MSE_median<span style="color:#f92672">/</span>count))
-</code></pre></div><pre><code>MSE when maen is the estimator is: 0.16503949703743645
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>MSE_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>MSE_median <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, count):
+</span></span><span style="display:flex;"><span>    rvs <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span><span style="color:#ae81ff">6</span>)
+</span></span><span style="display:flex;"><span>    sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    sample_median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(rvs)
+</span></span><span style="display:flex;"><span>    MSE_mean <span style="color:#f92672">+=</span> (sample_mean<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    MSE_median <span style="color:#f92672">+=</span> (sample_median<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE when maen is the estimator is: &#34;</span> <span style="color:#f92672">+</span>str(MSE_mean<span style="color:#f92672">/</span>count))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;MSE when madian is the estimator is: &#34;</span> <span style="color:#f92672">+</span>str(MSE_median<span style="color:#f92672">/</span>count))
+</span></span></code></pre></div><pre><code>MSE when maen is the estimator is: 0.16503949703743645
 MSE when madian is the estimator is: 0.20949112657014224
 </code></pre>
 <h3 id="82-guess-the-variance">8.2 Guess the variance</h3>
@@ -257,25 +257,25 @@ MSE when madian is the estimator is: 0.20949112657014224
 <p>$$S^{2} = \frac{1}{n-1}\sum(x_{i} - \bar{x})^{2}$$</p>
 <p><b>Exercise 8.2:</b> Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1. Use the sample variance to estimate s2 and compute the error $S^{2} - \sigma^{2}$. Run the function 1000 times and compute mean error (not squared).</p>
 <p>Now modify the program to use the unbiased estimator $S^{2}_{n-1}$. Compute the mean error again and see if it converges to zero as you increase the number of games.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-mean_error_S <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-mean_error_S_n1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-sample_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
-    rvs <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span>sample_size)
-    sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
-    sample_variance <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum(np<span style="color:#f92672">.</span>square(rvs <span style="color:#f92672">-</span> sample_mean))
-    mean_error_S <span style="color:#f92672">+=</span> abs((sample_variance) <span style="color:#f92672">/</span> (sample_size) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)
-    mean_error_S_n1 <span style="color:#f92672">+=</span> abs((sample_variance) <span style="color:#f92672">/</span> (sample_size<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean error for biased estimator of variance: &#34;</span> <span style="color:#f92672">+</span>str(mean_error_S<span style="color:#f92672">/</span>count))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean error for unbiased estimator of variance: &#34;</span> <span style="color:#f92672">+</span>str(mean_error_S_n1<span style="color:#f92672">/</span>count))
-</code></pre></div><pre><code>Mean error for biased estimator of variance: 0.034980760578752344
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>norm <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>mean_error_S <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>mean_error_S_n1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>sample_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
+</span></span><span style="display:flex;"><span>    rvs <span style="color:#f92672">=</span> norm<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span>sample_size)
+</span></span><span style="display:flex;"><span>    sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    sample_variance <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum(np<span style="color:#f92672">.</span>square(rvs <span style="color:#f92672">-</span> sample_mean))
+</span></span><span style="display:flex;"><span>    mean_error_S <span style="color:#f92672">+=</span> abs((sample_variance) <span style="color:#f92672">/</span> (sample_size) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>    mean_error_S_n1 <span style="color:#f92672">+=</span> abs((sample_variance) <span style="color:#f92672">/</span> (sample_size<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Mean error for biased estimator of variance: &#34;</span> <span style="color:#f92672">+</span>str(mean_error_S<span style="color:#f92672">/</span>count))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Mean error for unbiased estimator of variance: &#34;</span> <span style="color:#f92672">+</span>str(mean_error_S_n1<span style="color:#f92672">/</span>count))
+</span></span></code></pre></div><pre><code>Mean error for biased estimator of variance: 0.034980760578752344
 Mean error for unbiased estimator of variance: 0.034968783350441
 </code></pre>
 <h3 id="84-exponential-distributions">8.4 Exponential distributions</h3>
@@ -284,41 +284,41 @@ Mean error for unbiased estimator of variance: 0.034968783350441
 <p>and hence the estimator based on median is:</p>
 <p>$$\bar{\lambda} = \frac{ln(2)}{\mu_{\frac{1}{2}}}$$</p>
 <p><b>Exercise 8.3:</b> Run an experiment to see which of mean and median estimator yields lower MSE. Test whether either of them is biased.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">import</span> math
-<span style="color:#f92672">import</span> matplotlib.pylab <span style="color:#f92672">as</span> plt
-
-expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># lambda = 1</span>
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-samples <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>]
-error_mean <span style="color:#f92672">=</span> {}
-error_median <span style="color:#f92672">=</span> {}
-
-<span style="color:#66d9ef">for</span> sample_size <span style="color:#f92672">in</span> (samples):
-    e_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    e_median <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, count):
-        rvs <span style="color:#f92672">=</span> expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span>sample_size)
-        sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
-        sampel_median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(rvs)
-        lamba_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sample_mean
-        lambda_median <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>log(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">/</span>sample_median
-        e_mean <span style="color:#f92672">+=</span> (lamba_mean <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-        e_median <span style="color:#f92672">+=</span> (lambda_median <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-    error_mean[sample_size] <span style="color:#f92672">=</span> e_mean <span style="color:#f92672">/</span> count
-    error_median[sample_size] <span style="color:#f92672">=</span> e_median <span style="color:#f92672">/</span> count
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
-l1 <span style="color:#f92672">=</span> sorted(error_mean<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>l1) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>, marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;o&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MSE (mean)&#34;</span>)
-plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Number of Samples&#34;</span>)
-plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;MSE&#34;</span>)
-plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;best&#34;</span>)
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Chapter%208%20-%20Estimation_files/Chapter%208%20-%20Estimation_9_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> expon
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pylab <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>expon <span style="color:#f92672">=</span> expon(loc<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>) <span style="color:#75715e"># lambda = 1</span>
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>samples <span style="color:#f92672">=</span> [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">50</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>]
+</span></span><span style="display:flex;"><span>error_mean <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>error_median <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> sample_size <span style="color:#f92672">in</span> (samples):
+</span></span><span style="display:flex;"><span>    e_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    e_median <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, count):
+</span></span><span style="display:flex;"><span>        rvs <span style="color:#f92672">=</span> expon<span style="color:#f92672">.</span>rvs(size<span style="color:#f92672">=</span>sample_size)
+</span></span><span style="display:flex;"><span>        sample_mean <span style="color:#f92672">=</span> rvs<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>        sampel_median <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>median(rvs)
+</span></span><span style="display:flex;"><span>        lamba_mean <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>sample_mean
+</span></span><span style="display:flex;"><span>        lambda_median <span style="color:#f92672">=</span> math<span style="color:#f92672">.</span>log(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">/</span>sample_median
+</span></span><span style="display:flex;"><span>        e_mean <span style="color:#f92672">+=</span> (lamba_mean <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        e_median <span style="color:#f92672">+=</span> (lambda_median <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.0</span>)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    error_mean[sample_size] <span style="color:#f92672">=</span> e_mean <span style="color:#f92672">/</span> count
+</span></span><span style="display:flex;"><span>    error_median[sample_size] <span style="color:#f92672">=</span> e_median <span style="color:#f92672">/</span> count
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>l1 <span style="color:#f92672">=</span> sorted(error_mean<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>l1) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;r&#34;</span>, marker<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;o&#34;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;MSE (mean)&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#34;Number of Samples&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#34;MSE&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;best&#34;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Chapter%208%20-%20Estimation_files/Chapter%208%20-%20Estimation_9_0.png" alt="">
 <h3 id="85-confidence-intervals">8.5 Confidence intervals</h3>
 <p>So far we have been doing <b>point estimates</b>. <b>Confidenc Intervals</b> is a range in which there is certain percent of chance of the value estimated to lie in. In general, confidence intervals are hard to compute analytically but relatively easy to estimate using simulation.</p>
 <h3 id="86-bayesian-estimation">8.6 Bayesian estimation</h3>
@@ -329,17 +329,17 @@ plt<span style="color:#f92672">.</span>show()
 <p><b>Exercise 8.5:</b> In the 2008 Minnesota Senate race the final vote count was 1,212,629 votes for Al Franken and 1,212,317 votes for Norm Coleman. Franken was declared the winner, but as Charles Seife points out in Proofiness, the margin of victory was much smaller than the margin of error, so the result should have been considered a tie.</p>
 <p>Assuming that there is a chance that any vote might be lost and a chance that any vote might be double-counted, what is the probability that Coleman actually received more votes?</p>
 <p><b>Solution:</b> We choose to model the votes as Poisson distributions.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> poisson
-
-franken_dist <span style="color:#f92672">=</span> poisson<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">1212629</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-coleman_dist <span style="color:#f92672">=</span> poisson<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">1212317</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1000</span>):
-    <span style="color:#66d9ef">if</span> franken_dist[i] <span style="color:#f92672">&lt;</span> coleman_dist[i]:
-        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Probability of Coleman getting more votes is: &#34;</span> <span style="color:#f92672">+</span> str(count<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>))
-</code></pre></div><pre><code>Probability of Coleman getting more votes is: 0.405
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> poisson
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>franken_dist <span style="color:#f92672">=</span> poisson<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">1212629</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>coleman_dist <span style="color:#f92672">=</span> poisson<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">1212317</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> franken_dist[i] <span style="color:#f92672">&lt;</span> coleman_dist[i]:
+</span></span><span style="display:flex;"><span>        count <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Probability of Coleman getting more votes is: &#34;</span> <span style="color:#f92672">+</span> str(count<span style="color:#f92672">/</span><span style="color:#ae81ff">1000</span>))
+</span></span></code></pre></div><pre><code>Probability of Coleman getting more votes is: 0.405
 </code></pre>
 <h3 id="89-the-locomotive-problem">8.9 The locomotive problem</h3>
 <p>The locomotive problem is a classic problem in probability. The statement is:</p>

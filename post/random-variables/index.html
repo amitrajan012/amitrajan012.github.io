@@ -240,34 +240,34 @@
 </br>
 #### Probability Mass Function (PMF) :
 <p><b>Probability mass function</b> of a discrete random variable $X$ is the function that gives the probability that a discrete random variable is exactly equal to some value. It is denoted as $p(x) = P(X=x)$. It is also sometimes called as <b>probability distribution</b>. The values in the third column (named as probability) in the above table gives the <b>PMF</b> for the above menntioned experiment. Let us plot the PMF for the sum obtained when two fair dice is rolled. It is shown in the left plot of the below figure. The value of the RV having the <b>highest probability mass</b> is called the <b>mode</b> (7 in this case).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>]
-pmf <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>]
-cdf <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">15</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">21</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">26</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">30</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">33</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">35</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">36</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
-
-<span style="color:#75715e"># Plot of PMF</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
-plt<span style="color:#f92672">.</span>stem(X, pmf, linefmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b--&#39;</span>, markerfmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ro&#39;</span>, basefmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r--&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;P(X=x)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF Plot&#39;</span>)
-plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(min(X), max(X)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1.0</span>))
-
-<span style="color:#75715e"># Plot of CDF</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
-plt<span style="color:#f92672">.</span>step(X, cdf, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;dashed&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;P(X&lt;=x)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
-plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(min(X), max(X)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1.0</span>))
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/RV/Random%20Variables_4_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">12</span>]
+</span></span><span style="display:flex;"><span>pmf <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>]
+</span></span><span style="display:flex;"><span>cdf <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">15</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">21</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">26</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">30</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">33</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">35</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">36</span><span style="color:#f92672">/</span><span style="color:#ae81ff">36</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PMF</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">121</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>stem(X, pmf, linefmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b--&#39;</span>, markerfmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ro&#39;</span>, basefmt<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r--&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;P(X=x)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;PMF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(min(X), max(X)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1.0</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of CDF</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">122</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>step(X, cdf, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, linestyle<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;dashed&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;P(X&lt;=x)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;CDF Plot&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xticks(np<span style="color:#f92672">.</span>arange(min(X), max(X)<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1.0</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/RV/Random%20Variables_4_0.png" alt="">
 </br>
 #### Cumulative Distribution Function (Discrete RV) :
 <p><b>Cumulative distribution function</b> specifies the probability that a random variable is less than or equal to a given value. It can be defined as $F(x) = P(X \leq x)$. Mathematically, it can be given as:</p>
@@ -280,19 +280,19 @@ plt<span style="color:#f92672">.</span>show()
 <p>where the sum is over all possible values of $X$. The <b>variance</b> of a discrete random variable $X$ is the weighted average of the squared differences $(x - \mu_X)^2$, where $x$ ranges through all the possible values of RV $X$. It is given as:</p>
 <p>$$\sigma_X^2 = \sum _{x} (x - \mu_X)^2 P(X=x)$$</p>
 <p>The <b>standard deviation</b> is the square root of the variance. The code for finding the mean, variance and standard deviation for the mentioned experiment is shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> math
-
-np_X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(X)
-np_pmf <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(pmf)
-mean <span style="color:#f92672">=</span> int(round(np<span style="color:#f92672">.</span>sum(np_X<span style="color:#f92672">*</span>np_pmf)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Mean of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(mean))
-
-(np_X <span style="color:#f92672">-</span> mean)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-variance <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum(((np_X <span style="color:#f92672">-</span> mean)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">*</span>np_pmf)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Variance of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(variance))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Standard Deviation of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(math<span style="color:#f92672">.</span>sqrt(variance)))
-</code></pre></div><pre><code>Mean of the RV X is: 7
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> math
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np_X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(X)
+</span></span><span style="display:flex;"><span>np_pmf <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(pmf)
+</span></span><span style="display:flex;"><span>mean <span style="color:#f92672">=</span> int(round(np<span style="color:#f92672">.</span>sum(np_X<span style="color:#f92672">*</span>np_pmf)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Mean of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(mean))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(np_X <span style="color:#f92672">-</span> mean)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>variance <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>sum(((np_X <span style="color:#f92672">-</span> mean)<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>)<span style="color:#f92672">*</span>np_pmf)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Variance of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(variance))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Standard Deviation of the RV X is: &#34;</span> <span style="color:#f92672">+</span> str(math<span style="color:#f92672">.</span>sqrt(variance)))
+</span></span></code></pre></div><pre><code>Mean of the RV X is: 7
 Variance of the RV X is: 5.833333333333334
 Standard Deviation of the RV X is: 2.41522945769824
 </code></pre>

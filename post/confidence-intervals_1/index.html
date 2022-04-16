@@ -232,39 +232,39 @@ A <b>confidence interval</b> is a type of interval estimate, computed from the s
 <p><b>Sol:</b> First of all, $1 - \alpha = 85%$, and hence $\frac{\alpha}{2} = .075$. From the <b>z-table</b>, the <b>z-value</b> corresponding to $0.075$ is 1.44. Hence, the confidence interval is</p>
 <p>$$12.05 \pm 1.44 (\frac{0.1}{\sqrt{100}}) = 12.05 \pm 0.0144 = (12.0356, 12.0644)$$</p>
 <p>Let us design an experiment to understand the meaning of confidence interval in deep. A random data set is generated (treated as population) and 100 random samples of size 1000 are drawn from it and 68%, 95.6% and 99.7% confidence interval for the population mean is computed. The experimental results are well in accordance with the theoretical values.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> random
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100000</span>), <span style="color:#ae81ff">10000</span>))<span style="color:#f92672">/</span><span style="color:#ae81ff">100000</span>
-population_mean <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>mean()
-
-<span style="color:#75715e"># Generate 100 random samples</span>
-count_68 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-count_96 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-count_99 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>):
-    S <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(X, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, replace<span style="color:#f92672">=</span>True)
-    <span style="color:#75715e"># Compute 68% confidene interval</span>
-    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
-        count_68 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#75715e"># Compute 95% confidene interval</span>
-    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
-        count_96 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#75715e"># Compute 99.7% confidene interval</span>
-    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
-    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
-        count_99 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 68</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_68<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 95.6</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_96<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;The percentage of time the 99.7</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_99<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
-</code></pre></div><pre><code>The percentage of time the 68% confidence interval covers the population mean is: 68.0%
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(random<span style="color:#f92672">.</span>sample(range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100000</span>), <span style="color:#ae81ff">10000</span>))<span style="color:#f92672">/</span><span style="color:#ae81ff">100000</span>
+</span></span><span style="display:flex;"><span>population_mean <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Generate 100 random samples</span>
+</span></span><span style="display:flex;"><span>count_68 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>count_96 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>count_99 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>):
+</span></span><span style="display:flex;"><span>    S <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(X, size<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, replace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Compute 68% confidene interval</span>
+</span></span><span style="display:flex;"><span>    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+</span></span><span style="display:flex;"><span>        count_68 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Compute 95% confidene interval</span>
+</span></span><span style="display:flex;"><span>    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.96</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+</span></span><span style="display:flex;"><span>        count_96 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Compute 99.7% confidene interval</span>
+</span></span><span style="display:flex;"><span>    lower <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    upper <span style="color:#f92672">=</span> S<span style="color:#f92672">.</span>mean() <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>  S<span style="color:#f92672">.</span>std()<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (lower <span style="color:#f92672">&lt;=</span> population_mean <span style="color:#f92672">and</span> population_mean <span style="color:#f92672">&lt;=</span> upper):
+</span></span><span style="display:flex;"><span>        count_99 <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The percentage of time the 68</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_68<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The percentage of time the 95.6</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_96<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The percentage of time the 99.7</span><span style="color:#e6db74">% c</span><span style="color:#e6db74">onfidence interval covers the population mean is: &#34;</span> <span style="color:#f92672">+</span>str(count_99<span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;%&#34;</span>)
+</span></span></code></pre></div><pre><code>The percentage of time the 68% confidence interval covers the population mean is: 68.0%
 The percentage of time the 95.6% confidence interval covers the population mean is: 95.1%
 The percentage of time the 99.7% confidence interval covers the population mean is: 99.7%
 </code></pre>
@@ -282,40 +282,40 @@ population</b>. If this condition is violated, the above explained method does n
 </br>
 #### Confidence Intervals for a Population Mean (Small-Sample) :
 <p>For a small sample size, there is no generic method to find the confidence interval for the population mean. However, when the population is <b>approximately normal</b>, a probability distribution called as the <b>Student&rsquo;s t distribution</b> can be used to compute confidence intervals for the population mean. The plot of <b>probability density functions</b> for various Student&rsquo;s t distribution is shown below. The shape of the PDF of Student&rsquo;s t distribution is same as that of the normal distribution but the spread is more. For a sample size of $n$, the degree of freedom of Student&rsquo;s t distribution is $n-1$. As the degree of freedom (or the sample size) increases, the shape of Student&rsquo;s t distribution approximates normal distribution. The plot of Student&rsquo;s t distribution with $df=30$ will be almost indistinguishable from the normal PDF plot.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> t
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
-<span style="color:#75715e"># Plot of PDF of normal distribution</span>
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
-ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal distribution&#39;</span>)
-
-<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
-df <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
-ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 1&#39;</span>)
-
-<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
-df <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
-ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 4&#39;</span>)
-
-<span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
-df <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
-x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
-ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;y-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 10&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
-ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;PDF Plot (Normal and Student&#39;s t distribution)&#34;</span>)
-ax<span style="color:#f92672">.</span>legend()
-ax<span style="color:#f92672">.</span>grid()
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Confidence%20Intervals_files/Confidence%20Intervals_6_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> t
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PDF of normal distribution</span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>), norm<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>), <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, norm<span style="color:#f92672">.</span>pdf(x, scale<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>), <span style="color:#e6db74">&#39;r-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Normal distribution&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;b-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;g-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 4&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Plot of PDF of Student&#39;s t distribution</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.01</span>, df), t<span style="color:#f92672">.</span>ppf(<span style="color:#ae81ff">0.99</span>, df), <span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot(x, t<span style="color:#f92672">.</span>pdf(x, df), <span style="color:#e6db74">&#39;y-&#39;</span>, lw<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, alpha<span style="color:#f92672">=</span><span style="color:#ae81ff">0.6</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;t DF = 10&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;PDF&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlim(<span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;PDF Plot (Normal and Student&#39;s t distribution)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Confidence%20Intervals_files/Confidence%20Intervals_6_0.png" alt="">
 <p>Let $X_1, X_2, &hellip;, X_n$ be a small sample ($n &lt; 30$) from a normal population with mean $\mu$. The quantity</p>
 <p>$$\frac{\overline{X} - \mu}{s/\sqrt{n}}$$</p>
 <p>will have a Student&rsquo;s t distribution with $n-1$ degree of freedoms, denoted as $t_{n-1}$. For large value of $n$, the distribution of above quantity is close to normal and hence the normal curve can be used. Hence, a $100(1-\alpha)%$ confidence interval for $\mu$ can be given as:</p>

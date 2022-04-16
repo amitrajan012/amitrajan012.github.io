@@ -242,80 +242,80 @@ The process of <b>Hypothesis Testing</b> can be summarized by following three st
 <h3 id="71-testing-a-difference-in-means">7.1 Testing a difference in means</h3>
 <p><b>Null Hypothesis $H_0:$</b> The distributions (means) for the two groups are the same (apparent difference is due to the chance)</p>
 <p>For pregnancy length, we observed n = 4413 first babies and m = 4735 others, and the difference in mean was d = 0.078 weeks. To approximate the p-value of this effect, the distribution is pooled, and samples with sizes n and m are generated and the difference in mean is computed. Difference in means of 1000 sampled pairs is computed and the CDF of distribution is shown in the figure below. There are 125 pairs for which difference in mean is greater than d, which is 0.078 and hence the p-value is 125/1000 = 0.125. So We can&rsquo;t reject the null hypothesis and can conclude that the apparent effect is not very likely.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
-<span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#f92672">as</span> plt
-<span style="color:#f92672">import</span> seaborn <span style="color:#f92672">as</span> sns
-
-pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
-                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
-                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
-                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
-                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
-                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
-babies <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]
-mean <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>mean()
-std <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>std()
-delta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.078</span>
-
-<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_diff</span>(model1, model2, replace<span style="color:#f92672">=</span>True):
-    sample1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model1, size<span style="color:#f92672">=</span>model1<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
-    sample2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model2, size<span style="color:#f92672">=</span>model2<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
-    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>mean(sample1) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>mean(sample2)
-
-distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
-sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4413</span>) <span style="color:#75715e"># As number of first babies is 4413</span>
-sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4735</span>) <span style="color:#75715e"># Number of others 4735</span>
-
-diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count for which differnce is greater than 0.078 (mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
-      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
-             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>Count for which differnce is greater than 0.078 (mean difference between first and other babies : 52
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> norm
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> seaborn <span style="color:#66d9ef">as</span> sns
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pregnancies <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_fwf(<span style="color:#e6db74">&#34;2002FemPreg.dat&#34;</span>,
+</span></span><span style="display:flex;"><span>                         names<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;caseid&#34;</span>, <span style="color:#e6db74">&#34;nbrnaliv&#34;</span>, <span style="color:#e6db74">&#34;babysex&#34;</span>, <span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>,
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>, <span style="color:#e6db74">&#34;prglength&#34;</span>, <span style="color:#e6db74">&#34;outcome&#34;</span>, <span style="color:#e6db74">&#34;birthord&#34;</span>,
+</span></span><span style="display:flex;"><span>                               <span style="color:#e6db74">&#34;agepreg&#34;</span>, <span style="color:#e6db74">&#34;finalwgt&#34;</span>],
+</span></span><span style="display:flex;"><span>                         colspecs<span style="color:#f92672">=</span>[(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>), (<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">22</span>), (<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">56</span>), (<span style="color:#ae81ff">57</span>, <span style="color:#ae81ff">58</span>), (<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">60</span>),
+</span></span><span style="display:flex;"><span>                                (<span style="color:#ae81ff">274</span>, <span style="color:#ae81ff">276</span>), (<span style="color:#ae81ff">276</span>, <span style="color:#ae81ff">277</span>), (<span style="color:#ae81ff">278</span>, <span style="color:#ae81ff">279</span>), (<span style="color:#ae81ff">283</span>, <span style="color:#ae81ff">285</span>), (<span style="color:#ae81ff">422</span>, <span style="color:#ae81ff">439</span>)])
+</span></span><span style="display:flex;"><span>babies <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#39;outcome&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#39;prglength&#39;</span>]
+</span></span><span style="display:flex;"><span>mean <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>std <span style="color:#f92672">=</span> babies<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>delta <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.078</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_diff</span>(model1, model2, replace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>):
+</span></span><span style="display:flex;"><span>    sample1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model1, size<span style="color:#f92672">=</span>model1<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
+</span></span><span style="display:flex;"><span>    sample2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(model2, size<span style="color:#f92672">=</span>model2<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], replace<span style="color:#f92672">=</span>replace)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> np<span style="color:#f92672">.</span>mean(sample1) <span style="color:#f92672">-</span> np<span style="color:#f92672">.</span>mean(sample2)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>mean, scale<span style="color:#f92672">=</span>std)
+</span></span><span style="display:flex;"><span>sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4413</span>) <span style="color:#75715e"># As number of first babies is 4413</span>
+</span></span><span style="display:flex;"><span>sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(<span style="color:#ae81ff">4735</span>) <span style="color:#75715e"># Number of others 4735</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Count for which differnce is greater than 0.078 (mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, norm_hist<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: <span style="color:#66d9ef">True</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>Count for which differnce is greater than 0.078 (mean difference between first and other babies : 52
 </code></pre>
 <img class="pure-img" src="/img/Chapter%207%20-%20Hypothesis%20testing_files/Chapter%207%20-%20Hypothesis%20testing_4_1.png" alt="">
 <p><b>Exercise 7.1:</b> In the NSFG dataset, the difference in mean weight for first births is 2.0 ounces. Compute the p-value of this difference. For this kind of resampling it is important to sample with replacement.</p>
 <p>As the samples for which difference is greater is 11 which gives a p-value of 0.011 and hence we can reject the null hypothesis and claim that there is a significant difference in mean weight for the first babies and others.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
-live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
-pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-
-delta <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> first<span style="color:#f92672">.</span>mean()
-<span style="color:#66d9ef">print</span>(delta)
-
-pooled_mean <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(pooled)
-pooled_std <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>std(pooled)
-
-distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)
-sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-
-diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Count for which differnce is greater than the mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
-      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span>False, norm_hist<span style="color:#f92672">=</span>True,
-             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: True})
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
-ax<span style="color:#f92672">.</span>legend()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><pre><code>1.842283542317972
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+</span></span><span style="display:flex;"><span>pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>delta <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> first<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>print(delta)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pooled_mean <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mean(pooled)
+</span></span><span style="display:flex;"><span>pooled_std <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>std(pooled)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>distribution <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)
+</span></span><span style="display:flex;"><span>sample_first <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>sample_other <span style="color:#f92672">=</span> distribution<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Count for which differnce is greater than the mean difference between first and other babies : &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>      str((diffs <span style="color:#f92672">&gt;</span> delta)<span style="color:#f92672">.</span>sum()))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>sns<span style="color:#f92672">.</span>distplot(diffs, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;CDF of differences in mean&#34;</span>, bins<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, kde<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, norm_hist<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>             hist_kws<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#34;alpha&#34;</span>: <span style="color:#ae81ff">0.5</span>, <span style="color:#e6db74">&#39;cumulative&#39;</span>: <span style="color:#66d9ef">True</span>})
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;difference in means(weeks)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;CDF(x)&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Resampled Differences&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><pre><code>1.842283542317972
 Count for which differnce is greater than the mean difference between first and other babies : 8
 </code></pre>
 <img class="pure-img" src="/img/Chapter%207%20-%20Hypothesis%20testing_files/Chapter%207%20-%20Hypothesis%20testing_6_2.png" alt="">
@@ -329,21 +329,21 @@ Count for which differnce is greater than the mean difference between first and 
 <p><b>Exercise 7.2:</b> To investigate the effect of sample size on p-value, see what happens if you discard half of the data from the NSFG. What if you discard three-quarters of the data, and so on? What is the smallest sample size where the difference in mean birth weight is still significant with $\alpha$ = 5%? How much larger does the sample size have
 to be with $\alpha$ = 1%?</p>
 <p>Results should enforce the claim that for lowe value of $\alpha$, the sample size should be higher.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">fracs <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.33</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.005</span>]
-live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
-live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
-pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-
-<span style="color:#66d9ef">for</span> frac <span style="color:#f92672">in</span> fracs:
-    pool_sample <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(pooled, int(pooled<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span>frac))
-    pool_mean <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>mean()
-    pool_std <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>std()
-    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
-    p_value <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.842283542317972</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Sample Size = &#34;</span> <span style="color:#f92672">+</span> str(pool_sample<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : p-value = &#34;</span> <span style="color:#f92672">+</span> str(p_value))
-</code></pre></div><pre><code>Sample Size = 9087 : p-value = 0.006
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>fracs <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1.0</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.25</span>, <span style="color:#ae81ff">0.33</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.005</span>]
+</span></span><span style="display:flex;"><span>live_births <span style="color:#f92672">=</span> pregnancies[pregnancies[<span style="color:#e6db74">&#34;outcome&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+</span></span><span style="display:flex;"><span>pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> frac <span style="color:#f92672">in</span> fracs:
+</span></span><span style="display:flex;"><span>    pool_sample <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>choice(pooled, int(pooled<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">*</span>frac))
+</span></span><span style="display:flex;"><span>    pool_mean <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    pool_std <span style="color:#f92672">=</span> pool_sample<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>pooled_mean, scale<span style="color:#f92672">=</span>pooled_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+</span></span><span style="display:flex;"><span>    p_value <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.842283542317972</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Sample Size = &#34;</span> <span style="color:#f92672">+</span> str(pool_sample<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; : p-value = &#34;</span> <span style="color:#f92672">+</span> str(p_value))
+</span></span></code></pre></div><pre><code>Sample Size = 9087 : p-value = 0.006
 Sample Size = 4543 : p-value = 0.007
 Sample Size = 2271 : p-value = 0.009
 Sample Size = 2998 : p-value = 0.013
@@ -366,70 +366,70 @@ Sample Size = 45 : p-value = 0.009
 <p>$$P(E) = P(E|H_A)P(H_A) + P(E|H_0)P(H_0)$$</p>
 <p><b>Exercise 7.3:</b> Using the data from the NSFG, what is the posterior probability that the distribution of birth weights is different for first babies and others?</p>
 <p>The posterior probability is 0.67</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
-pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-
-first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
-other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
-first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
-other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
-
-<span style="color:#75715e"># Assumption: H_A is true, i.e. both the distrinutions are different = 1.8423</span>
-<span style="color:#75715e"># We have to compute P(H_A|E) and for this we need P(E|H_A)</span>
-<span style="color:#75715e"># We need to take samples from individual distributions</span>
-
-first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-
-diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
-p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.8423</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
-p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
-p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
-p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
-p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p_ha_e))
-</code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.3125
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+</span></span><span style="display:flex;"><span>pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>first <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>other <span style="color:#f92672">=</span> live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assumption: H_A is true, i.e. both the distrinutions are different = 1.8423</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We have to compute P(H_A|E) and for this we need P(E|H_A)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We need to take samples from individual distributions</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+</span></span><span style="display:flex;"><span>p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1.8423</span>)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
+</span></span><span style="display:flex;"><span>p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p_ha_e))
+</span></span></code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.3125
 </code></pre>
 <h3 id="75-cross-validation">7.5 Cross-validation</h3>
 <p>In the previous example, we used the same dataset to formulate $H_A$ and to test it. In this case, $P(H_A|E)$ is likely to be higher even when $H_A$ is false. We can address this problem by <b>cross-validation</b> which uses one dataset to formulate the hypothesis and another to test it. The first dataset is called the <b>training-set</b> and other the <b>test-set</b>.</p>
 <p>The procedure is shown by the code below. The average posterior probability is 0.563 which is slightly lower than what we got in the previous result.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
-pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
-other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
-
-count <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
-p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
-    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(first)
-    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(other)
-
-    train_first <span style="color:#f92672">=</span> first[:int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
-    test_first <span style="color:#f92672">=</span> first[int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
-
-    train_other <span style="color:#f92672">=</span> other[:int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
-    test_other <span style="color:#f92672">=</span> other[int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
-
-    delta <span style="color:#f92672">=</span> train_other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> train_first<span style="color:#f92672">.</span>mean()
-
-    first_mean <span style="color:#f92672">=</span> test_first<span style="color:#f92672">.</span>mean()
-    other_mean <span style="color:#f92672">=</span> test_other<span style="color:#f92672">.</span>mean()
-
-    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-
-    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
-    p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> delta)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
-    p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
-    p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
-    p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
-    p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
-    p <span style="color:#f92672">+=</span> p_ha_e
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p<span style="color:#f92672">/</span>count))
-</code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.4827809819500527
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+</span></span><span style="display:flex;"><span>pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+</span></span><span style="display:flex;"><span>other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>count <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span>p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(count):
+</span></span><span style="display:flex;"><span>    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(first)
+</span></span><span style="display:flex;"><span>    np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>shuffle(other)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    train_first <span style="color:#f92672">=</span> first[:int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
+</span></span><span style="display:flex;"><span>    test_first <span style="color:#f92672">=</span> first[int(len(first)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    train_other <span style="color:#f92672">=</span> other[:int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)]
+</span></span><span style="display:flex;"><span>    test_other <span style="color:#f92672">=</span> other[int(len(other)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>):]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    delta <span style="color:#f92672">=</span> train_other<span style="color:#f92672">.</span>mean() <span style="color:#f92672">-</span> train_first<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    first_mean <span style="color:#f92672">=</span> test_first<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>    other_mean <span style="color:#f92672">=</span> test_other<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    first_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    other_sample <span style="color:#f92672">=</span> norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    diffs <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([compute_diff(sample_first, sample_other) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1000</span>)])
+</span></span><span style="display:flex;"><span>    p_e_ha <span style="color:#f92672">=</span> (diffs <span style="color:#f92672">&gt;=</span> delta)<span style="color:#f92672">.</span>sum()<span style="color:#f92672">/</span>diffs<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>    p_e_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.011</span> <span style="color:#75715e"># Calculated earlier</span>
+</span></span><span style="display:flex;"><span>    p_ha <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    p_h0 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>    p_ha_e <span style="color:#f92672">=</span> (p_e_ha <span style="color:#f92672">*</span> p_ha) <span style="color:#f92672">/</span> (p_e_ha <span style="color:#f92672">*</span> p_ha <span style="color:#f92672">+</span> p_e_h0 <span style="color:#f92672">*</span> p_h0)
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">+=</span> p_ha_e
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Posterior probability that birth weights are different is : &#34;</span> <span style="color:#f92672">+</span> str(p<span style="color:#f92672">/</span>count))
+</span></span></code></pre></div><pre><code>Posterior probability that birth weights are different is : 0.4827809819500527
 </code></pre>
 <h3 id="76-reporting-bayesian-probabilities">7.6 Reporting Bayesian probabilities</h3>
 <p>There are some objection to Bayesian probability as they depend on the prior probabilities. One response to this objection is that, in practice, starting with different priors tend to converge towards the same posterior probability as well. Another option is to report the <b>likelihood ratio</b> which is denoted as $P(E|H_A) / P(E|H_0)$ and hence posterior probability can be computed by giving their own priors.</p>
@@ -456,9 +456,9 @@ And Hence the evidence is more likely under $H_0$, givining the <b>likelihood ra
 <p><b>Solution:</b> The chi-square statistic is given as:
 $$\chi^{2} = \frac{(10-8)^2 + (10-9)^2 + (10-19)^2 + (10-6)^2 + (10-8)^2 + (10-10)^2}{10} = 10.6$$</p>
 <p>From the chi-square table (degree of freedom = 6), we get the p-value in the range 0.1 and 0.05, i.e. $0.05 \lt p-value \lt 0.1$. The exact p-value as given by the code is 0.0599 which confirms our hypothesis and hence we can reject null hypothesis that die is not crooked.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> chisquare
-chisquare([<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>], f_exp<span style="color:#f92672">=</span>[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>])
-</code></pre></div><pre><code>Power_divergenceResult(statistic=10.6, pvalue=0.05991362580421519)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> chisquare
+</span></span><span style="display:flex;"><span>chisquare([<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">19</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">10</span>], f_exp<span style="color:#f92672">=</span>[<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>])
+</span></span></code></pre></div><pre><code>Power_divergenceResult(statistic=10.6, pvalue=0.05991362580421519)
 </code></pre>
 <h3 id="79-power">7.9 Power</h3>
 <p>When the result of a hypothesis test is negative (that is the effect is not statistically significant), the conclusion that whether the effect is real or not, depends on the power of the test.</p>
@@ -467,33 +467,33 @@ chisquare([<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</
 <p>You can estimate power by generating random samples from distributions with the given difference in the mean, testing the observed difference in the mean, and counting the number of positive tests.</p>
 <p>What is the power of the test with $\alpha$ = 0.10?</p>
 <p><b>Solution:</b> The power of the test for $\alpha$ = 0.05 is 91.8% and for $\alpha$ = 0.10 is 95.7%.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> scipy.stats
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-
-live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
-pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
-first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
-other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
-
-first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
-first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
-other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
-other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
-
-num_simulations <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-<span style="color:#75715e"># store the p value for each simulation</span>
-sim_p <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>empty(num_simulations)
-sim_p<span style="color:#f92672">.</span>fill(np<span style="color:#f92672">.</span>nan)
-
-<span style="color:#66d9ef">for</span> i_sim <span style="color:#f92672">in</span> range(num_simulations):
-    fisrt_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-    other_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
-    res <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>ttest_ind(fisrt_samples, other_samples, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, equal_var<span style="color:#f92672">=</span>False)
-    sim_p[i_sim] <span style="color:#f92672">=</span> res[<span style="color:#ae81ff">1</span>]
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.05 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.05</span>)<span style="color:#f92672">/</span>float(num_simulations)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.10 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.10</span>)<span style="color:#f92672">/</span>float(num_simulations)))
-</code></pre></div><pre><code>Power of the test for alpha = 0.05 is: 0.91
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> scipy.stats
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">16</span> <span style="color:#f92672">*</span> live_births[<span style="color:#e6db74">&#34;birthwgt_lb&#34;</span>] <span style="color:#f92672">+</span> live_births[<span style="color:#e6db74">&#34;birthwgt_oz&#34;</span>]
+</span></span><span style="display:flex;"><span>pooled <span style="color:#f92672">=</span> live_births[<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna()
+</span></span><span style="display:flex;"><span>first <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+</span></span><span style="display:flex;"><span>other <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array(live_births[live_births[<span style="color:#e6db74">&#34;birthord&#34;</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1</span>][<span style="color:#e6db74">&#34;birthwgt&#34;</span>]<span style="color:#f92672">.</span>dropna())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>first_mean <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>first_std <span style="color:#f92672">=</span> first<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>other_mean <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>mean()
+</span></span><span style="display:flex;"><span>other_std <span style="color:#f92672">=</span> other<span style="color:#f92672">.</span>std()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>num_simulations <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># store the p value for each simulation</span>
+</span></span><span style="display:flex;"><span>sim_p <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>empty(num_simulations)
+</span></span><span style="display:flex;"><span>sim_p<span style="color:#f92672">.</span>fill(np<span style="color:#f92672">.</span>nan)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i_sim <span style="color:#f92672">in</span> range(num_simulations):
+</span></span><span style="display:flex;"><span>    fisrt_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>first_mean, scale<span style="color:#f92672">=</span>first_std)<span style="color:#f92672">.</span>rvs(first<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    other_samples <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>norm(loc<span style="color:#f92672">=</span>other_mean, scale<span style="color:#f92672">=</span>other_std)<span style="color:#f92672">.</span>rvs(other<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>    res <span style="color:#f92672">=</span> scipy<span style="color:#f92672">.</span>stats<span style="color:#f92672">.</span>ttest_ind(fisrt_samples, other_samples, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, equal_var<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>    sim_p[i_sim] <span style="color:#f92672">=</span> res[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.05 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.05</span>)<span style="color:#f92672">/</span>float(num_simulations)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Power of the test for alpha = 0.10 is: &#34;</span> <span style="color:#f92672">+</span> str(np<span style="color:#f92672">.</span>sum(sim_p <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0.10</span>)<span style="color:#f92672">/</span>float(num_simulations)))
+</span></span></code></pre></div><pre><code>Power of the test for alpha = 0.05 is: 0.91
 Power of the test for alpha = 0.10 is: 0.947
 </code></pre>
 

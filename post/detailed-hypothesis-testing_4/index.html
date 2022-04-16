@@ -246,13 +246,13 @@
 <p>The <b>Wilcoxon rank-sum test</b> can be used to test the difference in population mean in the case when populations are not normal. It makes two assumptions: <b>the populations must be continuous</b> and <b>their probability density functions must be identical in shape and size (location does not matter)</b>.</p>
 <p>Let the random samples from two different populations be $X_1, X_2, &hellip;, X_m$ and $Y_1, Y_2, &hellip;, Y_n$ and the population means be $\mu_X$ and $\mu_Y$. The Wilcoxon rank-sum test is performed by combining the two samples and assigning a rank of $1, 2, &hellip;, m+n$ to them. The test statistic, $W$, is the sum of the ranks of the samples from $X$ (where $m \leq n$). As the populations are identical apart from the location, if $\mu_X &lt; \mu_Y$, the sum of the rank of the observations from population $X$, which is the test statistic, will be smaller. If $\mu_X &gt; \mu_Y$, $W$ will tend to be larger.</p>
 <p>Let us look at an example. Following code performs a <b>two-tailed</b> Wilcoxon rank-sum on the samples from two populations $X$ and $Y$. For a <b>one-tailed</b> test, such as: $H_0: \mu_X \geq \mu_Y$ against $H_A: \mu_X &lt; \mu_Y$, the p-value will be the half of the two-tailed test, which is <b>0.0223</b>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> ranksums
-
-X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">38</span>]
-Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">34</span>, <span style="color:#ae81ff">41</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">47</span>, <span style="color:#ae81ff">49</span>, <span style="color:#ae81ff">46</span>]
-
-<span style="color:#66d9ef">print</span>(ranksums(X, Y))
-</code></pre></div><pre><code>RanksumsResult(statistic=-2.008316044185609, pvalue=0.044609718024939606)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> scipy.stats <span style="color:#f92672">import</span> ranksums
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> [<span style="color:#ae81ff">36</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">29</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">38</span>]
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#ae81ff">34</span>, <span style="color:#ae81ff">41</span>, <span style="color:#ae81ff">35</span>, <span style="color:#ae81ff">47</span>, <span style="color:#ae81ff">49</span>, <span style="color:#ae81ff">46</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(ranksums(X, Y))
+</span></span></code></pre></div><pre><code>RanksumsResult(statistic=-2.008316044185609, pvalue=0.044609718024939606)
 </code></pre>
 <p>For a larger sample size ($m, n &gt; 8$), it can be shown that the null disribution of test statistic $W$ is approximately normal with mean $\mu = m(m+n+1 /2)$ and variance $\sigma^2 = mn(m+n+1)/12$. In this case, we can compute the <b>z-score</b> of $W$ and a <b>z-test</b> can be performed. The test statistic is given as:</p>
 <p>$$z = \frac{W - m(m+n+1 /2)}{\sqrt{mn(m+n+1)/12}}$$</p>

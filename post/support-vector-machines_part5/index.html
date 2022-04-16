@@ -225,157 +225,157 @@
 <p>Q4. Generate a simulated two-class data set with 100 observations and two features in which there is a visible but non-linear separation between the two classes. Show that in this setting, a support vector machine with a polynomial kernel (with degree greater than 1) or a radial kernel will outperform a support vector classifier on the training
 data. Which technique performs best on the test data? Make plots and report training and test error rates in order to back up your assertions.</p>
 <p><b>Sol:</b> The plots with decision boundary and various error rates are shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
-<span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">100</span>)
-Y <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
-
-c <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>))
-c1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;l&#39;</span>)
-c2 <span style="color:#f92672">=</span> [x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> c <span style="color:#66d9ef">if</span> x <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> c1]
-Y[c1] <span style="color:#f92672">=</span> Y[c1] <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
-Y[c2] <span style="color:#f92672">=</span> Y[c2] <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>
-
-labels <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>asarray([<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
-labels[c2] <span style="color:#f92672">=</span> labels[c2] <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
-
-M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X,Y))
-
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(M, labels, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
-
-<span style="color:#75715e"># fit the linear model</span>
-clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
-clf<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-<span style="color:#75715e"># get the separating hyperplane</span>
-w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
-a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
-yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-
-<span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
-<span style="color:#75715e"># support vectors</span>
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
-yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Y&#39;</span>)
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Linear Kernel&#34;</span>)
-
-<span style="color:#75715e">#fit polynomial model</span>
-clf_poly <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-clf_poly<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-x_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
-x_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-y_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>
-y_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
-
-XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[x_min:x_max:<span style="color:#ae81ff">200j</span>, y_min:y_max:<span style="color:#ae81ff">200j</span>]
-Z <span style="color:#f92672">=</span> clf_poly<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
-
-<span style="color:#75715e"># Put the result into a color plot</span>
-Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(clf_poly<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_poly<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-
-plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>])
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 2)&#34;</span>)
-
-<span style="color:#75715e">#fit polynomial model: degree 3</span>
-clf_poly_3 <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-clf_poly_3<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-x_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
-x_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
-y_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>
-y_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
-
-XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[x_min:x_max:<span style="color:#ae81ff">200j</span>, y_min:y_max:<span style="color:#ae81ff">200j</span>]
-Z <span style="color:#f92672">=</span> clf_poly_3<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
-p_poly <span style="color:#f92672">=</span> clf_poly<span style="color:#f92672">.</span>predict(M)
-
-<span style="color:#75715e"># Put the result into a color plot</span>
-Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(clf_poly_3<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_poly_3<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-
-plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>])
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 3)&#34;</span>)
-
-<span style="color:#75715e">#fit radial kernel</span>
-clf_radial <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
-clf_radial<span style="color:#f92672">.</span>fit(X_train, y_train)
-
-Z <span style="color:#f92672">=</span> clf_radial<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
-
-<span style="color:#75715e"># Put the result into a color plot</span>
-Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
-plt<span style="color:#f92672">.</span>scatter(clf_radial<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_radial<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-
-
-plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Radial Kernel&#34;</span>)
-
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_14_0.png" alt="">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training miss classification for linear kernel: &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training miss classification for polynomial kernel (degree 2): &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_poly<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training miss classification for polynomial kernel (degree 3): &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_poly_3<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training miss classification for radial kernel: &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_radial<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test miss classification for linear kernel: &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test miss classification for polynomial kernel (degree 2): &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_poly<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test miss classification for polynomial kernel (degree 3): &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_poly_3<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test miss classification for radial kernel: &#34;</span>
-      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_radial<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
-</code></pre></div><pre><code>Training miss classification for linear kernel: 7.777777777777778
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> X<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">*</span>X <span style="color:#f92672">+</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>normal(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>c <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>))
+</span></span><span style="display:flex;"><span>c1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">100</span>, size<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;l&#39;</span>)
+</span></span><span style="display:flex;"><span>c2 <span style="color:#f92672">=</span> [x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> c <span style="color:#66d9ef">if</span> x <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> c1]
+</span></span><span style="display:flex;"><span>Y[c1] <span style="color:#f92672">=</span> Y[c1] <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>Y[c2] <span style="color:#f92672">=</span> Y[c2] <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>labels <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>asarray([<span style="color:#ae81ff">1</span>]<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>labels[c2] <span style="color:#f92672">=</span> labels[c2] <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>M <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X,Y))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(M, labels, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit the linear model</span>
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get the separating hyperplane</span>
+</span></span><span style="display:flex;"><span>w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># support vectors</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">20</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">221</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;Y&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Linear Kernel&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#fit polynomial model</span>
+</span></span><span style="display:flex;"><span>clf_poly <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>clf_poly<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>x_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>y_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>y_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[x_min:x_max:<span style="color:#ae81ff">200</span>j, y_min:y_max:<span style="color:#ae81ff">200</span>j]
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> clf_poly<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put the result into a color plot</span>
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">222</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf_poly<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_poly<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 2)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#fit polynomial model: degree 3</span>
+</span></span><span style="display:flex;"><span>clf_poly_3 <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>clf_poly_3<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>x_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>y_min <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>y_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>XX, YY <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>mgrid[x_min:x_max:<span style="color:#ae81ff">200</span>j, y_min:y_max:<span style="color:#ae81ff">200</span>j]
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> clf_poly_3<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
+</span></span><span style="display:flex;"><span>p_poly <span style="color:#f92672">=</span> clf_poly<span style="color:#f92672">.</span>predict(M)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put the result into a color plot</span>
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">223</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf_poly_3<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_poly_3<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 3)&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#fit radial kernel</span>
+</span></span><span style="display:flex;"><span>clf_radial <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>)
+</span></span><span style="display:flex;"><span>clf_radial<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> clf_radial<span style="color:#f92672">.</span>decision_function(np<span style="color:#f92672">.</span>c_[XX<span style="color:#f92672">.</span>ravel(), YY<span style="color:#f92672">.</span>ravel()])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Put the result into a color plot</span>
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> Z<span style="color:#f92672">.</span>reshape(XX<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">224</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c2], Y[c2], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X[c1], Y[c1], color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf_radial<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf_radial<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>contour(XX, YY, Z, levels<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Radial Kernel&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_14_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training miss classification for linear kernel: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training miss classification for polynomial kernel (degree 2): &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_poly<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training miss classification for polynomial kernel (degree 3): &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_poly_3<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training miss classification for radial kernel: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> clf_radial<span style="color:#f92672">.</span>predict(X_train)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_train)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test miss classification for linear kernel: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test miss classification for polynomial kernel (degree 2): &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_poly<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test miss classification for polynomial kernel (degree 3): &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_poly_3<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test miss classification for radial kernel: &#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">+</span> str((len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> clf_radial<span style="color:#f92672">.</span>predict(X_test)))<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#f92672">/</span>len(X_test)))
+</span></span></code></pre></div><pre><code>Training miss classification for linear kernel: 7.777777777777778
 Training miss classification for polynomial kernel (degree 2): 16.666666666666668
 Training miss classification for polynomial kernel (degree 3): 1.1111111111111112
 Training miss classification for radial kernel: 0.0
@@ -387,223 +387,222 @@ Test miss classification for radial kernel: 0.0
 <p>Q5. We have seen that we can fit an SVM with a non-linear kernel in order to perform classification using a non-linear decision boundary.We will now see that we can also obtain a non-linear decision boundary by performing logistic regression using non-linear transformations of the features.</p>
 <p>(a) Generate a data set with n = 500 and p = 2, such that the observations belong to two classes with a quadratic decision boundary between them.</p>
 <p>(b) Plot the observations, colored according to their class labels. Your plot should display X1 on the x-axis, and X2 on the yaxis.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> matplotlib
-
-np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
-X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-Y <span style="color:#f92672">=</span> ((X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>astype(int)
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_17_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> ((X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> X2<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_17_0.png" alt="">
 <p>(c) Fit a logistic regression model to the data, using X1 and X2 as predictors.</p>
 <p>(d) Apply this model to the training data in order to obtain a predicted class label for each training observation. Plot the observations, colored according to the predicted class labels. The decision boundary should be linear.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
-
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
-clf <span style="color:#f92672">=</span> LogisticRegression(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, fit_intercept<span style="color:#f92672">=</span>True)
-clf<span style="color:#f92672">.</span>fit(X, Y)
-Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_19_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.linear_model <span style="color:#f92672">import</span> LogisticRegression
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> LogisticRegression(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_19_0.png" alt="">
 <p>(e) Now fit a logistic regression model to the data using non-linear functions of X1 and X2 as predictors.</p>
 <p>(f) Apply this model to the training data in order to obtain a predicted class label for each training observation. Plot the observations, colored according to the predicted class labels. The decision boundary should be obviously non-linear. If it is not, then repeat (a)-(e) until you come up with an example in which the predicted class labels are obviously non-linear.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X1_2 <span style="color:#f92672">=</span> X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-X2_2 <span style="color:#f92672">=</span> X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
-
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2,X1_2,X2_2))
-clf <span style="color:#f92672">=</span> LogisticRegression(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, fit_intercept<span style="color:#f92672">=</span>True)
-clf<span style="color:#f92672">.</span>fit(X, Y)
-Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_21_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X1_2 <span style="color:#f92672">=</span> X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>X2_2 <span style="color:#f92672">=</span> X1<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2,X1_2,X2_2))
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> LogisticRegression(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, fit_intercept<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_21_0.png" alt="">
 <p>(g) Fit a support vector classifier to the data with X1 and X2 as predictors. Obtain a class prediction for each training observation. Plot the observations, colored according to the predicted class labels.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
-<span style="color:#75715e"># fit the linear model</span>
-clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-clf<span style="color:#f92672">.</span>fit(X, Y)
-Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
-
-<span style="color:#75715e"># get the separating hyperplane</span>
-w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
-a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
-yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
-
-<span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
-<span style="color:#75715e"># support vectors</span>
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
-yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
-yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Linear Kernel&#34;</span>)
-
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_23_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit the linear model</span>
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># get the separating hyperplane</span>
+</span></span><span style="display:flex;"><span>w <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>coef_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>w[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>xx <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>yy <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">-</span> (clf<span style="color:#f92672">.</span>intercept_[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">/</span> w[<span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plot the parallels to the separating hyperplane that pass through the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># support vectors</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>yy_down <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>support_vectors_[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>yy_up <span style="color:#f92672">=</span> a <span style="color:#f92672">*</span> xx <span style="color:#f92672">+</span> (b[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> a <span style="color:#f92672">*</span> b[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy, <span style="color:#e6db74">&#39;k-&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_down, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(xx, yy_up, <span style="color:#e6db74">&#39;k--&#39;</span>, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Linear Kernel&#34;</span>)
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_23_1.png" alt="">
 <p>(h) Fit a SVM using a non-linear kernel to the data. Obtain a class prediction for each training observation. Plot the observations, colored according to the predicted class labels.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
-<span style="color:#75715e"># fit the linear model</span>
-clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
-clf<span style="color:#f92672">.</span>fit(X, Y)
-Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
-            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
-
-ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
-ax<span style="color:#f92672">.</span>grid()
-ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 2)&#34;</span>)
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_25_1.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># fit the linear model</span>
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;poly&#39;</span>, degree<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X, Y)
+</span></span><span style="display:flex;"><span>Y_train <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X)
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y_train]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">0</span>], clf<span style="color:#f92672">.</span>support_vectors_[:, <span style="color:#ae81ff">1</span>],
+</span></span><span style="display:flex;"><span>            s<span style="color:#f92672">=</span><span style="color:#ae81ff">180</span>, facecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;none&#39;</span>, edgecolors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;black&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylim(<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#39;X1&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#39;X2&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#34;Polynomial Kernel (Degree: 2)&#34;</span>)
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_25_1.png" alt="">
 <p>Q6. At the end of Section 9.6.1, it is claimed that in the case of data that is just barely linearly separable, a support vector classifier with a small value of cost that misclassifies a couple of training observations may perform better on test data than one with a huge value of cost that does not misclassify any training observations. You will now investigate this claim.</p>
 <p>(a) Generate two-class data with p = 2 in such a way that the classes are just barely linearly separable.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
-X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
-
-temp <span style="color:#f92672">=</span> X1<span style="color:#f92672">-</span>X2
-Y <span style="color:#f92672">=</span> [None] <span style="color:#f92672">*</span> len(temp)
-<span style="color:#75715e"># Assign class labels</span>
-<span style="color:#66d9ef">for</span> idx, j <span style="color:#f92672">in</span> enumerate(temp):
-    <span style="color:#66d9ef">if</span> j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.1</span>:
-        Y[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">elif</span> j <span style="color:#f92672">&lt;</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>:
-        Y[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">else</span>:
-        Y[idx] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-
-color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y]
-
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_27_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>X1 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>X2 <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1000</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>X <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1,X2))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp <span style="color:#f92672">=</span> X1<span style="color:#f92672">-</span>X2
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>] <span style="color:#f92672">*</span> len(temp)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assign class labels</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, j <span style="color:#f92672">in</span> enumerate(temp):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.1</span>:
+</span></span><span style="display:flex;"><span>        Y[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> j <span style="color:#f92672">&lt;</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>:
+</span></span><span style="display:flex;"><span>        Y[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        Y[idx] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>color<span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;red&#39;</span> <span style="color:#66d9ef">if</span> l <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#39;green&#39;</span> <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> Y]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>scatter(X1, X2, color<span style="color:#f92672">=</span>color)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_27_0.png" alt="">
 <p>(b) Compute the cross-validation error rates for support vector classifiers with a range of cost values. How many training errors are misclassified for each value of cost considered, and how does this relate to the cross-validation errors obtained?</p>
 <p>(c) Generate an appropriate test data set, and compute the testerrors corresponding to each of the values of cost considered. Which value of cost leads to the fewest test errors, and how does this compare to the values of cost that yield the fewest training errors and the fewest cross-validation errors?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-X_train, X_vald, y_train, y_vald <span style="color:#f92672">=</span> train_test_split(X, Y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
-
-X1_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-X2_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
-X_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1_test,X2_test))
-
-temp_test <span style="color:#f92672">=</span> X1_test<span style="color:#f92672">-</span>X2_test
-y_test <span style="color:#f92672">=</span> [None] <span style="color:#f92672">*</span> len(temp_test)
-<span style="color:#75715e"># Assign class labels</span>
-<span style="color:#66d9ef">for</span> idx, j <span style="color:#f92672">in</span> enumerate(temp_test):
-    <span style="color:#66d9ef">if</span> j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.1</span>:
-        y_test[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
-    <span style="color:#66d9ef">elif</span> j <span style="color:#f92672">&lt;</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>:
-        y_test[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">else</span>:
-        y_test[idx] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
-
-cost <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.0001</span>, <span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>]
-cross_vald_error <span style="color:#f92672">=</span> {}
-training_error <span style="color:#f92672">=</span> {}
-test_error<span style="color:#f92672">=</span> {}
-
-<span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> cost:
-    clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span>c)
-    clf<span style="color:#f92672">.</span>fit(X_train, y_train)
-    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_train)
-    training_error[c] <span style="color:#f92672">=</span> (len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_train)
-    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_vald)
-    cross_vald_error[c] <span style="color:#f92672">=</span> (len(X_vald) <span style="color:#f92672">-</span> sum(y_vald <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_vald)
-    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_test)
-    test_error[c] <span style="color:#f92672">=</span> (len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_test)
-
-lists <span style="color:#f92672">=</span> sorted(training_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Training Error Rate&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
-
-lists <span style="color:#f92672">=</span> sorted(cross_vald_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-
-ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Validation Error Rate&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
-
-lists <span style="color:#f92672">=</span> sorted(test_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-
-ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Test Error Rate&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>legend()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_29_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>X_train, X_vald, y_train, y_vald <span style="color:#f92672">=</span> train_test_split(X, Y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X1_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>X2_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">500</span>) <span style="color:#f92672">-</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>column_stack((X1_test,X2_test))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>temp_test <span style="color:#f92672">=</span> X1_test<span style="color:#f92672">-</span>X2_test
+</span></span><span style="display:flex;"><span>y_test <span style="color:#f92672">=</span> [<span style="color:#66d9ef">None</span>] <span style="color:#f92672">*</span> len(temp_test)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Assign class labels</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, j <span style="color:#f92672">in</span> enumerate(temp_test):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> j <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.1</span>:
+</span></span><span style="display:flex;"><span>        y_test[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> j <span style="color:#f92672">&lt;</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">0.1</span>:
+</span></span><span style="display:flex;"><span>        y_test[idx] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        y_test[idx] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>uniform(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cost <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.0001</span>, <span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>]
+</span></span><span style="display:flex;"><span>cross_vald_error <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>training_error <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>test_error<span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> cost:
+</span></span><span style="display:flex;"><span>    clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span>c)
+</span></span><span style="display:flex;"><span>    clf<span style="color:#f92672">.</span>fit(X_train, y_train)
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_train)
+</span></span><span style="display:flex;"><span>    training_error[c] <span style="color:#f92672">=</span> (len(X_train) <span style="color:#f92672">-</span> sum(y_train <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_train)
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_vald)
+</span></span><span style="display:flex;"><span>    cross_vald_error[c] <span style="color:#f92672">=</span> (len(X_vald) <span style="color:#f92672">-</span> sum(y_vald <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_vald)
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_test)
+</span></span><span style="display:flex;"><span>    test_error[c] <span style="color:#f92672">=</span> (len(X_test) <span style="color:#f92672">-</span> sum(y_test <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(X_test)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(training_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Training Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(cross_vald_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Validation Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(test_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Test Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_29_0.png" alt="">
 <p>Q7. In this problem, you will use support vector approaches in order to predict whether a given car gets high or low gas mileage based on the Auto data set.</p>
 <p>(a) Create a binary variable that takes on a 1 for cars with gas mileage above the median, and a 0 for cars with gas mileage below the median.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-
-auto <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Auto.csv&#34;</span>)
-auto<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span>True)
-auto <span style="color:#f92672">=</span> auto[auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;?&#39;</span>]
-auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>astype(int)
-auto[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">&gt;=</span>auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>median(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
-auto<span style="color:#f92672">.</span>head()
-</code></pre></div><div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>auto <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/Auto.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>dropna(inplace<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>auto <span style="color:#f92672">=</span> auto[auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;?&#39;</span>]
+</span></span><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>] <span style="color:#f92672">=</span> auto[<span style="color:#e6db74">&#39;horsepower&#39;</span>]<span style="color:#f92672">.</span>astype(int)
+</span></span><span style="display:flex;"><span>auto[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>where(auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">&gt;=</span>auto[<span style="color:#e6db74">&#39;mpg&#39;</span>]<span style="color:#f92672">.</span>median(), <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>auto<span style="color:#f92672">.</span>head()
+</span></span></code></pre></div><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -703,56 +702,56 @@ auto<span style="color:#f92672">.</span>head()
 </table>
 </div>
 <p>(b) Fit a support vector classifier to the data with various values of cost, in order to predict whether a car gets high or low gas mileage. Report the cross-validation errors associated with different values of this parameter. Comment on your results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-X<span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>]]
-Y <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;mpg01&#39;</span>]]
-X_train, X_vald, y_train, y_vald <span style="color:#f92672">=</span> train_test_split(X, Y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
-
-cost <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.0001</span>, <span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>]
-cross_vald_error <span style="color:#f92672">=</span> {}
-training_error <span style="color:#f92672">=</span> {}
-
-<span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> cost:
-    clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span>c)
-    clf<span style="color:#f92672">.</span>fit(X_train, y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
-    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_train)
-    training_error[c] <span style="color:#f92672">=</span> (len(p) <span style="color:#f92672">-</span> sum(y_train[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(p)
-    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_vald)
-    cross_vald_error[c] <span style="color:#f92672">=</span> (len(p) <span style="color:#f92672">-</span> sum(y_vald[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(p)
-
-lists <span style="color:#f92672">=</span> sorted(training_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
-ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
-
-ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Training Error Rate&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
-
-lists <span style="color:#f92672">=</span> sorted(cross_vald_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
-
-x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
-
-ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
-plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Validation Error Rate&#34;</span>)
-ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
-ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
-
-plt<span style="color:#f92672">.</span>grid()
-plt<span style="color:#f92672">.</span>legend()
-plt<span style="color:#f92672">.</span>show()
-</code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_33_0.png" alt="">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>X<span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;cylinders&#39;</span>, <span style="color:#e6db74">&#39;displacement&#39;</span>, <span style="color:#e6db74">&#39;horsepower&#39;</span>, <span style="color:#e6db74">&#39;weight&#39;</span>, <span style="color:#e6db74">&#39;acceleration&#39;</span>, <span style="color:#e6db74">&#39;year&#39;</span>, <span style="color:#e6db74">&#39;origin&#39;</span>]]
+</span></span><span style="display:flex;"><span>Y <span style="color:#f92672">=</span> auto[[<span style="color:#e6db74">&#39;mpg01&#39;</span>]]
+</span></span><span style="display:flex;"><span>X_train, X_vald, y_train, y_vald <span style="color:#f92672">=</span> train_test_split(X, Y, test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cost <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0.0001</span>, <span style="color:#ae81ff">0.001</span>, <span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">1000</span>, <span style="color:#ae81ff">10000</span>]
+</span></span><span style="display:flex;"><span>cross_vald_error <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>training_error <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> cost:
+</span></span><span style="display:flex;"><span>    clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span>c)
+</span></span><span style="display:flex;"><span>    clf<span style="color:#f92672">.</span>fit(X_train, y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_train)
+</span></span><span style="display:flex;"><span>    training_error[c] <span style="color:#f92672">=</span> (len(p) <span style="color:#f92672">-</span> sum(y_train[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(p)
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>predict(X_vald)
+</span></span><span style="display:flex;"><span>    cross_vald_error[c] <span style="color:#f92672">=</span> (len(p) <span style="color:#f92672">-</span> sum(y_vald[<span style="color:#e6db74">&#39;mpg01&#39;</span>] <span style="color:#f92672">==</span> p))<span style="color:#f92672">/</span>len(p)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(training_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">8</span>))
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">111</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;r&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Training Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lists <span style="color:#f92672">=</span> sorted(cross_vald_error<span style="color:#f92672">.</span>items()) <span style="color:#75715e"># sorted by key, return a list of tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x, y <span style="color:#f92672">=</span> zip(<span style="color:#f92672">*</span>lists) <span style="color:#75715e"># unpack a list of pairs into two tuples</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xscale(<span style="color:#e6db74">&#39;log&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(x, y, color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;g&#39;</span>, label<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Validation Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_xlabel(<span style="color:#e6db74">&#34;Cost (log)&#34;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_ylabel(<span style="color:#e6db74">&#34;Error Rate&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>grid()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend()
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><img class="pure-img" src="/img/Support%20Vector%20Machines_files/Support%20Vector%20Machines_33_0.png" alt="">
 <p>(c) Now repeat (b), this time using SVMs with radial and polynomial basis kernels, with different values of gamma and degree and cost. Comment on your results.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> GridSearchCV
-<span style="color:#f92672">from</span> sklearn.svm <span style="color:#f92672">import</span> SVC
-
-parameters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;C&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>], <span style="color:#e6db74">&#39;gamma&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>]}
-clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
-clf<span style="color:#f92672">.</span>best_estimator_
-</code></pre></div><pre><code>SVC(C=100, cache_size=200, class_weight=None, coef0=0.0,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> GridSearchCV
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.svm <span style="color:#f92672">import</span> SVC
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>parameters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;C&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>], <span style="color:#e6db74">&#39;gamma&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">100</span>]}
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>best_estimator_
+</span></span></code></pre></div><pre><code>SVC(C=100, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma=0.01, kernel='rbf',
   max_iter=-1, probability=False, random_state=1, shrinking=True,
   tol=0.001, verbose=False)
@@ -760,58 +759,58 @@ clf<span style="color:#f92672">.</span>best_estimator_
 <p>Q8. This problem involves the OJ data set which is part of the ISLR package.</p>
 <p>(a) Create a training set containing a random sample of 800 observations, and a test set containing the remaining
 observations.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
-oj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/OJ.csv&#34;</span>)
-oj <span style="color:#f92672">=</span> oj<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
-oj[<span style="color:#e6db74">&#39;Store7&#39;</span>] <span style="color:#f92672">=</span> oj[<span style="color:#e6db74">&#39;Store7&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
-X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(oj<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Purchase&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
-                                                    oj[[<span style="color:#e6db74">&#39;Purchase&#39;</span>]], train_size<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span>)
-</code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>np<span style="color:#f92672">.</span>random<span style="color:#f92672">.</span>seed(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>oj <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;data/OJ.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>oj <span style="color:#f92672">=</span> oj<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Unnamed: 0&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>oj[<span style="color:#e6db74">&#39;Store7&#39;</span>] <span style="color:#f92672">=</span> oj[<span style="color:#e6db74">&#39;Store7&#39;</span>]<span style="color:#f92672">.</span>map({<span style="color:#e6db74">&#39;Yes&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;No&#39;</span>: <span style="color:#ae81ff">0</span>})
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(oj<span style="color:#f92672">.</span>drop([<span style="color:#e6db74">&#39;Purchase&#39;</span>], axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>),
+</span></span><span style="display:flex;"><span>                                                    oj[[<span style="color:#e6db74">&#39;Purchase&#39;</span>]], train_size<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span>)
+</span></span></code></pre></div><pre><code>/Users/amitrajan/Desktop/PythonVirtualEnv/Python3_VirtualEnv/lib/python3.6/site-packages/sklearn/model_selection/_split.py:2026: FutureWarning: From version 0.21, test_size will always complement train_size unless both are specified.
   FutureWarning)
 </code></pre>
 <p>(b) Fit a support vector classifier to the training data using cost=0.01, with Purchase as the response and the other variables as predictors. Use the summary() function to produce summary statistics, and describe the results obtained.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
-<span style="color:#66d9ef">print</span>(clf<span style="color:#f92672">.</span>fit(X_train, y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel()))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Number of support vectors: &#34;</span> <span style="color:#f92672">+</span>str(len(clf<span style="color:#f92672">.</span>support_vectors_)))
-</code></pre></div><pre><code>SVC(C=0.01, cache_size=200, class_weight=None, coef0=0.0,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> svm<span style="color:#f92672">.</span>SVC(kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>, C<span style="color:#f92672">=</span><span style="color:#ae81ff">0.01</span>)
+</span></span><span style="display:flex;"><span>print(clf<span style="color:#f92672">.</span>fit(X_train, y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel()))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Number of support vectors: &#34;</span> <span style="color:#f92672">+</span>str(len(clf<span style="color:#f92672">.</span>support_vectors_)))
+</span></span></code></pre></div><pre><code>SVC(C=0.01, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
   max_iter=-1, probability=False, random_state=None, shrinking=True,
   tol=0.001, verbose=False)
 Number of support vectors: 611
 </code></pre>
 <p>(c) What are the training and test error rates?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
-
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(clf<span style="color:#f92672">.</span>predict(X_train), y_train)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(clf<span style="color:#f92672">.</span>predict(X_test), y_test)))
-</code></pre></div><pre><code>Training Error rate is: 0.31000000000000005
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.metrics <span style="color:#f92672">import</span> accuracy_score
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(clf<span style="color:#f92672">.</span>predict(X_train), y_train)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(clf<span style="color:#f92672">.</span>predict(X_test), y_test)))
+</span></span></code></pre></div><pre><code>Training Error rate is: 0.31000000000000005
 Test Error rate is: 0.3592592592592593
 </code></pre>
 <p>(d) Use the tune() function to select an optimal cost. Consider values in the range 0.01 to 10.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">parameters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;C&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>]}
-clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
-clf<span style="color:#f92672">.</span>best_estimator_
-</code></pre></div><pre><code>SVC(C=7, cache_size=200, class_weight=None, coef0=0.0,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>parameters <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;C&#39;</span>:[<span style="color:#ae81ff">0.01</span>, <span style="color:#ae81ff">0.05</span>, <span style="color:#ae81ff">0.1</span>, <span style="color:#ae81ff">0.5</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">10</span>]}
+</span></span><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;linear&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>best_estimator_
+</span></span></code></pre></div><pre><code>SVC(C=7, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='auto', kernel='linear',
   max_iter=-1, probability=False, random_state=1, shrinking=True,
   tol=0.001, verbose=False)
 </code></pre>
 <p>(e) Compute the training and test error rates using this new value for cost.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>best_estimator_
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_train), y_train)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_test), y_test)))
-</code></pre></div><pre><code>Training Error rate is: 0.16500000000000004
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>model <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>best_estimator_
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_train), y_train)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_test), y_test)))
+</span></span></code></pre></div><pre><code>Training Error rate is: 0.16500000000000004
 Test Error rate is: 0.16666666666666663
 </code></pre>
 <p>(f) Repeat parts (b) through (e) using a support vector machine with a radial kernel. Use the default value for gamma.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
-clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
-<span style="color:#66d9ef">print</span>(clf<span style="color:#f92672">.</span>best_estimator_)
-model <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>best_estimator_
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_train), y_train)))
-<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_test), y_test)))
-</code></pre></div><pre><code>SVC(C=8, cache_size=200, class_weight=None, coef0=0.0,
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>clf <span style="color:#f92672">=</span> GridSearchCV(SVC(random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, kernel<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;rbf&#39;</span>), parameters, n_jobs<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, cv<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+</span></span><span style="display:flex;"><span>clf<span style="color:#f92672">.</span>fit(X<span style="color:#f92672">=</span>X_train, y<span style="color:#f92672">=</span>y_train<span style="color:#f92672">.</span>values<span style="color:#f92672">.</span>ravel())
+</span></span><span style="display:flex;"><span>print(clf<span style="color:#f92672">.</span>best_estimator_)
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> clf<span style="color:#f92672">.</span>best_estimator_
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Training Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_train), y_train)))
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Test Error rate is: &#34;</span> <span style="color:#f92672">+</span> str(<span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> accuracy_score(model<span style="color:#f92672">.</span>predict(X_test), y_test)))
+</span></span></code></pre></div><pre><code>SVC(C=8, cache_size=200, class_weight=None, coef0=0.0,
   decision_function_shape='ovr', degree=3, gamma='auto', kernel='rbf',
   max_iter=-1, probability=False, random_state=1, shrinking=True,
   tol=0.001, verbose=False)
