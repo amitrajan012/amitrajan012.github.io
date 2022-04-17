@@ -6,7 +6,17 @@
     <description>Recent content in Column Space on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jan 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/column-space/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/column-space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Four Fundamental Subspaces</title>
+      <link>https://amitrajan012.github.io/post/chapter_8-_the_four_fundamental_subspaces/</link>
+      <pubDate>Tue, 15 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_8-_the_four_fundamental_subspaces/</guid>
+      <description>8.1 Four Fundamental Subspaces The four fundamental subspaces for a $m \times n$ matrix $A$ are as follows:
+ Column Space $C(A)$ in $\mathbb{R}^m$ Null Space $N(A)$ in $\mathbb{R}^n$: Solution to $Ax=0$ Row Space $C(A^T)$ in $\mathbb{R}^n$: All combinations of the rows of $A$ or we can say that all combinations of the columns of $A^T$ Left Null Space of $A^T$ $N(A^T)$ in $\mathbb{R}^m$: Solution to $A^Ty=0$ and is also called as Left Null Spcae of $A$  The pictorial representation of these spaces with their dimension and basis is as follows:</description>
+    </item>
+    
     <item>
       <title>Matrix Independence, Span, Basis &amp; Dimension</title>
       <link>https://amitrajan012.github.io/post/chapter_7_independence_basis_and_dimension/</link>

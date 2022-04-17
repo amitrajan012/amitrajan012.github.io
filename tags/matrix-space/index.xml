@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Matrix Space on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/matrix-space/</link>
+    <description>Recent content in Matrix Space on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 17 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/matrix-space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Matrix Spaces</title>
+      <link>https://amitrajan012.github.io/post/chapter_9_matrix_spaces/</link>
+      <pubDate>Thu, 17 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_9_matrix_spaces/</guid>
+      <description>9.1 Matrix Spaces The idea of vector spaces can be extended to matrices as well as far as they follow the following properties
+ If $A \in S$ then $cA \in S$ If $A \in S; B \in S$ then $A+B \in S$  It should be noted that the matrix multiplication doesn&amp;rsquo;t need to belong to the same matrix space.
+For a matrix $M$, some of the examples of matrix spaces are: Upper Triangular Mtrices, Symmetric Matrices, Diagonal Matrices etc.</description>
+    </item>
+    
+  </channel>
+</rss>
