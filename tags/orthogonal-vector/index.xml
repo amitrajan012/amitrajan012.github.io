@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orthogonal Vector on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/orthogonal-vector/</link>
+    <description>Recent content in Orthogonal Vector on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/orthogonal-vector/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projection of a Matrix</title>
+      <link>https://amitrajan012.github.io/post/chapter_12_projection_onto_subspaces/</link>
+      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_12_projection_onto_subspaces/</guid>
+      <description>12.1 Projections in one-dimensional Space Given two vectors $a,b$ in a plane, the projection of $b$ onto $a$ is shown below. The projection $p$ will be a multiple of $a$ and the error vector $e$ will be orthogonal to $a$. Error vector can be denoted as: $e = b - p$. As $e \perp a$, we can say that: $a^Te =0 \implies a^T(b - p) = 0 \implies a^T(b - xa) = 0 \implies xa^Ta = a^Tb \implies x = \frac{a^Tb}{a^Ta}$.</description>
+    </item>
+    
+    <item>
+      <title>Orthogonal Vectors and Orthogonal Subspaces</title>
+      <link>https://amitrajan012.github.io/post/chapter_11_orthogonal_vectors_and_subspaces/</link>
+      <pubDate>Wed, 23 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_11_orthogonal_vectors_and_subspaces/</guid>
+      <description>11.1 Orthogonal Vectors Orthogonal means perpendicular. For two vectors $x,y$, they are orthogonal if and only if $x^Ty=0$. As per Pythagoras Theorem, the test for orthogonality is: $\lVert x \rVert^2 + \lVert y \rVert^2 = \lVert x+y \rVert^2$.
+We can conclude the dot product condition from Pythoagoras Theorem as follows:
+$$\begin{align} \lVert x \rVert^2 + \lVert y \rVert^2 = \lVert x+y \rVert^2 \\ x^Tx + y^Ty = (x+y)^T(x+y) \\ x^Tx + y^Ty = x^Tx + y^Ty + x^Ty + y^Tx \\ x^Ty + y^Tx = 0 \\ 2x^Ty = 0 \\ x^Ty = 0 \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Incidence Matrix on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/incidence-matrix/</link>
+    <description>Recent content in Incidence Matrix on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/incidence-matrix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphs, Networks and Incidence Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter_10_graphs_networks_and_incidence_matrices/</link>
+      <pubDate>Mon, 21 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_10_graphs_networks_and_incidence_matrices/</guid>
+      <description>10.1 Graphs, Networks and Incidence Matrices: Graphs consist of nodes and edges. For example, in the attached figure, the graph has $n=4$ nodes and $m=5$ edges. The graph can be interpreted as a circuit where nodes represent the points from which current flows and edges with the arrow represent the direction of its flow.
+The above graph can be represented using a matrix, called as Incidence Matrix. The edges of the graph are represented using rows where entry at each column (one columnn for each of the node) index represents the start and end of the edge.</description>
+    </item>
+    
+  </channel>
+</rss>
