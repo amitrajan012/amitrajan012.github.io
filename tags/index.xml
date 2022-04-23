@@ -6,20 +6,29 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gilbert Strang</title>
       <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
-      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Gram-Schmidt</title>
+      <link>https://amitrajan012.github.io/tags/gram-schmidt/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gram-schmidt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linear Algebra</title>
       <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
-      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
       <description></description>
@@ -28,9 +37,63 @@
     <item>
       <title>Matrix Space</title>
       <link>https://amitrajan012.github.io/tags/matrix-space/</link>
-      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/matrix-space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orthogonal Matrices</title>
+      <link>https://amitrajan012.github.io/tags/orthogonal-matrices/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/orthogonal-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Orthonormal Vectors</title>
+      <link>https://amitrajan012.github.io/tags/orthonormal-vectors/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/orthonormal-vectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projection</title>
+      <link>https://amitrajan012.github.io/tags/projection/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/projection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projection Matrices</title>
+      <link>https://amitrajan012.github.io/tags/projection-matrices/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/projection-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vector Space</title>
+      <link>https://amitrajan012.github.io/tags/vector-space/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/vector-space/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Least Squares</title>
+      <link>https://amitrajan012.github.io/tags/least-squares/</link>
+      <pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/least-squares/</guid>
       <description></description>
     </item>
     
@@ -49,24 +112,6 @@
       <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/orthogonal-vector/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Projection</title>
-      <link>https://amitrajan012.github.io/tags/projection/</link>
-      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/projection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vector Space</title>
-      <link>https://amitrajan012.github.io/tags/vector-space/</link>
-      <pubDate>Sat, 26 Mar 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/vector-space/</guid>
       <description></description>
     </item>
     

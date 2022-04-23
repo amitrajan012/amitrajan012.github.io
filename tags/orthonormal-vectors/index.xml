@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orthonormal Vectors on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/orthonormal-vectors/</link>
+    <description>Recent content in Orthonormal Vectors on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 02 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/orthonormal-vectors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Orthonormal Vectors, Orthogonal Matrices and Gram-Schmidt Method</title>
+      <link>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</guid>
+      <description>14.1 Orthonormal Vectors &amp;amp; Orthogonal Matrices A set of Orthonormal Vectors can be defined as:
+$$\begin{align} q_i^Tq_j = \begin{cases} 0 ,&amp;amp; \text{if } i \neq j \\ 1 ,&amp;amp; \text{if } i=j \end{cases} \end{align}$$
+When these set of $n$ orthonormal vectors are put into a matrix $Q$ such that $Q = \begin{bmatrix} q_1 &amp;amp; q_2 &amp;amp; &amp;hellip; &amp;amp; q_n \end{bmatrix}$, then we get $Q^TQ = I$. It should be noted that $Q$ doesn&amp;rsquo;t have to be a square matrix.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,28 @@
     <description>Recent content in Projection on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/projection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/projection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Orthonormal Vectors, Orthogonal Matrices and Gram-Schmidt Method</title>
+      <link>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</link>
+      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</guid>
+      <description>14.1 Orthonormal Vectors &amp;amp; Orthogonal Matrices A set of Orthonormal Vectors can be defined as:
+$$\begin{align} q_i^Tq_j = \begin{cases} 0 ,&amp;amp; \text{if } i \neq j \\ 1 ,&amp;amp; \text{if } i=j \end{cases} \end{align}$$
+When these set of $n$ orthonormal vectors are put into a matrix $Q$ such that $Q = \begin{bmatrix} q_1 &amp;amp; q_2 &amp;amp; &amp;hellip; &amp;amp; q_n \end{bmatrix}$, then we get $Q^TQ = I$. It should be noted that $Q$ doesn&amp;rsquo;t have to be a square matrix.</description>
+    </item>
+    
+    <item>
+      <title>Projection Matrices and Least Squares</title>
+      <link>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</link>
+      <pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid>
+      <description>13.1 Projection Matrices Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.
+  Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
+    </item>
+    
     <item>
       <title>Projection of a Matrix</title>
       <link>https://amitrajan012.github.io/post/chapter_12_projection_onto_subspaces/</link>

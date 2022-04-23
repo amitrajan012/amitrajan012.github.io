@@ -3,16 +3,49 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/gilbert-strang/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gram-schmidt/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/linear-algebra/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/matrix-space/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/orthogonal-matrices/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/orthonormal-vectors/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/projection/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/projection-matrices/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/vector-space/</loc>
+    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/least-squares/</loc>
+    <lastmod>2022-03-30T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</loc>
+    <lastmod>2022-03-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/orthogonal-subspace/</loc>
     <lastmod>2022-03-26T14:07:28+01:00</lastmod>
@@ -20,19 +53,7 @@
     <loc>https://amitrajan012.github.io/tags/orthogonal-vector/</loc>
     <lastmod>2022-03-26T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/projection/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/chapter_12_projection_onto_subspaces/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
-    <lastmod>2022-03-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/vector-space/</loc>
     <lastmod>2022-03-26T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter_11_orthogonal_vectors_and_subspaces/</loc>

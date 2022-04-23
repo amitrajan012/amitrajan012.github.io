@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Least Squares on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/least-squares/</link>
+    <description>Recent content in Least Squares on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Mar 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/least-squares/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projection Matrices and Least Squares</title>
+      <link>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</link>
+      <pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid>
+      <description>13.1 Projection Matrices Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.
+  Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
+    </item>
+    
+  </channel>
+</rss>
