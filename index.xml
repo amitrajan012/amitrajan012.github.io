@@ -6,7 +6,42 @@
     <description>Recent content on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formula for $A^{-1}$ and Cramer&#39;s Rule</title>
+      <link>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</guid>
+      <description>17.1 Formula for $A^{-1}$ $A^{-1}$ can be given as $A^{-1} = \frac{1}{|A|}C^T$, where $C^T$ is the matrix of cofactors transposed. To verify this formula, we have to check that $AA^{-1}=I$, or $AC^T=|A|I$. If we expand the left hand side, we get
+$$\begin{align} \begin{bmatrix} a_{11} &amp;amp; &amp;hellip; &amp;amp; a_{1n}\\ : &amp;amp; : &amp;amp; :\\ a_{n1} &amp;amp; &amp;hellip; &amp;amp; a_{nn} \end{bmatrix}\begin{bmatrix} C_{11} &amp;amp; &amp;hellip; &amp;amp; C_{n1}\\ : &amp;amp; : &amp;amp; :\\ C_{1n} &amp;amp; &amp;hellip; &amp;amp; C_{nn} \end{bmatrix}=\begin{bmatrix} |A| &amp;amp; 0 &amp;amp; 0\\ 0 &amp;amp; |A| &amp;amp; 0\\ 0 &amp;amp; 0 &amp;amp; |A| \end{bmatrix}=|A|I \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Determinant and Cofactors</title>
+      <link>https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/</link>
+      <pubDate>Thu, 07 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/</guid>
+      <description>16.1 Formula for $|A|$ For a $2 \times 2$ matrix $A$, the formula for $|A|$ can be derived as follows:
+$$\begin{align} |A| = \begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}= \begin{vmatrix} a &amp;amp; 0 \\ c &amp;amp; d \end{vmatrix}+\begin{vmatrix} 0 &amp;amp; b \\ c &amp;amp; d \end{vmatrix} \end{align}$$
+$$\begin{align} =\begin{vmatrix} a &amp;amp; 0 \\ c &amp;amp; 0 \end{vmatrix}+\begin{vmatrix} a &amp;amp; 0 \\ 0 &amp;amp; d \end{vmatrix}+\begin{vmatrix} 0 &amp;amp; b \\ c &amp;amp; 0 \end{vmatrix}+\begin{vmatrix} 0 &amp;amp; b \\ 0 &amp;amp; d \end{vmatrix} \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Determinant</title>
+      <link>https://amitrajan012.github.io/post/chapter_15_properties_of_determinants/</link>
+      <pubDate>Tue, 05 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_15_properties_of_determinants/</guid>
+      <description>15.1 Determinant Every square matrix has a number assosiated with it can we call this number as determinant, often denoted as $det(A) = |A|$ for matrix $A$.
+Prperties of determinant is as follows:
+  $|I|=1$
+  Row exchange reverses the sign of the determinant:
+  Permutation Matrices are derived by row exchange of Identity Matrix. Hence, $|P|= \pm1$.
+ (a) For any square matrix $A$, $\begin{vmatrix} ta &amp;amp; tb \\ c &amp;amp; d \end{vmatrix}=t\begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}$</description>
+    </item>
+    
     <item>
       <title>Orthonormal Vectors, Orthogonal Matrices and Gram-Schmidt Method</title>
       <link>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</link>

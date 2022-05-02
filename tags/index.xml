@@ -6,13 +6,58 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 02 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cofactors</title>
+      <link>https://amitrajan012.github.io/tags/cofactors/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cofactors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cramer&#39;s Rule</title>
+      <link>https://amitrajan012.github.io/tags/cramers-rule/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cramers-rule/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Determinant</title>
+      <link>https://amitrajan012.github.io/tags/determinant/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/determinant/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Gilbert Strang</title>
       <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
-      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inverse</title>
+      <link>https://amitrajan012.github.io/tags/inverse/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/inverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     
@@ -22,15 +67,6 @@
       <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/gram-schmidt/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linear Algebra</title>
-      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
-      <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     

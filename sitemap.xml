@@ -3,15 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/cofactors/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/cramers-rule/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/determinant/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/gilbert-strang/</loc>
-    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/gram-schmidt/</loc>
-    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/tags/inverse/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/linear-algebra/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-04-10T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/</loc>
+    <lastmod>2022-04-07T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter_15_properties_of_determinants/</loc>
+    <lastmod>2022-04-05T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gram-schmidt/</loc>
     <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/matrix-space/</loc>
@@ -26,16 +53,10 @@
     <loc>https://amitrajan012.github.io/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/</loc>
     <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/projection/</loc>
     <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/projection-matrices/</loc>
-    <lastmod>2022-04-02T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2022-04-02T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/vector-space/</loc>

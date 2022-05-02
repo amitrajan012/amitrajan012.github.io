@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cramer&#39;s Rule on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/cramers-rule/</link>
+    <description>Recent content in Cramer&#39;s Rule on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 10 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/cramers-rule/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Formula for $A^{-1}$ and Cramer&#39;s Rule</title>
+      <link>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</link>
+      <pubDate>Sun, 10 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</guid>
+      <description>17.1 Formula for $A^{-1}$ $A^{-1}$ can be given as $A^{-1} = \frac{1}{|A|}C^T$, where $C^T$ is the matrix of cofactors transposed. To verify this formula, we have to check that $AA^{-1}=I$, or $AC^T=|A|I$. If we expand the left hand side, we get
+$$\begin{align} \begin{bmatrix} a_{11} &amp;amp; &amp;hellip; &amp;amp; a_{1n}\\ : &amp;amp; : &amp;amp; :\\ a_{n1} &amp;amp; &amp;hellip; &amp;amp; a_{nn} \end{bmatrix}\begin{bmatrix} C_{11} &amp;amp; &amp;hellip; &amp;amp; C_{n1}\\ : &amp;amp; : &amp;amp; :\\ C_{1n} &amp;amp; &amp;hellip; &amp;amp; C_{nn} \end{bmatrix}=\begin{bmatrix} |A| &amp;amp; 0 &amp;amp; 0\\ 0 &amp;amp; |A| &amp;amp; 0\\ 0 &amp;amp; 0 &amp;amp; |A| \end{bmatrix}=|A|I \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>
