@@ -6,7 +6,16 @@
     <description>Recent content in Power on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Nov 2018 07:26:51 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/power/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diagonalization and Powers of a Matrix</title>
+      <link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link>
+      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</guid>
+      <description>19.1 Diagonalization of a Matrix Suppose for a given matrix $A$, we have $n$ linearlly independent eigenvectros and we put them in a matrix $S$. Then $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}$, where each $x_i$ is the eigenvector. But for each of the eigenvectors, $Ax_i = \lambda_ix_i$. Hence, $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix} = \begin{bmatrix} \lambda_1x_1 &amp;amp; \lambda_2x_2 &amp;amp; &amp;hellip; &amp;amp; \lambda_nx_n \end{bmatrix} = \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}diag(\lambda_i) = S\Lambda$.</description>
+    </item>
+    
     <item>
       <title>Hypothesis Testing (Part 6)</title>
       <link>https://amitrajan012.github.io/post/detailed-hypothesis-testing_6/</link>

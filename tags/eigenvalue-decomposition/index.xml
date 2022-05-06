@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Eigenvalue Decomposition on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</link>
+    <description>Recent content in Eigenvalue Decomposition on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/eigenvalue-decomposition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diagonalization and Powers of a Matrix</title>
+      <link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link>
+      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</guid>
+      <description>19.1 Diagonalization of a Matrix Suppose for a given matrix $A$, we have $n$ linearlly independent eigenvectros and we put them in a matrix $S$. Then $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}$, where each $x_i$ is the eigenvector. But for each of the eigenvectors, $Ax_i = \lambda_ix_i$. Hence, $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix} = \begin{bmatrix} \lambda_1x_1 &amp;amp; \lambda_2x_2 &amp;amp; &amp;hellip; &amp;amp; \lambda_nx_n \end{bmatrix} = \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}diag(\lambda_i) = S\Lambda$.</description>
+    </item>
+    
+  </channel>
+</rss>

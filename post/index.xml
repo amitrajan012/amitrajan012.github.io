@@ -6,7 +6,26 @@
     <description>Recent content in Posts on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 10 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diagonalization and Powers of a Matrix</title>
+      <link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link>
+      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</guid>
+      <description>19.1 Diagonalization of a Matrix Suppose for a given matrix $A$, we have $n$ linearlly independent eigenvectros and we put them in a matrix $S$. Then $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}$, where each $x_i$ is the eigenvector. But for each of the eigenvectors, $Ax_i = \lambda_ix_i$. Hence, $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix} = \begin{bmatrix} \lambda_1x_1 &amp;amp; \lambda_2x_2 &amp;amp; &amp;hellip; &amp;amp; \lambda_nx_n \end{bmatrix} = \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}diag(\lambda_i) = S\Lambda$.</description>
+    </item>
+    
+    <item>
+      <title>Eigenvalues and Eigenvectors</title>
+      <link>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</link>
+      <pubDate>Thu, 14 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</guid>
+      <description>18.1 Eigenvalues and Eigenvectors The usual function of a matrix is to act on a vector like a function, i.e. in goes a vector $x$, out comes a vector $Ax$. For a specific matrix $A$, if $Ax$ is parallel to $x$ i.e. $Ax = \lambda x$, the vectors $x$ are called as eigenvectors. The constant $\lambda$ is called as eigenvalue.
+The vector $x$ and constant $\lambda$ satisfying the equation $Ax = \lambda x$ are eigenvectors and eigenvalues.</description>
+    </item>
+    
     <item>
       <title>Formula for $A^{-1}$ and Cramer&#39;s Rule</title>
       <link>https://amitrajan012.github.io/post/chapter_17_cramers_rule_inverse_matrix_and_volume/</link>
