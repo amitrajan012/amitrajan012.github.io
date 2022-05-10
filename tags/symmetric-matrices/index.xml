@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Symmetric Matrices on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/symmetric-matrices/</link>
+    <description>Recent content in Symmetric Matrices on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/symmetric-matrices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Symmetric Matrices and Positive Definiteness</title>
+      <link>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</guid>
+      <description>22.1 Symmetric Matrices For a Symmetric Matrix $A$, $A = A^T$. Eigenvalues of real Symmetric Matrices are real and eigenvectors are perpendicular. Any matrix $A$ can be written as $A = S\Lambda S^{-1}$. For a symmetric matrix $A$, this relationship reduces to $A = Q \Lambda Q^{-1}$ as $S$, which is the eigenvector matrix has orthonormal eigenvectors. For an orthonormal matrix, $Q^{-1} = Q^T$ and hence $A = Q\Lambda Q^T$. This is called as the Spectral Theorem in mathematics.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,36 @@
     <description>Recent content in Determinant on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/determinant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/determinant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Symmetric Matrices and Positive Definiteness</title>
+      <link>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</guid>
+      <description>22.1 Symmetric Matrices For a Symmetric Matrix $A$, $A = A^T$. Eigenvalues of real Symmetric Matrices are real and eigenvectors are perpendicular. Any matrix $A$ can be written as $A = S\Lambda S^{-1}$. For a symmetric matrix $A$, this relationship reduces to $A = Q \Lambda Q^{-1}$ as $S$, which is the eigenvector matrix has orthonormal eigenvectors. For an orthonormal matrix, $Q^{-1} = Q^T$ and hence $A = Q\Lambda Q^T$. This is called as the Spectral Theorem in mathematics.</description>
+    </item>
+    
+    <item>
+      <title>Markov Matrices and Fourier Series</title>
+      <link>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</link>
+      <pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
+      <description>21.1 Markov Matrices Markov Matrices have the following properties:
+ All entries $\geq 0$ Sum of the entries in a column equal $1$  A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
+Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
+    </item>
+    
+    <item>
+      <title>Differential Equations and Matrix Exponentials</title>
+      <link>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</link>
+      <pubDate>Wed, 20 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</guid>
+      <description>20.1 Differential Equations $\frac{du}{dt} = Au$ Example: Let the system of differential equation to be solved is: $\frac{du_1}{dt} = -u_1 + 2u_2; \frac{du_2}{dt} = u_1 - 2u_2$ with initial condition of $u(0) = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$. The matrix $A$ representing the coefficients of the equation is $A = \begin{bmatrix} -1 &amp;amp; 2 \\ 1 &amp;amp; -2 \end{bmatrix}$. The eigenvalues of the matrix $A$ satisfies the equation $\lambda_1 + \lambda_2 = -3; \lambda_1 \times \lambda_2 = 0$, i.</description>
+    </item>
+    
     <item>
       <title>Diagonalization and Powers of a Matrix</title>
       <link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link>

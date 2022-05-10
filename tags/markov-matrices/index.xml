@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markov Matrices on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/markov-matrices/</link>
+    <description>Recent content in Markov Matrices on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/markov-matrices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markov Matrices and Fourier Series</title>
+      <link>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</link>
+      <pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
+      <description>21.1 Markov Matrices Markov Matrices have the following properties:
+ All entries $\geq 0$ Sum of the entries in a column equal $1$  A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
+Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,13 +6,112 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 17 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Determinant</title>
       <link>https://amitrajan012.github.io/tags/determinant/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/determinant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvalue Decomposition</title>
+      <link>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvalues</title>
+      <link>https://amitrajan012.github.io/tags/eigenvalues/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/eigenvalues/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvectors</title>
+      <link>https://amitrajan012.github.io/tags/eigenvectors/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/eigenvectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gilbert Strang</title>
+      <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Positive Definiteness</title>
+      <link>https://amitrajan012.github.io/tags/positive-definiteness/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/positive-definiteness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Symmetric Matrices</title>
+      <link>https://amitrajan012.github.io/tags/symmetric-matrices/</link>
+      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/symmetric-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fourier Series</title>
+      <link>https://amitrajan012.github.io/tags/fourier-series/</link>
+      <pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/fourier-series/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markov Matrices</title>
+      <link>https://amitrajan012.github.io/tags/markov-matrices/</link>
+      <pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/markov-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Differential Equations</title>
+      <link>https://amitrajan012.github.io/tags/differential-equations/</link>
+      <pubDate>Wed, 20 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/differential-equations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matrix Exponentials</title>
+      <link>https://amitrajan012.github.io/tags/matrix-exponentials/</link>
+      <pubDate>Wed, 20 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/matrix-exponentials/</guid>
       <description></description>
     </item>
     
@@ -22,51 +121,6 @@
       <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/difference-equation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eigenvalue Decomposition</title>
-      <link>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eigenvalues</title>
-      <link>https://amitrajan012.github.io/tags/eigenvalues/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/eigenvalues/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eigenvectors</title>
-      <link>https://amitrajan012.github.io/tags/eigenvectors/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/eigenvectors/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gilbert Strang</title>
-      <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linear Algebra</title>
-      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     
