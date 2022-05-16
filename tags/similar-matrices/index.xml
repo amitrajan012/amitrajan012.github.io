@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Similar Matrices on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/similar-matrices/</link>
+    <description>Recent content in Similar Matrices on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/similar-matrices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Similar Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</link>
+      <pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</guid>
+      <description>25.1 Similar Matrices One of the major generator of a positive definite matrix is when we square one. In a nutsheel, the matrix $A^TA$ is always positive definite. To prove this, let $A$ be a $m \times n$ rectangular matrix. Then $A^TA$ is a square symmetric matrix. If we evaluate the expression $x^T(A^TA)x$, we get $x^T(A^TA)x = (x^TA^T)(Ax) = (Ax)^T(Ax) = |Ax|^2 &amp;gt; 0$ if $Ax$ is non-zero. Another important thing to note is if matrix $A, B$ are positive definite, $A+B$ is positive definite.</description>
+    </item>
+    
+  </channel>
+</rss>

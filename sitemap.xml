@@ -3,39 +3,102 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/determinant/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/eigenvalues/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/eigenvectors/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gilbert-strang/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/left-inverse/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-algebra/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pseudo-inverse/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/right-inverse/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/singular-value-decomposition/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-05-15T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/change-of-basis/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/fourier-basis/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/image-compression/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-transformations/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/wavelet-basis/</loc>
+    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</loc>
+    <lastmod>2022-05-09T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/jordan-block/</loc>
+    <lastmod>2022-05-06T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/similar-matrices/</loc>
+    <lastmod>2022-05-06T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</loc>
+    <lastmod>2022-05-06T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/positive-definite-matrices/</loc>
+    <lastmod>2022-05-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</loc>
+    <lastmod>2022-05-02T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/complex-matrices/</loc>
+    <lastmod>2022-04-29T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</loc>
+    <lastmod>2022-04-29T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/fourier-transform/</loc>
+    <lastmod>2022-04-29T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/hermitian-matrices/</loc>
+    <lastmod>2022-04-29T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</loc>
     <lastmod>2022-04-26T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/eigenvalues/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/eigenvectors/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/gilbert-strang/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/linear-algebra/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/positive-definiteness/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
     <lastmod>2022-04-26T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/symmetric-matrices/</loc>
     <lastmod>2022-04-26T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</loc>
-    <lastmod>2022-04-26T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2022-04-26T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/fourier-series/</loc>

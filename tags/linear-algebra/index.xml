@@ -6,7 +6,65 @@
     <description>Recent content in Linear Algebra on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Left, Right  and Pseudo Inverses</title>
+      <link>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</guid>
+      <description>28.1 Left and Right Inverses For any matrix $A$, there are four fundamental subspaces: Row Space, Null Space, Column Space, Null Space of $A^T$. Row Space and Null Space combined span entire $\mathbb{R}^n$ for a $m \times n$ matrix $A$. Column Space and Null Space of $A^T$ combined span entire $\mathbb{R}^m$ for a $m \times n$ matrix $A$. For the inverse of the matrix to exist, it&amp;rsquo;s rank should be $r=m=n$ whtere the dimension of the matrix is $m \times n$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Transformations, Change of Basis and Image Compression</title>
+      <link>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
+      <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
+ $T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties  Below are some examples and non-examples of linear transformation:
+Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition</title>
+      <link>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</link>
+      <pubDate>Mon, 09 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</guid>
+      <description>26.1 Singular Value Decomposition If any matrix $A$ can be decomposed as $A = U\Sigma V^T$, where $\Sigma$ is a diagonal matrix and $U,V$ are orthogonal matrices, this is called as Singular Value Decomposition (SVD). One of the examples of SVD is for a symmetric positive definite matrix $A$, we know that $A = Q\Lambda Q^T$, where $\Lambda$ is diagonal and $Q$ is orthogonal.
+For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$ and the column-space be entire $\mathbb{R}^m$.</description>
+    </item>
+    
+    <item>
+      <title>Similar Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</link>
+      <pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</guid>
+      <description>25.1 Similar Matrices One of the major generator of a positive definite matrix is when we square one. In a nutsheel, the matrix $A^TA$ is always positive definite. To prove this, let $A$ be a $m \times n$ rectangular matrix. Then $A^TA$ is a square symmetric matrix. If we evaluate the expression $x^T(A^TA)x$, we get $x^T(A^TA)x = (x^TA^T)(Ax) = (Ax)^T(Ax) = |Ax|^2 &amp;gt; 0$ if $Ax$ is non-zero. Another important thing to note is if matrix $A, B$ are positive definite, $A+B$ is positive definite.</description>
+    </item>
+    
+    <item>
+      <title>Positive Definite Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link>
+      <pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
+      <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
+ Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$  The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
+    </item>
+    
+    <item>
+      <title>Complex Matrices and Fourier Transform</title>
+      <link>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</link>
+      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</guid>
+      <description>23.1 Complex Vectors/Matrices Let $z = \begin{bmatrix} z_1 \\ z_2 \\ &amp;hellip; \\ z_n \end{bmatrix}$ be a complex vector in $C^n$. The expresson $z^Tz$ doesn&amp;rsquo;t represent the length of the vector $z$. Instead it&amp;rsquo;s length is represented by $\overline{z}^Tz$. $\overline{z}^T$ is also called as $z^H$ and is called as Hermitian of a matrix. Hence, the length of a complex vector is $z^Hz = |z_1|^2 + |z_2|^2 + &amp;hellip; + |z_n|^2$. Similarly, for a complex matrix $A$ to be symmetric, $A^H = A$ with diagonal elements being real.</description>
+    </item>
+    
     <item>
       <title>Symmetric Matrices and Positive Definiteness</title>
       <link>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</link>

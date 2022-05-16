@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Positive Definite Matrices" />
+    <meta property="og:title" content="Positive Definite Matrices" />
+    <meta property="twitter:title" content="Positive Definite Matrices" />
+    
+
+    
+    <meta name="description" content="Linear Algebra (Gilbert Strang): Chapter 24">
+    <meta property="og:description" content="Linear Algebra (Gilbert Strang): Chapter 24" />
+    <meta property="twitter:description" content="Linear Algebra (Gilbert Strang): Chapter 24" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Positive Definite Matrices-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/chapter-24-positive-definite-matrices-and-minima/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/linear-algebra" title="Linear Algebra">
+                            Linear Algebra
+                        </a>
+                        
+                        <a class="tag" href="/tags/determinant" title="Determinant">
+                            Determinant
+                        </a>
+                        
+                        <a class="tag" href="/tags/gilbert-strang" title="Gilbert Strang">
+                            Gilbert Strang
+                        </a>
+                        
+                        <a class="tag" href="/tags/eigenvalues" title="Eigenvalues">
+                            Eigenvalues
+                        </a>
+                        
+                        <a class="tag" href="/tags/eigenvectors" title="Eigenvectors">
+                            Eigenvectors
+                        </a>
+                        
+                        <a class="tag" href="/tags/positive-definite-matrices" title="Positive Definite Matrices">
+                            Positive Definite Matrices
+                        </a>
+                        
+                    </div>
+                    <h1>Positive Definite Matrices</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Monday, May 2, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="241-positive-definite-matrices">24.1 Positive Definite Matrices</h2>
+<p>These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix}
+a &amp; b \\
+b &amp; c
+\end{bmatrix}$ for being Positive Definite:</p>
+<ul>
+<li>Both the eigenvalues should be positive: $\lambda_1 &gt; 0;\lambda_2 &gt; 0$</li>
+<li>All the sub-determinants should be positive: $a &gt; 0; ac - b^2 &gt; 0$</li>
+<li>Pivots should be positive: $a&gt;0;\frac{ac-b^2}{a} &gt; 0$</li>
+<li>$x^TAx &gt; 0;\forall x$</li>
+</ul>
+<p>The matrix for which any of these conditions holds with equality instead are called as <b>positive semi-definite matrices</b>. For example, the matrix  $A = \begin{bmatrix}
+2 &amp; 6 \\
+6 &amp; 18
+\end{bmatrix}$ is a positive-semidifinite matrix. Let us run the $x^TAx &gt; 0$ test on this matrix. Let $x = \begin{bmatrix}
+x_1  \\
+x_2
+\end{bmatrix}$, then</p>
+<p>$$\begin{align}
+x^TAx = \begin{bmatrix}
+x_1 &amp; x_2
+\end{bmatrix}\begin{bmatrix}
+2 &amp; 6 \\
+6 &amp; 18
+\end{bmatrix}\begin{bmatrix}
+x_1  \\
+x_2
+\end{bmatrix} = 2x_1^2 + 12x_1x_2 + 18x_2^2
+\end{align}$$</p>
+<p>The matrix $A$ is not positive definite as $x^TAx \not&gt;0;\forall x$. If we take $A = \begin{bmatrix}
+2 &amp; 6 \\
+6 &amp; 7
+\end{bmatrix}$, this matrix is definitely not positive definite. The expression $x^TAx = 2x^2 + 12xy + 7y^2$ where $x = \begin{bmatrix}
+x  \\
+y
+\end{bmatrix}$. For $A = \begin{bmatrix}
+2 &amp; 6 \\
+6 &amp; 20
+\end{bmatrix}$, the matrix is positive definite as $x^TAx = 2x^2 + 12xy + 20y^2 &gt; 0$ for all values. The plot of $x^TAx$ for two matrices is shown in below figure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> mpl_toolkits <span style="color:#f92672">import</span> mplot3d
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x, y):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(x <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">12</span><span style="color:#f92672">*</span>x<span style="color:#f92672">*</span>y <span style="color:#f92672">+</span> <span style="color:#ae81ff">7</span><span style="color:#f92672">*</span>(y <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>x <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>linspace(<span style="color:#f92672">-</span><span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>, <span style="color:#ae81ff">100</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y)
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> f(X, Y)
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span>fig <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">30</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>, projection<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;3d&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot_wireframe(X, Y, Z, color <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>view_init(<span style="color:#ae81ff">10</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">120</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Shape of the Curve:c=7&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x, y):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>(x <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)) <span style="color:#f92672">+</span> (<span style="color:#ae81ff">12</span><span style="color:#f92672">*</span>x<span style="color:#f92672">*</span>y) <span style="color:#f92672">+</span> (<span style="color:#ae81ff">20</span><span style="color:#f92672">*</span>(y <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X, Y <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>meshgrid(x, y)
+</span></span><span style="display:flex;"><span>Z <span style="color:#f92672">=</span> f(X, Y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ax <span style="color:#f92672">=</span> fig<span style="color:#f92672">.</span>add_subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>, projection<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;3d&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>plot_wireframe(X, Y, Z, color <span style="color:#f92672">=</span><span style="color:#e6db74">&#39;green&#39;</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>view_init(<span style="color:#ae81ff">10</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">120</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;x&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;y&#39;</span>, fontsize<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>ax<span style="color:#f92672">.</span>set_title(<span style="color:#e6db74">&#39;Shape of the Curve:c=20&#39;</span>);
+</span></span></code></pre></div><img class="pure-img" src="/img/Linear_Algebra/pos_def.png" alt="">
+<p>Another way to find whether $x^TAx$ is always positive or not is by completing the square. For example, $x^TAx = 2x^2 + 12xy + 20y^2 = 2(x+3y)^2 + 2y^2$, and hence $x^TAx$ is always positive. One of the important thing to note that the numbers which come in completing the square come from the row elimination steps with <b>the pivot $2$ outside and the row-multiplier $3$ inside</b>.</p>
+<p>$$\begin{align}
+A = \begin{bmatrix}
+2 &amp; 6 \\
+6 &amp; 20
+\end{bmatrix} = \begin{bmatrix}
+1 &amp; 0 \\
+3 &amp; 1
+\end{bmatrix}\begin{bmatrix}
+2 &amp; 6 \\
+0 &amp; 2
+\end{bmatrix}=LU
+\end{align}$$</p>
+<p>This can seen be one of the reasons for the pivots being positive for a positive definite matrix as positive pivots will give us positive completed square.</p>
+<p>Let us take a $3 \times 3$ matrix $A = \begin{bmatrix}
+2 &amp; -1 &amp; 0 \\
+-1 &amp; 2 &amp; -1 \\
+0 &amp; -1 &amp; 2
+\end{bmatrix}$. Is this matrix positive definite? The values of sub-determinants of this matrix are: $2,3,4$ and hence it is positive definite. We can find the pivots using the fact that <b>product of pivots give us the determinants</b>. Hence first pivot is $2$, second pivot is $\frac{3}{2}$ and the third pivot is $\frac{4}{2 \times \frac{3}{2}} = \frac{4}{3}$. Pivots are also positive and hence the matrix is positive definite.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/chapter-23-complex-matrices-and-fast-fourier-transform/" data-toggle="tooltip" data-placement="top" title="Complex Matrices and Fourier Transform">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/chapter-25-similar-matrices-and-jordan-form/" data-toggle="tooltip" data-placement="top" title="Similar Matrices">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/basis" title="basis">
+                            basis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/determinant" title="determinant">
+                            determinant
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dimension" title="dimension">
+                            dimension
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/eigenvalue-decomposition" title="eigenvalue-decomposition">
+                            eigenvalue-decomposition
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvalues" title="eigenvalues">
+                            eigenvalues
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvectors" title="eigenvectors">
+                            eigenvectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-space" title="matrix-space">
+                            matrix-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/projection" title="projection">
+                            projection
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

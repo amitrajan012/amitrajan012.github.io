@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Positive Definite Matrices on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/positive-definite-matrices/</link>
+    <description>Recent content in Positive Definite Matrices on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/positive-definite-matrices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Positive Definite Matrices</title>
+      <link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link>
+      <pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
+      <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
+ Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$  The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
+    </item>
+    
+  </channel>
+</rss>

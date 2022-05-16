@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Singular Value Decomposition on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/singular-value-decomposition/</link>
+    <description>Recent content in Singular Value Decomposition on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/singular-value-decomposition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Left, Right  and Pseudo Inverses</title>
+      <link>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</guid>
+      <description>28.1 Left and Right Inverses For any matrix $A$, there are four fundamental subspaces: Row Space, Null Space, Column Space, Null Space of $A^T$. Row Space and Null Space combined span entire $\mathbb{R}^n$ for a $m \times n$ matrix $A$. Column Space and Null Space of $A^T$ combined span entire $\mathbb{R}^m$ for a $m \times n$ matrix $A$. For the inverse of the matrix to exist, it&amp;rsquo;s rank should be $r=m=n$ whtere the dimension of the matrix is $m \times n$.</description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition</title>
+      <link>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</link>
+      <pubDate>Mon, 09 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</guid>
+      <description>26.1 Singular Value Decomposition If any matrix $A$ can be decomposed as $A = U\Sigma V^T$, where $\Sigma$ is a diagonal matrix and $U,V$ are orthogonal matrices, this is called as Singular Value Decomposition (SVD). One of the examples of SVD is for a symmetric positive definite matrix $A$, we know that $A = Q\Lambda Q^T$, where $\Lambda$ is diagonal and $Q$ is orthogonal.
+For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$ and the column-space be entire $\mathbb{R}^m$.</description>
+    </item>
+    
+  </channel>
+</rss>

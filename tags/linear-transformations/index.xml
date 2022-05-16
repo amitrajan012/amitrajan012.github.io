@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear Transformations on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/linear-transformations/</link>
+    <description>Recent content in Linear Transformations on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 12 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-transformations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Transformations, Change of Basis and Image Compression</title>
+      <link>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
+      <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
+ $T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties  Below are some examples and non-examples of linear transformation:
+Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
+    </item>
+    
+  </channel>
+</rss>

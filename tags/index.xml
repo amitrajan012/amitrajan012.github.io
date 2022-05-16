@@ -6,13 +6,184 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Determinant</title>
       <link>https://amitrajan012.github.io/tags/determinant/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/determinant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvalues</title>
+      <link>https://amitrajan012.github.io/tags/eigenvalues/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/eigenvalues/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Eigenvectors</title>
+      <link>https://amitrajan012.github.io/tags/eigenvectors/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/eigenvectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gilbert Strang</title>
+      <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Left Inverse</title>
+      <link>https://amitrajan012.github.io/tags/left-inverse/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/left-inverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Algebra</title>
+      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pseudo Inverse</title>
+      <link>https://amitrajan012.github.io/tags/pseudo-inverse/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pseudo-inverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Right Inverse</title>
+      <link>https://amitrajan012.github.io/tags/right-inverse/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/right-inverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Singular Value Decomposition</title>
+      <link>https://amitrajan012.github.io/tags/singular-value-decomposition/</link>
+      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/singular-value-decomposition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Change of Basis</title>
+      <link>https://amitrajan012.github.io/tags/change-of-basis/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/change-of-basis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fourier Basis</title>
+      <link>https://amitrajan012.github.io/tags/fourier-basis/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/fourier-basis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Compression</title>
+      <link>https://amitrajan012.github.io/tags/image-compression/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/image-compression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Transformations</title>
+      <link>https://amitrajan012.github.io/tags/linear-transformations/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-transformations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wavelet Basis</title>
+      <link>https://amitrajan012.github.io/tags/wavelet-basis/</link>
+      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/wavelet-basis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jordan Block</title>
+      <link>https://amitrajan012.github.io/tags/jordan-block/</link>
+      <pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/jordan-block/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Similar Matrices</title>
+      <link>https://amitrajan012.github.io/tags/similar-matrices/</link>
+      <pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/similar-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Positive Definite Matrices</title>
+      <link>https://amitrajan012.github.io/tags/positive-definite-matrices/</link>
+      <pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/positive-definite-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Complex Matrices</title>
+      <link>https://amitrajan012.github.io/tags/complex-matrices/</link>
+      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/complex-matrices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fourier Transform</title>
+      <link>https://amitrajan012.github.io/tags/fourier-transform/</link>
+      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/fourier-transform/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hermitian Matrices</title>
+      <link>https://amitrajan012.github.io/tags/hermitian-matrices/</link>
+      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/hermitian-matrices/</guid>
       <description></description>
     </item>
     
@@ -22,42 +193,6 @@
       <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/eigenvalue-decomposition/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eigenvalues</title>
-      <link>https://amitrajan012.github.io/tags/eigenvalues/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/eigenvalues/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Eigenvectors</title>
-      <link>https://amitrajan012.github.io/tags/eigenvectors/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/eigenvectors/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gilbert Strang</title>
-      <link>https://amitrajan012.github.io/tags/gilbert-strang/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/gilbert-strang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linear Algebra</title>
-      <link>https://amitrajan012.github.io/tags/linear-algebra/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/linear-algebra/</guid>
       <description></description>
     </item>
     
