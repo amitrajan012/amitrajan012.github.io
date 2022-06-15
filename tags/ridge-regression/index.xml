@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ridge Regression on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/ridge-regression/</link>
+    <description>Recent content in Ridge Regression on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/ridge-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Polynomial Curve Fitting</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_1/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_1/</guid>
+      <description>Any pattren recognition or machine learning task can be primarily divided into two categories: Supervised and Unsupervised Learning. In a supervised machine learning problem, we have the input and corresponding desired output. For any supervised learning problem, the aim of the pattern recognition algorithm is to come up with an algorithm or model which can predict the output given the input. Based on the output, the supervised learning problem can be divided into two categories: Classification (when we have a finite number of discrete output) and Regression (if the desired output consists of one or more continuous variables).</description>
+    </item>
+    
+  </channel>
+</rss>

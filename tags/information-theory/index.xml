@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Information Theory on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/information-theory/</link>
+    <description>Recent content in Information Theory on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 10 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/information-theory/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Information Theory</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_5/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_5/</guid>
+      <description>1.6 Information Theory Some amount of information is recieved when we observe the value of a discrete random variable $x$. If a highly improbable event has occured, the amount of information received is higher. For an event which was certain to happen, no amount of information is received. Hence, the measure of information $h(x)$ will therefore depend on the probability distribution $p(x)$ and will be a monotnic function of $p(x)$. For two unrelated events $x$ and $y$, the information gain from observing both of them $h(x,y) = h(x) + h(y)$ is sum of the information gained from each of them separately.</description>
+    </item>
+    
+  </channel>
+</rss>

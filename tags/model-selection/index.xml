@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Model Selection on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/model-selection/</link>
+    <description>Recent content in Model Selection on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/model-selection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Model Selection &amp; Curse of Dimensionality</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</link>
+      <pubDate>Sun, 29 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</guid>
+      <description>1.3 Model Selection One of the commonly used technique for model selection is cross-validation. In a $S-fold$ cross-validation, training set is divided into $S$ equal subests where one of the subset is used for model vaidation and the remaining $S-1$ sets will be used for model training. This means that a total fraction of $\frac{S-1}{S}$ of dataset is used for model training. For a scarce dataset, it is common practice to set $S=N$, which is called as leave-one-out cross-validation technique.</description>
+    </item>
+    
+  </channel>
+</rss>

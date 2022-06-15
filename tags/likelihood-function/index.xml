@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Likelihood Function on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/likelihood-function/</link>
+    <description>Recent content in Likelihood Function on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 23 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/likelihood-function/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Theory</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</guid>
+      <description>1.2 Probability Theory Consider two random variables $X,Y$ where $X$ can take any of the values $x_i$ where $i=1,2,&amp;hellip;,M$ and $Y$ can take the values $y_j$ where $j=1,2,&amp;hellip;,L$. In a total of $N$ trials, both $X,Y$ are sampled and the number of trials for which $X=x_i,Y=y_j$ is $n_{ij}$. The number of trials in which $X=x_i$ is $c_i$ and $Y=y_j$ is $r_j$ respectively. Then, the joint probability of $X$ taking the value $x_i$ and $Y$ taking the value $y_j$ is given as:</description>
+    </item>
+    
+  </channel>
+</rss>

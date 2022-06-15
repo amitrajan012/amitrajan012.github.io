@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reject Option on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/reject-option/</link>
+    <description>Recent content in Reject Option on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/reject-option/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decision Theory</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_4/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_4/</guid>
+      <description>1.5 Decision Theory The idea behind decision theorey is to convert the model probabilities (mainly for classification problem) to a decision. Given an input vector $x$ with the corresponding output $t$, the joint probability distribution $p(x,t)$ will provide the complete summary of uncertainity associated with these variables. Determination of $p(x,t)$ from the training data is a difficult problem and hence in a practical setting, we are more intersted in taking decisions based on probable value of $t$ for a given $x$.</description>
+    </item>
+    
+  </channel>
+</rss>

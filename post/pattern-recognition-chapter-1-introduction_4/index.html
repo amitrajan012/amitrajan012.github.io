@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Decision Theory" />
+    <meta property="og:title" content="Decision Theory" />
+    <meta property="twitter:title" content="Decision Theory" />
+    
+
+    
+    <meta name="description" content="Pattern Recognition (Bishop): Chapter 1">
+    <meta property="og:description" content="Pattern Recognition (Bishop): Chapter 1" />
+    <meta property="twitter:description" content="Pattern Recognition (Bishop): Chapter 1" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Decision Theory-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/pattern-recognition-chapter-1-introduction_4/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/bishop" title="Bishop">
+                            Bishop
+                        </a>
+                        
+                        <a class="tag" href="/tags/pattern-recognition" title="Pattern Recognition">
+                            Pattern Recognition
+                        </a>
+                        
+                        <a class="tag" href="/tags/decision-theory" title="Decision Theory">
+                            Decision Theory
+                        </a>
+                        
+                        <a class="tag" href="/tags/misclassification-rate" title="Misclassification Rate">
+                            Misclassification Rate
+                        </a>
+                        
+                        <a class="tag" href="/tags/expected-loss" title="Expected Loss">
+                            Expected Loss
+                        </a>
+                        
+                        <a class="tag" href="/tags/loss-function" title="Loss Function">
+                            Loss Function
+                        </a>
+                        
+                        <a class="tag" href="/tags/utility-function" title="Utility Function">
+                            Utility Function
+                        </a>
+                        
+                        <a class="tag" href="/tags/reject-option" title="Reject Option">
+                            Reject Option
+                        </a>
+                        
+                        <a class="tag" href="/tags/reject-region" title="Reject Region">
+                            Reject Region
+                        </a>
+                        
+                        <a class="tag" href="/tags/inference" title="Inference">
+                            Inference
+                        </a>
+                        
+                        <a class="tag" href="/tags/discriminant-function" title="Discriminant Function">
+                            Discriminant Function
+                        </a>
+                        
+                        <a class="tag" href="/tags/generative-models" title="Generative Models">
+                            Generative Models
+                        </a>
+                        
+                        <a class="tag" href="/tags/discriminative-models" title="Discriminative Models">
+                            Discriminative Models
+                        </a>
+                        
+                        <a class="tag" href="/tags/minkowski-loss" title="Minkowski Loss">
+                            Minkowski Loss
+                        </a>
+                        
+                    </div>
+                    <h1>Decision Theory</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Saturday, June 4, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="15-decision-theory">1.5 Decision Theory</h2>
+<p>The idea behind decision theorey is to convert the model probabilities (mainly for classification problem) to a decision. Given an input vector $x$ with the corresponding output $t$, the joint probability distribution $p(x,t)$ will provide the complete summary of uncertainity associated with these variables. Determination of $p(x,t)$ from the training data is a difficult problem and hence in a practical setting, we are more intersted in taking decisions based on probable value of $t$ for a given $x$. This intution sets the premise for the decision theory.</p>
+<p>Let us consider an example of a medical diagnosis problem where given an X-ray image ($x$), we have to predict whether the patient has the cancer (class $C_1$) or not (class $C_2$), i.e. we are interested in the probabilities $p(C_k|x)$. Using Bayes&rsquo; Theorem, these probabilities can be expressed as:</p>
+<p>$$\begin{align}
+p(C_k | x) = \frac{p(x|C_k)p(C_k)}{p(x)}
+\end{align}$$</p>
+<p>$p(C_k)$ can be interpreted as the <b>prior probabilities</b> of the classes and $p(C_k | x)$ is the probability post-evidence. If our aim is to minimize the chance of assigning $x$ to the wrong class, then we should choose the class having highest posterior probability.</p>
+<h3 id="151-minimizing-the-misclassification-rate">1.5.1 Minimizing the Misclassification Rate</h3>
+<p>The goal of minimum misclassification can be achieved by dividing the entire input space into regions $R_k$ called as <b>decision regions</b>, one for each class, such that all the points in $R_k$ will be assigned to $C_k$. The boundaries between the decision regions are called as <b>decision boundaries</b>. For a two class case, a mistake occurs if a point belonging to class $C_1$ is assigned to class $C_2$ or vice versa. The probability of mistake is given as:</p>
+<p>$$\begin{align}
+p(mistake) = p(x \in R_1, C_2) + p(x \in R_2, C_1) = \int_{R_1} p(x,C_2)dx + \int_{R_2} p(x,C_1)dx
+\end{align}$$</p>
+<p>Hence, to minimize the probability of mistake, if $p(x, C_1) &gt; p(x, C_2)$ for a given value of $x$, then we should assign that $x$ to class $C_1$. As $p(x, C_k) = p(C_k|x)p(x)$, and the term $p(x)$ is common for all the classes, the minimum probability of mistake is obtained if each value of $x$ is assigned to the calss for which the posterior probability $p(C_k|x)$ is largest.</p>
+<p>For a generic case of $K$ classes, it is easier to maximize the probability of being correct which is given as:</p>
+<p>$$\begin{align}
+p(correct) = \sum_{k=1}^{K} p(x \in R_k, C_k) = \sum_{k=1}^{K} \int_{R_k} p(x,C_k)dx
+\end{align}$$</p>
+<p>which is maximized when the regions $R_k$ are chosen such that each $x$ is assigned to the class for which $p(x,C_k)$ or $p(C_k|x)$ is maximum.</p>
+<h3 id="152-minimizing-the-expected-loss">1.5.2 Minimizing the Expected Loss</h3>
+<p><b>Loss function or Cost function</b> is a single overall measure of loss incurred in taking any of the available decisions or actions. Our goal is then to minimize the total loss incurred. Instead, we can even maximize the <b>Utility function</b>. We can encode loss function (or the level of loss incurred when a decison is taken) as a matrix $L$ whose entry $L_{kj}$ is the loss incurred when a new value $x$ belonging to the <b>true class $C_k$</b> is assigned to class $C_j$ (where $j$ may or may not be $k$). A typical loss matrix for the cancer classification problem is shown below.</p>
+<img class="pure-img" src="/img/pattern_recognition/loss_matrix.png" alt="">
+<p>The optimal solution for any decision problem is the one which minimizes the loss function. But, the loss function depends on the true class which is unknown. We can however represent the uncertainity in true class by the joint probability $p(x,C_k)$ for any input $x$ and hence we can minimize the average loss instead. This average is computed with respect to the distribution of $p(x,C_k)$ and is given as:</p>
+<p>$$\begin{align}
+E[L] = \sum_{k}\sum_{j}\int_{R_j}L_{kj}p(x,C_k)dx
+\end{align}$$</p>
+<p>Hence, our goal is to choose the region $R_j$ such that for each $x$, $\sum_{k}L_{kj}p(x,C_k)$ is minimized. Replacing $p(x,C_k)$ with $p(C_k|x)p(x)$, we have minimize $\sum_{k}L_{kj}p(C_k|x)$ instead. This can be done easily as we know each of the posterior probabilities.</p>
+<h3 id="153-the-reject-option">1.5.3 The Reject Option</h3>
+<p>Classification errors mainly arise from the regions of input space where posterior probability $p(C_k|x)$ is significantly less than unity or equivalently the joint distributions $p(x,C_k)$ are comparable. These are the regions where we are uncertain about the classification and hence it will be better avoid making decisions on them. This is known as the <b>reject option</b>. We can achieve this by selecting a threshold $\theta$ and rejecting the inputs $x$ for which the largest of the posterior probabilities $p(C_k|x) \leq \theta$. The illustration of reject region is shown below.</p>
+<img class="pure-img" src="/img/pattern_recognition/reject_region.png" alt="">
+<h3 id="154-inference-and-decision">1.5.4 Inference and Decision</h3>
+<p>The classification problem can be broken down into two stages: <b>inference stage</b> in which a training data is used to learn the model for $p(C_k|x)$ and <b>decision satge</b> where these posterior probabilities are used to make class assignments. An alternate will be to club these stages together and simply learn a function (<b>discriminant function</b>) that maps the input $x$ directly to the decision.</p>
+<p>Hence, any classification problem can be soved using three approaches. The approaches in their decreasing order of complexity are as follows.</p>
+<ul>
+<li>
+<p>In approach one, we implicitly or explicitly model the distribution of inputs as well as outputs $p(x,C_k)$. These models are called as <b>generative models</b> as they can be used to generate sythetic data points in the input space. Directly modeling the distribution is the most difficult problem to solve.</p>
+</li>
+<li>
+<p>Another approach is to model $p(C_k|x)$ and then used decision theory to assign each new $x$ to one of the classes. Approaches that model the posterior probability directly are called as <b>discriminative models</b>.</p>
+</li>
+<li>
+<p>The third approach is to find a function $f$ (called as <b>discriminant function</b>) which directly maps the input $x$ to the output class.</p>
+</li>
+</ul>
+<p>One of the drawbacks of last approach is the fact that we cannot combine different models together if we directly model for discriminant functions. Lets say that in the cancer detection problem, we have the access to the blood data (denoted as $x_B$ and X-ray image denoted as $x_I$) of individuals as well. From the second approach, if we want to generate a combined model, we can easily club the two individual model posterior probabilities together to find the combined model posterior probability.</p>
+<p>$$\begin{align}
+p(C_k|x_I,x_B) \propto p(x_I,x_B|C_k)p(C_k)
+\end{align}$$</p>
+<p>Assuming that the blood data and X-ray image are independent, we have</p>
+<p>$$\begin{align}
+p(x_I,x_B|C_k)p(C_k) = p(x_I|C_k)p(x_B|C_k)
+\end{align}$$</p>
+<p>Hence,</p>
+<p>$$\begin{align}
+p(C_k|x_I,x_B) \propto p(x_I|C_k)p(x_B|C_k)p(C_k) = \frac{p(C_k|x_I)p(C_k|x_B)}{p(C_k)}
+\end{align}$$</p>
+<h3 id="155-loss-function-for-regression">1.5.5 Loss function for Regression</h3>
+<p>In a regression problem, the decision state consists of choosing an estimate $y(x)$ of the value of $t$ for a given input $X$. Suppose, in doinf so we incur a loss $L(t, y(x))$. The expected loss is given as:</p>
+<p>$$\begin{align}
+E[L] = \int\int L(t, y(x))p(x,t)dx \ dt
+\end{align}$$</p>
+<p>A common choice is squared loss given as $L(t, y(x)) = [y(x) - t]^2$. In this case, the expected loss can be written as</p>
+<p>$$\begin{align}
+E[L] = \int\int [y(x) - t]^2 p(x,t)dx \ dt
+\end{align}$$</p>
+<p>Our goal is to choose $y(x)$ which will minimize $E[L]$.</p>
+<p>$$\begin{align}
+\frac{\delta E[L]}{\delta y(x)} = 2\int [y(x) - t] p(x,t) dt = 0
+\end{align}$$</p>
+<p>Solving for $y(x)$, we get</p>
+<p>$$\begin{align}
+y(x) = \frac{\int tp(x,t)dt}{\int p(x,t)dt} = \frac{\int tp(x,t)dt}{p(x)} = \int t\frac{p(x,t)}{p(x)}dt = \int tp(t|x)dt = E_{t}[t|x]
+\end{align}$$</p>
+<p>The three approaches to solve the regression problem in decreasing order of complexity are as follows.</p>
+<ul>
+<li>
+<p>First solve the inference problem to get the joint density $p(x,t)$. Normalize this to find the conditional density $p(t|x)$ and then marginalize it to find the conditional mean $E_t[t|x]$.</p>
+</li>
+<li>
+<p>In the second approach we directly model $p(t|x)$ and then marginalize it to find the conditional mean $E_t[t|x]$</p>
+</li>
+<li>
+<p>Lastly, we can directly model the regression function $y(x)$ from the training data.</p>
+</li>
+</ul>
+<p>Instead of squared loss, we can even use lower or higher order loss, called as <b>Minkowski Loss</b> whose expectation is given as:</p>
+<p>$$\begin{align}
+E[L_q] = \int\int |y(x) - t|^q p(x,t)dx \ dt
+\end{align}$$</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/pattern-recognition-chapter-1-introduction_3/" data-toggle="tooltip" data-placement="top" title="Model Selection &amp; Curse of Dimensionality">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/pattern-recognition-chapter-1-introduction_5/" data-toggle="tooltip" data-placement="top" title="Information Theory">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/basis" title="basis">
+                            basis
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bishop" title="bishop">
+                            bishop
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cross-validation" title="cross-validation">
+                            cross-validation
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/determinant" title="determinant">
+                            determinant
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dimension" title="dimension">
+                            dimension
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/eigenvalue-decomposition" title="eigenvalue-decomposition">
+                            eigenvalue-decomposition
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvalues" title="eigenvalues">
+                            eigenvalues
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvectors" title="eigenvectors">
+                            eigenvectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-space" title="matrix-space">
+                            matrix-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pattern-recognition" title="pattern-recognition">
+                            pattern-recognition
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/projection" title="projection">
+                            projection
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

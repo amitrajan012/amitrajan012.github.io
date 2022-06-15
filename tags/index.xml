@@ -6,7 +6,448 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 10 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bishop</title>
+      <link>https://amitrajan012.github.io/tags/bishop/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convex Functions</title>
+      <link>https://amitrajan012.github.io/tags/convex-functions/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/convex-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Differential Entropy</title>
+      <link>https://amitrajan012.github.io/tags/differential-entropy/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/differential-entropy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Disorder</title>
+      <link>https://amitrajan012.github.io/tags/disorder/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/disorder/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Entropy</title>
+      <link>https://amitrajan012.github.io/tags/entropy/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/entropy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Information Theory</title>
+      <link>https://amitrajan012.github.io/tags/information-theory/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/information-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jensen’s Inequality</title>
+      <link>https://amitrajan012.github.io/tags/jensens-inequality/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/jensens-inequality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kulback-Leibler Divergence</title>
+      <link>https://amitrajan012.github.io/tags/kulback-leibler-divergence/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kulback-leibler-divergence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lagrange Multiplier</title>
+      <link>https://amitrajan012.github.io/tags/lagrange-multiplier/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/lagrange-multiplier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mutual Information</title>
+      <link>https://amitrajan012.github.io/tags/mutual-information/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mutual-information/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Relative Entropy</title>
+      <link>https://amitrajan012.github.io/tags/relative-entropy/</link>
+      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/relative-entropy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Decision Theory</title>
+      <link>https://amitrajan012.github.io/tags/decision-theory/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/decision-theory/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discriminant Function</title>
+      <link>https://amitrajan012.github.io/tags/discriminant-function/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/discriminant-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discriminative Models</title>
+      <link>https://amitrajan012.github.io/tags/discriminative-models/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/discriminative-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expected Loss</title>
+      <link>https://amitrajan012.github.io/tags/expected-loss/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/expected-loss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generative Models</title>
+      <link>https://amitrajan012.github.io/tags/generative-models/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/generative-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inference</title>
+      <link>https://amitrajan012.github.io/tags/inference/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Loss Function</title>
+      <link>https://amitrajan012.github.io/tags/loss-function/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/loss-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Minkowski Loss</title>
+      <link>https://amitrajan012.github.io/tags/minkowski-loss/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/minkowski-loss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Misclassification Rate</title>
+      <link>https://amitrajan012.github.io/tags/misclassification-rate/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/misclassification-rate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reject Option</title>
+      <link>https://amitrajan012.github.io/tags/reject-option/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/reject-option/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Reject Region</title>
+      <link>https://amitrajan012.github.io/tags/reject-region/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/reject-region/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Utility Function</title>
+      <link>https://amitrajan012.github.io/tags/utility-function/</link>
+      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/utility-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cross-validation</title>
+      <link>https://amitrajan012.github.io/tags/cross-validation/</link>
+      <pubDate>Sun, 29 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cross-validation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Curse of Dimensionality</title>
+      <link>https://amitrajan012.github.io/tags/curse-of-dimensionality/</link>
+      <pubDate>Sun, 29 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/curse-of-dimensionality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Selection</title>
+      <link>https://amitrajan012.github.io/tags/model-selection/</link>
+      <pubDate>Sun, 29 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/model-selection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes Rule</title>
+      <link>https://amitrajan012.github.io/tags/bayes-rule/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayes-rule/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Probabilities</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-probabilities/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-probabilities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conditional Probability</title>
+      <link>https://amitrajan012.github.io/tags/conditional-probability/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conditional-probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Covariances</title>
+      <link>https://amitrajan012.github.io/tags/covariances/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/covariances/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cumulative Distribution Function</title>
+      <link>https://amitrajan012.github.io/tags/cumulative-distribution-function/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/cumulative-distribution-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expectations</title>
+      <link>https://amitrajan012.github.io/tags/expectations/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/expectations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Distribution</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IID Samples</title>
+      <link>https://amitrajan012.github.io/tags/iid-samples/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/iid-samples/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Joint Probability</title>
+      <link>https://amitrajan012.github.io/tags/joint-probability/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/joint-probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Likelihood Function</title>
+      <link>https://amitrajan012.github.io/tags/likelihood-function/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/likelihood-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marginal Probability</title>
+      <link>https://amitrajan012.github.io/tags/marginal-probability/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/marginal-probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Estimator</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Posterior Probability</title>
+      <link>https://amitrajan012.github.io/tags/posterior-probability/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/posterior-probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Precision</title>
+      <link>https://amitrajan012.github.io/tags/precision/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/precision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Prior Probability</title>
+      <link>https://amitrajan012.github.io/tags/prior-probability/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/prior-probability/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probability Desnities</title>
+      <link>https://amitrajan012.github.io/tags/probability-desnities/</link>
+      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probability-desnities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Overfitting</title>
+      <link>https://amitrajan012.github.io/tags/overfitting/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/overfitting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polynomial Curve Fitting</title>
+      <link>https://amitrajan012.github.io/tags/polynomial-curve-fitting/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/polynomial-curve-fitting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polynomial Fuction</title>
+      <link>https://amitrajan012.github.io/tags/polynomial-fuction/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/polynomial-fuction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>https://amitrajan012.github.io/tags/regularization/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/regularization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ridge Regression</title>
+      <link>https://amitrajan012.github.io/tags/ridge-regression/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/ridge-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shrinkage Method</title>
+      <link>https://amitrajan012.github.io/tags/shrinkage-method/</link>
+      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/shrinkage-method/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Determinant</title>
       <link>https://amitrajan012.github.io/tags/determinant/</link>
@@ -1043,15 +1484,6 @@
     </item>
     
     <item>
-      <title>Precision</title>
-      <link>https://amitrajan012.github.io/tags/precision/</link>
-      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/precision/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Recall</title>
       <link>https://amitrajan012.github.io/tags/recall/</link>
       <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
@@ -1228,15 +1660,6 @@
       <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bayesian-estimation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cross-validation</title>
-      <link>https://amitrajan012.github.io/tags/cross-validation/</link>
-      <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/cross-validation/</guid>
       <description></description>
     </item>
     
@@ -1579,15 +2002,6 @@
       <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/linear-model-selection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Regularization</title>
-      <link>https://amitrajan012.github.io/tags/regularization/</link>
-      <pubDate>Sat, 26 May 2018 11:08:14 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/regularization/</guid>
       <description></description>
     </item>
     
