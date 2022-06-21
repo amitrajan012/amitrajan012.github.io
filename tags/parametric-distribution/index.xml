@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Parametric Distribution on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/parametric-distribution/</link>
+    <description>Recent content in Parametric Distribution on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 11 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/parametric-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Distributions - Binary Variables</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</guid>
+      <description>One goal of pattern recognition is to model the probability distribution $p(x)$ of a random variable $x$ given the finite set of points $x_1, x_2, &amp;hellip;, x_N$. This problem is known as density estimation. For simplicity, we can assume that the points are independent and identically distributed. There can be infinitely many distributions that can give rise to the given data points with any distribution that is non-zero at the points $x_1, x_2, &amp;hellip;, x_N$ as a potential candidate.</description>
+    </item>
+    
+  </channel>
+</rss>

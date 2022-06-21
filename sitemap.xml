@@ -3,10 +3,169 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bishop/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gausian-kernel/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/histogram-density-models/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kernel-density-estimators/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/natural-parameter/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/nearest-neighbours-method/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/nonparametric-methods/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/probability-distributions/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_9/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bernoulli-distribution/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/exponential-family/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/multinomial-distribution/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/noninformative-priors/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/softmax-function/</loc>
+    <lastmod>2022-06-18T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gaussian-distribution/</loc>
+    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</loc>
+    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/periodic-variables/</loc>
+    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</loc>
+    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/von-mises-distribution/</loc>
+    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayes-theorem-for-gaussian-variables/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayesian-inference-for-the-gaussian/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/degree-of-freedom/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-likelihood-for-the-gaussian/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/students-t-distribution/</loc>
+    <lastmod>2022-06-16T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</loc>
+    <lastmod>2022-06-15T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/sequential-estimation/</loc>
+    <lastmod>2022-06-15T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/conditional-gaussian-distribution/</loc>
+    <lastmod>2022-06-14T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/marginal-gaussian-distribution/</loc>
+    <lastmod>2022-06-14T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/precision-matrix/</loc>
+    <lastmod>2022-06-14T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</loc>
+    <lastmod>2022-06-14T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/central-limit-theorem/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/conjugate-prior/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mahalnobis-distance/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/normalization-coefficient/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/quadratic-form/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/second-order-moment/</loc>
+    <lastmod>2022-06-13T19:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/dirichlet-distribution/</loc>
+    <lastmod>2022-06-12T17:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/multinomial-variables/</loc>
+    <lastmod>2022-06-12T17:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/multivariate-beta-distribution/</loc>
+    <lastmod>2022-06-12T17:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_2/</loc>
+    <lastmod>2022-06-12T17:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/sufficient-statistics/</loc>
+    <lastmod>2022-06-12T17:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/beta-distribution/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/binary-variables/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/binomial-distribution/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/parametric-distribution/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</loc>
+    <lastmod>2022-06-11T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/convex-functions/</loc>
     <lastmod>2022-06-10T14:07:28+01:00</lastmod>
@@ -38,22 +197,10 @@
     <loc>https://amitrajan012.github.io/tags/mutual-information/</loc>
     <lastmod>2022-06-10T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/relative-entropy/</loc>
     <lastmod>2022-06-10T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/decision-theory/</loc>
-    <lastmod>2022-06-04T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_4/</loc>
     <lastmod>2022-06-04T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/discriminant-function/</loc>
@@ -69,6 +216,9 @@
     <lastmod>2022-06-04T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/inference/</loc>
+    <lastmod>2022-06-04T14:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_4/</loc>
     <lastmod>2022-06-04T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/loss-function/</loc>
@@ -95,10 +245,10 @@
     <loc>https://amitrajan012.github.io/tags/curse-of-dimensionality/</loc>
     <lastmod>2022-05-29T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/model-selection/</loc>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</loc>
     <lastmod>2022-05-29T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</loc>
+    <loc>https://amitrajan012.github.io/tags/model-selection/</loc>
     <lastmod>2022-05-29T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bayes-rule/</loc>
@@ -119,10 +269,10 @@
     <loc>https://amitrajan012.github.io/tags/expectations/</loc>
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/gaussian-distribution/</loc>
+    <loc>https://amitrajan012.github.io/tags/iid-samples/</loc>
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/iid-samples/</loc>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</loc>
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/joint-probability/</loc>
@@ -132,9 +282,6 @@
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/marginal-probability/</loc>
-    <lastmod>2022-05-23T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</loc>
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/posterior-probability/</loc>
@@ -149,16 +296,13 @@
     <loc>https://amitrajan012.github.io/tags/probability-desnities/</loc>
     <lastmod>2022-05-23T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</loc>
-    <lastmod>2022-05-23T14:07:28+01:00</lastmod>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_1/</loc>
+    <lastmod>2022-05-20T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/overfitting/</loc>
     <lastmod>2022-05-20T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/polynomial-curve-fitting/</loc>
-    <lastmod>2022-05-20T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_1/</loc>
     <lastmod>2022-05-20T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/polynomial-fuction/</loc>
@@ -518,9 +662,6 @@
     <loc>https://amitrajan012.github.io/tags/one-tailed-test/</loc>
     <lastmod>2018-11-24T01:08:17+05:30</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/students-t-distribution/</loc>
-    <lastmod>2018-11-24T01:08:17+05:30</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/two-tailed-test/</loc>
     <lastmod>2018-11-24T01:08:17+05:30</lastmod>
   </url><url>
@@ -547,12 +688,6 @@
   </url><url>
     <loc>https://amitrajan012.github.io/tags/variance/</loc>
     <lastmod>2018-11-20T16:41:05+05:30</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/bernoulli-distribution/</loc>
-    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/binomial-distribution/</loc>
-    <lastmod>2018-11-18T05:07:15+05:30</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/confidence-intervals_2/</loc>
     <lastmod>2018-11-18T05:07:15+05:30</lastmod>
@@ -585,9 +720,6 @@
     <lastmod>2018-11-16T01:00:00+05:30</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/commonly-used-distributions_1/</loc>
-    <lastmod>2018-11-15T12:03:41+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/multinomial-distribution/</loc>
     <lastmod>2018-11-15T12:03:41+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/poisson-distribution/</loc>
@@ -736,9 +868,6 @@
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</loc>
     <lastmod>2018-08-30T06:17:39+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/central-limit-theorem/</loc>
-    <lastmod>2018-08-26T16:27:09+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/convolution/</loc>
     <lastmod>2018-08-26T16:27:09+01:00</lastmod>

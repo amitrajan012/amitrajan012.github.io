@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayesian Inference for the Gaussian on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/bayesian-inference-for-the-gaussian/</link>
+    <description>Recent content in Bayesian Inference for the Gaussian on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bayesian-inference-for-the-gaussian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 4</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</guid>
+      <description>2.3.6 Bayesian Inference for the Gaussian We can use Bayesian treatment to derive the point estimates for the mean and variance of the Gaussian by introducing prior distributions over these parameters. For a single ranodm variable, let us suppose that the variance $\sigma^2$ is known and we have to determine the mean $\mu$ given $N$ data points $X={x_1,x_2,&amp;hellip;,x_N}$. Under the assumption of independence, the likelihood function is give as
+$$\begin{align} p(X|\mu) = \prod_{n=1}^{N} p(x_n|\mu) = \frac{1}{(2\pi\sigma^2)^{N/2}} exp \bigg(-\frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2\bigg) \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>

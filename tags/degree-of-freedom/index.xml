@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Degree of Freedom on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/degree-of-freedom/</link>
+    <description>Recent content in Degree of Freedom on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/degree-of-freedom/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 4</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</guid>
+      <description>2.3.6 Bayesian Inference for the Gaussian We can use Bayesian treatment to derive the point estimates for the mean and variance of the Gaussian by introducing prior distributions over these parameters. For a single ranodm variable, let us suppose that the variance $\sigma^2$ is known and we have to determine the mean $\mu$ given $N$ data points $X={x_1,x_2,&amp;hellip;,x_N}$. Under the assumption of independence, the likelihood function is give as
+$$\begin{align} p(X|\mu) = \prod_{n=1}^{N} p(x_n|\mu) = \frac{1}{(2\pi\sigma^2)^{N/2}} exp \bigg(-\frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2\bigg) \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 1</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</guid>
+      <description>2.3 The Gaussian Distribution Gaussian Distribution is a widely used model for the distribution of continous variables. For a single variable $x$, the gaussian distribution is given as
+$$\begin{align} N(x|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}} exp \bigg[\frac{-1}{2\sigma^2} (x-\mu)^2\bigg] \end{align}$$
+where $\mu$ and $\sigma^2$ are mean and variance respectively. For a $D$ dimensional vector $X$, the multivariate gaussian distribution takes the form
+$$\begin{align} N(X|\mu,\Sigma) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\Sigma|^{1/2}} exp \bigg[\frac{-1}{2} (X-\mu)^T\Sigma^{-1}(X-\mu)\bigg] \end{align}$$
+where $\mu$ is a $D$ dimensional mean vector and $\Sigma$ is a $D\times D$ dimensional covariance matrix with $|\Sigma|$ being its determinant.</description>
+    </item>
+    
+  </channel>
+</rss>

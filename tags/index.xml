@@ -6,13 +6,391 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Jun 2022 20:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bishop</title>
       <link>https://amitrajan012.github.io/tags/bishop/</link>
-      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gausian Kernel</title>
+      <link>https://amitrajan012.github.io/tags/gausian-kernel/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gausian-kernel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Histogram Density Models</title>
+      <link>https://amitrajan012.github.io/tags/histogram-density-models/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/histogram-density-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel Density Estimators</title>
+      <link>https://amitrajan012.github.io/tags/kernel-density-estimators/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kernel-density-estimators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Natural Parameter</title>
+      <link>https://amitrajan012.github.io/tags/natural-parameter/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/natural-parameter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nearest-neighbours Method</title>
+      <link>https://amitrajan012.github.io/tags/nearest-neighbours-method/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/nearest-neighbours-method/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nonparametric Methods</title>
+      <link>https://amitrajan012.github.io/tags/nonparametric-methods/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/nonparametric-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions</title>
+      <link>https://amitrajan012.github.io/tags/probability-distributions/</link>
+      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probability-distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bernoulli Distribution</title>
+      <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bernoulli-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exponential Family</title>
+      <link>https://amitrajan012.github.io/tags/exponential-family/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/exponential-family/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Sigmoid Function</title>
+      <link>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multinomial Distribution</title>
+      <link>https://amitrajan012.github.io/tags/multinomial-distribution/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multinomial-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Noninformative Priors</title>
+      <link>https://amitrajan012.github.io/tags/noninformative-priors/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/noninformative-priors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Softmax Function</title>
+      <link>https://amitrajan012.github.io/tags/softmax-function/</link>
+      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/softmax-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Distribution</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
+      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</link>
+      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Periodic Variables</title>
+      <link>https://amitrajan012.github.io/tags/periodic-variables/</link>
+      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/periodic-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>von Mises Distribution</title>
+      <link>https://amitrajan012.github.io/tags/von-mises-distribution/</link>
+      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/von-mises-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes’ Theorem for Gaussian Variables</title>
+      <link>https://amitrajan012.github.io/tags/bayes-theorem-for-gaussian-variables/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayes-theorem-for-gaussian-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Inference for the Gaussian</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-inference-for-the-gaussian/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-inference-for-the-gaussian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Degree of Freedom</title>
+      <link>https://amitrajan012.github.io/tags/degree-of-freedom/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/degree-of-freedom/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood for the Gaussian</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood-for-the-gaussian/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-for-the-gaussian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Student&#39;s t Distribution</title>
+      <link>https://amitrajan012.github.io/tags/students-t-distribution/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/students-t-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sequential Estimation</title>
+      <link>https://amitrajan012.github.io/tags/sequential-estimation/</link>
+      <pubDate>Wed, 15 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/sequential-estimation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conditional Gaussian Distribution</title>
+      <link>https://amitrajan012.github.io/tags/conditional-gaussian-distribution/</link>
+      <pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conditional-gaussian-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Marginal Gaussian Distribution</title>
+      <link>https://amitrajan012.github.io/tags/marginal-gaussian-distribution/</link>
+      <pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/marginal-gaussian-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Precision Matrix</title>
+      <link>https://amitrajan012.github.io/tags/precision-matrix/</link>
+      <pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/precision-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Central limit Theorem</title>
+      <link>https://amitrajan012.github.io/tags/central-limit-theorem/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/central-limit-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conjugate Prior</title>
+      <link>https://amitrajan012.github.io/tags/conjugate-prior/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conjugate-prior/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mahalnobis Distance</title>
+      <link>https://amitrajan012.github.io/tags/mahalnobis-distance/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mahalnobis-distance/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Normalization Coefficient</title>
+      <link>https://amitrajan012.github.io/tags/normalization-coefficient/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/normalization-coefficient/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quadratic Form</title>
+      <link>https://amitrajan012.github.io/tags/quadratic-form/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/quadratic-form/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Second Order Moment</title>
+      <link>https://amitrajan012.github.io/tags/second-order-moment/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/second-order-moment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dirichlet Distribution</title>
+      <link>https://amitrajan012.github.io/tags/dirichlet-distribution/</link>
+      <pubDate>Sun, 12 Jun 2022 17:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/dirichlet-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multinomial Variables</title>
+      <link>https://amitrajan012.github.io/tags/multinomial-variables/</link>
+      <pubDate>Sun, 12 Jun 2022 17:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multinomial-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multivariate Beta Distribution</title>
+      <link>https://amitrajan012.github.io/tags/multivariate-beta-distribution/</link>
+      <pubDate>Sun, 12 Jun 2022 17:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multivariate-beta-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sufficient Statistics</title>
+      <link>https://amitrajan012.github.io/tags/sufficient-statistics/</link>
+      <pubDate>Sun, 12 Jun 2022 17:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/sufficient-statistics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Beta Distribution</title>
+      <link>https://amitrajan012.github.io/tags/beta-distribution/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/beta-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binary Variables</title>
+      <link>https://amitrajan012.github.io/tags/binary-variables/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/binary-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Binomial Distribution</title>
+      <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/binomial-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Estimator</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parametric Distribution</title>
+      <link>https://amitrajan012.github.io/tags/parametric-distribution/</link>
+      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/parametric-distribution/</guid>
       <description></description>
     </item>
     
@@ -94,15 +472,6 @@
       <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/mutual-information/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pattern Recognition</title>
-      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
-      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
       <description></description>
     </item>
     
@@ -305,15 +674,6 @@
     </item>
     
     <item>
-      <title>Gaussian Distribution</title>
-      <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
-      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/gaussian-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>IID Samples</title>
       <link>https://amitrajan012.github.io/tags/iid-samples/</link>
       <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
@@ -346,15 +706,6 @@
       <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/marginal-probability/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Maximum Likelihood Estimator</title>
-      <link>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</link>
-      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-estimator/</guid>
       <description></description>
     </item>
     
@@ -1178,15 +1529,6 @@
     </item>
     
     <item>
-      <title>Student&#39;s t Distribution</title>
-      <link>https://amitrajan012.github.io/tags/students-t-distribution/</link>
-      <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/students-t-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Two-tailed Test</title>
       <link>https://amitrajan012.github.io/tags/two-tailed-test/</link>
       <pubDate>Sat, 24 Nov 2018 01:08:17 +0530</pubDate>
@@ -1237,24 +1579,6 @@
       <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/variance/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bernoulli Distribution</title>
-      <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
-      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/bernoulli-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Binomial Distribution</title>
-      <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
-      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/binomial-distribution/</guid>
       <description></description>
     </item>
     
@@ -1318,15 +1642,6 @@
       <pubDate>Fri, 16 Nov 2018 01:00:00 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/uniform-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Multinomial Distribution</title>
-      <link>https://amitrajan012.github.io/tags/multinomial-distribution/</link>
-      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/multinomial-distribution/</guid>
       <description></description>
     </item>
     
@@ -1660,15 +1975,6 @@
       <pubDate>Tue, 04 Sep 2018 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bayesian-estimation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Central limit Theorem</title>
-      <link>https://amitrajan012.github.io/tags/central-limit-theorem/</link>
-      <pubDate>Sun, 26 Aug 2018 16:27:09 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/central-limit-theorem/</guid>
       <description></description>
     </item>
     

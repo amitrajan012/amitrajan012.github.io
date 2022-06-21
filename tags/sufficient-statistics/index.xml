@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sufficient Statistics on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/sufficient-statistics/</link>
+    <description>Recent content in Sufficient Statistics on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jun 2022 17:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/sufficient-statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probability Distributions - Multinomial Variables</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_2/</link>
+      <pubDate>Sun, 12 Jun 2022 17:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_2/</guid>
+      <description>2.2 Multinomial Variables A multinomila variable can be in any of $K$ states instead of just $2$ (in case of a binary variable). For example, a multinomial variable having $K=5$ states can be represented as $x=(0,0,1,0,0)^T$ where it is in a state where $x_3=1$. This vector will satisfy $\sum_{k=1}^K = 1$. If we denote the probability of $x_k=1$ by $\mu_k$, the distribution of $x$ is given as:
+$$\begin{align} p(x|\mu) = \prod_{k=1}^{K} \mu_k^{x_k} \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>

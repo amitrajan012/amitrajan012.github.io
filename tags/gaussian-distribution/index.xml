@@ -6,9 +6,59 @@
     <description>Recent content in Gaussian Distribution on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-distribution/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-distribution/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Probability Theory</title>
+      <title>Probability Distributions - The Gaussian Distribution: Part 5</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</link>
+      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</guid>
+      <description>2.3.8 Periodic Variables Periodic variables usually repeats its behaviour after a set amount of time. Let us assume a periodic variable represented as an angle from the x-axis by $D={\theta_1, \theta_2, &amp;hellip;, \theta_N}$, where $\theta$ is measured in radians. The mean and variance of these data points will depend on the choice of origin and the axis. To find the invariant measure of the mean, we denote these observations as the points on the unit circle and can be described as a two-dimensional unit vectors $X_1,X_2,&amp;hellip;,X_N$ where $||X_n|| = 1$ for $n=1,2,&amp;hellip;,N$ as shown in the following figure.</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 4</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</link>
+      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</guid>
+      <description>2.3.6 Bayesian Inference for the Gaussian We can use Bayesian treatment to derive the point estimates for the mean and variance of the Gaussian by introducing prior distributions over these parameters. For a single ranodm variable, let us suppose that the variance $\sigma^2$ is known and we have to determine the mean $\mu$ given $N$ data points $X={x_1,x_2,&amp;hellip;,x_N}$. Under the assumption of independence, the likelihood function is give as
+$$\begin{align} p(X|\mu) = \prod_{n=1}^{N} p(x_n|\mu) = \frac{1}{(2\pi\sigma^2)^{N/2}} exp \bigg(-\frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2\bigg) \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 3</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</link>
+      <pubDate>Wed, 15 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</guid>
+      <description>2.3.3 Bayes&amp;rsquo; Theorem for Gaussian Variables The applicatio of Bayes&amp;rsquo; theorem in the Gaussian setting is when we have Gaussian marginal distribution $p(X)$ and a Gaussian conditional distribution $p(Y|X)$ and we wish to find the marginal and consitional distribution $p(Y)$ and $p(X|Y)$. It should be noted that the mean and covariace of the marginal distribution $p(X)$ are constant with respect to $X$. The covarince of the conditional distribution $p(Y|X)$ is constant with respect to $X$ but its mean is a linear function of $X$.</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 2</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</link>
+      <pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</guid>
+      <description>2.3.1 Conditional Gaussian Distribution If two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the othre is Gaussian. The marginal distribution of either set is also Gaussian. Let $X$ is a $D$-dimensional vector with Gaussian distribution $N(X|\mu,\Sigma)$. $X$ is partitioned into two disjoint subsets $X_a,X_b$. Without loss of generality we can assume thet $X_a$ forms the first $M$ components of $X$ and $X_b$ the remaining $D-M$, such that</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions - The Gaussian Distribution: Part 1</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</link>
+      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</guid>
+      <description>2.3 The Gaussian Distribution Gaussian Distribution is a widely used model for the distribution of continous variables. For a single variable $x$, the gaussian distribution is given as
+$$\begin{align} N(x|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}} exp \bigg[\frac{-1}{2\sigma^2} (x-\mu)^2\bigg] \end{align}$$
+where $\mu$ and $\sigma^2$ are mean and variance respectively. For a $D$ dimensional vector $X$, the multivariate gaussian distribution takes the form
+$$\begin{align} N(X|\mu,\Sigma) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\Sigma|^{1/2}} exp \bigg[\frac{-1}{2} (X-\mu)^T\Sigma^{-1}(X-\mu)\bigg] \end{align}$$
+where $\mu$ is a $D$ dimensional mean vector and $\Sigma$ is a $D\times D$ dimensional covariance matrix with $|\Sigma|$ being its determinant.</description>
+    </item>
+    
+    <item>
+      <title>Introduction - Probability Theory</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</link>
       <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
       
