@@ -3,10 +3,88 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bishop/</loc>
-    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/evidence-approximation/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/fixed-basis-functions/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-models/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-06-27T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayes-factor/</loc>
+    <lastmod>2022-06-26T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayesian-model-comparison/</loc>
+    <lastmod>2022-06-26T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</loc>
+    <lastmod>2022-06-26T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/model-selection/</loc>
+    <lastmod>2022-06-26T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayesian-linear-regression/</loc>
+    <lastmod>2022-06-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_4/</loc>
+    <lastmod>2022-06-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/parameter-distribution/</loc>
+    <lastmod>2022-06-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/basis-function/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bias-variance-decomposition/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_3/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/parameter-shrinkage/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/regularized-least-squares/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/sequential-learning/</loc>
+    <lastmod>2022-06-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/geometry-of-least-squares/</loc>
+    <lastmod>2022-06-21T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_2/</loc>
+    <lastmod>2022-06-21T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gaussian-basis-function/</loc>
+    <lastmod>2022-06-20T22:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/least-squares/</loc>
+    <lastmod>2022-06-20T22:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</loc>
+    <lastmod>2022-06-20T22:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-likelihood/</loc>
+    <lastmod>2022-06-20T22:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/gausian-kernel/</loc>
     <lastmod>2022-06-19T20:07:28+01:00</lastmod>
@@ -26,19 +104,10 @@
     <loc>https://amitrajan012.github.io/tags/nonparametric-methods/</loc>
     <lastmod>2022-06-19T20:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
-    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/probability-distributions/</loc>
     <lastmod>2022-06-19T20:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_9/</loc>
-    <lastmod>2022-06-19T20:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2022-06-19T20:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bernoulli-distribution/</loc>
@@ -246,9 +315,6 @@
     <lastmod>2022-05-29T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</loc>
-    <lastmod>2022-05-29T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/model-selection/</loc>
     <lastmod>2022-05-29T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bayes-rule/</loc>
@@ -478,9 +544,6 @@
   </url><url>
     <loc>https://amitrajan012.github.io/tags/vector-space/</loc>
     <lastmod>2022-04-02T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/least-squares/</loc>
-    <lastmod>2022-03-30T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</loc>
     <lastmod>2022-03-30T14:07:28+01:00</lastmod>

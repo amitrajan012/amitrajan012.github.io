@@ -6,13 +6,175 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Jun 2022 20:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Bishop</title>
       <link>https://amitrajan012.github.io/tags/bishop/</link>
-      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Evidence Approximation</title>
+      <link>https://amitrajan012.github.io/tags/evidence-approximation/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/evidence-approximation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fixed Basis Functions</title>
+      <link>https://amitrajan012.github.io/tags/fixed-basis-functions/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/fixed-basis-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Models</title>
+      <link>https://amitrajan012.github.io/tags/linear-models/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayes Factor</title>
+      <link>https://amitrajan012.github.io/tags/bayes-factor/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayes-factor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Model Comparison</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-model-comparison/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-model-comparison/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Selection</title>
+      <link>https://amitrajan012.github.io/tags/model-selection/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/model-selection/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Linear Regression</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-linear-regression/</link>
+      <pubDate>Sat, 25 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-linear-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parameter Distribution</title>
+      <link>https://amitrajan012.github.io/tags/parameter-distribution/</link>
+      <pubDate>Sat, 25 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/parameter-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basis Function</title>
+      <link>https://amitrajan012.github.io/tags/basis-function/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/basis-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bias-Variance Decomposition</title>
+      <link>https://amitrajan012.github.io/tags/bias-variance-decomposition/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bias-variance-decomposition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Parameter Shrinkage</title>
+      <link>https://amitrajan012.github.io/tags/parameter-shrinkage/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/parameter-shrinkage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularized Least Squares</title>
+      <link>https://amitrajan012.github.io/tags/regularized-least-squares/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/regularized-least-squares/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sequential Learning</title>
+      <link>https://amitrajan012.github.io/tags/sequential-learning/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/sequential-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geometry of Least Squares</title>
+      <link>https://amitrajan012.github.io/tags/geometry-of-least-squares/</link>
+      <pubDate>Tue, 21 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/geometry-of-least-squares/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Basis Function</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-basis-function/</link>
+      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-basis-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Least Squares</title>
+      <link>https://amitrajan012.github.io/tags/least-squares/</link>
+      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/least-squares/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood/</link>
+      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood/</guid>
       <description></description>
     </item>
     
@@ -67,15 +229,6 @@
       <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/nonparametric-methods/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pattern Recognition</title>
-      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
-      <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
       <description></description>
     </item>
     
@@ -611,15 +764,6 @@
     </item>
     
     <item>
-      <title>Model Selection</title>
-      <link>https://amitrajan012.github.io/tags/model-selection/</link>
-      <pubDate>Sun, 29 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/model-selection/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Bayes Rule</title>
       <link>https://amitrajan012.github.io/tags/bayes-rule/</link>
       <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
@@ -1147,15 +1291,6 @@
       <pubDate>Sat, 02 Apr 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/vector-space/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Least Squares</title>
-      <link>https://amitrajan012.github.io/tags/least-squares/</link>
-      <pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/least-squares/</guid>
       <description></description>
     </item>
     

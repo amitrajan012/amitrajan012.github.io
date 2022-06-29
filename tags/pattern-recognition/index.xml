@@ -6,7 +6,61 @@
     <description>Recent content in Pattern Recognition on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Jun 2022 20:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/pattern-recognition/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/pattern-recognition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Evidence Approximation &amp; Limitations of Fixed Basis Function</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</guid>
+      <description>3.5 The Evidence Approximation In a fully Bayesian treatment of the linear basis function model, we would introduce prior distributions over the hyperparameters $\alpha$ and $\beta$ and make predictions by marginalizing with respect to these hyperparameters as well as with respect to the parameters $W$. However, although we can integrate analytically over either $W$ or over the hyperparameters, the complete marginalization over all of these variables is analytically intractable. Our goal is to find the predictive distribution for each of the models $p(t|X,M_i)$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Regression - Bayesian Model Comparison</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</guid>
+      <description>3.4 Bayesian Model Comparison Here we consider the problem of model selection from a Bayesian perspective. The Bayesian view of model comparison simply involves the use of probabilities to represent uncertainty in the choice of model. Suppose we wish to compare a set of $L$ models ${M_i}$ where $i = 1,&amp;hellip;,L$. Here a model refers to a probability distribution over the observed data $D$. We shall suppose that the data is generated from one of these models but we are uncertain which one.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Regression - Bayesian Linear Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_4/</link>
+      <pubDate>Sat, 25 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_4/</guid>
+      <description>3.3 Bayesian Linear Regression One of the problems with frequentist approach and using maximum likelihood estimator is the issue of deciding the appropriate model complexity for the particular problem, which cannot be decided simply by maximizing the likelihood function, because this always leads to excessively complex models and over-fitting. We therefore turn to a Bayesian treatment of linear regression, which will avoid the over-fitting problem of maximum likelihood, and which will also lead to automatic methods of determining model complexity using the training data alone.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Regression - Bias-Variance Decomposition</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_3/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_3/</guid>
+      <description>3.2 Bias-Variance Decomposition We have seen that the use of maximum likelihood, or equivalently least squares, can lead to severe over-fitting if complex models are trained using data sets of limited size. However, limiting the number of basis functions in order to avoid over-fitting has the side effect of limiting the flexibility of the model to capture interesting and important trends in the data. The phenomenon of over-fitting is really an unfortunate property of maximum likelihood and does not arise when we marginalize over parameters in a Bayesian setting.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Regression - Linear Basis Function Models : Part 2</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_2/</link>
+      <pubDate>Tue, 21 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_2/</guid>
+      <description>3.1.2 Geometry of Least Squares The least square problem can be geometrically interpreted as follows. Let the target veactor $t$ (having output for $N$ data points) spans a $N$-dimensional space. Each basis vector $\phi_j(X_n)$ will also be present in the same space. If the number $M$ of basis functions is smaller than the number of data points $N$, then the $M$ basis vectors will span a subspace $S$ of dimensionality $M$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Regression - Linear Basis Function Models : Part 1</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</link>
+      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</guid>
+      <description>Linear regression model has the property of being linear functions of adjustable parameters. We can add more complexity in the linear regression models by taking linear combinations of a fixed set of nonlinear functions of the input variables, known as basis functions. In the modeling process, giveb $x$, we have to predict $t$ which can be predicted as $y(x)$. Form a probabilistic prespective, we aim to model the predictive distribution $p(t|x)$ as this expresses the uncertainty about the value of $t$ for each value of $x$.</description>
+    </item>
+    
     <item>
       <title>Probability Distributions - Nonparametric Methods</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_9/</link>

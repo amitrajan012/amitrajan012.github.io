@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gaussian Basis Function on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/gaussian-basis-function/</link>
+    <description>Recent content in Gaussian Basis Function on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jun 2022 22:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-basis-function/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Linear Basis Function Models : Part 1</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</link>
+      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</guid>
+      <description>Linear regression model has the property of being linear functions of adjustable parameters. We can add more complexity in the linear regression models by taking linear combinations of a fixed set of nonlinear functions of the input variables, known as basis functions. In the modeling process, giveb $x$, we have to predict $t$ which can be predicted as $y(x)$. Form a probabilistic prespective, we aim to model the predictive distribution $p(t|x)$ as this expresses the uncertainty about the value of $t$ for each value of $x$.</description>
+    </item>
+    
+  </channel>
+</rss>

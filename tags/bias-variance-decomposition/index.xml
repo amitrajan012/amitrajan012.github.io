@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bias-Variance Decomposition on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/bias-variance-decomposition/</link>
+    <description>Recent content in Bias-Variance Decomposition on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bias-variance-decomposition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Bias-Variance Decomposition</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_3/</link>
+      <pubDate>Thu, 23 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_3/</guid>
+      <description>3.2 Bias-Variance Decomposition We have seen that the use of maximum likelihood, or equivalently least squares, can lead to severe over-fitting if complex models are trained using data sets of limited size. However, limiting the number of basis functions in order to avoid over-fitting has the side effect of limiting the flexibility of the model to capture interesting and important trends in the data. The phenomenon of over-fitting is really an unfortunate property of maximum likelihood and does not arise when we marginalize over parameters in a Bayesian setting.</description>
+    </item>
+    
+  </channel>
+</rss>

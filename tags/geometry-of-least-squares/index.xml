@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geometry of Least Squares on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/geometry-of-least-squares/</link>
+    <description>Recent content in Geometry of Least Squares on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/geometry-of-least-squares/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Linear Basis Function Models : Part 2</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_2/</link>
+      <pubDate>Tue, 21 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_2/</guid>
+      <description>3.1.2 Geometry of Least Squares The least square problem can be geometrically interpreted as follows. Let the target veactor $t$ (having output for $N$ data points) spans a $N$-dimensional space. Each basis vector $\phi_j(X_n)$ will also be present in the same space. If the number $M$ of basis functions is smaller than the number of data points $N$, then the $M$ basis vectors will span a subspace $S$ of dimensionality $M$.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bayesian Model Comparison on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/bayesian-model-comparison/</link>
+    <description>Recent content in Bayesian Model Comparison on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bayesian-model-comparison/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Bayesian Model Comparison</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</guid>
+      <description>3.4 Bayesian Model Comparison Here we consider the problem of model selection from a Bayesian perspective. The Bayesian view of model comparison simply involves the use of probabilities to represent uncertainty in the choice of model. Suppose we wish to compare a set of $L$ models ${M_i}$ where $i = 1,&amp;hellip;,L$. Here a model refers to a probability distribution over the observed data $D$. We shall suppose that the data is generated from one of these models but we are uncertain which one.</description>
+    </item>
+    
+  </channel>
+</rss>

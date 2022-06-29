@@ -6,7 +6,16 @@
     <description>Recent content in Model Selection on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/model-selection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/model-selection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Bayesian Model Comparison</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</link>
+      <pubDate>Sun, 26 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_5/</guid>
+      <description>3.4 Bayesian Model Comparison Here we consider the problem of model selection from a Bayesian perspective. The Bayesian view of model comparison simply involves the use of probabilities to represent uncertainty in the choice of model. Suppose we wish to compare a set of $L$ models ${M_i}$ where $i = 1,&amp;hellip;,L$. Here a model refers to a probability distribution over the observed data $D$. We shall suppose that the data is generated from one of these models but we are uncertain which one.</description>
+    </item>
+    
     <item>
       <title>Introduction - Model Selection &amp; Curse of Dimensionality</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_3/</link>

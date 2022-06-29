@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fixed Basis Functions on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/fixed-basis-functions/</link>
+    <description>Recent content in Fixed Basis Functions on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/fixed-basis-functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Regression - Evidence Approximation &amp; Limitations of Fixed Basis Function</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</link>
+      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</guid>
+      <description>3.5 The Evidence Approximation In a fully Bayesian treatment of the linear basis function model, we would introduce prior distributions over the hyperparameters $\alpha$ and $\beta$ and make predictions by marginalizing with respect to these hyperparameters as well as with respect to the parameters $W$. However, although we can integrate analytically over either $W$ or over the hyperparameters, the complete marginalization over all of these variables is analytically intractable. Our goal is to find the predictive distribution for each of the models $p(t|X,M_i)$.</description>
+    </item>
+    
+  </channel>
+</rss>
