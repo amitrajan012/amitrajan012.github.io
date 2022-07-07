@@ -6,7 +6,38 @@
     <description>Recent content in Least Squares on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jun 2022 22:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/least-squares/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 02 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/least-squares/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - The Perceptron Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link>
+      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid>
+      <description>4.1.7 The Perceptron Algorithm In a perceptron algorithm, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form
+$$\begin{align} y(X) = f(W^T\phi(X)) \end{align}$$
+where the nonlinear activation function is given as
+$$\begin{align} f(a) = \begin{cases} +1, &amp;amp; a \geq 0\ -1, &amp;amp; a &amp;lt; 0 \end{cases} \end{align}$$
+Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Fisher’s Linear Discriminant</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link>
+      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid>
+      <description>4.1.4 Fisher&amp;rsquo;s Linear Discriminant Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to adjust the weight $W$ so that we can have the projection that maximizes the separation.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Least Squares for Classification</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link>
+      <pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid>
+      <description>4.1.3 Least Squares for Classification For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as</description>
+    </item>
+    
     <item>
       <title>Linear Models for Regression - Linear Basis Function Models : Part 1</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</link>

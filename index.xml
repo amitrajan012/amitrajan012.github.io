@@ -6,7 +6,102 @@
     <description>Recent content on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</guid>
+      <description>4.4 The Laplace Approximation In the Bayesian treatment of logistic regression, we can not integrate exactly over the parameter $W$ as the posterior distribution is no longer Gaussian. Laplace approximation aims to find a Gaussian approximation to a probability density defined over a set of continuous variables. Let for a single continuous variable $z$, the distribution is defined as
+$$\begin{align} p(z) = \frac{1}{Z}f(z) \end{align}$$
+where $Z = \int f(z)dz$ is the normalizing coefficient.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Probabilistic Discriminative Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</guid>
+      <description>4.3 Probabilistic Discriminative Models For two-class classification problem, the posterior probability of classes are the logistic sigmoid transformation of a linear function of input $X$. For multi-class classification problem, they are given by the softmax transformation of a linear function of input $X$. In maximum likelihood solution, we chose the class-conditional densities and then maximized the log likelihood to obtain posterior densities. However, an alternative approach is to use the functional form of the generalized linear model explicitly instead and to determine its parameters directly by using maximum likelihood.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Probabilistic Generative Models (Maximum Likelihood Solution)</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</link>
+      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</guid>
+      <description>4.2.2 Maximum Likelihood Solution Once the class-conditional densities $p(X|C_k)$ are expressed in a parametric form, the value of the parameter can be determinied using a maximum likelihood approach. This requires a data set having input $X$ together with their class labels. Suppose we have a data set ${X_n,t_n}$ where $n=1,2,&amp;hellip;,N$ and $t_n=1$ for class $C_1$ and $t_n=0$ for class $C_2$. Let the prior class probablities be $p(C_1) = \pi$ and $p(C_2) = 1-\pi$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Probabilistic Generative Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link>
+      <pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid>
+      <description>4.2 Probabilistic Generative Models In the probabilistic generative modelling approach, we model the class-conditional densities $p(X|C_k)$, as well as the class priors $p(C_k)$, and then use these to compute posterior probabilities $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is
+$$\begin{align} p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)} \end{align}$$
+$$\begin{align} = \frac{1}{1+exp(-a)} = \sigma(a) \end{align}$$
+where
+$$\begin{align} a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)} \end{align}$$
+and $\sigma(a)$ is called as the logistic sigmoid function.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - The Perceptron Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link>
+      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid>
+      <description>4.1.7 The Perceptron Algorithm In a perceptron algorithm, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form
+$$\begin{align} y(X) = f(W^T\phi(X)) \end{align}$$
+where the nonlinear activation function is given as
+$$\begin{align} f(a) = \begin{cases} +1, &amp;amp; a \geq 0\ -1, &amp;amp; a &amp;lt; 0 \end{cases} \end{align}$$
+Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Fisher’s Linear Discriminant</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link>
+      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid>
+      <description>4.1.4 Fisher&amp;rsquo;s Linear Discriminant Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to adjust the weight $W$ so that we can have the projection that maximizes the separation.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Least Squares for Classification</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link>
+      <pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid>
+      <description>4.1.3 Least Squares for Classification For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Discriminant Functions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid>
+      <description>4.1 Discriminant Functions A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as linear discriminants.
+4.1.1 Two Classes The simplest representation of linear discriminant function is
+$$\begin{align} y(X) = W^TX + W_0 \end{align}$$
+where $W$ is called the weight vector and $W_0$ is bias. The negative of the bias is called threshold.</description>
+    </item>
+    
+    <item>
+      <title>Linear Models for Clasification - Discriminant Functions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</link>
+      <pubDate>Tue, 28 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</guid>
+      <description>The goal of a calssification problem is to take the input vector $X$ and assign it to $K$ discrete classes $C_k$ where $k=1,2,3,&amp;hellip;,K$. The input space is divided into decision regions whose boundaries are called as decision boundaries or decision surfaces. For linear models for classification, the decision surfaces are linear functions of the input vector $X$. Hence, for a $D$ -dimensional input space, decision surface will be a $(D-1)$ -dimensional hyperplane.</description>
+    </item>
+    
     <item>
       <title>Linear Models for Regression - Evidence Approximation &amp; Limitations of Fixed Basis Function</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_6/</link>

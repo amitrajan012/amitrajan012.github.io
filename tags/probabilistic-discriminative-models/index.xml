@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Probabilistic Discriminative Models on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/probabilistic-discriminative-models/</link>
+    <description>Recent content in Probabilistic Discriminative Models on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 05 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/probabilistic-discriminative-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - Probabilistic Discriminative Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</guid>
+      <description>4.3 Probabilistic Discriminative Models For two-class classification problem, the posterior probability of classes are the logistic sigmoid transformation of a linear function of input $X$. For multi-class classification problem, they are given by the softmax transformation of a linear function of input $X$. In maximum likelihood solution, we chose the class-conditional densities and then maximized the log likelihood to obtain posterior densities. However, an alternative approach is to use the functional form of the generalized linear model explicitly instead and to determine its parameters directly by using maximum likelihood.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laplace Approximation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/laplace-approximation/</link>
+    <description>Recent content in Laplace Approximation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/laplace-approximation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</guid>
+      <description>4.4 The Laplace Approximation In the Bayesian treatment of logistic regression, we can not integrate exactly over the parameter $W$ as the posterior distribution is no longer Gaussian. Laplace approximation aims to find a Gaussian approximation to a probability density defined over a set of continuous variables. Let for a single continuous variable $z$, the distribution is defined as
+$$\begin{align} p(z) = \frac{1}{Z}f(z) \end{align}$$
+where $Z = \int f(z)dz$ is the normalizing coefficient.</description>
+    </item>
+    
+  </channel>
+</rss>

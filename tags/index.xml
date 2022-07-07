@@ -6,13 +6,274 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bayesian Logistic Regression</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-logistic-regression/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BIC</title>
+      <link>https://amitrajan012.github.io/tags/bic/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bic/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Bishop</title>
       <link>https://amitrajan012.github.io/tags/bishop/</link>
-      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://amitrajan012.github.io/tags/classification/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/classification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Laplace Approximation</title>
+      <link>https://amitrajan012.github.io/tags/laplace-approximation/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/laplace-approximation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Models</title>
+      <link>https://amitrajan012.github.io/tags/linear-models/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Comparison</title>
+      <link>https://amitrajan012.github.io/tags/model-comparison/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/model-comparison/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Occam factor</title>
+      <link>https://amitrajan012.github.io/tags/occam-factor/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/occam-factor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Basis Functions</title>
+      <link>https://amitrajan012.github.io/tags/basis-functions/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/basis-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multiclass Logistic Regression</title>
+      <link>https://amitrajan012.github.io/tags/multiclass-logistic-regression/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multiclass-logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probabilistic Discriminative Models</title>
+      <link>https://amitrajan012.github.io/tags/probabilistic-discriminative-models/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probabilistic-discriminative-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probit Regression</title>
+      <link>https://amitrajan012.github.io/tags/probit-regression/</link>
+      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probit-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Class Priors</title>
+      <link>https://amitrajan012.github.io/tags/class-priors/</link>
+      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/class-priors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Class-conditional Densities</title>
+      <link>https://amitrajan012.github.io/tags/class-conditional-densities/</link>
+      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/class-conditional-densities/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood Solution</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood-solution/</link>
+      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood-solution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Probabilistic Generative Models</title>
+      <link>https://amitrajan012.github.io/tags/probabilistic-generative-models/</link>
+      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/probabilistic-generative-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Sigmoid Function</title>
+      <link>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</link>
+      <pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning Rate</title>
+      <link>https://amitrajan012.github.io/tags/learning-rate/</link>
+      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/learning-rate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Least Squares</title>
+      <link>https://amitrajan012.github.io/tags/least-squares/</link>
+      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/least-squares/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perceptron Algorithm</title>
+      <link>https://amitrajan012.github.io/tags/perceptron-algorithm/</link>
+      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/perceptron-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fisher’s Linear Discriminant</title>
+      <link>https://amitrajan012.github.io/tags/fishers-linear-discriminant/</link>
+      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/fishers-linear-discriminant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bias</title>
+      <link>https://amitrajan012.github.io/tags/bias/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discriminant Functions</title>
+      <link>https://amitrajan012.github.io/tags/discriminant-functions/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/discriminant-functions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multiple Classes</title>
+      <link>https://amitrajan012.github.io/tags/multiple-classes/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multiple-classes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>one-versus-one</title>
+      <link>https://amitrajan012.github.io/tags/one-versus-one/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/one-versus-one/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>one-versus-the-rest</title>
+      <link>https://amitrajan012.github.io/tags/one-versus-the-rest/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/one-versus-the-rest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Two Classes</title>
+      <link>https://amitrajan012.github.io/tags/two-classes/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/two-classes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Weight Vector</title>
+      <link>https://amitrajan012.github.io/tags/weight-vector/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/weight-vector/</guid>
       <description></description>
     </item>
     
@@ -31,24 +292,6 @@
       <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/fixed-basis-functions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linear Models</title>
-      <link>https://amitrajan012.github.io/tags/linear-models/</link>
-      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pattern Recognition</title>
-      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
-      <pubDate>Mon, 27 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
       <description></description>
     </item>
     
@@ -161,15 +404,6 @@
     </item>
     
     <item>
-      <title>Least Squares</title>
-      <link>https://amitrajan012.github.io/tags/least-squares/</link>
-      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/least-squares/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Maximum Likelihood</title>
       <link>https://amitrajan012.github.io/tags/maximum-likelihood/</link>
       <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
@@ -256,15 +490,6 @@
       <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/exponential-family/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logistic Sigmoid Function</title>
-      <link>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</link>
-      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/logistic-sigmoid-function/</guid>
       <description></description>
     </item>
     
@@ -1493,24 +1718,6 @@
     </item>
     
     <item>
-      <title>Classification</title>
-      <link>https://amitrajan012.github.io/tags/classification/</link>
-      <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/classification/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logistic Regression</title>
-      <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
-      <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/logistic-regression/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Newton-Raphson Method</title>
       <link>https://amitrajan012.github.io/tags/newton-raphson-method/</link>
       <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
@@ -2407,15 +2614,6 @@
       <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/regression-splines/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Basis Functions</title>
-      <link>https://amitrajan012.github.io/tags/basis-functions/</link>
-      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/basis-functions/</guid>
       <description></description>
     </item>
     

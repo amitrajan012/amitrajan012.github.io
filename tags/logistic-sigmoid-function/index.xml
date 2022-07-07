@@ -6,7 +6,21 @@
     <description>Recent content in Logistic Sigmoid Function on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/logistic-sigmoid-function/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 03 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/logistic-sigmoid-function/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - Probabilistic Generative Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link>
+      <pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid>
+      <description>4.2 Probabilistic Generative Models In the probabilistic generative modelling approach, we model the class-conditional densities $p(X|C_k)$, as well as the class priors $p(C_k)$, and then use these to compute posterior probabilities $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is
+$$\begin{align} p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)} \end{align}$$
+$$\begin{align} = \frac{1}{1+exp(-a)} = \sigma(a) \end{align}$$
+where
+$$\begin{align} a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)} \end{align}$$
+and $\sigma(a)$ is called as the logistic sigmoid function.</description>
+    </item>
+    
     <item>
       <title>Probability Distributions - The Exponential Family</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</link>

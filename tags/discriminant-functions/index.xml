@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discriminant Functions on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/discriminant-functions/</link>
+    <description>Recent content in Discriminant Functions on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/discriminant-functions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - Discriminant Functions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link>
+      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid>
+      <description>4.1 Discriminant Functions A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as linear discriminants.
+4.1.1 Two Classes The simplest representation of linear discriminant function is
+$$\begin{align} y(X) = W^TX + W_0 \end{align}$$
+where $W$ is called the weight vector and $W_0$ is bias. The negative of the bias is called threshold.</description>
+    </item>
+    
+  </channel>
+</rss>

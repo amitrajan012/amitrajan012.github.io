@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fisher’s Linear Discriminant on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/fishers-linear-discriminant/</link>
+    <description>Recent content in Fisher’s Linear Discriminant on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/fishers-linear-discriminant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linear Models for Clasification - Fisher’s Linear Discriminant</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link>
+      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid>
+      <description>4.1.4 Fisher&amp;rsquo;s Linear Discriminant Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to adjust the weight $W$ so that we can have the projection that maximizes the separation.</description>
+    </item>
+    
+  </channel>
+</rss>
