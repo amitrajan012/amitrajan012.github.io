@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dual Representations on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/dual-representations/</link>
+    <description>Recent content in Dual Representations on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/dual-representations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kernel Methods - Dual Representations</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</guid>
+      <description>There is a calss of pattern recognition techniques, where the training data points or a subset of them are kept and used during the prediction phase. For example, in a simple technique for classification called as nearest neighbours, each new test sample is assigned the same label as the closest example form the training set. These type of prediction algorithms typically require a metric to be defined that measures the similarity of any two vectors in input space, and are generally fast to train but slow at making predictions for test data points.</description>
+    </item>
+    
+  </channel>
+</rss>

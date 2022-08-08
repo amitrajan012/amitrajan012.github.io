@@ -6,7 +6,37 @@
     <description>Recent content in Linear Models on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-models/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kernel Methods - Gaussian Process</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</guid>
+      <description>6.4 Gaussian Process For a linear regression models of the form $y(X,W) = W^T\phi(X)$ in which $W$ is a vector of parameters and $\phi(X)$ is a vector of fixed nonlinear basis functions that depend on the input vector $X$, we showed that a prior distribution over $W$ induced a corresponding prior distribution over functions $y(X,W)$. Given a training data set, we then evaluated the posterior distribution over $W$ and thereby obtained the corresponding posterior distribution over regression functions, which in turn (with the addition of noise) implies a predictive distribution $p(t|X)$ for new input vectors $X$.</description>
+    </item>
+    
+    <item>
+      <title>Kernel Methods - Constructing Kernels &amp; Radial Basis Function Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</guid>
+      <description>6.2 Constructing Kernels One way to construct a kernel is to choose a feature space mapping $\phi(X)$ and then use this to find the corresponding kernel. Let $x$ be a one dimensional input. The kernel function is then given as
+$$\begin{align} k(x,x^{&amp;rsquo;}) = \phi(x)^T\phi(x^{&amp;rsquo;}) = \sum_{i=1}^{M} \phi_i(x)\phi_i(x^{&amp;rsquo;}) \end{align}$$
+where $\phi_i(x)$ are the basis functions.
+An alternative approach is to construct kernel functions directly. In this case, we must ensure that the function we choose is a valid kernel, in other words that it corresponds to a scalar product in some (perhaps infinite dimensional) feature space.</description>
+    </item>
+    
+    <item>
+      <title>Kernel Methods - Dual Representations</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</guid>
+      <description>There is a calss of pattern recognition techniques, where the training data points or a subset of them are kept and used during the prediction phase. For example, in a simple technique for classification called as nearest neighbours, each new test sample is assigned the same label as the closest example form the training set. These type of prediction algorithms typically require a metric to be defined that measures the similarity of any two vectors in input space, and are generally fast to train but slow at making predictions for test data points.</description>
+    </item>
+    
     <item>
       <title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link>

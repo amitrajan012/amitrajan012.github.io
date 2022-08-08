@@ -6,7 +6,16 @@
     <description>Recent content in Regularization on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/regularization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/regularization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks - Regularization in Neural Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</guid>
+      <description>5.5 Regularization in Neural Networks The number of input and outputs units in a neural network is generally determined by the dimensionality of the data set, whereas the number $M$ of hidden units is a free parameter that can be adjusted to give the best predictive performance. Note that $M$ controls the number of parameters (weights and biases) in the network, and so we might expect that in a maximum likelihood setting there will be an optimum value of $M$ that gives the best generalization performance.</description>
+    </item>
+    
     <item>
       <title>Introduction - Polynomial Curve Fitting</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_1/</link>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Radial Basis Function Networks on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/radial-basis-function-networks/</link>
+    <description>Recent content in Radial Basis Function Networks on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 29 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/radial-basis-function-networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kernel Methods - Constructing Kernels &amp; Radial Basis Function Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</guid>
+      <description>6.2 Constructing Kernels One way to construct a kernel is to choose a feature space mapping $\phi(X)$ and then use this to find the corresponding kernel. Let $x$ be a one dimensional input. The kernel function is then given as
+$$\begin{align} k(x,x^{&amp;rsquo;}) = \phi(x)^T\phi(x^{&amp;rsquo;}) = \sum_{i=1}^{M} \phi_i(x)\phi_i(x^{&amp;rsquo;}) \end{align}$$
+where $\phi_i(x)$ are the basis functions.
+An alternative approach is to construct kernel functions directly. In this case, we must ensure that the function we choose is a valid kernel, in other words that it corresponds to a scalar product in some (perhaps infinite dimensional) feature space.</description>
+    </item>
+    
+  </channel>
+</rss>

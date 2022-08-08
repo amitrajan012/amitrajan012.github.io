@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Diagonal Approximation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/diagonal-approximation/</link>
+    <description>Recent content in Diagonal Approximation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/diagonal-approximation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks - The Hessian Matrix</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_4/</link>
+      <pubDate>Fri, 15 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_4/</guid>
+      <description>5.4 The Hessian Matrix Backpropagation can also be used to evaluate the second derivatives of the error, given by
+$$\begin{align} H = \frac{\partial^2 E}{\partial W_{ji}\partial W_{lk}} \end{align}$$
+An important consideration for many applications of the Hessian is the efficienc with which it can be evaluated. If there are $W$ parameters (weights and biases) in the network, then the Hessian matrix has dimensions $W \times W$ and so the computational effort needed to evaluate the Hessian will scale like $O(W^2)$ for each pattern in the data set.</description>
+    </item>
+    
+  </channel>
+</rss>

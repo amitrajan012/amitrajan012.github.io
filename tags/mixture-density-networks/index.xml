@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mixture Density Networks on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/mixture-density-networks/</link>
+    <description>Recent content in Mixture Density Networks on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 19 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/mixture-density-networks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks - Mixture Density Networks &amp; Bayesian Neural Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_6/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_6/</guid>
+      <description>5.6 Mixture Density Networks The goal of supervised learning is to model a conditional distribution $p(t|X)$ which for many simple regression problems is chosen to be Gaussian. However, practical machine learning problems can often have significantly non-Gaussian distributions. The main problem arises when we have to solve the inverse problem.
+Forward problems often corresponds to causality in a physical system and generally have a unique solution. For instance, a specific pattern of symptoms in the human body may be caused by the presence of a particular disease.</description>
+    </item>
+    
+  </channel>
+</rss>

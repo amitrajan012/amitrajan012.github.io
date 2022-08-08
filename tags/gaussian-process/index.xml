@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gaussian Process on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/gaussian-process/</link>
+    <description>Recent content in Gaussian Process on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-process/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kernel Methods - Gaussian Process</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</guid>
+      <description>6.4 Gaussian Process For a linear regression models of the form $y(X,W) = W^T\phi(X)$ in which $W$ is a vector of parameters and $\phi(X)$ is a vector of fixed nonlinear basis functions that depend on the input vector $X$, we showed that a prior distribution over $W$ induced a corresponding prior distribution over functions $y(X,W)$. Given a training data set, we then evaluated the posterior distribution over $W$ and thereby obtained the corresponding posterior distribution over regression functions, which in turn (with the addition of noise) implies a predictive distribution $p(t|X)$ for new input vectors $X$.</description>
+    </item>
+    
+  </channel>
+</rss>

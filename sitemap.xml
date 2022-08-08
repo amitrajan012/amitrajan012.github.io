@@ -3,7 +3,133 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/automatic-relevance-determination/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bishop/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gaussian-process/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gram-matrix/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-models/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/constructing-kernels/</loc>
+    <lastmod>2022-07-29T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</loc>
+    <lastmod>2022-07-29T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/nadaraya-watson-model/</loc>
+    <lastmod>2022-07-29T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/radial-basis-function-networks/</loc>
+    <lastmod>2022-07-29T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/design-matrix/</loc>
+    <lastmod>2022-07-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/dual-representations/</loc>
+    <lastmod>2022-07-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kernel-function/</loc>
+    <lastmod>2022-07-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</loc>
+    <lastmod>2022-07-25T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayesian-neural-networks/</loc>
+    <lastmod>2022-07-19T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/feed-forward-network/</loc>
+    <lastmod>2022-07-19T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mixture-density-networks/</loc>
+    <lastmod>2022-07-19T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/neural-networks/</loc>
+    <lastmod>2022-07-19T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_6/</loc>
+    <lastmod>2022-07-19T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/convolutional-networks/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/early-stopping/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gaussian-priors/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/regularization/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/soft-weight-sharing/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/tangent-propagation/</loc>
+    <lastmod>2022-07-17T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/diagonal-approximation/</loc>
+    <lastmod>2022-07-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/hessian-matrix/</loc>
+    <lastmod>2022-07-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_4/</loc>
+    <lastmod>2022-07-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/outer-product-approximation/</loc>
+    <lastmod>2022-07-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/error-backpropagation/</loc>
+    <lastmod>2022-07-13T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/jacobian-matrix/</loc>
+    <lastmod>2022-07-13T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/network-training/</loc>
+    <lastmod>2022-07-13T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_3/</loc>
+    <lastmod>2022-07-13T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gradient-descent/</loc>
+    <lastmod>2022-07-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/local-quadratic-approximation/</loc>
+    <lastmod>2022-07-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_2/</loc>
+    <lastmod>2022-07-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/activation-function/</loc>
+    <lastmod>2022-07-09T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_1/</loc>
+    <lastmod>2022-07-09T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bayesian-logistic-regression/</loc>
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
@@ -11,16 +137,10 @@
     <loc>https://amitrajan012.github.io/tags/bic/</loc>
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/bishop/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/classification/</loc>
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/laplace-approximation/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/linear-models/</loc>
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</loc>
@@ -30,15 +150,6 @@
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/occam-factor/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-07-06T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2022-07-06T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/basis-functions/</loc>
@@ -476,9 +587,6 @@
     <loc>https://amitrajan012.github.io/tags/polynomial-fuction/</loc>
     <lastmod>2022-05-20T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/regularization/</loc>
-    <lastmod>2022-05-20T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/ridge-regression/</loc>
     <lastmod>2022-05-20T14:07:28+01:00</lastmod>
   </url><url>
@@ -891,9 +999,6 @@
     <lastmod>2018-11-14T03:08:14+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/measurement-and-propagation-of-error_2/</loc>
-    <lastmod>2018-11-14T03:08:14+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/neural-networks/</loc>
     <lastmod>2018-11-14T03:08:14+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/propagation-of-error/</loc>

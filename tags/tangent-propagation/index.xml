@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tangent Propagation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/tangent-propagation/</link>
+    <description>Recent content in Tangent Propagation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/tangent-propagation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neural Networks - Regularization in Neural Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</guid>
+      <description>5.5 Regularization in Neural Networks The number of input and outputs units in a neural network is generally determined by the dimensionality of the data set, whereas the number $M$ of hidden units is a free parameter that can be adjusted to give the best predictive performance. Note that $M$ controls the number of parameters (weights and biases) in the network, and so we might expect that in a maximum likelihood setting there will be an optimum value of $M$ that gives the best generalization performance.</description>
+    </item>
+    
+  </channel>
+</rss>

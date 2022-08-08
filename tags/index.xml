@@ -6,7 +6,286 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automatic Relevance Determination</title>
+      <link>https://amitrajan012.github.io/tags/automatic-relevance-determination/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/automatic-relevance-determination/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bishop</title>
+      <link>https://amitrajan012.github.io/tags/bishop/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Process</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-process/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-process/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gram Matrix</title>
+      <link>https://amitrajan012.github.io/tags/gram-matrix/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gram-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear Models</title>
+      <link>https://amitrajan012.github.io/tags/linear-models/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Constructing Kernels</title>
+      <link>https://amitrajan012.github.io/tags/constructing-kernels/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/constructing-kernels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nadaraya-Watson Model</title>
+      <link>https://amitrajan012.github.io/tags/nadaraya-watson-model/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/nadaraya-watson-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Radial Basis Function Networks</title>
+      <link>https://amitrajan012.github.io/tags/radial-basis-function-networks/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/radial-basis-function-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Design Matrix</title>
+      <link>https://amitrajan012.github.io/tags/design-matrix/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/design-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dual Representations</title>
+      <link>https://amitrajan012.github.io/tags/dual-representations/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/dual-representations/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel Function</title>
+      <link>https://amitrajan012.github.io/tags/kernel-function/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kernel-function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Neural Networks</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-neural-networks/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Feed-forward Network</title>
+      <link>https://amitrajan012.github.io/tags/feed-forward-network/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/feed-forward-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture Density Networks</title>
+      <link>https://amitrajan012.github.io/tags/mixture-density-networks/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mixture-density-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural Networks</title>
+      <link>https://amitrajan012.github.io/tags/neural-networks/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/neural-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Convolutional Networks</title>
+      <link>https://amitrajan012.github.io/tags/convolutional-networks/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/convolutional-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Early Stopping</title>
+      <link>https://amitrajan012.github.io/tags/early-stopping/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/early-stopping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Priors</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-priors/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-priors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Regularization</title>
+      <link>https://amitrajan012.github.io/tags/regularization/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/regularization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Soft Weight Sharing</title>
+      <link>https://amitrajan012.github.io/tags/soft-weight-sharing/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/soft-weight-sharing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tangent Propagation</title>
+      <link>https://amitrajan012.github.io/tags/tangent-propagation/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/tangent-propagation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Diagonal Approximation</title>
+      <link>https://amitrajan012.github.io/tags/diagonal-approximation/</link>
+      <pubDate>Fri, 15 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/diagonal-approximation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hessian Matrix</title>
+      <link>https://amitrajan012.github.io/tags/hessian-matrix/</link>
+      <pubDate>Fri, 15 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/hessian-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Outer Product Approximation</title>
+      <link>https://amitrajan012.github.io/tags/outer-product-approximation/</link>
+      <pubDate>Fri, 15 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/outer-product-approximation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Error Backpropagation</title>
+      <link>https://amitrajan012.github.io/tags/error-backpropagation/</link>
+      <pubDate>Wed, 13 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/error-backpropagation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jacobian Matrix</title>
+      <link>https://amitrajan012.github.io/tags/jacobian-matrix/</link>
+      <pubDate>Wed, 13 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/jacobian-matrix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network Training</title>
+      <link>https://amitrajan012.github.io/tags/network-training/</link>
+      <pubDate>Wed, 13 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/network-training/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gradient Descent</title>
+      <link>https://amitrajan012.github.io/tags/gradient-descent/</link>
+      <pubDate>Mon, 11 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gradient-descent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Local Quadratic Approximation</title>
+      <link>https://amitrajan012.github.io/tags/local-quadratic-approximation/</link>
+      <pubDate>Mon, 11 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/local-quadratic-approximation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Activation Function</title>
+      <link>https://amitrajan012.github.io/tags/activation-function/</link>
+      <pubDate>Sat, 09 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/activation-function/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Bayesian Logistic Regression</title>
       <link>https://amitrajan012.github.io/tags/bayesian-logistic-regression/</link>
@@ -22,15 +301,6 @@
       <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/bic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bishop</title>
-      <link>https://amitrajan012.github.io/tags/bishop/</link>
-      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/bishop/</guid>
       <description></description>
     </item>
     
@@ -53,15 +323,6 @@
     </item>
     
     <item>
-      <title>Linear Models</title>
-      <link>https://amitrajan012.github.io/tags/linear-models/</link>
-      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Model Comparison</title>
       <link>https://amitrajan012.github.io/tags/model-comparison/</link>
       <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
@@ -76,15 +337,6 @@
       <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/occam-factor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pattern Recognition</title>
-      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
-      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
       <description></description>
     </item>
     
@@ -1142,15 +1394,6 @@
     </item>
     
     <item>
-      <title>Regularization</title>
-      <link>https://amitrajan012.github.io/tags/regularization/</link>
-      <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/regularization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Ridge Regression</title>
       <link>https://amitrajan012.github.io/tags/ridge-regression/</link>
       <pubDate>Fri, 20 May 2022 14:07:28 +0100</pubDate>
@@ -2011,15 +2254,6 @@
       <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/independent-measurements/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Neural Networks</title>
-      <link>https://amitrajan012.github.io/tags/neural-networks/</link>
-      <pubDate>Wed, 14 Nov 2018 03:08:14 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/neural-networks/</guid>
       <description></description>
     </item>
     

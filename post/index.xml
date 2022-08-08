@@ -6,7 +6,97 @@
     <description>Recent content in Posts on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kernel Methods - Gaussian Process</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</link>
+      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</guid>
+      <description>6.4 Gaussian Process For a linear regression models of the form $y(X,W) = W^T\phi(X)$ in which $W$ is a vector of parameters and $\phi(X)$ is a vector of fixed nonlinear basis functions that depend on the input vector $X$, we showed that a prior distribution over $W$ induced a corresponding prior distribution over functions $y(X,W)$. Given a training data set, we then evaluated the posterior distribution over $W$ and thereby obtained the corresponding posterior distribution over regression functions, which in turn (with the addition of noise) implies a predictive distribution $p(t|X)$ for new input vectors $X$.</description>
+    </item>
+    
+    <item>
+      <title>Kernel Methods - Constructing Kernels &amp; Radial Basis Function Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</link>
+      <pubDate>Fri, 29 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_2/</guid>
+      <description>6.2 Constructing Kernels One way to construct a kernel is to choose a feature space mapping $\phi(X)$ and then use this to find the corresponding kernel. Let $x$ be a one dimensional input. The kernel function is then given as
+$$\begin{align} k(x,x^{&amp;rsquo;}) = \phi(x)^T\phi(x^{&amp;rsquo;}) = \sum_{i=1}^{M} \phi_i(x)\phi_i(x^{&amp;rsquo;}) \end{align}$$
+where $\phi_i(x)$ are the basis functions.
+An alternative approach is to construct kernel functions directly. In this case, we must ensure that the function we choose is a valid kernel, in other words that it corresponds to a scalar product in some (perhaps infinite dimensional) feature space.</description>
+    </item>
+    
+    <item>
+      <title>Kernel Methods - Dual Representations</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</link>
+      <pubDate>Mon, 25 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_1/</guid>
+      <description>There is a calss of pattern recognition techniques, where the training data points or a subset of them are kept and used during the prediction phase. For example, in a simple technique for classification called as nearest neighbours, each new test sample is assigned the same label as the closest example form the training set. These type of prediction algorithms typically require a metric to be defined that measures the similarity of any two vectors in input space, and are generally fast to train but slow at making predictions for test data points.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - Mixture Density Networks &amp; Bayesian Neural Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_6/</link>
+      <pubDate>Tue, 19 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_6/</guid>
+      <description>5.6 Mixture Density Networks The goal of supervised learning is to model a conditional distribution $p(t|X)$ which for many simple regression problems is chosen to be Gaussian. However, practical machine learning problems can often have significantly non-Gaussian distributions. The main problem arises when we have to solve the inverse problem.
+Forward problems often corresponds to causality in a physical system and generally have a unique solution. For instance, a specific pattern of symptoms in the human body may be caused by the presence of a particular disease.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - Regularization in Neural Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</link>
+      <pubDate>Sun, 17 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_5/</guid>
+      <description>5.5 Regularization in Neural Networks The number of input and outputs units in a neural network is generally determined by the dimensionality of the data set, whereas the number $M$ of hidden units is a free parameter that can be adjusted to give the best predictive performance. Note that $M$ controls the number of parameters (weights and biases) in the network, and so we might expect that in a maximum likelihood setting there will be an optimum value of $M$ that gives the best generalization performance.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - The Hessian Matrix</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_4/</link>
+      <pubDate>Fri, 15 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_4/</guid>
+      <description>5.4 The Hessian Matrix Backpropagation can also be used to evaluate the second derivatives of the error, given by
+$$\begin{align} H = \frac{\partial^2 E}{\partial W_{ji}\partial W_{lk}} \end{align}$$
+An important consideration for many applications of the Hessian is the efficienc with which it can be evaluated. If there are $W$ parameters (weights and biases) in the network, then the Hessian matrix has dimensions $W \times W$ and so the computational effort needed to evaluate the Hessian will scale like $O(W^2)$ for each pattern in the data set.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - Error Backpropagation</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_3/</link>
+      <pubDate>Wed, 13 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_3/</guid>
+      <description>5.3 Error Backpropagation Our goal in this section is to find an efficient technique for evaluating the gradient of an error function $E(W)$ for a feed-forward neural network. We shall see that this can be achieved using a local message passing scheme in which information is sent alternately forwards and backwards through the network and is known as error backpropagation, or sometimes simply as backprop.
+Most training algorithms involve an iterative procedure for minimization of an error function, with adjustments to the weights being made in a sequence of steps.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - Network Training</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_2/</link>
+      <pubDate>Mon, 11 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_2/</guid>
+      <description>5.2 Network Training A simple approach to the problem of determining the network parameters is to make an analogy with the discussion of polynomial curve fitting, and therefore to minimize a sum-of-squares error function. Given a training set comprising a set of input vectors ${X_n}$, where $n=1,2,&amp;hellip;,N$ with the corresponding output set as ${t_n}$, we minimize the error function
+$$\begin{align} E(W) = \frac{1}{2}\sum_{n=1}^{N}||y_n(X_n,W) - t_n||^2 \end{align}$$
+Let us consider a regression case with single target variable $t$ that can take any real value.</description>
+    </item>
+    
+    <item>
+      <title>Neural Networks - Feed-forward Network Functions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_1/</link>
+      <pubDate>Sat, 09 Jul 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-5-neural-networks_1/</guid>
+      <description>One of the major limitations of the modeling techniques discussed so far is the way fixed basis functions are used to defind the transformation of data points. This approach leads to a much sparser models. An alternative approach is to fix the number of basis functions in advance but allow them to be adaptive, in other words to use parametric forms for the basis functions in which the parameter values are adapted during training.</description>
+    </item>
+    
     <item>
       <title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link>
