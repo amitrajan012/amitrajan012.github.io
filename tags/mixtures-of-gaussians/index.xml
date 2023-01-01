@@ -6,7 +6,28 @@
     <description>Recent content in Mixtures of Gaussians on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/mixtures-of-gaussians/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/mixtures-of-gaussians/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - An Alternative View of EM</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</guid>
+      <description>9.3 An Alternative View of EM The goal of the EM algorithm is to find the maximum likelihood solutions for the models having latent variables. The set of all observed data is denoted by $X$ where $n^{th}$ row represents $x_n^T$ and the latent variables by $Z$ where the $n^{th}$ row represets $z_n^T$. Let the set of all model parameters be denoted by $\theta$. Then, we have
+$$\begin{align} \ln p(X|\theta) = \ln \bigg[ \sum_Z p(X,Z|\theta) \bigg] \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid>
+      <description>9.2 Mixtures of Gaussians This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form
+$$\begin{align} p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k) \end{align}$$
+Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$.</description>
+    </item>
+    
     <item>
       <title>Probability Distributions - The Gaussian Distribution: Part 5</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</link>

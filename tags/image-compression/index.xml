@@ -6,7 +6,16 @@
     <description>Recent content in Image Compression on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/image-compression/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/image-compression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - K-means Clustering</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</guid>
+      <description>9.1 K-means Clustering Let we have a data set ${X_1,X_2,&amp;hellip;,X_N}$ consisting of $N$ observations of random $D-$ dimensional Euclidean variable $X$. Our goal is to partition the data set into some number $K$ of clusters. Let the cluster $k$ is represented by a $D-$ dimensional vector $\mu_k$ where $k=1,2,&amp;hellip;,K$. Our goal is then the assignment of data points to clusters and find the set of vectors ${\mu_k}$ such that the sum of the squares of the distanaces of each data point to its closets vector $\mu_k$ (or from the center of the assigned cluster), is a minimum.</description>
+    </item>
+    
     <item>
       <title>Linear Transformations, Change of Basis and Image Compression</title>
       <link>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</link>
@@ -14,7 +23,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
       <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
- $T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties  Below are some examples and non-examples of linear transformation:
+$T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties Below are some examples and non-examples of linear transformation:
 Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
     </item>
     

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVMs for Regression on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/svms-for-regression/</link>
+    <description>Recent content in SVMs for Regression on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/svms-for-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Relation to Logistic Regression, Multiclass SVMs, SVMs for Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</guid>
+      <description>7.1.2 Relation to Logistic Regression For nonseparable case of SVM, for the data points that are on the correct side of margin, we have $\xi_n=0$ and hence $t_ny_n \geq 1$. For the remaining points, we have $\xi_n = 1 - t_ny_n$. The below objective function can then be written as
+$$\begin{align} \frac{1}{2}||W||^2 + C\sum_{n=1}^{N}\xi_n = \lambda||W||^2 + \sum_{n=1}^{N}E_{SV}(t_ny_n) \end{align}$$
+where $\lambda = (2C)^{-1}$ and $E_{SV}(.)$ is the hinge error function defined as</description>
+    </item>
+    
+  </channel>
+</rss>

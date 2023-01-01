@@ -14,7 +14,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
       <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
- Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient. Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
     </item>
     
     <item>
@@ -24,7 +24,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter-8-estimation/</guid>
       <description>8.1 The estimation game In a rudimentary way, sample mean can be used to estimate a distribution. The process is called estimation and the statistic we used (sample mean) is called an estimator. If there are no outliers, sample mean minimizes the mean squared error (MSE). A maximum likelihood estimator (MLE) is an estimator that has the highest chance of being right (value with highest probability).
- Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
+Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
     </item>
     
     <item>
@@ -33,9 +33,10 @@
       <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
-      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
-  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
-  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+      <description>The process of Hypothesis Testing can be summarized by following three steps: Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.
+Hence to test a hypothesis, we assume that it is not real (called as null hypothesis).</description>
     </item>
     
     <item>
@@ -94,7 +95,7 @@ An alternative is Bayesianism, which defines probability as a degree of belief t
       <pubDate>Sun, 05 Aug 2018 10:02:08 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</guid>
-      <description>1.1 Do first babies arrive late? Anecdotal Evidence  is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.”  Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
+      <description>1.1 Do first babies arrive late? Anecdotal Evidence is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.” Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
     </item>
     
   </channel>

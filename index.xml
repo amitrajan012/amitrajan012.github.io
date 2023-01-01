@@ -6,7 +6,136 @@
     <description>Recent content on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - The EM Algorithm in General</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</guid>
+      <description>9.4 The EM Algorithm in General The expectation maximization (EM) algorithm is a general technique for finding maximum likelihood solutions for probabilistic models having latent variables. Consider a probabilistic model in which observed variable is denoted by $X$ and the hidden variable by $Z$. The joint distribution $p(X,Z|\theta)$ is governed by a set of parameters deonoted by $\theta$. Our goal is to maximize the likelihood function given by
+$$\begin{align} p(X|\theta) = \sum_{Z} p(X,Z|\theta) \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - An Alternative View of EM</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</guid>
+      <description>9.3 An Alternative View of EM The goal of the EM algorithm is to find the maximum likelihood solutions for the models having latent variables. The set of all observed data is denoted by $X$ where $n^{th}$ row represents $x_n^T$ and the latent variables by $Z$ where the $n^{th}$ row represets $z_n^T$. Let the set of all model parameters be denoted by $\theta$. Then, we have
+$$\begin{align} \ln p(X|\theta) = \ln \bigg[ \sum_Z p(X,Z|\theta) \bigg] \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid>
+      <description>9.2 Mixtures of Gaussians This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form
+$$\begin{align} p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k) \end{align}$$
+Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$.</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - K-means Clustering</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</guid>
+      <description>9.1 K-means Clustering Let we have a data set ${X_1,X_2,&amp;hellip;,X_N}$ consisting of $N$ observations of random $D-$ dimensional Euclidean variable $X$. Our goal is to partition the data set into some number $K$ of clusters. Let the cluster $k$ is represented by a $D-$ dimensional vector $\mu_k$ where $k=1,2,&amp;hellip;,K$. Our goal is then the assignment of data points to clusters and find the set of vectors ${\mu_k}$ such that the sum of the squares of the distanaces of each data point to its closets vector $\mu_k$ (or from the center of the assigned cluster), is a minimum.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - The Sum-product Algorithm, The Max-Sum Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</guid>
+      <description>8.4.4 The Sum-product Algorithm Let us assume that all the variables in a model are discrete and hence marginalization corresponds to performing sums. To use the same algorithm for all kind of graphs, we first convert the original graph into a factor graph so that we can deal with both directed and undirected model using the same framework. To find the marginal distribution $p(x)$ for a particular variable node $x$, we need to sum the joint distribution over all variables except $x$ so that</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Inference in Graphical Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</guid>
+      <description>8.4 Inference in Graphical Models The problem of inference in graphical models, in which some of the nodes in a graph are clamped to the observed values, aims to compute the posterior distribution of one or more subset of nodes. The graphical structure can be exploited to find the efficient and transparent algorithms for inference. These algorithms usually can be expressed in terms of the propagation of local messages around the graph.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Markov Random Fields</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</guid>
+      <description>8.3 Markov Random Fields A Markov random field, also known as a Markov network or an undirected graphical model has a set of nodes each of which corresponds to a variable or grpup of variables and the undirected links each of which connects a pair of nodes.
+8.3.1 Conditional Independence Properties In a directed graph, d-separataion can be used to check the conditional independence property. By removing the directed links from the graph, the assymetry between parent and child nodes is removed and hence the logic of d-separation can&amp;rsquo;t be applied directly.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Conditional Independence</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</guid>
+      <description>8.2 Conditional Independence Consider three variables $a,b,c$ and suppose that the conditional distribution of $a$ given $b$ and $c$ is such that it does not depend on value of $b$, i.e.
+$$\begin{align} p(a|b,c) = p(a|c) \end{align}$$
+We say that $a$ is conditionally independent of $b$ given $c$. This can be expressed in a different way if we consider the joint distribution of $a$ and $b$ conditioned on $c$, which can be written as</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Bayesian Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid>
+      <description>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called probabilistic graphical models. A graph comprises nodes (also called vertices) connected by links (also known as edges or arcs). Each node represents a random variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Relation to Logistic Regression, Multiclass SVMs, SVMs for Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</guid>
+      <description>7.1.2 Relation to Logistic Regression For nonseparable case of SVM, for the data points that are on the correct side of margin, we have $\xi_n=0$ and hence $t_ny_n \geq 1$. For the remaining points, we have $\xi_n = 1 - t_ny_n$. The below objective function can then be written as
+$$\begin{align} \frac{1}{2}||W||^2 + C\sum_{n=1}^{N}\xi_n = \lambda||W||^2 + \sum_{n=1}^{N}E_{SV}(t_ny_n) \end{align}$$
+where $\lambda = (2C)^{-1}$ and $E_{SV}(.)$ is the hinge error function defined as</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Overlapping Class Distributions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</link>
+      <pubDate>Tue, 23 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</guid>
+      <description>7.1.1 Overlapping Class Distributions In practice, the class-conditional distributions may overlap, in which case exact separation of the training data can lead to poor generalization. In maximum margin classifier for separable classes, we implicitly used an error function that gave infinite error if a data point was misclassified and zero error if it was classified correctly, and then optimized the model parameters to maximize the margin. We now modify this approach so that data points are allowed to be on the wrong side of the margin boundary, but with a penalty that increases with the distance from that boundary.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</guid>
+      <description>7.1 Maximum Margin Classifiers Let us consider a two-class classification problem using linear models of the form
+$$\begin{align} y(X) = W^T\phi(X) + b \end{align}$$
+where $\phi(X)$ denotes a fixed feature-space transformation. Let the training data set comprises $N$ input vectors $X_1,X_2,&amp;hellip;,X_N$, with corresponding target values $t_1,t_2,&amp;hellip;,t_N$ where $t_n \in {-1,1}$, and new data points $X$ are classified according to the sign of $y(X)$.
+We shall assume for the moment that the training data set is linearly separable in feature space, so that by definition there exists at least one choice of the parameters $W$ and $b$ such that the linear function satisfies $y(X_n) &amp;gt; 0$ for points having $t_n = 1$ and $y(X_n) &amp;lt; 0$ for points having $t_n = -1$, so that $t_ny(X_n) &amp;gt; 0$ for all training data points.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Lagrange Multipliers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</guid>
+      <description>One of the significant limitations of learning algorithms based on non-linear kernels is that the kernel function $k(X_n, X_m)$ must be evaluated for all possible pairs $X_n$ and $X_m$ of training points. For us, it will be favourable that we shall look at kernel-based algorithms that have sparse solutions, so that predictions for new inputs depend only on the kernel function evaluated at a subset of the training data points. One of the most used sparse solution is support vector machine (SVM).</description>
+    </item>
+    
     <item>
       <title>Kernel Methods - Gaussian Process</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</link>
@@ -400,7 +529,7 @@ $$\begin{align} p(x|\mu) = \prod_{k=1}^{K} \mu_k^{x_k} \end{align}$$</descriptio
       
       <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
       <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
- $T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties  Below are some examples and non-examples of linear transformation:
+$T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties Below are some examples and non-examples of linear transformation:
 Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
     </item>
     
@@ -430,7 +559,7 @@ For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$
       
       <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
       <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
- Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$  The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
+Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$ The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
     </item>
     
     <item>
@@ -458,7 +587,7 @@ For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$
       
       <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
       <description>21.1 Markov Matrices Markov Matrices have the following properties:
- All entries $\geq 0$ Sum of the entries in a column equal $1$  A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
+All entries $\geq 0$ Sum of the entries in a column equal $1$ A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
 Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
     </item>
     
@@ -519,10 +648,10 @@ $$\begin{align} =\begin{vmatrix} a &amp;amp; 0 \\ c &amp;amp; 0 \end{vmatrix}+\b
       <guid>https://amitrajan012.github.io/post/chapter_15_properties_of_determinants/</guid>
       <description>15.1 Determinant Every square matrix has a number assosiated with it can we call this number as determinant, often denoted as $det(A) = |A|$ for matrix $A$.
 Prperties of determinant is as follows:
-  $|I|=1$
-  Row exchange reverses the sign of the determinant:
-  Permutation Matrices are derived by row exchange of Identity Matrix. Hence, $|P|= \pm1$.
- (a) For any square matrix $A$, $\begin{vmatrix} ta &amp;amp; tb \\ c &amp;amp; d \end{vmatrix}=t\begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}$</description>
+$|I|=1$
+Row exchange reverses the sign of the determinant:
+Permutation Matrices are derived by row exchange of Identity Matrix. Hence, $|P|= \pm1$.
+(a) For any square matrix $A$, $\begin{vmatrix} ta &amp;amp; tb \\ c &amp;amp; d \end{vmatrix}=t\begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}$</description>
     </item>
     
     <item>
@@ -543,7 +672,7 @@ When these set of $n$ orthonormal vectors are put into a matrix $Q$ such that $Q
       
       <guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid>
       <description>13.1 Projection Matrices Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.
-  Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
+Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
     </item>
     
     <item>
@@ -583,7 +712,7 @@ The above graph can be represented using a matrix, called as Incidence Matrix. T
       
       <guid>https://amitrajan012.github.io/post/chapter_9_matrix_spaces/</guid>
       <description>9.1 Matrix Spaces The idea of vector spaces can be extended to matrices as well as far as they follow the following properties
- If $A \in S$ then $cA \in S$ If $A \in S; B \in S$ then $A+B \in S$  It should be noted that the matrix multiplication doesn&amp;rsquo;t need to belong to the same matrix space.
+If $A \in S$ then $cA \in S$ If $A \in S; B \in S$ then $A+B \in S$ It should be noted that the matrix multiplication doesn&amp;rsquo;t need to belong to the same matrix space.
 For a matrix $M$, some of the examples of matrix spaces are: Upper Triangular Mtrices, Symmetric Matrices, Diagonal Matrices etc.</description>
     </item>
     
@@ -594,7 +723,7 @@ For a matrix $M$, some of the examples of matrix spaces are: Upper Triangular Mt
       
       <guid>https://amitrajan012.github.io/post/chapter_8-_the_four_fundamental_subspaces/</guid>
       <description>8.1 Four Fundamental Subspaces The four fundamental subspaces for a $m \times n$ matrix $A$ are as follows:
- Column Space $C(A)$ in $\mathbb{R}^m$ Null Space $N(A)$ in $\mathbb{R}^n$: Solution to $Ax=0$ Row Space $C(A^T)$ in $\mathbb{R}^n$: All combinations of the rows of $A$ or we can say that all combinations of the columns of $A^T$ Left Null Space of $A^T$ $N(A^T)$ in $\mathbb{R}^m$: Solution to $A^Ty=0$ and is also called as Left Null Spcae of $A$  The pictorial representation of these spaces with their dimension and basis is as follows:</description>
+Column Space $C(A)$ in $\mathbb{R}^m$ Null Space $N(A)$ in $\mathbb{R}^n$: Solution to $Ax=0$ Row Space $C(A^T)$ in $\mathbb{R}^n$: All combinations of the rows of $A$ or we can say that all combinations of the columns of $A^T$ Left Null Space of $A^T$ $N(A^T)$ in $\mathbb{R}^m$: Solution to $A^Ty=0$ and is also called as Left Null Spcae of $A$ The pictorial representation of these spaces with their dimension and basis is as follows:</description>
     </item>
     
     <item>
@@ -746,7 +875,7 @@ Example: A supplier of semiconductor wafers claims that of all the wafers he sup
       <pubDate>Thu, 22 Nov 2018 09:17:41 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</guid>
-      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu  10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
+      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu &gt; 10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
     </item>
     
     <item>
@@ -775,7 +904,7 @@ where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n
       <pubDate>Sat, 17 Nov 2018 11:27:09 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/post/confidence-intervals_1/</guid>
-      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval.  #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
+      <description>A confidence interval is a type of interval estimate, computed from the statistics of the observed data, that might contain the true value of an unknown population parameter. The interval has an associated confidence level that, loosely speaking, quantifies the level of confidence that the parameter lies in the interval. #### Confidence Intervals for a Population Mean (Large-Sample) : For $X_1, X_2, &amp;hellip;, X_n$ be a large ($n &amp;gt; 30$) random sample from a population with mean $\mu$ and standard deviation $\sigma$, so that $\overline{X}$ is approximately normal (from Central Limit Theorem).</description>
     </item>
     
     <item>
@@ -801,7 +930,7 @@ For a normal distribution, about 68% of the population is in the interval $\mu \
       <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
 $$\mu_X = 0 \times (1-p) + 1 \times p = p$$
 $$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
- #### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
+#### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
     </item>
     
     <item>
@@ -841,7 +970,7 @@ $$\sigma _{c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c
       
       <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
       <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
- #### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
+#### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
     </item>
     
     <item>
@@ -860,7 +989,7 @@ $$\sigma _{c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c
       
       <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
       <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
- ### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
     </item>
     
     <item>
@@ -901,7 +1030,7 @@ where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c
       
       <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
       <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
- Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient. Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
     </item>
     
     <item>
@@ -911,7 +1040,7 @@ where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c
       
       <guid>https://amitrajan012.github.io/post/chapter-8-estimation/</guid>
       <description>8.1 The estimation game In a rudimentary way, sample mean can be used to estimate a distribution. The process is called estimation and the statistic we used (sample mean) is called an estimator. If there are no outliers, sample mean minimizes the mean squared error (MSE). A maximum likelihood estimator (MLE) is an estimator that has the highest chance of being right (value with highest probability).
- Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
+Exercise 8.1: Write a function that draws 6 values froma normal distribution with $\mu$ = 0 and $\sigma$ = 1.</description>
     </item>
     
     <item>
@@ -920,9 +1049,10 @@ where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c
       <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
-      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
-  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
-  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+      <description>The process of Hypothesis Testing can be summarized by following three steps: Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.
+Hence to test a hypothesis, we assume that it is not real (called as null hypothesis).</description>
     </item>
     
     <item>
@@ -981,7 +1111,7 @@ An alternative is Bayesianism, which defines probability as a degree of belief t
       <pubDate>Sun, 05 Aug 2018 10:02:08 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-1-statistical-thinking-for-programmers/</guid>
-      <description>1.1 Do first babies arrive late? Anecdotal Evidence  is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.”  Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
+      <description>1.1 Do first babies arrive late? Anecdotal Evidence is based on data that is unpublished and usually personal. For example, &amp;ldquo;My two friends that have given birth recently to their first babies, BOTH went almost 2 weeks overdue before going into labour or being induced.” Anecdotal Evidence usually fail because of Small number of observations, Selection bias (People who join a discussion of this question might be interested because their first babies were late.</description>
     </item>
     
     <item>
@@ -991,7 +1121,7 @@ An alternative is Bayesianism, which defines probability as a degree of belief t
       
       <guid>https://amitrajan012.github.io/post/introductory-data-analysis-and-recommendation-engine/</guid>
       <description>Introduction The dataset consists information of 5000 movies with their genres, budget, revenue, production company, revenue, user-rating , vote-count and popularity as the primary fields. It also has the detailed information of cast and crew.
- # import modules import pandas as pd import numpy as np from matplotlib import pyplot as plt import json import cufflinks as cf import seaborn as sns import plotly.graph_objs as go import plotly from wordcloud import WordCloud plotly.</description>
+# import modules import pandas as pd import numpy as np from matplotlib import pyplot as plt import json import cufflinks as cf import seaborn as sns import plotly.graph_objs as go import plotly from wordcloud import WordCloud plotly.</description>
     </item>
     
     <item>
@@ -1171,7 +1301,7 @@ Sol: The optimal degree of polynomial selected from cross-validation is 4.</desc
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
       <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
- Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0. Fit a weighted least squares regression of the aformentioned points using weights, by finding $\beta_0, \beta_1$ that minimize $$\sum _{i=1}^{n}K _{i0}(y_i - \beta_0 - \beta_1 x_i)^2$$</description>
     </item>
     
     <item>
@@ -1203,9 +1333,9 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
       <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
-  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
-  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
-  Regression splines is the extension of polynomial regression and step functions.</description>
+Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+Regression splines is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.</description>
     </item>
     
     <item>
@@ -1216,7 +1346,7 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
       <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
 (a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
-import numpy as np  np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
     </item>
     
     <item>
@@ -1259,7 +1389,7 @@ We can then fit the least squares regression model as $Z_m$s as the predictors:<
       
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
       <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
-  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well. If n is not much larger than p, the model will have a lot of variability, resulting in overfitting and poor prediction accuracy.</description>
     </item>
     
     <item>
@@ -1310,7 +1440,7 @@ Suppose we wish to invest money in two financial assests which yield returns of 
       <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
       <description>Applied Q10. This question should be answered using the Weekly data set.
 (a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
-import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors.</description>
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
     </item>
     
     <item>
@@ -1320,7 +1450,7 @@ import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  s
       
       <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
       <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
-Sol:  Logistic function representation is given as:
+Sol: Logistic function representation is given as:
 $$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
 then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
 $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
@@ -1343,7 +1473,7 @@ $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
       <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
       <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
 4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  default = pd.</description>
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
     </item>
     
     <item>
@@ -1354,7 +1484,7 @@ import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  defau
       <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
       <description>Applied Solution 8:
 (a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
-import statsmodels.api as sm  X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None))) OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
     </item>
     
     <item>
@@ -1409,7 +1539,7 @@ $\beta_0$ and $\beta_1$ represent intercept and slope and are called as model co
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
       <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
-import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe() Apps Accept Enroll Top10perc Top25perc F.Undergrad P.Undergrad Outstate Room.Board Books Personal PhD Terminal S.F.Ratio perc.alumni Expend Grad.Rate count 777.000000 777.000000 777.000000 777.000000 777.</description>
     </item>
     
     <item>
@@ -1418,8 +1548,7 @@ import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) c
       <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
-      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
-(a) The sample size n is extremely large, and the number of predic- tors p is small.
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. (a) The sample size n is extremely large, and the number of predic- tors p is small.
 Sol: Better
 (b) The number of predictors p is extremely large, and the number of observations n is small.</description>
     </item>
@@ -1450,7 +1579,7 @@ $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</description>
       <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/introduction/</guid>
-      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns  wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head()  fig = plt.figure(figsize=(15,8))  ax = fig.</description>
+      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;#34;age&amp;#34;, y=&amp;#34;wage&amp;#34;, color=&amp;#39;#D7DBDD&amp;#39;, data=wage, order=2, scatter_kws={&amp;#39;alpha&amp;#39;:0.</description>
     </item>
     
   </channel>

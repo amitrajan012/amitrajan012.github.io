@@ -72,7 +72,7 @@ Example: A supplier of semiconductor wafers claims that of all the wafers he sup
       <pubDate>Thu, 22 Nov 2018 09:17:41 +0530</pubDate>
       
       <guid>https://amitrajan012.github.io/post/detailed-hypothesis-testing_1/</guid>
-      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu  10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
+      <description>Hypothesis Testing is a method by which we can test an assumption made for a population parameter. For example, the statement $\mu &gt; 10$ is an assumption or hypothesis about the population mean $\mu$. To check the validity of this hypothesis, we must conduct a hypothesis test. Hypothesis tests are closely related to confidence intervals. Prior to performing a hypothesis test, we need to formulate the null and alternate hypothesis.</description>
     </item>
     
     <item>
@@ -90,9 +90,10 @@ Example: A supplier of semiconductor wafers claims that of all the wafers he sup
       <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
-      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
-  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
-  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+      <description>The process of Hypothesis Testing can be summarized by following three steps: Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.
+Hence to test a hypothesis, we assume that it is not real (called as null hypothesis).</description>
     </item>
     
   </channel>

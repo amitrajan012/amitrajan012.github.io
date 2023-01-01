@@ -6,22 +6,535 @@
     <description>Recent content in Tags on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bishop</title>
+      <link>https://amitrajan012.github.io/tags/bishop/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bishop/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Expectation Maximization</title>
+      <link>https://amitrajan012.github.io/tags/expectation-maximization/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/expectation-maximization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kullback-Liebler Divergence</title>
+      <link>https://amitrajan012.github.io/tags/kullback-liebler-divergence/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kullback-liebler-divergence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixture Models</title>
+      <link>https://amitrajan012.github.io/tags/mixture-models/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mixture-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pattern Recognition</title>
+      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bernoulli Distributions</title>
+      <link>https://amitrajan012.github.io/tags/bernoulli-distributions/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bernoulli-distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Complete Data</title>
+      <link>https://amitrajan012.github.io/tags/complete-data/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/complete-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K-means</title>
+      <link>https://amitrajan012.github.io/tags/k-means/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/k-means/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latent Class Analysis</title>
+      <link>https://amitrajan012.github.io/tags/latent-class-analysis/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/latent-class-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resposibility</title>
+      <link>https://amitrajan012.github.io/tags/resposibility/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/resposibility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gaussian Distribution</title>
+      <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/gaussian-distribution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Likelihood</title>
+      <link>https://amitrajan012.github.io/tags/maximum-likelihood/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-likelihood/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Distortion Measure</title>
+      <link>https://amitrajan012.github.io/tags/distortion-measure/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/distortion-measure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Compression</title>
+      <link>https://amitrajan012.github.io/tags/image-compression/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/image-compression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Segmentation</title>
+      <link>https://amitrajan012.github.io/tags/image-segmentation/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/image-segmentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>K-means Clustering</title>
+      <link>https://amitrajan012.github.io/tags/k-means-clustering/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/k-means-clustering/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graphical Models</title>
+      <link>https://amitrajan012.github.io/tags/graphical-models/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/graphical-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Max-Sum Algorithm</title>
+      <link>https://amitrajan012.github.io/tags/max-sum-algorithm/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/max-sum-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sum-product Algorithm</title>
+      <link>https://amitrajan012.github.io/tags/sum-product-algorithm/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/sum-product-algorithm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Factor Graphs</title>
+      <link>https://amitrajan012.github.io/tags/factor-graphs/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/factor-graphs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Factor Node</title>
+      <link>https://amitrajan012.github.io/tags/factor-node/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/factor-node/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inference</title>
+      <link>https://amitrajan012.github.io/tags/inference/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/inference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Trees</title>
+      <link>https://amitrajan012.github.io/tags/trees/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/trees/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clique</title>
+      <link>https://amitrajan012.github.io/tags/clique/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/clique/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image De-noising</title>
+      <link>https://amitrajan012.github.io/tags/image-de-noising/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/image-de-noising/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markov Network</title>
+      <link>https://amitrajan012.github.io/tags/markov-network/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/markov-network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markov Random Fields</title>
+      <link>https://amitrajan012.github.io/tags/markov-random-fields/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/markov-random-fields/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Clique</title>
+      <link>https://amitrajan012.github.io/tags/maximum-clique/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-clique/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Moral Graph</title>
+      <link>https://amitrajan012.github.io/tags/moral-graph/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/moral-graph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Undirected Graphical Model</title>
+      <link>https://amitrajan012.github.io/tags/undirected-graphical-model/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/undirected-graphical-model/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Conditional Independence</title>
+      <link>https://amitrajan012.github.io/tags/conditional-independence/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/conditional-independence/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>D-Separation</title>
+      <link>https://amitrajan012.github.io/tags/d-separation/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/d-separation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Directed Factorization</title>
+      <link>https://amitrajan012.github.io/tags/directed-factorization/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/directed-factorization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markov Blanket</title>
+      <link>https://amitrajan012.github.io/tags/markov-blanket/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/markov-blanket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bayesian Networks</title>
+      <link>https://amitrajan012.github.io/tags/bayesian-networks/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/bayesian-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Directed Graphical Models</title>
+      <link>https://amitrajan012.github.io/tags/directed-graphical-models/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/directed-graphical-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discrete Variables</title>
+      <link>https://amitrajan012.github.io/tags/discrete-variables/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/discrete-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Generative Models</title>
+      <link>https://amitrajan012.github.io/tags/generative-models/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/generative-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Latent Variable</title>
+      <link>https://amitrajan012.github.io/tags/latent-variable/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/latent-variable/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linear-Gaussian Models</title>
+      <link>https://amitrajan012.github.io/tags/linear-gaussian-models/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/linear-gaussian-models/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Observed Random Variables</title>
+      <link>https://amitrajan012.github.io/tags/observed-random-variables/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/observed-random-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polynomial Regression</title>
+      <link>https://amitrajan012.github.io/tags/polynomial-regression/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/polynomial-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hinge Error</title>
+      <link>https://amitrajan012.github.io/tags/hinge-error/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/hinge-error/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kernel Methods</title>
+      <link>https://amitrajan012.github.io/tags/kernel-methods/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kernel-methods/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lagrange Multipliers</title>
+      <link>https://amitrajan012.github.io/tags/lagrange-multipliers/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/lagrange-multipliers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Logistic Regression</title>
+      <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/logistic-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Maximum Margin Classifiers</title>
+      <link>https://amitrajan012.github.io/tags/maximum-margin-classifiers/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/maximum-margin-classifiers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Multiclass SVMs</title>
+      <link>https://amitrajan012.github.io/tags/multiclass-svms/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/multiclass-svms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Slack Variables</title>
+      <link>https://amitrajan012.github.io/tags/slack-variables/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/slack-variables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Support Vectors</title>
+      <link>https://amitrajan012.github.io/tags/support-vectors/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/support-vectors/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SVMs for Regression</title>
+      <link>https://amitrajan012.github.io/tags/svms-for-regression/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/svms-for-regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Overlapping Class Distributions</title>
+      <link>https://amitrajan012.github.io/tags/overlapping-class-distributions/</link>
+      <pubDate>Tue, 23 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/overlapping-class-distributions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dual Representation</title>
+      <link>https://amitrajan012.github.io/tags/dual-representation/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/dual-representation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KKT Condition</title>
+      <link>https://amitrajan012.github.io/tags/kkt-condition/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kkt-condition/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>KKT Conditions</title>
+      <link>https://amitrajan012.github.io/tags/kkt-conditions/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/kkt-conditions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>lagrange Multiplier</title>
+      <link>https://amitrajan012.github.io/tags/lagrange-multiplier/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/lagrange-multiplier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lagrangian Function</title>
+      <link>https://amitrajan012.github.io/tags/lagrangian-function/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/tags/lagrangian-function/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Automatic Relevance Determination</title>
       <link>https://amitrajan012.github.io/tags/automatic-relevance-determination/</link>
       <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/automatic-relevance-determination/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Bishop</title>
-      <link>https://amitrajan012.github.io/tags/bishop/</link>
-      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/bishop/</guid>
       <description></description>
     </item>
     
@@ -49,15 +562,6 @@
       <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/linear-models/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pattern Recognition</title>
-      <link>https://amitrajan012.github.io/tags/pattern-recognition/</link>
-      <pubDate>Thu, 04 Aug 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/pattern-recognition/</guid>
       <description></description>
     </item>
     
@@ -346,15 +850,6 @@
       <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/basis-functions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logistic Regression</title>
-      <link>https://amitrajan012.github.io/tags/logistic-regression/</link>
-      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/logistic-regression/</guid>
       <description></description>
     </item>
     
@@ -656,15 +1151,6 @@
     </item>
     
     <item>
-      <title>Maximum Likelihood</title>
-      <link>https://amitrajan012.github.io/tags/maximum-likelihood/</link>
-      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/maximum-likelihood/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Gausian Kernel</title>
       <link>https://amitrajan012.github.io/tags/gausian-kernel/</link>
       <pubDate>Sun, 19 Jun 2022 20:07:28 +0100</pubDate>
@@ -769,24 +1255,6 @@
       <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/softmax-function/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Gaussian Distribution</title>
-      <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
-      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/gaussian-distribution/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mixtures of Gaussians</title>
-      <link>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</link>
-      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</guid>
       <description></description>
     </item>
     
@@ -1088,15 +1556,6 @@
     </item>
     
     <item>
-      <title>lagrange Multiplier</title>
-      <link>https://amitrajan012.github.io/tags/lagrange-multiplier/</link>
-      <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/lagrange-multiplier/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Mutual Information</title>
       <link>https://amitrajan012.github.io/tags/mutual-information/</link>
       <pubDate>Fri, 10 Jun 2022 14:07:28 +0100</pubDate>
@@ -1147,24 +1606,6 @@
       <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/expected-loss/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Generative Models</title>
-      <link>https://amitrajan012.github.io/tags/generative-models/</link>
-      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/generative-models/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inference</title>
-      <link>https://amitrajan012.github.io/tags/inference/</link>
-      <pubDate>Sat, 04 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/inference/</guid>
       <description></description>
     </item>
     
@@ -1507,15 +1948,6 @@
       <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/fourier-basis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Image Compression</title>
-      <link>https://amitrajan012.github.io/tags/image-compression/</link>
-      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/image-compression/</guid>
       <description></description>
     </item>
     
@@ -2708,15 +3140,6 @@
     </item>
     
     <item>
-      <title>K-Means Clustering</title>
-      <link>https://amitrajan012.github.io/tags/k-means-clustering/</link>
-      <pubDate>Mon, 09 Jul 2018 17:09:41 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/k-means-clustering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Principal Components Analysis</title>
       <link>https://amitrajan012.github.io/tags/principal-components-analysis/</link>
       <pubDate>Fri, 06 Jul 2018 01:19:52 +0100</pubDate>
@@ -2848,15 +3271,6 @@
       <pubDate>Mon, 28 May 2018 11:12:18 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/tags/regression-splines/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Polynomial Regression</title>
-      <link>https://amitrajan012.github.io/tags/polynomial-regression/</link>
-      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/tags/polynomial-regression/</guid>
       <description></description>
     </item>
     

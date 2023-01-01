@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Overlapping Class Distributions on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/overlapping-class-distributions/</link>
+    <description>Recent content in Overlapping Class Distributions on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/overlapping-class-distributions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Overlapping Class Distributions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</link>
+      <pubDate>Tue, 23 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</guid>
+      <description>7.1.1 Overlapping Class Distributions In practice, the class-conditional distributions may overlap, in which case exact separation of the training data can lead to poor generalization. In maximum margin classifier for separable classes, we implicitly used an error function that gave infinite error if a data point was misclassified and zero error if it was classified correctly, and then optimized the model parameters to maximize the margin. We now modify this approach so that data points are allowed to be on the wrong side of the margin boundary, but with a penalty that increases with the distance from that boundary.</description>
+    </item>
+    
+  </channel>
+</rss>

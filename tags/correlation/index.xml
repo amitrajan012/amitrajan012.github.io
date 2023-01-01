@@ -26,7 +26,7 @@ $$\sigma _{c_1X_1 + c_2X_2 + &amp;hellip; + c_nX_n}^2 = c_1^2\sigma _{X_1}^2 + c
       
       <guid>https://amitrajan012.github.io/post/chapter-9-correlation/</guid>
       <description>9.1 Standard scores The main challenge in measuring correlation is that the variables we want to compare might not be expressed in the same units. There are two common solutions to this problem:
- Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient.  Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
+Transform all values to standard scores. This leads to Pearson coefficient of correlation. Transform all values to their percentile ranks. This leads to Spearman coefficient. Normalizing the score means subtracting mean from every value and dividing it by standard deviation.</description>
     </item>
     
   </channel>

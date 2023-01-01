@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kullback-Liebler Divergence on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/kullback-liebler-divergence/</link>
+    <description>Recent content in Kullback-Liebler Divergence on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/kullback-liebler-divergence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - The EM Algorithm in General</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</guid>
+      <description>9.4 The EM Algorithm in General The expectation maximization (EM) algorithm is a general technique for finding maximum likelihood solutions for probabilistic models having latent variables. Consider a probabilistic model in which observed variable is denoted by $X$ and the hidden variable by $Z$. The joint distribution $p(X,Z|\theta)$ is governed by a set of parameters deonoted by $\theta$. Our goal is to maximize the likelihood function given by
+$$\begin{align} p(X|\theta) = \sum_{Z} p(X,Z|\theta) \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>

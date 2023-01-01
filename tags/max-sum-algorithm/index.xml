@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Max-Sum Algorithm on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/max-sum-algorithm/</link>
+    <description>Recent content in Max-Sum Algorithm on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/max-sum-algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphical Models - The Sum-product Algorithm, The Max-Sum Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</guid>
+      <description>8.4.4 The Sum-product Algorithm Let us assume that all the variables in a model are discrete and hence marginalization corresponds to performing sums. To use the same algorithm for all kind of graphs, we first convert the original graph into a factor graph so that we can deal with both directed and undirected model using the same framework. To find the marginal distribution $p(x)$ for a particular variable node $x$, we need to sum the joint distribution over all variables except $x$ so that</description>
+    </item>
+    
+  </channel>
+</rss>

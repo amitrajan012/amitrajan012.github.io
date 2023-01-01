@@ -23,9 +23,9 @@
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
       <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
-  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
-  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
-  Regression splines is the extension of polynomial regression and step functions.</description>
+Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+Regression splines is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.</description>
     </item>
     
   </channel>

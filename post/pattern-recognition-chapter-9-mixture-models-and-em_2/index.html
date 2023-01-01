@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Mixture Models and Expectation Maximization - Mixtures of Gaussians" />
+    <meta property="og:title" content="Mixture Models and Expectation Maximization - Mixtures of Gaussians" />
+    <meta property="twitter:title" content="Mixture Models and Expectation Maximization - Mixtures of Gaussians" />
+    
+
+    
+    <meta name="description" content="Pattern Recognition (Bishop): Chapter 9">
+    <meta property="og:description" content="Pattern Recognition (Bishop): Chapter 9" />
+    <meta property="twitter:description" content="Pattern Recognition (Bishop): Chapter 9" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/pattern-recognition-chapter-9-mixture-models-and-em_2/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/bishop" title="Bishop">
+                            Bishop
+                        </a>
+                        
+                        <a class="tag" href="/tags/pattern-recognition" title="Pattern Recognition">
+                            Pattern Recognition
+                        </a>
+                        
+                        <a class="tag" href="/tags/mixture-models" title="Mixture Models">
+                            Mixture Models
+                        </a>
+                        
+                        <a class="tag" href="/tags/expectation-maximization" title="Expectation Maximization">
+                            Expectation Maximization
+                        </a>
+                        
+                        <a class="tag" href="/tags/mixtures-of-gaussians" title="Mixtures of Gaussians">
+                            Mixtures of Gaussians
+                        </a>
+                        
+                        <a class="tag" href="/tags/gaussian-distribution" title="Gaussian Distribution">
+                            Gaussian Distribution
+                        </a>
+                        
+                        <a class="tag" href="/tags/maximum-likelihood" title="Maximum Likelihood">
+                            Maximum Likelihood
+                        </a>
+                        
+                    </div>
+                    <h1>Mixture Models and Expectation Maximization - Mixtures of Gaussians</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Tuesday, October 18, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="92-mixtures-of-gaussians">9.2 Mixtures of Gaussians</h2>
+<p>This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form</p>
+<p>$$\begin{align}
+p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k)
+\end{align}$$</p>
+<p>Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$. The joint distribution $p(X,z)$ can then be represented in terms of the marginal distribution $p(z)$ and conditional distribution $p(X|z)$. The marginal distribution is given as</p>
+<p>$$\begin{align}
+p(z_k = 1) = \pi_k
+\end{align}$$</p>
+<p>where the parameter $\pi_k$ must satisfy $0 &laquo; \pi_k &laquo; 1$ and $\sum_k \pi_k = 1$. This marginal distribution can also be written as</p>
+<p>$$\begin{align}
+p(z) = \prod_{k=1}^{K} \pi_k^{z_k}
+\end{align}$$</p>
+<p>The conditional distribution of $X$ given a particular value of $z$ is a Gaussian and can be given as</p>
+<p>$$\begin{align}
+p(X|z_k = 1) = N(X|\mu_k, \Sigma_k)
+\end{align}$$</p>
+<p>which can also be written in the form</p>
+<p>$$\begin{align}
+p(X|z) = \prod_{k=1}^{K} N(X|\mu_k, \Sigma_k)^{z_k}
+\end{align}$$</p>
+<p>The joint distribution $p(X,z)$ is given as $p(z)p(X|z)$ and the marginal distribution $p(X)$ can be computed as</p>
+<p>$$\begin{align}
+p(X) = \sum_{z}p(X,z) = \sum_{z}p(z)p(X|z) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k)^{z_k}
+\end{align}$$</p>
+<p>It should be noted that for every observed data point $X_n$ we have a corresponding latent variable $z_n$.</p>
+<p>Another quantity which plays an important role is $\gamma(z_k)$ which denotes $p(z_k = 1 | X)$, whose value can be found using Bayes theorem as</p>
+<p>$$\begin{align}
+\gamma(z_k) = p(z_k = 1 | X) = \frac{p(z_k=1)p(X|z_k=1)}{p(X)}
+\end{align}$$</p>
+<p>$$\begin{align}
+= \frac{p(z_k=1)p(X|z_k=1)}{\sum_z p(X,z)}
+\end{align}$$</p>
+<p>$$\begin{align}
+= \frac{p(z_k=1)p(X|z_k=1)}{\sum_z p(z)p(X|z)}
+\end{align}$$</p>
+<p>$$\begin{align}
+= \frac{p(z_k=1)p(X|z_k=1)}{\sum_{j=1}^{K} p(z_j=1)p(X|z_j=1)}
+\end{align}$$</p>
+<p>$$\begin{align}
+= \frac{\pi_k N(X|\mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j N(X|\mu_j, \Sigma_j)}
+\end{align}$$</p>
+<p>$\pi_k$ can be viewed as the prior probability of $z_k =1$ and $\gamma(z_k)$ as the posterior probability once we have observed $X$. $\gamma(z_k)$ is also called as <b>responsibility</b> that component $k$ takes for explaining the observation $X$.</p>
+<h3 id="921-maximum-likelihood">9.2.1 Maximum Likelihood</h3>
+<p>Let the data points ${X_1, X_2,&hellip;, X_N}$ be represented as a $N \times D$ matrix $X$ where $n^{th}$ row of the matrix is $X_N^T$. Let the latent varibales are representead as $N \times K$ matrix $Z$ where $n^{th}$ row of the matrix is $z_N^T$. If we assume that the data points are drawn indeoendently from the distribution, then the Gaussian mixture model for this i.i.d. data set will be represented as below.</p>
+<img class="pure-img" src="/img/pattern_recognition/graph_gaussian_mixture_iid.png" alt="">
+<p>As we know that the Gaussian mixture distribution for individual data point is represented as</p>
+<p>$$\begin{align}
+p(X_n) = \sum_{k=1}^{K} \pi_k N(X_n|\mu_k, \Sigma_k)
+\end{align}$$</p>
+<p>For $N$ i.i.d. data points, the likelihood function can then be modeled as</p>
+<p>$$\begin{align}
+p(X|\pi, \mu, \Sigma) = \prod_{n=1}^{N} \sum_{k=1}^{K} \pi_k N(X_n|\mu_k, \Sigma_k)
+\end{align}$$</p>
+<p>Taking logarithm, we get the log likelihood function as</p>
+<p>$$\begin{align}
+\ln p(X|\pi, \mu, \Sigma) = \sum_{n=1}^{N} \ln \bigg[\sum_{k=1}^{K} \pi_k N(X_n|\mu_k, \Sigma_k) \bigg]
+\end{align}$$</p>
+<p>Let one of the components of mixture model has its mean exactly equal to one of the data points, i.e. $\mu_j = X_n$. This data point will contribute a term in the likelihood function of the form (exponential term vanishes as $\mu_j = X_n$)</p>
+<p>$$\begin{align}
+N(X_n|\mu_j, \sigma_j^2I) = \frac{1}{(2\pi)^{1/2}}\frac{1}{\sigma_j}
+\end{align}$$</p>
+<p>If we consider the limit $\sigma_j \to 0$, the above term goes to infinity and hence the log likelihood function will also go to infinity. Hence, in case of signiularity (when one of the Gaussian components collapses to a specific data point), the maximization of log likelihood function is not a well posed problem. This problem of singularity can be avoided by detecting when a Gaussian component is collapsing and resetting its mean to a randomly chosen value while also resetting its covariance to some large value, and then continuing with the optimization.</p>
+<p>Maximizing the log likelihood function for a Gaussian mixture model turns out to be a more complex problem than for the case of a single Gaussian. The difficulty arises from the presence of the summation over $k$ that appears inside the logarithm. The logarithm function does not act directly on the Gaussian and hence there doesn&rsquo;t exist a closed form solution.</p>
+<h3 id="922-em-for-gaussian-mixtures">9.2.2 EM for Gaussian Mixtures</h3>
+<p><b>Expectation-maximization</b> algorithm can be used to find the maximum likelihood solutions for models with latent variables. Let us start with the log likelihood function of Gaussian mixture model.</p>
+<p>$$\begin{align}
+\ln p(X|\pi, \mu, \Sigma) = \sum_{n=1}^{N} \ln \bigg[\sum_{k=1}^{K} \pi_k N(X_n|\mu_k, \Sigma_k) \bigg]
+\end{align}$$</p>
+<p>Taking the derivative of above expression w.r.t. $\mu_k$ and setting it to 0, we have</p>
+<p>$$\begin{align}
+- \sum_{n=1}^{N} \frac{\pi_k N(X_n|\mu_k,\Sigma_k)}{\sum_{j}\pi_j N(X_n|\mu_j,\Sigma_j)} [\Sigma_k(X_n - \mu_k)] = 0
+\end{align}$$</p>
+<p>$$\begin{align}
+- \sum_{n=1}^{N} \gamma(z_{nk}) [\Sigma_k(X_n - \mu_k)] = 0
+\end{align}$$</p>
+<p>Solving this equation, we have</p>
+<p>$$\begin{align}
+\mu_k = \frac{\sum_{n=1}^N \gamma(z_{nk}X_n)}{\sum_{n=1}^N \gamma(z_{nk})} = \frac{\sum_{n=1}^N \gamma(z_{nk}X_n)}{N_k}
+\end{align}$$</p>
+<p>where</p>
+<p>$$\begin{align}
+N_k = \sum_{n=1}^N \gamma(z_{nk})
+\end{align}$$</p>
+<p>$N_k$ can be interpretted as the effective number of points assigned to cluster $k$. The mean $\mu_k$ for the $k^{th}$ Gaussian component is obtained by taking a weighted mean of all the points in the data set, where the weighing factor for data point $X_n$ is given by the posterior probability $\gamma(z_{nk})$ that component $k$ was responsible for generating $X_n$. The rest of the parameters can be obtained using similar technique and are given as</p>
+<p>$$\begin{align}
+\Sigma_k = \frac{1}{N_k}\sum_{n=1}^N \gamma(z_{nk}) (X_n - \mu_k)(X_n - \mu_k)^T
+\end{align}$$</p>
+<p>$$\begin{align}
+\pi_k = \frac{N_k}{N}
+\end{align}$$</p>
+<p>The above expression can be interpretted as the mixing coefficient of the $k^{th}$ component is given by the average responsibility which that component takes for explaining the data. It should be noted that these solutions are not the closed form solution for the mixture model as the responsibilities $\gamma(z_{nk})$ depend on those parameters. A simple iterative scheme can be used to find the values for these parameters. We first choose some initial values for the means, covariances and mixing coefficients and then we alternate between E and M steps. In the <b>expectation</b> step (E step), we use the current values for the parameters to evaluate the responsibilities $\gamma(z_{nk})$. These updated responsibilities can then be used to re-estimate the means, covariances and mixing-coefficients in the <b>maximization</b> step. Each update to the parameters resulting
+from an E step followed by an M step is guaranteed to increase the log likelihood function. In practice, the algorithm is deemed to have converged when the change in the log likelihood function, or alternatively in the parameters, falls below some threshold. The EM-algorithm for the mixture model applied on a data set is shown in below figure.</p>
+<img class="pure-img" src="/img/pattern_recognition/EM_mixture_model.png" alt="">
+<p>Gaussian components are shown as blue and red circles. The blue and red component in the color of data points show how much contribution of blue and red Gaussian have in generation of those data points. Hence, the points which have significant probability of belonging to either cluster appear purple. The EM algorithm takes much more iterations and significant computation to converge comared to $K$-means. It is hence a good practice to initialize the means of the Gaussians using results of $K$-means algorithm. The covariance matrices can conveniently be initialized to the sample covariances of the clusters found by the K-means algorithm, and the mixing coefficients can be set to the fractions of data points assigned to the respective clusters.</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/pattern-recognition-chapter-9-mixture-models-and-em_1/" data-toggle="tooltip" data-placement="top" title="Mixture Models and Expectation Maximization - K-means Clustering">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/pattern-recognition-chapter-9-mixture-models-and-em_3/" data-toggle="tooltip" data-placement="top" title="Mixture Models and Expectation Maximization - An Alternative View of EM">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/basis" title="basis">
+                            basis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/basis-function" title="basis-function">
+                            basis-function
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bayes-theorem-for-gaussian-variables" title="bayes-theorem-for-gaussian-variables">
+                            bayes-theorem-for-gaussian-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bishop" title="bishop">
+                            bishop
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conjugate-prior" title="conjugate-prior">
+                            conjugate-prior
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cross-validation" title="cross-validation">
+                            cross-validation
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/determinant" title="determinant">
+                            determinant
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dimension" title="dimension">
+                            dimension
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/eigenvalue-decomposition" title="eigenvalue-decomposition">
+                            eigenvalue-decomposition
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvalues" title="eigenvalues">
+                            eigenvalues
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvectors" title="eigenvectors">
+                            eigenvectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/expectation-maximization" title="expectation-maximization">
+                            expectation-maximization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/feed-forward-network" title="feed-forward-network">
+                            feed-forward-network
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gaussian-distribution" title="gaussian-distribution">
+                            gaussian-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/graphical-models" title="graphical-models">
+                            graphical-models
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kernel-methods" title="kernel-methods">
+                            kernel-methods
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/lagrange-multipliers" title="lagrange-multipliers">
+                            lagrange-multipliers
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/least-squares" title="least-squares">
+                            least-squares
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-models" title="linear-models">
+                            linear-models
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/logistic-regression" title="logistic-regression">
+                            logistic-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-space" title="matrix-space">
+                            matrix-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/maximum-likelihood-for-the-gaussian" title="maximum-likelihood-for-the-gaussian">
+                            maximum-likelihood-for-the-gaussian
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/maximum-margin-classifiers" title="maximum-margin-classifiers">
+                            maximum-margin-classifiers
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mixture-models" title="mixture-models">
+                            mixture-models
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mixtures-of-gaussians" title="mixtures-of-gaussians">
+                            mixtures-of-gaussians
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/multinomial-distribution" title="multinomial-distribution">
+                            multinomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/neural-networks" title="neural-networks">
+                            neural-networks
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pattern-recognition" title="pattern-recognition">
+                            pattern-recognition
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/probability-distributions" title="probability-distributions">
+                            probability-distributions
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/projection" title="projection">
+                            projection
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/support-vectors" title="support-vectors">
+                            support-vectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

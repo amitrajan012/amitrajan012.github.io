@@ -14,7 +14,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
       <description>21.1 Markov Matrices Markov Matrices have the following properties:
- All entries $\geq 0$ Sum of the entries in a column equal $1$  A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
+All entries $\geq 0$ Sum of the entries in a column equal $1$ A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
 Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
     </item>
     

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Factor Node on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/factor-node/</link>
+    <description>Recent content in Factor Node on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Sep 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/factor-node/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphical Models - Inference in Graphical Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</guid>
+      <description>8.4 Inference in Graphical Models The problem of inference in graphical models, in which some of the nodes in a graph are clamped to the observed values, aims to compute the posterior distribution of one or more subset of nodes. The graphical structure can be exploited to find the efficient and transparent algorithms for inference. These algorithms usually can be expressed in terms of the propagation of local messages around the graph.</description>
+    </item>
+    
+  </channel>
+</rss>

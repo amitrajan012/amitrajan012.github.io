@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Observed Random Variables on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/observed-random-variables/</link>
+    <description>Recent content in Observed Random Variables on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Sep 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/observed-random-variables/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphical Models - Bayesian Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid>
+      <description>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called probabilistic graphical models. A graph comprises nodes (also called vertices) connected by links (also known as edges or arcs). Each node represents a random variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.</description>
+    </item>
+    
+  </channel>
+</rss>

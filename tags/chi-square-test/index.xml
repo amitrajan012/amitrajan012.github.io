@@ -22,9 +22,10 @@
       <pubDate>Thu, 30 Aug 2018 06:17:39 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/chapter-7-hypothesis-testing/</guid>
-      <description>The process of Hypothesis Testing can be summarized by following three steps:   Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
-  p-value: The p-value is the probability of the apparent effect under the null hypothesis.
-  Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.</description>
+      <description>The process of Hypothesis Testing can be summarized by following three steps: Null Hypothesis: The null hypothesis is a mode of the system based on the assumption that apparent effect was actually due to chance.
+p-value: The p-value is the probability of the apparent effect under the null hypothesis.
+Interpretation: Based on the p-value, we can conclude that whether the effect is statistically significant or not.
+Hence to test a hypothesis, we assume that it is not real (called as null hypothesis).</description>
     </item>
     
   </channel>

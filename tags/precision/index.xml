@@ -23,7 +23,7 @@
       
       <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
       <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
- ### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
     </item>
     
   </channel>

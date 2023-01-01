@@ -118,7 +118,7 @@ where $W$ is called the weight vector and $W_0$ is bias. The negative of the bia
       
       <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
       <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
- ### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
+### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
     </item>
     
     <item>
@@ -141,7 +141,7 @@ where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c
       <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
       <description>Applied Q10. This question should be answered using the Weekly data set.
 (a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
-import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors.</description>
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
     </item>
     
     <item>
@@ -151,7 +151,7 @@ import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  s
       
       <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
       <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
-Sol:  Logistic function representation is given as:
+Sol: Logistic function representation is given as:
 $$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
 then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
 $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
@@ -174,7 +174,7 @@ $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
       <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
       <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
 4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  default = pd.</description>
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
     </item>
     
   </channel>

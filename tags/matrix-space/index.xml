@@ -25,7 +25,7 @@ When these set of $n$ orthonormal vectors are put into a matrix $Q$ such that $Q
       
       <guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid>
       <description>13.1 Projection Matrices Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.
-  Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
+Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ The above graph can be represented using a matrix, called as Incidence Matrix. T
       
       <guid>https://amitrajan012.github.io/post/chapter_9_matrix_spaces/</guid>
       <description>9.1 Matrix Spaces The idea of vector spaces can be extended to matrices as well as far as they follow the following properties
- If $A \in S$ then $cA \in S$ If $A \in S; B \in S$ then $A+B \in S$  It should be noted that the matrix multiplication doesn&amp;rsquo;t need to belong to the same matrix space.
+If $A \in S$ then $cA \in S$ If $A \in S; B \in S$ then $A+B \in S$ It should be noted that the matrix multiplication doesn&amp;rsquo;t need to belong to the same matrix space.
 For a matrix $M$, some of the examples of matrix spaces are: Upper Triangular Mtrices, Symmetric Matrices, Diagonal Matrices etc.</description>
     </item>
     

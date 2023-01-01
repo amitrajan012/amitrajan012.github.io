@@ -184,7 +184,7 @@ Sol: The optimal degree of polynomial selected from cross-validation is 4.</desc
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
       <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
- Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0. Fit a weighted least squares regression of the aformentioned points using weights, by finding $\beta_0, \beta_1$ that minimize $$\sum _{i=1}^{n}K _{i0}(y_i - \beta_0 - \beta_1 x_i)^2$$</description>
     </item>
     
     <item>
@@ -216,9 +216,9 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
       <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
-  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
-  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
-  Regression splines is the extension of polynomial regression and step functions.</description>
+Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+Regression splines is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.</description>
     </item>
     
     <item>
@@ -229,7 +229,7 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
       <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
 (a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
-import numpy as np  np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
     </item>
     
     <item>
@@ -272,7 +272,7 @@ We can then fit the least squares regression model as $Z_m$s as the predictors:<
       
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
       <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
-  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well. If n is not much larger than p, the model will have a lot of variability, resulting in overfitting and poor prediction accuracy.</description>
     </item>
     
     <item>
@@ -323,7 +323,7 @@ Suppose we wish to invest money in two financial assests which yield returns of 
       <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
       <description>Applied Q10. This question should be answered using the Weekly data set.
 (a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
-import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors.</description>
+import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
     </item>
     
     <item>
@@ -333,7 +333,7 @@ import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;)  s
       
       <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
       <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
-Sol:  Logistic function representation is given as:
+Sol: Logistic function representation is given as:
 $$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
 then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
 $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
@@ -356,7 +356,7 @@ $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
       <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
       <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
 4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  default = pd.</description>
+import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
     </item>
     
     <item>
@@ -367,7 +367,7 @@ import pandas as pd import seaborn as sns import matplotlib.pyplot as plt  defau
       <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
       <description>Applied Solution 8:
 (a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
-import statsmodels.api as sm  X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None)))  OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
+import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None))) OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
     </item>
     
     <item>
@@ -422,7 +422,7 @@ $\beta_0$ and $\beta_1$ represent intercept and slope and are called as model co
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
       <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
-import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe() Apps Accept Enroll Top10perc Top25perc F.Undergrad P.Undergrad Outstate Room.Board Books Personal PhD Terminal S.F.Ratio perc.alumni Expend Grad.Rate count 777.000000 777.000000 777.000000 777.000000 777.</description>
     </item>
     
     <item>
@@ -431,8 +431,7 @@ import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) c
       <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
-      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
-(a) The sample size n is extremely large, and the number of predic- tors p is small.
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. (a) The sample size n is extremely large, and the number of predic- tors p is small.
 Sol: Better
 (b) The number of predictors p is extremely large, and the number of observations n is small.</description>
     </item>
@@ -463,7 +462,7 @@ $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \widehat{f}(x_i))^{2}$$</description>
       <pubDate>Wed, 02 May 2018 11:14:32 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/introduction/</guid>
-      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns  wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head()  fig = plt.figure(figsize=(15,8))  ax = fig.</description>
+      <description>Chapter 1: Introduction Wage Data import pandas as pd import matplotlib.pyplot as plt import seaborn as sns wage = pd.read_csv(&amp;#34;data/Wage.csv&amp;#34;) wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;1. &amp;lt; HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 1 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;2. HS Grad&amp;#39;, &amp;#39;education&amp;#39;] = 2 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;3. Some College&amp;#39;, &amp;#39;education&amp;#39;] = 3 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;4. College Grad&amp;#39;, &amp;#39;education&amp;#39;] = 4 wage.loc[df[&amp;#39;education&amp;#39;] == &amp;#39;5. Advanced Degree&amp;#39;, &amp;#39;education&amp;#39;] = 5 wage.head() fig = plt.figure(figsize=(15,8)) ax = fig.add_subplot(131) sns.regplot(x=&amp;#34;age&amp;#34;, y=&amp;#34;wage&amp;#34;, color=&amp;#39;#D7DBDD&amp;#39;, data=wage, order=2, scatter_kws={&amp;#39;alpha&amp;#39;:0.</description>
     </item>
     
   </channel>

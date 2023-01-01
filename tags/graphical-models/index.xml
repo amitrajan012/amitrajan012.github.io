@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphical Models on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/graphical-models/</link>
+    <description>Recent content in Graphical Models on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/graphical-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphical Models - The Sum-product Algorithm, The Max-Sum Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</guid>
+      <description>8.4.4 The Sum-product Algorithm Let us assume that all the variables in a model are discrete and hence marginalization corresponds to performing sums. To use the same algorithm for all kind of graphs, we first convert the original graph into a factor graph so that we can deal with both directed and undirected model using the same framework. To find the marginal distribution $p(x)$ for a particular variable node $x$, we need to sum the joint distribution over all variables except $x$ so that</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Inference in Graphical Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</guid>
+      <description>8.4 Inference in Graphical Models The problem of inference in graphical models, in which some of the nodes in a graph are clamped to the observed values, aims to compute the posterior distribution of one or more subset of nodes. The graphical structure can be exploited to find the efficient and transparent algorithms for inference. These algorithms usually can be expressed in terms of the propagation of local messages around the graph.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Markov Random Fields</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</guid>
+      <description>8.3 Markov Random Fields A Markov random field, also known as a Markov network or an undirected graphical model has a set of nodes each of which corresponds to a variable or grpup of variables and the undirected links each of which connects a pair of nodes.
+8.3.1 Conditional Independence Properties In a directed graph, d-separataion can be used to check the conditional independence property. By removing the directed links from the graph, the assymetry between parent and child nodes is removed and hence the logic of d-separation can&amp;rsquo;t be applied directly.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Conditional Independence</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</guid>
+      <description>8.2 Conditional Independence Consider three variables $a,b,c$ and suppose that the conditional distribution of $a$ given $b$ and $c$ is such that it does not depend on value of $b$, i.e.
+$$\begin{align} p(a|b,c) = p(a|c) \end{align}$$
+We say that $a$ is conditionally independent of $b$ given $c$. This can be expressed in a different way if we consider the joint distribution of $a$ and $b$ conditioned on $c$, which can be written as</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Bayesian Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid>
+      <description>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called probabilistic graphical models. A graph comprises nodes (also called vertices) connected by links (also known as edges or arcs). Each node represents a random variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.</description>
+    </item>
+    
+  </channel>
+</rss>

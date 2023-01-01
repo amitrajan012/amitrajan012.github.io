@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel Methods on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/kernel-methods/</link>
+    <description>Recent content in Kernel Methods on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 28 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/kernel-methods/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Relation to Logistic Regression, Multiclass SVMs, SVMs for Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</guid>
+      <description>7.1.2 Relation to Logistic Regression For nonseparable case of SVM, for the data points that are on the correct side of margin, we have $\xi_n=0$ and hence $t_ny_n \geq 1$. For the remaining points, we have $\xi_n = 1 - t_ny_n$. The below objective function can then be written as
+$$\begin{align} \frac{1}{2}||W||^2 + C\sum_{n=1}^{N}\xi_n = \lambda||W||^2 + \sum_{n=1}^{N}E_{SV}(t_ny_n) \end{align}$$
+where $\lambda = (2C)^{-1}$ and $E_{SV}(.)$ is the hinge error function defined as</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Overlapping Class Distributions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</link>
+      <pubDate>Tue, 23 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</guid>
+      <description>7.1.1 Overlapping Class Distributions In practice, the class-conditional distributions may overlap, in which case exact separation of the training data can lead to poor generalization. In maximum margin classifier for separable classes, we implicitly used an error function that gave infinite error if a data point was misclassified and zero error if it was classified correctly, and then optimized the model parameters to maximize the margin. We now modify this approach so that data points are allowed to be on the wrong side of the margin boundary, but with a penalty that increases with the distance from that boundary.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</guid>
+      <description>7.1 Maximum Margin Classifiers Let us consider a two-class classification problem using linear models of the form
+$$\begin{align} y(X) = W^T\phi(X) + b \end{align}$$
+where $\phi(X)$ denotes a fixed feature-space transformation. Let the training data set comprises $N$ input vectors $X_1,X_2,&amp;hellip;,X_N$, with corresponding target values $t_1,t_2,&amp;hellip;,t_N$ where $t_n \in {-1,1}$, and new data points $X$ are classified according to the sign of $y(X)$.
+We shall assume for the moment that the training data set is linearly separable in feature space, so that by definition there exists at least one choice of the parameters $W$ and $b$ such that the linear function satisfies $y(X_n) &amp;gt; 0$ for points having $t_n = 1$ and $y(X_n) &amp;lt; 0$ for points having $t_n = -1$, so that $t_ny(X_n) &amp;gt; 0$ for all training data points.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Lagrange Multipliers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</guid>
+      <description>One of the significant limitations of learning algorithms based on non-linear kernels is that the kernel function $k(X_n, X_m)$ must be evaluated for all possible pairs $X_n$ and $X_m$ of training points. For us, it will be favourable that we shall look at kernel-based algorithms that have sparse solutions, so that predictions for new inputs depend only on the kernel function evaluated at a subset of the training data points. One of the most used sparse solution is support vector machine (SVM).</description>
+    </item>
+    
+  </channel>
+</rss>

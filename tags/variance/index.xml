@@ -23,7 +23,7 @@
       
       <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
       <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
- #### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
+#### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
     </item>
     
     <item>

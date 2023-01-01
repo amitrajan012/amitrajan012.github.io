@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K-means on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/k-means/</link>
+    <description>Recent content in K-means on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/k-means/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - An Alternative View of EM</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</guid>
+      <description>9.3 An Alternative View of EM The goal of the EM algorithm is to find the maximum likelihood solutions for the models having latent variables. The set of all observed data is denoted by $X$ where $n^{th}$ row represents $x_n^T$ and the latent variables by $Z$ where the $n^{th}$ row represets $z_n^T$. Let the set of all model parameters be denoted by $\theta$. Then, we have
+$$\begin{align} \ln p(X|\theta) = \ln \bigg[ \sum_Z p(X,Z|\theta) \bigg] \end{align}$$</description>
+    </item>
+    
+  </channel>
+</rss>

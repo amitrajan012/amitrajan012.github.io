@@ -23,7 +23,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
       <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
- $T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties  Below are some examples and non-examples of linear transformation:
+$T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties Below are some examples and non-examples of linear transformation:
 Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
     </item>
     
@@ -53,7 +53,7 @@ For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$
       
       <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
       <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
- Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$  The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
+Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$ The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
     </item>
     
     <item>
@@ -81,7 +81,7 @@ For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$
       
       <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
       <description>21.1 Markov Matrices Markov Matrices have the following properties:
- All entries $\geq 0$ Sum of the entries in a column equal $1$  A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
+All entries $\geq 0$ Sum of the entries in a column equal $1$ A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
 Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
     </item>
     
@@ -142,10 +142,10 @@ $$\begin{align} =\begin{vmatrix} a &amp;amp; 0 \\ c &amp;amp; 0 \end{vmatrix}+\b
       <guid>https://amitrajan012.github.io/post/chapter_15_properties_of_determinants/</guid>
       <description>15.1 Determinant Every square matrix has a number assosiated with it can we call this number as determinant, often denoted as $det(A) = |A|$ for matrix $A$.
 Prperties of determinant is as follows:
-  $|I|=1$
-  Row exchange reverses the sign of the determinant:
-  Permutation Matrices are derived by row exchange of Identity Matrix. Hence, $|P|= \pm1$.
- (a) For any square matrix $A$, $\begin{vmatrix} ta &amp;amp; tb \\ c &amp;amp; d \end{vmatrix}=t\begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}$</description>
+$|I|=1$
+Row exchange reverses the sign of the determinant:
+Permutation Matrices are derived by row exchange of Identity Matrix. Hence, $|P|= \pm1$.
+(a) For any square matrix $A$, $\begin{vmatrix} ta &amp;amp; tb \\ c &amp;amp; d \end{vmatrix}=t\begin{vmatrix} a &amp;amp; b \\ c &amp;amp; d \end{vmatrix}$</description>
     </item>
     
   </channel>

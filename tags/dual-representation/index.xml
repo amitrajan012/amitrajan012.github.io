@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dual Representation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/dual-representation/</link>
+    <description>Recent content in Dual Representation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/dual-representation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</guid>
+      <description>7.1 Maximum Margin Classifiers Let us consider a two-class classification problem using linear models of the form
+$$\begin{align} y(X) = W^T\phi(X) + b \end{align}$$
+where $\phi(X)$ denotes a fixed feature-space transformation. Let the training data set comprises $N$ input vectors $X_1,X_2,&amp;hellip;,X_N$, with corresponding target values $t_1,t_2,&amp;hellip;,t_N$ where $t_n \in {-1,1}$, and new data points $X$ are classified according to the sign of $y(X)$.
+We shall assume for the moment that the training data set is linearly separable in feature space, so that by definition there exists at least one choice of the parameters $W$ and $b$ such that the linear function satisfies $y(X_n) &amp;gt; 0$ for points having $t_n = 1$ and $y(X_n) &amp;lt; 0$ for points having $t_n = -1$, so that $t_ny(X_n) &amp;gt; 0$ for all training data points.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -34,7 +34,7 @@ Sol: The optimal degree of polynomial selected from cross-validation is 4.</desc
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part4/</guid>
       <description>7.6 Local Regression Local regression comutes the fit at a target point $x_0$ using only the nearby training observstions. The algorithm for local regression is as follows:
- Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0.</description>
+Gather the $k$ points closest to $x_0$. Assign a weight $K_{i0} = K(x_i, x_0)$ to all the points in the neighborhood such that the points that are farthest have lower weights. All the points except from these $k$ nearest neighbors have weigth 0. Fit a weighted least squares regression of the aformentioned points using weights, by finding $\beta_0, \beta_1$ that minimize $$\sum _{i=1}^{n}K _{i0}(y_i - \beta_0 - \beta_1 x_i)^2$$</description>
     </item>
     
     <item>
@@ -66,9 +66,9 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       
       <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
       <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
-  Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
-  Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
-  Regression splines is the extension of polynomial regression and step functions.</description>
+Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
+Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
+Regression splines is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.</description>
     </item>
     
     <item>
@@ -79,7 +79,7 @@ where the coefficients $\beta_0, \beta_1, \beta_2$ differs in different parts of
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part5/</guid>
       <description>Applied Q8. In this exercise, we will generate simulated data, and will then use this data to perform best subset selection.
 (a) Use the rnorm() function to generate a predictor X of length n = 100, as well as a noise vector  of length n = 100.
-import numpy as np  np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
+import numpy as np np.random.seed(5) X = np.random.normal(0, 1, 100) e = np.random.normal(0, 1, 100) (b) Generate a response vector Y of length n = 100 according to the model $Y = β_0 + β_1X + β_2X^2 + β_3X^3 + \epsilon$, where $β_0, β_1, β_2,$ and $β_3$ are constants of your choice.</description>
     </item>
     
     <item>
@@ -122,7 +122,7 @@ We can then fit the least squares regression model as $Z_m$s as the predictors:<
       
       <guid>https://amitrajan012.github.io/post/linear-model-selection-and-regularization_part1/</guid>
       <description>Linear Model Selection and Regularization Befor moving to non-linear models, there are certain other fitting procedures through which a plain linear model can be improved. These alternate fitting procedures can yield better prediction accuracy and model interpretability.
-  Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well.</description>
+Prediction Accuracy: Provided that the relationship between predictors and response is linear, the least square estimates will have low bias. If n &amp;raquo; p, this model will have low variance as well. If n is not much larger than p, the model will have a lot of variability, resulting in overfitting and poor prediction accuracy.</description>
     </item>
     
     <item>

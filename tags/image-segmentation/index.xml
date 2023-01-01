@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image Segmentation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/image-segmentation/</link>
+    <description>Recent content in Image Segmentation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 11 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - K-means Clustering</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</guid>
+      <description>9.1 K-means Clustering Let we have a data set ${X_1,X_2,&amp;hellip;,X_N}$ consisting of $N$ observations of random $D-$ dimensional Euclidean variable $X$. Our goal is to partition the data set into some number $K$ of clusters. Let the cluster $k$ is represented by a $D-$ dimensional vector $\mu_k$ where $k=1,2,&amp;hellip;,K$. Our goal is then the assignment of data points to clusters and find the set of vectors ${\mu_k}$ such that the sum of the squares of the distanaces of each data point to its closets vector $\mu_k$ (or from the center of the assigned cluster), is a minimum.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>D-Separation on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/d-separation/</link>
+    <description>Recent content in D-Separation on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Sep 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/d-separation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphical Models - Conditional Independence</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</guid>
+      <description>8.2 Conditional Independence Consider three variables $a,b,c$ and suppose that the conditional distribution of $a$ given $b$ and $c$ is such that it does not depend on value of $b$, i.e.
+$$\begin{align} p(a|b,c) = p(a|c) \end{align}$$
+We say that $a$ is conditionally independent of $b$ given $c$. This can be expressed in a different way if we consider the joint distribution of $a$ and $b$ conditioned on $c$, which can be written as</description>
+    </item>
+    
+  </channel>
+</rss>

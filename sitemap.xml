@@ -3,12 +3,228 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://amitrajan012.github.io/</loc>
-    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/automatic-relevance-determination/</loc>
-    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/bishop/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/expectation-maximization/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kullback-liebler-divergence/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mixture-models/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/</loc>
+    <lastmod>2022-11-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bernoulli-distributions/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/complete-data/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/k-means/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/latent-class-analysis/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/resposibility/</loc>
+    <lastmod>2022-11-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/gaussian-distribution/</loc>
+    <lastmod>2022-10-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-likelihood/</loc>
+    <lastmod>2022-10-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</loc>
+    <lastmod>2022-10-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/distortion-measure/</loc>
+    <lastmod>2022-10-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/image-compression/</loc>
+    <lastmod>2022-10-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/image-segmentation/</loc>
+    <lastmod>2022-10-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/k-means-clustering/</loc>
+    <lastmod>2022-10-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</loc>
+    <lastmod>2022-10-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/graphical-models/</loc>
+    <lastmod>2022-10-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</loc>
+    <lastmod>2022-10-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/max-sum-algorithm/</loc>
+    <lastmod>2022-10-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/sum-product-algorithm/</loc>
+    <lastmod>2022-10-04T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/factor-graphs/</loc>
+    <lastmod>2022-09-20T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/factor-node/</loc>
+    <lastmod>2022-09-20T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</loc>
+    <lastmod>2022-09-20T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/inference/</loc>
+    <lastmod>2022-09-20T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/trees/</loc>
+    <lastmod>2022-09-20T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/clique/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/image-de-noising/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/markov-network/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/markov-random-fields/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-clique/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/moral-graph/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/undirected-graphical-model/</loc>
+    <lastmod>2022-09-15T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/conditional-independence/</loc>
+    <lastmod>2022-09-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/d-separation/</loc>
+    <lastmod>2022-09-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/directed-factorization/</loc>
+    <lastmod>2022-09-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</loc>
+    <lastmod>2022-09-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/markov-blanket/</loc>
+    <lastmod>2022-09-11T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/bayesian-networks/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/directed-graphical-models/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/discrete-variables/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/generative-models/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/latent-variable/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/linear-gaussian-models/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/observed-random-variables/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/polynomial-regression/</loc>
+    <lastmod>2022-09-05T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/hinge-error/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kernel-methods/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/lagrange-multipliers/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/logistic-regression/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/maximum-margin-classifiers/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/multiclass-svms/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/slack-variables/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/support-vectors/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/svms-for-regression/</loc>
+    <lastmod>2022-08-28T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/overlapping-class-distributions/</loc>
+    <lastmod>2022-08-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</loc>
+    <lastmod>2022-08-23T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/dual-representation/</loc>
+    <lastmod>2022-08-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kkt-condition/</loc>
+    <lastmod>2022-08-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</loc>
+    <lastmod>2022-08-18T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/kkt-conditions/</loc>
+    <lastmod>2022-08-14T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/lagrange-multiplier/</loc>
+    <lastmod>2022-08-14T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/lagrangian-function/</loc>
+    <lastmod>2022-08-14T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</loc>
+    <lastmod>2022-08-14T23:07:28+01:00</lastmod>
+  </url><url>
+    <loc>https://amitrajan012.github.io/tags/automatic-relevance-determination/</loc>
     <lastmod>2022-08-04T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/gaussian-process/</loc>
@@ -21,15 +237,6 @@
     <lastmod>2022-08-04T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/linear-models/</loc>
-    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/pattern-recognition/</loc>
-    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/post/</loc>
-    <lastmod>2022-08-04T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/</loc>
     <lastmod>2022-08-04T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/constructing-kernels/</loc>
@@ -156,9 +363,6 @@
     <lastmod>2022-07-05T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</loc>
-    <lastmod>2022-07-05T23:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/logistic-regression/</loc>
     <lastmod>2022-07-05T23:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/multiclass-logistic-regression/</loc>
@@ -299,9 +503,6 @@
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</loc>
     <lastmod>2022-06-20T22:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/maximum-likelihood/</loc>
-    <lastmod>2022-06-20T22:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/gausian-kernel/</loc>
     <lastmod>2022-06-19T20:07:28+01:00</lastmod>
   </url><url>
@@ -343,12 +544,6 @@
   </url><url>
     <loc>https://amitrajan012.github.io/tags/softmax-function/</loc>
     <lastmod>2022-06-18T19:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/gaussian-distribution/</loc>
-    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/mixtures-of-gaussians/</loc>
-    <lastmod>2022-06-17T19:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/periodic-variables/</loc>
     <lastmod>2022-06-17T19:07:28+01:00</lastmod>
@@ -473,9 +668,6 @@
     <loc>https://amitrajan012.github.io/tags/kulback-leibler-divergence/</loc>
     <lastmod>2022-06-10T14:07:28+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/lagrange-multiplier/</loc>
-    <lastmod>2022-06-10T14:07:28+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/tags/mutual-information/</loc>
     <lastmod>2022-06-10T14:07:28+01:00</lastmod>
   </url><url>
@@ -492,12 +684,6 @@
     <lastmod>2022-06-04T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/expected-loss/</loc>
-    <lastmod>2022-06-04T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/generative-models/</loc>
-    <lastmod>2022-06-04T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/inference/</loc>
     <lastmod>2022-06-04T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_4/</loc>
@@ -627,9 +813,6 @@
     <lastmod>2022-05-12T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/fourier-basis/</loc>
-    <lastmod>2022-05-12T14:07:28+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/image-compression/</loc>
     <lastmod>2022-05-12T14:07:28+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/linear-transformations/</loc>
@@ -1217,9 +1400,6 @@
     <loc>https://amitrajan012.github.io/post/unsupervised-learning_part3/</loc>
     <lastmod>2018-07-09T17:09:41+01:00</lastmod>
   </url><url>
-    <loc>https://amitrajan012.github.io/tags/k-means-clustering/</loc>
-    <lastmod>2018-07-09T17:09:41+01:00</lastmod>
-  </url><url>
     <loc>https://amitrajan012.github.io/post/unsupervised-learning_part2/</loc>
     <lastmod>2018-07-06T01:19:52+01:00</lastmod>
   </url><url>
@@ -1314,9 +1494,6 @@
     <lastmod>2018-05-28T11:12:18+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</loc>
-    <lastmod>2018-05-28T04:22:38+01:00</lastmod>
-  </url><url>
-    <loc>https://amitrajan012.github.io/tags/polynomial-regression/</loc>
     <lastmod>2018-05-28T04:22:38+01:00</lastmod>
   </url><url>
     <loc>https://amitrajan012.github.io/tags/step-functions/</loc>

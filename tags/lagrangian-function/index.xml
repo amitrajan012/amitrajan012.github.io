@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lagrangian Function on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/lagrangian-function/</link>
+    <description>Recent content in Lagrangian Function on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/lagrangian-function/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sparse Kernel Methods - Lagrange Multipliers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</guid>
+      <description>One of the significant limitations of learning algorithms based on non-linear kernels is that the kernel function $k(X_n, X_m)$ must be evaluated for all possible pairs $X_n$ and $X_m$ of training points. For us, it will be favourable that we shall look at kernel-based algorithms that have sparse solutions, so that predictions for new inputs depend only on the kernel function evaluated at a subset of the training data points. One of the most used sparse solution is support vector machine (SVM).</description>
+    </item>
+    
+  </channel>
+</rss>

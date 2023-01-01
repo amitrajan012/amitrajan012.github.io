@@ -14,7 +14,7 @@
       
       <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
       <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
- Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$  The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
+Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$ The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
     </item>
     
   </channel>

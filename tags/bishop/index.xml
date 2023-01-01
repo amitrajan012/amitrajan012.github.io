@@ -6,7 +6,136 @@
     <description>Recent content in Bishop on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Aug 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bishop/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bishop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - The EM Algorithm in General</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</guid>
+      <description>9.4 The EM Algorithm in General The expectation maximization (EM) algorithm is a general technique for finding maximum likelihood solutions for probabilistic models having latent variables. Consider a probabilistic model in which observed variable is denoted by $X$ and the hidden variable by $Z$. The joint distribution $p(X,Z|\theta)$ is governed by a set of parameters deonoted by $\theta$. Our goal is to maximize the likelihood function given by
+$$\begin{align} p(X|\theta) = \sum_{Z} p(X,Z|\theta) \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - An Alternative View of EM</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</guid>
+      <description>9.3 An Alternative View of EM The goal of the EM algorithm is to find the maximum likelihood solutions for the models having latent variables. The set of all observed data is denoted by $X$ where $n^{th}$ row represents $x_n^T$ and the latent variables by $Z$ where the $n^{th}$ row represets $z_n^T$. Let the set of all model parameters be denoted by $\theta$. Then, we have
+$$\begin{align} \ln p(X|\theta) = \ln \bigg[ \sum_Z p(X,Z|\theta) \bigg] \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid>
+      <description>9.2 Mixtures of Gaussians This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form
+$$\begin{align} p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k) \end{align}$$
+Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$.</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - K-means Clustering</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</guid>
+      <description>9.1 K-means Clustering Let we have a data set ${X_1,X_2,&amp;hellip;,X_N}$ consisting of $N$ observations of random $D-$ dimensional Euclidean variable $X$. Our goal is to partition the data set into some number $K$ of clusters. Let the cluster $k$ is represented by a $D-$ dimensional vector $\mu_k$ where $k=1,2,&amp;hellip;,K$. Our goal is then the assignment of data points to clusters and find the set of vectors ${\mu_k}$ such that the sum of the squares of the distanaces of each data point to its closets vector $\mu_k$ (or from the center of the assigned cluster), is a minimum.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - The Sum-product Algorithm, The Max-Sum Algorithm</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</link>
+      <pubDate>Tue, 04 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_5/</guid>
+      <description>8.4.4 The Sum-product Algorithm Let us assume that all the variables in a model are discrete and hence marginalization corresponds to performing sums. To use the same algorithm for all kind of graphs, we first convert the original graph into a factor graph so that we can deal with both directed and undirected model using the same framework. To find the marginal distribution $p(x)$ for a particular variable node $x$, we need to sum the joint distribution over all variables except $x$ so that</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Inference in Graphical Models</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</link>
+      <pubDate>Tue, 20 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_4/</guid>
+      <description>8.4 Inference in Graphical Models The problem of inference in graphical models, in which some of the nodes in a graph are clamped to the observed values, aims to compute the posterior distribution of one or more subset of nodes. The graphical structure can be exploited to find the efficient and transparent algorithms for inference. These algorithms usually can be expressed in terms of the propagation of local messages around the graph.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Markov Random Fields</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</link>
+      <pubDate>Thu, 15 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_3/</guid>
+      <description>8.3 Markov Random Fields A Markov random field, also known as a Markov network or an undirected graphical model has a set of nodes each of which corresponds to a variable or grpup of variables and the undirected links each of which connects a pair of nodes.
+8.3.1 Conditional Independence Properties In a directed graph, d-separataion can be used to check the conditional independence property. By removing the directed links from the graph, the assymetry between parent and child nodes is removed and hence the logic of d-separation can&amp;rsquo;t be applied directly.</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Conditional Independence</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</link>
+      <pubDate>Sun, 11 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_2/</guid>
+      <description>8.2 Conditional Independence Consider three variables $a,b,c$ and suppose that the conditional distribution of $a$ given $b$ and $c$ is such that it does not depend on value of $b$, i.e.
+$$\begin{align} p(a|b,c) = p(a|c) \end{align}$$
+We say that $a$ is conditionally independent of $b$ given $c$. This can be expressed in a different way if we consider the joint distribution of $a$ and $b$ conditioned on $c$, which can be written as</description>
+    </item>
+    
+    <item>
+      <title>Graphical Models - Bayesian Networks</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link>
+      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid>
+      <description>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called probabilistic graphical models. A graph comprises nodes (also called vertices) connected by links (also known as edges or arcs). Each node represents a random variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Relation to Logistic Regression, Multiclass SVMs, SVMs for Regression</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</link>
+      <pubDate>Sun, 28 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_4/</guid>
+      <description>7.1.2 Relation to Logistic Regression For nonseparable case of SVM, for the data points that are on the correct side of margin, we have $\xi_n=0$ and hence $t_ny_n \geq 1$. For the remaining points, we have $\xi_n = 1 - t_ny_n$. The below objective function can then be written as
+$$\begin{align} \frac{1}{2}||W||^2 + C\sum_{n=1}^{N}\xi_n = \lambda||W||^2 + \sum_{n=1}^{N}E_{SV}(t_ny_n) \end{align}$$
+where $\lambda = (2C)^{-1}$ and $E_{SV}(.)$ is the hinge error function defined as</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers: Overlapping Class Distributions</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</link>
+      <pubDate>Tue, 23 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_3/</guid>
+      <description>7.1.1 Overlapping Class Distributions In practice, the class-conditional distributions may overlap, in which case exact separation of the training data can lead to poor generalization. In maximum margin classifier for separable classes, we implicitly used an error function that gave infinite error if a data point was misclassified and zero error if it was classified correctly, and then optimized the model parameters to maximize the margin. We now modify this approach so that data points are allowed to be on the wrong side of the margin boundary, but with a penalty that increases with the distance from that boundary.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Maximum Margin Classifiers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</link>
+      <pubDate>Thu, 18 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_2/</guid>
+      <description>7.1 Maximum Margin Classifiers Let us consider a two-class classification problem using linear models of the form
+$$\begin{align} y(X) = W^T\phi(X) + b \end{align}$$
+where $\phi(X)$ denotes a fixed feature-space transformation. Let the training data set comprises $N$ input vectors $X_1,X_2,&amp;hellip;,X_N$, with corresponding target values $t_1,t_2,&amp;hellip;,t_N$ where $t_n \in {-1,1}$, and new data points $X$ are classified according to the sign of $y(X)$.
+We shall assume for the moment that the training data set is linearly separable in feature space, so that by definition there exists at least one choice of the parameters $W$ and $b$ such that the linear function satisfies $y(X_n) &amp;gt; 0$ for points having $t_n = 1$ and $y(X_n) &amp;lt; 0$ for points having $t_n = -1$, so that $t_ny(X_n) &amp;gt; 0$ for all training data points.</description>
+    </item>
+    
+    <item>
+      <title>Sparse Kernel Methods - Lagrange Multipliers</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</link>
+      <pubDate>Sun, 14 Aug 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-7-sparse-kernel-machines_1/</guid>
+      <description>One of the significant limitations of learning algorithms based on non-linear kernels is that the kernel function $k(X_n, X_m)$ must be evaluated for all possible pairs $X_n$ and $X_m$ of training points. For us, it will be favourable that we shall look at kernel-based algorithms that have sparse solutions, so that predictions for new inputs depend only on the kernel function evaluated at a subset of the training data points. One of the most used sparse solution is support vector machine (SVM).</description>
+    </item>
+    
     <item>
       <title>Kernel Methods - Gaussian Process</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-6-kernel-methods_3/</link>

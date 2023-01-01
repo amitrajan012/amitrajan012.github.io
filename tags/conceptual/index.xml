@@ -83,7 +83,7 @@ Sol: As we know that $Var(aX + bY) = a^2 Var(X) + b^2 Var(Y) + 2abCov(X, Y)$, th
       
       <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
       <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
-Sol:  Logistic function representation is given as:
+Sol: Logistic function representation is given as:
 $$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
 then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
 $$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
@@ -106,8 +106,7 @@ $$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GP
       <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
-      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
-(a) The sample size n is extremely large, and the number of predic- tors p is small.
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. (a) The sample size n is extremely large, and the number of predic- tors p is small.
 Sol: Better
 (b) The number of predictors p is extremely large, and the number of observations n is small.</description>
     </item>

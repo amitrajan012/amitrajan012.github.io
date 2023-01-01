@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mixture Models on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/mixture-models/</link>
+    <description>Recent content in Mixture Models on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/mixture-models/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mixture Models and Expectation Maximization - The EM Algorithm in General</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</link>
+      <pubDate>Fri, 18 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</guid>
+      <description>9.4 The EM Algorithm in General The expectation maximization (EM) algorithm is a general technique for finding maximum likelihood solutions for probabilistic models having latent variables. Consider a probabilistic model in which observed variable is denoted by $X$ and the hidden variable by $Z$. The joint distribution $p(X,Z|\theta)$ is governed by a set of parameters deonoted by $\theta$. Our goal is to maximize the likelihood function given by
+$$\begin{align} p(X|\theta) = \sum_{Z} p(X,Z|\theta) \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - An Alternative View of EM</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</link>
+      <pubDate>Fri, 04 Nov 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_3/</guid>
+      <description>9.3 An Alternative View of EM The goal of the EM algorithm is to find the maximum likelihood solutions for the models having latent variables. The set of all observed data is denoted by $X$ where $n^{th}$ row represents $x_n^T$ and the latent variables by $Z$ where the $n^{th}$ row represets $z_n^T$. Let the set of all model parameters be denoted by $\theta$. Then, we have
+$$\begin{align} \ln p(X|\theta) = \ln \bigg[ \sum_Z p(X,Z|\theta) \bigg] \end{align}$$</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link>
+      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid>
+      <description>9.2 Mixtures of Gaussians This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form
+$$\begin{align} p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k) \end{align}$$
+Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$.</description>
+    </item>
+    
+    <item>
+      <title>Mixture Models and Expectation Maximization - K-means Clustering</title>
+      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</link>
+      <pubDate>Tue, 11 Oct 2022 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_1/</guid>
+      <description>9.1 K-means Clustering Let we have a data set ${X_1,X_2,&amp;hellip;,X_N}$ consisting of $N$ observations of random $D-$ dimensional Euclidean variable $X$. Our goal is to partition the data set into some number $K$ of clusters. Let the cluster $k$ is represented by a $D-$ dimensional vector $\mu_k$ where $k=1,2,&amp;hellip;,K$. Our goal is then the assignment of data points to clusters and find the set of vectors ${\mu_k}$ such that the sum of the squares of the distanaces of each data point to its closets vector $\mu_k$ (or from the center of the assigned cluster), is a minimum.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Amit Rajan">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://amitrajan012.github.io/img/head.jpg">
+    <meta property="twitter:image" content="https://amitrajan012.github.io/img/head.jpg" />
+    
+
+    
+    <meta name="title" content="Graphical Models - Markov Random Fields" />
+    <meta property="og:title" content="Graphical Models - Markov Random Fields" />
+    <meta property="twitter:title" content="Graphical Models - Markov Random Fields" />
+    
+
+    
+    <meta name="description" content="Pattern Recognition (Bishop): Chapter 8">
+    <meta property="og:description" content="Pattern Recognition (Bishop): Chapter 8" />
+    <meta property="twitter:description" content="Pattern Recognition (Bishop): Chapter 8" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Amit, Rajan, ML, Data, Science, Blockchain">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Graphical Models - Markov Random Fields-Amit Rajan Blog</title>
+
+    <link rel="canonical" href="/post/pattern-recognition-chapter-8-graphical-models_3/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+        tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        processEscapes: true
+    }});</script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Amit Rajan</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                    
+                    
+		    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/head.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/bishop" title="Bishop">
+                            Bishop
+                        </a>
+                        
+                        <a class="tag" href="/tags/pattern-recognition" title="Pattern Recognition">
+                            Pattern Recognition
+                        </a>
+                        
+                        <a class="tag" href="/tags/graphical-models" title="Graphical Models">
+                            Graphical Models
+                        </a>
+                        
+                        <a class="tag" href="/tags/markov-random-fields" title="Markov Random Fields">
+                            Markov Random Fields
+                        </a>
+                        
+                        <a class="tag" href="/tags/markov-network" title="Markov Network">
+                            Markov Network
+                        </a>
+                        
+                        <a class="tag" href="/tags/undirected-graphical-model" title="Undirected Graphical Model">
+                            Undirected Graphical Model
+                        </a>
+                        
+                        <a class="tag" href="/tags/clique" title="Clique">
+                            Clique
+                        </a>
+                        
+                        <a class="tag" href="/tags/maximum-clique" title="Maximum Clique">
+                            Maximum Clique
+                        </a>
+                        
+                        <a class="tag" href="/tags/image-de-noising" title="Image De-noising">
+                            Image De-noising
+                        </a>
+                        
+                        <a class="tag" href="/tags/moral-graph" title="Moral Graph">
+                            Moral Graph
+                        </a>
+                        
+                    </div>
+                    <h1>Graphical Models - Markov Random Fields</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Amit Rajan
+                             
+                            on 
+                            Thursday, September 15, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h2 id="83-markov-random-fields">8.3 Markov Random Fields</h2>
+<p>A <b>Markov random field</b>, also known as a <b>Markov network</b> or an <b>undirected graphical model</b> has a set of nodes each of which corresponds to a variable or grpup of variables and the undirected links each of which connects a pair of nodes.</p>
+<h3 id="831-conditional-independence-properties">8.3.1 Conditional Independence Properties</h3>
+<p>In a directed graph, d-separataion can be used to check the conditional independence property. By removing the directed links from the graph, the assymetry between parent and child nodes is removed and hence the logic of d-separation can&rsquo;t be applied directly.</p>
+<p>In an undirected graph, let $A,B,C$ are the three set of nodes which are considered for the conditional independence property $A \perp B | C$. To test whether this property is satisfied or not, we consider all possible paths that connects nodes in set $A$ to nodes in set $B$. If all such paths pass through one or more nodes in set $C$, then all such paths are <b>blocked</b> and hence the conditional independence property holds. If there at least exist one path which is not blocked, then the property does not hold. This means that there exists at least one distribution corresponding to the graph that do not satisfy the conditional independence relation. Following figure shows an example. As all the paths between $A$ and $B$ passes through nodes in $C$, the conditional independence property $A \perp B | C$ holds true.</p>
+<img class="pure-img" src="/img/pattern_recognition/conditional_independence_undirected.png" alt="">
+<p>An alternative way to view the conditional independence test is to imagine removing all nodes in set $C$ from the graph together with any links that connect to those nodes. We then ask if there exists a path that connects any node in $A$ to any node in $B$. If there are no such paths, then the conditional independence property must hold.</p>
+<h3 id="832-factorizing-properties">8.3.2 Factorizing Properties</h3>
+<p>The goal is to factorize an undirected graph based on the above conditional independence test. First of all for any two nodes $x_i$ and $x_j$ in an undirected graph, if they are not connected by a link then they are conditionally independent given all other nodes in the graph. This conditional independence property can be expressed as</p>
+<p>$$\begin{align}
+p(x_i,x_j| X\setminus{x_i,x_j}) = p(x_i| X\setminus{x_i,x_j})p(x_j| X\setminus{x_i,x_j})
+\end{align}$$</p>
+<p>where $X\setminus{x_i,x_j}$ denotes set of all nodes apart from $x_i,x_j$. A <b>clique</b> is defined as a subset of the nodes in a graph such that there exists a link between all pairs of nodes is the subset. This means that the set of nodes in a clique is fully connected. A <b>maximal clique</b> is a clique such that it is not possible to include any other node from the graph in the set without it ceasing to be a clique. An example is shown below. The graph has two maximal cliques: ${x_1,x_2,x_3}, {x_2,x_3,x_4}$. Every two node pair apart from ${x_1,x_4}$ is a clique.</p>
+<img class="pure-img" src="/img/pattern_recognition/clique.png" alt="">
+<p>Let a clique be denoted by $C$ and the set of variables in it by $X_C$. Then the joint distribution is written as a product of <b>potential functions</b> $\Psi_C(X_C)$ over all the maximal cliques in the graph</p>
+<p>$$\begin{align}
+p(X) = \frac{1}{Z}\prod_{C} \Psi_C(X_C)
+\end{align}$$</p>
+<p>The quantity $Z$, called as the <b>partition function</b> is a normalization constant and is given as</p>
+<p>$$\begin{align}
+Z = \sum_{X}\prod_{C} \Psi_C(X_C)
+\end{align}$$</p>
+<p>This ensures that the distribution $p(X)$ is correctly normalized.  By considering the potential function $\Psi_C(X_C) \geq 0$, we ensure that $p(X) \geq 0$. For the case of continuous variables, summation is replaced by integration in the above equation. The presence of this normalization coefficient is one of the major limitations of an undirected graph. However, for evaluation of a local conditional distribution, normalization coefficient is not needed as a local conditional distribution is ratio of two marginals and hence the normalization coefficoents cancel out.</p>
+<p>Consider the set of all possible distributions defined over a fixed set of variables corresponding to the nodes of a particular undirected graph. Set $UI$ is a set of distributions which are consistent with the set of conditional independence statements interpreted from the graph. Set $UF$ be the set of such distributions which can be expressed as a factorization of the above form with respect to the maximal cliques of the graph. The <b>Hammersley-Clifford</b> theorem states that $UI$ and $UF$ are identical.</p>
+<p>The potential functions can be represented as</p>
+<p>$$\begin{align}
+\Psi_C(X_C) = exp {-E(X_C)}
+\end{align}$$</p>
+<p>where $E(X_C)$ is called as the <b>energy function</b> and the exponential representation is called the <b>Boltzmann distribution</b>. The joint distribution is defined as the product of individual potentials and hence the <b>total energy is obtained by adding the energies of each of the maximal cliques</b>.</p>
+<h3 id="833-illustration-image-de-noising">8.3.3. Illustration: Image De-noising</h3>
+<p>Let the observed noisy image be described by an array of binary pixel values $y_i \in {-1,+1}$, where the index $i=1,2,&hellip;,D$ runs over all the pixels. The origianl noise-free image is described by the binary pixel values $x_i \in {-1,+1}$ which is then flipped with some small probability, say $10%$. As the noise level is small, there will be strong correlation between $x_i$ and $y_i$. The neighbouring pixels $x_i$ and $x_j$ will also be strongly correlated. The undirected graph corresponding to this scenario is shown in the following figure.</p>
+<img class="pure-img" src="/img/pattern_recognition/image_denoising.png" alt="">
+<p>This graph has two type of cliques: ${x_i,y_i}$ and ${x_i,x_j}$. These cliques have an associated energy functions which express the correlation between these variables. The energy function for the clique associated with ${x_i,y_i}$ is chosen as $-\eta x_i y_i$ where $\eta$ is a positive constant. This gives higher energy to the graph if $x_i$ and $y_i$ are of opposite sign and lower energy if they are of the same sign. The energy function associated with ${x_i,x_j}$ is chosen as $-\beta x_i x_j$ where $\beta$ is a positive constant. This again has the affect of lower energy if the neighboring pixels are of the same sign. An extra term $hx_i$ for each pixel $i$ in the noise-free image can be added to the energy function. This term has an effect of biasing the model towards the pixel values that have one particular sign in preference to the other. The complete <b>energy function</b> of the model takes the form</p>
+<p>$$\begin{align}
+E(X,Y) = h \sum_i x_i - \beta \sum_{{i,j}} x_ix_j - \eta \sum_i x_iy_i
+\end{align}$$</p>
+<p>This defines a joint distribution over $X,Y$ given by</p>
+<p>$$\begin{align}
+p(X,Y) = \frac{1}{Z} \exp {-E(X,Y)}
+\end{align}$$</p>
+<p>The elements of noisy image $Y$ are fixed to the observed value, which implicitly defines a conditional distribution $p(X|Y)$ over noise-free images. For the purpose of image restoration, we need to find an image $X$ which has a high probability given the noisy image $Y$. This can be done using a simple iterative technique called as <b>iterated conditional modes (ICM)</b>. The idea is to first assign the variables ${x_i}$, which can be done as $x_i = y_i$ for all $i$. Now a node $x_j$ is taken and total energy is evaluated for the two possible states $x_j = \pm 1$, keeping all the other variables fixed. $x_j$ is set to the state which has lower energy. This will either leave the probability unchanged (if $x_j$ is unchanged) or will increase it. The process is repeated until a suitable stopping criterian is met. The algorithm will converge to the local maxima which may not correspod to global maxima.</p>
+<h3 id="834-relation-to-directed-graphs">8.3.4 Relation to Directed Graphs</h3>
+<p>Let us try to derive the relation between a directed and an undirected graphical models. Consider first the problem of taking a model represented by a directed graph and convert it to an undirected one. Below figure shows a directed graph and its corresponding undirected representation.</p>
+<img class="pure-img" src="/img/pattern_recognition/directed_undirected.png" alt="">
+<p>The joint distribution for the above connected graph is given as</p>
+<p>$$\begin{align}
+p(X) = p(x_1)p(x_2|x_1)p(x_3|x_2)&hellip;p(x_N|x_{N-1})
+\end{align}$$</p>
+<p>The converted undirected graph representation is shown in the second grpah. In the undirected graph, the maximal cliques are the the pairs of neighbouring nodes. The joint distribution can then be given as the product of the potential functions over all the maximal cliques and takes the form</p>
+<p>$$\begin{align}
+p(X) = \frac{1}{Z} \Psi_{1,2}(x_1,x_2) \Psi_{2,3}(x_2,x_3) &hellip; \Psi_{N-1,N}(x_{N-1},x_N)
+\end{align}$$</p>
+<p>Comparing this with the joint distribution of the directed graph, we have</p>
+<p>$$\begin{align}
+\Psi_{1,2}(x_1,x_2) = p(x_1)p(x_2|x_1)
+\end{align}$$</p>
+<p>$$\begin{align}
+\Psi_{1,2}(x_2,x_3) = p(x_3|x_2)
+\end{align}$$</p>
+<p>$$\begin{align}
+\Psi_{N-1,N}(x_{N-1},x_3) = p(x_N|x_{N-1})
+\end{align}$$</p>
+<p>The <b>partition function</b> $Z$ is given as $Z=1$.</p>
+<p>From the above example, it is clear that to convert a general directed graph to undirected graph, the clique potentials of the undirected graph are given by the conditional distributions of the directed graph. For this to be valid, we must ensure that the set of variables which appear in each of the conditional distributions is a member of at least one clique of the undirected graph. For nodes of the directed graph having one parent, this can be acheived simply by replacing the directed link with the undirected link. For the nodes which have more than one parent, this is not sufficient. For example, consider the below figure in which the node $x_4$ has three parents $x_1,x_2,x_3$. This means that in the correspodning undirected graph, the nodes $x_1,x_2,x_3,x_4$ should belong to the same clique, i.e. the parents need to be conncted or <b>married</b>. Hence, in the corresponding undirected graph parents are connected and arrows are dropped. This process of <b>marrying the parents</b> is called as <b>moralization</b> and the resulting undirected graph is called as <b>moral graph</b>. Hence, to convert any directed graph to undirected graph, we first additional undirected links between all pairs of parents for each node in the graph and then drop the arrows. Then we initialize
+all of the clique potentials of the moral graph to $1$. We then take each conditional distribution factor in the original directed graph and multiply it into one of the clique potentials.</p>
+<img class="pure-img" src="/img/pattern_recognition/moral_graph.png" alt="">
+<p>In going from a directed to an undirected graph, we have to discard some of the conditional independence properties. We could always trivially convert any distribution over a directed graph into one over an undirected graph by simply using a fully connected undirected graph. A graph is said to be a <b>D map</b> (for dependency map) of a distribution if every conditional independence statement satisfied by the distribution is reflected in the graph. This means a completely disconnected graph (with no links) will be a trivial D map for any distribution.</p>
+<p>If every conditional independence statement implied by a graph is satisfied by a specific distribution, then the graph is said to be an <b>I map</b> (for <b>independence map</b>) of that distribution. Clearly a fully connected graph will be a trivial I map for any distribution. If every conditional independence property of the distribution is reflected in the graph, then the graph is said to be <b>perfect map</b>. A perfect map is therefore both an I map and a D map. Below figure shows how all the possible distributions over a given set of variables are spread across representation as a perfect map by directed and undirected graph.</p>
+<img class="pure-img" src="/img/pattern_recognition/perfect_map.png" alt="">
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/post/pattern-recognition-chapter-8-graphical-models_2/" data-toggle="tooltip" data-placement="top" title="Graphical Models - Conditional Independence">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/post/pattern-recognition-chapter-8-graphical-models_4/" data-toggle="tooltip" data-placement="top" title="Graphical Models - Inference in Graphical Models">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/alternate-hypothesis" title="alternate-hypothesis">
+                            alternate-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/applied" title="applied">
+                            applied
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/basis" title="basis">
+                            basis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/basis-function" title="basis-function">
+                            basis-function
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bayes-theorem-for-gaussian-variables" title="bayes-theorem-for-gaussian-variables">
+                            bayes-theorem-for-gaussian-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/bernoulli-distribution" title="bernoulli-distribution">
+                            bernoulli-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/binomial-distribution" title="binomial-distribution">
+                            binomial-distribution
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/bishop" title="bishop">
+                            bishop
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cdf" title="cdf">
+                            cdf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/classification" title="classification">
+                            classification
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/column-space" title="column-space">
+                            column-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/conceptual" title="conceptual">
+                            conceptual
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/confidence-intervals" title="confidence-intervals">
+                            confidence-intervals
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/conjugate-prior" title="conjugate-prior">
+                            conjugate-prior
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/cross-validation" title="cross-validation">
+                            cross-validation
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/determinant" title="determinant">
+                            determinant
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/dimension" title="dimension">
+                            dimension
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/eigenvalue-decomposition" title="eigenvalue-decomposition">
+                            eigenvalue-decomposition
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvalues" title="eigenvalues">
+                            eigenvalues
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/eigenvectors" title="eigenvectors">
+                            eigenvectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exercises" title="exercises">
+                            exercises
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/expectation-maximization" title="expectation-maximization">
+                            expectation-maximization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/exponential-distribution" title="exponential-distribution">
+                            exponential-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/feed-forward-network" title="feed-forward-network">
+                            feed-forward-network
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gaussian-distribution" title="gaussian-distribution">
+                            gaussian-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/gilbert-strang" title="gilbert-strang">
+                            gilbert-strang
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/graphical-models" title="graphical-models">
+                            graphical-models
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/hypothesis-testing" title="hypothesis-testing">
+                            hypothesis-testing
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/islr" title="islr">
+                            islr
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/kernel-methods" title="kernel-methods">
+                            kernel-methods
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/lagrange-multipliers" title="lagrange-multipliers">
+                            lagrange-multipliers
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/least-squares" title="least-squares">
+                            least-squares
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-algebra" title="linear-algebra">
+                            linear-algebra
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-equations" title="linear-equations">
+                            linear-equations
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/linear-model-selection" title="linear-model-selection">
+                            linear-model-selection
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-models" title="linear-models">
+                            linear-models
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/linear-regression" title="linear-regression">
+                            linear-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/logistic-regression" title="logistic-regression">
+                            logistic-regression
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/matrix-factorization" title="matrix-factorization">
+                            matrix-factorization
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-multiplications" title="matrix-multiplications">
+                            matrix-multiplications
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/matrix-space" title="matrix-space">
+                            matrix-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/maximum-likelihood-for-the-gaussian" title="maximum-likelihood-for-the-gaussian">
+                            maximum-likelihood-for-the-gaussian
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/maximum-margin-classifiers" title="maximum-margin-classifiers">
+                            maximum-margin-classifiers
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mean" title="mean">
+                            mean
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/mixture-models" title="mixture-models">
+                            mixture-models
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/mixtures-of-gaussians" title="mixtures-of-gaussians">
+                            mixtures-of-gaussians
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/moving-beyond-linearity" title="moving-beyond-linearity">
+                            moving-beyond-linearity
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/multinomial-distribution" title="multinomial-distribution">
+                            multinomial-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/neural-networks" title="neural-networks">
+                            neural-networks
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/normal-distribution" title="normal-distribution">
+                            normal-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/null-hypothesis" title="null-hypothesis">
+                            null-hypothesis
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/null-space" title="null-space">
+                            null-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/one-tailed-test" title="one-tailed-test">
+                            one-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pattern-recognition" title="pattern-recognition">
+                            pattern-recognition
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/pmf" title="pmf">
+                            pmf
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/power" title="power">
+                            power
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/probability-distributions" title="probability-distributions">
+                            probability-distributions
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/projection" title="projection">
+                            projection
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/random-variables" title="random-variables">
+                            random-variables
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/regularization" title="regularization">
+                            regularization
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/resampling" title="resampling">
+                            resampling
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/statistical-learning" title="statistical-learning">
+                            statistical-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/students-t-distribution" title="students-t-distribution">
+                            students-t-distribution
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/subspace" title="subspace">
+                            subspace
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/support-vector-machines" title="support-vector-machines">
+                            support-vector-machines
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/support-vectors" title="support-vectors">
+                            support-vectors
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/think-stats" title="think-stats">
+                            think-stats
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/tree-based-methods" title="tree-based-methods">
+                            tree-based-methods
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/two-tailed-test" title="two-tailed-test">
+                            two-tailed-test
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/unsupervised-learning" title="unsupervised-learning">
+                            unsupervised-learning
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/variance" title="variance">
+                            variance
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/vector-space" title="vector-space">
+                            vector-space
+                        </a>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                   
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Amit Rajan" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+                   
+                    
+                    <li>
+                        <a href="mailto:amitrajan012@gmail.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+
+                    
+                    
+                    
+
+                    
+
+		    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/amitrajan012">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/amit-rajan-1343aaba/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+                </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Amit Rajan 2023
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+</body>
+</html>

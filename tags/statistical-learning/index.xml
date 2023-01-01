@@ -14,7 +14,7 @@
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part4/</guid>
       <description>Applied Q8. This exercise relates to the College data set, which can be found in the file College.csv. It contains a number of variables for 777 different universities and colleges in the US.
-import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe()  .dataframe tbody tr th:only-of-type { vertical-align: middle; } .dataframe tbody tr th { vertical-align: top; } .dataframe thead th { text-align: right; }</description>
+import pandas as pd college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) college.set_index(&amp;#39;Unnamed: 0&amp;#39;, drop=True, inplace=True) college.index.names = [&amp;#39;Name&amp;#39;] college.describe() Apps Accept Enroll Top10perc Top25perc F.Undergrad P.Undergrad Outstate Room.Board Books Personal PhD Terminal S.F.Ratio perc.alumni Expend Grad.Rate count 777.000000 777.000000 777.000000 777.000000 777.</description>
     </item>
     
     <item>
@@ -23,8 +23,7 @@ import pandas as pd  college = pd.read_csv(&amp;#34;data/College.csv&amp;#34;) c
       <pubDate>Sun, 06 May 2018 01:38:54 +0100</pubDate>
       
       <guid>https://amitrajan012.github.io/post/statistical-learning_part3/</guid>
-      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. 
-(a) The sample size n is extremely large, and the number of predic- tors p is small.
+      <description>2.4 Exercises Conceptual Q1. For each of parts (a) through (d), indicate whether we would generally expect the performance of a flexible statistical learning method to be better or worse than an inflexible method. Justify your answer. (a) The sample size n is extremely large, and the number of predic- tors p is small.
 Sol: Better
 (b) The number of predictors p is extremely large, and the number of observations n is small.</description>
     </item>
