@@ -6,7 +6,16 @@
     <description>Recent content on Amit Rajan</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Apr 2024 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Cleaning for Machine Learning Sysytems: A Survey</title>
+      <link>https://amitrajan012.github.io/post/data-cleaning-for-machine-learning-sysytems-a-survey/</link>
+      <pubDate>Thu, 18 Apr 2024 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/data-cleaning-for-machine-learning-sysytems-a-survey/</guid>
+      <description>Data cleaning plays a pivotal role in ensuring the accuracy and reliability of machine learning (ML)systems. The goal of a data cleaning task is to enhance the quality and reliability of datasets by identifying and rectifying errors, inconsistencies, and inaccuracies, ensuring robustness and effectiveness in subsequent data analysis and machine learning tasks. This survey meticulously examines existing data cleaning systems, with a specific focus on three crucial aspects: 1) Integrity constraint violation detection, 2) Identification and handling of outliers, missing values, anomalies, and adversarial examples, and 3) Deduplication or Entity matching techniques.</description>
+    </item>
+    
     <item>
       <title>Mixture Models and Expectation Maximization - The EM Algorithm in General</title>
       <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_4/</link>

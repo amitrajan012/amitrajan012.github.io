@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Cleaning on Amit Rajan</title>
+    <link>https://amitrajan012.github.io/tags/data-cleaning/</link>
+    <description>Recent content in Data Cleaning on Amit Rajan</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Apr 2024 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/data-cleaning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Cleaning for Machine Learning Sysytems: A Survey</title>
+      <link>https://amitrajan012.github.io/post/data-cleaning-for-machine-learning-sysytems-a-survey/</link>
+      <pubDate>Thu, 18 Apr 2024 23:07:28 +0100</pubDate>
+      
+      <guid>https://amitrajan012.github.io/post/data-cleaning-for-machine-learning-sysytems-a-survey/</guid>
+      <description>Data cleaning plays a pivotal role in ensuring the accuracy and reliability of machine learning (ML)systems. The goal of a data cleaning task is to enhance the quality and reliability of datasets by identifying and rectifying errors, inconsistencies, and inaccuracies, ensuring robustness and effectiveness in subsequent data analysis and machine learning tasks. This survey meticulously examines existing data cleaning systems, with a specific focus on three crucial aspects: 1) Integrity constraint violation detection, 2) Identification and handling of outliers, missing values, anomalies, and adversarial examples, and 3) Deduplication or Entity matching techniques.</description>
+    </item>
+    
+  </channel>
+</rss>
