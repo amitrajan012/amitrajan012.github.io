@@ -1,142 +1,140 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>ISLR · Amit Rajan</title><meta name=description content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/topics/islr/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><link rel=alternate type=application/rss+xml href=https://amitrajan012.github.io/topics/islr/index.xml title="Amit Rajan"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="ISLR"><meta property="og:description" content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta property="og:type" content="website"><meta property="og:url" content="https://amitrajan012.github.io/topics/islr/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="ISLR"><meta name=twitter:description content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ece5f4e018755f02fc56b0185b5cfde7b69928af884a4c9ff9ea041f677f329e.css integrity="sha256-7OX04Bh1XwL8VrAYW1z957aZKK+ISkyf+eoEH2d/Mp4="><script type=text/x-mathjax-config>
-MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]], processEscapes: true }, "HTML-CSS": { linebreaks: { automatic: true } }, CommonHTML: { linebreaks: { automatic: true } } });
-</script><script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></head><body><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>ISLR · Amit Rajan</title><meta name=description content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/topics/islr/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><link rel=alternate type=application/rss+xml href=https://amitrajan012.github.io/topics/islr/index.xml title="Amit Rajan"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="ISLR · Amit Rajan"><meta property="og:description" content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta property="og:type" content="website"><meta property="og:url" content="https://amitrajan012.github.io/topics/islr/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="ISLR · Amit Rajan"><meta name=twitter:description content="Notes tagged ISLR on Amit Rajan's machine learning notebook."><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
 <span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
 <a href=/post/>Notes</a>
 <a href=/#series>Series</a>
 <a href=/tags/>Topics</a>
 <a href=/about/>About</a>
 <a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><section class=list-hero><div class=wrap><p class=kicker style=color:#4d7c0f>ISLR</p><h1 class=display-2>An Introduction to Statistical Learning</h1><p class=lede>Regression, classification, resampling, trees, SVMs and unsupervised learning — with exercises.</p><p class="muted mono">44 notes</p></div></section><section class="wrap section-tight"><h2 class=group-head>Chapter 1 <span class=muted>— Introduction</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/introduction/><time datetime=2018-05-02>02 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 1: Introduction</span>
+<span class=row-main><span class=row-title>Introduction to Statistical Learning</span>
 <span class=row-sub>ISLR · Chapter 1 — Introduction</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 2 <span class=muted>— Statistical Learning</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/statistical-learning_part1/><time datetime=2018-05-04>04 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 2: Statistical Learning (Part 1: What Is Statistical Learning?)</span>
+<span class=row-main><span class=row-title>What Is Statistical Learning?</span>
 <span class=row-sub>ISLR · Chapter 2 — Statistical Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/statistical-learning_part2/><time datetime=2018-05-05>05 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 2: Statistical Learning (Part 2: Assessing Model Accuracy)</span>
+<span class=row-main><span class=row-title>Assessing Model Accuracy</span>
 <span class=row-sub>ISLR · Chapter 2 — Statistical Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/statistical-learning_part3/><time datetime=2018-05-06>06 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 2: Statistical Learning (Part 3: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Statistical Learning: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 2 — Statistical Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/statistical-learning_part4/><time datetime=2018-05-06>06 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 2: Statistical Learning (Part 4: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Statistical Learning: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 2 — Statistical Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 3 <span class=muted>— Linear Regression</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/linear-regression_part1/><time datetime=2018-05-08>08 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</span>
+<span class=row-main><span class=row-title>Simple Linear Regression</span>
 <span class=row-sub>ISLR · Chapter 3 — Linear Regression</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-regression_part2/><time datetime=2018-05-08>08 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</span>
+<span class=row-main><span class=row-title>Multiple Linear Regression</span>
 <span class=row-sub>ISLR · Chapter 3 — Linear Regression</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-regression_part3/><time datetime=2018-05-09>09 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</span>
+<span class=row-main><span class=row-title>Other Considerations in the Regression Model</span>
 <span class=row-sub>ISLR · Chapter 3 — Linear Regression</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-regression_part4/><time datetime=2018-05-10>10 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Linear Regression: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 3 — Linear Regression</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-regression_part5/><time datetime=2018-05-11>11 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Linear Regression: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 3 — Linear Regression</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 4 <span class=muted>— Classification</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/classification_part1/><time datetime=2018-05-13>13 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</span>
+<span class=row-main><span class=row-title>Logistic Regression</span>
 <span class=row-sub>ISLR · Chapter 4 — Classification</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/classification_part2/><time datetime=2018-05-14>14 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</span>
+<span class=row-main><span class=row-title>Linear Discriminant Analysis</span>
 <span class=row-sub>ISLR · Chapter 4 — Classification</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/classification_part3/><time datetime=2018-05-15>15 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</span>
+<span class=row-main><span class=row-title>Classification: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 4 — Classification</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/classification_part4/><time datetime=2018-05-16>16 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</span>
+<span class=row-main><span class=row-title>Classification: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 4 — Classification</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 5 <span class=muted>— Resampling Methods</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/resampling-methods_part1/><time datetime=2018-05-17>17 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 5: Resampling Methods (Part 1: Cross-Validation)</span>
+<span class=row-main><span class=row-title>Cross-Validation</span>
 <span class=row-sub>ISLR · Chapter 5 — Resampling Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/resampling-methods_part2/><time datetime=2018-05-18>18 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 5: Resampling Methods (Part 2: The Bootstrap)</span>
+<span class=row-main><span class=row-title>The Bootstrap</span>
 <span class=row-sub>ISLR · Chapter 5 — Resampling Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/resampling-methods_part3/><time datetime=2018-05-18>18 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 5: Resampling Methods (Part 3: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Resampling Methods: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 5 — Resampling Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/resampling-methods_part4/><time datetime=2018-05-19>19 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 5: Resampling Methods (Part 4: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Resampling Methods: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 5 — Resampling Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 6 <span class=muted>— Linear Model Selection and Regularization</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/linear-model-selection-and-regularization_part1/><time datetime=2018-05-21>21 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 1: Subset Selection)</span>
+<span class=row-main><span class=row-title>Subset Selection</span>
 <span class=row-sub>ISLR · Chapter 6 — Linear Model Selection and Regularization</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-model-selection-and-regularization_part2/><time datetime=2018-05-22>22 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 2: Shrinkage Methods)</span>
+<span class=row-main><span class=row-title>Shrinkage Methods</span>
 <span class=row-sub>ISLR · Chapter 6 — Linear Model Selection and Regularization</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-model-selection-and-regularization_part3/><time datetime=2018-05-24>24 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 3: Dimension Reduction Methods)</span>
+<span class=row-main><span class=row-title>Dimension Reduction Methods</span>
 <span class=row-sub>ISLR · Chapter 6 — Linear Model Selection and Regularization</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-model-selection-and-regularization_part4/><time datetime=2018-05-25>25 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 4: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Linear Model Selection and Regularization: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 6 — Linear Model Selection and Regularization</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/linear-model-selection-and-regularization_part5/><time datetime=2018-05-26>26 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 6: Linear Model Selection and Regularization (Part 5: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Linear Model Selection and Regularization: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 6 — Linear Model Selection and Regularization</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 7 <span class=muted>— Moving Beyond Linearity</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part1/><time datetime=2018-05-28>28 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</span>
+<span class=row-main><span class=row-title>Polynomial Regression, Step Functions, Basis Functions</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part2/><time datetime=2018-05-28>28 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 2: Regression Splines)</span>
+<span class=row-main><span class=row-title>Regression Splines</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part3/><time datetime=2018-05-30>30 May 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 3: Smoothing Splines)</span>
+<span class=row-main><span class=row-title>Smoothing Splines</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part4/><time datetime=2018-06-04>04 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 4: Local Regression, Generalized Additive Models)</span>
+<span class=row-main><span class=row-title>Local Regression, Generalized Additive Models</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part5/><time datetime=2018-06-06>06 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 5: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Moving Beyond Linearity: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/moving-beyond-linearity_part6/><time datetime=2018-06-08>08 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 7: Moving Beyond Linearity (Part 6: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Moving Beyond Linearity: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 7 — Moving Beyond Linearity</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 8 <span class=muted>— Tree-Based Methods</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/tree-based-methods_part1/><time datetime=2018-06-11>11 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 8: Tree-Based Methods (Part 1: Decision Trees)</span>
+<span class=row-main><span class=row-title>Decision Trees</span>
 <span class=row-sub>ISLR · Chapter 8 — Tree-Based Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/tree-based-methods_part2/><time datetime=2018-06-13>13 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 8: Tree-Based Methods (Part 2: Bagging, Random Forests, Boosting)</span>
+<span class=row-main><span class=row-title>Bagging, Random Forests, Boosting</span>
 <span class=row-sub>ISLR · Chapter 8 — Tree-Based Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/tree-based-methods_part3/><time datetime=2018-06-14>14 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 8: Tree-Based Methods (Part 3: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Tree-Based Methods: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 8 — Tree-Based Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/tree-based-methods_part4/><time datetime=2018-06-16>16 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 8: Tree-Based Methods (Part 4: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Tree-Based Methods: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 8 — Tree-Based Methods</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 9 <span class=muted>— Support Vector Machines</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/support-vector-machines_part1/><time datetime=2018-06-19>19 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 9: Support Vector Machines (Part 1: Maximal Margin Classifier)</span>
+<span class=row-main><span class=row-title>Maximal Margin Classifier</span>
 <span class=row-sub>ISLR · Chapter 9 — Support Vector Machines</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/support-vector-machines_part2/><time datetime=2018-06-20>20 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 9: Support Vector Machines (Part 2: Support Vector Classifiers)</span>
+<span class=row-main><span class=row-title>Support Vector Classifiers</span>
 <span class=row-sub>ISLR · Chapter 9 — Support Vector Machines</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/support-vector-machines_part3/><time datetime=2018-06-23>23 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 9: Support Vector Machines (Part 3: Support Vector Machines)</span>
+<span class=row-main><span class=row-title>Support Vector Machines and Kernels</span>
 <span class=row-sub>ISLR · Chapter 9 — Support Vector Machines</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/support-vector-machines_part4/><time datetime=2018-06-26>26 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 9: Support Vector Machines (Part 4: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Support Vector Machines: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 9 — Support Vector Machines</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/support-vector-machines_part5/><time datetime=2018-06-29>29 Jun 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 9: Support Vector Machines (Part 5: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Support Vector Machines: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 9 — Support Vector Machines</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol><h2 class=group-head>Chapter 10 <span class=muted>— Unsupervised Learning</span></h2><ol class=rows><li class=row data-series=islr><a href=/post/unsupervised-learning_part1/><time datetime=2018-07-04>04 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 1: Principal Components Analysis)</span>
+<span class=row-main><span class=row-title>Principal Components Analysis</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/unsupervised-learning_part2/><time datetime=2018-07-06>06 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 2: More on PCA)</span>
+<span class=row-main><span class=row-title>Principal Components Analysis: More on PCA</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/unsupervised-learning_part3/><time datetime=2018-07-09>09 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 3: Clustering Methods, K-Means Clustering)</span>
+<span class=row-main><span class=row-title>K-Means Clustering</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/unsupervised-learning_part4/><time datetime=2018-07-12>12 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 4: Clustering Methods, Hierarchical Clustering)</span>
+<span class=row-main><span class=row-title>Hierarchical Clustering</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/unsupervised-learning_part5/><time datetime=2018-07-15>15 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 5: Exercises - Conceptual)</span>
+<span class=row-main><span class=row-title>Unsupervised Learning: Conceptual Exercises</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li><li class=row data-series=islr><a href=/post/unsupervised-learning_part6/><time datetime=2018-07-19>19 Jul 18</time>
-<span class=row-main><span class=row-title>ISLR Chapter 10: Unsupervised Learning (Part 6: Exercises - Applied)</span>
+<span class=row-main><span class=row-title>Unsupervised Learning: Applied Exercises</span>
 <span class=row-sub>ISLR · Chapter 10 — Unsupervised Learning</span>
 </span><span class=chip style=background:#eef4e1;color:#4d7c0f>ISLR</span></a></li></ol></section></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
 <span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
