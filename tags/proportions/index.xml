@@ -1,22 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Proportions on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/proportions/</link>
-    <description>Recent content in Proportions on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 18 Nov 2018 05:07:15 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/proportions/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Confidence Intervals (Part 2)</title>
-      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
-      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
-      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
-$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
-where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Proportions on Amit Rajan</title><link>https://amitrajan012.github.io/tags/proportions/</link><description>Recent content in Proportions on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 18 Nov 2018 05:07:15 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/proportions/index.xml" rel="self" type="application/rss+xml"/><item><title>Confidence Intervals (Part 2)</title><link>https://amitrajan012.github.io/post/confidence-intervals_2/</link><pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate><guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid><description>&lt;/br>
+#### Confidence Intervals for Proportions :
+&lt;p>Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where &lt;b>the number of trials $n$ is large enough&lt;/b>, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:&lt;/p>
+&lt;p>$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$&lt;/p>
+&lt;p>where $\widehat{p}$ is the &lt;b>sample proportion&lt;/b> and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the &lt;b>sample variance&lt;/b>. This method of computation of the confidence interval for the proportion works for large sample size or we can say that the experiment should containt at least 10 successes and 10 failures.&lt;/p></description></item></channel></rss>

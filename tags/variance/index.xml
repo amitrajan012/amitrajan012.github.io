@@ -1,49 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Variance on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/variance/</link>
-    <description>Recent content in Variance on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 20 Nov 2018 16:41:05 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/variance/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Confidence Intervals (Part 3)</title>
-      <link>https://amitrajan012.github.io/post/confidence-intervals_3/</link>
-      <pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid>
-      <description>#### Confidence Intervals with Paired Data : Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a small random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately normal, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:</description>
-    </item>
-    
-    <item>
-      <title>Random Variables (Part 2: Continuous Random Variables)</title>
-      <link>https://amitrajan012.github.io/post/randomvariables_part2/</link>
-      <pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid>
-      <description>#### Continuous Random Variables : A continuous random variable is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).
-#### Probability Density Function (PDF) : As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a probability density funaction, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable.</description>
-    </item>
-    
-    <item>
-      <title>Random Variables (Part 1: Discrete Random Variables)</title>
-      <link>https://amitrajan012.github.io/post/random-variables/</link>
-      <pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/random-variables/</guid>
-      <description>Random Variable is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: discrete and continuous.</description>
-    </item>
-    
-    <item>
-      <title>Think Stats: Chapter 2</title>
-      <link>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</link>
-      <pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</guid>
-      <description>2.1 Means and averages Mean of a sample is a summary statistics that can be computed as (where n is the total number of samples): $$\mu = \frac{1}{n} \sum_i{x_i}$$ An average is one of many summary statistics that can be used to describe the typical value or the central tendency of a sample.
-2.2 Variance As mean describes the central tendency of a sample, Variance is intended to describe the spread.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Variance on Amit Rajan</title><link>https://amitrajan012.github.io/tags/variance/</link><description>Recent content in Variance on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 20 Nov 2018 16:41:05 +0530</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/variance/index.xml" rel="self" type="application/rss+xml"/><item><title>Confidence Intervals (Part 3)</title><link>https://amitrajan012.github.io/post/confidence-intervals_3/</link><pubDate>Tue, 20 Nov 2018 16:41:05 +0530</pubDate><guid>https://amitrajan012.github.io/post/confidence-intervals_3/</guid><description>&lt;/br>
+#### Confidence Intervals with Paired Data :
+&lt;p>Sometimes an experiment is designed in such a way that each item in one sample is paired with an item in the other. Let $D_1, D-2, &amp;hellip;, D_n$ be a &lt;b>small&lt;/b> random sample $(n \leq 30)$ of differences of the paired data. If the population of differences is approximately &lt;b>normal&lt;/b>, the $100(1 - \alpha) %$ confidence interval for the mean difference $\mu_D$ is given as:&lt;/p></description></item><item><title>Random Variables (Part 2: Continuous Random Variables)</title><link>https://amitrajan012.github.io/post/randomvariables_part2/</link><pubDate>Mon, 12 Nov 2018 03:01:07 +0100</pubDate><guid>https://amitrajan012.github.io/post/randomvariables_part2/</guid><description>&lt;/br>
+#### Continuous Random Variables :
+&lt;p>A &lt;b>continuous random variable&lt;/b> is a random variable which can take infinitely many values. The probabilities associated with a continuous RV is defined by probability density function(PDF).&lt;/p>
+&lt;/br>
+#### Probability Density Function (PDF) :
+&lt;p>As a continuous RV takes infinite values, the probability $P(X=x)$ for it can not be defined and takes a value of 0. Instead we define a &lt;b>probability density funaction&lt;/b>, which intutively depicts probability per unit space, where space is defined by the range of the underlying random variable. For a continuous RV $X$ with a PDF $f(x)$, the probability can be given as:&lt;/p></description></item><item><title>Random Variables (Part 1: Discrete Random Variables)</title><link>https://amitrajan012.github.io/post/random-variables/</link><pubDate>Sun, 11 Nov 2018 13:11:27 +0100</pubDate><guid>https://amitrajan012.github.io/post/random-variables/</guid><description>&lt;/br>
+&lt;b>Random Variable&lt;/b> is a variable whose possible values are numerical outcomes of a random phenomenon or experiment. In other words, a random variable assigns a numeric value to each outcome of a random experiment. For example, if we roll a fair die, the random variable $X$ describing the experiment will take the values $1,2,3,4,5,6$ (which are the possible outcomes of the experiment). There are two types of random variables: &lt;b>discrete&lt;/b> and &lt;b>continuous&lt;/b>.
+&lt;/br>
+#### Discrete Random Variable :
+&lt;p>A random variable is discrete if &lt;b>its possible values form a discrete set&lt;/b>. The random variable denoting the experiment of rolling a fair die is an example of discrete random variable.&lt;/p></description></item><item><title>Think Stats: Chapter 2</title><link>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</link><pubDate>Wed, 08 Aug 2018 04:17:12 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-2-descriptive-statistics/</guid><description>&lt;h3 id="21-means-and-averages">2.1 Means and averages&lt;/h3>
+&lt;p>&lt;b>Mean&lt;/b> of a sample is a summary statistics that can be computed as (where n is the total number of samples):
+$$\mu = \frac{1}{n} \sum_i{x_i}$$
+An &lt;b>average&lt;/b> is one of many summary statistics that can be used to describe the typical value or the &lt;b>central tendency&lt;/b> of a sample.&lt;/p>
+&lt;h3 id="22-variance">2.2 Variance&lt;/h3>
+&lt;p>As mean describes the central tendency of a sample, &lt;b>Variance&lt;/b> is intended to describe the &lt;b>spread&lt;/b>. The variance is defined as:
+$$\sigma^2 = \frac{1}{n} \sum_i{(x_i-\mu)^2}$$
+The square root of variance is &lt;b>Standard Deviation&lt;/b>. Sample variance, which is used to estimate the variance of a population can be computed by having n-1 in the denominator as follows:
+$$s^2 = \frac{1}{n-1} \sum_i{(x_i-\mu)^2}$$&lt;/p></description></item></channel></rss>

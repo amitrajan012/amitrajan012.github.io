@@ -1,24 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Perceptron Algorithm on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/perceptron-algorithm/</link>
-    <description>Recent content in Perceptron Algorithm on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/perceptron-algorithm/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear Models for Clasification - The Perceptron Algorithm</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link>
-      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid>
-      <description>4.1.7 The Perceptron Algorithm In a perceptron algorithm, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form
-$$\begin{align} y(X) = f(W^T\phi(X)) \end{align}$$
-where the nonlinear activation function is given as
-$$\begin{align} f(a) = \begin{cases} +1, &amp;amp; a \geq 0\ -1, &amp;amp; a &amp;lt; 0 \end{cases} \end{align}$$
-Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Perceptron Algorithm on Amit Rajan</title><link>https://amitrajan012.github.io/tags/perceptron-algorithm/</link><description>Recent content in Perceptron Algorithm on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 02 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/perceptron-algorithm/index.xml" rel="self" type="application/rss+xml"/><item><title>Linear Models for Clasification - The Perceptron Algorithm</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link><pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid><description>&lt;h3 id="417-the-perceptron-algorithm">4.1.7 The Perceptron Algorithm&lt;/h3>
+&lt;p>In a &lt;b>perceptron algorithm&lt;/b>, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form&lt;/p>
+&lt;p>$$\begin{align}
+y(X) = f(W^T\phi(X))
+\end{align}$$&lt;/p>
+&lt;p>where the nonlinear &lt;b>activation function&lt;/b> is given as&lt;/p>
+&lt;p>$$\begin{align}
+f(a) =
+\begin{cases}
++1, &amp;amp; a \geq 0\
+-1, &amp;amp; a &amp;lt; 0
+\end{cases}
+\end{align}$$&lt;/p>
+&lt;p>Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$. A natural choice of error function would be the total number of misclassified patterns. But this error function is piecewise constant funtion of $W$ and hence the gradient with respect to $W$ will be $0$ almost everywhere. Insted, we can use an alternative error function known as &lt;b>perceptron criterian&lt;/b>. Here, we are looking for a weight vector $W$ which, for class $C_1$ satisfies $W^T\phi(X_n) &amp;gt; 0$ and for class $C_2$ satisfies $W^T\phi(X_n) &amp;lt; 0$. Hence, when combined together, it should satisfy $W^T\phi(X_n)t_n &amp;lt; 0$. The perceptron criterian associates $0$ error with the inputs that are correctly classified. For misclassified inputs, it tries to minimize $-W^T\phi(X_n)t_n$. The perceptron criterian is hence given as&lt;/p></description></item></channel></rss>

@@ -1,0 +1,97 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Linear Algebra · Amit Rajan</title>
+<meta name=description content="Machine Learning | Blockchain"><meta name=keywords content="Amit,Rajan,ML,Data,Science,Blockchain"><link rel=canonical href=https://amitrajan012.github.io/topics/linear-algebra/><link rel=alternate type=application/rss+xml href=https://amitrajan012.github.io/topics/linear-algebra/index.xml title="Amit Rajan"><meta property="og:title" content="Linear Algebra"><meta property="og:type" content="website"><meta property="og:url" content="https://amitrajan012.github.io/topics/linear-algebra/"><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.f8cbf8be7e9ffd4fb6ed6356e77ec02b34e010692efd006e4ce659924c849da1.css integrity="sha256-+Mv4vn6f/U+27WNW537AKzTgEGku/QBuTOZZkkyEnaE="><script type=text/x-mathjax-config>
+MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]], processEscapes: true }, "HTML-CSS": { linebreaks: { automatic: true } }, CommonHTML: { linebreaks: { automatic: true } } });
+</script><script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></head><body><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
+<a href=/post/>Notes</a>
+<a href=/#series>Series</a>
+<a href=/tags/>Topics</a>
+<a href=/about/>About</a></nav></div></header><main id=main><section class=list-hero><div class=wrap><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><h1 class=display-2>Linear Algebra</h1><p class=lede>Subspaces, projections, least squares, determinants, eigenvalues and the SVD.</p><p class="muted mono">28 notes</p></div></section><section class="wrap section-tight"><h2 class=group-head>Chapter 1</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/><time datetime=2022-01-03>03 Jan 22</time>
+<span class=row-main><span class=row-title>Geometry of Linear Equations & Matrix Multiplications</span>
+<span class=row-sub>Strang · Chapter 1</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 2</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_2_elimination_and_permutation/><time datetime=2022-01-08>08 Jan 22</time>
+<span class=row-main><span class=row-title>Elimination & Permutation with Matrices</span>
+<span class=row-sub>Strang · Chapter 2</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 3</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_3_inverse_factorization_and_symmetric_matrices/><time datetime=2022-01-12>12 Jan 22</time>
+<span class=row-main><span class=row-title>Inverse of a Matrix & Factorization into $A=LU$</span>
+<span class=row-sub>Strang · Chapter 3</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 4</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_4_vector_spaces/><time datetime=2022-01-17>17 Jan 22</time>
+<span class=row-main><span class=row-title>Vector Space and Subspace</span>
+<span class=row-sub>Strang · Chapter 4</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 5</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_5_computing_nullspace/><time datetime=2022-01-20>20 Jan 22</time>
+<span class=row-main><span class=row-title>Algorithm for solving $Ax=0$</span>
+<span class=row-sub>Strang · Chapter 5</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 6</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_6_solving_for_axb/><time datetime=2022-01-25>25 Jan 22</time>
+<span class=row-main><span class=row-title>Algorithm for solving $Ax=b$</span>
+<span class=row-sub>Strang · Chapter 6</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 7</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_7_independence_basis_and_dimension/><time datetime=2022-01-30>30 Jan 22</time>
+<span class=row-main><span class=row-title>Matrix Independence, Span, Basis & Dimension</span>
+<span class=row-sub>Strang · Chapter 7</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 8</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_8-_the_four_fundamental_subspaces/><time datetime=2022-03-15>15 Mar 22</time>
+<span class=row-main><span class=row-title>Four Fundamental Subspaces</span>
+<span class=row-sub>Strang · Chapter 8</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 9</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_9_matrix_spaces/><time datetime=2022-03-17>17 Mar 22</time>
+<span class=row-main><span class=row-title>Matrix Spaces</span>
+<span class=row-sub>Strang · Chapter 9</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 10</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_10_graphs_networks_and_incidence_matrices/><time datetime=2022-03-21>21 Mar 22</time>
+<span class=row-main><span class=row-title>Graphs, Networks and Incidence Matrices</span>
+<span class=row-sub>Strang · Chapter 10</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 11</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_11_orthogonal_vectors_and_subspaces/><time datetime=2022-03-23>23 Mar 22</time>
+<span class=row-main><span class=row-title>Orthogonal Vectors and Orthogonal Subspaces</span>
+<span class=row-sub>Strang · Chapter 11</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 12</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_12_projection_onto_subspaces/><time datetime=2022-03-26>26 Mar 22</time>
+<span class=row-main><span class=row-title>Projection of a Matrix</span>
+<span class=row-sub>Strang · Chapter 12</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 13</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_13_projection_matrices_and_least_square/><time datetime=2022-03-30>30 Mar 22</time>
+<span class=row-main><span class=row-title>Projection Matrices and Least Squares</span>
+<span class=row-sub>Strang · Chapter 13</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 14</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_14_orthogonal_matrices_orthonormal_vectors_and_gram-schmidt/><time datetime=2022-04-02>02 Apr 22</time>
+<span class=row-main><span class=row-title>Orthonormal Vectors, Orthogonal Matrices and Gram-Schmidt Method</span>
+<span class=row-sub>Strang · Chapter 14</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 15</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_15_properties_of_determinants/><time datetime=2022-04-05>05 Apr 22</time>
+<span class=row-main><span class=row-title>Determinant</span>
+<span class=row-sub>Strang · Chapter 15</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 16</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_16_determinant_formulas_and_cofactors/><time datetime=2022-04-07>07 Apr 22</time>
+<span class=row-main><span class=row-title>Determinant and Cofactors</span>
+<span class=row-sub>Strang · Chapter 16</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 17</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_17_cramers_rule_inverse_matrix_and_volume/><time datetime=2022-04-10>10 Apr 22</time>
+<span class=row-main><span class=row-title>Formula for $A^{-1}$ and Cramer's Rule</span>
+<span class=row-sub>Strang · Chapter 17</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 18</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_18_eigenvalues_and_eigenvectors/><time datetime=2022-04-14>14 Apr 22</time>
+<span class=row-main><span class=row-title>Eigenvalues and Eigenvectors</span>
+<span class=row-sub>Strang · Chapter 18</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 19</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_19_diagonalization_and_powers_of_a_matrix/><time datetime=2022-04-17>17 Apr 22</time>
+<span class=row-main><span class=row-title>Diagonalization and Powers of a Matrix</span>
+<span class=row-sub>Strang · Chapter 19</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 20</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_20_differential_equations_and_expat/><time datetime=2022-04-20>20 Apr 22</time>
+<span class=row-main><span class=row-title>Differential Equations and Matrix Exponentials</span>
+<span class=row-sub>Strang · Chapter 20</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 21</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_21_markov_matrices_and_fourier_series/><time datetime=2022-04-22>22 Apr 22</time>
+<span class=row-main><span class=row-title>Markov Matrices and Fourier Series</span>
+<span class=row-sub>Strang · Chapter 21</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 22</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter_22_symmetric_matrices_and_positive_definiteness/><time datetime=2022-04-26>26 Apr 22</time>
+<span class=row-main><span class=row-title>Symmetric Matrices and Positive Definiteness</span>
+<span class=row-sub>Strang · Chapter 22</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 23</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-23-complex-matrices-and-fast-fourier-transform/><time datetime=2022-04-29>29 Apr 22</time>
+<span class=row-main><span class=row-title>Complex Matrices and Fourier Transform</span>
+<span class=row-sub>Strang · Chapter 23</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 24</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-24-positive-definite-matrices-and-minima/><time datetime=2022-05-02>02 May 22</time>
+<span class=row-main><span class=row-title>Positive Definite Matrices</span>
+<span class=row-sub>Strang · Chapter 24</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 25</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-25-similar-matrices-and-jordan-form/><time datetime=2022-05-06>06 May 22</time>
+<span class=row-main><span class=row-title>Similar Matrices</span>
+<span class=row-sub>Strang · Chapter 25</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 26</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-26-singular-value-decomposition/><time datetime=2022-05-09>09 May 22</time>
+<span class=row-main><span class=row-title>Singular Value Decomposition</span>
+<span class=row-sub>Strang · Chapter 26</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 27</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/><time datetime=2022-05-12>12 May 22</time>
+<span class=row-main><span class=row-title>Linear Transformations, Change of Basis and Image Compression</span>
+<span class=row-sub>Strang · Chapter 27</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol><h2 class=group-head>Chapter 28</h2><ol class=rows><li class=row data-series=strang><a href=/post/chapter-28-left-and-right-inverses-and-pseudoinverse/><time datetime=2022-05-15>15 May 22</time>
+<span class=row-main><span class=row-title>Left, Right and Pseudo Inverses</span>
+<span class=row-sub>Strang · Chapter 28</span>
+</span><span class=chip style=background:#fbede2;color:#a04a0d>Strang</span></a></li></ol></section></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
+<span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
+<a href=https://www.linkedin.com/in/amit-rajan-1343aaba/>LinkedIn</a>
+<a href=mailto:amitrajan012@gmail.com>Email</a>
+<a href=/index.xml>RSS</a></span></div></footer><script src=/js/main.min.0c1224cd838d28b6244c20f48626123359a4eb5883395e204dc65f9b318e6840.js defer></script></body></html>

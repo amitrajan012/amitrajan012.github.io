@@ -1,61 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Least Squares on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/least-squares/</link>
-    <description>Recent content in Least Squares on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 02 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/least-squares/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear Models for Clasification - The Perceptron Algorithm</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link>
-      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid>
-      <description>4.1.7 The Perceptron Algorithm In a perceptron algorithm, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form
-$$\begin{align} y(X) = f(W^T\phi(X)) \end{align}$$
-where the nonlinear activation function is given as
-$$\begin{align} f(a) = \begin{cases} +1, &amp;amp; a \geq 0\ -1, &amp;amp; a &amp;lt; 0 \end{cases} \end{align}$$
-Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Fisher’s Linear Discriminant</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link>
-      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid>
-      <description>4.1.4 Fisher&amp;rsquo;s Linear Discriminant Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to adjust the weight $W$ so that we can have the projection that maximizes the separation.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Least Squares for Classification</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link>
-      <pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid>
-      <description>4.1.3 Least Squares for Classification For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Regression - Linear Basis Function Models : Part 1</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</link>
-      <pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</guid>
-      <description>Linear regression model has the property of being linear functions of adjustable parameters. We can add more complexity in the linear regression models by taking linear combinations of a fixed set of nonlinear functions of the input variables, known as basis functions. In the modeling process, giveb $x$, we have to predict $t$ which can be predicted as $y(x)$. Form a probabilistic prespective, we aim to model the predictive distribution $p(t|x)$ as this expresses the uncertainty about the value of $t$ for each value of $x$.</description>
-    </item>
-    
-    <item>
-      <title>Projection Matrices and Least Squares</title>
-      <link>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</link>
-      <pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid>
-      <description>13.1 Projection Matrices Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.
-Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Least Squares on Amit Rajan</title><link>https://amitrajan012.github.io/tags/least-squares/</link><description>Recent content in Least Squares on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 02 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/least-squares/index.xml" rel="self" type="application/rss+xml"/><item><title>Linear Models for Clasification - The Perceptron Algorithm</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link><pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid><description>&lt;h3 id="417-the-perceptron-algorithm">4.1.7 The Perceptron Algorithm&lt;/h3>
+&lt;p>In a &lt;b>perceptron algorithm&lt;/b>, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form&lt;/p>
+&lt;p>$$\begin{align}
+y(X) = f(W^T\phi(X))
+\end{align}$$&lt;/p>
+&lt;p>where the nonlinear &lt;b>activation function&lt;/b> is given as&lt;/p>
+&lt;p>$$\begin{align}
+f(a) =
+\begin{cases}
++1, &amp;amp; a \geq 0\
+-1, &amp;amp; a &amp;lt; 0
+\end{cases}
+\end{align}$$&lt;/p>
+&lt;p>Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$. A natural choice of error function would be the total number of misclassified patterns. But this error function is piecewise constant funtion of $W$ and hence the gradient with respect to $W$ will be $0$ almost everywhere. Insted, we can use an alternative error function known as &lt;b>perceptron criterian&lt;/b>. Here, we are looking for a weight vector $W$ which, for class $C_1$ satisfies $W^T\phi(X_n) &amp;gt; 0$ and for class $C_2$ satisfies $W^T\phi(X_n) &amp;lt; 0$. Hence, when combined together, it should satisfy $W^T\phi(X_n)t_n &amp;lt; 0$. The perceptron criterian associates $0$ error with the inputs that are correctly classified. For misclassified inputs, it tries to minimize $-W^T\phi(X_n)t_n$. The perceptron criterian is hence given as&lt;/p></description></item><item><title>Linear Models for Clasification - Fisher’s Linear Discriminant</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link><pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid><description>&lt;h3 id="414-fishers-linear-discriminant">4.1.4 Fisher&amp;rsquo;s Linear Discriminant&lt;/h3>
+&lt;p>Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to &lt;b>adjust the weight $W$ so that we can have the projection that maximizes the separation&lt;/b>.&lt;/p></description></item><item><title>Linear Models for Clasification - Least Squares for Classification</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link><pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid><description>&lt;h3 id="413-least-squares-for-classification">4.1.3 Least Squares for Classification&lt;/h3>
+&lt;p>For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as&lt;/p></description></item><item><title>Linear Models for Regression - Linear Basis Function Models : Part 1</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</link><pubDate>Mon, 20 Jun 2022 22:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-3-linear-models-for-regression_1/</guid><description>&lt;p>&lt;b>Linear regression model&lt;/b> has the property of being linear functions of adjustable parameters. We can add more complexity in the linear regression models by taking linear combinations of a fixed set of nonlinear functions of the input variables, known as &lt;b>basis functions&lt;/b>. In the modeling process, giveb $x$, we have to predict $t$ which can be predicted as $y(x)$. Form a probabilistic prespective, we aim to model the predictive distribution $p(t|x)$ as this expresses the uncertainty about the value of $t$ for each value of $x$. Linear models have significant limitations as practical techniques for pattern recognition, particularly for problems involving input spaces of high dimensionality.&lt;/p></description></item><item><title>Projection Matrices and Least Squares</title><link>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</link><pubDate>Wed, 30 Mar 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_13_projection_matrices_and_least_square/</guid><description>&lt;h2 id="131-projection-matrices">13.1 Projection Matrices&lt;/h2>
+&lt;p>Let us look at the two extreme cases while taking the projection of vector $b$ onto the plane represented by matrix $A$. The projection matrix $P$ is given as: $P = A(A^TA)^{-1}A^T$.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Case 1: When $b$ is $\perp$ to the column space of $A$, it&amp;rsquo;s projection $p=0$. This means that $b$ lies in the null space of $A^T$, i.e. $A^Tb=0$. Hence, $p = Pb = A(A^TA)^{-1}A^Tb = 0$.&lt;/p></description></item></channel></rss>

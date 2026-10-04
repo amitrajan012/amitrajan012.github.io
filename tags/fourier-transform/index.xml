@@ -1,20 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Fourier Transform on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/fourier-transform/</link>
-    <description>Recent content in Fourier Transform on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 29 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/fourier-transform/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Complex Matrices and Fourier Transform</title>
-      <link>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</link>
-      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</guid>
-      <description>23.1 Complex Vectors/Matrices Let $z = \begin{bmatrix} z_1 \\ z_2 \\ &amp;hellip; \\ z_n \end{bmatrix}$ be a complex vector in $C^n$. The expresson $z^Tz$ doesn&amp;rsquo;t represent the length of the vector $z$. Instead it&amp;rsquo;s length is represented by $\overline{z}^Tz$. $\overline{z}^T$ is also called as $z^H$ and is called as Hermitian of a matrix. Hence, the length of a complex vector is $z^Hz = |z_1|^2 + |z_2|^2 + &amp;hellip; + |z_n|^2$. Similarly, for a complex matrix $A$ to be symmetric, $A^H = A$ with diagonal elements being real.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fourier Transform on Amit Rajan</title><link>https://amitrajan012.github.io/tags/fourier-transform/</link><description>Recent content in Fourier Transform on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 29 Apr 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/fourier-transform/index.xml" rel="self" type="application/rss+xml"/><item><title>Complex Matrices and Fourier Transform</title><link>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</link><pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</guid><description>&lt;h2 id="231-complex-vectorsmatrices">23.1 Complex Vectors/Matrices&lt;/h2>
+&lt;p>Let $z = \begin{bmatrix}
+z_1 \\
+z_2 \\
+&amp;hellip; \\
+z_n
+\end{bmatrix}$ be a complex vector in $C^n$. The expresson $z^Tz$ doesn&amp;rsquo;t represent the length of the vector $z$. Instead it&amp;rsquo;s length is represented by $\overline{z}^Tz$. $\overline{z}^T$ is also called as $z^H$ and is called as &lt;b>Hermitian of a matrix&lt;/b>. Hence, the length of a complex vector is $z^Hz = |z_1|^2 + |z_2|^2 + &amp;hellip; + |z_n|^2$. Similarly, for a complex matrix $A$ to be symmetric, $A^H = A$ with diagonal elements being real. In a complex domain, we call symmetric matrices as &lt;b>Hermitian Matrices&lt;/b>. For two vectors $x$ and $y$ in a complex plane are perpendicular to each other if and only if $y^Hx = 0$. Hence, for an orrhogonal matrix (matrix with orthonormal columns) $Q$ in complex plane, $Q^HQ = I$. These orthogonal matrices in the complex plane are called as &lt;b>Unitary Matrices&lt;/b>.&lt;/p></description></item></channel></rss>

@@ -1,181 +1,108 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Classification on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/classification/</link>
-    <description>Recent content in Classification on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/classification/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link>
-      <pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</guid>
-      <description>4.4 The Laplace Approximation In the Bayesian treatment of logistic regression, we can not integrate exactly over the parameter $W$ as the posterior distribution is no longer Gaussian. Laplace approximation aims to find a Gaussian approximation to a probability density defined over a set of continuous variables. Let for a single continuous variable $z$, the distribution is defined as
-$$\begin{align} p(z) = \frac{1}{Z}f(z) \end{align}$$
-where $Z = \int f(z)dz$ is the normalizing coefficient.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Probabilistic Discriminative Models</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</link>
-      <pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</guid>
-      <description>4.3 Probabilistic Discriminative Models For two-class classification problem, the posterior probability of classes are the logistic sigmoid transformation of a linear function of input $X$. For multi-class classification problem, they are given by the softmax transformation of a linear function of input $X$. In maximum likelihood solution, we chose the class-conditional densities and then maximized the log likelihood to obtain posterior densities. However, an alternative approach is to use the functional form of the generalized linear model explicitly instead and to determine its parameters directly by using maximum likelihood.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Probabilistic Generative Models (Maximum Likelihood Solution)</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</link>
-      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</guid>
-      <description>4.2.2 Maximum Likelihood Solution Once the class-conditional densities $p(X|C_k)$ are expressed in a parametric form, the value of the parameter can be determinied using a maximum likelihood approach. This requires a data set having input $X$ together with their class labels. Suppose we have a data set ${X_n,t_n}$ where $n=1,2,&amp;hellip;,N$ and $t_n=1$ for class $C_1$ and $t_n=0$ for class $C_2$. Let the prior class probablities be $p(C_1) = \pi$ and $p(C_2) = 1-\pi$.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Probabilistic Generative Models</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link>
-      <pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid>
-      <description>4.2 Probabilistic Generative Models In the probabilistic generative modelling approach, we model the class-conditional densities $p(X|C_k)$, as well as the class priors $p(C_k)$, and then use these to compute posterior probabilities $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is
-$$\begin{align} p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)} \end{align}$$
-$$\begin{align} = \frac{1}{1+exp(-a)} = \sigma(a) \end{align}$$
-where
-$$\begin{align} a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)} \end{align}$$
-and $\sigma(a)$ is called as the logistic sigmoid function.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - The Perceptron Algorithm</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link>
-      <pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid>
-      <description>4.1.7 The Perceptron Algorithm In a perceptron algorithm, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form
-$$\begin{align} y(X) = f(W^T\phi(X)) \end{align}$$
-where the nonlinear activation function is given as
-$$\begin{align} f(a) = \begin{cases} +1, &amp;amp; a \geq 0\ -1, &amp;amp; a &amp;lt; 0 \end{cases} \end{align}$$
-Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Fisher’s Linear Discriminant</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link>
-      <pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid>
-      <description>4.1.4 Fisher&amp;rsquo;s Linear Discriminant Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to adjust the weight $W$ so that we can have the projection that maximizes the separation.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Least Squares for Classification</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link>
-      <pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid>
-      <description>4.1.3 Least Squares for Classification For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Discriminant Functions</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link>
-      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid>
-      <description>4.1 Discriminant Functions A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as linear discriminants.
-4.1.1 Two Classes The simplest representation of linear discriminant function is
-$$\begin{align} y(X) = W^TX + W_0 \end{align}$$
-where $W$ is called the weight vector and $W_0$ is bias. The negative of the bias is called threshold.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Discriminant Functions</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</link>
-      <pubDate>Tue, 28 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</guid>
-      <description>The goal of a calssification problem is to take the input vector $X$ and assign it to $K$ discrete classes $C_k$ where $k=1,2,3,&amp;hellip;,K$. The input space is divided into decision regions whose boundaries are called as decision boundaries or decision surfaces. For linear models for classification, the decision surfaces are linear functions of the input vector $X$. Hence, for a $D$ -dimensional input space, decision surface will be a $(D-1)$ -dimensional hyperplane.</description>
-    </item>
-    
-    <item>
-      <title>Logistic Regression</title>
-      <link>https://amitrajan012.github.io/post/logistic-regression/</link>
-      <pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/logistic-regression/</guid>
-      <description>In a classification setting, logistic regression models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1].</description>
-    </item>
-    
-    <item>
-      <title>Performance Metrics for Classification Algorithms</title>
-      <link>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</link>
-      <pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid>
-      <description>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.
-### Confusion Matrix : Confusion matrix is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures.</description>
-    </item>
-    
-    <item>
-      <title>Naive Bayes Classifier</title>
-      <link>https://amitrajan012.github.io/post/naive-bayes-classifier/</link>
-      <pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/naive-bayes-classifier/</guid>
-      <description>Introduction : Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are independent.
-The Bayes theorem is given as:
-$$P(c|X) = \frac{P(c)P(X|c)}{P(X)}$$
-where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c)$ and $P(X)$ are the prior probabilities of the class and the predictor. $P(X|c)$ is the prior probability or likelihood of observing a feature $X$ given class $c$.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</title>
-      <link>https://amitrajan012.github.io/post/classification_part4/</link>
-      <pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/classification_part4/</guid>
-      <description>Applied Q10. This question should be answered using the Weekly data set.
-(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?
-import seaborn as sns weekly = pd.read_csv(&amp;#34;data/Weekly.csv&amp;#34;) sns.pairplot(weekly, vars=[&amp;#39;Lag1&amp;#39;, &amp;#39;Lag2&amp;#39;, &amp;#39;Lag3&amp;#39;, &amp;#39;Lag4&amp;#39;, &amp;#39;Lag5&amp;#39;, &amp;#39;Volume&amp;#39;], hue=&amp;#39;Direction&amp;#39;) (b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</title>
-      <link>https://amitrajan012.github.io/post/classification_part3/</link>
-      <pubDate>Tue, 15 May 2018 09:02:08 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/classification_part3/</guid>
-      <description>4.7 Exercises Conceptual Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation for the logistic regression model are equivalent.
-Sol: Logistic function representation is given as:
-$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$
-then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get
-$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</title>
-      <link>https://amitrajan012.github.io/post/classification_part2/</link>
-      <pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/classification_part2/</guid>
-      <description>4.4 Linear Discriminant Analysis In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use Bayes&amp;rsquo; Theorem to flip these around into estimates for Pr(Y = k | X = x). When these distributions are assumed to be normal, this model is very similar to logistic regression.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</title>
-      <link>https://amitrajan012.github.io/post/classification_part1/</link>
-      <pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/classification_part1/</guid>
-      <description>Classification A process for predicting qualitative or categorical variables is called as Classification.
-4.1 An Overview of Classification The dataset used in this chapter will be Default dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:
-import pandas as pd import seaborn as sns import matplotlib.pyplot as plt default = pd.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Classification on Amit Rajan</title><link>https://amitrajan012.github.io/tags/classification/</link><description>Recent content in Classification on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 06 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/classification/index.xml" rel="self" type="application/rss+xml"/><item><title>Linear Models for Clasification - The Laplace Approximation &amp; Bayesian Logistic Regression</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</link><pubDate>Wed, 06 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_9/</guid><description>&lt;h2 id="44-the-laplace-approximation">4.4 The Laplace Approximation&lt;/h2>
+&lt;p>In the Bayesian treatment of logistic regression, we can not integrate exactly over the parameter $W$ as the posterior distribution is no longer Gaussian. &lt;b>Laplace approximation&lt;/b> aims to find a Gaussian approximation to a probability density defined over a set of continuous variables. Let for a single continuous variable $z$, the distribution is defined as&lt;/p>
+&lt;p>$$\begin{align}
+p(z) = \frac{1}{Z}f(z)
+\end{align}$$&lt;/p>
+&lt;p>where $Z = \int f(z)dz$ is the &lt;b>normalizing coefficient&lt;/b>. In the Laplace method, the goal is to find a Gaussian approximation $q(z)$ of $p(z)$ which is centred on the mode of the distribution $p(z)$. The first step is to find the model of $p(z)$, i.e. the point $z_0$ such that $p^{&amp;rsquo;}(z_0) = 0$, or&lt;/p></description></item><item><title>Linear Models for Clasification - Probabilistic Discriminative Models</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</link><pubDate>Tue, 05 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_8/</guid><description>&lt;h2 id="43-probabilistic-discriminative-models">4.3 Probabilistic Discriminative Models&lt;/h2>
+&lt;p>For two-class classification problem, the posterior probability of classes are the &lt;b>logistic sigmoid&lt;/b> transformation of a linear function of input $X$. For multi-class classification problem, they are given by the &lt;b>softmax&lt;/b> transformation of a linear function of input $X$. In maximum likelihood solution, we chose the class-conditional densities and then maximized the log likelihood to obtain posterior densities. However, an alternative approach is to use the functional form of the generalized linear model explicitly instead and to determine its parameters directly by using maximum
+likelihood. In this approach, we are maximizing a likelihood function defined through the conditional distribution $p(C_k|X)$, which represents a form of &lt;b>discriminative function&lt;/b>. One advantage of the discriminative approach is that there will typically be fewer adaptive parameters to be determined. Unlike &lt;b>generative modeling&lt;/b>, it can not be used to generate synthetic data as we won&amp;rsquo;t have the distributions $p(X)$ and $p(X|C_k)$.&lt;/p></description></item><item><title>Linear Models for Clasification - Probabilistic Generative Models (Maximum Likelihood Solution)</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</link><pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</guid><description>&lt;h3 id="422-maximum-likelihood-solution">4.2.2 Maximum Likelihood Solution&lt;/h3>
+&lt;p>Once the class-conditional densities $p(X|C_k)$ are expressed in a parametric form, the value of the parameter can be determinied using a maximum likelihood approach. This requires a data set having input $X$ together with their class labels. Suppose we have a data set ${X_n,t_n}$ where $n=1,2,&amp;hellip;,N$ and $t_n=1$ for class $C_1$ and $t_n=0$ for class $C_2$. Let the prior class probablities be $p(C_1) = \pi$ and $p(C_2) = 1-\pi$. The joint densities are given as&lt;/p></description></item><item><title>Linear Models for Clasification - Probabilistic Generative Models</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link><pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid><description>&lt;h2 id="42-probabilistic-generative-models">4.2 Probabilistic Generative Models&lt;/h2>
+&lt;p>In the &lt;b>probabilistic generative modelling&lt;/b> approach, we model the &lt;b>class-conditional densities&lt;/b> $p(X|C_k)$, as well as the &lt;b>class priors&lt;/b> $p(C_k)$, and then use these to compute &lt;b>posterior probabilities&lt;/b> $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is&lt;/p>
+&lt;p>$$\begin{align}
+p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)}
+\end{align}$$&lt;/p>
+&lt;p>$$\begin{align}
+= \frac{1}{1+exp(-a)} = \sigma(a)
+\end{align}$$&lt;/p>
+&lt;p>where&lt;/p>
+&lt;p>$$\begin{align}
+a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)}
+\end{align}$$&lt;/p>
+&lt;p>and $\sigma(a)$ is called as the &lt;b>logistic sigmoid function&lt;/b>. It is a &lt;b>S-shaped&lt;/b> function and also called as &lt;b>squashing function&lt;/b> as it maps the entire real axis into a finite interval. It satisfies: $\sigma(-a) = 1 - \sigma(a)$. The inverse of the function is given as&lt;/p></description></item><item><title>Linear Models for Clasification - The Perceptron Algorithm</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</link><pubDate>Sat, 02 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_5/</guid><description>&lt;h3 id="417-the-perceptron-algorithm">4.1.7 The Perceptron Algorithm&lt;/h3>
+&lt;p>In a &lt;b>perceptron algorithm&lt;/b>, input vector $X$ is first transformed using a fixed nonlinear transformation to get a feature vector $\phi(X)$, and this is then used to construct a generalized linear model of the form&lt;/p>
+&lt;p>$$\begin{align}
+y(X) = f(W^T\phi(X))
+\end{align}$$&lt;/p>
+&lt;p>where the nonlinear &lt;b>activation function&lt;/b> is given as&lt;/p>
+&lt;p>$$\begin{align}
+f(a) =
+\begin{cases}
++1, &amp;amp; a \geq 0\
+-1, &amp;amp; a &amp;lt; 0
+\end{cases}
+\end{align}$$&lt;/p>
+&lt;p>Here we will use a target coding scheme of ${-1,+1}$, where $t_n=+1$ for $C_1$ and $t_n=-1$ for $C_2$. A natural choice of error function would be the total number of misclassified patterns. But this error function is piecewise constant funtion of $W$ and hence the gradient with respect to $W$ will be $0$ almost everywhere. Insted, we can use an alternative error function known as &lt;b>perceptron criterian&lt;/b>. Here, we are looking for a weight vector $W$ which, for class $C_1$ satisfies $W^T\phi(X_n) &amp;gt; 0$ and for class $C_2$ satisfies $W^T\phi(X_n) &amp;lt; 0$. Hence, when combined together, it should satisfy $W^T\phi(X_n)t_n &amp;lt; 0$. The perceptron criterian associates $0$ error with the inputs that are correctly classified. For misclassified inputs, it tries to minimize $-W^T\phi(X_n)t_n$. The perceptron criterian is hence given as&lt;/p></description></item><item><title>Linear Models for Clasification - Fisher’s Linear Discriminant</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</link><pubDate>Fri, 01 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_4/</guid><description>&lt;h3 id="414-fishers-linear-discriminant">4.1.4 Fisher&amp;rsquo;s Linear Discriminant&lt;/h3>
+&lt;p>Linear classification model can be viewed as projecting the $D$-dimensional data onto a one-dimensional space. The equation $y=W^TX$ projects the $D$-dimensional input vector on a one dimensional space. Projection onto one dimension leads to a considerable loss of information and classes that are well-separated in the $D$-dimensional space may become overlapping in the one dimensional space. The goal of the classification problem is to &lt;b>adjust the weight $W$ so that we can have the projection that maximizes the separation&lt;/b>.&lt;/p></description></item><item><title>Linear Models for Clasification - Least Squares for Classification</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</link><pubDate>Thu, 30 Jun 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_3/</guid><description>&lt;h3 id="413-least-squares-for-classification">4.1.3 Least Squares for Classification&lt;/h3>
+&lt;p>For the regression problem, minimizing the sum of squares error function led to a simple closed form solution for the parameters. We can check whether the same can be applied to the classification problem in hand. Consider a general classification problem with $K$ classes with a $1-of-K$ binary coding scheme for the target variable $t$. Each class $C_k$ is described by its own linear model given as&lt;/p></description></item><item><title>Linear Models for Clasification - Discriminant Functions</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link><pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid><description>&lt;h2 id="41-discriminant-functions">4.1 Discriminant Functions&lt;/h2>
+&lt;p>A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as &lt;b>linear discriminants&lt;/b>.&lt;/p>
+&lt;h3 id="411-two-classes">4.1.1 Two Classes&lt;/h3>
+&lt;p>The simplest representation of linear discriminant function is&lt;/p>
+&lt;p>$$\begin{align}
+y(X) = W^TX + W_0
+\end{align}$$&lt;/p>
+&lt;p>where $W$ is called the &lt;b>weight vector&lt;/b> and $W_0$ is &lt;b>bias&lt;/b>. The negative of the bias is called &lt;b>threshold&lt;/b>. The input vector will be assigned to the class $C_1$ if $y(X) \geq 0$ and $C_2$ otherwise. The decision boundary will be defined by the relation $y(X) = 0$. Let $X_A,X_B$ are the two points lying on the decision surface, then $y(X_A) = y(X_B) = 0$ and hence $W^T(X_A - X_B) = 0$. This means that the weight vector $W$ is orthogonal to every vector in the decision surface, i.e. $W$ determines the direction of the decision surface. Let $X$ be a point on the decsion surface which is closest to the origin. Thie means that this point can be represented as $X = \alpha W$ as the perpendicular weight vector $W$ will be the direction in which we will have the smallest vector passing through origin and the hyperplace. As $X$ lies on the hyperplace, we have $y(X) = W^TX + W_0 = 0$, i.e. $W^TX + W_0 = \alpha W^TW + W_0 = 0$ and hence $\alpha = -W_0/||W||^2$. The distance of the point $X$ from the origin is $||X|| = ||\alpha W|| = \frac{-W_0}{||W||^2}||W|| = \frac{-W_0}{||W||}$. Hence, &lt;b>the normal distance of the hyperplane from the origin&lt;/b> is given by $\frac{-W_0}{||W||}$. This means that the &lt;b>bias parameter&lt;/b> $W_0$ decides the location of the decision surface.&lt;/p></description></item><item><title>Linear Models for Clasification - Discriminant Functions</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</link><pubDate>Tue, 28 Jun 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_1/</guid><description>&lt;p>The goal of a calssification problem is to take the input vector $X$ and assign it to $K$ discrete classes $C_k$ where $k=1,2,3,&amp;hellip;,K$. The input space is divided into &lt;b>decision regions&lt;/b> whose boundaries are called as &lt;b>decision boundaries&lt;/b> or &lt;b>decision surfaces&lt;/b>. For linear models for classification, the decision surfaces are linear functions of the input vector $X$. Hence, for a $D$ -dimensional input space, decision surface will be a $(D-1)$ -dimensional hyperplane. Data sets whose classes can be separated exactly by linear decision surfaces are said to be &lt;b>linearlly separable&lt;/b>.&lt;/p></description></item><item><title>Logistic Regression</title><link>https://amitrajan012.github.io/post/logistic-regression/</link><pubDate>Wed, 05 Dec 2018 07:26:51 +0530</pubDate><guid>https://amitrajan012.github.io/post/logistic-regression/</guid><description>&lt;/br>
+In a classification setting, &lt;b>logistic regression&lt;/b> models the probability of a response $Y$ belonging to a particaular category. A simple linear regression can not be used for classification as the output of a linear regression can have a range that goes from $-\infty$ to $\infty$ (we need to find the values in the range [0, 1]). Instead, we can transform the output of linear regression such that the output is confined in the range [0, 1]. For this, a &lt;b>logistic function&lt;/b> which is given below can be used.
+&lt;p>$$p(X) = \frac{e^{\beta_0 + \beta X}}{1 + e^{\beta_0 + \beta X}}$$&lt;/p></description></item><item><title>Performance Metrics for Classification Algorithms</title><link>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</link><pubDate>Mon, 29 Oct 2018 12:11:37 +0100</pubDate><guid>https://amitrajan012.github.io/post/performance-metrics-for-classification-algorithms/</guid><description>&lt;p>There are several metrics that can be used to measure the performance of a classification algorithm. The choice for the same depends on the problem statement and serves an important role in model selection.&lt;/p>
+&lt;/br>
+### Confusion Matrix :
+&lt;p>&lt;b>Confusion matrix&lt;/b> is one of the easiest and the most intutive way to find the correctness and accuracy of the model. It serves as the building block for all the other performance measures. A sample confusion matrix is shown below:&lt;/p></description></item><item><title>Naive Bayes Classifier</title><link>https://amitrajan012.github.io/post/naive-bayes-classifier/</link><pubDate>Wed, 24 Oct 2018 05:01:19 +0100</pubDate><guid>https://amitrajan012.github.io/post/naive-bayes-classifier/</guid><description>&lt;/br>
+&lt;h3 id="introduction-">Introduction :&lt;/h3>
+&lt;p>Naive Bayes is an extremely fast classification algorithm which uses Bayes Theorem as its basic building block. It assumes that the features or predictors in the dataset are &lt;b>independent&lt;/b>.&lt;/p>
+&lt;p>The Bayes theorem is given as:&lt;/p>
+&lt;p>$$P(c|X) = \frac{P(c)P(X|c)}{P(X)}$$&lt;/p>
+&lt;p>where $c$ denotes a class label and $X$ is the predictor. The probabilities $P(c)$ and $P(X)$ are the &lt;b>prior probabilities&lt;/b> of the class and the predictor. $P(X|c)$ is the prior probability or &lt;b>likelihood&lt;/b> of observing a feature $X$ given class $c$. $P(c|X)$ is the &lt;b>posterior probability&lt;/b> of the class $c$ given a feature $X$. Hence, the posterior probability of a class $c$ givena a feature $X$ can be found using different prior probabilities and likelihood which can be obtained from the existing dataset. In the plain english, the Bayes theorem can be stated as:&lt;/p></description></item><item><title>ISLR Chapter 4: Classification (Part 4: Exercises- Applied)</title><link>https://amitrajan012.github.io/post/classification_part4/</link><pubDate>Wed, 16 May 2018 10:20:15 +0100</pubDate><guid>https://amitrajan012.github.io/post/classification_part4/</guid><description>&lt;h4 id="applied">Applied&lt;/h4>
+&lt;p>Q10. This question should be answered using the Weekly data set.&lt;/p>
+&lt;p>(a) Produce some numerical and graphical summaries of the Weekly data. Do there appear to be any patterns?&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> seaborn &lt;span style="color:#66d9ef">as&lt;/span> sns
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>weekly &lt;span style="color:#f92672">=&lt;/span> pd&lt;span style="color:#f92672">.&lt;/span>read_csv(&lt;span style="color:#e6db74">&amp;#34;data/Weekly.csv&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sns&lt;span style="color:#f92672">.&lt;/span>pairplot(weekly, vars&lt;span style="color:#f92672">=&lt;/span>[&lt;span style="color:#e6db74">&amp;#39;Lag1&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lag2&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lag3&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lag4&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Lag5&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;Volume&amp;#39;&lt;/span>], hue&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;Direction&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;figure class="fig">&lt;img src="https://amitrajan012.github.io/img/Classification_files/Classification_49_2.png" alt="" loading="lazy">&lt;/figure>
+&lt;p>(b) Use the full data set to perform a logistic regression with Direction as the response and the five lag variables plus Volume as predictors. Use the summary function to print the results. Do any of the predictors appear to be statistically significant? If so, which ones?&lt;/p></description></item><item><title>ISLR Chapter 4: Classification (Part 3: Exercises- Conceptual)</title><link>https://amitrajan012.github.io/post/classification_part3/</link><pubDate>Tue, 15 May 2018 09:02:08 +0100</pubDate><guid>https://amitrajan012.github.io/post/classification_part3/</guid><description>&lt;h3 id="47-exercises">4.7 Exercises&lt;/h3>
+&lt;h4 id="conceptual">Conceptual&lt;/h4>
+&lt;p>Q1. Using a little bit of algebra, prove that the logistic function representation and logit representation
+for the logistic regression model are equivalent.&lt;/p>
+&lt;p>&lt;b>Sol: &lt;/b> Logistic function representation is given as:&lt;/p>
+&lt;p>$$p(X) = \frac{e^{\beta_0 + \beta_1X}}{1 + e^{\beta_0 + \beta_1X}}$$&lt;/p>
+&lt;p>then $1-p(X) = \frac{1}{1 + e^{\beta_0 + \beta_1X}}$, Taking the ratio of these two and then taking the log, we get&lt;/p>
+&lt;p>$$log\bigg( \frac{p(X)}{1-p(X)} \bigg) = \beta_0 + \beta_1X$$&lt;/p></description></item><item><title>ISLR Chapter 4: Classification (Part 2: Linear Discriminant Analysis)</title><link>https://amitrajan012.github.io/post/classification_part2/</link><pubDate>Mon, 14 May 2018 11:12:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/classification_part2/</guid><description>&lt;h3 id="44-linear-discriminant-analysis">4.4 Linear Discriminant Analysis&lt;/h3>
+&lt;p>In logistic regression, we model the the conditional distribution of response $Y$ given the predictors $X$. As an alternative approach, we model the distribution of predictors X seperately for each of the response classe. We then use &lt;b>Bayes&amp;rsquo; Theorem&lt;/b> to flip these around into estimates for &lt;b>Pr(Y = k | X = x)&lt;/b>. When these distributions are assumed to be &lt;b>normal&lt;/b>, this model is very similar to logistic regression. The advantage of LDA is as follows:&lt;/p></description></item><item><title>ISLR Chapter 4: Classification (Part 1: Logistic Regression)</title><link>https://amitrajan012.github.io/post/classification_part1/</link><pubDate>Sun, 13 May 2018 02:17:58 +0100</pubDate><guid>https://amitrajan012.github.io/post/classification_part1/</guid><description>&lt;h1>&lt;center>Classification&lt;/center>&lt;/h1>
+&lt;p>A process for predicting &lt;b>qualitative&lt;/b> or &lt;b>categorical&lt;/b> variables is called as &lt;b>Classification&lt;/b>.&lt;/p>
+&lt;h3 id="41-an-overview-of-classification">4.1 An Overview of Classification&lt;/h3>
+&lt;p>The dataset used in this chapter will be &lt;b>Default&lt;/b> dataset. We will predict that whether an individual will default on his/her credit card payment on the basis of annual income and monthly credit card balance. The data is displayed below:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> pandas &lt;span style="color:#66d9ef">as&lt;/span> pd
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> seaborn &lt;span style="color:#66d9ef">as&lt;/span> sns
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> matplotlib.pyplot &lt;span style="color:#66d9ef">as&lt;/span> plt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>default &lt;span style="color:#f92672">=&lt;/span> pd&lt;span style="color:#f92672">.&lt;/span>read_excel(&lt;span style="color:#e6db74">&amp;#34;data/Default.xlsx&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>markers &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;Yes&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;x&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;No&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;+&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>palette &lt;span style="color:#f92672">=&lt;/span> {&lt;span style="color:#e6db74">&amp;#34;Yes&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;red&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;No&amp;#34;&lt;/span>: &lt;span style="color:#e6db74">&amp;#34;green&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>fig &lt;span style="color:#f92672">=&lt;/span> plt&lt;span style="color:#f92672">.&lt;/span>figure(figsize&lt;span style="color:#f92672">=&lt;/span>(&lt;span style="color:#ae81ff">15&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax &lt;span style="color:#f92672">=&lt;/span> fig&lt;span style="color:#f92672">.&lt;/span>add_subplot(&lt;span style="color:#ae81ff">111&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sns&lt;span style="color:#f92672">.&lt;/span>scatterplot(x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;balance&amp;#34;&lt;/span>, y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;income&amp;#34;&lt;/span>, hue&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;default&amp;#34;&lt;/span>, style&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;default&amp;#34;&lt;/span>, markers&lt;span style="color:#f92672">=&lt;/span>markers, palette&lt;span style="color:#f92672">=&lt;/span>palette,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.6&lt;/span>, data&lt;span style="color:#f92672">=&lt;/span>default)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_xlabel(&lt;span style="color:#e6db74">&amp;#39;Balance&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_ylabel(&lt;span style="color:#e6db74">&amp;#39;Income&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_title(&lt;span style="color:#e6db74">&amp;#39;Scatter Plot&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>fig &lt;span style="color:#f92672">=&lt;/span> plt&lt;span style="color:#f92672">.&lt;/span>figure(figsize&lt;span style="color:#f92672">=&lt;/span>(&lt;span style="color:#ae81ff">15&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax &lt;span style="color:#f92672">=&lt;/span> fig&lt;span style="color:#f92672">.&lt;/span>add_subplot(&lt;span style="color:#ae81ff">121&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sns&lt;span style="color:#f92672">.&lt;/span>boxplot(x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;default&amp;#34;&lt;/span>, y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;balance&amp;#34;&lt;/span>, data&lt;span style="color:#f92672">=&lt;/span>default)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_xlabel(&lt;span style="color:#e6db74">&amp;#39;Default&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_ylabel(&lt;span style="color:#e6db74">&amp;#39;Balance&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_title(&lt;span style="color:#e6db74">&amp;#39;Box Plot&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax &lt;span style="color:#f92672">=&lt;/span> fig&lt;span style="color:#f92672">.&lt;/span>add_subplot(&lt;span style="color:#ae81ff">122&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sns&lt;span style="color:#f92672">.&lt;/span>boxplot(x&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;default&amp;#34;&lt;/span>, y&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;income&amp;#34;&lt;/span>, data&lt;span style="color:#f92672">=&lt;/span>default)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_xlabel(&lt;span style="color:#e6db74">&amp;#39;Default&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_ylabel(&lt;span style="color:#e6db74">&amp;#39;Income&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ax&lt;span style="color:#f92672">.&lt;/span>set_title(&lt;span style="color:#e6db74">&amp;#39;Box Plot&amp;#39;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>plt&lt;span style="color:#f92672">.&lt;/span>show()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;figure class="fig">&lt;img src="https://amitrajan012.github.io/img/Classification_files/Classification_5_0.png" alt="" loading="lazy">&lt;/figure>
+&lt;figure class="fig">&lt;img src="https://amitrajan012.github.io/img/Classification_files/Classification_5_1.png" alt="" loading="lazy">&lt;/figure>
+&lt;h3 id="42-why-not-linear-regression">4.2 Why Not Linear Regression?&lt;/h3>
+&lt;p>In general, there is no natural way to convert a qualitative response variable with more than two levels into a quantitative response that is ready for linear regression. For the binary qualitative response, we can simply encode the variables as 0 and 1 and predict the values taking 0.5 as threshold.&lt;/p></description></item></channel></rss>

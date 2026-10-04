@@ -1,53 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Binomial Distribution on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/binomial-distribution/</link>
-    <description>Recent content in Binomial Distribution on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 11 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/binomial-distribution/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Probability Distributions - Binary Variables</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</link>
-      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</guid>
-      <description>One goal of pattern recognition is to model the probability distribution $p(x)$ of a random variable $x$ given the finite set of points $x_1, x_2, &amp;hellip;, x_N$. This problem is known as density estimation. For simplicity, we can assume that the points are independent and identically distributed. There can be infinitely many distributions that can give rise to the given data points with any distribution that is non-zero at the points $x_1, x_2, &amp;hellip;, x_N$ as a potential candidate.</description>
-    </item>
-    
-    <item>
-      <title>Confidence Intervals (Part 2)</title>
-      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
-      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
-      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
-$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
-where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
-    </item>
-    
-    <item>
-      <title>Commonly used Distributions (Part 1)</title>
-      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
-      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
-      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
-$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
-$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
-#### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
-    </item>
-    
-    <item>
-      <title>Think Stats: Chapter 5</title>
-      <link>https://amitrajan012.github.io/post/chapter-5-probability/</link>
-      <pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-5-probability/</guid>
-      <description>The belief in which probability is expressed in terms of frequencies is called as frequentism. Frequentists believe that if there is no set of identical trials, there is no probability.
-An alternative is Bayesianism, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&amp;rsquo;s state of knowledge.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Binomial Distribution on Amit Rajan</title><link>https://amitrajan012.github.io/tags/binomial-distribution/</link><description>Recent content in Binomial Distribution on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 11 Jun 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/binomial-distribution/index.xml" rel="self" type="application/rss+xml"/><item><title>Probability Distributions - Binary Variables</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</link><pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</guid><description>&lt;p>One goal of pattern recognition is to model the &lt;b>probability distribution&lt;/b> $p(x)$ of a random variable $x$ given the finite set of points $x_1, x_2, &amp;hellip;, x_N$. This problem is known as &lt;b>density estimation&lt;/b>. For simplicity, we can assume that the points are &lt;b>independent and identically distributed&lt;/b>. There can be infinitely many distributions that can give rise to the given data points with any distribution that is non-zero at the points $x_1, x_2, &amp;hellip;, x_N$ as a potential candidate.&lt;/p></description></item><item><title>Confidence Intervals (Part 2)</title><link>https://amitrajan012.github.io/post/confidence-intervals_2/</link><pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate><guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid><description>&lt;/br>
+#### Confidence Intervals for Proportions :
+&lt;p>Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where &lt;b>the number of trials $n$ is large enough&lt;/b>, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:&lt;/p>
+&lt;p>$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$&lt;/p>
+&lt;p>where $\widehat{p}$ is the &lt;b>sample proportion&lt;/b> and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the &lt;b>sample variance&lt;/b>. This method of computation of the confidence interval for the proportion works for large sample size or we can say that the experiment should containt at least 10 successes and 10 failures.&lt;/p></description></item><item><title>Commonly used Distributions (Part 1)</title><link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link><pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate><guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid><description>&lt;/br>
+#### The Bernoulli Distribution :
+&lt;p>&lt;b>Bernoulli trial&lt;/b> is an experiment that can result in two outcomes: &lt;b>success&lt;/b> (with probability $p$) and &lt;b>failure&lt;/b> (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:&lt;/p>
+&lt;p>$$\mu_X = 0 \times (1-p) + 1 \times p = p$$&lt;/p>
+&lt;p>$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$&lt;/p>
+&lt;/br>
+#### The Binomial Distribution :
+&lt;p>When a set of $n$ &lt;b>independent Bernoulli trials&lt;/b> are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the &lt;b>binomial distribution&lt;/b> with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$. &lt;b>Probability mass function&lt;/b> of a binomial distribution can be computed as:&lt;/p></description></item><item><title>Think Stats: Chapter 5</title><link>https://amitrajan012.github.io/post/chapter-5-probability/</link><pubDate>Wed, 22 Aug 2018 09:12:36 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-5-probability/</guid><description>&lt;p>The belief in which probability is expressed in terms of frequencies is called as &lt;b>frequentism&lt;/b>. Frequentists believe that if there is no set of identical trials, there is no probability.&lt;/p>
+&lt;p>An alternative is &lt;b>Bayesianism&lt;/b>, which defines probability as a degree of belief that an event will occur. By this definition, the notion of probability can be applied in almost any cicumstance. One drawback of Bayesian probability is that it depends on person&amp;rsquo;s state of knowledge. People with different information might have different degree of belief about the same event. This is the reason that many people think that Bayesian probability is more subjective than frequentists.&lt;/p></description></item></channel></rss>

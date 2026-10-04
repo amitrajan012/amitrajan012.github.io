@@ -1,67 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Bernoulli Distribution on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link>
-    <description>Recent content in Bernoulli Distribution on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bernoulli-distribution/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Probability Distributions - The Exponential Family</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</link>
-      <pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</guid>
-      <description>2.4 The Exponential Family Exponential family of distributions over $X$ with parameters $\eta$ is defined as
-$$\begin{align} p(X|\eta) = h(X)g(\eta)exp[\eta^Tu(X)] \end{align}$$
-Here $\eta$ is the natural parameter of the distribution and $u(X)$ is some function of $X$. $g(\eta)$ ensures that the distribution is normalized and satisfies
-$$\begin{align} g(\eta) \int h(X)exp[\eta^Tu(X)] dX = 1 \end{align}$$
-Bernoulli distribution is a common exponential distribution. It is given as
-$$\begin{align} p(x|\mu) = Bern(x|\mu) = \mu^x(1-\mu)^{1-x} = exp[x\ln \mu + (1-x)\ln(1-\mu)] \end{align}$$</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - Binary Variables</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</link>
-      <pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</guid>
-      <description>One goal of pattern recognition is to model the probability distribution $p(x)$ of a random variable $x$ given the finite set of points $x_1, x_2, &amp;hellip;, x_N$. This problem is known as density estimation. For simplicity, we can assume that the points are independent and identically distributed. There can be infinitely many distributions that can give rise to the given data points with any distribution that is non-zero at the points $x_1, x_2, &amp;hellip;, x_N$ as a potential candidate.</description>
-    </item>
-    
-    <item>
-      <title>Confidence Intervals (Part 2)</title>
-      <link>https://amitrajan012.github.io/post/confidence-intervals_2/</link>
-      <pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid>
-      <description>#### Confidence Intervals for Proportions : Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where the number of trials $n$ is large enough, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:
-$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$
-where $\widehat{p}$ is the sample proportion and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the sample variance.</description>
-    </item>
-    
-    <item>
-      <title>Commonly used Distributions (Part 1)</title>
-      <link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link>
-      <pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid>
-      <description>#### The Bernoulli Distribution : Bernoulli trial is an experiment that can result in two outcomes: success (with probability $p$) and failure (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:
-$$\mu_X = 0 \times (1-p) + 1 \times p = p$$
-$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$
-#### The Binomial Distribution : When a set of $n$ independent Bernoulli trials are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the binomial distribution with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$.</description>
-    </item>
-    
-    <item>
-      <title>Maximum Likelihood Estimation</title>
-      <link>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</link>
-      <pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</guid>
-      <description>### Introduction : Maximum Likelihood Estimation is the method of estimating the parameters of a statistical model, given the observations. It attempts to find the parameter values that maximize the likelihood function. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.
-Suppose we have the data points (random samples) $X_1, X_2, &amp;hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &amp;hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &amp;hellip;, \theta_m)$.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bernoulli Distribution on Amit Rajan</title><link>https://amitrajan012.github.io/tags/bernoulli-distribution/</link><description>Recent content in Bernoulli Distribution on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 18 Jun 2022 19:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/bernoulli-distribution/index.xml" rel="self" type="application/rss+xml"/><item><title>Probability Distributions - The Exponential Family</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</link><pubDate>Sat, 18 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_8/</guid><description>&lt;h2 id="24-the-exponential-family">2.4 The Exponential Family&lt;/h2>
+&lt;p>&lt;b>Exponential family&lt;/b> of distributions over $X$ with parameters $\eta$ is defined as&lt;/p>
+&lt;p>$$\begin{align}
+p(X|\eta) = h(X)g(\eta)exp[\eta^Tu(X)]
+\end{align}$$&lt;/p>
+&lt;p>Here $\eta$ is the &lt;b>natural parameter&lt;/b> of the distribution and $u(X)$ is some function of $X$. $g(\eta)$ ensures that the distribution is normalized and satisfies&lt;/p>
+&lt;p>$$\begin{align}
+g(\eta) \int h(X)exp[\eta^Tu(X)] dX = 1
+\end{align}$$&lt;/p>
+&lt;p>&lt;b>Bernoulli distribution&lt;/b> is a common exponential distribution. It is given as&lt;/p>
+&lt;p>$$\begin{align}
+p(x|\mu) = Bern(x|\mu) = \mu^x(1-\mu)^{1-x} = exp[x\ln \mu + (1-x)\ln(1-\mu)]
+\end{align}$$&lt;/p></description></item><item><title>Probability Distributions - Binary Variables</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</link><pubDate>Sat, 11 Jun 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_1/</guid><description>&lt;p>One goal of pattern recognition is to model the &lt;b>probability distribution&lt;/b> $p(x)$ of a random variable $x$ given the finite set of points $x_1, x_2, &amp;hellip;, x_N$. This problem is known as &lt;b>density estimation&lt;/b>. For simplicity, we can assume that the points are &lt;b>independent and identically distributed&lt;/b>. There can be infinitely many distributions that can give rise to the given data points with any distribution that is non-zero at the points $x_1, x_2, &amp;hellip;, x_N$ as a potential candidate.&lt;/p></description></item><item><title>Confidence Intervals (Part 2)</title><link>https://amitrajan012.github.io/post/confidence-intervals_2/</link><pubDate>Sun, 18 Nov 2018 05:07:15 +0530</pubDate><guid>https://amitrajan012.github.io/post/confidence-intervals_2/</guid><description>&lt;/br>
+#### Confidence Intervals for Proportions :
+&lt;p>Let $X$ be the number of successes in $n$ independent Bernoulli trials with success probability $p$, where &lt;b>the number of trials $n$ is large enough&lt;/b>, such that $X \sim Bin(n, p)$. Then the $100(1 - \alpha) %$ confidence interval for $p$ is:&lt;/p>
+&lt;p>$$\widehat{p} \pm z_{\alpha/2}\sqrt{\frac{\widehat{p}(1-\widehat{p})}{n}}$$&lt;/p>
+&lt;p>where $\widehat{p}$ is the &lt;b>sample proportion&lt;/b> and can be estimated as $\frac{X}{n}$. It should be noted that the quantity under the square root is the &lt;b>sample variance&lt;/b>. This method of computation of the confidence interval for the proportion works for large sample size or we can say that the experiment should containt at least 10 successes and 10 failures.&lt;/p></description></item><item><title>Commonly used Distributions (Part 1)</title><link>https://amitrajan012.github.io/post/commonly-used-distributions_1/</link><pubDate>Thu, 15 Nov 2018 12:03:41 +0100</pubDate><guid>https://amitrajan012.github.io/post/commonly-used-distributions_1/</guid><description>&lt;/br>
+#### The Bernoulli Distribution :
+&lt;p>&lt;b>Bernoulli trial&lt;/b> is an experiment that can result in two outcomes: &lt;b>success&lt;/b> (with probability $p$) and &lt;b>failure&lt;/b> (with probability $1-p$). A Bernoulli random variable $X$ can be represented as $X \sim Bernoulli(p)$. It&amp;rsquo;s mean $\mu_X$ and variance $\sigma_X^2$ can be computed as:&lt;/p>
+&lt;p>$$\mu_X = 0 \times (1-p) + 1 \times p = p$$&lt;/p>
+&lt;p>$$\sigma_X^2 = (0-p)^2(1-p) + (1-p)^2p = p(1-p)$$&lt;/p>
+&lt;/br>
+#### The Binomial Distribution :
+&lt;p>When a set of $n$ &lt;b>independent Bernoulli trials&lt;/b> are conducted, each with a success probability of $p$, a random variable $X$ which is equal to the number of success in these trials is said to have the &lt;b>binomial distribution&lt;/b> with parameters $n$ and $p$ and is represented as $X \sim Bin(n, p)$. &lt;b>Probability mass function&lt;/b> of a binomial distribution can be computed as:&lt;/p></description></item><item><title>Maximum Likelihood Estimation</title><link>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</link><pubDate>Sun, 28 Oct 2018 17:11:47 +0100</pubDate><guid>https://amitrajan012.github.io/post/maximum-likelihood-estimation-/</guid><description>&lt;/br>
+### Introduction :
+&lt;p>&lt;b>Maximum Likelihood Estimation&lt;/b> is the method of estimating the &lt;b>parameters&lt;/b> of a &lt;b>statistical model&lt;/b>, given the observations. It attempts to find the parameter values that maximize the &lt;b>likelihood function&lt;/b>. The process can be viewed as finding the parameters that maximize the likelihood of getting the data we observed for a particular set of statistical models.&lt;/p>
+&lt;p>Suppose we have the data points (random samples) $X_1, X_2, &amp;hellip;, X_n$ which belong to a distribution which depends on one or more unknown parameters $\theta_1, \theta_2, &amp;hellip;, \theta_m$ with probability density (or mass) function $f(x_i; \theta_1, \theta_2, &amp;hellip;, \theta_m)$. Here, $x_i$s are the observed values for $X_i$s. Our task is to find the value of parameters that maximize the probability or likelihood of getting the observed value of the data. i.e., We need to maximize the following quantity (which is called as the &lt;b>Likelihood function&lt;/b>):&lt;/p></description></item></channel></rss>

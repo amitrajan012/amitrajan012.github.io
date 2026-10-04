@@ -1,34 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Class Priors on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/class-priors/</link>
-    <description>Recent content in Class Priors on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/class-priors/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear Models for Clasification - Probabilistic Generative Models (Maximum Likelihood Solution)</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</link>
-      <pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</guid>
-      <description>4.2.2 Maximum Likelihood Solution Once the class-conditional densities $p(X|C_k)$ are expressed in a parametric form, the value of the parameter can be determinied using a maximum likelihood approach. This requires a data set having input $X$ together with their class labels. Suppose we have a data set ${X_n,t_n}$ where $n=1,2,&amp;hellip;,N$ and $t_n=1$ for class $C_1$ and $t_n=0$ for class $C_2$. Let the prior class probablities be $p(C_1) = \pi$ and $p(C_2) = 1-\pi$.</description>
-    </item>
-    
-    <item>
-      <title>Linear Models for Clasification - Probabilistic Generative Models</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link>
-      <pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid>
-      <description>4.2 Probabilistic Generative Models In the probabilistic generative modelling approach, we model the class-conditional densities $p(X|C_k)$, as well as the class priors $p(C_k)$, and then use these to compute posterior probabilities $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is
-$$\begin{align} p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)} \end{align}$$
-$$\begin{align} = \frac{1}{1+exp(-a)} = \sigma(a) \end{align}$$
-where
-$$\begin{align} a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)} \end{align}$$
-and $\sigma(a)$ is called as the logistic sigmoid function.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Class Priors on Amit Rajan</title><link>https://amitrajan012.github.io/tags/class-priors/</link><description>Recent content in Class Priors on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 04 Jul 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/class-priors/index.xml" rel="self" type="application/rss+xml"/><item><title>Linear Models for Clasification - Probabilistic Generative Models (Maximum Likelihood Solution)</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</link><pubDate>Mon, 04 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_7/</guid><description>&lt;h3 id="422-maximum-likelihood-solution">4.2.2 Maximum Likelihood Solution&lt;/h3>
+&lt;p>Once the class-conditional densities $p(X|C_k)$ are expressed in a parametric form, the value of the parameter can be determinied using a maximum likelihood approach. This requires a data set having input $X$ together with their class labels. Suppose we have a data set ${X_n,t_n}$ where $n=1,2,&amp;hellip;,N$ and $t_n=1$ for class $C_1$ and $t_n=0$ for class $C_2$. Let the prior class probablities be $p(C_1) = \pi$ and $p(C_2) = 1-\pi$. The joint densities are given as&lt;/p></description></item><item><title>Linear Models for Clasification - Probabilistic Generative Models</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</link><pubDate>Sun, 03 Jul 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_6/</guid><description>&lt;h2 id="42-probabilistic-generative-models">4.2 Probabilistic Generative Models&lt;/h2>
+&lt;p>In the &lt;b>probabilistic generative modelling&lt;/b> approach, we model the &lt;b>class-conditional densities&lt;/b> $p(X|C_k)$, as well as the &lt;b>class priors&lt;/b> $p(C_k)$, and then use these to compute &lt;b>posterior probabilities&lt;/b> $p(C_k|X)$ through Bayes’ theorem. The posterior probability for class $C_1$ is&lt;/p>
+&lt;p>$$\begin{align}
+p(C_1|X) = \frac{p(X|C_1)p(C_1)}{p(X)} = \frac{p(X|C_1)p(C_1)}{p(X|C_1)p(C_1) + p(X|C_2)p(C_2)}
+\end{align}$$&lt;/p>
+&lt;p>$$\begin{align}
+= \frac{1}{1+exp(-a)} = \sigma(a)
+\end{align}$$&lt;/p>
+&lt;p>where&lt;/p>
+&lt;p>$$\begin{align}
+a = \ln \frac{p(X|C_1)p(C_1)}{p(X|C_2)p(C_2)}
+\end{align}$$&lt;/p>
+&lt;p>and $\sigma(a)$ is called as the &lt;b>logistic sigmoid function&lt;/b>. It is a &lt;b>S-shaped&lt;/b> function and also called as &lt;b>squashing function&lt;/b> as it maps the entire real axis into a finite interval. It satisfies: $\sigma(-a) = 1 - \sigma(a)$. The inverse of the function is given as&lt;/p></description></item></channel></rss>

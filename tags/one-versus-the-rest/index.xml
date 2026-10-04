@@ -1,23 +1,8 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>one-versus-the-rest on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/one-versus-the-rest/</link>
-    <description>Recent content in one-versus-the-rest on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/one-versus-the-rest/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear Models for Clasification - Discriminant Functions</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link>
-      <pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid>
-      <description>4.1 Discriminant Functions A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as linear discriminants.
-4.1.1 Two Classes The simplest representation of linear discriminant function is
-$$\begin{align} y(X) = W^TX + W_0 \end{align}$$
-where $W$ is called the weight vector and $W_0$ is bias. The negative of the bias is called threshold.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>One-Versus-the-Rest on Amit Rajan</title><link>https://amitrajan012.github.io/tags/one-versus-the-rest/</link><description>Recent content in One-Versus-the-Rest on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Jun 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/one-versus-the-rest/index.xml" rel="self" type="application/rss+xml"/><item><title>Linear Models for Clasification - Discriminant Functions</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</link><pubDate>Wed, 29 Jun 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-4-linear-models-for-classification_2/</guid><description>&lt;h2 id="41-discriminant-functions">4.1 Discriminant Functions&lt;/h2>
+&lt;p>A discriminant is a function which takes the input vector $X$ and assigns it to one of the classes $C_k$. When the decision surfaces are hyperplanes, we call them as &lt;b>linear discriminants&lt;/b>.&lt;/p>
+&lt;h3 id="411-two-classes">4.1.1 Two Classes&lt;/h3>
+&lt;p>The simplest representation of linear discriminant function is&lt;/p>
+&lt;p>$$\begin{align}
+y(X) = W^TX + W_0
+\end{align}$$&lt;/p>
+&lt;p>where $W$ is called the &lt;b>weight vector&lt;/b> and $W_0$ is &lt;b>bias&lt;/b>. The negative of the bias is called &lt;b>threshold&lt;/b>. The input vector will be assigned to the class $C_1$ if $y(X) \geq 0$ and $C_2$ otherwise. The decision boundary will be defined by the relation $y(X) = 0$. Let $X_A,X_B$ are the two points lying on the decision surface, then $y(X_A) = y(X_B) = 0$ and hence $W^T(X_A - X_B) = 0$. This means that the weight vector $W$ is orthogonal to every vector in the decision surface, i.e. $W$ determines the direction of the decision surface. Let $X$ be a point on the decsion surface which is closest to the origin. Thie means that this point can be represented as $X = \alpha W$ as the perpendicular weight vector $W$ will be the direction in which we will have the smallest vector passing through origin and the hyperplace. As $X$ lies on the hyperplace, we have $y(X) = W^TX + W_0 = 0$, i.e. $W^TX + W_0 = \alpha W^TW + W_0 = 0$ and hence $\alpha = -W_0/||W||^2$. The distance of the point $X$ from the origin is $||X|| = ||\alpha W|| = \frac{-W_0}{||W||^2}||W|| = \frac{-W_0}{||W||}$. Hence, &lt;b>the normal distance of the hyperplane from the origin&lt;/b> is given by $\frac{-W_0}{||W||}$. This means that the &lt;b>bias parameter&lt;/b> $W_0$ decides the location of the decision surface.&lt;/p></description></item></channel></rss>

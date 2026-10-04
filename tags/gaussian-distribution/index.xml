@@ -1,81 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Gaussian Distribution on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/gaussian-distribution/</link>
-    <description>Recent content in Gaussian Distribution on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 18 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-distribution/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link>
-      <pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid>
-      <description>9.2 Mixtures of Gaussians This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form
-$$\begin{align} p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k) \end{align}$$
-Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$.</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - The Gaussian Distribution: Part 5</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</link>
-      <pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</guid>
-      <description>2.3.8 Periodic Variables Periodic variables usually repeats its behaviour after a set amount of time. Let us assume a periodic variable represented as an angle from the x-axis by $D={\theta_1, \theta_2, &amp;hellip;, \theta_N}$, where $\theta$ is measured in radians. The mean and variance of these data points will depend on the choice of origin and the axis. To find the invariant measure of the mean, we denote these observations as the points on the unit circle and can be described as a two-dimensional unit vectors $X_1,X_2,&amp;hellip;,X_N$ where $||X_n|| = 1$ for $n=1,2,&amp;hellip;,N$ as shown in the following figure.</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - The Gaussian Distribution: Part 4</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</link>
-      <pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</guid>
-      <description>2.3.6 Bayesian Inference for the Gaussian We can use Bayesian treatment to derive the point estimates for the mean and variance of the Gaussian by introducing prior distributions over these parameters. For a single ranodm variable, let us suppose that the variance $\sigma^2$ is known and we have to determine the mean $\mu$ given $N$ data points $X={x_1,x_2,&amp;hellip;,x_N}$. Under the assumption of independence, the likelihood function is give as
-$$\begin{align} p(X|\mu) = \prod_{n=1}^{N} p(x_n|\mu) = \frac{1}{(2\pi\sigma^2)^{N/2}} exp \bigg(-\frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2\bigg) \end{align}$$</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - The Gaussian Distribution: Part 3</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</link>
-      <pubDate>Wed, 15 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</guid>
-      <description>2.3.3 Bayes&amp;rsquo; Theorem for Gaussian Variables The applicatio of Bayes&amp;rsquo; theorem in the Gaussian setting is when we have Gaussian marginal distribution $p(X)$ and a Gaussian conditional distribution $p(Y|X)$ and we wish to find the marginal and consitional distribution $p(Y)$ and $p(X|Y)$. It should be noted that the mean and covariace of the marginal distribution $p(X)$ are constant with respect to $X$. The covarince of the conditional distribution $p(Y|X)$ is constant with respect to $X$ but its mean is a linear function of $X$.</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - The Gaussian Distribution: Part 2</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</link>
-      <pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</guid>
-      <description>2.3.1 Conditional Gaussian Distribution If two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the othre is Gaussian. The marginal distribution of either set is also Gaussian. Let $X$ is a $D$-dimensional vector with Gaussian distribution $N(X|\mu,\Sigma)$. $X$ is partitioned into two disjoint subsets $X_a,X_b$. Without loss of generality we can assume thet $X_a$ forms the first $M$ components of $X$ and $X_b$ the remaining $D-M$, such that</description>
-    </item>
-    
-    <item>
-      <title>Probability Distributions - The Gaussian Distribution: Part 1</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</link>
-      <pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</guid>
-      <description>2.3 The Gaussian Distribution Gaussian Distribution is a widely used model for the distribution of continous variables. For a single variable $x$, the gaussian distribution is given as
-$$\begin{align} N(x|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}} exp \bigg[\frac{-1}{2\sigma^2} (x-\mu)^2\bigg] \end{align}$$
-where $\mu$ and $\sigma^2$ are mean and variance respectively. For a $D$ dimensional vector $X$, the multivariate gaussian distribution takes the form
-$$\begin{align} N(X|\mu,\Sigma) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\Sigma|^{1/2}} exp \bigg[\frac{-1}{2} (X-\mu)^T\Sigma^{-1}(X-\mu)\bigg] \end{align}$$
-where $\mu$ is a $D$ dimensional mean vector and $\Sigma$ is a $D\times D$ dimensional covariance matrix with $|\Sigma|$ being its determinant.</description>
-    </item>
-    
-    <item>
-      <title>Introduction - Probability Theory</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</link>
-      <pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</guid>
-      <description>1.2 Probability Theory Consider two random variables $X,Y$ where $X$ can take any of the values $x_i$ where $i=1,2,&amp;hellip;,M$ and $Y$ can take the values $y_j$ where $j=1,2,&amp;hellip;,L$. In a total of $N$ trials, both $X,Y$ are sampled and the number of trials for which $X=x_i,Y=y_j$ is $n_{ij}$. The number of trials in which $X=x_i$ is $c_i$ and $Y=y_j$ is $r_j$ respectively. Then, the joint probability of $X$ taking the value $x_i$ and $Y$ taking the value $y_j$ is given as:</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Gaussian Distribution on Amit Rajan</title><link>https://amitrajan012.github.io/tags/gaussian-distribution/</link><description>Recent content in Gaussian Distribution on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 18 Oct 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/gaussian-distribution/index.xml" rel="self" type="application/rss+xml"/><item><title>Mixture Models and Expectation Maximization - Mixtures of Gaussians</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</link><pubDate>Tue, 18 Oct 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-9-mixture-models-and-em_2/</guid><description>&lt;h2 id="92-mixtures-of-gaussians">9.2 Mixtures of Gaussians&lt;/h2>
+&lt;p>This section describes the formulation of Gaussian mixtures in terms of discrete latent variables. The gaussian mixture distribution can be written as a linear superposition of Gaussian in the form&lt;/p>
+&lt;p>$$\begin{align}
+p(X) = \sum_{k=1}^{K} \pi_k N(X|\mu_k, \Sigma_k)
+\end{align}$$&lt;/p>
+&lt;p>Let us introduce a $K-$ dimensional binary random variable $z$ having a $1-of-K$ representation in which a particular element $z_k$ satisfies $z_k \in {0,1}$ and $\sum_k z_k = 1$. The joint distribution $p(X,z)$ can then be represented in terms of the marginal distribution $p(z)$ and conditional distribution $p(X|z)$. The marginal distribution is given as&lt;/p></description></item><item><title>Probability Distributions - The Gaussian Distribution: Part 5</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</link><pubDate>Fri, 17 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_7/</guid><description>&lt;h3 id="238-periodic-variables">2.3.8 Periodic Variables&lt;/h3>
+&lt;p>&lt;b>Periodic variables&lt;/b> usually repeats its behaviour after a set amount of time. Let us assume a periodic variable represented as an angle from the x-axis by $D={\theta_1, \theta_2, &amp;hellip;, \theta_N}$, where $\theta$ is measured in radians. The &lt;b>mean and variance of these data points will depend on the choice of origin and the axis&lt;/b>. To find the invariant measure of the mean, we denote these observations as the points on the unit circle and can be described as a two-dimensional unit vectors $X_1,X_2,&amp;hellip;,X_N$ where $||X_n|| = 1$ for $n=1,2,&amp;hellip;,N$ as shown in the following figure.&lt;/p></description></item><item><title>Probability Distributions - The Gaussian Distribution: Part 4</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</link><pubDate>Thu, 16 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_6/</guid><description>&lt;h3 id="236-bayesian-inference-for-the-gaussian">2.3.6 Bayesian Inference for the Gaussian&lt;/h3>
+&lt;p>We can use Bayesian treatment to derive the point estimates for the mean and variance of the Gaussian by introducing prior distributions over these parameters. For a single ranodm variable, let us suppose that the variance $\sigma^2$ is known and we have to determine the mean $\mu$ given $N$ data points $X={x_1,x_2,&amp;hellip;,x_N}$. Under the assumption of independence, the likelihood function is give as&lt;/p>
+&lt;p>$$\begin{align}
+p(X|\mu) = \prod_{n=1}^{N} p(x_n|\mu) = \frac{1}{(2\pi\sigma^2)^{N/2}} exp \bigg(-\frac{1}{2\sigma^2}\sum_{n=1}^{N}(x_n - \mu)^2\bigg)
+\end{align}$$&lt;/p></description></item><item><title>Probability Distributions - The Gaussian Distribution: Part 3</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</link><pubDate>Wed, 15 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_5/</guid><description>&lt;h3 id="233-bayes-theorem-for-gaussian-variables">2.3.3 Bayes&amp;rsquo; Theorem for Gaussian Variables&lt;/h3>
+&lt;p>The applicatio of Bayes&amp;rsquo; theorem in the Gaussian setting is when we have Gaussian marginal distribution $p(X)$ and a Gaussian conditional distribution $p(Y|X)$ and we wish to find the marginal and consitional distribution $p(Y)$ and $p(X|Y)$. It should be noted that the mean and covariace of the marginal distribution $p(X)$ are constant with respect to $X$. The covarince of the conditional distribution $p(Y|X)$ is constant with respect to $X$ but its mean is a &lt;b>linear function&lt;/b> of $X$. Hence, the marginal can consitional distribution can be represented as&lt;/p></description></item><item><title>Probability Distributions - The Gaussian Distribution: Part 2</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</link><pubDate>Tue, 14 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_4/</guid><description>&lt;h3 id="231-conditional-gaussian-distribution">2.3.1 Conditional Gaussian Distribution&lt;/h3>
+&lt;p>If two sets of variables are jointly Gaussian, then the conditional distribution of one set conditioned on the othre is Gaussian. The marginal distribution of either set is also Gaussian. Let $X$ is a $D$-dimensional vector with Gaussian distribution $N(X|\mu,\Sigma)$. $X$ is partitioned into two disjoint subsets $X_a,X_b$. Without loss of generality we can assume thet $X_a$ forms the first $M$ components of $X$ and $X_b$ the remaining $D-M$, such that&lt;/p></description></item><item><title>Probability Distributions - The Gaussian Distribution: Part 1</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</link><pubDate>Mon, 13 Jun 2022 19:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-2-probability-distributions_3/</guid><description>&lt;h2 id="23-the-gaussian-distribution">2.3 The Gaussian Distribution&lt;/h2>
+&lt;p>&lt;b>Gaussian Distribution&lt;/b> is a widely used model for the distribution of continous variables. For a single variable $x$, the gaussian distribution is given as&lt;/p>
+&lt;p>$$\begin{align}
+N(x|\mu,\sigma^2) = \frac{1}{(2\pi\sigma^2)^{1/2}} exp \bigg[\frac{-1}{2\sigma^2} (x-\mu)^2\bigg]
+\end{align}$$&lt;/p>
+&lt;p>where $\mu$ and $\sigma^2$ are mean and variance respectively. For a $D$ dimensional vector $X$, the multivariate gaussian distribution takes the form&lt;/p>
+&lt;p>$$\begin{align}
+N(X|\mu,\Sigma) = \frac{1}{(2\pi)^{D/2}}\frac{1}{|\Sigma|^{1/2}} exp \bigg[\frac{-1}{2} (X-\mu)^T\Sigma^{-1}(X-\mu)\bigg]
+\end{align}$$&lt;/p>
+&lt;p>where $\mu$ is a $D$ dimensional mean vector and $\Sigma$ is a $D\times D$ dimensional covariance matrix with $|\Sigma|$ being its determinant.&lt;/p></description></item><item><title>Introduction - Probability Theory</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</link><pubDate>Mon, 23 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-1-introduction_2/</guid><description>&lt;h2 id="12-probability-theory">1.2 Probability Theory&lt;/h2>
+&lt;p>Consider two random variables $X,Y$ where $X$ can take any of the values $x_i$ where $i=1,2,&amp;hellip;,M$ and $Y$ can take the values $y_j$ where $j=1,2,&amp;hellip;,L$. In a total of $N$ trials, both $X,Y$ are sampled and the number of trials for which $X=x_i,Y=y_j$ is $n_{ij}$. The number of trials in which $X=x_i$ is $c_i$ and $Y=y_j$ is $r_j$ respectively. Then, the &lt;b>joint probability&lt;/b> of $X$ taking the value $x_i$ and $Y$ taking the value $y_j$ is given as:&lt;/p></description></item></channel></rss>

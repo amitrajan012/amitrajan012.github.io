@@ -1,32 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Polynomial Regression on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/polynomial-regression/</link>
-    <description>Recent content in Polynomial Regression on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 05 Sep 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/polynomial-regression/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Graphical Models - Bayesian Networks</title>
-      <link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link>
-      <pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid>
-      <description>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called probabilistic graphical models. A graph comprises nodes (also called vertices) connected by links (also known as edges or arcs). Each node represents a random variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</title>
-      <link>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</link>
-      <pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid>
-      <description>Moving Beyond Linearity Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:
-Polynomial regression extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).
-Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.
-Regression splines is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Polynomial Regression on Amit Rajan</title><link>https://amitrajan012.github.io/tags/polynomial-regression/</link><description>Recent content in Polynomial Regression on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 05 Sep 2022 23:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/polynomial-regression/index.xml" rel="self" type="application/rss+xml"/><item><title>Graphical Models - Bayesian Networks</title><link>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</link><pubDate>Mon, 05 Sep 2022 23:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/pattern-recognition-chapter-8-graphical-models_1/</guid><description>&lt;p>Probabilistic models can also be analyzed using diagrammatic representations of probability distributions, called &lt;b>probabilistic graphical models&lt;/b>. A graph comprises &lt;b>nodes&lt;/b> (also called vertices) connected by &lt;b>links&lt;/b> (also known as edges or arcs). Each node represents a random
+variable (or group of random variables), and the links express probabilistic relationships between these variables. Graph then captures the way in which the joint distribution over all of the random variables can be decomposed into a product of factors each depending only on a subset of the variables.&lt;/p></description></item><item><title>ISLR Chapter 7: Moving Beyond Linearity (Part 1: Polynomial Regression, Step Functions, Basis Functions)</title><link>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</link><pubDate>Mon, 28 May 2018 04:22:38 +0100</pubDate><guid>https://amitrajan012.github.io/post/moving-beyond-linearity_part1/</guid><description>&lt;h1>&lt;center>Moving Beyond Linearity&lt;/center>&lt;/h1>
+&lt;p>Lineaer models have its limitations in terms of predictive power. Linear models can be extended simply as:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;b>Polynomial regression&lt;/b> extends linear regression by adding extra higher order predictors (predictors rasied to higher order powers).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;b>Step functions&lt;/b> cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;b>Regression splines&lt;/b> is the extension of polynomial regression and step functions. It divides the range of predictor $X$ into $K$ distinct regions and within each region a polynomial function is fit to the data.&lt;/p></description></item></channel></rss>

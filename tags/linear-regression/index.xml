@@ -1,67 +1,61 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Linear Regression on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/linear-regression/</link>
-    <description>Recent content in Linear Regression on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 11 May 2018 05:18:18 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</title>
-      <link>https://amitrajan012.github.io/post/linear-regression_part5/</link>
-      <pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid>
-      <description>Applied Solution 8:
-(a) Perform linear regression on auto data with mpg as response and horsepower as the predictor and display the summary results.
-import statsmodels.api as sm X = sm.add_constant(auto[[&amp;#39;horsepower&amp;#39;]], prepend=True) model = sm.OLS(auto[&amp;#39;mpg&amp;#39;], X) result = model.fit() print(result.summary()) print(&amp;#34;Prediction for horsepower 98: &amp;#34; +str(result.predict([1, 98]))) print(&amp;#34;95% CI: &amp;#34; +str(result.conf_int(alpha=0.05, cols=None))) OLS Regression Results ============================================================================== Dep. Variable: mpg R-squared: 0.606 Model: OLS Adj. R-squared: 0.605 Method: Least Squares F-statistic: 599.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</title>
-      <link>https://amitrajan012.github.io/post/linear-regression_part4/</link>
-      <pubDate>Thu, 10 May 2018 10:28:18 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/linear-regression_part4/</guid>
-      <description>3.7 Exercises Conceptual Solution: The linear fit can be given as:
-$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$
-(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</title>
-      <link>https://amitrajan012.github.io/post/linear-regression_part3/</link>
-      <pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/linear-regression_part3/</guid>
-      <description>3.3 Other Considerations in the Regression Model 3.3.1 Qualitative Predictors There can be a case when predictor variables can be qualitative.
-Predictors with Only Two Levels For the predictors with only two values, we can create an indicator or dummy variable with values 0 and 1 and use it in the regression model. The final prediction will not depend on the coding scheme. Only difference will be in the model coefficients and the way they are interpreted.</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</title>
-      <link>https://amitrajan012.github.io/post/linear-regression_part2/</link>
-      <pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/linear-regression_part2/</guid>
-      <description>3.2 Multiple Linear Regression In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:
-$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &amp;hellip; + \beta_p X_p + \epsilon$$
-where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, holding all other predictors fixed.
-3.2.1 Estimating the Regression Coefficients Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&amp;hellip;, \widehat{\beta_p}$, predictions can be done as:</description>
-    </item>
-    
-    <item>
-      <title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</title>
-      <link>https://amitrajan012.github.io/post/linear-regression_part1/</link>
-      <pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/linear-regression_part1/</guid>
-      <description>Linear Regression Linear Regression is a useful tool for predicting a quantitative response.
-3.1 Simple Linear Regression Simple linear regression is a straightforward approach for predicting a quantitative response on the basis of a single predictor variable. Mathematically it can be written as:
-$$Y \approx \beta_0 + \beta_1 X$$
-$\beta_0$ and $\beta_1$ represent intercept and slope and are called as model coefficients or parameters. The estimated equation is given as:</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linear Regression on Amit Rajan</title><link>https://amitrajan012.github.io/tags/linear-regression/</link><description>Recent content in Linear Regression on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 11 May 2018 05:18:18 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/linear-regression/index.xml" rel="self" type="application/rss+xml"/><item><title>ISLR Chapter 3: Linear Regression (Part 5: Exercises - Applied)</title><link>https://amitrajan012.github.io/post/linear-regression_part5/</link><pubDate>Fri, 11 May 2018 05:18:18 +0100</pubDate><guid>https://amitrajan012.github.io/post/linear-regression_part5/</guid><description>&lt;h4 id="applied">Applied&lt;/h4>
+&lt;p>&lt;b>Solution 8:&lt;/b>&lt;/p>
+&lt;p>(a) Perform linear regression on auto data with &lt;b>mpg&lt;/b> as response and &lt;b>horsepower&lt;/b> as the predictor and display the summary results.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> statsmodels.api &lt;span style="color:#66d9ef">as&lt;/span> sm
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>X &lt;span style="color:#f92672">=&lt;/span> sm&lt;span style="color:#f92672">.&lt;/span>add_constant(auto[[&lt;span style="color:#e6db74">&amp;#39;horsepower&amp;#39;&lt;/span>]], prepend&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>model &lt;span style="color:#f92672">=&lt;/span> sm&lt;span style="color:#f92672">.&lt;/span>OLS(auto[&lt;span style="color:#e6db74">&amp;#39;mpg&amp;#39;&lt;/span>], X)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>result &lt;span style="color:#f92672">=&lt;/span> model&lt;span style="color:#f92672">.&lt;/span>fit()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(result&lt;span style="color:#f92672">.&lt;/span>summary())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;Prediction for horsepower 98: &amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span>str(result&lt;span style="color:#f92672">.&lt;/span>predict([&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">98&lt;/span>])))
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(&lt;span style="color:#e6db74">&amp;#34;95% CI: &amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span>str(result&lt;span style="color:#f92672">.&lt;/span>conf_int(alpha&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#ae81ff">0.05&lt;/span>, cols&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#66d9ef">None&lt;/span>)))
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code> OLS Regression Results
+==============================================================================
+Dep. Variable: mpg R-squared: 0.606
+Model: OLS Adj. R-squared: 0.605
+Method: Least Squares F-statistic: 599.7
+Date: Thu, 06 Sep 2018 Prob (F-statistic): 7.03e-81
+Time: 21:37:43 Log-Likelihood: -1178.7
+No. Observations: 392 AIC: 2361.
+Df Residuals: 390 BIC: 2369.
+Df Model: 1
+Covariance Type: nonrobust
+==============================================================================
+ coef std err t P&amp;gt;|t| [0.025 0.975]
+------------------------------------------------------------------------------
+const 39.9359 0.717 55.660 0.000 38.525 41.347
+horsepower -0.1578 0.006 -24.489 0.000 -0.171 -0.145
+==============================================================================
+Omnibus: 16.432 Durbin-Watson: 0.920
+Prob(Omnibus): 0.000 Jarque-Bera (JB): 17.305
+Skew: 0.492 Prob(JB): 0.000175
+Kurtosis: 3.299 Cond. No. 322.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+Prediction for horsepower 98: [24.46707715]
+95% CI: 0 1
+const 38.525212 41.346510
+horsepower -0.170517 -0.145172
+&lt;/code>&lt;/pre>
+&lt;p>i. Is there a relationship between the predictor and the response?&lt;/p></description></item><item><title>ISLR Chapter 3: Linear Regression (Part 4: Exercises - Conceptual)</title><link>https://amitrajan012.github.io/post/linear-regression_part4/</link><pubDate>Thu, 10 May 2018 10:28:18 +0100</pubDate><guid>https://amitrajan012.github.io/post/linear-regression_part4/</guid><description>&lt;h4 id="37-exercises">3.7 Exercises&lt;/h4>
+&lt;h4 id="conceptual">Conceptual&lt;/h4>
+&lt;figure class="fig">&lt;img src="https://amitrajan012.github.io/img/Linear%20Regression_files/Q3.3.png" alt="" loading="lazy">&lt;/figure>
+&lt;p>&lt;b>Solution:&lt;/b> The linear fit can be given as:&lt;/p>
+&lt;p>$$50 + (20 \times GPA) + (0.07 \times IQ) + (35 \times GENDER) + (0.01 \times GPA \times IQ) - (10 \times GPA \times GENDER)$$&lt;/p>
+&lt;p>(a) For a fixed value of IQ and GPA, the average salary for male will be $50 + 20 \times GPA$ and for the female it will be $85 + 20 \times GPA - 10 \times GPA$. For the salary of male to be higher, $50 + 20GPA &amp;gt; 85 + 10GPA$, i.e. $GPA &amp;gt; 3.5$.&lt;/p></description></item><item><title>ISLR Chapter 3: Linear Regression (Part 3: Other Considerations in the Regression Model)</title><link>https://amitrajan012.github.io/post/linear-regression_part3/</link><pubDate>Wed, 09 May 2018 11:11:48 +0100</pubDate><guid>https://amitrajan012.github.io/post/linear-regression_part3/</guid><description>&lt;h3 id="33-other-considerations-in-the-regression-model">3.3 Other Considerations in the Regression Model&lt;/h3>
+&lt;h4 id="331-qualitative-predictors">3.3.1 Qualitative Predictors&lt;/h4>
+&lt;p>There can be a case when predictor variables can be &lt;b>qualitative.&lt;/b>&lt;/p>
+&lt;h4 id="predictors-with-only-two-levels">Predictors with Only Two Levels&lt;/h4>
+&lt;p>For the predictors with only two values, we can create an &lt;b>indicator&lt;/b> or &lt;b>dummy variable&lt;/b> with values 0 and 1 and use it in the regression model. The final prediction will not depend on the coding scheme. Only difference will be in the model coefficients and the way they are interpreted.&lt;/p></description></item><item><title>ISLR Chapter 3: Linear Regression (Part 2: Multiple Linear Regression)</title><link>https://amitrajan012.github.io/post/linear-regression_part2/</link><pubDate>Tue, 08 May 2018 06:12:03 +0100</pubDate><guid>https://amitrajan012.github.io/post/linear-regression_part2/</guid><description>&lt;h3 id="32-multiple-linear-regression">3.2 Multiple Linear Regression&lt;/h3>
+&lt;p>In general, suppose we have $p$ distinct predictors, the multiple linear regression takes the form:&lt;/p>
+&lt;p>$$Y = \beta_0 + \beta_1 X_1 + \beta_2 X_2 + &amp;hellip; + \beta_p X_p + \epsilon$$&lt;/p>
+&lt;p>where $\beta_j$ can be interpreted as the average effect on $Y$ of a one unit increase in $X_j$, &lt;b>holding all other predictors fixed.&lt;/b>&lt;/p>
+&lt;h4 id="321-estimating-the-regression-coefficients">3.2.1 Estimating the Regression Coefficients&lt;/h4>
+&lt;p>Given the estimates, $\widehat{\beta_0}, \widehat{\beta_1},&amp;hellip;, \widehat{\beta_p}$, predictions can be done as:&lt;/p></description></item><item><title>ISLR Chapter 3: Linear Regression (Part 1: Simple Linear Regression)</title><link>https://amitrajan012.github.io/post/linear-regression_part1/</link><pubDate>Tue, 08 May 2018 02:18:09 +0100</pubDate><guid>https://amitrajan012.github.io/post/linear-regression_part1/</guid><description>&lt;h1>&lt;center>Linear Regression&lt;/center>&lt;/h1>
+&lt;p>&lt;b>Linear Regression&lt;/b> is a useful tool for predicting a quantitative response.&lt;/p>
+&lt;h3 id="31-simple-linear-regression">3.1 Simple Linear Regression&lt;/h3>
+&lt;p>&lt;b>Simple linear regression&lt;/b> is a straightforward approach for predicting a &lt;b>quantitative response&lt;/b> on the basis of a single predictor variable. Mathematically it can be written as:&lt;/p>
+&lt;p>$$Y \approx \beta_0 + \beta_1 X$$&lt;/p>
+&lt;p>$\beta_0$ and $\beta_1$ represent intercept and slope and are called as &lt;b>model coefficients or parameters.&lt;/b> The estimated equation is given as:&lt;/p></description></item></channel></rss>

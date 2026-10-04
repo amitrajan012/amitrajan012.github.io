@@ -1,117 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Eigenvalues on Amit Rajan</title>
-    <link>https://amitrajan012.github.io/tags/eigenvalues/</link>
-    <description>Recent content in Eigenvalues on Amit Rajan</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/eigenvalues/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Left, Right  and Pseudo Inverses</title>
-      <link>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</link>
-      <pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</guid>
-      <description>28.1 Left and Right Inverses For any matrix $A$, there are four fundamental subspaces: Row Space, Null Space, Column Space, Null Space of $A^T$. Row Space and Null Space combined span entire $\mathbb{R}^n$ for a $m \times n$ matrix $A$. Column Space and Null Space of $A^T$ combined span entire $\mathbb{R}^m$ for a $m \times n$ matrix $A$. For the inverse of the matrix to exist, it&amp;rsquo;s rank should be $r=m=n$ whtere the dimension of the matrix is $m \times n$.</description>
-    </item>
-    
-    <item>
-      <title>Linear Transformations, Change of Basis and Image Compression</title>
-      <link>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</link>
-      <pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid>
-      <description>27.1 Linear Transformations When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:
-$T(v+w) = T(v) + T(w)$ $T(cv) = cT(v)$ $T(0) = T(0)$, derived from tha above two properties Below are some examples and non-examples of linear transformation:
-Example 1: Projection In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.</description>
-    </item>
-    
-    <item>
-      <title>Singular Value Decomposition</title>
-      <link>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</link>
-      <pubDate>Mon, 09 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</guid>
-      <description>26.1 Singular Value Decomposition If any matrix $A$ can be decomposed as $A = U\Sigma V^T$, where $\Sigma$ is a diagonal matrix and $U,V$ are orthogonal matrices, this is called as Singular Value Decomposition (SVD). One of the examples of SVD is for a symmetric positive definite matrix $A$, we know that $A = Q\Lambda Q^T$, where $\Lambda$ is diagonal and $Q$ is orthogonal.
-For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$ and the column-space be entire $\mathbb{R}^m$.</description>
-    </item>
-    
-    <item>
-      <title>Similar Matrices</title>
-      <link>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</link>
-      <pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</guid>
-      <description>25.1 Similar Matrices One of the major generator of a positive definite matrix is when we square one. In a nutsheel, the matrix $A^TA$ is always positive definite. To prove this, let $A$ be a $m \times n$ rectangular matrix. Then $A^TA$ is a square symmetric matrix. If we evaluate the expression $x^T(A^TA)x$, we get $x^T(A^TA)x = (x^TA^T)(Ax) = (Ax)^T(Ax) = |Ax|^2 &amp;gt; 0$ if $Ax$ is non-zero. Another important thing to note is if matrix $A, B$ are positive definite, $A+B$ is positive definite.</description>
-    </item>
-    
-    <item>
-      <title>Positive Definite Matrices</title>
-      <link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link>
-      <pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid>
-      <description>24.1 Positive Definite Matrices These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix} a &amp;amp; b \\ b &amp;amp; c \end{bmatrix}$ for being Positive Definite:
-Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$ All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$ Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$ $x^TAx &amp;gt; 0;\forall x$ The matrix for which any of these conditions holds with equality instead are called as positive semi-definite matrices.</description>
-    </item>
-    
-    <item>
-      <title>Complex Matrices and Fourier Transform</title>
-      <link>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</link>
-      <pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</guid>
-      <description>23.1 Complex Vectors/Matrices Let $z = \begin{bmatrix} z_1 \\ z_2 \\ &amp;hellip; \\ z_n \end{bmatrix}$ be a complex vector in $C^n$. The expresson $z^Tz$ doesn&amp;rsquo;t represent the length of the vector $z$. Instead it&amp;rsquo;s length is represented by $\overline{z}^Tz$. $\overline{z}^T$ is also called as $z^H$ and is called as Hermitian of a matrix. Hence, the length of a complex vector is $z^Hz = |z_1|^2 + |z_2|^2 + &amp;hellip; + |z_n|^2$. Similarly, for a complex matrix $A$ to be symmetric, $A^H = A$ with diagonal elements being real.</description>
-    </item>
-    
-    <item>
-      <title>Symmetric Matrices and Positive Definiteness</title>
-      <link>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</link>
-      <pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</guid>
-      <description>22.1 Symmetric Matrices For a Symmetric Matrix $A$, $A = A^T$. Eigenvalues of real Symmetric Matrices are real and eigenvectors are perpendicular. Any matrix $A$ can be written as $A = S\Lambda S^{-1}$. For a symmetric matrix $A$, this relationship reduces to $A = Q \Lambda Q^{-1}$ as $S$, which is the eigenvector matrix has orthonormal eigenvectors. For an orthonormal matrix, $Q^{-1} = Q^T$ and hence $A = Q\Lambda Q^T$. This is called as the Spectral Theorem in mathematics.</description>
-    </item>
-    
-    <item>
-      <title>Markov Matrices and Fourier Series</title>
-      <link>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</link>
-      <pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid>
-      <description>21.1 Markov Matrices Markov Matrices have the following properties:
-All entries $\geq 0$ Sum of the entries in a column equal $1$ A markov matrix will always have an eigenvalue of $1$. Apart from this, all other eigenvalues will be $\leq 1$.
-Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$.</description>
-    </item>
-    
-    <item>
-      <title>Differential Equations and Matrix Exponentials</title>
-      <link>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</link>
-      <pubDate>Wed, 20 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</guid>
-      <description>20.1 Differential Equations $\frac{du}{dt} = Au$ Example: Let the system of differential equation to be solved is: $\frac{du_1}{dt} = -u_1 + 2u_2; \frac{du_2}{dt} = u_1 - 2u_2$ with initial condition of $u(0) = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$. The matrix $A$ representing the coefficients of the equation is $A = \begin{bmatrix} -1 &amp;amp; 2 \\ 1 &amp;amp; -2 \end{bmatrix}$. The eigenvalues of the matrix $A$ satisfies the equation $\lambda_1 + \lambda_2 = -3; \lambda_1 \times \lambda_2 = 0$, i.</description>
-    </item>
-    
-    <item>
-      <title>Diagonalization and Powers of a Matrix</title>
-      <link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link>
-      <pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</guid>
-      <description>19.1 Diagonalization of a Matrix Suppose for a given matrix $A$, we have $n$ linearlly independent eigenvectros and we put them in a matrix $S$. Then $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}$, where each $x_i$ is the eigenvector. But for each of the eigenvectors, $Ax_i = \lambda_ix_i$. Hence, $AS = A \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix} = \begin{bmatrix} \lambda_1x_1 &amp;amp; \lambda_2x_2 &amp;amp; &amp;hellip; &amp;amp; \lambda_nx_n \end{bmatrix} = \begin{bmatrix} x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n \end{bmatrix}diag(\lambda_i) = S\Lambda$.</description>
-    </item>
-    
-    <item>
-      <title>Eigenvalues and Eigenvectors</title>
-      <link>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</link>
-      <pubDate>Thu, 14 Apr 2022 14:07:28 +0100</pubDate>
-      
-      <guid>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</guid>
-      <description>18.1 Eigenvalues and Eigenvectors The usual function of a matrix is to act on a vector like a function, i.e. in goes a vector $x$, out comes a vector $Ax$. For a specific matrix $A$, if $Ax$ is parallel to $x$ i.e. $Ax = \lambda x$, the vectors $x$ are called as eigenvectors. The constant $\lambda$ is called as eigenvalue.
-The vector $x$ and constant $\lambda$ satisfying the equation $Ax = \lambda x$ are eigenvectors and eigenvalues.</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Eigenvalues on Amit Rajan</title><link>https://amitrajan012.github.io/tags/eigenvalues/</link><description>Recent content in Eigenvalues on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 15 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/eigenvalues/index.xml" rel="self" type="application/rss+xml"/><item><title>Left, Right and Pseudo Inverses</title><link>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</link><pubDate>Sun, 15 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-28-left-and-right-inverses-and-pseudoinverse/</guid><description>&lt;h2 id="281-left-and-right-inverses">28.1 Left and Right Inverses&lt;/h2>
+&lt;p>For any matrix $A$, there are four fundamental subspaces: &lt;b>Row Space, Null Space, Column Space, Null Space of $A^T$&lt;/b>. Row Space and Null Space combined span entire $\mathbb{R}^n$ for a $m \times n$ matrix $A$. Column Space and Null Space of $A^T$ combined span entire $\mathbb{R}^m$ for a $m \times n$ matrix $A$. For the inverse of the matrix to exist, it&amp;rsquo;s rank should be $r=m=n$ whtere the dimension of the matrix is $m \times n$.&lt;/p></description></item><item><title>Linear Transformations, Change of Basis and Image Compression</title><link>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</link><pubDate>Thu, 12 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/</guid><description>&lt;h2 id="271-linear-transformations">27.1 Linear Transformations&lt;/h2>
+&lt;p>When we are dealing with coordinates, every linear transformation leads us to a matrix. For any vector $v$ and $w$, linear transformation $T$ follows following properties:&lt;/p>
+&lt;ul>
+&lt;li>$T(v+w) = T(v) + T(w)$&lt;/li>
+&lt;li>$T(cv) = cT(v)$&lt;/li>
+&lt;li>$T(0) = T(0)$, derived from tha above two properties&lt;/li>
+&lt;/ul>
+&lt;p>Below are some examples and non-examples of linear transformation:&lt;/p>
+&lt;p>&lt;b>Example 1: Projection&lt;/b> In a two-dimensional space $\mathbb{R}^2$, a projection of a vector $v$ on a line is linear transformation and can be denoted as $T:\mathbb{R}^2 \to \mathbb{R}^2$.&lt;/p></description></item><item><title>Singular Value Decomposition</title><link>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</link><pubDate>Mon, 09 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-26-singular-value-decomposition/</guid><description>&lt;h2 id="261-singular-value-decomposition">26.1 Singular Value Decomposition&lt;/h2>
+&lt;p>If any matrix $A$ can be decomposed as $A = U\Sigma V^T$, where $\Sigma$ is a &lt;b>diagonal matrix&lt;/b> and $U,V$ are &lt;b>orthogonal matrices&lt;/b>, this is called as &lt;b>Singular Value Decomposition (SVD)&lt;/b>. One of the examples of SVD is for a symmetric positive definite matrix $A$, we know that $A = Q\Lambda Q^T$, where $\Lambda$ is diagonal and $Q$ is orthogonal.&lt;/p>
+&lt;p>For a matrix $m \times n$ matrix $A$, let the row-space be entire $\mathbb{R}^n$ and the column-space be entire $\mathbb{R}^m$. Any vector $v_1$ in the row-space can be transformed to a vector $u_1$ in the column-space as $u_1 = Av_1$. The goal of SVD is to find an &lt;b>orthogonal basis in row-space which can be transformed to an orthogonal basis in column-space&lt;/b>. Let for a rank $r$ matrix $A$, the orthonormal basis (unit vectors) in the row-space consists of $v_1, v_2, &amp;hellip;, v_r$. Their transformations in the column-space are $\sigma_1u_1 = Av_1, \sigma_2u_2 = Av_2, &amp;hellip;, \sigma_ru_r = Av_r$ where $u_1, u_2, &amp;hellip;, u_r$ are also orthonormal (unit vectors and hence a factor of corresponding $\sigma$ for each $u$). In the matrix form, this can be represented as $AV=U\Sigma$ where $V$ and $U$ are the matrices whose columns are $v_1, v_2, &amp;hellip;, v_r$ and $u_1, u_2, &amp;hellip;, u_r$, and $\Sigma$ is a diagonal matrix of $\sigma_i$. Hence, $A = U\Sigma V^{-1} = U\Sigma V^{T}$ as $V$ has orthonormal columns. On further exploration, $A^TA = V\Sigma^{T}U^TU\Sigma V^T = V\Sigma^{T}(U^TU)\Sigma V^T = V\Sigma^{T}I\Sigma V^T = V\Sigma^{T}\Sigma V^T = V\Sigma^2V^T$, as $\Sigma$ is a daigonal matrix and hence $\Sigma^T \Sigma$ will have $\sigma_i^2$ at it&amp;rsquo;s diagonal. &lt;b>$A^TA = V\Sigma^2 V^T$ can be interpreted as symmetric positive definite matrix $A^TA$ decomposed into multiple of eigenvectors and eigenvalues, where $V$ is the eigenvector matrix of $A^TA$ and $\Sigma^2$ is the diagonal matrix having eigenvalues of $A^TA$&lt;/b>. Similarly, $AA^T = U\Sigma^2U^T$ and above mentioned facts hold for it as well. We can find $U,V$ and $\Sigma$ using this method.&lt;/p></description></item><item><title>Similar Matrices</title><link>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</link><pubDate>Fri, 06 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-25-similar-matrices-and-jordan-form/</guid><description>&lt;h2 id="251-similar-matrices">25.1 Similar Matrices&lt;/h2>
+&lt;p>One of the major generator of a &lt;b>positive definite&lt;/b> matrix is when we square one. In a nutsheel, the matrix $A^TA$ is always positive definite. To prove this, let $A$ be a $m \times n$ rectangular matrix. Then $A^TA$ is a square symmetric matrix. If we evaluate the expression $x^T(A^TA)x$, we get $x^T(A^TA)x = (x^TA^T)(Ax) = (Ax)^T(Ax) = |Ax|^2 &amp;gt; 0$ if $Ax$ is non-zero. Another important thing to note is if matrix $A, B$ are positive definite, $A+B$ is positive definite.&lt;/p></description></item><item><title>Positive Definite Matrices</title><link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link><pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid><description>&lt;h2 id="241-positive-definite-matrices">24.1 Positive Definite Matrices&lt;/h2>
+&lt;p>These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix}
+a &amp;amp; b \\
+b &amp;amp; c
+\end{bmatrix}$ for being Positive Definite:&lt;/p>
+&lt;ul>
+&lt;li>Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$&lt;/li>
+&lt;li>All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$&lt;/li>
+&lt;li>Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$&lt;/li>
+&lt;li>$x^TAx &amp;gt; 0;\forall x$&lt;/li>
+&lt;/ul>
+&lt;p>The matrix for which any of these conditions holds with equality instead are called as &lt;b>positive semi-definite matrices&lt;/b>. For example, the matrix $A = \begin{bmatrix}
+2 &amp;amp; 6 \\
+6 &amp;amp; 18
+\end{bmatrix}$ is a positive-semidifinite matrix. Let us run the $x^TAx &amp;gt; 0$ test on this matrix. Let $x = \begin{bmatrix}
+x_1 \\
+x_2
+\end{bmatrix}$, then&lt;/p></description></item><item><title>Complex Matrices and Fourier Transform</title><link>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</link><pubDate>Fri, 29 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-23-complex-matrices-and-fast-fourier-transform/</guid><description>&lt;h2 id="231-complex-vectorsmatrices">23.1 Complex Vectors/Matrices&lt;/h2>
+&lt;p>Let $z = \begin{bmatrix}
+z_1 \\
+z_2 \\
+&amp;hellip; \\
+z_n
+\end{bmatrix}$ be a complex vector in $C^n$. The expresson $z^Tz$ doesn&amp;rsquo;t represent the length of the vector $z$. Instead it&amp;rsquo;s length is represented by $\overline{z}^Tz$. $\overline{z}^T$ is also called as $z^H$ and is called as &lt;b>Hermitian of a matrix&lt;/b>. Hence, the length of a complex vector is $z^Hz = |z_1|^2 + |z_2|^2 + &amp;hellip; + |z_n|^2$. Similarly, for a complex matrix $A$ to be symmetric, $A^H = A$ with diagonal elements being real. In a complex domain, we call symmetric matrices as &lt;b>Hermitian Matrices&lt;/b>. For two vectors $x$ and $y$ in a complex plane are perpendicular to each other if and only if $y^Hx = 0$. Hence, for an orrhogonal matrix (matrix with orthonormal columns) $Q$ in complex plane, $Q^HQ = I$. These orthogonal matrices in the complex plane are called as &lt;b>Unitary Matrices&lt;/b>.&lt;/p></description></item><item><title>Symmetric Matrices and Positive Definiteness</title><link>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</link><pubDate>Tue, 26 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_22_symmetric_matrices_and_positive_definiteness/</guid><description>&lt;h2 id="221-symmetric-matrices">22.1 Symmetric Matrices&lt;/h2>
+&lt;p>For a &lt;b>Symmetric Matrix&lt;/b> $A$, $A = A^T$. &lt;b>Eigenvalues of real Symmetric Matrices are real and eigenvectors are perpendicular&lt;/b>. Any matrix $A$ can be written as $A = S\Lambda S^{-1}$. For a symmetric matrix $A$, this relationship reduces to $A = Q \Lambda Q^{-1}$ as $S$, which is the eigenvector matrix has &lt;b>orthonormal eigenvectors&lt;/b>. For an orthonormal matrix, $Q^{-1} = Q^T$ and hence $A = Q\Lambda Q^T$. This is called as the &lt;b>Spectral Theorem&lt;/b> in mathematics.&lt;/p></description></item><item><title>Markov Matrices and Fourier Series</title><link>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</link><pubDate>Fri, 22 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_21_markov_matrices_and_fourier_series/</guid><description>&lt;h2 id="211-markov-matrices">21.1 Markov Matrices&lt;/h2>
+&lt;p>&lt;/b>Markov Matrices&lt;/b> have the following properties:&lt;/p>
+&lt;ul>
+&lt;li>All entries $\geq 0$&lt;/li>
+&lt;li>Sum of the entries in a column equal $1$&lt;/li>
+&lt;/ul>
+&lt;p>&lt;b>A markov matrix will always have an eigenvalue of $1$&lt;/b>. Apart from this, &lt;b>all other eigenvalues will be $\leq 1$&lt;/b>.&lt;/p>
+&lt;p>Let us consider the difference equation $u_k = A^ku_0$ where we represent $u_0$ as the combinations of eigenvectors, i.e. $u_0 = c_1x_1 + c_2x_2 + &amp;hellip; + c_nx_n = Sc$. Then $Au_0 = c_1Ax_1 + c_2Ax_2 + &amp;hellip; + c_nAx_n = c_1\lambda_1x_1 + c_2\lambda_2x_2 + &amp;hellip; + c_n\lambda_nx_n = \Lambda Sc$. Similarly, $A^ku_0 = c_1\lambda_1^kx_1 + c_2\lambda_2^kx_2 + &amp;hellip; + c_n\lambda_n^kx_n = \Lambda^kSc$.&lt;/p></description></item><item><title>Differential Equations and Matrix Exponentials</title><link>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</link><pubDate>Wed, 20 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_20_differential_equations_and_expat/</guid><description>&lt;h2 id="201-differential-equations-fracdudt--au">20.1 Differential Equations $\frac{du}{dt} = Au$&lt;/h2>
+&lt;p>&lt;b>Example:&lt;/b> Let the system of differential equation to be solved is: $\frac{du_1}{dt} = -u_1 + 2u_2; \frac{du_2}{dt} = u_1 - 2u_2$ with initial condition of $u(0) = \begin{bmatrix}
+1 \\
+0
+\end{bmatrix}$. The matrix $A$ representing the coefficients of the equation is $A = \begin{bmatrix}
+-1 &amp;amp; 2 \\
+1 &amp;amp; -2
+\end{bmatrix}$. The eigenvalues of the matrix $A$ satisfies the equation $\lambda_1 + \lambda_2 = -3; \lambda_1 \times \lambda_2 = 0$, i.e. $\lambda_1 = 0, \lambda_2 = -3$ with the eigenvectors $x_1 = \begin{bmatrix}
+2 \\
+1
+\end{bmatrix}; x_2 = \begin{bmatrix}
+1 \\
+-1
+\end{bmatrix}$. The general solution of the set of differential equation is given as: $u(t) = c_1e^{\lambda_1t}x_1 + c_2e^{\lambda_2t}x_2$. Individual pure solutions can be checked by plugging in $e^{\lambda_1t}x_1$ and $e^{\lambda_2t}x_2$ to the equation $\frac{du}{dt} = Au$ and verifying the outcome.&lt;/p></description></item><item><title>Diagonalization and Powers of a Matrix</title><link>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</link><pubDate>Sun, 17 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_19_diagonalization_and_powers_of_a_matrix/</guid><description>&lt;h2 id="191-diagonalization-of-a-matrix">19.1 Diagonalization of a Matrix&lt;/h2>
+&lt;p>Suppose for a given matrix $A$, we have $n$ &lt;b>linearlly independent eigenvectros&lt;/b> and we put them in a matrix $S$. Then $AS = A \begin{bmatrix}
+x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n
+\end{bmatrix}$, where each $x_i$ is the eigenvector. But for each of the eigenvectors, $Ax_i = \lambda_ix_i$. Hence, $AS = A \begin{bmatrix}
+x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n
+\end{bmatrix} = \begin{bmatrix}
+\lambda_1x_1 &amp;amp; \lambda_2x_2 &amp;amp; &amp;hellip; &amp;amp; \lambda_nx_n
+\end{bmatrix} = \begin{bmatrix}
+x_1 &amp;amp; x_2 &amp;amp; &amp;hellip; &amp;amp; x_n
+\end{bmatrix}diag(\lambda_i) = S\Lambda$. Hence, $AS = S\Lambda$, where $\Lambda$ is a &lt;b>diagonal matrix containing eigenvalues&lt;/b> and $S$ is the matrix of &lt;b>eigenvectors as the columns&lt;/b>. If $S$ is invertible, i.e. the eigenvectors are independent, the equation can be rewritten as $S^{-1}AS = \Lambda$ or $A = S \Lambda S^{-1}$.&lt;/p></description></item><item><title>Eigenvalues and Eigenvectors</title><link>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</link><pubDate>Thu, 14 Apr 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter_18_eigenvalues_and_eigenvectors/</guid><description>&lt;h2 id="181-eigenvalues-and-eigenvectors">18.1 Eigenvalues and Eigenvectors&lt;/h2>
+&lt;p>The usual function of a matrix is to act on a vector like a &lt;b>function&lt;/b>, i.e. in goes a vector $x$, out comes a vector $Ax$. For a specific matrix $A$, if $Ax$ &lt;b>is parallel to&lt;/b> $x$ i.e. $Ax = \lambda x$, the vectors $x$ are called as &lt;b>eigenvectors&lt;/b>. The constant $\lambda$ is called as &lt;b>eigenvalue&lt;/b>.&lt;/p>
+&lt;p>The vector $x$ and constant $\lambda$ satisfying the equation $Ax = \lambda x$ are &lt;b>eigenvectors&lt;/b> and &lt;b>eigenvalues&lt;/b>. The eigenvalues and eigenvectors for some of the commonly used matrices are as follows:&lt;/p></description></item></channel></rss>
