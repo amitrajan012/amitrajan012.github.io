@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Positive Definite Matrices on Amit Rajan</title><link>https://amitrajan012.github.io/tags/positive-definite-matrices/</link><description>Recent content in Positive Definite Matrices on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/positive-definite-matrices/index.xml" rel="self" type="application/rss+xml"/><item><title>Positive Definite Matrices</title><link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link><pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid><description>&lt;h2 id="241-positive-definite-matrices">24.1 Positive Definite Matrices&lt;/h2>
-&lt;p>These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix}
-a &amp;amp; b \\
-b &amp;amp; c
-\end{bmatrix}$ for being Positive Definite:&lt;/p>
-&lt;ul>
-&lt;li>Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$&lt;/li>
-&lt;li>All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$&lt;/li>
-&lt;li>Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$&lt;/li>
-&lt;li>$x^TAx &amp;gt; 0;\forall x$&lt;/li>
-&lt;/ul>
-&lt;p>The matrix for which any of these conditions holds with equality instead are called as &lt;b>positive semi-definite matrices&lt;/b>. For example, the matrix $A = \begin{bmatrix}
-2 &amp;amp; 6 \\
-6 &amp;amp; 18
-\end{bmatrix}$ is a positive-semidifinite matrix. Let us run the $x^TAx &amp;gt; 0$ test on this matrix. Let $x = \begin{bmatrix}
-x_1 \\
-x_2
-\end{bmatrix}$, then&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Positive Definite Matrices on Amit Rajan</title><link>https://amitrajan012.github.io/tags/positive-definite-matrices/</link><description>Recent content in Positive Definite Matrices on Amit Rajan</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 May 2022 14:07:28 +0100</lastBuildDate><atom:link href="https://amitrajan012.github.io/tags/positive-definite-matrices/index.xml" rel="self" type="application/rss+xml"/><item><title>Positive Definite Matrices</title><link>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</link><pubDate>Mon, 02 May 2022 14:07:28 +0100</pubDate><guid>https://amitrajan012.github.io/post/chapter-24-positive-definite-matrices-and-minima/</guid><description>&lt;h2 id="241-positive-definite-matrices"&gt;24.1 Positive Definite Matrices&lt;/h2&gt;&#10;&lt;p&gt;These are the complete tests for a $2 \times 2$ matrix $A = \begin{bmatrix}&#10;a &amp;amp; b \\&#10;b &amp;amp; c&#10;\end{bmatrix}$ for being Positive Definite:&lt;/p&gt;&#10;&lt;ul&gt;&#10;&lt;li&gt;Both the eigenvalues should be positive: $\lambda_1 &amp;gt; 0;\lambda_2 &amp;gt; 0$&lt;/li&gt;&#10;&lt;li&gt;All the sub-determinants should be positive: $a &amp;gt; 0; ac - b^2 &amp;gt; 0$&lt;/li&gt;&#10;&lt;li&gt;Pivots should be positive: $a&amp;gt;0;\frac{ac-b^2}{a} &amp;gt; 0$&lt;/li&gt;&#10;&lt;li&gt;$x^TAx &amp;gt; 0;\forall x$&lt;/li&gt;&#10;&lt;/ul&gt;&#10;&lt;p&gt;The matrix for which any of these conditions holds with equality instead are called as &lt;b&gt;positive semi-definite matrices&lt;/b&gt;. For example, the matrix $A = \begin{bmatrix}&#10;2 &amp;amp; 6 \\&#10;6 &amp;amp; 18&#10;\end{bmatrix}$ is a positive-semidifinite matrix. Let us run the $x^TAx &amp;gt; 0$ test on this matrix. Let $x = \begin{bmatrix}&#10;x_1 \\&#10;x_2&#10;\end{bmatrix}$, then&lt;/p&gt;</description></item></channel></rss>
