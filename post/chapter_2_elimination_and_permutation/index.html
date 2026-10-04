@@ -1,10 +1,10 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2</title><meta name=description content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2"><meta property="og:description" content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-08T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Linear Equations"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2"><meta name=twitter:description content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-08T14:07:28+01:00","datePublished":"2022-01-08T14:07:28+01:00","description":"Strang · Chapter 2. Elimination \u0026amp; Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …","headline":"Elimination \u0026 Permutation with Matrices","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Linear Equations, Matrix Multiplications, Gilbert Strang","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/","url":"https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/","wordCount":953}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2</title><meta name=description content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2"><meta property="og:description" content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-08T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Linear Equations"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Elimination & Permutation with Matrices | Strang Linear Algebra Ch. 2"><meta name=twitter:description content="Strang · Chapter 2. Elimination & Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-08T14:07:28+01:00","datePublished":"2022-01-08T14:07:28+01:00","description":"Strang · Chapter 2. Elimination \u0026amp; Permutation with Matrices Elimination is the method which is used to solve a system of linear equations. Let is a system of …","headline":"Elimination \u0026 Permutation with Matrices","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Linear Equations, Matrix Multiplications, Gilbert Strang","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/","url":"https://amitrajan012.github.io/post/chapter_2_elimination_and_permutation/","wordCount":942}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
 <span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
 <a href=/post/ class=is-active>Notes</a>
 <a href=/#series>Series</a>
 <a href=/tags/>Topics</a>
 <a href=/about/>About</a>
-<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 2</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 2</span> · <time datetime=2022-01-08>Sat, 08 Jan 2022</time> · 5 min read</p><h1 class=note-title>Elimination & Permutation with Matrices</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/linear-equations/>Linear Equations</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a></div><div class=prose><h2 id=21-elimination--permutation-with-matrices>2.1 Elimination & Permutation with Matrices</h2><p>Elimination is the method which is used to solve a system of linear equations. Let $Ax=b$ is a system of linear equation where</p><p>$$\begin{align}
+<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 2</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 2</span> · <time datetime=2022-01-08>Sat, 08 Jan 2022</time> · 5 min read</p><h1 class=note-title>Elimination & Permutation with Matrices</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/linear-equations/>Linear Equations</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a></div><div class=prose><h2 id=21-elimination--permutation-with-matrices>2.1 Elimination & Permutation with Matrices</h2><p>Elimination is the method which is used to solve a system of linear equations. Let \(Ax=b\) is a system of linear equation where</p>\[\begin{align}
 A = \begin{bmatrix}
 1 & 2 & 1\\
 3 & 8 & 1\\
@@ -15,15 +15,15 @@ b = \begin{bmatrix}
 12 \\
 2
 \end{bmatrix}
-\end{align}$$</p><p>The idea of elimination is to transform $A$ into a matrix where all the entries in the cell below the diagonal is 0. The transformed matrix is called as <b>upper triangular matrix</b> (denoted by $U$). Once we have the upper triangular matrix, the system of equation can be easly solved using back substitution.</p><p>To get $U$, certain elimination steps are followed. Usually the right hand side $b$ is appended to $A$ such that all the elimination steps are performed on them simultaneously. The appended matrix is shown below.</p><p>$$\begin{align}
-A^{&rsquo;} = \left[
+\end{align}\]<p>The idea of elimination is to transform \(A\) into a matrix where all the entries in the cell below the diagonal is 0. The transformed matrix is called as <b>upper triangular matrix</b> (denoted by \(U\)). Once we have the upper triangular matrix, the system of equation can be easly solved using back substitution.</p><p>To get \(U\), certain elimination steps are followed. Usually the right hand side \(b\) is appended to \(A\) such that all the elimination steps are performed on them simultaneously. The appended matrix is shown below.</p>\[\begin{align}
+A^{'} = \left[
 \begin{array}{ccc|c}
 1 & 2 & 1 & 2 \\
 3 & 8 & 1 & 12 \\
 0 & 4 & 1 & 12 \\
 \end{array}
 \right]
-\end{align}$$</p><p>The usual elimination step which is used to make the entry of <b>row m column n</b> is denoted as $E_{mn}$. The two primaraly used elimination steps are:</p><ul><li><b>row multiplication and subtraction:</b> In this step, a row is multiplied by a number and subtracted from another row</li><li><b>row exchange:</b> In this step, two rows are exchanged</li></ul><p>The elimination steps for the matrix $A$ are as follows.</p><ul><li><b>Step 1 - $E_{21}$</b>: $row_2 \leftarrow row_2 - 3row_1$</li></ul><p>$$\begin{align}
+\end{align}\]<p>The usual elimination step which is used to make the entry of <b>row m column n</b> is denoted as \(E_{mn}\). The two primaraly used elimination steps are:</p><ul><li><b>row multiplication and subtraction:</b> In this step, a row is multiplied by a number and subtracted from another row</li><li><b>row exchange:</b> In this step, two rows are exchanged</li></ul><p>The elimination steps for the matrix \(A\) are as follows.</p><ul><li><b>Step 1 - \(E_{21}\)</b>: \(row_2 \leftarrow row_2 - 3row_1\)</li></ul>\[\begin{align}
 A = \begin{bmatrix}
 1 & 2 & 1\\
 3 & 8 & 1\\
@@ -34,7 +34,7 @@ A = \begin{bmatrix}
 0 & 2 & -2\\
 0 & 4 & 1
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Step 2 - $E_{32}$</b>: $row_3 \leftarrow row_3 - 2row_2$</li></ul><p>$$\begin{align}
+\end{align}\]<ul><li><b>Step 2 - \(E_{32}\)</b>: \(row_3 \leftarrow row_3 - 2row_2\)</li></ul>\[\begin{align}
 A = \begin{bmatrix}
 1 & 2 & 1\\
 3 & 8 & 1\\
@@ -50,7 +50,7 @@ U = \begin{bmatrix}
 0 & 2 & -2\\
 0 & 0 & 5
 \end{bmatrix}
-\end{align}$$</p><p>Let us look at these elimination steps individually. The step $E_{21}$ leaves $row_{1}, row_{3}$ unchanged. The new $row_{2}$ is obtained by adding $-3$ times $row_1$ to existing $row_2$. If we look at the matrix multiplication as row operations, the new $row_2$ can be achieved by multiplying $A$ with $\begin{bmatrix}-3 & 1 & 0 \end{bmatrix}$ as</p><p>$$\begin{align}
+\end{align}\]<p>Let us look at these elimination steps individually. The step \(E_{21}\) leaves \(row_{1}, row_{3}\) unchanged. The new \(row_{2}\) is obtained by adding \(-3\) times \(row_1\) to existing \(row_2\). If we look at the matrix multiplication as row operations, the new \(row_2\) can be achieved by multiplying \(A\) with \(\begin{bmatrix}-3 & 1 & 0 \end{bmatrix}\) as</p>\[\begin{align}
 \begin{bmatrix}
 -3 & 1 & 0
 \end{bmatrix} A =
@@ -61,8 +61,7 @@ U = \begin{bmatrix}
 1 & 2 & 1\\
 3 & 8 & 1\\
 0 & 4 & 1
-\end{bmatrix} \end{align}$$
-$$\begin{align}= -3\begin{bmatrix}
+\end{bmatrix} \end{align}\]<p></p>\[\begin{align}= -3\begin{bmatrix}
 1 & 2 & 1
 \end{bmatrix}
 +1\begin{bmatrix}
@@ -74,28 +73,28 @@ $$\begin{align}= -3\begin{bmatrix}
 =\begin{bmatrix}
 0 & 2 & -2
 \end{bmatrix}
-\end{align}$$</p><p>$row_1$ and $row_2$ can remain unchanged by multiplying $A$ with $\begin{bmatrix}1 & 0 & 0 \end{bmatrix}$ and $\begin{bmatrix}0 & 0 & 1 \end{bmatrix}$ respectively. Hence, elimination step $E_{21}$ can be written as matrix multiplication in the form of $A \rightarrow E_{21}A$, where</p><p>$$\begin{align}
+\end{align}\]<p>\(row_1\) and \(row_2\) can remain unchanged by multiplying \(A\) with \(\begin{bmatrix}1 & 0 & 0 \end{bmatrix}\) and \(\begin{bmatrix}0 & 0 & 1 \end{bmatrix}\) respectively. Hence, elimination step \(E_{21}\) can be written as matrix multiplication in the form of \(A \rightarrow E_{21}A\), where</p>\[\begin{align}
 E_{21} =
 \begin{bmatrix}
 1 & 0 & 0\\
 -3 & 1 & 0\\
 0 & 0 & 1
 \end{bmatrix}
-\end{align}$$</p><p>Similarly, $E_{32}$ in which $row_1, row_2$ are unchanged and new $row_3$ is obtained by subtracting twice $row_2$ from $row_3$ can be written as $E_{21}A \rightarrow E_{32}E_{21}A$, where</p><p>$$\begin{align}
+\end{align}\]<p>Similarly, \(E_{32}\) in which \(row_1, row_2\) are unchanged and new \(row_3\) is obtained by subtracting twice \(row_2\) from \(row_3\) can be written as \(E_{21}A \rightarrow E_{32}E_{21}A\), where</p>\[\begin{align}
 E_{32} =
 \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & -2 & 1
 \end{bmatrix}
-\end{align}$$</p><p>The entire transformation can be represented as where $E = E_{32}E_{21}$ is the transformation matrix.</p><p>$$\begin{align}
+\end{align}\]<p>The entire transformation can be represented as where \(E = E_{32}E_{21}\) is the transformation matrix.</p>\[\begin{align}
 A \rightarrow E_{32}(E_{21}A) = (E_{32}E_{21})A = EA = U
-\end{align}$$</p><p>The above explained transformation steps come under the category of <b>row multiplication and subtraction</b>. There may arise a situation when to achieve an <b>upper triangular matirx</b>, we have to <b>substitute the rows</b>. For example, let us look at the following matrix.</p><p>$$\begin{align}
+\end{align}\]<p>The above explained transformation steps come under the category of <b>row multiplication and subtraction</b>. There may arise a situation when to achieve an <b>upper triangular matirx</b>, we have to <b>substitute the rows</b>. For example, let us look at the following matrix.</p>\[\begin{align}
 A = \begin{bmatrix}
 0 & 2\\
 1 & 8\\
 \end{bmatrix}
-\end{align}$$</p><p>To get the upper triangular matrix from $A$, no possible row multiplication and subtraction steps can be thought of. The only way to do the transformation is to replace $row_{1}$ and $row_{2}$. Hence the elimination step for the matrix $A$ is as follows.</p><ul><li><b>Step 1 -</b> $P: row_{1} \leftrightarrow row_{2}$</li></ul><p>$$\begin{align}
+\end{align}\]<p>To get the upper triangular matrix from \(A\), no possible row multiplication and subtraction steps can be thought of. The only way to do the transformation is to replace \(row_{1}\) and \(row_{2}\). Hence the elimination step for the matrix \(A\) is as follows.</p><ul><li><b>Step 1 -</b> \(P: row_{1} \leftrightarrow row_{2}\)</li></ul>\[\begin{align}
 A = \begin{bmatrix}
 0 & 2\\
 1 & 8\\
@@ -104,12 +103,12 @@ U = \begin{bmatrix}
 1 & 8\\
 0 & 2\\
 \end{bmatrix}
-\end{align}$$</p><p>The above <b>row substitution</b> operation can be achieved by using a special class of matrices called <b>permutation matrices</b> for multiplication. By using matrix multiplication as a row operation, the above transformation can be achieved using multiplying $A$ by below matrix.</p><p>$$\begin{align}
+\end{align}\]<p>The above <b>row substitution</b> operation can be achieved by using a special class of matrices called <b>permutation matrices</b> for multiplication. By using matrix multiplication as a row operation, the above transformation can be achieved using multiplying \(A\) by below matrix.</p>\[\begin{align}
 P = \begin{bmatrix}
 0 & 1\\
 1 & 0\\
 \end{bmatrix}
-\end{align}$$</p><p>If we look at the row wise multiplication further, the new $row_1$ is:</p><p>$$\begin{align}
+\end{align}\]<p>If we look at the row wise multiplication further, the new \(row_1\) is:</p>\[\begin{align}
 \begin{bmatrix}
 0 & 1
 \end{bmatrix}
@@ -126,7 +125,7 @@ P = \begin{bmatrix}
 \begin{bmatrix}
 1 & 8
 \end{bmatrix}
-\end{align}$$</p><p>For a matrix which has $n$ rows, there can be a total of $n!$ <b>permutation matrices</b> as $n$ rows can be arranged in a total of $n!$ ways. For example, for a $2 \times 2$ matrix the set of permutation matrices are as follows. The first matrix belongs to the case when no row substitution takes place and the second matrix belongs to the case when $row_1$ and $row_2$ are interchanged. It should be noted that different matrices in the set of permutation matrices are constructed by <b>exchanging the rows of Identity Matrix</b>.</p><p>$$\begin{align}
+\end{align}\]<p>For a matrix which has \(n\) rows, there can be a total of \(n!\) <b>permutation matrices</b> as \(n\) rows can be arranged in a total of \(n!\) ways. For example, for a \(2 \times 2\) matrix the set of permutation matrices are as follows. The first matrix belongs to the case when no row substitution takes place and the second matrix belongs to the case when \(row_1\) and \(row_2\) are interchanged. It should be noted that different matrices in the set of permutation matrices are constructed by <b>exchanging the rows of Identity Matrix</b>.</p>\[\begin{align}
 \bigg\{\begin{bmatrix}
 1 & 0\\
 0 & 1\\
@@ -135,7 +134,7 @@ P = \begin{bmatrix}
 0 & 1\\
 1 & 0\\
 \end{bmatrix} \bigg\}
-\end{align}$$</p></div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/><span class="mono muted">← Previous</span><span class=pn-title>Geometry of Linear Equations & Matrix Multiplications</span></a>
+\end{align}\]</div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/><span class="mono muted">← Previous</span><span class=pn-title>Geometry of Linear Equations & Matrix Multiplications</span></a>
 <a class=pn-next href=/post/chapter_3_inverse_factorization_and_symmetric_matrices/><span class="mono muted">Next →</span><span class=pn-title>Inverse of a Matrix & Factorization into $A=LU$</span></a></nav><section class=related aria-label="Related reading"><h2 class="mono related-h">Related notes</h2><ul class=related-list><li><a href=/post/chapter_7_independence_basis_and_dimension/><span class="mono muted">Strang · Chapter 7</span><span class=pn-title>Matrix Independence, Span, Basis & Dimension</span></a></li><li><a href=/post/chapter_6_solving_for_axb/><span class="mono muted">Strang · Chapter 6</span><span class=pn-title>Algorithm for solving $Ax=b$</span></a></li><li><a href=/post/chapter_5_computing_nullspace/><span class="mono muted">Strang · Chapter 5</span><span class=pn-title>Algorithm for solving $Ax=0$</span></a></li><li><a href=/post/chapter_4_vector_spaces/><span class="mono muted">Strang · Chapter 4</span><span class=pn-title>Vector Space and Subspace</span></a></li></ul></section></article></div></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
 <span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
 <a href=https://www.linkedin.com/in/amit-rajan-1343aaba/>LinkedIn</a>

@@ -1,16 +1,16 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5</title><meta name=description content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_5_computing_nullspace/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5"><meta property="og:description" content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_5_computing_nullspace/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-20T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta property="article:tag" content="Vector Space"><meta property="article:tag" content="Matrix Factorization"><meta property="article:tag" content="Subspace"><meta property="article:tag" content="Column Space"><meta property="article:tag" content="Null Space"><meta property="article:tag" content="Reduced Row-Echelon Form"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5"><meta name=twitter:description content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-20T14:07:28+01:00","datePublished":"2022-01-20T14:07:28+01:00","description":"Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …","headline":"Algorithm for solving $Ax=0$","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Matrix Multiplications, Gilbert Strang, Vector Space, Matrix Factorization, Subspace, Column Space, Null Space, Reduced Row-Echelon Form","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_5_computing_nullspace/","url":"https://amitrajan012.github.io/post/chapter_5_computing_nullspace/","wordCount":1125}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5</title><meta name=description content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_5_computing_nullspace/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5"><meta property="og:description" content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_5_computing_nullspace/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-20T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta property="article:tag" content="Vector Space"><meta property="article:tag" content="Matrix Factorization"><meta property="article:tag" content="Subspace"><meta property="article:tag" content="Column Space"><meta property="article:tag" content="Null Space"><meta property="article:tag" content="Reduced Row-Echelon Form"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Algorithm for solving $Ax=0$ | Strang Linear Algebra Ch. 5"><meta name=twitter:description content="Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-20T14:07:28+01:00","datePublished":"2022-01-20T14:07:28+01:00","description":"Strang · Chapter 5. Algorithm for solving The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix . Let us start by …","headline":"Algorithm for solving $Ax=0$","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Matrix Multiplications, Gilbert Strang, Vector Space, Matrix Factorization, Subspace, Column Space, Null Space, Reduced Row-Echelon Form","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_5_computing_nullspace/","url":"https://amitrajan012.github.io/post/chapter_5_computing_nullspace/","wordCount":1114}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
 <span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
 <a href=/post/ class=is-active>Notes</a>
 <a href=/#series>Series</a>
 <a href=/tags/>Topics</a>
 <a href=/about/>About</a>
-<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 5</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 5</span> · <time datetime=2022-01-20>Thu, 20 Jan 2022</time> · 6 min read</p><h1 class=note-title>Algorithm for solving $Ax=0$</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a><a class=tag href=/tags/vector-space/>Vector Space</a><a class=tag href=/tags/matrix-factorization/>Matrix Factorization</a><a class=tag href=/tags/subspace/>Subspace</a><a class=tag href=/tags/column-space/>Column Space</a><a class=tag href=/tags/null-space/>Null Space</a><a class=tag href=/tags/reduced-row-echelon-form/>Reduced Row-Echelon Form</a></div><div class=prose><h3 id=51-algorithm-for-solving-ax0>5.1 Algorithm for solving $Ax=0$</h3><p>The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix $A$. Let us start by taking a matrix $A$.</p><p>$$\begin{align}
+<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 5</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 5</span> · <time datetime=2022-01-20>Thu, 20 Jan 2022</time> · 6 min read</p><h1 class=note-title>Algorithm for solving $Ax=0$</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a><a class=tag href=/tags/vector-space/>Vector Space</a><a class=tag href=/tags/matrix-factorization/>Matrix Factorization</a><a class=tag href=/tags/subspace/>Subspace</a><a class=tag href=/tags/column-space/>Column Space</a><a class=tag href=/tags/null-space/>Null Space</a><a class=tag href=/tags/reduced-row-echelon-form/>Reduced Row-Echelon Form</a></div><div class=prose><h3 id=51-algorithm-for-solving>5.1 Algorithm for solving \(Ax=0\)</h3><p>The idea behind this exercise is to come up with an algorithm to find the nullspace of a matrix \(A\). Let us start by taking a matrix \(A\).</p>\[\begin{align}
 A = \begin{bmatrix}
 1 & 2 & 2 & 2 \\
 2 & 4 & 6 & 8 \\
 3 & 6 & 8 & 10
 \end{bmatrix}
-\end{align}$$</p><p>One of the first thing to notice in $A$ is that $row_3$ is a linear combination of $row_1$ and $row_2$ ($row_3 = row_1 + row_2$). The way to solve a system of linear equations is by elimination. Different <b>row elimination steps</b> can be used to transform $A$ into an <b>upper triangular matrix</b> with the same steps repeated on the right hand side. As the right hand side is $0$ here, the elimination steps can be skipped for it.</p><p>$$\begin{align}
+\end{align}\]<p>One of the first thing to notice in \(A\) is that \(row_3\) is a linear combination of \(row_1\) and \(row_2\) (\(row_3 = row_1 + row_2\)). The way to solve a system of linear equations is by elimination. Different <b>row elimination steps</b> can be used to transform \(A\) into an <b>upper triangular matrix</b> with the same steps repeated on the right hand side. As the right hand side is \(0\) here, the elimination steps can be skipped for it.</p>\[\begin{align}
 A = \begin{bmatrix}
 1 & 2 & 2 & 2 \\
 2 & 4 & 6 & 8 \\
@@ -28,7 +28,7 @@ A = \begin{bmatrix}
 0 & 0 & 2 & 4 \\
 0 & 0 & 0 & 0
 \end{bmatrix} = U
-\end{align}$$</p><p>The resultant matrix after the elimination steps is $U$ which is in the <b>echelon form</b>. Now, instead of solving $Ax=0$, $Ux=0$ can be solved. There are <b>two pivots</b>: $U_{11} = 1,U_{23} = 2$. The number of pivots is also called as the <b>rank of the matrix</b>. Here, the rank is $2$. The columns in which pivots are there ($col_1, col_3$) are called as <b>pivot columns</b>. Remaining columns ($col_2, col_4$) are called as <b>free columns</b>. The equation $Ux=0$ can be written as follows.</p><p>$$\begin{align}
+\end{align}\]<p>The resultant matrix after the elimination steps is \(U\) which is in the <b>echelon form</b>. Now, instead of solving \(Ax=0\), \(Ux=0\) can be solved. There are <b>two pivots</b>: \(U_{11} = 1,U_{23} = 2\). The number of pivots is also called as the <b>rank of the matrix</b>. Here, the rank is \(2\). The columns in which pivots are there (\(col_1, col_3\)) are called as <b>pivot columns</b>. Remaining columns (\(col_2, col_4\)) are called as <b>free columns</b>. The equation \(Ux=0\) can be written as follows.</p>\[\begin{align}
 x_1\begin{bmatrix}
 1 \\
 0 \\
@@ -54,17 +54,17 @@ x_4\begin{bmatrix}
 0 \\
 0
 \end{bmatrix}
-\end{align}$$</p><p>The values in $x$ corresponding to the free columns (here they are $x_2,x_4$) can be assigned any values and then we can find the values of $x_1,x_3$ to complete the solution. We can systematically assign values to the multipliers corresponding to the free columns. Let $x_2=1,x_4=0$, this gives $x_1=-2,x_3=0$ and hence $\begin{bmatrix}
+\end{align}\]<p>The values in \(x\) corresponding to the free columns (here they are \(x_2,x_4\)) can be assigned any values and then we can find the values of \(x_1,x_3\) to complete the solution. We can systematically assign values to the multipliers corresponding to the free columns. Let \(x_2=1,x_4=0\), this gives \(x_1=-2,x_3=0\) and hence \(\begin{bmatrix}
 -2 \\
 1 \\
 0 \\
 0
-\end{bmatrix}$ is a solution (or any multiple of this vector), a vector in the <b>null space</b>. Another choice for free variables can be $x_2=0,x_4=1$, which gives $x_1=2,x_3=-2$ and hence $\begin{bmatrix}
+\end{bmatrix}\) is a solution (or any multiple of this vector), a vector in the <b>null space</b>. Another choice for free variables can be \(x_2=0,x_4=1\), which gives \(x_1=2,x_3=-2\) and hence \(\begin{bmatrix}
 2 \\
 0 \\
 -2 \\
 1
-\end{bmatrix}$ is another solution (or any multiple of this vector), another vector in the <b>null space</b>. Hence, the general solution can be given as:</p><p>$$\begin{align}
+\end{bmatrix}\) is another solution (or any multiple of this vector), another vector in the <b>null space</b>. Hence, the general solution can be given as:</p>\[\begin{align}
 x = c\begin{bmatrix}
 -2 \\
 1 \\
@@ -77,7 +77,7 @@ d\begin{bmatrix}
 -2 \\
 1
 \end{bmatrix}
-\end{align}$$</p><p>Another thing to note is the number of individual solutions is equal to the number of <b>free variables</b> or <b>free columns</b>. For a $m \times n$ matrix whose <b>rank</b> is $r$, the number of <b>free columns/variables</b>( individual solutions) will be $n-r$.</p><h2 id=52-reduced-row-echelon-form>5.2 Reduced Row-Echelon Form</h2><p>The row-echelon matrix $U$ can be further simplified by elimination steps. The idea is to get a matrix which have $0$ in the cells above and below <b>pivot</b>. Furthermore, the pivot values can be reduced to $1$. The reduced matrix $R$ is called as the matrix in <b>reduced row-echelon form</b>.</p><p>$$\begin{align}
+\end{align}\]<p>Another thing to note is the number of individual solutions is equal to the number of <b>free variables</b> or <b>free columns</b>. For a \(m \times n\) matrix whose <b>rank</b> is \(r\), the number of <b>free columns/variables</b>( individual solutions) will be \(n-r\).</p><h2 id=52-reduced-row-echelon-form>5.2 Reduced Row-Echelon Form</h2><p>The row-echelon matrix \(U\) can be further simplified by elimination steps. The idea is to get a matrix which have \(0\) in the cells above and below <b>pivot</b>. Furthermore, the pivot values can be reduced to \(1\). The reduced matrix \(R\) is called as the matrix in <b>reduced row-echelon form</b>.</p>\[\begin{align}
 U =
 \begin{bmatrix}
 1 & 2 & 2 & 2 \\
@@ -89,13 +89,13 @@ U =
 0 & 0 & 1 & 2 \\
 0 & 0 & 0 & 0
 \end{bmatrix} = R
-\end{align}$$</p><p>If we further examine the matrix $R$, it can be noticed that an <b>identity matrix</b> $\begin{bmatrix}
+\end{align}\]<p>If we further examine the matrix \(R\), it can be noticed that an <b>identity matrix</b> \(\begin{bmatrix}
 1 & 0 \\
 0 & 1
-\end{bmatrix} = I$ sits in the <b>pivot rows and columns</b> ($row_1, row_2, col_1, col_2$). Corresponding entries in the <b>free columns</b> are $\begin{bmatrix}
+\end{bmatrix} = I\) sits in the <b>pivot rows and columns</b> (\(row_1, row_2, col_1, col_2\)). Corresponding entries in the <b>free columns</b> are \(\begin{bmatrix}
 2 & -2 \\
 0 & 2
-\end{bmatrix} = F$. If we look at $I$ and $F$, they are nothing but the rearranged individual solutions with sign switched for $F$. Let us just rearrnage the reduced row-echelon matrix $R$ as follows, where the last matrix is nothing but matrix represented in the <b>block form</b>. We have to find $x$ such that $Rx=0$.</p><p>$$\begin{align}
+\end{bmatrix} = F\). If we look at \(I\) and \(F\), they are nothing but the rearranged individual solutions with sign switched for \(F\). Let us just rearrnage the reduced row-echelon matrix \(R\) as follows, where the last matrix is nothing but matrix represented in the <b>block form</b>. We have to find \(x\) such that \(Rx=0\).</p>\[\begin{align}
 R =
 \begin{bmatrix}
 1 & 2 & 0 & -2 \\
@@ -111,7 +111,7 @@ R =
 I & F \\
 0 & 0
 \end{bmatrix}
-\end{align}$$</p><p>For the given R in the block form, the solution can be given as:</p><p>$$\begin{align}
+\end{align}\]<p>For the given R in the block form, the solution can be given as:</p>\[\begin{align}
 \begin{bmatrix}
 I & F \\
 0 & 0
@@ -119,7 +119,7 @@ I & F \\
 -F \\
 I
 \end{bmatrix} = 0
-\end{align}$$</p><p>Hence, the final solution in the rearranged form is:</p><p>$$\begin{align}
+\end{align}\]<p>Hence, the final solution in the rearranged form is:</p>\[\begin{align}
 \begin{bmatrix}
 -F \\
 I
@@ -130,14 +130,14 @@ I
 1 & 0 \\
 0 & 1
 \end{bmatrix}
-\end{align}$$</p><h2 id=53-example>5.3 Example</h2><p>Let us look at one more example. The system of equations which we have to solve is $Bx=0$ where $B=A^T$ for the above matrix $A$.</p><p>$$\begin{align}
+\end{align}\]<h2 id=53-example>5.3 Example</h2><p>Let us look at one more example. The system of equations which we have to solve is \(Bx=0\) where \(B=A^T\) for the above matrix \(A\).</p>\[\begin{align}
 B = \begin{bmatrix}
 1 & 2 & 3 \\
 2 & 4 & 6 \\
 2 & 6 & 8 \\
 2 & 8 & 10
 \end{bmatrix}
-\end{align}$$</p><p>The transformation of $B$ into <b>row-reduced echelon form</b> can be given as follows:</p><p>$$\begin{align}
+\end{align}\]<p>The transformation of \(B\) into <b>row-reduced echelon form</b> can be given as follows:</p>\[\begin{align}
 B = \begin{bmatrix}
 1 & 2 & 3 \\
 2 & 4 & 6 \\
@@ -168,7 +168,7 @@ B = \begin{bmatrix}
 0 & 0 & 0 \\
 0 & 0 & 0 \\
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 I =
 \begin{bmatrix}
 1 & 0\\
@@ -179,8 +179,7 @@ F =
 1 \\
 1
 \end{bmatrix}
-\end{align}$$</p><p>Hence the <b>null space</b> can be given as
-$$\begin{align}
+\end{align}\]<p>Hence the <b>null space</b> can be given as</p>\[\begin{align}
 c\begin{bmatrix}
 -F \\
 I
@@ -190,7 +189,7 @@ c\begin{bmatrix}
 -1 \\
 1
 \end{bmatrix}
-\end{align}$$</p></div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_4_vector_spaces/><span class="mono muted">← Previous</span><span class=pn-title>Vector Space and Subspace</span></a>
+\end{align}\]</div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_4_vector_spaces/><span class="mono muted">← Previous</span><span class=pn-title>Vector Space and Subspace</span></a>
 <a class=pn-next href=/post/chapter_6_solving_for_axb/><span class="mono muted">Next →</span><span class=pn-title>Algorithm for solving $Ax=b$</span></a></nav><section class=related aria-label="Related reading"><h2 class="mono related-h">Related notes</h2><ul class=related-list><li><a href=/post/chapter_7_independence_basis_and_dimension/><span class="mono muted">Strang · Chapter 7</span><span class=pn-title>Matrix Independence, Span, Basis & Dimension</span></a></li><li><a href=/post/chapter_8-_the_four_fundamental_subspaces/><span class="mono muted">Strang · Chapter 8</span><span class=pn-title>Four Fundamental Subspaces</span></a></li><li><a href=/post/chapter_9_matrix_spaces/><span class="mono muted">Strang · Chapter 9</span><span class=pn-title>Matrix Spaces</span></a></li><li><a href=/post/chapter_3_inverse_factorization_and_symmetric_matrices/><span class="mono muted">Strang · Chapter 3</span><span class=pn-title>Inverse of a Matrix & Factorization into $A=LU$</span></a></li></ul></section></article></div></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
 <span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
 <a href=https://www.linkedin.com/in/amit-rajan-1343aaba/>LinkedIn</a>

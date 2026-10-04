@@ -1,10 +1,10 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Determinant and Cofactors | Strang Linear Algebra Ch. 16</title><meta name=description content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Determinant and Cofactors | Strang Linear Algebra Ch. 16"><meta property="og:description" content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-04-07T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Determinant"><meta property="article:tag" content="Gilbert Strang"><meta property="article:tag" content="Cofactors"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Determinant and Cofactors | Strang Linear Algebra Ch. 16"><meta name=twitter:description content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-04-07T14:07:28+01:00","datePublished":"2022-04-07T14:07:28+01:00","description":"Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …","headline":"Determinant and Cofactors","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Determinant, Gilbert Strang, Cofactors","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/","url":"https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/","wordCount":534}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Determinant and Cofactors | Strang Linear Algebra Ch. 16</title><meta name=description content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Determinant and Cofactors | Strang Linear Algebra Ch. 16"><meta property="og:description" content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-04-07T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Determinant"><meta property="article:tag" content="Gilbert Strang"><meta property="article:tag" content="Cofactors"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Determinant and Cofactors | Strang Linear Algebra Ch. 16"><meta name=twitter:description content="Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-04-07T14:07:28+01:00","datePublished":"2022-04-07T14:07:28+01:00","description":"Strang · Chapter 16. Formula for For a matrix , the formula for can be derived as follows: For a matrix, first row can be seperated into pieces as …","headline":"Determinant and Cofactors","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Determinant, Gilbert Strang, Cofactors","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/","url":"https://amitrajan012.github.io/post/chapter_16_determinant_formulas_and_cofactors/","wordCount":522}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
 <span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
 <a href=/post/ class=is-active>Notes</a>
 <a href=/#series>Series</a>
 <a href=/tags/>Topics</a>
 <a href=/about/>About</a>
-<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 16</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 16</span> · <time datetime=2022-04-07>Thu, 07 Apr 2022</time> · 3 min read</p><h1 class=note-title>Determinant and Cofactors</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/determinant/>Determinant</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a><a class=tag href=/tags/cofactors/>Cofactors</a></div><div class=prose><h2 id=161-formula-for-a>16.1 Formula for $|A|$</h2><p>For a $2 \times 2$ matrix $A$, the formula for $|A|$ can be derived as follows:</p><p>$$\begin{align}
+<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 16</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 16</span> · <time datetime=2022-04-07>Thu, 07 Apr 2022</time> · 3 min read</p><h1 class=note-title>Determinant and Cofactors</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/determinant/>Determinant</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a><a class=tag href=/tags/cofactors/>Cofactors</a></div><div class=prose><h2 id=161-formula-for>16.1 Formula for \(|A|\)</h2><p>For a \(2 \times 2\) matrix \(A\), the formula for \(|A|\) can be derived as follows:</p>\[\begin{align}
 |A| = \begin{vmatrix}
 a & b \\
 c & d
@@ -16,7 +16,7 @@ c & d
 0 & b \\
 c & d
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 =\begin{vmatrix}
 a & 0 \\
 c & 0
@@ -30,15 +30,15 @@ c & 0
 0 & b \\
 0 & d
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 =0+ad-bc+0=ad-bc
-\end{align}$$</p><p>For a $3 \times 3$ matrix, first row can be seperated into $3$ pieces as demonstrated above. For each of the individual separated matrices, the second row will be separated into $3$ pieces giving a total of $9$ matrices. Finally, for each of these $9$ matrices, the third row will be separated into $3$ pieces, giving a total of $27$ matrices. Out of these $27$ matrices, a lot will have $0$ determinant. <b>Matrices with non-zero determinant will have one entry from each row and column</b>. The splitted matrices with non-zero determinant for a $3 \times 3$ matrix $A$ is shown below. The sign of individual determinants is derived based on number of row exchanges needed to get a diagonal matrix.</p><p>$$\begin{align}
+\end{align}\]<p>For a \(3 \times 3\) matrix, first row can be seperated into \(3\) pieces as demonstrated above. For each of the individual separated matrices, the second row will be separated into \(3\) pieces giving a total of \(9\) matrices. Finally, for each of these \(9\) matrices, the third row will be separated into \(3\) pieces, giving a total of \(27\) matrices. Out of these \(27\) matrices, a lot will have \(0\) determinant. <b>Matrices with non-zero determinant will have one entry from each row and column</b>. The splitted matrices with non-zero determinant for a \(3 \times 3\) matrix \(A\) is shown below. The sign of individual determinants is derived based on number of row exchanges needed to get a diagonal matrix.</p>\[\begin{align}
 |A| = \begin{vmatrix}
 a_{11} & a_{12} & a_{13}\\
 a_{21} & a_{22} & a_{23}\\
 a_{31} & a_{32} & a_{33}
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 =\begin{vmatrix}
 a_{11} & 0 & 0\\
 0 & a_{22} & 0\\
@@ -52,7 +52,7 @@ a_{11} & 0 & 0\\
 a_{21} & 0 & 0\\
 0 & 0 & a_{33}
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 +\begin{vmatrix}
 0 & a_{12} & 0\\
 0 & 0 & a_{23}\\
@@ -66,17 +66,17 @@ a_{21} & 0 & 0\\
 0 & a_{22} & 0\\
 a_{31} & 0 & 0
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 =a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33}+ \\
 a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} - a_{13}a_{22}a_{31}
-\end{align}$$</p><p>The generic formula for a $n \times n$ matrix $A$ is as follows:</p><p>$$\begin{align}
-|A| = \sum_{\text{n! terms}} \pm a_{1\alpha}a_{2\beta}&mldr;a_{n\omega}
-\end{align}$$</p><p>$$\begin{align}
-\text{such that}: (\alpha, \beta, &mldr;, \omega) = \text{Permutation of}(1,2,3,&mldr;,n)
-\end{align}$$</p><h2 id=162-cofactors>16.2 Cofactors</h2><p><b>Cofactor Formula</b> connects determinant of $n \times n$ matrix to the determinant of smaller matrix of size $n-1 \times n-1$. The determinant of the $3 \times 3$ matrix $A$ shown in cofactor format is as follows:</p><p>$$\begin{align}
+\end{align}\]<p>The generic formula for a \(n \times n\) matrix \(A\) is as follows:</p>\[\begin{align}
+|A| = \sum_{\text{n! terms}} \pm a_{1\alpha}a_{2\beta}...a_{n\omega}
+\end{align}\]\[\begin{align}
+\text{such that}: (\alpha, \beta, ..., \omega) = \text{Permutation of}(1,2,3,...,n)
+\end{align}\]<h2 id=162-cofactors>16.2 Cofactors</h2><p><b>Cofactor Formula</b> connects determinant of \(n \times n\) matrix to the determinant of smaller matrix of size \(n-1 \times n-1\). The determinant of the \(3 \times 3\) matrix \(A\) shown in cofactor format is as follows:</p>\[\begin{align}
 |A| = a_{11}(a_{22}a_{33} - a_{23}a_{32}) + a_{12}(-a_{21}a_{33} +
 a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31})
-\end{align}$$</p><p>The above determinant formula can be seen as the combination of following permutations.</p><p>$$\begin{align}
+\end{align}\]<p>The above determinant formula can be seen as the combination of following permutations.</p>\[\begin{align}
 \begin{vmatrix}
 a_{11} & 0 & 0\\
 0 & a_{22} & a_{23}\\
@@ -90,11 +90,11 @@ a_{31} & 0 & a_{33}
 a_{21} & a_{22} & 0\\
 a_{31} & a_{32} & 0
 \end{vmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 \text{Cofactor of } a_{ij} = C_{ij} = (-1)^{i+j}|n-1 \text{ matrix with row } i \text{ col } j \text{ erased}|
-\end{align}$$</p><p><b>Cofactors without the sign are called Minors</b>. Hence,</p><p>$$\begin{align}
-|A| = a_{11}C_{11} + a_{12}C_{12} + &mldr; + a_{1n}C_{1n}
-\end{align}$$</p></div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_15_properties_of_determinants/><span class="mono muted">← Previous</span><span class=pn-title>Determinant</span></a>
+\end{align}\]<p><b>Cofactors without the sign are called Minors</b>. Hence,</p>\[\begin{align}
+|A| = a_{11}C_{11} + a_{12}C_{12} + ... + a_{1n}C_{1n}
+\end{align}\]</div><nav class=prevnext aria-label="Series navigation"><a href=/post/chapter_15_properties_of_determinants/><span class="mono muted">← Previous</span><span class=pn-title>Determinant</span></a>
 <a class=pn-next href=/post/chapter_17_cramers_rule_inverse_matrix_and_volume/><span class="mono muted">Next →</span><span class=pn-title>Formula for $A^{-1}$ and Cramer's Rule</span></a></nav><section class=related aria-label="Related reading"><h2 class="mono related-h">Related notes</h2><ul class=related-list><li><a href=/post/chapter-28-left-and-right-inverses-and-pseudoinverse/><span class="mono muted">Strang · Chapter 28</span><span class=pn-title>Left, Right and Pseudo Inverses</span></a></li><li><a href=/post/chapter-27-linear-transformations-and-their-matrices-change-of-basis-and-image-compression/><span class="mono muted">Strang · Chapter 27</span><span class=pn-title>Linear Transformations, Change of Basis and Image Compression</span></a></li><li><a href=/post/chapter-26-singular-value-decomposition/><span class="mono muted">Strang · Chapter 26</span><span class=pn-title>Singular Value Decomposition</span></a></li><li><a href=/post/chapter-25-similar-matrices-and-jordan-form/><span class="mono muted">Strang · Chapter 25</span><span class=pn-title>Similar Matrices</span></a></li></ul></section></article></div></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
 <span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
 <a href=https://www.linkedin.com/in/amit-rajan-1343aaba/>LinkedIn</a>

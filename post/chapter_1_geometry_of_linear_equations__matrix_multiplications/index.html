@@ -1,14 +1,14 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1</title><meta name=description content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1"><meta property="og:description" content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-03T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Linear Equations"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1"><meta name=twitter:description content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-03T14:07:28+01:00","datePublished":"2022-01-03T14:07:28+01:00","description":"Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …","headline":"Geometry of Linear Equations \u0026 Matrix Multiplications","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Linear Equations, Matrix Multiplications, Gilbert Strang","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/","url":"https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/","wordCount":1172}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1</title><meta name=description content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta name=author content="Amit Rajan"><link rel=canonical href=https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/><meta name=google-site-verification content="pXzqIeTutA1WgFJfCHIpVlu25AvwzROerOZXRqUz8Zg"><meta property="og:site_name" content="Amit Rajan"><meta property="og:title" content="Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1"><meta property="og:description" content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta property="og:type" content="article"><meta property="og:url" content="https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/"><meta property="og:image" content="https://amitrajan012.github.io/img/og/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="en_US"><meta property="article:published_time" content="2022-01-03T14:07:28+01:00"><meta property="article:author" content="Amit Rajan"><meta property="article:tag" content="Linear Algebra"><meta property="article:tag" content="Linear Equations"><meta property="article:tag" content="Matrix Multiplications"><meta property="article:tag" content="Gilbert Strang"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Geometry of Linear Equations & Matrix Multiplications | Strang Linear Algebra Ch. 1"><meta name=twitter:description content="Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …"><meta name=twitter:image content="https://amitrajan012.github.io/img/og/og-default.png"><script type=application/ld+json>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","author":{"@id":"https://amitrajan012.github.io/#person","@type":"Person","name":"Amit Rajan"},"dateModified":"2022-01-03T14:07:28+01:00","datePublished":"2022-01-03T14:07:28+01:00","description":"Strang · Chapter 1. The Geometry of Linear Equations The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an …","headline":"Geometry of Linear Equations \u0026 Matrix Multiplications","image":"https://amitrajan012.github.io/img/og/og-default.png","inLanguage":"en","isPartOf":{"@id":"https://amitrajan012.github.io/#website"},"keywords":"Linear Algebra, Linear Equations, Matrix Multiplications, Gilbert Strang","mainEntityOfPage":"https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/","url":"https://amitrajan012.github.io/post/chapter_1_geometry_of_linear_equations__matrix_multiplications/","wordCount":1156}]}</script><link rel=icon type=image/svg+xml href=/favicon.svg><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/main.min.ce86864326de58d89a2614c4084dd2baf69c77b430b154953994b68d6f6942fa.css integrity="sha256-zoaGQybeWNiaJhTECE3Suvacd7QwsVSVOZS2jW9pQvo="><script>window.MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre","code"]},chtml:{scale:1,matchFontHeight:!0}}</script><script defer src=https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.js></script></head><body class=page-note><a class=skip href=#main>Skip to content</a><header class=site-header><div class="wrap header-row"><a class=brand href=/><span class=brand-mark aria-hidden=true>ar</span>
 <span class=brand-name>Amit Rajan</span></a><nav class=main-nav aria-label=Main><a class=nav-book href=/book/>The Book</a>
 <a href=/post/ class=is-active>Notes</a>
 <a href=/#series>Series</a>
 <a href=/tags/>Topics</a>
 <a href=/about/>About</a>
-<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 1</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 1</span> · <time datetime=2022-01-03>Mon, 03 Jan 2022</time> · 6 min read</p><h1 class=note-title>Geometry of Linear Equations & Matrix Multiplications</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/linear-equations/>Linear Equations</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a></div><div class=prose><h2 id=11-the-geometry-of-linear-equations>1.1 The Geometry of Linear Equations</h2><p>The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of $2$ linear equations in $2$ unknowns:</p><p>$$\begin{align}
+<a class=nav-search href=/search/ aria-label="Search notes" title="Search (press /)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class=nav-search-label>Search</span></a></nav></div></header><main id=main><div class=progress aria-hidden=true><div id=progress-bar style=background:#a04a0d></div></div><div class="wrap-wide note-layout"><aside class=rail aria-label="Series contents"><p class=kicker style=color:#a04a0d>Gilbert Strang · MIT 18.06</p><p class=rail-title>Chapter 1</p><div class=rail-more><a href=/topics/linear-algebra/>All 28 notes in this series →</a></div></aside><article class=note><p class="meta mono"><span>Strang · Chapter 1</span> · <time datetime=2022-01-03>Mon, 03 Jan 2022</time> · 6 min read</p><h1 class=note-title>Geometry of Linear Equations & Matrix Multiplications</h1><div class=chips><a class=tag href=/tags/linear-algebra/>Linear Algebra</a><a class=tag href=/tags/linear-equations/>Linear Equations</a><a class=tag href=/tags/matrix-multiplications/>Matrix Multiplications</a><a class=tag href=/tags/gilbert-strang/>Gilbert Strang</a></div><div class=prose><h2 id=11-the-geometry-of-linear-equations>1.1 The Geometry of Linear Equations</h2><p>The fundamental goal of linear algebra is to solve a system of linear equations. Let us look at an example of a set of \(2\) linear equations in \(2\) unknowns:</p>\[\begin{align}
 2x-y = 0
 \\
 -x+2y = 3
-\end{align}$$</p><p>The above system of linear equation when written in matrix multiplication form can be represented as $Ax = b$ where $A$ is a $2 \times 2$ matrix, $x$ and $b$ are column vectors.</p><p>$$\begin{align}
+\end{align}\]<p>The above system of linear equation when written in matrix multiplication form can be represented as \(Ax = b\) where \(A\) is a \(2 \times 2\) matrix, \(x\) and \(b\) are column vectors.</p>\[\begin{align}
 \begin{bmatrix}
 2 & -1 \\
 -1 & 2
@@ -21,7 +21,7 @@ y
 0 \\
 3
 \end{bmatrix}
-\end{align}$$</p><p>There are two ways to geometrically interpret the above system of linear equations. The first one can is called as: <b>row picture of the system of linear equations</b>. In this, we plot each of the individual equations and try to find the common intersection point (if exist) of all of them. The point of intersection is the solution to the system of equations. For the above system, the geometrical interpretation based on the row picture is shown below giving $(1,2)$ as solution.</p><figure class=fig><img src=/img/Linear_Algebra/row_picture.png alt loading=lazy></figure><p>The above system of linear equation can be rewritten as</p><p>$$\begin{align}
+\end{align}\]<p>There are two ways to geometrically interpret the above system of linear equations. The first one can is called as: <b>row picture of the system of linear equations</b>. In this, we plot each of the individual equations and try to find the common intersection point (if exist) of all of them. The point of intersection is the solution to the system of equations. For the above system, the geometrical interpretation based on the row picture is shown below giving \((1,2)\) as solution.</p><figure class=fig><img src=/img/Linear_Algebra/row_picture.png alt loading=lazy></figure><p>The above system of linear equation can be rewritten as</p>\[\begin{align}
 x\begin{bmatrix}
 2 \\
 -1
@@ -34,7 +34,7 @@ x\begin{bmatrix}
 0 \\
 3
 \end{bmatrix}
-\end{align}$$</p><p>which is the linear combination of the column vectors. The above mentioned way of representing the system of linear equations is called as <b>column picture</b> and can be geometrically interpreted as shown in the below figure. It should be noted that the solution of the equation is $(1,2)$ as $\begin{bmatrix} 2 \ -1 \end{bmatrix}$ when combined with twice of $\begin{bmatrix} -1 \ 2 \end{bmatrix}$ gives $\begin{bmatrix} 0 \ 3 \end{bmatrix}$.</p><figure class=fig><img src=/img/Linear_Algebra/column_picture.png alt loading=lazy></figure><h2 id=12-matrix-multiplication>1.2 Matrix Multiplication</h2><p>Matrix Multiplication can be interpreted and done in different ways. All the discussed methods have different geometrical significance. Let $A,B$ and $C$ are $m \times n$, $n \times p$ and $m \times p$ matrices respectively such that $AB=C$ and $a_{ij}, b_{ij}, c_{ij}$ be the individual elements in row $i$ and column $j$ of the respective matrices.</p><p>For the demonstration purpose, let the matrices $A,B$ be</p><p>$$\begin{align}
+\end{align}\]<p>which is the linear combination of the column vectors. The above mentioned way of representing the system of linear equations is called as <b>column picture</b> and can be geometrically interpreted as shown in the below figure. It should be noted that the solution of the equation is \((1,2)\) as \(\begin{bmatrix} 2 \\ -1 \end{bmatrix}\) when combined with twice of \(\begin{bmatrix} -1 \\ 2 \end{bmatrix}\) gives \(\begin{bmatrix} 0 \\ 3 \end{bmatrix}\).</p><figure class=fig><img src=/img/Linear_Algebra/column_picture.png alt loading=lazy></figure><h2 id=12-matrix-multiplication>1.2 Matrix Multiplication</h2><p>Matrix Multiplication can be interpreted and done in different ways. All the discussed methods have different geometrical significance. Let \(A,B\) and \(C\) are \(m \times n\), \(n \times p\) and \(m \times p\) matrices respectively such that \(AB=C\) and \(a_{ij}, b_{ij}, c_{ij}\) be the individual elements in row \(i\) and column \(j\) of the respective matrices.</p><p>For the demonstration purpose, let the matrices \(A,B\) be</p>\[\begin{align}
 A = \begin{bmatrix}
 2 & -1 & 3\\
 -1 & 2 & 4
@@ -44,8 +44,8 @@ B = \begin{bmatrix}
 2 & 1 \\
 3 & 5
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Standard Method (Row times Column):</b>
-The entry in cell $(i,j)$ of the resultant matrix $C$ is the <b>dot product</b> of $i^{th}$ row of first matrix $A$ and $j^{th}$ column of second matrix $B$.</li></ul><p>$$\begin{align}
+\end{align}\]<ul><li><b>Standard Method (Row times Column):</b>
+The entry in cell \((i,j)\) of the resultant matrix \(C\) is the <b>dot product</b> of \(i^{th}\) row of first matrix \(A\) and \(j^{th}\) column of second matrix \(B\).</li></ul>\[\begin{align}
 C_{11} = \begin{bmatrix}
 2 & -1 & 3
 \end{bmatrix} \cdot \begin{bmatrix}
@@ -53,7 +53,7 @@ C_{11} = \begin{bmatrix}
 2 \\
 3
 \end{bmatrix} = 7
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{12} = \begin{bmatrix}
 2 & -1 & 3
 \end{bmatrix} \cdot \begin{bmatrix}
@@ -61,7 +61,7 @@ C_{12} = \begin{bmatrix}
 1 \\
 5
 \end{bmatrix} = 16
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{21} = \begin{bmatrix}
 -1 & 2 & 4
 \end{bmatrix} \cdot \begin{bmatrix}
@@ -69,7 +69,7 @@ C_{21} = \begin{bmatrix}
 2 \\
 3
 \end{bmatrix} = 16
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{22} = \begin{bmatrix}
 -1 & 2 & 4
 \end{bmatrix} \cdot \begin{bmatrix}
@@ -77,7 +77,7 @@ C_{22} = \begin{bmatrix}
 1 \\
 5
 \end{bmatrix} = 21
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C = \begin{bmatrix}
 C_{11} & C_{12} \\
 C_{21} & C_{22}
@@ -86,8 +86,8 @@ C_{21} & C_{22}
 7 & 16 \\
 16 & 21
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Columns:</b>
-The entry in the column $j$ of the resultant matrix $C$ is the product of first matrix $A$ and column $j$ of the second matrix $B$. This means that <b>columns of $C$ are combinations of columns of $A$</b>.</li></ul><p>$$\begin{align}
+\end{align}\]<ul><li><b>Columns:</b>
+The entry in the column \(j\) of the resultant matrix \(C\) is the product of first matrix \(A\) and column \(j\) of the second matrix \(B\). This means that <b>columns of \(C\) are combinations of columns of \(A\)</b>.</li></ul>\[\begin{align}
 C_{_1} = \begin{bmatrix}
 2 & -1 & 3 \\
 -1 & 2 & 4
@@ -112,7 +112,7 @@ C_{_1} = \begin{bmatrix}
 7 \\
 16
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{_2} = \begin{bmatrix}
 2 & -1 & 3 \\
 -1 & 2 & 4
@@ -137,16 +137,15 @@ C_{_2} = \begin{bmatrix}
 16 \\
 21
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C = \begin{bmatrix}
 C_{_1} & C_{_2}
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 7 & 16 \\
 16 & 21
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Rows:</b> The entry in $i^{th}$ row of matrix $C$ is the product of $i^{th}$ row of matrix $A$ and matrix $B$. This means that <b>rows of $C$ are combination of rows of $B$</b>.
-$$\begin{align}
+\end{align}\]<ul><li><b>Rows:</b> The entry in \(i^{th}\) row of matrix \(C\) is the product of \(i^{th}\) row of matrix \(A\) and matrix \(B\). This means that <b>rows of \(C\) are combination of rows of \(B\)</b>.
+\[\begin{align}
 C_1 = \begin{bmatrix}
 2 & -1 & 3
 \end{bmatrix}
@@ -167,7 +166,7 @@ C_1 = \begin{bmatrix}
 =\begin{bmatrix}
 7 & 16
 \end{bmatrix}
-\end{align}$$</li></ul><p>$$\begin{align}
+\end{align}\]</li></ul>\[\begin{align}
 C_2 = \begin{bmatrix}
 -1 & 2 & 4
 \end{bmatrix} \begin{bmatrix}
@@ -187,52 +186,48 @@ C_2 = \begin{bmatrix}
 =\begin{bmatrix}
 16 & 21
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C = \begin{bmatrix}
 C_1 \\
 C_2
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 7 & 16 \\
 16 & 21
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Columns time Rows:</b> Another way to multiply matrices is by taking the columns in the first matrix $A$ and multiply it by the corresponding rows in the second matrix $B$ and sum all the resultant matrices together.</li></ul><p>$$\begin{align}
+\end{align}\]<ul><li><b>Columns time Rows:</b> Another way to multiply matrices is by taking the columns in the first matrix \(A\) and multiply it by the corresponding rows in the second matrix \(B\) and sum all the resultant matrices together.</li></ul>\[\begin{align}
 C_{1} = \begin{bmatrix}
 2\\
 -1
 \end{bmatrix}
 \begin{bmatrix}
 0 & 1
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 0 & 2 \\
 0 & -1
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{2} = \begin{bmatrix}
 -1\\
 2
 \end{bmatrix}
 \begin{bmatrix}
 2 & 1
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 -2 & -1 \\
 4 & 2
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C_{3} = \begin{bmatrix}
 3\\
 4
 \end{bmatrix}
 \begin{bmatrix}
 3 & 5
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 9 & 15 \\
 12 & 20
 \end{bmatrix}
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 C = C_{1} + C_{2} + C_{3} =
 \begin{bmatrix}
 0 & 2 \\
@@ -243,12 +238,11 @@ C = C_{1} + C_{2} + C_{3} =
 \end{bmatrix} + \begin{bmatrix}
 9 & 15 \\
 12 & 20
-\end{bmatrix}
-= \begin{bmatrix}
+\end{bmatrix} = \begin{bmatrix}
 7 & 16 \\
 16 & 21
 \end{bmatrix}
-\end{align}$$</p><ul><li><b>Block Multiplication</b>: Matrices can be multiplied by dividing the matrices into conforming blocks and then multiplying those blocks together. For example, matrices $A$ and $B$ can be divided into confirming blocks as follows.</li></ul><p>$$\begin{align}
+\end{align}\]<ul><li><b>Block Multiplication</b>: Matrices can be multiplied by dividing the matrices into conforming blocks and then multiplying those blocks together. For example, matrices \(A\) and \(B\) can be divided into confirming blocks as follows.</li></ul>\[\begin{align}
 A = \left[\begin{array}{c c| c}
 2 & -1 & 3\\
 -1 & 2 & 4
@@ -267,8 +261,7 @@ B = \left[\begin{array}{c c}
 B_{22} \\
 \hline
 B_{12}
-\end{array}\right] \end{align}$$</p><p>where
-$$\begin{align}
+\end{array}\right] \end{align}\]<p>where</p>\[\begin{align}
 A_{22} = \left[\begin{array}{c c}
 2 & -1\\
 -1 & 2
@@ -284,7 +277,7 @@ B_{22} = \left[\begin{array}{c c}
 B_{12} = \left[\begin{array}{c c}
 3 & 5
 \end{array}\right]
-\end{align}$$</p><p>$$\begin{align}
+\end{align}\]\[\begin{align}
 AB = \left[\begin{array}{c | c}
 A_{22} & A_{21}
 \end{array}\right]
@@ -292,35 +285,31 @@ A_{22} & A_{21}
 B_{22} \\
 \hline
 B_{12}
-\end{array}\right]
-= A_{22}B_{22} + A_{21}B_{12}
-= \left[\begin{array}{c c}
+\end{array}\right] = A_{22}B_{22} + A_{21}B_{12} = \left[\begin{array}{c c}
 2 & -1\\
 -1 & 2
 \end{array}\right]
 \left[\begin{array}{c c}
 0 & 1\\
 2 & 1
-\end{array}\right]
-+
+\end{array}\right] +
 \left[\begin{array}{c}
 3\\
 4
 \end{array}\right]
 \left[\begin{array}{c c}
 3 & 5
-\end{array}\right]\end{align}$$</p><p>$$\begin{align}
-= \left[\begin{array}{c c}
+\end{array}\right]\end{align}\]\[\begin{align} = \left[\begin{array}{c c}
 -2 & 1\\
 4 & 1
 \end{array}\right] + \left[\begin{array}{c c}
 9 & 15\\
 12 & 20
+\end{array}\right] = \left[\begin{array}{c c}
+7 & 16\\
+16 & 21
 \end{array}\right]
-= \left[\begin{array}{c c}
-7 & 16\\<br>16 & 21
-\end{array}\right]
-\end{align}$$</p></div><nav class=prevnext aria-label="Series navigation"><span></span>
+\end{align}\]</div><nav class=prevnext aria-label="Series navigation"><span></span>
 <a class=pn-next href=/post/chapter_2_elimination_and_permutation/><span class="mono muted">Next →</span><span class=pn-title>Elimination & Permutation with Matrices</span></a></nav><section class=related aria-label="Related reading"><h2 class="mono related-h">Related notes</h2><ul class=related-list><li><a href=/post/chapter_3_inverse_factorization_and_symmetric_matrices/><span class="mono muted">Strang · Chapter 3</span><span class=pn-title>Inverse of a Matrix & Factorization into $A=LU$</span></a></li><li><a href=/post/chapter_7_independence_basis_and_dimension/><span class="mono muted">Strang · Chapter 7</span><span class=pn-title>Matrix Independence, Span, Basis & Dimension</span></a></li><li><a href=/post/chapter_6_solving_for_axb/><span class="mono muted">Strang · Chapter 6</span><span class=pn-title>Algorithm for solving $Ax=b$</span></a></li><li><a href=/post/chapter_5_computing_nullspace/><span class="mono muted">Strang · Chapter 5</span><span class=pn-title>Algorithm for solving $Ax=0$</span></a></li></ul></section></article></div></main><footer class=site-footer><div class="wrap footer-row"><span>© 2026 Amit Rajan · Notes on machine learning</span>
 <span class=footer-links><a href=https://github.com/amitrajan012>GitHub</a>
 <a href=https://www.linkedin.com/in/amit-rajan-1343aaba/>LinkedIn</a>
